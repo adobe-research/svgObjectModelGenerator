@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 800 600">
+  <defs>
+    <style type="text/css">
+
+      .cls-3 {
+        fill: #000300;
+        filter: url(#outer-glow-1);
+      }
+    </style>
+
+    <filter id="outer-glow-1" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="29" in="SourceAlpha"/>
+      <feComposite/>
+      <feComposite/>
+      <feComposite result="outerGlowBlur"/>
+      <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
+      <feColorMatrix type="matrix" values="0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0"/>
+      <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="table" tableValues="0.9764705882352941 0.8682383466666667 0.7600061050980392 0.6517738635294118 0.5435416219607844 0.43530938039215683 0.5745212509803921 0.7137331215686273 0.8529449921568627 0.9921568627450981 0.7937254901960784 0.5952941176470589 0.39686274509803926 0.19843137254901966 0"/>
+        <feFuncG type="table" tableValues="0.9019455294117646 0.7380300643137255 0.5741145992156863 0.41019913411764714 0.24628366901960794 0.08236820392156863 0.18334478039215685 0.2843213568627451 0.38529793333333334 0.48627450980392156 0.42039215764705884 0.3545098054901961 0.2886274533333334 0.22274510117647064 0.15686274901960784"/>
+        <feFuncB type="table" tableValues="0 0.0847058831372549 0.1694117662745098 0.25411764941176473 0.3388235325490196 0.4235294156862745 0.31764706176470586 0.21176470784313725 0.10588235392156863 0 0.09098039294117646 0.18196078588235293 0.27294117882352936 0.36392157176470585 0.45490196470588234"/>
+      </feComponentTransfer>
+      <feComposite in="SourceGraphic" result="outerGlow"/>
+    </filter>
+  </defs>
+  <rect id="rect-1" class="cls-3" x="236" y="190" width="149" height="114"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 1000 750">
+  <defs>
+    <style type="text/css">
+    </style>
+    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="450" cy="175" r="150">
+      <stop offset="0" stop-color="#290a59"/>
+      <stop offset="1" stop-color="#ff7c00"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="500" cy="375" r="500">
+      <stop offset="0" stop-color="#290a59"/>
+      <stop offset="1" stop-color="#ff7c00"/>
+    </radialGradient>
+  </defs>
+  <rect id="rect-1" x="300" y="100" width="300" height="150" fill="url(#radial-gradient-1)"/>
+  <rect id="rect-2" x="50" y="350" width="900" height="150" fill="url(#radial-gradient-2)"/>
+</svg>

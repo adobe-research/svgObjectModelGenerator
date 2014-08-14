@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 800 600">
+  <defs>
+    <style type="text/css">
+
+      .cls-3 {
+        filter: url(#drop-shadow-1);
+        opacity: 0.35;
+        mix-blend-mode: multiply;
+      }
+
+      .cls-4 {
+        fill: #2ccf26;
+        stroke: #f26522;
+        stroke-width: 3px;
+      }
+
+      .cls-5 {
+        fill: #2ccf26;
+        stroke: #f26522;
+        stroke-width: 3px;
+        filter: url(#inner-shadow-1);
+        opacity: 0.75;
+      }
+    </style>
+
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset in="SourceAlpha" dx="10.103" dy="8.181"/>
+      <feGaussianBlur result="dropShadowBlur" stdDeviation="5.196"/>
+      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feComposite operator="in" in2="dropShadowBlur"/>
+      <feComposite in="SourceGraphic" result="dropShadow"/>
+    </filter>
+    <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset in="SourceAlpha" dx="7.5" dy="12.99"/>
+      <feGaussianBlur result="innerShadowBlur" stdDeviation="4.583"/>
+      <feFlood flood-color="#0036ff" flood-opacity="0.75"/>
+      <feComposite operator="out" in2="innerShadowBlur" result="innerShadow"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
+    </filter>
+  </defs>
+  <g id="group" class="cls-3">
+    <rect id="rect-1" class="cls-4" x="100" y="100" width="200" height="200"/>
+    <g id="rectangle-2" filter="url(#inner-shadow-1)">
+      <rect id="rect-2" class="cls-5" x="200" y="200" width="200" height="200" style="stroke: inherit; fill: inherit; filter: none;"/>
+    </g>
+    <use xlink:href="#rect-2" style="stroke: #f26522; fill: none; filter: none;"/>
+  </g>
+</svg>

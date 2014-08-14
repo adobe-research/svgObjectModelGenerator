@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 800 600">
+  <defs>
+    <style type="text/css">
+
+      .cls-4 {
+        font-size: 30px;
+      }
+
+      .cls-5 {
+        font-size: 30px;
+      }
+
+      .cls-6 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-8 {
+        font-size: 30px;
+      }
+
+      .cls-9 {
+        font-size: 30px;
+      }
+
+      .cls-10 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-12 {
+        font-size: 30px;
+      }
+
+      .cls-13 {
+        font-size: 30px;
+      }
+
+      .cls-14 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-16 {
+        font-size: 30px;
+      }
+
+      .cls-17 {
+        font-size: 30px;
+      }
+
+      .cls-18 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-19 {
+        writing-mode: tb;
+        glyph-orientation-vertical: 0;
+      }
+
+      .cls-20 {
+        font-size: 30px;
+      }
+
+      .cls-21 {
+        font-size: 30px;
+      }
+
+      .cls-22 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-24 {
+        text-anchor: end;
+        font-size: 30px;
+      }
+
+      .cls-25 {
+        text-anchor: end;
+        font-size: 30px;
+      }
+
+      .cls-26 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-27 {
+        writing-mode: tb;
+        glyph-orientation-vertical: 0;
+      }
+
+      .cls-28 {
+        font-size: 30px;
+      }
+
+      .cls-29 {
+        font-size: 30px;
+      }
+
+      .cls-30 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-32 {
+        font-size: 30px;
+      }
+
+      .cls-33 {
+        font-size: 30px;
+      }
+
+      .cls-34 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-35 {
+        writing-mode: tb;
+        glyph-orientation-vertical: 0;
+      }
+
+      .cls-36 {
+        text-anchor: end;
+        font-size: 30px;
+      }
+
+      .cls-37 {
+        text-anchor: end;
+        font-size: 30px;
+      }
+
+      .cls-38 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-40 {
+        text-anchor: middle;
+        font-size: 30px;
+      }
+
+      .cls-41 {
+        text-anchor: middle;
+        font-size: 30px;
+      }
+
+      .cls-42 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-44 {
+        font-size: 30px;
+      }
+
+      .cls-45 {
+        font-size: 30px;
+      }
+
+      .cls-46 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-47 {
+        font-size: 30px;
+      }
+
+      .cls-48 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-50 {
+        font-size: 30px;
+      }
+
+      .cls-51 {
+        font-size: 30px;
+      }
+
+      .cls-52 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+
+      .cls-53 {
+        font-size: 30px;
+      }
+
+      .cls-54 {
+        fill: #000300;
+        font-family: "Arial";
+        font-size: 30px;
+      }
+    </style>
+
+    <path id="text-path-1" d="M 46 75 C 46 75 209 75 209 75"/>
+    <path id="text-path-2" d="M 55 303 C 55 303 81 256 81 256 C 81 256 118 293 118 293 C 118 293 147 264 147 264"/>
+    <path id="text-path-3" d="M 41 400 C 105.813 326.531 108.234 327.586 154 402"/>
+    <path id="text-path-4" d="M 37 447 C 37 447 66 447 66 447 C 66 447 88 447 88 447 C 88 447 114 447 114 447 C 114 447 143 447 143 447 C 143 447 173 447 173 447"/>
+    <path id="text-path-5" d="M 714 66 C 565.227 214.773 714 173.852 714 380"/>
+    <path id="text-path-6" d="M 282 78 C 282 78 470 78 470 78"/>
+    <path id="text-path-7" d="M 296 220 C 296 220 467 220 467 220"/>
+    <path id="text-path-8" d="M 310 366 C 410.875 288.625 444.211 286.211 524 366"/>
+    <path id="text-path-9" d="M 312 449 C 312 449 496 449 496 449"/>
+    <path id="text-path-10" d="M 273 133 C 273 133 466 133 466 133"/>
+    <path id="text-path-11" d="M 191 127 C 191 127 46 127 46 127"/>
+    <path id="text-path-12" d="M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"/>
+  </defs>
+  <text>
+    <textPath xlink:href="#text-path-1">
+      <tspan class="cls-5"><tspan class="cls-6">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-1">
+      <tspan class="cls-9"><tspan class="cls-10">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-1">
+      <tspan class="cls-13"><tspan class="cls-14">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-4">
+      <tspan class="cls-17"><tspan class="cls-18">Text</tspan></tspan>
+    </textPath>
+  </text>
+  <text class="cls-19">
+    <textPath xlink:href="#text-path-5">
+      <tspan class="cls-21"><tspan class="cls-22">Text on path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-1" startOffset="100%">
+      <tspan class="cls-25"><tspan class="cls-26">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text class="cls-27">
+    <textPath xlink:href="#text-path-1">
+      <tspan class="cls-29"><tspan class="cls-30">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-1">
+      <tspan class="cls-33"><tspan class="cls-34">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text class="cls-35">
+    <textPath xlink:href="#text-path-1" startOffset="100%">
+      <tspan class="cls-37"><tspan class="cls-38">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-1" startOffset="50%">
+      <tspan class="cls-41"><tspan class="cls-42">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-11">
+      <tspan class="cls-45"><tspan class="cls-46">Text path</tspan></tspan>
+      <tspan dy="1.2em" x="0%" class="cls-47"><tspan class="cls-48"></tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-11">
+      <tspan class="cls-51"><tspan class="cls-52">Text path</tspan></tspan>
+      <tspan dy="1.2em" x="0%" class="cls-53"><tspan class="cls-54"></tspan></tspan>
+    </textPath>
+  </text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 288 288">
+  <defs>
+    <style type="text/css">
+
+      .cls-3 {
+        stroke: #000000;
+        stroke-width: 3px;
+        filter: url(#color-overlay-1);
+      }
+
+      .cls-4 {
+        stroke: #000000;
+        stroke-width: 3px;
+        filter: url(#color-overlay-2);
+      }
+
+      .cls-5 {
+        fill: #92278f;
+        stroke: #f27b35;
+        stroke-width: 6px;
+      }
+    </style>
+
+    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="136.5" y1="227" x2="136.5" y2="62">
+      <stop offset="0.1" stop-color="#0b01b8"/>
+      <stop offset="0.5" stop-color="#fdfa03"/>
+      <stop offset="0.9" stop-color="#0b02aa"/>
+    </linearGradient>
+    <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#ff0000" flood-opacity="0.5"/>
+      <feComposite operator="atop" in2="SourceGraphic"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
+    </filter>
+    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122">
+      <stop offset="0.1" stop-color="#0b01b8"/>
+      <stop offset="0.5" stop-color="#fdfa03"/>
+      <stop offset="0.9" stop-color="#0b02aa"/>
+    </linearGradient>
+    <filter id="color-overlay-2" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#9f07b1" flood-opacity="0.5"/>
+      <feComposite operator="atop" in2="SourceGraphic"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
+    </filter>
+  </defs>
+  <g id="ellipsesvg" fill="url(#linear-gradient-1)" filter="url(#color-overlay-1)">
+    <circle id="circle-1" class="cls-3" cx="137" cy="145" r="83" style="stroke: inherit; fill: inherit; filter: none;"/>
+  </g>
+  <use xlink:href="#circle-1" style="stroke: #000000; fill: none; filter: none;"/>
+  <g id="gelipse" fill="url(#linear-gradient-2)" filter="url(#color-overlay-2)">
+    <circle id="circle-2" class="cls-4" cx="206" cy="205" r="83" style="stroke: inherit; fill: inherit; filter: none;"/>
+  </g>
+  <use xlink:href="#circle-2" style="stroke: #000000; fill: none; filter: none;"/>
+  <ellipse id="ellipse-1" class="cls-5" cx="234" cy="45" rx="41" ry="36"/>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 1024 1024">
+  <defs>
+    <style type="text/css">
+
+      .cls-3 {
+        writing-mode: tb;
+        glyph-orientation-vertical: 0;
+      }
+
+      .cls-4 {
+        font-size: 63.635px;
+      }
+
+      .cls-5 {
+        fill: #030303;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+    </style>
+  </defs>
+  <text class="cls-3" x="33%" y="23%">
+    <tspan x="33%" class="cls-4"><tspan class="cls-5">This is a text</tspan></tspan>
+  </text>
+</svg>

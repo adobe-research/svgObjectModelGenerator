@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 1024 1024">
+  <defs>
+    <style type="text/css">
+
+      .cls-4 {
+        font-size: 63.635px;
+      }
+
+      .cls-5 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-7 {
+        font-size: 63.635px;
+      }
+
+      .cls-8 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-9 {
+        fill: #39ff02;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-10 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-12 {
+        font-size: 63.635px;
+      }
+
+      .cls-13 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-14 {
+        fill: #39ff02;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-15 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-16 {
+        fill: #ff032d;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-17 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-18 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+        font-weight: bold;
+      }
+
+      .cls-19 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-20 {
+        fill: #030303;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-22 {
+        font-size: 63.635px;
+      }
+
+      .cls-23 {
+        fill: #ff032d;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-24 {
+        fill: #030303;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-25 {
+        font-size: 63.635px;
+      }
+
+      .cls-26 {
+        fill: #030303;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-27 {
+        fill: #ff032d;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+
+      .cls-28 {
+        fill: #02ffa2;
+        font-family: "Minion Pro";
+        font-size: 20px;
+      }
+
+      .cls-29 {
+        font-size: 63.635px;
+      }
+
+      .cls-30 {
+        fill: #02ffa2;
+        font-family: "Minion Pro";
+        font-size: 20px;
+      }
+
+      .cls-31 {
+        fill: #ff032d;
+        font-family: "Minion Pro";
+        font-size: 63.635px;
+      }
+    </style>
+  </defs>
+  <text x="13%" y="12%">
+    <tspan x="13%" class="cls-4"><tspan class="cls-5">This is a text example</tspan></tspan>
+  </text>
+  <text x="14%" y="23%">
+    <tspan x="14%" class="cls-7"><tspan class="cls-8">This is a </tspan><tspan class="cls-9">text </tspan><tspan class="cls-10">example</tspan></tspan>
+  </text>
+  <text x="14%" y="33%">
+    <tspan x="14%" class="cls-12"><tspan class="cls-13">Thi</tspan><tspan class="cls-14">s i</tspan><tspan class="cls-15">s </tspan><tspan class="cls-16">a t</tspan><tspan class="cls-17">ex</tspan><tspan class="cls-18">t e</tspan><tspan class="cls-19">xa</tspan><tspan class="cls-20">mple</tspan></tspan>
+  </text>
+  <text x="15%" y="43%">
+    <tspan x="15%" class="cls-22"><tspan class="cls-23">This i</tspan><tspan class="cls-24">s</tspan></tspan>
+    <tspan dy="1.2em" x="15%" class="cls-25"><tspan class="cls-26">a te</tspan><tspan class="cls-27">x</tspan><tspan class="cls-28">t</tspan></tspan>
+    <tspan dy="1.2em" x="15%" class="cls-29"><tspan class="cls-30">exam</tspan><tspan class="cls-31">ple</tspan></tspan>
+  </text>
+</svg>

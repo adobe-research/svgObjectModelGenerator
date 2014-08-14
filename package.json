@@ -1,0 +1,36 @@
+{
+    "name": "svgobjectmodelgenerator",
+    "version": "0.0.1",
+    "description": "An abstract SVG renderer",
+    "main": "main.js",
+    "generator-core-version": "~3",
+    "license": "Apache 2.0",
+    "dependencies": {
+        "jquery": "^2.1.1",
+        "base64": "^2.1.0"
+    },
+    "devDependencies": {
+        "mocha": "^1.20.1",
+        "chai": "^1.9.1",
+        "jsdom": "^0.11.1",
+        "sinon": "^1.10.2",
+        "q": "~1.0",
+        "blanket": "*",
+        "travis-cov": "^0.2.5"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js",
+        "test-debug": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js --reporter nyan --debug-brk",
+        "cover": "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R html-cov > svgomg-code-coverage.html",
+        "cover-travis":  "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R travis-cov"
+    },
+    "config": {
+        "blanket": {
+            "pattern": [""],
+            "data-cover-never": ["node_modules", "tests/config", "tests/data", "tests"]
+        },
+        "travis-cov": {
+            "threshold": "85"
+        }
+    }
+}

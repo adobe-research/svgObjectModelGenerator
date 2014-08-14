@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" viewBox="0 0 800 600">
+  <defs>
+    <style type="text/css">
+
+      .cls-3 {
+        fill: #00ff3e;
+        filter: url(#filter-chain-1);
+      }
+
+      .cls-4 {
+        fill: #0000ff;
+        filter: url(#filter-chain-1);
+      }
+
+      .cls-5 {
+        fill: #ff00ff;
+        filter: url(#filter-chain-1);
+      }
+    </style>
+
+    <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
+      <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
+      <feGaussianBlur result="dropShadowBlur" stdDeviation="2.236"/>
+      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feComposite operator="in" in2="dropShadowBlur"/>
+      <feComposite in="SourceGraphic" result="dropShadow"/>
+      <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
+      <feGaussianBlur result="innerShadowBlur" stdDeviation="2.236"/>
+      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feComposite operator="out" in2="innerShadowBlur" result="innerShadow"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>
+    </filter>
+  </defs>
+  <rect id="rect-1" class="cls-3" x="50" y="200" width="200" height="200"/>
+  <rect id="rect-2" class="cls-4" x="300" y="200" width="200" height="200"/>
+  <rect id="rect-3" class="cls-5" x="550" y="200" width="200" height="200"/>
+</svg>
