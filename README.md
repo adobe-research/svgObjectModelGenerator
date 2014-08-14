@@ -11,6 +11,11 @@ The engine currently works, in an experimental manner, with Photoshop Generator.
 ## License
 All code is offered under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
+
+## Development
+
+We :clap: pull requests! If you submit one, please also sign our [Contributor License Agreement](https://adobe.echosign.com/public/esignWidget?wid=9SNA9H6XX64Q5C).
+
 ## Setup Generator
 
 The generator plugin adds Copy Generator DOM to make it easy to get test data for the svgOMGenerator
