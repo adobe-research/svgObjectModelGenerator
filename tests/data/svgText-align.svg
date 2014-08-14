@@ -17,39 +17,15 @@
         font-size: 63.635px;
       }
 
-      .cls-7 {
-        fill: #030303;
-        font-family: "Minion Pro";
-        font-size: 63.635px;
-      }
-
       .cls-8 {
         text-anchor: end;
-        font-size: 63.635px;
-      }
-
-      .cls-9 {
-        fill: #030303;
-        font-family: "Minion Pro";
-        font-size: 63.635px;
-      }
-
-      .cls-10 {
-        fill: #030303;
-        font-family: "Minion Pro";
-        font-size: 63.635px;
-      }
-
-      .cls-11 {
-        fill: #030303;
-        font-family: "Minion Pro";
         font-size: 63.635px;
       }
     </style>
   </defs>
   <text x="45%" y="26%">
     <tspan x="45%" class="cls-4"><tspan class="cls-5">Left aligned</tspan></tspan>
-    <tspan dy="1.2em" x="45%" class="cls-6"><tspan class="cls-7">center</tspan></tspan>
-    <tspan dy="1.2em" x="45%" class="cls-8"><tspan class="cls-9">right aligned</tspan><tspan class="cls-10">right aligned</tspan><tspan class="cls-11">right aligned</tspan></tspan>
+    <tspan dy="1.2em" x="45%" class="cls-6"><tspan class="cls-5">center</tspan></tspan>
+    <tspan dy="1.2em" x="45%" class="cls-8"><tspan class="cls-5">right aligned</tspan><tspan class="cls-5">right aligned</tspan><tspan class="cls-5">right aligned</tspan></tspan>
   </text>
 </svg>

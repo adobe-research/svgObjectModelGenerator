@@ -6,53 +6,7 @@
         font-size: 30px;
       }
 
-      .cls-5 {
-        font-size: 30px;
-      }
-
       .cls-6 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-8 {
-        font-size: 30px;
-      }
-
-      .cls-9 {
-        font-size: 30px;
-      }
-
-      .cls-10 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-12 {
-        font-size: 30px;
-      }
-
-      .cls-13 {
-        font-size: 30px;
-      }
-
-      .cls-14 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-16 {
-        font-size: 30px;
-      }
-
-      .cls-17 {
-        font-size: 30px;
-      }
-
-      .cls-18 {
         fill: #000300;
         font-family: "Arial";
         font-size: 30px;
@@ -63,151 +17,13 @@
         glyph-orientation-vertical: 0;
       }
 
-      .cls-20 {
-        font-size: 30px;
-      }
-
-      .cls-21 {
-        font-size: 30px;
-      }
-
-      .cls-22 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
       .cls-24 {
         text-anchor: end;
         font-size: 30px;
       }
 
-      .cls-25 {
-        text-anchor: end;
-        font-size: 30px;
-      }
-
-      .cls-26 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-27 {
-        writing-mode: tb;
-        glyph-orientation-vertical: 0;
-      }
-
-      .cls-28 {
-        font-size: 30px;
-      }
-
-      .cls-29 {
-        font-size: 30px;
-      }
-
-      .cls-30 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-32 {
-        font-size: 30px;
-      }
-
-      .cls-33 {
-        font-size: 30px;
-      }
-
-      .cls-34 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-35 {
-        writing-mode: tb;
-        glyph-orientation-vertical: 0;
-      }
-
-      .cls-36 {
-        text-anchor: end;
-        font-size: 30px;
-      }
-
-      .cls-37 {
-        text-anchor: end;
-        font-size: 30px;
-      }
-
-      .cls-38 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
       .cls-40 {
         text-anchor: middle;
-        font-size: 30px;
-      }
-
-      .cls-41 {
-        text-anchor: middle;
-        font-size: 30px;
-      }
-
-      .cls-42 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-44 {
-        font-size: 30px;
-      }
-
-      .cls-45 {
-        font-size: 30px;
-      }
-
-      .cls-46 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-47 {
-        font-size: 30px;
-      }
-
-      .cls-48 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-50 {
-        font-size: 30px;
-      }
-
-      .cls-51 {
-        font-size: 30px;
-      }
-
-      .cls-52 {
-        fill: #000300;
-        font-family: "Arial";
-        font-size: 30px;
-      }
-
-      .cls-53 {
-        font-size: 30px;
-      }
-
-      .cls-54 {
-        fill: #000300;
-        font-family: "Arial";
         font-size: 30px;
       }
     </style>
@@ -227,64 +43,64 @@
   </defs>
   <text>
     <textPath xlink:href="#text-path-1">
-      <tspan class="cls-5"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
   <text>
-    <textPath xlink:href="#text-path-1">
-      <tspan class="cls-9"><tspan class="cls-10">Text path</tspan></tspan>
+    <textPath xlink:href="#text-path-2">
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
   <text>
-    <textPath xlink:href="#text-path-1">
-      <tspan class="cls-13"><tspan class="cls-14">Text path</tspan></tspan>
+    <textPath xlink:href="#text-path-3">
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-4">
-      <tspan class="cls-17"><tspan class="cls-18">Text</tspan></tspan>
+      <tspan class="cls-4"><tspan class="cls-6">Text</tspan></tspan>
     </textPath>
   </text>
   <text class="cls-19">
     <textPath xlink:href="#text-path-5">
-      <tspan class="cls-21"><tspan class="cls-22">Text on path</tspan></tspan>
+      <tspan class="cls-4"><tspan class="cls-6">Text on path</tspan></tspan>
     </textPath>
   </text>
   <text>
-    <textPath xlink:href="#text-path-1" startOffset="100%">
-      <tspan class="cls-25"><tspan class="cls-26">Text path</tspan></tspan>
+    <textPath xlink:href="#text-path-6" startOffset="100%">
+      <tspan class="cls-24"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
-  <text class="cls-27">
-    <textPath xlink:href="#text-path-1">
-      <tspan class="cls-29"><tspan class="cls-30">Text path</tspan></tspan>
-    </textPath>
-  </text>
-  <text>
-    <textPath xlink:href="#text-path-1">
-      <tspan class="cls-33"><tspan class="cls-34">Text path</tspan></tspan>
-    </textPath>
-  </text>
-  <text class="cls-35">
-    <textPath xlink:href="#text-path-1" startOffset="100%">
-      <tspan class="cls-37"><tspan class="cls-38">Text path</tspan></tspan>
+  <text class="cls-19">
+    <textPath xlink:href="#text-path-7">
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
   <text>
-    <textPath xlink:href="#text-path-1" startOffset="50%">
-      <tspan class="cls-41"><tspan class="cls-42">Text path</tspan></tspan>
+    <textPath xlink:href="#text-path-8">
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+    </textPath>
+  </text>
+  <text class="cls-19">
+    <textPath xlink:href="#text-path-9" startOffset="100%">
+      <tspan class="cls-24"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
   <text>
-    <textPath xlink:href="#text-path-11">
-      <tspan class="cls-45"><tspan class="cls-46">Text path</tspan></tspan>
-      <tspan dy="1.2em" x="0%" class="cls-47"><tspan class="cls-48"></tspan></tspan>
+    <textPath xlink:href="#text-path-10" startOffset="50%">
+      <tspan class="cls-40"><tspan class="cls-6">Text path</tspan></tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-11">
-      <tspan class="cls-51"><tspan class="cls-52">Text path</tspan></tspan>
-      <tspan dy="1.2em" x="0%" class="cls-53"><tspan class="cls-54"></tspan></tspan>
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan dy="1.2em" x="0%" class="cls-4"><tspan class="cls-6"></tspan></tspan>
+    </textPath>
+  </text>
+  <text>
+    <textPath xlink:href="#text-path-12">
+      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan dy="1.2em" x="0%" class="cls-4"><tspan class="cls-6"></tspan></tspan>
     </textPath>
   </text>
 </svg>
