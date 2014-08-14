@@ -44,6 +44,7 @@
     function CSSStyleBlock(cls) {
         this.class = cls;
         this.rules = [];
+        this.elements = [];
         
         this.addRule = function (prop, val) {
             this.rules.push(new CSSStyleRule(prop, val));
@@ -93,6 +94,7 @@
         this.defines = {};
         this.eleDefines = {};
         this.blocks = {};
+        this.eleBlocks = {};
         
         this.hasDefines = function () {
             var hasDefines = false,
@@ -136,13 +138,13 @@
                 elements: [elId],
                 written: false
             };
-            
-            this.addElementDefn(elId, this.defines[defnId]);
+
+            this.addElementDefn(this.eleDefines, elId, this.defines[defnId]);
         };
         
-        this.addElementDefn = function (elId, defn) {
-            this.eleDefines[elId] = this.eleDefines[elId] || [];
-            this.eleDefines[elId].push(defn);
+        this.addElementDefn = function (eleList, elId, defn) {
+            eleList[elId] = eleList[elId] || [];
+            eleList[elId].push(defn);
 
             // Always consolidate all defines to remove
             // duplicates right away.
@@ -162,6 +164,21 @@
             }
             
             delete this.defines[defnId];
+        };
+
+        this.removeElementBlocks = function (elId, className) {
+            var aDef = this.eleBlocks[elId],
+                i;
+            
+            for (i = 0; aDef && i < aDef.length; i++) {
+                if (aDef[i].className === className) {
+                    aDef.splice(i, 1);
+                    this.eleBocks[elId] = aDef;
+                    break;
+                }
+            }
+
+            delete this.blocks[className];
         };
         
         this.consolidateDefines = function () {
@@ -184,7 +201,7 @@
                     dupTable[defn.fingerprint].push(defn);
                 }
             }
-            
+
             //migrate any eleDefines to re-point
             for (fingerprint in dupTable) {
                 if (dupTable.hasOwnProperty(fingerprint)) {
@@ -196,7 +213,7 @@
                             dupElId = dup.elements[0];
 
                             this.removeElementDefn(dupElId, dup.defnId);
-                            this.addElementDefn(dupElId, aDups[0]);
+                            this.addElementDefn(this.eleDefines, dupElId, aDups[0]);
                             aDups[0].elements.push(dupElId);
                             aDups[0].consolidated = true;
                         }
@@ -232,9 +249,65 @@
             omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
             
             this.blocks[omNode.className] = omNode.styleBlock;
+            // We create an styleBlock for each element initially.
+            // Store the element for later reference.
+            omNode.styleBlock['element'] = omNode.id;
             
             return omNode.styleBlock;
         };
+
+        this.getStyleBlockForElement = function (omNode) {
+
+            if (this.eleBlocks[omNode.id]) {
+                return this.eleBlocks[omNode.id][0];
+            }
+            return null;
+        };
+
+        this.consolidateStyleBlocks = function () {
+            
+            //find dupes and make em shared...
+            var dupTable = {},
+                className,
+                defn,
+                i,
+                aDups,
+                dup,
+                dupElId,
+                fingerprint;
+            
+            for (className in this.blocks) {
+                if (this.blocks.hasOwnProperty(className)) {
+                    defn = this.blocks[className];
+                    fingerprint = JSON.stringify(defn.rules);
+                    defn['fingerprint'] = fingerprint;
+
+                    dupTable[fingerprint] = dupTable[fingerprint] || [];
+                    dupTable[fingerprint].push(defn);
+                }
+            }
+            
+            //migrate any eleDefines to re-point
+            for (fingerprint in dupTable) {
+                if (dupTable.hasOwnProperty(fingerprint)) {
+                    aDups = dupTable[fingerprint];
+                    if (aDups && aDups.length >= 1) {
+                        this.addElementDefn(this.eleBlocks, aDups[0].element, aDups[0]);
+
+                        for (i = 1; i < aDups.length; i++) {
+                            dup = aDups[i];
+                            dupElId = dup.element;
+
+                            this.removeElementBlocks(dupElId, dup.class);
+                            this.addElementDefn(this.eleBlocks, dupElId, aDups[0]);
+                            aDups[0].elements.push(dupElId);
+                            aDups[0].consolidated = true;
+                        }
+                    }
+                }
+            }
+
+        }
         
         this.writeSheet = function (ctx) {
             

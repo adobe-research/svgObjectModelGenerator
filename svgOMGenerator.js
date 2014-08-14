@@ -74,7 +74,7 @@
             return ret;
         }
 
-        if (layer.name) {
+        if (layer.name && layer.type !== "textLayer") {
             // Otherwise, lowercase everthing. Collapse 1+ whitespace to dash.
             l = layer.name.toLowerCase();
             var buffer = l.split("");

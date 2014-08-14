@@ -13,19 +13,11 @@
         font-style: italic;
       }
 
-      .cls-7 {
-        font-size: 60px;
-      }
-
       .cls-8 {
         fill: #030303;
         font-family: "Arial";
         font-size: 60px;
         font-weight: bold;
-      }
-
-      .cls-10 {
-        font-size: 60px;
       }
 
       .cls-11 {
@@ -36,19 +28,11 @@
         font-style: italic;
       }
 
-      .cls-13 {
-        font-size: 60px;
-      }
-
       .cls-14 {
         fill: #030303;
         font-family: "Arial";
         font-size: 60px;
         text-decoration: underline;
-      }
-
-      .cls-16 {
-        font-size: 60px;
       }
 
       .cls-17 {
@@ -58,19 +42,11 @@
         text-decoration: line-through;
       }
 
-      .cls-19 {
-        font-size: 60px;
-      }
-
       .cls-20 {
         fill: #030303;
         font-family: "Arial";
         font-size: 60px;
         font-variant: small-caps;
-      }
-
-      .cls-22 {
-        font-size: 60px;
       }
 
       .cls-23 {
@@ -80,91 +56,7 @@
         text-transform: uppercase;
       }
 
-      .cls-25 {
-        font-size: 60px;
-      }
-
       .cls-26 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-28 {
-        font-size: 60px;
-      }
-
-      .cls-29 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-31 {
-        font-size: 60px;
-      }
-
-      .cls-32 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-34 {
-        font-size: 60px;
-      }
-
-      .cls-35 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-37 {
-        font-size: 60px;
-      }
-
-      .cls-38 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-40 {
-        font-size: 60px;
-      }
-
-      .cls-41 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-43 {
-        font-size: 60px;
-      }
-
-      .cls-44 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-46 {
-        font-size: 60px;
-      }
-
-      .cls-47 {
-        fill: #030303;
-        font-family: "Arial";
-        font-size: 60px;
-      }
-
-      .cls-49 {
-        font-size: 60px;
-      }
-
-      .cls-50 {
         fill: #030303;
         font-family: "Arial";
         font-size: 60px;
@@ -175,48 +67,48 @@
     <tspan x="7%" class="cls-4"><tspan class="cls-5">Text</tspan></tspan>
   </text>
   <text x="8%" y="31%">
-    <tspan x="8%" class="cls-7"><tspan class="cls-8">Text</tspan></tspan>
+    <tspan x="8%" class="cls-4"><tspan class="cls-8">Text</tspan></tspan>
   </text>
   <text x="8%" y="46%">
-    <tspan x="8%" class="cls-10"><tspan class="cls-11">Text</tspan></tspan>
+    <tspan x="8%" class="cls-4"><tspan class="cls-11">Text</tspan></tspan>
   </text>
   <text x="8%" y="58%">
-    <tspan x="8%" class="cls-13"><tspan class="cls-14">Text</tspan></tspan>
+    <tspan x="8%" class="cls-4"><tspan class="cls-14">Text</tspan></tspan>
   </text>
   <text x="7%" y="73%">
-    <tspan x="7%" class="cls-16"><tspan class="cls-17">Text</tspan></tspan>
+    <tspan x="7%" class="cls-4"><tspan class="cls-17">Text</tspan></tspan>
   </text>
   <text x="8%" y="88%">
-    <tspan x="8%" class="cls-19"><tspan class="cls-20">Text</tspan></tspan>
+    <tspan x="8%" class="cls-4"><tspan class="cls-20">Text</tspan></tspan>
   </text>
   <text x="41%" y="16%">
-    <tspan x="41%" class="cls-22"><tspan class="cls-23">Text</tspan></tspan>
+    <tspan x="41%" class="cls-4"><tspan class="cls-23">Text</tspan></tspan>
   </text>
   <text x="41%" y="34%">
-    <tspan x="41%" class="cls-25"><tspan class="cls-26">Text</tspan></tspan>
+    <tspan x="41%" class="cls-4"><tspan class="cls-26">Text</tspan></tspan>
   </text>
   <text x="42%" y="44%">
-    <tspan x="42%" class="cls-28"><tspan class="cls-29">Text</tspan></tspan>
+    <tspan x="42%" class="cls-4"><tspan class="cls-26">Text</tspan></tspan>
   </text>
   <text x="41%" y="61%">
-    <tspan x="41%" class="cls-31"><tspan class="cls-32">Text</tspan></tspan>
+    <tspan x="41%" class="cls-4"><tspan class="cls-26">Text</tspan></tspan>
   </text>
   <text x="41%" y="73%">
-    <tspan x="41%" class="cls-34"><tspan class="cls-35">Text</tspan></tspan>
+    <tspan x="41%" class="cls-4"><tspan class="cls-26">Text</tspan></tspan>
   </text>
   <text x="41%" y="95%">
-    <tspan x="41%" class="cls-37"><tspan class="cls-38">Text</tspan></tspan>
+    <tspan x="41%" class="cls-4"><tspan class="cls-26">Text</tspan></tspan>
   </text>
   <text x="78%" y="17%">
-    <tspan x="78%" class="cls-40"><tspan class="cls-41">Test</tspan></tspan>
+    <tspan x="78%" class="cls-4"><tspan class="cls-26">Test</tspan></tspan>
   </text>
   <text x="78%" y="32%">
-    <tspan x="78%" class="cls-43"><tspan class="cls-44">Test</tspan></tspan>
+    <tspan x="78%" class="cls-4"><tspan class="cls-26">Test</tspan></tspan>
   </text>
   <text x="78%" y="47%">
-    <tspan x="78%" class="cls-46"><tspan class="cls-47">Test</tspan></tspan>
+    <tspan x="78%" class="cls-4"><tspan class="cls-26">Test</tspan></tspan>
   </text>
   <text x="78%" y="69%">
-    <tspan x="78%" class="cls-49"><tspan class="cls-50">Test</tspan></tspan>
+    <tspan x="78%" class="cls-4"><tspan class="cls-26">Test</tspan></tspan>
   </text>
 </svg>

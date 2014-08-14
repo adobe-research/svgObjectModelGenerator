@@ -103,8 +103,10 @@
 
     function writeClassIfNeccessary(ctx) {
         if (ctx.omStylesheet.hasStyleBlock(ctx.currentOMNode)) {
-            var omStyleBlock = ctx.omStylesheet.getStyleBlock(ctx.currentOMNode);
-            write(ctx, " class=\"" + omStyleBlock.class + "\"");
+            var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(ctx.currentOMNode);
+            if (omStyleBlock) {
+                write(ctx, " class=\"" + omStyleBlock.class + "\"");
+            }
         }
     }
 
@@ -429,6 +431,7 @@
         var ctx = getFormatContext(svgOM);
         svgWriterIDs.reset();
         svgWriterPreprocessor.processSVGOM(ctx);
+        ctx.omStylesheet.consolidateStyleBlocks();
         writeSVGNode(ctx);
 		return toString(ctx);
 	}
