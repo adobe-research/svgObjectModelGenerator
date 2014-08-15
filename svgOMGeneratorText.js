@@ -160,7 +160,7 @@
                     svgTextChunkNode = writer.addSVGNode(svgParagraphNode.id + "-" + indexTextStyle, "tspan");
                     svgTextChunkNode.text = textString.substring(from, to).replace("\r","");
                     omgStyles.addTextChunkStyle(svgTextChunkNode, textStyle);
-                    if (textStyle.to > paragraph.to) {
+                    if (textStyle.to >= paragraph.to) {
                         break;
                     }
                     ++indexTextStyle;
