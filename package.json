@@ -6,8 +6,7 @@
     "generator-core-version": "~3",
     "license": "Apache 2.0",
     "dependencies": {
-        "jquery": "^2.1.1",
-        "base64": "^2.1.0"
+        "jquery": "^2.1.1"
     },
     "devDependencies": {
         "mocha": "^1.20.1",
