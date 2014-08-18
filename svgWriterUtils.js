@@ -21,8 +21,7 @@
 (function () {
 "use strict";
 
-    var base64 = require("base64").encode,
-        Buffer = require('buffer').Buffer,
+    var Buffer = require('buffer').Buffer,
         guidID = 1,
         svgWriterIDs = require("./svgWriterIDs.js");
 
@@ -326,7 +325,7 @@
 
         this.toBase64 = function (string) {
             var buf = new Buffer(string);
-            return base64(buf);
+            return buf.toString("base64");
         };
 	}
 
