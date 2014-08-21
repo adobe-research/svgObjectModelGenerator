@@ -98,12 +98,11 @@
                 var doc = JSON.parse(JSON.stringify(document));
                 generatorPlus.patchGenerator(doc, generator).then(function () {
                     
-                    if (typeof layerSpec === "number") {
-            
-                    }
-                    
                     var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
-                        svgOut = svgWriter.printSVG(svgOM);
+                        svgOut = svgWriter.printSVG(svgOM, {
+                            trimToArtBounds: !!(typeof layerSpec === "number"),
+                            preserveAspectRatio: "xMidYMid"
+                        });
                     
                     deferedResult.resolve({svgText: svgOut});
                 });

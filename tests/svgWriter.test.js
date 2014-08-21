@@ -13,6 +13,9 @@
  * from Adobe Systems Incorporated.
  */
 
+/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
+/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+
 var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     svgWriter = require("../svgWriter.js"),
@@ -37,7 +40,7 @@ describe('svgWriter', function (){
             }
             expect(svgOut).to.equal(string);
             return svgOut;
-        }
+        };
 
         it("should be able to SVG a gradient fill OM", function () {
             compareResults('svgFill');
