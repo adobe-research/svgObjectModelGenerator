@@ -14,7 +14,7 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
+/*global define: true, require: true, module: true */
 
 /* Help construct the svgOM from generator data */
 
@@ -71,31 +71,58 @@
             bounds.bottom += delta;
         };
         
+        this.shiftBoundsX = function (bounds, delta) {
+            bounds.left += delta;
+            bounds.right += delta;
+        };
+        
+        this.shiftBoundsY = function (bounds, delta) {
+            bounds.top += delta;
+            bounds.bottom += delta;
+        };
+        
         this.recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
-                bndsIn = omIn.bounds;
+                bndsIn = omIn.bounds,
+                boundPadLeft = 0,
+                boundPadRight = 0,
+                boundPadTop = 0,
+                boundPadBottom = 0;
             
-            if (omIn.type === "shape") {
+            if (omIn.type === "shape" || omIn.type === "text") {
                 bndsIn = omIn.shapeBounds;
+                if (omIn.type === "text") {
+                    boundPadLeft = 0.0;
+                    boundPadRight = 2.0;
+                    boundPadTop = 0.5;
+                    boundPadBottom = 0.0;
+                }
                 
                 //if the shape has a border then we need to bump the bounds up?
-                //if (omIn.style.stroke && omIn.style.stroke.strokeEnabled && omIn.style.stroke.lineWidth) {
-                    //this.growBoundsUniform(bndsIn, omIn.style.stroke.lineWidth);
-                //}
+                if (omIn.style && omIn.style.stroke && omIn.style.stroke.strokeEnabled && omIn.style.stroke.lineWidth) {
+                    boundPadLeft = omIn.style.stroke.lineWidth/2.0;
+                    boundPadRight = omIn.style.stroke.lineWidth/2.0;
+                    boundPadTop = omIn.style.stroke.lineWidth/2.0;
+                    boundPadBottom = omIn.style.stroke.lineWidth/2.0;
+                }
             }
             
             if (bndsIn) {
                 if (!isFinite(bnds.left) || bndsIn.left < bnds.left) {
                     bnds.left = bndsIn.left;
+                    ctx._boundsPadLeft = boundPadLeft;
                 }
                 if (!isFinite(bnds.right) || bndsIn.right > bnds.right) {
                     bnds.right = bndsIn.right;
+                    ctx._boundsPadRight = boundPadRight;
                 }
                 if (!isFinite(bnds.top) || bndsIn.top < bnds.top) {
                     bnds.top = bndsIn.top;
+                    ctx._boundsPadTop = boundPadTop;
                 }
                 if (!isFinite(bnds.bottom) || bndsIn.bottom > bnds.bottom) {
                     bnds.bottom = bndsIn.bottom;
+                    ctx._boundsPadBottom = boundPadBottom;
                 }
             }
         };
@@ -103,14 +130,25 @@
         //shift the bounds recorded in recordBounds
         this.shiftBounds = function (ctx, omIn) {
             var bnds = omIn.bounds;
-            if (omIn.type === "shape") {
+            if (omIn.type === "shape" || omIn.type === "text") {
                 bnds = omIn.shapeBounds;
+                if (omIn.type === "text") {
+                    //get rid of position?
+                    if (omIn.position) {
+                        omIn.position.x = 0.0;
+                        omIn.position.y = 100.0;
+                    }
+                }
+            } else if (omIn.type === "tspan") {
+                //is this postion global or something? seems to offset the text, removing
+                if (omIn.position) {
+                    omIn.position.x = 0.0;
+                    omIn.position.y = 100.0;
+                }
             }
             if (bnds) {
-                bnds.left += ctx._shiftContentX;
-                bnds.right += ctx._shiftContentX;
-                bnds.top += ctx._shiftContentY;
-                bnds.bottom += ctx._shiftContentY;
+                this.shiftBoundsX(bnds, ctx._shiftContentX);
+                this.shiftBoundsY(bnds, ctx._shiftContentY);
             }
         };
         
@@ -131,7 +169,8 @@
         };
         
         this.finalizePreprocessing = function (ctx) {
-            var bnds = ctx.contentBounds;
+            var bnds = ctx.contentBounds,
+                adjustBounds = 1;
             if (ctx.config.trimToArtBounds) {
                 
                 if (bnds) {
@@ -140,14 +179,14 @@
                     bnds.top = bnds.top || 0;
                     bnds.bottom = bnds.bottom || 0;
 
-                    ctx._shiftContentX = bnds.left * -1.0;
-                    ctx._shiftContentY = bnds.top * -1.0;
+                    ctx._shiftContentX = (bnds.left * -1.0) + ctx._boundsPadLeft;
+                    ctx._shiftContentY = (bnds.top * -1.0) + ctx._boundsPadTop;
                     
                     if (ctx.svgOM && ctx.svgOM.viewBox) {
                         ctx.svgOM.viewBox.left = 0;
                         ctx.svgOM.viewBox.top = 0;
-                        ctx.svgOM.viewBox.right = Math.abs(bnds.right - bnds.left);
-                        ctx.svgOM.viewBox.bottom = Math.abs(bnds.bottom - bnds.top);
+                        ctx.svgOM.viewBox.right = Math.abs(bnds.right - bnds.left) + (ctx._boundsPadRight + ctx._boundsPadLeft);
+                        ctx.svgOM.viewBox.bottom = Math.abs(bnds.bottom - bnds.top) + (ctx._boundsPadTop + ctx._boundsPadBottom);
                     }
                 }
             }

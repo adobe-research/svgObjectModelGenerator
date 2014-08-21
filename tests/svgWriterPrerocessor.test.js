@@ -64,7 +64,36 @@ describe('SVGWriterPreprocessor', function (){
                             right: 50,
                             top: 10,
                             bottom: 100
+                        },
+                        style: {
+                            stroke: {
+                                strokeEnabled: true,
+                                lineWidth: 3
+                            }
                         }
+                    },
+                    {
+                        type: "text",
+                        shapeBounds: {
+                            left: 20,
+                            right: 50,
+                            top: 10,
+                            bottom: 100
+                        },
+                        position: {
+                            x: 22.0,
+                            y: 33.0
+                        },
+                        children: [
+                            {
+                                type: "tspan",
+                                text: "spanny t",
+                                position: {
+                                    x: 10.0,
+                                    y: 20.9
+                                }
+                            }
+                        ]
                     }
                 ]
             },
@@ -81,13 +110,13 @@ describe('SVGWriterPreprocessor', function (){
         
         expect(svgOM.viewBox.top).to.equal(0);
         expect(svgOM.viewBox.left).to.equal(0);
-        expect(svgOM.viewBox.right).to.equal(30);
-        expect(svgOM.viewBox.bottom).to.equal(90);
+        expect(svgOM.viewBox.right).to.equal(33);
+        expect(svgOM.viewBox.bottom).to.equal(93);
         
-        expect(svgOM.children[0].shapeBounds.top).to.equal(0);
-        expect(svgOM.children[0].shapeBounds.left).to.equal(0);
-        expect(svgOM.children[0].shapeBounds.right).to.equal(30);
-        expect(svgOM.children[0].shapeBounds.bottom).to.equal(90);
+        expect(svgOM.children[0].shapeBounds.top).to.equal(1.5);
+        expect(svgOM.children[0].shapeBounds.left).to.equal(1.5);
+        expect(svgOM.children[0].shapeBounds.right).to.equal(31.5);
+        expect(svgOM.children[0].shapeBounds.bottom).to.equal(91.5);
     });
     
 });
