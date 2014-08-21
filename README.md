@@ -1,4 +1,5 @@
-# SVG Object Model Generator
+# SVG Object Model Generator  [![Build Status](https://travis-ci.org/adobe-research/svgObjectModelGenerator.png?branch=master)](https://travis-ci.org/adobe-research/svgObjectModelGenerator)
+
 
 An abstract object model generator and SVG writer.
 

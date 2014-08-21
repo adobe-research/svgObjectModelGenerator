@@ -31,8 +31,8 @@
         svgWriterIDs = require("./svgWriterIDs.js"),
         SVGWriterContext = require("./svgWriterContext.js");
     
-    function getFormatContext(svgOM) {
-        return new SVGWriterContext(svgOM);
+    function getFormatContext(svgOM, cfg) {
+        return new SVGWriterContext(svgOM, cfg);
     }
     
     var toString = svgWriterUtils.toString,
@@ -385,9 +385,11 @@
                 children = ctx.currentOMNode.children,
                 childNode,
                 hasRules,
-                hasDefines;
+                hasDefines,
+                preserveAspectRatio = ctx.config.preserveAspectRatio || "none";
             
-            write(ctx, "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" preserveAspectRatio=\"none\"");
+            write(ctx, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"');
+            write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
             writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
             writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
             write(ctx, " viewBox=\"" + omIn.viewBox.left + " " + omIn.viewBox.top + " " + omIn.viewBox.right + " " + omIn.viewBox.bottom + "\">" + ctx.terminator);
@@ -427,8 +429,8 @@
     }
     
     
-	function print(svgOM) {
-        var ctx = getFormatContext(svgOM);
+	function print(svgOM, opt) {
+        var ctx = getFormatContext(svgOM, opt || {});
         svgWriterIDs.reset();
         svgWriterPreprocessor.processSVGOM(ctx);
         ctx.omStylesheet.consolidateStyleBlocks();
