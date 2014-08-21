@@ -98,6 +98,10 @@
                 var doc = JSON.parse(JSON.stringify(document));
                 generatorPlus.patchGenerator(doc, generator).then(function () {
                     
+                    if (layerSpec === "all") {
+                        layerSpec = null;
+                    }
+                    
                     var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
                         svgOut = svgWriter.printSVG(svgOM, {
                             trimToArtBounds: !!(typeof layerSpec === "number"),
