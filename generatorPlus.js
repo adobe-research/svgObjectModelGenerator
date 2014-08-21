@@ -22,23 +22,59 @@
    typeNULL, eventSelect, charIDToTypeID, classDocument, classLayer */
 /* exported runCopyCSSFromScript */
 
+/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
+/*global define: true, require: true, __dirname: true, module: true */
+
 /* Patch generator with extra data we need to make SVG */
 
 (function () {
     "use strict";
     
-    var Q = require("q");
+    var Q = require("q"),
+        svgWriterUtils = require("./svgWriterUtils");
     
-    function generatorPlus() {
+    function GeneratorPlus() {
         
-        this.patchGenerator = function (psd, _G) {
+        this.findLayerComp = function(psd, compId) {
+            var cmp;
+            if (compId) {
+                psd.comps.forEach(function (comp) {
+                    if (comp.id == compId) {
+                        cmp = comp;
+                    }
+                });
+            } else {
+                cmp = {
+                };
+            }
+            return cmp;
+        };
+        
+        this.findCompLayerEffects = function (layerId, layerComp) {
+            var ret;
+            if (layerComp && layerComp.layerSettings) {
+                layerComp.layerSettings.forEach(function (layerSetting) {
+                    if (layerSetting.id === layerId) {
+                        ret = layerSetting.layerEffects;
+                    }
+                });
+            }
+            return ret;
+        };
+        
+        this.patchGenerator = function (psd, _G, compId) {
             var layers = psd.layers,
                 iL,
                 lyr,
                 patchDeferred = Q.defer(),
-                promises = [];
+                promises = [],
+                layerComp = this.findLayerComp(compId),
+                patchLayerSVG;
 
-            function patchLayerSVG(layer) {
+            //console.log("PATCHING: " + JSON.stringify(psd));
+            try {
+            
+            patchLayerSVG = function (layer) {
 
                 var layerId = layer.id,
                     layerIndex = layer.index,
@@ -49,13 +85,15 @@
                 
                 if (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer") {
                     
+                    svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
+                    
                     jsxDeferred = Q.defer();
                     promises.push(jsxDeferred.promise);
                     
                     //pull in extra info... JSX!
-                    _G.evaluateJSXFile(__dirname+'/jsx/patchShapeLayer.jsx', { layerIndex: layerIndex, pathData: layerType === "shapeLayer", fxSolidFill: true}).then(function (oPatch) {
+                    _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', { layerIndex: layerIndex, pathData: layerType === "shapeLayer", fxSolidFill: true}).then(function (oPatch) {
                         
-                        if (typeof(oPatch) === "String") {
+                        if (typeof oPatch  === "string") {
                             oPatch = JSON.parse(oPatch);
                         }
 
@@ -75,13 +113,12 @@
                         console.log("ERROR " + err);
                     });
                 } else if (layerType === "layerSection") {
-                    
                     for (i = 0; i < layer.layers.length; i++) {
                         childLyr = layer.layers[i];
                         patchLayerSVG(childLyr);
                     }
                 }
-            }
+            }.bind(this);
         
             for (iL = 0; iL < layers.length; iL++) {
                 lyr = layers[iL];
@@ -91,10 +128,14 @@
             Q.all(promises).then(function () {
                 patchDeferred.resolve();
             });
+                
+            } catch (excep) {
+                console.log("EXCEP " + excep.stack);
+            }
             
             return patchDeferred.promise;
         };
 	}
 
-	module.exports = new generatorPlus();
+	module.exports = new GeneratorPlus();
 }());

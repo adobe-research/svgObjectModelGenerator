@@ -59,7 +59,7 @@
     
     function onGeneratorDOMMenuClick(event) {
         _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", {}).then(function (origMode) {
-            if (typeof(origMode) === "String") {
+            if (typeof origMode === "string") {
                 origMode = JSON.parse(origMode);
             }
             _G.getDocumentInfo(null, docInfoFlags).then(
@@ -87,20 +87,26 @@
             svgWriter = require("./svgWriter.js"),
             layerSpec,
             layerScale,
-            docId;
+            docId,
+            compId;
         
+        compId = params.compId;
         layerSpec = params.layerSpec;
         layerScale = params.layerScale;
         docId = params.documentId;
         
+        
         generator.getDocumentInfo(null, docInfoFlags).then(
             function (document) {
                 var doc = JSON.parse(JSON.stringify(document));
-                generatorPlus.patchGenerator(doc, generator).then(function () {
-                    
+                
+                generatorPlus.patchGenerator(doc, generator, compId).then(function () {
+                    if (layerSpec === "all") {
+                        layerSpec = null;
+                    }
                     var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
                         svgOut = svgWriter.printSVG(svgOM, {
-                            trimToArtBounds: !!(typeof layerSpec === "number"),
+                            trimToArtBounds: (typeof layerSpec === "number"),
                             preserveAspectRatio: "xMidYMid"
                         });
                     

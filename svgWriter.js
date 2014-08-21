@@ -432,9 +432,14 @@
 	function print(svgOM, opt) {
         var ctx = getFormatContext(svgOM, opt || {});
         svgWriterIDs.reset();
-        svgWriterPreprocessor.processSVGOM(ctx);
-        ctx.omStylesheet.consolidateStyleBlocks();
-        writeSVGNode(ctx);
+        try {
+            svgWriterPreprocessor.processSVGOM(ctx);
+            ctx.omStylesheet.consolidateStyleBlocks();
+            writeSVGNode(ctx);
+        } catch (ex) {
+            console.error("Ex: " + ex);
+            console.log(ex.stack);
+        }
 		return toString(ctx);
 	}
 
