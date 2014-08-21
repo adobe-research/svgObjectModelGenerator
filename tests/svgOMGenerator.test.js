@@ -13,6 +13,9 @@
  * from Adobe Systems Incorporated.
  */
 
+/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
+/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+
 var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     sinon = require('sinon');
@@ -65,7 +68,7 @@ describe('SVGOMGenerator', function (){
 
     it("should survive unknown layer type", function (){
         sandbox.stub(console, "log");
-        OMG._getSVGLayerType("nannan")
+        OMG._getSVGLayerType("nannan");
         expect(console.log.calledOnce).to.equal(true);
     });
     

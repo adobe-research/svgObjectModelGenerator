@@ -23,7 +23,8 @@
     
     var omguid = require("./svgWriterUtils.js").omguid;
     
-    function SVGWriterContext(svgOM) {
+    function SVGWriterContext(svgOM, config) {
+        this.config = config;
         this.svgOM = svgOM;
         this.currentOMNode = svgOM;
         this.indent = '  ';
@@ -34,6 +35,7 @@
         this.encoding =  'utf-8';
         this.out = [];
         this.sOut = "";
+        this.contentBounds = {};
         
         this._hasWritten = {};
         this.didWrite = function (node, prop) {
