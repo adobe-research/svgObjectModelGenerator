@@ -89,7 +89,7 @@
                 boundPadTop = 0,
                 boundPadBottom = 0;
             
-            if (omIn.type === "shape" || omIn.type === "text") {
+            if (omIn.type === "shape" || omIn.type === "text" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bndsIn = omIn.shapeBounds;
                 if (omIn.type === "text") {
                     boundPadLeft = 0.0;
@@ -130,7 +130,7 @@
         //shift the bounds recorded in recordBounds
         this.shiftBounds = function (ctx, omIn) {
             var bnds = omIn.bounds;
-            if (omIn.type === "shape" || omIn.type === "text") {
+            if (omIn.type === "shape" || omIn.type === "text" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bnds = omIn.shapeBounds;
                 if (omIn.type === "text") {
                     //get rid of position?
