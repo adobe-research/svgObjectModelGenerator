@@ -20,31 +20,6 @@ function getPSAppPath() {
     return File.decode(result.getPath(kexecutablePathStr));
 }
 
-const klayerIDStr = app.stringIDToTypeID("layerID");
-const ksendLayerThumbnailToNetworkClientStr = app.stringIDToTypeID("sendLayerThumbnailToNetworkClient");
-const krawPixmapFilePathStr = app.stringIDToTypeID("rawPixmapFilePath");
-const kformatStr = app.stringIDToTypeID("format");
-// const kselectedLayerStr = app.stringIDToTypeID("selectedLayer");
-const kwidthStr = app.stringIDToTypeID("width");
-const kheightStr = app.stringIDToTypeID("height");
-const kboundsStr = app.stringIDToTypeID("bounds");
-
-// Call internal PS code to write the current layer's pixels and convert it to PNG.
-// Note this takes care of encoding it into base64 format (ES is too slow at this).
-function writeLayerPNGfile(path, layerID)
-{
-    var desc = new ActionDescriptor();
-
-    //    desc.putBoolean( kselectedLayerStr, true );
-    desc.putInteger(klayerIDStr, layerID);
-    desc.putString(krawPixmapFilePathStr, path);
-    desc.putBoolean(kboundsStr, true);
-    desc.putInteger(kwidthStr, 10000);
-    desc.putInteger(kheightStr, 10000);
-    desc.putInteger(kformatStr, 2); // Want raw pixels, not unsupported JPEG
-    executeAction(ksendLayerThumbnailToNetworkClientStr, desc, DialogModes.NO);
-};
-
 try {
     
     // This uses many routines from CopyCSS, so load the script but tell it not to execute first.
@@ -54,24 +29,9 @@ try {
         $.evalFile(getPSAppPath() + appFolder[File.fs] + "Required/CopyCSSToClipboard.jsx");
     }
     
-    currentLayer = new PSLayerInfo(params.layerIndex);
-
     // FIXME: Access with SmartObject ID in the future?
-    if (currentLayer.layerKind == kSmartObjectSheet ||
-        currentLayer.layerKind == kPixelSheet) {
-        var pngPath = new File(Folder.temp + "/png4svg" + currentLayer.layerID).fsName;
-        this.writeLayerPNGfile(pngPath, currentLayer.layerID);
-        var pngFile = new File(pngPath + ".base64");
-        pngFile.open('r');
-        pngFile.encoding = "UTF-8";
-
-        var pngData64 = pngFile.read();
-        pngFile.close();
-        pngFile.remove();
-
-        out = sep + '"pixelData":"data:img/png;base64,' + pngData64 + '"';
-        sep = ',';
-    }
+    
+    currentLayer = new PSLayerInfo(params.layerIndex);
     
     if (params.pathData) {
         var shapeAttr = currentLayer.getLayerAttr("layerVectorPointData");

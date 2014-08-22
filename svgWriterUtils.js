@@ -14,7 +14,7 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
+/*global define: true, require: true, module: true */
 
 /* Help write the SVG */
 
@@ -34,7 +34,7 @@
                 om._guid = "guid" + guidID++;
             }
             return om._guid;
-        }
+        };
         
         this.write = function (ctx, sOut) {
             ctx.sOut += sOut;
@@ -82,7 +82,7 @@
                     return self.round1k(length.value * ctx.pxToInchRatio / 6);
             }
             return 0;
-        }
+        };
     
         this.writeColor = function (val) {
             var color;
@@ -105,9 +105,9 @@
 
         this.writeTransformIfNecessary = function (ctx, attr, val) {
             if (val) {
-                self.write(ctx, " " + attr + "=\"matrix("
-                    + val.a + ", " + val.b + ", " + val.c + ", "
-                    + val.d + ", " + val.e + ", " + val.f + ")\"");
+                self.write(ctx, " " + attr + "=\"matrix(" +
+                           val.a + ", " + val.b + ", " + val.c + ", " +
+                           val.d + ", " + val.e + ", " + val.f + ")\"");
             }
         };
 
@@ -154,9 +154,9 @@
             // FIXME: This is a hack to deal with a mistake above that still needs
             // to be fixed.
             if (angle < 0 || gradient.angle == 180 ) {
-                ya = -ya
+                ya = -ya;
             } else {
-                xa = -xa
+                xa = -xa;
             }
 
             // FIXME: We should be able to optimize the cases of angle mod 90 to use %
@@ -189,9 +189,9 @@
                     right: rootBounds.right - layerBounds.left,
                     top: rootBounds.top - layerBounds.top,
                     left: rootBounds.left - layerBounds.left
-                }
+                };
             }
-            coords = computeLinearGradientCoordinates(gradient, bounds),
+            coords = computeLinearGradientCoordinates(gradient, bounds);
 
             self.writeLinearGradientInternal(ctx, stops, gradientID, scale, coords);
             return gradientID;
@@ -326,39 +326,48 @@
         /** jQuery-style extend
          *  https://github.com/jquery/jquery/blob/master/src/core.js
          */
-        var jQueryLike = {
-          isFunction: function (obj) {
-            return jQueryLike.type(obj) === "function"
-          },
-          isArray: Array.isArray ||
-          function (obj) {
-            return jQueryLike.type(obj) === "array"
-          },
-          isWindow: function (obj) {
-            return obj != null && obj == obj.window
-          },
-          isNumeric: function (obj) {
-            return !isNaN(parseFloat(obj)) && isFinite(obj)
-          },
-          type: function (obj) {
-            return obj == null ? String(obj) : class2type[toString.call(obj)] || "object"
-          },
-          isPlainObject: function (obj) {
-            if (!obj || jQueryLike.type(obj) !== "object" || obj.nodeType) {
-              return false
-            }
-            try {
-              if (obj.constructor && !hasOwn.call(obj, "constructor") && !hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
-                return false
-              }
-            } catch (e) {
-              return false
-            }
-            var key;
-            for (key in obj) {}
-            return key === undefined || hasOwn.call(obj, key)
-          }
-        };
+        var class2type = {
+              "[object Boolean]": "boolean",
+              "[object Number]": "number",
+              "[object String]": "string",
+              "[object Function]": "function",
+              "[object Array]": "array",
+              "[object Date]": "date",
+              "[object RegExp]": "regexp",
+              "[object Object]": "object"
+            },
+            jQueryLike = {
+                isFunction: function (obj) {
+                    return jQueryLike.type(obj) === "function";
+                },
+                isArray: Array.isArray || function (obj) {
+                    return jQueryLike.type(obj) === "array";
+                },
+                isWindow: function (obj) {
+                    return obj !== null && obj === obj.window;
+                },
+                isNumeric: function (obj) {
+                    return !isNaN(parseFloat(obj)) && isFinite(obj);
+                },
+                type: function (obj) {
+                    return obj == null ? String(obj) : class2type[String(obj)] || "object";
+                },
+                isPlainObject: function (obj) {
+                    if (!obj || jQueryLike.type(obj) !== "object" || obj.nodeType) {
+                        return false;
+                    }
+                    try {
+                        if (obj.constructor && !obj.hasOwnProperty("constructor") && !obj.constructor.prototype.hasOwnProperty("isPrototypeOf")) {
+                            return false;
+                        }
+                    } catch (e) {
+                        return false;
+                    }
+                var key;
+                for (key in obj) {}
+                    return key === undefined || obj.hasOwnProperty(key);
+                }
+            };
         
         this.extend = function (deep, target, source) {
             var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {},
@@ -370,24 +379,14 @@
                 push = Array.prototype.push,
                 slice = Array.prototype.slice,
                 trim = String.prototype.trim,
-                indexOf = Array.prototype.indexOf,
-                class2type = {
-                  "[object Boolean]": "boolean",
-                  "[object Number]": "number",
-                  "[object String]": "string",
-                  "[object Function]": "function",
-                  "[object Array]": "array",
-                  "[object Date]": "date",
-                  "[object RegExp]": "regexp",
-                  "[object Object]": "object"
-                };
+                indexOf = Array.prototype.indexOf;
             if (typeof target === "boolean") {
                 deep = target;
                 target = arguments[1] || {};
                 i = 2;
             }
             if (typeof target !== "object" && !jQueryLike.isFunction(target)) {
-                target = {}
+                target = {};
             }
             if (length === i) {
                 target = this;
@@ -408,7 +407,7 @@
                             } else {
                                 clone = src && jQueryLike.isPlainObject(src) ? src : {};
                             }
-                            target[name] = extend(deep, clone, copy);
+                            target[name] = this.extend(deep, clone, copy);
                         } else if (copy !== undefined) {
                             target[name] = copy;
                         }
