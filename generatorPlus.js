@@ -31,7 +31,8 @@
     "use strict";
     
     var Q = require("q"),
-        svgWriterUtils = require("./svgWriterUtils");
+        svgWriterUtils = require("./svgWriterUtils"),
+        fs = require("fs");
     
     function GeneratorPlus() {
         
@@ -81,7 +82,8 @@
                     i,
                     layerType = layer.type,
                     childLyr,
-                    jsxDeferred;
+                    jsxDeferred,
+                    patchSettings;
                 
                 if (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer") {
                     
@@ -91,23 +93,54 @@
                     promises.push(jsxDeferred.promise);
                     
                     //pull in extra info... JSX!
-                    _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', { layerIndex: layerIndex, pathData: layerType === "shapeLayer", fxSolidFill: true}).then(function (oPatch) {
+                    
+                    patchSettings = {
+                        layerIndex: layerIndex,
+                        pathData: layerType === "shapeLayer",
+                        fxSolidFill: true
+                    };
+                    
+                    //TBD: opportunity to cache .base64-ized layers and speed this up when they don't all change
+                    
+                    _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', patchSettings).then(function (oPatch) {
                         
-                        if (typeof oPatch  === "string") {
+                        var imgFilePath;
+                        
+                        if (typeof oPatch  === 'string') {
                             oPatch = JSON.parse(oPatch);
                         }
-
-                        if (oPatch.pixelData) {
-                            layer.rawPixel = oPatch.pixelData;
-                        }
-
+                        
                         if (oPatch.pathData) {
                             layer.path.rawPathData = oPatch.pathData;
                         }
 
-                        //more patching, as required
-                        
-                        jsxDeferred.resolve();
+                        if(oPatch.pixelDataPtr) {
+                            
+                            imgFilePath = oPatch.pixelDataPtr;
+                            
+                            fs.readFile(imgFilePath, 'utf8', function (err, rawPx) {
+                                //then clean up the file
+                                if (err) {
+                                    console.warn('Error from reading base64 image ' + err);
+                                    return;
+                                }
+                                
+                                layer.rawPixel = 'data:img/png;base64,' + rawPx;
+                                
+                                fs.unlink(imgFilePath, function (er2) {
+                                    if (er2) {
+                                        console.warn('Error cleaning up temp file: ' + er2);
+                                    }
+                                });
+                                
+                                jsxDeferred.resolve();
+                            }.bind(this));
+                        } else {
+                            if (oPatch.pixelData) {
+                                layer.rawPixel = oPatch.pixelData;
+                            }
+                            jsxDeferred.resolve();
+                        }
                         
                     }, function (err) {
                         console.log("ERROR " + err);

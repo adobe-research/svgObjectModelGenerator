@@ -60,16 +60,9 @@ try {
     if (currentLayer.layerKind == kSmartObjectSheet ||
         currentLayer.layerKind == kPixelSheet) {
         var pngPath = new File(Folder.temp + "/png4svg" + currentLayer.layerID).fsName;
+        
         this.writeLayerPNGfile(pngPath, currentLayer.layerID);
-        var pngFile = new File(pngPath + ".base64");
-        pngFile.open('r');
-        pngFile.encoding = "UTF-8";
-
-        var pngData64 = pngFile.read();
-        pngFile.close();
-        pngFile.remove();
-
-        out = sep + '"pixelData":"data:img/png;base64,' + pngData64 + '"';
+        out = sep + '"pixelDataPtr":"' + pngPath + '.base64"';
         sep = ',';
     }
     
