@@ -111,6 +111,11 @@
         return false;
     }
     
+    function layerShouldBeRasterized(layer) {
+        var layerType = getSVGLayerType(layer);
+        return layerType === "generic";
+    }
+    
     function extractSVGOM (psd, opts) {
         
         var layers = psd.layers,
@@ -196,6 +201,7 @@
 
 
     module.exports.extractSVGOM = extractSVGOM;
+    module.exports.layerShouldBeRasterized = layerShouldBeRasterized;
     module.exports._getSVGLayerType = getSVGLayerType;
     module.exports._layerSpecActive = layerSpecActive;
     module.exports._layerSpecMatches = layerSpecMatches;
