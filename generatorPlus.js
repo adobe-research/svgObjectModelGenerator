@@ -23,7 +23,7 @@
 /* exported runCopyCSSFromScript */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, __dirname: true, module: true */
+/*global define: true, require: true, __dirname: true, module: true, Buffer: true */
 
 /* Patch generator with extra data we need to make SVG */
 
@@ -41,6 +41,7 @@
         this.findLayerComp = function(psd, compId) {
             var cmp;
             if (compId) {
+                
                 psd.comps.forEach(function (comp) {
                     if (comp.id == compId) {
                         cmp = comp;
@@ -57,7 +58,7 @@
             var ret;
             if (layerComp && layerComp.layerSettings) {
                 layerComp.layerSettings.forEach(function (layerSetting) {
-                    if (layerSetting.id === layerId) {
+                    if (layerSetting.enabled && layerSetting.layerID === layerId) {
                         ret = layerSetting.layerEffects;
                     }
                 });
@@ -153,8 +154,9 @@
                 lyr,
                 patchDeferred = Q.defer(),
                 promises = [],
-                layerComp = this.findLayerComp(compId),
+                layerComp = this.findLayerComp(psd, compId),
                 patchLayerSVG;
+            
             try{
                 patchLayerSVG = function (layer) {
 
@@ -168,9 +170,9 @@
                         patchSettings;
 
                     if (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer") {
-
+                        
                         svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
-
+    
                         jsxDeferred = Q.defer();
                         promises.push(jsxDeferred.promise);
 
@@ -231,7 +233,7 @@
                 });
 
             } catch(exStop) {
-                console.warn("patchGenerator error: " + extop + " with " + extop.stack);
+                console.warn("patchGenerator error: " + exStop + " with " + exStop.stack);
                 patchDeferred.reject(exStop);
             }
     
