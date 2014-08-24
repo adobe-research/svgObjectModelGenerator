@@ -155,9 +155,6 @@
 
             switch (layerType) {
                 case "shape":
-                    
-                    console.log("shape layer = " + JSON.stringify(layer));
-                    
                     if (!justTraverse) {
                         omgShapes.addShapeData(svgNode, layer);
                     }

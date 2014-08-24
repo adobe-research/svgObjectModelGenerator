@@ -123,8 +123,7 @@
             case "background":
 
                 // FIXME: What to do with this?
-                console.log("TBD: NEED TO HANDLE BACKGROUND LAYER");
-
+                
                 break;
             case "shape":
 
@@ -398,7 +397,10 @@
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
             writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
             writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
-            write(ctx, " viewBox=\"" + omIn.viewBox.left + " " + omIn.viewBox.top + " " + omIn.viewBox.right + " " + omIn.viewBox.bottom + "\">" + ctx.terminator);
+            write(ctx, ' width="' + (omIn.viewBox.right - omIn.viewBox.left) + '" height="' + (omIn.viewBox.bottom - omIn.viewBox.top) + '"');
+            write(ctx, " viewBox=\"" + omIn.viewBox.left + " " + omIn.viewBox.top + " ");
+            write(ctx, Math.abs(omIn.viewBox.right - omIn.viewBox.left) + " ");
+            write(ctx, Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + "\">" + ctx.terminator);
             indent(ctx);
             
             // Write the style sheet.

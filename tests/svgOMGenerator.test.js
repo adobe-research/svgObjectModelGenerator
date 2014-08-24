@@ -36,7 +36,6 @@ describe('SVGOMGenerator', function (){
         var testData = require("./data/svgFill-data.js"),
             svgOMExpected = require("./data/svgFill-om.js"),
             svgOM = OMG.extractSVGOM(testData, { });
-
         expect(svgOMExpected).to.eql(svgOM);
     });
 
