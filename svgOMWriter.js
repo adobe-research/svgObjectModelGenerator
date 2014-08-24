@@ -14,7 +14,7 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
+/*global define: true, require: true, module: true */
 
 /* Help construct the svgOM */
 
@@ -53,16 +53,17 @@
 
         this.setDocPxToInchRatio = function (pxToInchRatio) {
             _root.pxToInchRatio = pxToInchRatio;
-        }
+        };
 
         this.setDocGlobalLight = function (globalLight) {
             _root.globalLight = globalLight;
-        }
+        };
 
-		this.addSVGNode = function (nodeID, nodeType) {
+		this.addSVGNode = function (nodeID, nodeType, nodeVisible) {
 			var n = {
 				id: nodeID,
                 type: nodeType,
+                visible: nodeVisible,
 				style: {},
                 children: []
 			};
@@ -76,15 +77,16 @@
 				"style": {}
 			};
             
-            _appendRule(r);
+            //Undefined... comment out until this is wired in
+            //_appendRule(r);
 
 			return r.style;
-		}
+		};
         
 		
 		this.toSVGOM = function() {
 			return _root;
-		}
+		};
 	}
 
 	module.exports = SVGOMWriter;

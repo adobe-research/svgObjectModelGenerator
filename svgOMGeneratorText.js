@@ -77,7 +77,7 @@
                 }
 
                 writer.pushCurrent(svgNode);
-                svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath");
+                svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
                 svgTextPathNode.pathData = computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0].points)
 
                 // FIXME: Text on path always has just one paragraph. Avoid creatnig an extra element for it.
@@ -141,7 +141,7 @@
                     return false;
                 }
 
-                svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan");
+                svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan", true);
                 svgParagraphNode.position = {
                     x: position.x,
                     y: position.y
@@ -157,7 +157,7 @@
                     from = Math.max(textStyle.from, paragraph.from); // Should always be textStyle.
                     to = Math.min(textStyle.to, paragraph.to);
 
-                    svgTextChunkNode = writer.addSVGNode(svgParagraphNode.id + "-" + indexTextStyle, "tspan");
+                    svgTextChunkNode = writer.addSVGNode(svgParagraphNode.id + "-" + indexTextStyle, "tspan", true);
                     svgTextChunkNode.text = textString.substring(from, to).replace("\r","");
                     omgStyles.addTextChunkStyle(svgTextChunkNode, textStyle);
                     if (textStyle.to >= paragraph.to) {
