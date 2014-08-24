@@ -14,7 +14,7 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
+/*global define: true, require: true, module: true */
 
 /*
  * Generate an abstract svgOM from the Generator JSON
@@ -133,7 +133,8 @@
                 i,
                 childLyr,
                 justTraverse = false,
-                specFound = layerSpecFound;
+                specFound = layerSpecFound,
+                layerVisible = true;
             
             if (!layerSpecFound && layerSpecActive(layerSpec)) {
                 if (layerSpecMatches(layer, layerSpec)) {
@@ -143,9 +144,13 @@
                 }
             }
             
+            if (layer.visible === false) {
+                layerVisible = false;
+            }
+            
             layerType = getSVGLayerType(layer);
             if (!justTraverse) {
-                svgNode = writer.addSVGNode(getSVGID(layer), layerType);
+                svgNode = writer.addSVGNode(getSVGID(layer), layerType, layerVisible);
             }
 
             switch (layerType) {

@@ -14,7 +14,7 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
+/*global define: true, require: true, module: true */
 
 /* given an svgOM, generate SVG */
 
@@ -113,17 +113,22 @@
     function writeLayerNode(ctx, sibling) {
         var omIn = ctx.currentOMNode;
         
+        //TBD: in some cases people might want to export their hidden layers so they can turn them on interactively
+        if (!omIn.visible) { // && !ctx.config.writeInvisibleLayers) {
+            return;
+        }
+        
         // Decide what type of layer it is and write that type...
         switch (omIn.type) {
             case "background":
 
                 // FIXME: What to do with this?
-
+                
                 break;
             case "shape":
 
                 if (!omIn.shapeBounds) {
-                    console.log("WARNING Shape has no boundaries.")
+                    console.warn("Shape has no boundaries.");
                     return;
                 }
                 gWrap(ctx, omIn.id, function (useTrick) {
@@ -219,7 +224,7 @@
                          default:
                             console.log("NOT HANDLED DEFAULT " + omIn.shape);
                             break;
-                    };
+                    }
                 });
 
                 break;
@@ -302,7 +307,7 @@
                         case "end":
                             offset = 100;
                             break;
-                        case "start":
+                        case "start": break;
                         default:
                             break;
                     }
@@ -314,11 +319,11 @@
                 indent(ctx);
                 ctx.omStylesheet.writePredefines(ctx);
                 var children = ctx.currentOMNode.children;
-                for (var i = 0; i < children.length; i++) {
+                for (var iTextChild = 0; iTextChild < children.length; iTextChild++) {
                     write(ctx, ctx.currentIndent);
-                    var childNode = children[i];
-                    ctx.currentOMNode = childNode;
-                    writeSVGNode(ctx, i);
+                    var childNodeText = children[iTextChild];
+                    ctx.currentOMNode = childNodeText;
+                    writeSVGNode(ctx, iTextChild);
                     write(ctx, ctx.terminator);
                 }
                 undent(ctx);
@@ -327,7 +332,7 @@
             }
             case "generic":
                 if (!omIn.shapeBounds) {
-                    console.log("WARNING Shape has no boundaries.")
+                    console.warn("Shape has no boundaries.");
                     return;
                 }
                 gWrap(ctx, omIn.id, function () {
@@ -359,11 +364,11 @@
                 write(ctx, ">" + ctx.terminator);
                 indent(ctx);
                 ctx.omStylesheet.writePredefines(ctx);
-                var children = ctx.currentOMNode.children;
-                for (var i = 0; i < children.length; i++) {
-                    var childNode = children[i];
-                    ctx.currentOMNode = childNode;
-                    writeSVGNode(ctx, i);
+                var childrenGroup = ctx.currentOMNode.children;
+                for (var iGroupChild = 0; iGroupChild < childrenGroup.length; iGroupChild++) {
+                    var groupChildNode = childrenGroup[iGroupChild];
+                    ctx.currentOMNode = groupChildNode;
+                    writeSVGNode(ctx, iGroupChild);
                 }
                 undent(ctx);
                 write(ctx, ctx.currentIndent + "</g>" + ctx.terminator);
@@ -372,7 +377,7 @@
             default:
                 console.log("ERROR: Unknown omIn.type = " + omIn.type);
                 break;
-        };
+        }
     }
     
     function writeSVGNode(ctx, sibling) {
@@ -392,7 +397,10 @@
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
             writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
             writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
-            write(ctx, " viewBox=\"" + omIn.viewBox.left + " " + omIn.viewBox.top + " " + omIn.viewBox.right + " " + omIn.viewBox.bottom + "\">" + ctx.terminator);
+            write(ctx, ' width="' + (omIn.viewBox.right - omIn.viewBox.left) + '" height="' + (omIn.viewBox.bottom - omIn.viewBox.top) + '"');
+            write(ctx, " viewBox=\"" + omIn.viewBox.left + " " + omIn.viewBox.top + " ");
+            write(ctx, Math.abs(omIn.viewBox.right - omIn.viewBox.left) + " ");
+            write(ctx, Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + "\">" + ctx.terminator);
             indent(ctx);
             
             // Write the style sheet.
