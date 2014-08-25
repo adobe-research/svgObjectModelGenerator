@@ -98,15 +98,16 @@
         
         generator.getDocumentInfo(null, docInfoFlags).then(
             function (document) {
-                var doc = JSON.parse(JSON.stringify(document));
+                var doc = JSON.parse(JSON.stringify(document)),
+                    cropToSingleLayer = (typeof layerSpec === "number");
                 
-                generatorPlus.patchGenerator(doc, generator, compId).then(function () {
+                generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer).then(function () {
                     if (layerSpec === "all") {
                         layerSpec = null;
                     }
                     var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
                         svgOut = svgWriter.printSVG(svgOM, {
-                            trimToArtBounds: (typeof layerSpec === "number"),
+                            trimToArtBounds: cropToSingleLayer,
                             preserveAspectRatio: "xMidYMid"
                         });
                     

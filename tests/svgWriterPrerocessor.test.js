@@ -108,6 +108,19 @@ describe('SVGWriterPreprocessor', function (){
         
         svgWriterPreprocessor.processSVGOM(ctx);
         
+        expect(svgOM.viewBox.top).to.equal(0);
+        expect(svgOM.viewBox.left).to.equal(0);
+        expect(svgOM.viewBox.right).to.equal(33);
+        expect(svgOM.viewBox.bottom).to.equal(93);
+        
+        expect(svgOM.children[0].shapeBounds.top).to.equal(1.5);
+        expect(svgOM.children[0].shapeBounds.left).to.equal(1.5);
+        expect(svgOM.children[0].shapeBounds.right).to.equal(31.5);
+        expect(svgOM.children[0].shapeBounds.bottom).to.equal(91.5);
+        
+        /*
+        //if we don't shift bounds...
+        
         expect(svgOM.viewBox.top).to.equal(8.5);
         expect(svgOM.viewBox.left).to.equal(18.5);
         expect(svgOM.viewBox.right).to.equal(51.5);
@@ -117,6 +130,7 @@ describe('SVGWriterPreprocessor', function (){
         expect(svgOM.children[0].shapeBounds.left).to.equal(20);
         expect(svgOM.children[0].shapeBounds.right).to.equal(50);
         expect(svgOM.children[0].shapeBounds.bottom).to.equal(100);
+        */
     });
     
 });

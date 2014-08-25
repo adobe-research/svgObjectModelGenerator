@@ -397,10 +397,15 @@
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
             writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
             writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
-            write(ctx, ' width="' + (omIn.viewBox.right - omIn.viewBox.left) + '" height="' + (omIn.viewBox.bottom - omIn.viewBox.top) + '"');
-            write(ctx, " viewBox=\"" + omIn.viewBox.left + " " + omIn.viewBox.top + " ");
-            write(ctx, Math.abs(omIn.viewBox.right - omIn.viewBox.left) + " ");
-            write(ctx, Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + "\">" + ctx.terminator);
+            write(ctx, ' width="' + Math.abs(omIn.viewBox.right - omIn.viewBox.left) + '" height="' + Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + '"');
+            
+            //if (omIn.viewBox.left !== 0 || omIn.viewBox.top !== 0) {
+                write(ctx, ' viewBox="' + omIn.viewBox.left + ' ' + omIn.viewBox.top + ' ');
+                write(ctx, Math.abs(omIn.viewBox.right - omIn.viewBox.left) + ' ');
+                write(ctx, Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + '"');
+            //}
+            
+            write(ctx, '>' + ctx.terminator);
             indent(ctx);
             
             // Write the style sheet.
