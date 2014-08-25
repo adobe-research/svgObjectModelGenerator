@@ -24,10 +24,13 @@
     function SVGOMGeneratorUtils() {
         
         this.toColor = function (c, a) {
-            if (!c) {
+            if (c && isFinite(c.red) && isFinite(c.green) && isFinite(c.blue)) {
+                return { "r": c.red, "g": c.green, "b": c.blue, "a": (a) ? a : 1 };
+            } else if (c && isFinite(c.redFloat) && isFinite(c.greenFloat) && isFinite(c.blueFloat)) {
+                return { "r": Math.abs(Math.round(255.0 * c.redFloat)), "g": Math.abs(Math.round(255.0 * c.greenFloat)), "b": Math.abs(Math.round(255.0 * c.blueFloat)), "a": (a) ? a : 1 };
+            } else {
                 return { r: 0, g: 0, b: 0, a: 0};
-            }
-            return { "r": c.red, "g": c.green, "b": c.blue, "a": (a) ? a : 1 };
+            }   
         };
         
         this.toGradient = function (gradientRaw) {
