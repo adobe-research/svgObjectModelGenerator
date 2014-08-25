@@ -88,6 +88,12 @@ module.exports = {
                 }
             },
             "children": [],
+            "boundsWithFX": {
+                "top": 62,
+                "left": 54,
+                "bottom": 227,
+                "right": 219
+            },
             "shape": "circle",
             "shapeBounds": {
                 "top": 62,
@@ -177,6 +183,12 @@ module.exports = {
                 }
             },
             "children": [],
+            "boundsWithFX": {
+                "top": 122,
+                "left": 123,
+                "bottom": 287,
+                "right": 288
+            },
             "shape": "circle",
             "shapeBounds": {
                 "top": 122,

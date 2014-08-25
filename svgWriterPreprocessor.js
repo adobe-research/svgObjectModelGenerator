@@ -89,21 +89,26 @@
                 boundPadTop = 0,
                 boundPadBottom = 0;
             
-            if (omIn.type === "shape" || omIn.type === "text" || (omIn.type === "generic" && omIn.shapeBounds)) {
-                bndsIn = omIn.shapeBounds;
-                if (omIn.type === "text") {
-                    boundPadLeft = 0.0;
-                    boundPadRight = 2.0;
-                    boundPadTop = 0.5;
-                    boundPadBottom = 0.0;
-                }
+            if (omIn.boundsWithFX) {
+                bndsIn = omIn.boundsWithFX;
                 
-                //if the shape has a border then we need to bump the bounds up?
-                if (omIn.style && omIn.style.stroke && omIn.style.stroke.strokeEnabled && omIn.style.stroke.lineWidth) {
-                    boundPadLeft = omIn.style.stroke.lineWidth/2.0;
-                    boundPadRight = omIn.style.stroke.lineWidth/2.0;
-                    boundPadTop = omIn.style.stroke.lineWidth/2.0;
-                    boundPadBottom = omIn.style.stroke.lineWidth/2.0;
+            } else {
+                if (omIn.type === "shape" || omIn.type === "text" || (omIn.type === "generic" && omIn.shapeBounds)) {
+                    bndsIn = omIn.shapeBounds;
+                    if (omIn.type === "text") {
+                        boundPadLeft = 0.0;
+                        boundPadRight = 2.0;
+                        boundPadTop = 0.5;
+                        boundPadBottom = 0.0;
+                    }
+
+                    //if the shape has a border then we need to bump the bounds up?
+                    if (omIn.style && omIn.style.stroke && omIn.style.stroke.strokeEnabled && omIn.style.stroke.lineWidth) {
+                        boundPadLeft = omIn.style.stroke.lineWidth/2.0;
+                        boundPadRight = omIn.style.stroke.lineWidth/2.0;
+                        boundPadTop = omIn.style.stroke.lineWidth/2.0;
+                        boundPadBottom = omIn.style.stroke.lineWidth/2.0;
+                    }
                 }
             }
             
