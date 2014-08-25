@@ -53,9 +53,9 @@
                 
             } else if (fill && fill.style === "gradient") {
                 if (fill.gradient.type === "linear") {
-                    writeLinearGradient(ctx, fill.gradient);
+                    writeLinearGradient(ctx, fill.gradient, "-fill");
                 } else if (fill.gradient.type === "radial") {
-                    writeRadialGradient(ctx, fill.gradient);
+                    writeRadialGradient(ctx, fill.gradient, "-fill");
                 }
             }
         };
@@ -88,7 +88,8 @@
                 
                 if (!ctx.hasWritten(node, "linear-gradient-attr")) {
                     ctx.didWrite(node, "linear-gradient-attr");
-                    gradientDefn = ctx.omStylesheet.getDefine(node.id, "linear-gradient");
+                    gradientDefn = ctx.omStylesheet.getDefine(node.id, "linear-gradient-fill");
+                    //gradientDefn = ctx.omStylesheet.getDefine(node.id, "linear-gradient");
                     if (gradientDefn) {
                         write(ctx, " fill=\"url(#" + gradientDefn.defnId + ")\"");
                     } else {
@@ -99,7 +100,7 @@
                 
                 if (!ctx.hasWritten(node, "radial-gradient-attr")) {
                     ctx.didWrite(node, "radial-gradient-attr");
-                    gradientDefn = ctx.omStylesheet.getDefine(node.id, "radial-gradient");
+                    gradientDefn = ctx.omStylesheet.getDefine(node.id, "radial-gradient-fill");
                     if (gradientDefn) {
                         write(ctx, " fill=\"url(#" + gradientDefn.defnId + ")\"");
                     } else {

@@ -197,9 +197,10 @@
             return gradientID;
         };
 
-        this.writeLinearGradient = function (ctx, gradient) {
+        this.writeLinearGradient = function (ctx, gradient, flavor) {
             
             //TBD: generate a real ID
+            
             var omIn = ctx.currentOMNode,
                 gradientID = svgWriterIDs.getUnique("linear-gradient"),
                 bounds = gradient.gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.svgOM.viewBox,
@@ -211,13 +212,13 @@
                 self.writeLinearGradientInternal(ctx, stops, gradientID, scale, coords);
             },
             function (out) {
-                ctx.omStylesheet.define("linear-gradient", omIn.id, gradientID, out, JSON.stringify({ coords: coords, stops: stops, scale: scale }));
+                ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, out, JSON.stringify({ coords: coords, stops: stops, scale: scale }));
             });
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient").defnId;
+            gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;
             return gradientID;
         };
 
-        this.writeRadialGradient = function (ctx, gradient) {
+        this.writeRadialGradient = function (ctx, gradient, flavor) {
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 gradientID = svgWriterIDs.getUnique("radial-gradient"),
@@ -261,9 +262,9 @@
                 self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
             },
             function (out) {
-                ctx.omStylesheet.define("radial-gradient", omIn.id, gradientID, out, JSON.stringify({ cx: cx, cy: cy, r: r, stops: stops, scale: scale, gradientSpace: gradientSpace }));
+                ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, out, JSON.stringify({ cx: cx, cy: cy, r: r, stops: stops, scale: scale, gradientSpace: gradientSpace }));
             });
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, "radial-gradient").defnId;
+            gradientID = ctx.omStylesheet.getDefine(omIn.id, "radial-gradient" + flavor).defnId;
             return gradientID;
         };
 
