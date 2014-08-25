@@ -39,7 +39,7 @@
       }
 
       .cls-8 {
-        stroke: url(#radial-gradient-1);
+        stroke: url(#radial-gradient-2);
         stroke-linejoin: round;
         stroke-width: 10px;
         stroke-dasharray: NaN,40,30;

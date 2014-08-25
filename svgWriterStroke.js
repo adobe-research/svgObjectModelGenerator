@@ -53,9 +53,9 @@
                 if (stroke.gradient) {
                     var gradientID;
                     if (stroke.gradient.type === "linear") {
-                        gradientID = writeLinearGradient(ctx, stroke.gradient);
+                        gradientID = writeLinearGradient(ctx, stroke.gradient, "-stroke");
                     } else if (stroke.gradient.type === "radial") {
-                        gradientID = writeRadialGradient(ctx, stroke.gradient);
+                        gradientID = writeRadialGradient(ctx, stroke.gradient, "-stroke");
                     }                
                     if (gradientID) {
                         styleBlock.addRule("stroke", "url(#" + gradientID + ")");
