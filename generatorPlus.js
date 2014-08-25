@@ -155,7 +155,8 @@
                 patchDeferred = Q.defer(),
                 promises = [],
                 layerComp = this.findLayerComp(psd, compId),
-                patchLayerSVG;
+                patchLayerSVG,
+                _hasBackgroundLayer = false;
             
             try{
                 patchLayerSVG = function (layer) {
@@ -169,6 +170,10 @@
                         rasterDeferred,
                         patchSettings;
 
+                    if (layerType === "backgroundLayer") {
+                        _hasBackgroundLayer = true;
+                    }
+                    
                     if (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer") {
                         
                         svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
@@ -190,6 +195,10 @@
                                 });
                         }
                         
+                        if (!_hasBackgroundLayer) {
+                            layerIndex += 1;
+                        }
+                        
                         patchSettings = {
                             layerIndex: layerIndex,
                             layerId: layerId,
@@ -204,15 +213,18 @@
                             patchSettings.xOffset = 0;
                             patchSettings.yOffset = 0;
                         }
-
+                        
                         //TBD: opportunity to cache .base64-ized layers and speed this up when they don't all change
 
-                        _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', patchSettings).then(function (oPatch) {
-
+                        _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', patchSettings).then(function (oPatch) {                            
                             if (typeof oPatch  === 'string') {
                                 oPatch = JSON.parse(oPatch);
                             }
-
+                            
+                            if (oPatch.exception) {
+                                jsxDeferred.reject(new Error("patchShapeLayer.jsx: " + oPatch.exception));
+                            }
+                            
                             if (oPatch.pathData) {
                                 layer.path.rawPathData = oPatch.pathData;
                             }
@@ -220,7 +232,6 @@
                             jsxDeferred.resolve();
 
                         }, function (err) {
-                            console.log("ERROR " + err);
                             jsxDeferred.reject(err);
                         });
 
@@ -232,7 +243,9 @@
                     }
                 }.bind(this);
 
-                for (iL = 0; iL < layers.length; iL++) {
+                //if there is a backgroundLayer we want to hit it first so we can adjust index values after
+                //so we go through the list backwards
+                for (iL = layers.length - 1; iL >= 0; iL--) {
                     lyr = layers[iL];
                     patchLayerSVG(lyr);
                 }
