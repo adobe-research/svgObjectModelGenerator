@@ -146,7 +146,7 @@
         };
         
         
-        this.patchGenerator = function (psd, _G, compId) {
+        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer) {
             var layers = psd.layers,
                 docId = psd.id,
                 docResolution = psd.resolution || 72.2,
@@ -189,12 +189,21 @@
                                     rasterDeferred.reject(err);
                                 });
                         }
-
+                        
                         patchSettings = {
                             layerIndex: layerIndex,
+                            layerId: layerId,
                             pathData: layerType === "shapeLayer",
                             fxSolidFill: true
                         };
+                        
+                        if (cropToSingleLayer) {
+                            patchSettings.xOffset = -layer.bounds.left;
+                            patchSettings.yOffset = -layer.bounds.top;
+                        } else {
+                            patchSettings.xOffset = 0;
+                            patchSettings.yOffset = 0;
+                        }
 
                         //TBD: opportunity to cache .base64-ized layers and speed this up when they don't all change
 

@@ -183,10 +183,16 @@
                     ctx._shiftContentY = (bnds.top * -1.0) + ctx._boundsPadTop;
                     
                     if (ctx.svgOM && ctx.svgOM.viewBox) {
+                        /*
                         ctx.svgOM.viewBox.left = bnds.left - ctx._boundsPadLeft;
                         ctx.svgOM.viewBox.top = bnds.top - ctx._boundsPadTop;
                         ctx.svgOM.viewBox.right = bnds.right + ctx._boundsPadRight;
                         ctx.svgOM.viewBox.bottom = bnds.bottom + ctx._boundsPadBottom;
+                        */
+                        ctx.svgOM.viewBox.left = 0;
+                        ctx.svgOM.viewBox.top = 0;
+                        ctx.svgOM.viewBox.right = (bnds.right + ctx._boundsPadRight) - (bnds.left - ctx._boundsPadLeft);
+                        ctx.svgOM.viewBox.bottom = (bnds.bottom + ctx._boundsPadBottom) - (bnds.top - ctx._boundsPadTop);
                     }
                 }
             }
@@ -196,6 +202,10 @@
 
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
+            
+            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {
+                this.shiftBounds(ctx, omIn);
+            }
             
             if (this.externalizeStyles) {
                 this.externalizeStyles(ctx);
