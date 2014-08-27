@@ -92,7 +92,7 @@
                 var fraction;
 
                 if (!(previous || next))
-                    return getCSSColor(color.red, color.green, color.blue, opacity.value / 100)
+                    return self.toColor(color.red, color.green, color.blue, opacity.value / 100);
 
                 if (!next) {
                     color = value.color ? color : stops[previous].color;

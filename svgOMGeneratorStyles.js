@@ -112,7 +112,7 @@
                 stroke.dashArray = strokeStyle.strokeStyleLineDashSet ? strokeStyle.strokeStyleLineDashSet : [];
                 stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? strokeStyle.strokeStyleLineDashOffset.value : "0";
                 stroke.color = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color) ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
-                stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 0;
+                stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
                     stroke.gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent);
                 }
@@ -148,6 +148,10 @@
             } else {
                 //unhandled fill
                 console.log("WARNING: Unhandled fill " + fillClass);
+            }
+
+            if (layer.blendOptions && layer.blendOptions.fillOpacity) {
+                svgNode.style["fill-opacity"] = layer.blendOptions.fillOpacity.value / 100;
             }
         };
 
@@ -213,6 +217,28 @@
             if (svgNode.style.fx.dropShadow) {
                 color = svgNode.style.fx.dropShadow.color;
                 svgNode.style.fx.dropShadow.color = omgUtils.toColor(color);
+            }
+
+            if (svgNode.style.fx.frameFX) {
+                var stroke = {},
+                      strokeStyle = svgNode.style.fx.frameFX;
+                
+                svgNode.style.stroke = stroke;
+                
+                if (strokeStyle) {
+                    stroke.strokeEnabled = !!strokeStyle.enabled;
+                    stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
+                    stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
+                    stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
+                    stroke.lineCap = "butt";
+                    stroke.lineJoin = "round";
+                    stroke.miterLimit = 100;
+                    if (strokeStyle.gradient) {
+                        stroke.gradient = omgUtils.toGradient(strokeStyle);
+                    }
+                } else {
+                    stroke.strokeEnabled = false;
+                }
             }
         };
         

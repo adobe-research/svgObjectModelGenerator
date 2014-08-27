@@ -5,6 +5,7 @@
       .cls-3 {
         fill: #32e2a1;
         filter: url(#filter-chain-1);
+        fill-opacity: 0.78;
       }
     </style>
 

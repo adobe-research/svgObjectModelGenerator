@@ -203,5 +203,9 @@ describe('svgWriter', function (){
             compareResults('light-global-local');
         });
 
+        it("should support fx stroke", function () {
+            compareResults('stroke-fx');
+        });
+
     });
 });

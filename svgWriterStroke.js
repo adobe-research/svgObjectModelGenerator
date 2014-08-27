@@ -75,6 +75,9 @@
                 if (omIn.style.stroke.dashOffset) {
                     styleBlock.addRule("stroke-dashoffset", px(ctx, omIn.style.stroke.dashOffset) + "px");
                 }
+                if (omIn.style.stroke.opacity !== 1) {
+                    styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
+                }
                 if (omIn.style.stroke.lineWidth) {
                     ctx._lastStrokeWidth = px(ctx, omIn.style.stroke.lineWidth);
                     styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");

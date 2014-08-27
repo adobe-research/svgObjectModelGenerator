@@ -76,7 +76,7 @@ describe('SVGWriterStroke', function (){
             };
         
         svgWriterStroke.externalizeStyles(goodCTX);
-        expect(styleBlock.addRule.callCount).to.equal(5);
+        expect(styleBlock.addRule.callCount).to.equal(6);
     });
     
    
