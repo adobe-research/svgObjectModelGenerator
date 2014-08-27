@@ -97,8 +97,8 @@
                     bndsIn = omIn.shapeBounds;
                     if (omIn.type === "text") {
                         boundPadLeft = 0.0;
-                        boundPadRight = 2.0;
-                        boundPadTop = 0.5;
+                        boundPadRight = 0.0;
+                        boundPadTop = 0.0;
                         boundPadBottom = 0.0;
                     }
 
