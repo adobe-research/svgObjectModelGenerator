@@ -31,9 +31,15 @@
     
 	function SVGWriterPreprocessor() {
         
-        this.externalizeStyles = true;
+        this.scanForUnsupportedFeatures = function (ctx) {
+            svgWriterFill.scanForUnsupportedFeatures(ctx);
+            svgWriterStroke.scanForUnsupportedFeatures(ctx);
+            svgWriterFx.scanForUnsupportedFeatures(ctx);
+        };
         
-        
+        /**
+         * Externalize styles identifies styles that can be detached from artwork.
+         **/
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
                 property,
@@ -46,20 +52,22 @@
             svgWriterFx.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-
-            for (property in omIn.style) {
-                if (omIn.style[property] === undefined) {
-                    continue;
-                }
-                // fill, stroke and fx are handled above.
-                if (property === "fill" || property === "stroke" | property ==="fx") {
-                    continue;
-                }
-                if (property === "font-size") {
-                    styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
-                    continue;
-                }
-                styleBlock.addRule(property, omIn.style[property]);
+            
+            if (omIn.style) {
+                Object.keys(omIn.style).forEach(function (property) {
+                    if (omIn.style[property] === undefined) {
+                        return;
+                    }
+                    // fill, stroke and fx are handled above.
+                    if (property === "fill" || property === "stroke" | property ==="fx") {
+                        return;
+                    }
+                    if (property === "font-size") {
+                        styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
+                        return;
+                    }
+                    styleBlock.addRule(property, omIn.style[property]);
+                });
             }
             
         };
@@ -206,10 +214,10 @@
                 this.shiftBounds(ctx, omIn);
             }
             
-            if (this.externalizeStyles) {
-                this.externalizeStyles(ctx);
-            }
-
+            this.scanForUnsupportedFeatures(ctx);
+            
+            this.externalizeStyles(ctx);
+            
             if (omIn.type == "textPath") {
                 svgWriterUtils.writeTextPath(ctx, omIn.pathData);
             }

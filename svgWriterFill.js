@@ -34,6 +34,10 @@
     
     function SVGWriterFill() {
         
+        this.scanForUnsupportedFeatures = function (ctx) {
+            
+        };
+        
         this.externalizeStyles = function (ctx) {
             
             var omIn = ctx.currentOMNode,
