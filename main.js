@@ -106,12 +106,16 @@
                         layerSpec = null;
                     }
                     var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
+                        svgWriterErrors = [],
                         svgOut = svgWriter.printSVG(svgOM, {
                             trimToArtBounds: cropToSingleLayer,
                             preserveAspectRatio: "xMidYMid"
-                        });
+                        }, svgWriterErrors);
                     
-                    deferedResult.resolve({svgText: svgOut});
+                    deferedResult.resolve({
+                        svgText: svgOut,
+                        errors: svgWriterErrors
+                    });
                 });
             }, 
             function (err) {

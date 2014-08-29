@@ -31,8 +31,8 @@
         svgWriterIDs = require("./svgWriterIDs.js"),
         SVGWriterContext = require("./svgWriterContext.js");
     
-    function getFormatContext(svgOM, cfg) {
-        return new SVGWriterContext(svgOM, cfg);
+    function getFormatContext(svgOM, cfg, errors) {
+        return new SVGWriterContext(svgOM, cfg, errors);
     }
     
     var toString = svgWriterUtils.toString,
@@ -442,8 +442,8 @@
     }
     
     
-	function print(svgOM, opt) {
-        var ctx = getFormatContext(svgOM, opt || {});
+	function print(svgOM, opt, errors) {
+        var ctx = getFormatContext(svgOM, opt || {}, errors);
         svgWriterIDs.reset();
         try {
             svgWriterPreprocessor.processSVGOM(ctx);

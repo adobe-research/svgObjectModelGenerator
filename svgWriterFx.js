@@ -42,6 +42,17 @@
                     this.hasInnerShadow(ctx));
         };
         
+        this.scanForUnsupportedFeatures = function (ctx) {
+            var omIn = ctx.currentOMNode;
+            
+            if (omIn.style && omIn.style.fx) {
+                if (this.hasEmboss(ctx)) {
+                    ctx.errors.push("Bevel and Emboss filter effects are not supported by SVG export.");
+                }
+            }
+            
+        };
+        
         this.externalizeStyles = function (ctx) {
             
             var omIn = ctx.currentOMNode,
@@ -120,6 +131,14 @@
                     styleBlock.addRule("filter", "url(#" + filterID + ")");
                 }
             }
+        };
+        
+        this.hasEmboss = function (ctx) {
+            var omIn = ctx.currentOMNode;
+            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx.bevelEmboss && omIn.style.fx.bevelEmboss.enabled) {
+                return true;
+            }
+            return false;
         };
         
         this.hasDropShadow = function (ctx) {
