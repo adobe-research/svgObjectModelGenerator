@@ -6,25 +6,39 @@
         font-size: 30px;
       }
 
-      .cls-6 {
+      .cls-5 {
         fill: #000300;
-        font-family: "Arial";
         font-size: 30px;
+        font-family: "Arial";
       }
 
-      .cls-19 {
+      .cls-15 {
         writing-mode: tb;
         glyph-orientation-vertical: 0;
       }
 
-      .cls-24 {
+      .cls-19 {
         text-anchor: end;
         font-size: 30px;
       }
 
-      .cls-40 {
+      .cls-20 {
+        fill: #000300;
+        text-anchor: end;
+        font-size: 30px;
+        font-family: "Arial";
+      }
+
+      .cls-31 {
         text-anchor: middle;
         font-size: 30px;
+      }
+
+      .cls-32 {
+        fill: #000300;
+        text-anchor: middle;
+        font-size: 30px;
+        font-family: "Arial";
       }
     </style>
 
@@ -43,64 +57,64 @@
   </defs>
   <text>
     <textPath xlink:href="#text-path-1">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-5">Text path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-2">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-5">Text path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-3">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-5">Text path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-4">
-      <tspan class="cls-4"><tspan class="cls-6">Text</tspan></tspan>
+      <tspan class="cls-5">Text</tspan>
     </textPath>
   </text>
-  <text class="cls-19">
+  <text class="cls-15">
     <textPath xlink:href="#text-path-5">
-      <tspan class="cls-4"><tspan class="cls-6">Text on path</tspan></tspan>
+      <tspan class="cls-5">Text on path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-6" startOffset="100%">
-      <tspan class="cls-24"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-20">Text path</tspan>
     </textPath>
   </text>
-  <text class="cls-19">
+  <text class="cls-15">
     <textPath xlink:href="#text-path-7">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-5">Text path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-8">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-5">Text path</tspan>
     </textPath>
   </text>
-  <text class="cls-19">
+  <text class="cls-15">
     <textPath xlink:href="#text-path-9" startOffset="100%">
-      <tspan class="cls-24"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-20">Text path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-10" startOffset="50%">
-      <tspan class="cls-40"><tspan class="cls-6">Text path</tspan></tspan>
+      <tspan class="cls-32">Text path</tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-11">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
-      <tspan dy="1.2em" x="0%" class="cls-4"><tspan class="cls-6"></tspan></tspan>
+      <tspan dy="1em" class="cls-5">Text path</tspan>
+      <tspan dy="1em" x="0%" class="cls-5"></tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-12">
-      <tspan class="cls-4"><tspan class="cls-6">Text path</tspan></tspan>
-      <tspan dy="1.2em" x="0%" class="cls-4"><tspan class="cls-6"></tspan></tspan>
+      <tspan dy="1em" class="cls-5">Text path</tspan>
+      <tspan dy="1em" x="0%" class="cls-5"></tspan>
     </textPath>
   </text>
 </svg>
