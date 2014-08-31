@@ -1,17 +1,16 @@
-/*
- * ADOBE CONFIDENTIAL
- *
- * Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
- *
- * NOTICE:  All information contained herein is, and remains
- * the property of Adobe Systems Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Adobe Systems Incorporated and its
- * suppliers and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Adobe Systems Incorporated.
- */
+// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
 /*global define: true, require: true, module: true */
@@ -110,7 +109,7 @@
         }
     }
 
-    function writeLayerNode(ctx, sibling) {
+    function writeLayerNode(ctx, sibling, siblingsLength) {
         var omIn = ctx.currentOMNode;
         
         //TBD: in some cases people might want to export their hidden layers so they can turn them on interactively
@@ -232,7 +231,8 @@
                 write(ctx, "<tspan");
                 // Set paragraph styles.
                 if (omIn.position) {
-                    writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
+                    //writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
+                    writeAttrIfNecessary(ctx, "dy", ((siblingsLength > 1) ? 1.0 : 0) + "em", "0em", "");
                     writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
                 }
                 writeClassIfNeccessary(ctx);
@@ -242,7 +242,7 @@
                     for (var i = 0; i < omIn.children.length; i++) {
                         var childNode = omIn.children[i];
                         ctx.currentOMNode = childNode;
-                        writeSVGNode(ctx, i);
+                        writeSVGNode(ctx, i, omIn.children.length);
                     }
                 }
                 if (omIn.text) {
@@ -268,7 +268,6 @@
                     writeTransformIfNecessary(ctx, "transform", omIn.transform);
                     write(ctx, ">" + ctx.terminator);
 
-                    // FIXME: Avoid extra tspan for one paragraph.
                     indent(ctx);
                     ctx.omStylesheet.writePredefines(ctx);
                     var children = ctx.currentOMNode.children;
@@ -276,7 +275,7 @@
                         write(ctx, ctx.currentIndent);
                         var childNode = children[i];
                         ctx.currentOMNode = childNode;
-                        writeSVGNode(ctx, i);
+                        writeSVGNode(ctx, i, children.length);
                         write(ctx, ctx.terminator);
                     }
                     undent(ctx);
@@ -323,7 +322,7 @@
                     write(ctx, ctx.currentIndent);
                     var childNodeText = children[iTextChild];
                     ctx.currentOMNode = childNodeText;
-                    writeSVGNode(ctx, iTextChild);
+                    writeSVGNode(ctx, iTextChild, children.length);
                     write(ctx, ctx.terminator);
                 }
                 undent(ctx);
@@ -368,7 +367,7 @@
                 for (var iGroupChild = 0; iGroupChild < childrenGroup.length; iGroupChild++) {
                     var groupChildNode = childrenGroup[iGroupChild];
                     ctx.currentOMNode = groupChildNode;
-                    writeSVGNode(ctx, iGroupChild);
+                    writeSVGNode(ctx, iGroupChild, childrenGroup.length);
                 }
                 undent(ctx);
                 write(ctx, ctx.currentIndent + "</g>" + ctx.terminator);
@@ -380,7 +379,7 @@
         }
     }
     
-    function writeSVGNode(ctx, sibling) {
+    function writeSVGNode(ctx, sibling, siblingsLength) {
 
         var omIn = ctx.currentOMNode;
         
@@ -430,14 +429,14 @@
             for (i = 0; i < children.length; i++) {
                 childNode = children[i];
                 ctx.currentOMNode = childNode;
-                writeSVGNode(ctx, i);
+                writeSVGNode(ctx, i, children.length, children.length);
             }
             
             undent(ctx);
             ctx.currentOMNode = omIn;
             write(ctx, "</svg>" + ctx.terminator);
         } else {
-            writeLayerNode(ctx, sibling);
+            writeLayerNode(ctx, sibling, siblingsLength);
         }
     }
     

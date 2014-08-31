@@ -3,65 +3,61 @@
     <style type="text/css">
 
       .cls-4 {
-        font-size: 63.635px;
-      }
-
-      .cls-5 {
         fill: #030303;
-        font-family: "Myriad Pro";
         font-size: 63.635px;
+        font-family: "Myriad Pro";
       }
 
-      .cls-9 {
+      .cls-8 {
         fill: #39ff02;
-        font-family: "Myriad Pro";
         font-size: 63.635px;
+        font-family: "Myriad Pro";
       }
 
-      .cls-16 {
+      .cls-15 {
         fill: #ff032d;
-        font-family: "Myriad Pro";
         font-size: 63.635px;
+        font-family: "Myriad Pro";
       }
 
-      .cls-18 {
+      .cls-17 {
         fill: #030303;
-        font-family: "Myriad Pro";
         font-size: 63.635px;
+        font-family: "Myriad Pro";
         font-weight: bold;
       }
 
-      .cls-20 {
+      .cls-19 {
         fill: #030303;
-        font-family: "Minion Pro";
         font-size: 63.635px;
+        font-family: "Minion Pro";
       }
 
-      .cls-23 {
+      .cls-22 {
         fill: #ff032d;
-        font-family: "Minion Pro";
         font-size: 63.635px;
+        font-family: "Minion Pro";
       }
 
-      .cls-28 {
+      .cls-27 {
         fill: #02ffa2;
-        font-family: "Minion Pro";
         font-size: 20px;
+        font-family: "Minion Pro";
       }
     </style>
   </defs>
   <text x="13%" y="12%">
-    <tspan x="13%" class="cls-4"><tspan class="cls-5">This is a text example</tspan></tspan>
+    <tspan class="cls-4">This is a text example</tspan>
   </text>
   <text x="14%" y="23%">
-    <tspan x="14%" class="cls-4"><tspan class="cls-5">This is a </tspan><tspan class="cls-9">text </tspan><tspan class="cls-5">example</tspan></tspan>
+    <tspan><tspan dy="1em" class="cls-4">This is a </tspan><tspan dy="1em" x="0%" class="cls-8">text </tspan><tspan dy="1em" x="0%" class="cls-4">example</tspan></tspan>
   </text>
   <text x="14%" y="33%">
-    <tspan x="14%" class="cls-4"><tspan class="cls-5">Thi</tspan><tspan class="cls-9">s i</tspan><tspan class="cls-5">s </tspan><tspan class="cls-16">a t</tspan><tspan class="cls-5">ex</tspan><tspan class="cls-18">t e</tspan><tspan class="cls-5">xa</tspan><tspan class="cls-20">mple</tspan></tspan>
+    <tspan><tspan dy="1em" class="cls-4">Thi</tspan><tspan dy="1em" x="0%" class="cls-8">s i</tspan><tspan dy="1em" x="0%" class="cls-4">s </tspan><tspan dy="1em" x="0%" class="cls-15">a t</tspan><tspan dy="1em" x="0%" class="cls-4">ex</tspan><tspan dy="1em" x="0%" class="cls-17">t e</tspan><tspan dy="1em" x="0%" class="cls-4">xa</tspan><tspan dy="1em" x="0%" class="cls-19">mple</tspan></tspan>
   </text>
   <text x="15%" y="43%">
-    <tspan x="15%" class="cls-4"><tspan class="cls-23">This i</tspan><tspan class="cls-20">s</tspan></tspan>
-    <tspan dy="1.2em" x="15%" class="cls-4"><tspan class="cls-20">a te</tspan><tspan class="cls-23">x</tspan><tspan class="cls-28">t</tspan></tspan>
-    <tspan dy="1.2em" x="15%" class="cls-4"><tspan class="cls-28">exam</tspan><tspan class="cls-23">ple</tspan></tspan>
+    <tspan dy="1em"><tspan dy="1em" class="cls-22">This i</tspan><tspan dy="1em" x="0%" class="cls-19">s</tspan></tspan>
+    <tspan dy="1em" x="0%"><tspan dy="1em" class="cls-19">a te</tspan><tspan dy="1em" x="0%" class="cls-22">x</tspan><tspan dy="1em" x="0%" class="cls-27">t</tspan></tspan>
+    <tspan dy="1em" x="0%"><tspan dy="1em" class="cls-27">exam</tspan><tspan dy="1em" x="0%" class="cls-22">ple</tspan></tspan>
   </text>
 </svg>

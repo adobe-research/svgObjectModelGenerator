@@ -1,20 +1,19 @@
-/*
- * ADOBE CONFIDENTIAL
- *
- * Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
- *
- * NOTICE:  All information contained herein is, and remains
- * the property of Adobe Systems Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Adobe Systems Incorporated and its
- * suppliers and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Adobe Systems Incorporated.
- */
+// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
+/*global define: true, require: true, module: true */
 
 /* Help construct the svgOM */
 
@@ -67,21 +66,21 @@
                         pathData += round1k(points[i].anchor.horizontal) + " " + round1k(points[i].anchor.vertical);
                     }
                     return pathData;
-                }
+                };
 
                 svgNode.type = "text";
                 svgNode.shapeBounds = layer.bounds;
                 svgNode.position = {
                     x: 0,
                     y: 0
-                }
+                };
 
                 writer.pushCurrent(svgNode);
                 svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
-                svgTextPathNode.pathData = computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0].points)
+                svgTextPathNode.pathData = computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0].points);
 
                 // FIXME: Text on path always has just one paragraph. Avoid creatnig an extra element for it.
-                if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position)) {
+                if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds)) {
                     return false;
                 }
 
@@ -99,7 +98,9 @@
         
         this.addSimpleText = function (svgNode, layer, writer) {
             var self = this;
+            
             return this.textComponentOrigin(layer, function (text) {
+                
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
@@ -111,67 +112,94 @@
                 svgNode.position = {
                     x: text.textClickPoint.horizontal.value,
                     y: text.textClickPoint.vertical.value
-                }
+                };
                 self.addTextTransform(svgNode, text, layer);
                 
-                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position);
+                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds);
             });
         };
         
-        this.addTextChunks = function (svgNode, layer, text, writer, position) {
+        this.addTextChunks = function (svgNode, layer, text, writer, position, bounds) {
             var textString = text.textKey,
-                paragraph,
-                textStyle,
-                from,
-                to,
-                indexTextStyle = 0,
                 svgParagraphNode,
                 svgTextChunkNode;
-
+            
             writer.pushCurrent(svgNode);
-
+            
             // A paragraph is a newline added by the user. Each paragraph can
             // have a different text alignment.
-            for (var i = 0; i < text.paragraphStyleRange.length; ++i) {
-                paragraph = text.paragraphStyleRange[i];
-                if (!text.textStyleRange[indexTextStyle])
-                    break;
-                if (text.textStyleRange[indexTextStyle].from >= paragraph.to) {
-                    console.log('ERROR: Text exceeded expected range for paragraph.')
-                    return false;
-                }
-
-                svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan", true);
-                svgParagraphNode.position = {
-                    x: position.x,
-                    y: position.y
-                }
-                writer.pushCurrent(svgParagraphNode);
-
+            text.paragraphStyleRange.forEach(function (paragraph, iP) {
+                var from,
+                    to,
+                    i,
+                    indexTextStyleFrom,
+                    indexTextStyleTo,
+                    textSR = text.textStyleRange,
+                    paragraphId = svgNode.id + "-" + iP,
+                    spanId,
+                    yPosGuess = (iP / text.paragraphStyleRange.length),
+                    pctYPosGuess = Math.round(100.0 * yPosGuess),
+                    svgParagraphNode;
+                
                 // Text can consist of multiple textStyles. A textStyle
                 // may span over multiple paragraphs and describes the text color
                 // and font styling of each text span.
-                while (indexTextStyle < text.textStyleRange.length) {
-                    // Process current text span represented by a textStyle.
-                    textStyle = text.textStyleRange[indexTextStyle];
-                    from = Math.max(textStyle.from, paragraph.from); // Should always be textStyle.
-                    to = Math.min(textStyle.to, paragraph.to);
-
-                    svgTextChunkNode = writer.addSVGNode(svgParagraphNode.id + "-" + indexTextStyle, "tspan", true);
-                    svgTextChunkNode.text = textString.substring(from, to).replace("\r","");
-                    omgStyles.addTextChunkStyle(svgTextChunkNode, textStyle);
-                    if (textStyle.to >= paragraph.to) {
-                        break;
+                textSR.forEach(function (textStyle, index) {
+                    if (textStyle.from <= paragraph.from &&
+                        (!isFinite(indexTextStyleFrom) || textSR[indexTextStyleFrom].from < textStyle.from)) {
+                        indexTextStyleFrom = index;
                     }
-                    ++indexTextStyle;
-                };
-                omgStyles.addParagraphStyle(svgParagraphNode, paragraph.paragraphStyle);
-                writer.popCurrent();
-            }
+                    if (textStyle.to >= paragraph.to &&
+                        (!isFinite(indexTextStyleTo) || textSR[indexTextStyleTo].to > textStyle.to)) {
+                        indexTextStyleTo = index;
+                    }
+                });
+                
+                if(!isFinite(indexTextStyleFrom) || !isFinite(indexTextStyleTo)) {
+                    console.log('ERROR: Text style range no found for paragraph.');
+                    return false;
+                }
+                
+                if (indexTextStyleFrom !== indexTextStyleTo) {
+                    //then nest a paragraphNode...
+                    svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan", true);
+                    svgParagraphNode.position = {
+                        x: 0,
+                        y: position.y + pctYPosGuess
+                    };
+                    writer.pushCurrent(svgParagraphNode);
+                    pctYPosGuess = 0;
+                }
+                
+                //process each text style, start at paragraph.from and end at paragraph.to
+                //fill in any necessary text style in-between
+                for (i = indexTextStyleFrom; i <= indexTextStyleTo; i++) {
+                    from = (i === indexTextStyleFrom) ? paragraph.from : textSR[i].from;
+                    to = (i === indexTextStyleTo) ? paragraph.to : textSR[i].to;
+                    
+                    spanId = (indexTextStyleTo === indexTextStyleFrom) ? paragraphId : paragraphId + "-" + (i - indexTextStyleFrom);
+                    svgTextChunkNode = writer.addSVGNode(spanId, "tspan", true);
+                    svgTextChunkNode.text = textString.substring(from, to).replace("\r","");
+                    
+                    //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
+                    
+                    svgTextChunkNode.position = {
+                        x: 0,
+                        y: pctYPosGuess
+                    };
+                    
+                    omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
+                    omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i]);
+                }
+                
+                if (indexTextStyleFrom !== indexTextStyleTo) {
+                    //pop paragraph
+                    writer.popCurrent();
+                }
+            });
             writer.popCurrent();
-
+            
             omgStyles.addTextStyle(svgNode, layer);
-
             omgStyles.addStylingData(svgNode, layer);
             return true;
         };
@@ -209,7 +237,7 @@
             svgNode.position = {
                 x: 0,
                 y: 0
-            }
+            };
             svgNode.transform = t;
         };
 
@@ -224,7 +252,7 @@
             this.translate = function (tx, ty) {
                 this.e += tx * this.a + ty * this.c;
                 this.f += tx * this.b + ty * this.d;
-            }
+            };
 
             this.multiply = function (a, b, c, d, e, f) {
                 var t_a = this.a;
@@ -239,8 +267,8 @@
                 this.d = c * t_b + d * t_d;
                 this.e = e * t_a + f * t_c + t_e;
                 this.f = e * t_b + f * t_d + t_f;
-            }
-        }
+            };
+        };
 
         this.addTextData = function(svgNode, layer, writer) {
             if (this.addTextOnPath(svgNode, layer, writer) ||

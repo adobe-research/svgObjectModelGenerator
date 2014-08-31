@@ -7,13 +7,9 @@
       }
 
       .cls-4 {
-        font-size: 63.635px;
-      }
-
-      .cls-5 {
         fill: #696969;
-        font-family: "Myriad Pro";
         font-size: 63.635px;
+        font-family: "Myriad Pro";
       }
     </style>
 
@@ -24,6 +20,6 @@
     </filter>
   </defs>
   <text class="cls-3" x="30%" y="20%">
-    <tspan x="30%" class="cls-4"><tspan class="cls-5">This is a text</tspan></tspan>
+    <tspan class="cls-4">This is a text</tspan>
   </text>
 </svg>

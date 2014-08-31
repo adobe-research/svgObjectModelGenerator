@@ -3,29 +3,29 @@
     <style type="text/css">
 
       .cls-4 {
+        fill: #030303;
         font-size: 63.635px;
+        font-family: "Minion Pro";
       }
 
       .cls-5 {
         fill: #030303;
-        font-family: "Minion Pro";
+        text-anchor: middle;
         font-size: 63.635px;
+        font-family: "Minion Pro";
       }
 
       .cls-6 {
-        text-anchor: middle;
-        font-size: 63.635px;
-      }
-
-      .cls-8 {
+        fill: #030303;
         text-anchor: end;
         font-size: 63.635px;
+        font-family: "Minion Pro";
       }
     </style>
   </defs>
   <text x="45%" y="26%">
-    <tspan x="45%" class="cls-4"><tspan class="cls-5">Left aligned</tspan></tspan>
-    <tspan dy="1.2em" x="45%" class="cls-6"><tspan class="cls-5">center</tspan></tspan>
-    <tspan dy="1.2em" x="45%" class="cls-8"><tspan class="cls-5">right aligned</tspan></tspan>
+    <tspan dy="1em" class="cls-4">Left aligned</tspan>
+    <tspan dy="1em" x="0%" class="cls-5">center</tspan>
+    <tspan dy="1em" x="0%" class="cls-6">right aligned</tspan>
   </text>
 </svg>

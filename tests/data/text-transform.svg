@@ -4,19 +4,15 @@
 
       .cls-4 {
         font-size: 30px;
-      }
-
-      .cls-5 {
         font-family: "Arial";
-        font-size: 30px;
       }
     </style>
   </defs>
   <text x="30%" y="44%">
-    <tspan x="30%" class="cls-4"><tspan class="cls-5">Text</tspan></tspan>
+    <tspan class="cls-4">Text</tspan>
   </text>
   <text transform="matrix(0.803009, -0.697021, 0.70287, 1.486869, 240.87288453521052, 285.63591454109553)">
-    <tspan class="cls-4"><tspan class="cls-5">Text</tspan></tspan>
-    <tspan dy="1.2em" x="0%" class="cls-4"><tspan class="cls-5">test</tspan></tspan>
+    <tspan dy="1em" class="cls-4">Text</tspan>
+    <tspan dy="1em" x="0%" class="cls-4">test</tspan>
   </text>
 </svg>
