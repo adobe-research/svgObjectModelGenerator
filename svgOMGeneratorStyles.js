@@ -157,7 +157,7 @@
         this.addFx = function (svgNode, layer) {
             var color;
 
-            if (!layer.layerEffects) {
+            if (!layer.layerEffects || layer.layerEffects.masterFXSwitch === false) {
                 return;
             }
             svgNode.style.fx = JSON.parse(JSON.stringify(layer.layerEffects));
@@ -370,5 +370,3 @@
 	module.exports = new SVGOMGeneratorStyles();
 
 }());
-     
-    
