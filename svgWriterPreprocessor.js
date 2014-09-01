@@ -145,7 +145,7 @@
                         if (omIn.children && omIn.children.length === 1) {
                             omIn.position.y = 100.0;
                         } else {
-                            omIn.position.y = 0.0;
+                            //omIn.position.y = 0.0;
                         }
                     }
                 }

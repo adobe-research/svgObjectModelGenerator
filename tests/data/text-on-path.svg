@@ -107,14 +107,14 @@
   </text>
   <text>
     <textPath xlink:href="#text-path-11">
-      <tspan dy="1em" class="cls-5">Text path</tspan>
-      <tspan dy="1em" x="0%" class="cls-5"></tspan>
+      <tspan class="cls-5">Text path</tspan>
+      <tspan dy="1.2em" x="0%" class="cls-5"></tspan>
     </textPath>
   </text>
   <text>
     <textPath xlink:href="#text-path-12">
-      <tspan dy="1em" class="cls-5">Text path</tspan>
-      <tspan dy="1em" x="0%" class="cls-5"></tspan>
+      <tspan class="cls-5">Text path</tspan>
+      <tspan dy="1.2em" x="0%" class="cls-5"></tspan>
     </textPath>
   </text>
 </svg>

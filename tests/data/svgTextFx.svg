@@ -6,16 +6,20 @@
         filter: url(#filter-chain-1);
       }
 
+      .cls-4 {
+        font-size: 31.818px;
+      }
+
       .cls-5 {
         fill: #030303;
-        font-size: 31.818px;
         font-family: "Minion Pro";
+        font-size: 31.818px;
       }
 
       .cls-6 {
         fill: #0241ff;
-        font-size: 31.818px;
         font-family: "Minion Pro";
+        font-size: 31.818px;
       }
     </style>
 
@@ -31,6 +35,6 @@
     </filter>
   </defs>
   <text class="cls-3" x="31%" y="26%">
-    <tspan><tspan dy="1em" class="cls-5">This is a </tspan><tspan dy="1em" x="0%" class="cls-6">text</tspan></tspan>
+    <tspan x="31%" class="cls-4"><tspan class="cls-5">This is a </tspan><tspan class="cls-6">text</tspan></tspan>
   </text>
 </svg>

@@ -232,7 +232,8 @@
                 // Set paragraph styles.
                 if (omIn.position) {
                     //writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
-                    writeAttrIfNecessary(ctx, "dy", ((siblingsLength > 1) ? 1.0 : 0) + "em", "0em", "");
+                    //writeAttrIfNecessary(ctx, "dy", ((siblingsLength > 1) ? 1.0 : 0) + "em", "0em", "");
+                    writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
                     writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
                 }
                 writeClassIfNeccessary(ctx);
