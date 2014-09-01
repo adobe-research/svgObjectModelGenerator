@@ -139,7 +139,9 @@
                     spanId,
                     yPosGuess = (iP / text.paragraphStyleRange.length),
                     pctYPosGuess = Math.round(100.0 * yPosGuess),
-                    svgParagraphNode;
+                    svgParagraphNode,
+                    currentFrom = paragraph.from,
+                    xPosGuess;
                 
                 // Text can consist of multiple textStyles. A textStyle
                 // may span over multiple paragraphs and describes the text color
@@ -161,11 +163,13 @@
                 }
                 
                 if (indexTextStyleFrom !== indexTextStyleTo) {
+                    
                     //then nest a paragraphNode...
                     svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan", true);
                     svgParagraphNode.position = {
-                        x: 0,
-                        y: position.y + pctYPosGuess
+                        x: position.x,
+                        //y: position.y + pctYPosGuess
+                        y: position.y
                     };
                     writer.pushCurrent(svgParagraphNode);
                     pctYPosGuess = 0;
@@ -182,18 +186,21 @@
                     svgTextChunkNode.text = textString.substring(from, to).replace("\r","");
                     
                     //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
+                    xPosGuess = currentFrom / (paragraph.to - paragraph.from);
                     
-                    svgTextChunkNode.position = {
-                        x: 0,
-                        y: pctYPosGuess
-                    };
+                    if (indexTextStyleFrom === indexTextStyleTo) {
+                        svgTextChunkNode.position = {
+                            x: 0,
+                            y: position.y
+                        };
+                        omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
+                    }
                     
-                    omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
                     omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i]);
                 }
                 
                 if (indexTextStyleFrom !== indexTextStyleTo) {
-                    //pop paragraph
+                    omgStyles.addParagraphStyle(svgParagraphNode, paragraph.paragraphStyle);
                     writer.popCurrent();
                 }
             });

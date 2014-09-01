@@ -12,7 +12,7 @@
     <tspan class="cls-4">Text</tspan>
   </text>
   <text transform="matrix(0.803009, -0.697021, 0.70287, 1.486869, 240.87288453521052, 285.63591454109553)">
-    <tspan dy="1em" class="cls-4">Text</tspan>
-    <tspan dy="1em" x="0%" class="cls-4">test</tspan>
+    <tspan class="cls-4">Text</tspan>
+    <tspan dy="1.2em" x="0%" class="cls-4">test</tspan>
   </text>
 </svg>

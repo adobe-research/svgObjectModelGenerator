@@ -24,8 +24,8 @@
     </style>
   </defs>
   <text x="45%" y="26%">
-    <tspan dy="1em" class="cls-4">Left aligned</tspan>
-    <tspan dy="1em" x="0%" class="cls-5">center</tspan>
-    <tspan dy="1em" x="0%" class="cls-6">right aligned</tspan>
+    <tspan class="cls-4">Left aligned</tspan>
+    <tspan dy="1.2em" x="0%" class="cls-5">center</tspan>
+    <tspan dy="1.2em" x="0%" class="cls-6">right aligned</tspan>
   </text>
 </svg>
