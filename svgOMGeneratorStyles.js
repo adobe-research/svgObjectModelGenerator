@@ -269,8 +269,8 @@
 
             if (textStyle.textStyle.fontName) {
                 fontFamily = textStyle.textStyle.fontName;
-                if (textStyle.textStyle.fontPostscriptName) {
-                    fontFamily = textStyle.textStyle.fontPostscriptName;
+                if (textStyle.textStyle.fontPostScriptName && textStyle.textStyle.fontStyleName !== "Regular") {
+                    fontFamily = textStyle.textStyle.fontPostScriptName;
                 }
                 span.style["font-family"] = '"' + fontFamily + '"';
             }

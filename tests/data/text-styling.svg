@@ -5,21 +5,21 @@
       .cls-4 {
         fill: #030303;
         font-size: 60px;
-        font-family: "Arial";
+        font-family: "Arial-ItalicMT";
         font-style: italic;
       }
 
       .cls-6 {
         fill: #030303;
         font-size: 60px;
-        font-family: "Arial";
+        font-family: "Arial-BoldMT";
         font-weight: bold;
       }
 
       .cls-8 {
         fill: #030303;
         font-size: 60px;
-        font-family: "Arial";
+        font-family: "Arial-BoldItalicMT";
         font-weight: bold;
         font-style: italic;
       }
