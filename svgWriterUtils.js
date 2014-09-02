@@ -113,7 +113,9 @@
 
         this.writeLinearGradientInternal = function (ctx, stops, gradientID, scale, coords) {
             var iStop,
-                stp;
+                stp,
+                stpOpacity,
+                position;
             
             self.write(ctx, ctx.currentIndent + "<linearGradient id=\"" + gradientID + "\"");
             self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
@@ -123,8 +125,13 @@
             self.indent(ctx);
             for (iStop = 0; iStop < stops.length; iStop++) {
                 stp = stops[iStop];
-                var position = self.round1k((Math.round(stp.position, 2)/100.0 - 0.5) * scale + 0.5);
-                self.write(ctx, ctx.currentIndent + "<stop offset=\"" + position + "\" stop-color=\"" + self.writeColor(stp.color) + "\"/>" + ctx.terminator);
+                stpOpacity = '';
+                position = self.round1k((Math.round(stp.position, 2)/100.0 - 0.5) * scale + 0.5);
+                
+                if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
+                    stpOpacity = ' stop-opacity="' + (Math.round(stp.color.a * 100.0, 2)/100.0) + '"';
+                }
+                self.write(ctx, ctx.currentIndent + '<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
             }
             self.undent(ctx);
             self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
@@ -244,7 +251,8 @@
 
             self.ctxCapture(ctx, function () {
                 var iStop,
-                    stp;
+                    stp,
+                    stpOpacity;
                 
                 self.write(ctx, ctx.currentIndent + "<radialGradient id=\"" + gradientID + "\"");
                 self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
@@ -254,9 +262,16 @@
                 self.write(ctx, ">" + ctx.terminator);
 
                 self.indent(ctx);
+                
                 for (iStop = 0; iStop < stops.length; iStop++) {
                     stp = stops[iStop];
-                    self.write(ctx, ctx.currentIndent + "<stop offset=\"" + self.round1k(Math.round(stp.position, 2)/100.0 * scale) + "\" stop-color=\"" + self.writeColor(stp.color) + "\"/>" + ctx.terminator);
+                    stpOpacity = '';
+                    
+                    if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
+                        stpOpacity = ' stop-opacity="' + Math.round(stp.color.a, 2) + '"';
+                    }
+                    
+                    self.write(ctx, ctx.currentIndent + '<stop offset="' + self.round1k(Math.round(stp.position, 2)/100.0 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
                 }
                 self.undent(ctx);
                 self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
