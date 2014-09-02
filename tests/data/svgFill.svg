@@ -22,9 +22,11 @@
     </style>
 
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="136.5" y1="227" x2="136.5" y2="62">
+      <stop offset="0" stop-color="#0b01b8"/>
       <stop offset="0.1" stop-color="#0b01b8"/>
       <stop offset="0.5" stop-color="#fdfa03"/>
       <stop offset="0.9" stop-color="#0b02aa"/>
+      <stop offset="1" stop-color="#0b02aa"/>
     </linearGradient>
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#ff0000" flood-opacity="0.5"/>
@@ -32,9 +34,11 @@
       <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
     <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122">
+      <stop offset="0" stop-color="#0b01b8"/>
       <stop offset="0.1" stop-color="#0b01b8"/>
       <stop offset="0.5" stop-color="#fdfa03"/>
       <stop offset="0.9" stop-color="#0b02aa"/>
+      <stop offset="1" stop-color="#0b02aa"/>
     </linearGradient>
     <filter id="color-overlay-2" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#9f07b1" flood-opacity="0.5"/>

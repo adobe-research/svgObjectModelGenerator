@@ -24,14 +24,39 @@
     function SVGOMGeneratorUtils() {
         
         this.toColor = function (c, a) {
+            if (!isFinite(a)) {
+                a = 1.0;
+            }
             if (c && isFinite(c.red) && isFinite(c.green) && isFinite(c.blue)) {
-                return { "r": c.red, "g": c.green, "b": c.blue, "a": (a) ? a : 1 };
+                return { "r": c.red, "g": c.green, "b": c.blue, "a": a };
             } else if (c && isFinite(c.redFloat) && isFinite(c.greenFloat) && isFinite(c.blueFloat)) {
-                return { "r": Math.abs(Math.round(255.0 * c.redFloat)), "g": Math.abs(Math.round(255.0 * c.greenFloat)), "b": Math.abs(Math.round(255.0 * c.blueFloat)), "a": (a) ? a : 1 };
+                return { "r": Math.abs(Math.round(255.0 * c.redFloat)), "g": Math.abs(Math.round(255.0 * c.greenFloat)), "b": Math.abs(Math.round(255.0 * c.blueFloat)), "a": a };
             } else {
-                return { r: 0, g: 0, b: 0, a: 0};
+                return { r: 0, g: 0, b: 0, a: a };
             }   
         };
+        
+        function _addOrEditStop(stops, def, colorDefined) {
+            var foundStop;
+            stops.forEach(function (stp) {
+                if (stp.position === def.position) {
+                    foundStop = stp;
+                }
+            });
+            
+            if (foundStop) {
+                
+                if (colorDefined) {
+                    foundStop.color.r = def.color.r;
+                    foundStop.color.g = def.color.g;
+                    foundStop.color.b = def.color.b;
+                } else {
+                    foundStop.color.a = def.color.a;
+                }
+            } else {
+                stops.push(def);
+            }
+        }
         
         this.toGradient = function (gradientRaw) {
             var gradient,
@@ -74,11 +99,33 @@
                 return a.location - b.location;
             });
 
-            function getNextStop(stopType, direction, start) {
-                for (; start > 0 && start < stops.length; start += direction) {
-                    if (stops[start][stopType])
-                        return stops[start];
+            function getNextStop(stopType, direction, startLoc, bRecurse) {
+                var indexStart,
+                    stopRet;
+                stops.forEach(function (stop, index) {
+                    if (stop.location === startLoc) {
+                        if (stop[stopType]) {
+                            stopRet = stop;
+                        } else {
+                            indexStart = index;
+                        }
+                    }
+                });
+                
+                if (stopRet) {
+                    return stopRet;
                 }
+                
+                for (; indexStart >= 0 && indexStart < stops.length; indexStart += direction) {
+                    if (stops[indexStart][stopType]) {
+                        return stops[indexStart];
+                    }
+                }
+                
+                if (!bRecurse) {
+                    return getNextStop(stopType, direction * -1, startLoc, true);
+                }
+                
                 return undefined;
             }
 
@@ -86,70 +133,105 @@
                 return fraction * (endValue - beginValue) + beginValue;
             }
 
-            function interpolateStop(previous, next, value) {
-                var color = value.color ? value.color : { red: 0, green: 0, blue: 0 };
-                var opacity = value.opacity ? value.opacity : { value: 100, units: 'percentUnit' };
-                var fraction;
-
-                if (!(previous || next))
+            function interpolateStop(prevColorStop, nextColorStop, prevOpacityStop, nextOpacityStop, value, firstLoc, lastLoc) {
+                
+                var color = value.color ? value.color : { red: 0, green: 0, blue: 0 },
+                    opacity = value.opacity ? value.opacity : { value: 100, units: 'percentUnit' },
+                    prevDefaultColor,
+                    nextDefaultColor,
+                    prevDefaultOpacity,
+                    nextDefaultOpacity,
+                    fraction;
+                
+                if (!(prevColorStop || prevOpacityStop || nextColorStop || nextOpacityStop)) {
                     return self.toColor(color.red, color.green, color.blue, opacity.value / 100);
-
-                if (!next) {
-                    color = value.color ? color : stops[previous].color;
-                    opacity = value.opacity ? opacity : stops[previous.opacity];
-                } else if (!previous) {
-                    color = value.color ? color : stops[next].color;
+                }
+                
+                if (value.color) {
+                    //setting color and interpolating opacity
+                    prevDefaultOpacity = (nextOpacityStop) ? nextOpacityStop.opacity : { value: 100, units: 'percentUnit' } ;
+                    nextDefaultOpacity = (prevOpacityStop) ? prevOpacityStop.opacity : { value: 100, units: 'percentUnit' };
                     
-                    opacity = (value && value.opacity) ? opacity : (stops[next]) ? stops[next].opacity : 1.0;
-                } else {
-                    fraction = (value.location - previous.location) / (next.location - previous.location);
-                    if (value.color) {
-                        // Interpolate opacity.
-                        opacity = { value: interpolateValue(fraction, previous.value, next.value), units: 'percentUnit' };
+                    prevOpacityStop = prevOpacityStop || { opacity: prevDefaultOpacity, location: firstLoc };
+                    nextOpacityStop = nextOpacityStop || { opacity: nextDefaultOpacity, location: lastLoc };
+                    
+                    if (prevOpacityStop.loction === nextOpacityStop.location) {
+                        opacity = prevOpacityStop.opacity;
                     } else {
-                        // Interpolate color.
+                        fraction = (value.location - prevOpacityStop.location) / (nextOpacityStop.location - prevOpacityStop.location);
+                        opacity = { value: interpolateValue(fraction, prevOpacityStop.value, nextOpacityStop.value), units: 'percentUnit' };
+                    }
+                    
+                } else if (value.opacity) {
+                    //setting opacity and interpolating color
+                    prevDefaultColor = (nextColorStop) ? nextColorStop.color : { red: 0, green: 255, blue: 0 };
+                    nextDefaultColor = (prevColorStop) ? prevColorStop.color : { red: 0, green: 255, blue: 0 };
+                    
+                    prevColorStop = prevColorStop || { color: prevDefaultColor, location: firstLoc };
+                    nextColorStop = nextColorStop || { color: nextDefaultColor, location: lastLoc };
+                    
+                    if (prevColorStop.location === nextColorStop.location) {
                         color = {
-                            red: interpolateValue(fraction, previous.red, next.red),
-                            green: interpolateValue(fraction, previous.green, next.green),
-                            blue: interpolateValue(fraction, previous.blue, next.blue)
+                            red: prevColorStop.color.red,
+                            green: prevColorStop.color.green,
+                            blue: prevColorStop.color.blue
+                        };
+                    } else {
+                        fraction = (value.location - prevColorStop.location) / (nextColorStop.location - prevColorStop.location);
+                        color = {
+                            red: interpolateValue(fraction, prevColorStop.color.red, nextColorStop.color.red),
+                            green: interpolateValue(fraction, prevColorStop.color.green, nextColorStop.color.green),
+                            blue: interpolateValue(fraction, prevColorStop.color.blue, nextColorStop.color.blue)
                         };
                     }
+                } else {
+                    console.warn("Unknown value: " + JSON.stringify(value));
                 }
-
-                return self.toColor(color, (opacity.value / 100));
+                    
+                return self.toColor(color, (opacity.value / 100.0));
             }
 
-            var prevStop,
-                nextStop,
+            var prevStopColor,
+                nextStopColor,
+                prevStopOpacity,
+                nextStopOpacity,
                 i,
                 color,
                 opacity,
-                distance;
+                distance,
+                firstLoc,
+                lastLoc;
 
-            for (var i = 0; i < stops.length; i++) {
+            stops.forEach(function (stp) {
+                if (!isFinite(firstLoc) || stp.location < firstLoc) {
+                    firstLoc = stp.location;
+                }
+                if (!isFinite(lastLoc) || stp.location > lastLoc) {
+                    lastLoc = stp.location;
+                }
+            });
+            
+            for (i = 0; i < stops.length; i++) {
 
                 distance = (stops[i].location * 100 / length);
-
-                if (i + 1 < stops.length && stops[i + 1].type != stops[i].type) {
-
-                    if (stops[i].color) {
-                        color = stops[i].color;
-                        opacity = stops[i + 1].opacity;
-                    } else {
-                        color = stops[i + 1].color;
-                        distance = (stops[i + 1].location * 100 / length);
-                        opacity = stops[i].opacity;
-                    }
-                    
-                    gradient.stops.push({ position: distance, color: this.toColor(color, (opacity.value / 100))});
-                    i++;
+                
+                prevStopColor = getNextStop("color", -1, stops[i].location);
+                nextStopColor = getNextStop("color", 1, stops[i].location);
+                
+                prevStopOpacity = getNextStop("opacity", -1, stops[i].location);
+                nextStopOpacity = getNextStop("opacity", 1, stops[i].location);
+                
+                if (stops[i].color) {
+                    color = {
+                        r: stops[i].color.red,
+                        g: stops[i].color.green,
+                        b: stops[i].color.blue
+                    };
                 } else {
-
-                    prevStop = getNextStop(stops[i].color ? "opacity" : "color", -1, i);
-                    nextStop = getNextStop(stops[i].color ? "opacity" : "color", 1, i);
-
-                    gradient.stops.push({ position: distance, color: interpolateStop(prevStop, nextStop, stops[i]) });
+                    color = interpolateStop(prevStopColor, nextStopColor, prevStopOpacity, nextStopOpacity, stops[i], firstLoc, lastLoc);
                 }
+                
+                _addOrEditStop(gradient.stops, { position: distance, color: color }, !!stops[i].color);
             }
             var stops = gradient.stops;
             if (reverse) {
@@ -166,7 +248,7 @@
             }
 
             var stops = gradient.stops;
-            for (var i = stops.length - 1; i >= 0; i--) {
+            for (i = stops.length - 1; i >= 0; i--) {
                 stops[i].position = Math.abs(stops[i].position - 100) * 0.5;
                 gradient.stops.push({ position: 100 - stops[i].position, color: stops[i].color });
             }
