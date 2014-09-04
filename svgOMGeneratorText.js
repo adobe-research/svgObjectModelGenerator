@@ -28,10 +28,11 @@
         _boundInPx = function (bnd, dpi) {
             if (bnd.units === "pointsUnit") {
                 return omgUtils.pt2px(bnd.value, dpi);
-            } else {
+            } else if (isFinite(bnd.value)) {
                 console.log("unfamiliar bounds unit for text = " + JSON.stringify(bnd));
+                return bnd.value;
             }
-            return bnd.value;
+            return bnd;
         };
 
 	function SVGOMGeneratorText() {
@@ -148,7 +149,8 @@
         this.addTextChunks = function (svgNode, layer, text, writer, position, bounds) {
             var textString = text.textKey,
                 svgParagraphNode,
-                svgTextChunkNode;
+                svgTextChunkNode,
+                yEMs = 0;
             
             writer.pushCurrent(svgNode);
             
@@ -167,7 +169,8 @@
                     pctYPosGuess = Math.round(100.0 * yPosGuess),
                     svgParagraphNode,
                     currentFrom = paragraph.from,
-                    xPosGuess;
+                    xPosGuess,
+                    textContent;
                 
                 // Text can consist of multiple textStyles. A textStyle
                 // may span over multiple paragraphs and describes the text color
@@ -207,9 +210,15 @@
                     from = (i === indexTextStyleFrom) ? paragraph.from : textSR[i].from;
                     to = (i === indexTextStyleTo) ? paragraph.to : textSR[i].to;
                     
+                    textContent = textString.substring(from, to).replace("\r","");
+                    if (!textContent) {
+                        //represents a blank line, needs to translate to y-positioning
+                        yEMs++;
+                        continue;
+                    }
                     spanId = (indexTextStyleTo === indexTextStyleFrom) ? paragraphId : paragraphId + "-" + (i - indexTextStyleFrom);
                     svgTextChunkNode = writer.addSVGNode(spanId, "tspan", true);
-                    svgTextChunkNode.text = textString.substring(from, to).replace("\r","");
+                    svgTextChunkNode.text = textContent;
                     
                     //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
                     xPosGuess = currentFrom / (paragraph.to - paragraph.from);
@@ -217,11 +226,12 @@
                     if (indexTextStyleFrom === indexTextStyleTo) {
                         svgTextChunkNode.position = {
                             x: 0,
-                            y: position.y
+                            y: yEMs,
+                            unitEM: true
                         };
                         omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
                     }
-                    
+                    yEMs = 1;
                     omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i]);
                 }
                 
@@ -230,10 +240,11 @@
                     writer.popCurrent();
                 }
             });
-            writer.popCurrent();
             
             omgStyles.addTextStyle(svgNode, layer);
             omgStyles.addStylingData(svgNode, layer);
+            
+            writer.popCurrent();
             return true;
         };
 

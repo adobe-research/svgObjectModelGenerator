@@ -4,6 +4,7 @@
 
       .cls-3 {
         filter: url(#gradient-overlay-1);
+        font-size: 63.635px;
       }
 
       .cls-4 {

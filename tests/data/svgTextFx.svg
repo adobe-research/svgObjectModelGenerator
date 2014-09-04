@@ -4,6 +4,7 @@
 
       .cls-3 {
         filter: url(#filter-chain-1);
+        font-size: 31.818px;
       }
 
       .cls-4 {

@@ -5,6 +5,7 @@
       .cls-3 {
         writing-mode: tb;
         glyph-orientation-vertical: 0;
+        font-size: 63.635px;
       }
 
       .cls-4 {

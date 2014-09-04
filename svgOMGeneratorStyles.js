@@ -313,10 +313,37 @@
                     span.style["baseline-shift"] = "super";
                 } else if (textStyle.textStyle.baseline === "allCaps") {
                     span.style["baseline-shift"] = "sub";                    
-                }         
+                } else if (textStyle.textStyle.baseline === "subScript") {
+                    //cut size in half and stick to bottom
+                    span.style["_baseline-script"] = "sub";
+                } else if (textStyle.textStyle.baseline === "superScript") {
+                    //cut size in half and stick to top
+                    span.style["_baseline-script"] = "super";
+                }
             }
         }
 
+        function _computeMaxFontSize(paragraphNode) {
+            var maxSize = { value: 0, units: "pointsUnit" },
+                i = 0;
+
+            // For correct paragraph offset, we need to know the maximal
+            // font size.
+            if (!paragraphNode.children || !paragraphNode.children.length) {
+                return undefined;
+            }
+            for (i = 0; i < paragraphNode.children.length; ++i) {
+                if (!paragraphNode.children[i].style &&
+                    !paragraphNode.children[i].style["font-size"]) {
+                    continue;
+                }
+                // FIXME: Support for real unit computation missing. Probably needs to move to writer.
+                // Since fonts always use pt in Adobe products, it most likely doesn't cause issues.
+                maxSize.value = Math.max(maxSize.value, paragraphNode.children[i].style["font-size"].value); 
+            }
+            return maxSize;
+        }
+        
         this.addParagraphStyle = function (paragraphNode, paragraphStyle) {
             function fetchTextAlign(paragraphStyle) {
                 var alignment = {
@@ -330,40 +357,26 @@
                 }
                 return undefined;
             }
-
-            function computeMaxFontSize(paragraphNode) {
-                var maxSize = { value: 0, units: "pointsUnit" },
-                    i = 0;
-
-                // For correct paragraph offset, we need to know the maximal
-                // font size.
-                if (!paragraphNode.children.length) {
-                    return undefined;
-                }
-                for (i = 0; i < paragraphNode.children.length; ++i) {
-                    if (!paragraphNode.children[i].style &&
-                        !paragraphNode.children[i].style["font-size"]) {
-                        continue;
-                    }
-                    // FIXME: Support for real unit computation missing. Probably needs to move to writer.
-                    // Since fonts always use pt in Adobe products, it most likely doesn't cause issues.
-                    maxSize.value = Math.max(maxSize.value, paragraphNode.children[i].style["font-size"].value); 
-                }
-                return maxSize;
-            }
-
+            
             paragraphNode.style = {
                 "text-anchor": fetchTextAlign(paragraphStyle),
-                "font-size": computeMaxFontSize(paragraphNode)
+                "font-size": _computeMaxFontSize(paragraphNode)
             }
         }
-
+        
+        this.addComputedTextStyle = function (svgNode, layer) {
+            var maxSize = { value: _computeMaxFontSize(svgNode), units: "pointsUnit" };
+            svgNode.style["font-size"] = maxSize.value;
+        };
+        
         this.addTextStyle = function (svgNode, layer) {
             if (layer.text.textShape[0].orientation &&
                 layer.text.textShape[0].orientation == "vertical") {
                 svgNode.style["writing-mode"] = "tb";
                 svgNode.style["glyph-orientation-vertical"] = "0";
             }
+            
+            this.addComputedTextStyle(svgNode, layer);
         }
 	}
 

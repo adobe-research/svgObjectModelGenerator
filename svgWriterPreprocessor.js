@@ -65,7 +65,9 @@
                         styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
                         return;
                     }
-                    styleBlock.addRule(property, omIn.style[property]);
+                    if (property.indexOf("_") !== 0) {
+                        styleBlock.addRule(property, omIn.style[property]);
+                    }
                 });
             }
             
@@ -148,17 +150,25 @@
                     //get rid of position?
                     if (omIn.position) {
                         omIn.position.x = 0.0;
+                        omIn.position.y = 1.0;
+                        omIn.position.unitEM = true;
+                        
                         if (omIn.children && omIn.children.length === 1) {
-                            omIn.position.y = 1.2;
-                            omIn.position.unitEM = true;
-                        } else {
-                            //omIn.position.y = 0.0;
+                            omIn.children[0].position.x = 0.0;
                         }
                     }
                 }
             } else if (omIn.type === "tspan") {
-                
+                if (omIn.style && omIn.style["_baseline-script"] === "sub") {
+                    omIn.style["font-size"] = Math.round(omIn.style["font-size"].value / 2.0);
+                } else if (omIn.style && omIn.style["_baseline-script"] === "super") {
+                    omIn.style["font-size"] = Math.round(omIn.style["font-size"].value / 2.0);
+                    omIn.position = omIn.position || {};
+                    omIn.position.y = -0.5;
+                    omIn.position.unitEM = true;
+                }
             }
+                
             if (bnds) {
                 this.shiftBoundsX(bnds, ctx._shiftContentX);
                 this.shiftBoundsY(bnds, ctx._shiftContentY);

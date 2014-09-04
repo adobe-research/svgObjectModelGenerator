@@ -2,6 +2,10 @@
   <defs>
     <style type="text/css">
 
+      .cls-3 {
+        font-size: 63.635px;
+      }
+
       .cls-4 {
         fill: #030303;
         font-size: 63.635px;
@@ -23,9 +27,9 @@
       }
     </style>
   </defs>
-  <text x="45%" y="26%">
+  <text class="cls-3" x="45%" y="26%">
     <tspan class="cls-4">Left aligned</tspan>
-    <tspan dy="1.2em" x="0%" class="cls-5">center</tspan>
-    <tspan dy="1.2em" x="0%" class="cls-6">right aligned</tspan>
+    <tspan dy="1.2em" class="cls-5">center</tspan>
+    <tspan dy="1.2em" class="cls-6">right aligned</tspan>
   </text>
 </svg>

@@ -2,6 +2,10 @@
   <defs>
     <style type="text/css">
 
+      .cls-3 {
+        font-size: 60px;
+      }
+
       .cls-4 {
         fill: #030303;
         font-size: 60px;
@@ -59,52 +63,52 @@
       }
     </style>
   </defs>
-  <text x="7%" y="16%">
+  <text class="cls-3" x="7%" y="16%">
     <tspan class="cls-4">Text</tspan>
   </text>
-  <text x="8%" y="31%">
+  <text class="cls-3" x="8%" y="31%">
     <tspan class="cls-6">Text</tspan>
   </text>
-  <text x="8%" y="46%">
+  <text class="cls-3" x="8%" y="46%">
     <tspan class="cls-8">Text</tspan>
   </text>
-  <text x="8%" y="58%">
+  <text class="cls-3" x="8%" y="58%">
     <tspan class="cls-10">Text</tspan>
   </text>
-  <text x="7%" y="73%">
+  <text class="cls-3" x="7%" y="73%">
     <tspan class="cls-12">Text</tspan>
   </text>
-  <text x="8%" y="88%">
+  <text class="cls-3" x="8%" y="88%">
     <tspan class="cls-14">Text</tspan>
   </text>
-  <text x="41%" y="16%">
+  <text class="cls-3" x="41%" y="16%">
     <tspan class="cls-16">Text</tspan>
   </text>
-  <text x="41%" y="34%">
+  <text class="cls-3" x="41%" y="34%">
     <tspan class="cls-18">Text</tspan>
   </text>
-  <text x="42%" y="44%">
+  <text class="cls-3" x="42%" y="44%">
     <tspan class="cls-18">Text</tspan>
   </text>
-  <text x="41%" y="61%">
+  <text class="cls-3" x="41%" y="61%">
     <tspan class="cls-18">Text</tspan>
   </text>
-  <text x="41%" y="73%">
+  <text class="cls-3" x="41%" y="73%">
     <tspan class="cls-18">Text</tspan>
   </text>
-  <text x="41%" y="95%">
+  <text class="cls-3" x="41%" y="95%">
     <tspan class="cls-18">Text</tspan>
   </text>
-  <text x="78%" y="17%">
+  <text class="cls-3" x="78%" y="17%">
     <tspan class="cls-18">Test</tspan>
   </text>
-  <text x="78%" y="32%">
+  <text class="cls-3" x="78%" y="32%">
     <tspan class="cls-18">Test</tspan>
   </text>
-  <text x="78%" y="47%">
+  <text class="cls-3" x="78%" y="47%">
     <tspan class="cls-18">Test</tspan>
   </text>
-  <text x="78%" y="69%">
+  <text class="cls-3" x="78%" y="69%">
     <tspan class="cls-18">Test</tspan>
   </text>
 </svg>

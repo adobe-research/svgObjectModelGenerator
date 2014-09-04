@@ -230,12 +230,30 @@
             case "tspan": {
                 write(ctx, "<tspan");
                 // Set paragraph styles.
-                if (omIn.position) {
-                    //writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
-                    //writeAttrIfNecessary(ctx, "dy", ((siblingsLength > 1) ? 1.0 : 0) + "em", "0em", "");
-                    writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
-                    writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
+                
+                if (ctx._nextTspanAdjustSuper) {
+                    writeAttrIfNecessary(ctx, "dy", "0.6em", "0em", "");
                 }
+                
+                if (omIn.position) {
+                    if (!ctx._nextTspanAdjustSuper) {
+                        if (omIn.position.unitEM) {
+                            writeAttrIfNecessary(ctx, "dy", (omIn.position.y * 1.2) + "em", "0em", "");
+                        } else {
+                            writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
+                        }
+                    }
+                    
+                    if (!omIn.style ||
+                        (omIn.style["text-anchor"] !== "middle" &&
+                         omIn.style["text-anchor"] !== "end") &&
+                        isFinite(omIn.position.x)) {
+                        writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
+                    }
+                }
+                
+                ctx._nextTspanAdjustSuper = false;
+                
                 writeClassIfNeccessary(ctx);
                 write(ctx, ">");
 
@@ -250,6 +268,11 @@
                     write(ctx, omIn.text);
                 }
                 write(ctx, "</tspan>");
+                
+                if (omIn.style && omIn.style["_baseline-script"] === "super") {
+                    ctx._nextTspanAdjustSuper = true;
+                }
+                
                 break;
             }
             case "text":
@@ -274,6 +297,7 @@
                     writeTransformIfNecessary(ctx, "transform", omIn.transform);
                     write(ctx, ">" + ctx.terminator);
 
+                    ctx._nextTspanAdjustSuper = false;
                     indent(ctx);
                     ctx.omStylesheet.writePredefines(ctx);
                     var children = ctx.currentOMNode.children;

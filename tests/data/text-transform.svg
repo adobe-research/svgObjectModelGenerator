@@ -2,16 +2,20 @@
   <defs>
     <style type="text/css">
 
+      .cls-3 {
+        font-size: 30px;
+      }
+
       .cls-4 {
         font-size: 30px;
         font-family: "Arial";
       }
     </style>
   </defs>
-  <text x="30%" y="44%">
+  <text class="cls-3" x="30%" y="44%">
     <tspan class="cls-4">Text</tspan>
   </text>
-  <text transform="matrix(0.803009, -0.697021, 0.70287, 1.486869, 240.87288453521052, 285.63591454109553)">
+  <text class="cls-3" transform="matrix(0.803009, -0.697021, 0.70287, 1.486869, 240.87288453521052, 285.63591454109553)">
     <tspan class="cls-4">Text</tspan>
     <tspan dy="1.2em" x="0%" class="cls-4">test</tspan>
   </text>
