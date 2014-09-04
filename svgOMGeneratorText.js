@@ -21,8 +21,17 @@
 "use strict";
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
+        omgUtils = require("./svgOMGeneratorUtils.js"),
         round1k = function (x) {
             return Math.round( x * 1000 ) / 1000;
+        },
+        _boundInPx = function (bnd, dpi) {
+            if (bnd.units === "pointsUnit") {
+                return omgUtils.pt2px(bnd.value, dpi);
+            } else {
+                console.log("unfamiliar bounds unit for text = " + JSON.stringify(bnd));
+            }
+            return bnd.value;
         };
 
 	function SVGOMGeneratorText() {
@@ -45,7 +54,8 @@
                     return false;
                 }
 
-                var svgTextPathNode;
+                var svgTextPathNode,
+                    dpi;
 
                 var computeTextPath = function (points) {
                     if (!points) {
@@ -70,6 +80,15 @@
 
                 svgNode.type = "text";
                 svgNode.shapeBounds = layer.bounds;
+                
+                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
+                svgNode.textBounds = {
+                    top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
+                    bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
+                    left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
+                    right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)
+                };
+                
                 svgNode.position = {
                     x: 0,
                     y: 0
@@ -104,11 +123,18 @@
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
-
+                svgNode.shapeBounds = layer.bounds;
+                
+                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
+                svgNode.textBounds = {
+                    top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
+                    bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
+                    left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
+                    right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)
+                };
+                
                 // It seems that textClickPoint is a quite reliable global position for
                 // the initial <text> element. Values in percentage.
-                svgNode.shapeBounds = layer.bounds;
-
                 svgNode.position = {
                     x: text.textClickPoint.horizontal.value,
                     y: text.textClickPoint.vertical.value

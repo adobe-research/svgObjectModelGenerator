@@ -263,9 +263,14 @@
 
                     writeClassIfNeccessary(ctx);
 
-                    // FIXME: We should use absolute positions.
-                    writeAttrIfNecessary(ctx, "x", x, 0, "%");
-                    writeAttrIfNecessary(ctx, "y", y, 0, "%");
+                    if (omIn.position.unitEM) {
+                        writeAttrIfNecessary(ctx, "x", omIn.position.x, 0, "em");
+                        writeAttrIfNecessary(ctx, "y", omIn.position.y, 0, "em");
+                    } else {
+                        // FIXME: We should use absolute positions.
+                        writeAttrIfNecessary(ctx, "x", x, 0, "%");
+                        writeAttrIfNecessary(ctx, "y", y, 0, "%");
+                    }
                     writeTransformIfNecessary(ctx, "transform", omIn.transform);
                     write(ctx, ">" + ctx.terminator);
 

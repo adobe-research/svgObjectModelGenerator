@@ -100,8 +100,14 @@
                 bndsIn = omIn.boundsWithFX;
                 
             } else {
-                if (omIn.type === "shape" || omIn.type === "text" || (omIn.type === "generic" && omIn.shapeBounds)) {
+                if (omIn.type === "shape" || (omIn.type === "generic" && omIn.shapeBounds)) {
                     bndsIn = omIn.shapeBounds;
+                } else if (omIn.type === "text") {
+                    if (omIn.textBounds) {
+                        bndsIn = omIn.textBounds;
+                    } else {
+                        bndsIn = omIn.shapeBounds;
+                    }
                 }
             }
             
@@ -143,7 +149,8 @@
                     if (omIn.position) {
                         omIn.position.x = 0.0;
                         if (omIn.children && omIn.children.length === 1) {
-                            omIn.position.y = 100.0;
+                            omIn.position.y = 1.2;
+                            omIn.position.unitEM = true;
                         } else {
                             //omIn.position.y = 0.0;
                         }

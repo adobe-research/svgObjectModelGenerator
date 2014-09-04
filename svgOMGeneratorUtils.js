@@ -36,6 +36,10 @@
             }   
         };
         
+        this.pt2px = function(dim, dpi) {
+            return Math.round(dpi * (dim / 72.0));
+        };
+        
         function _addOrEditStop(stops, def, colorDefined) {
             var foundStop;
             stops.forEach(function (stp) {
