@@ -156,7 +156,8 @@
                 promises = [],
                 layerComp = this.findLayerComp(psd, compId),
                 patchLayerSVG,
-                _hasBackgroundLayer = false;
+                _hasBackgroundLayer = false,
+                lastJSXPromise;
             
             try{
                 patchLayerSVG = function (layer) {
@@ -215,25 +216,36 @@
                         }
                         
                         //TBD: opportunity to cache .base64-ized layers and speed this up when they don't all change
-
-                        _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', patchSettings).then(function (oPatch) {                            
-                            if (typeof oPatch  === 'string') {
-                                oPatch = JSON.parse(oPatch);
-                            }
-                            
-                            if (oPatch.exception) {
-                                jsxDeferred.reject(new Error("patchShapeLayer.jsx: " + oPatch.exception));
-                            }
-                            
-                            if (oPatch.pathData) {
-                                layer.path.rawPathData = oPatch.pathData;
+                        
+                        if (layerType === "shapeLayer") {
+                            if (!lastJSXPromise) {
+                                lastJSXPromise = Q.resolve();
                             }
 
+                            lastJSXPromise.then(function () {
+                                _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', patchSettings).then(function (oPatch) {                            
+                                    if (typeof oPatch  === 'string') {
+                                        oPatch = JSON.parse(oPatch);
+                                    }
+
+                                    if (oPatch.exception) {
+                                        jsxDeferred.reject(new Error("patchShapeLayer.jsx: " + oPatch.exception));
+                                    }
+
+                                    if (oPatch.pathData) {
+                                        layer.path.rawPathData = oPatch.pathData;
+                                    }
+
+                                    jsxDeferred.resolve();
+
+                                }, function (err) {
+                                    jsxDeferred.reject(err);
+                                });
+                            });
+                            lastJSXPromise = jsxDeferred.promise;
+                        } else {
                             jsxDeferred.resolve();
-
-                        }, function (err) {
-                            jsxDeferred.reject(err);
-                        });
+                        }
 
                     } else if (layerType === "layerSection") {
                         for (i = 0; i < layer.layers.length; i++) {
