@@ -10,9 +10,9 @@
 
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="0" dy="2"/>
-      <feGaussianBlur result="dropShadowBlur" stdDeviation="1.414"/>
+      <feGaussianBlur result="dropShadow" stdDeviation="1.414"/>
       <feFlood flood-color="#000000" flood-opacity="0.5"/>
-      <feComposite operator="in" in2="dropShadowBlur"/>
+      <feComposite operator="in" in2="dropShadow"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
       <feImage x="263" y="185" preserveAspectRatio="none" width="193" height="61" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkzIiBoZWlnaHQ9IjYxIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iOTYuNSIgeTE9IjYxIiB4Mj0iOTYuNSIgeTI9IjAiPgogIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwMDMwMCIvPgogIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjE5IiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
       <feComposite operator="atop" in2="SourceGraphic"/>

@@ -179,6 +179,7 @@
                     color = svgNode.style.fx.outerGlow.color;
                     svgNode.style.fx.outerGlow.color = omgUtils.toColor(color);
                 }
+                svgNode.style.fx.outerGlow.opacity = svgNode.style.fx.outerGlow.opacity ? svgNode.style.fx.outerGlow.opacity.value / 100 : 1;
             }
 
             if (svgNode.style.fx.innerGlow) {
@@ -206,6 +207,8 @@
             if (svgNode.style.fx.innerShadow) {
                 color = svgNode.style.fx.innerShadow.color;
                 svgNode.style.fx.innerShadow.color = omgUtils.toColor(color);
+                
+                //need to collect more info here...
             }
 
             if (svgNode.style.fx.gradientFill) {
@@ -216,11 +219,12 @@
             if (svgNode.style.fx.dropShadow) {
                 color = svgNode.style.fx.dropShadow.color;
                 svgNode.style.fx.dropShadow.color = omgUtils.toColor(color);
+                svgNode.style.fx.dropShadow.opacity = svgNode.style.fx.dropShadow.opacity ? svgNode.style.fx.dropShadow.opacity.value / 100 : 1;
             }
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
-                      strokeStyle = svgNode.style.fx.frameFX;
+                    strokeStyle = svgNode.style.fx.frameFX;
                 
                 svgNode.style.stroke = stroke;
                 
@@ -232,6 +236,7 @@
                     stroke.lineCap = "butt";
                     stroke.lineJoin = "round";
                     stroke.miterLimit = 100;
+                    stroke.sourceStyle = strokeStyle.style;
                     if (strokeStyle.gradient) {
                         stroke.gradient = omgUtils.toGradient(strokeStyle);
                     }

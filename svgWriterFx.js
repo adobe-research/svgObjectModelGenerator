@@ -160,9 +160,9 @@
             if (!dropShadow || !dropShadow.enabled) {
                 return;
             }
-
+            
             var color = dropShadow.color,
-                opacity = round1k(dropShadow.opacity.value / 100),
+                opacity = round1k(dropShadow.opacity),
                 distance = dropShadow.distance,
                 angle = (dropShadow.useGlobalAngle ? ctx.globalLight.angle : dropShadow.localLightingAngle.value) * Math.PI / 180,
                 blur = round1k(Math.sqrt(dropShadow.blur)),
@@ -170,11 +170,11 @@
                     x: -Math.cos(angle) * distance,
                     y: Math.sin(angle) * distance
                 };
-
+            
             write(ctx, ctx.currentIndent + "<feOffset in=\"SourceAlpha\" dx=\"" + round1k(offset.x) + "\" dy=\"" + round1k(offset.y) + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropShadowBlur\" stdDeviation=\"" + blur + "\"/>" + ctx.terminator);
+            write(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropShadow\" stdDeviation=\"" + blur + "\"/>" + ctx.terminator);
             write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropShadowBlur\"/>" + ctx.terminator);
+            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropShadow\"/>" + ctx.terminator);
             param.pass = "dropShadow";
             
             return JSON.stringify({ c: color, o: opacity, off: offset, b: blur });
@@ -227,7 +227,9 @@
                 write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"outerGlowBlur\"/>" + ctx.terminator);
             }
             if (param.pass == "dropShadow") {
-                write(ctx, ctx.currentIndent + "<feBlend mode=\"" + gradientFill.mode + "\" in2=\"" + param.pass + "\"/>" + ctx.terminator);
+                if (omIn.style.fx.dropShadow) {
+                    write(ctx, ctx.currentIndent + "<feBlend mode=\"" + omIn.style.fx.dropShadow.mode + "\" in2=\"" + param.pass + "\"/>" + ctx.terminator);
+                }
             }
             write(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"outerGlow\"/>" + ctx.terminator);
             param.pass = "outerGlow";
