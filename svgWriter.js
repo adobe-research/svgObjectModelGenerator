@@ -154,7 +154,7 @@
                             addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; fill: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
                             }
                             
                             write(ctx, "/>" + ctx.terminator);
@@ -174,7 +174,7 @@
                             addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; fill: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
                             }
 
                             write(ctx, "/>" + ctx.terminator);
@@ -189,7 +189,7 @@
                             addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; fill: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
                             }
 
                             write(ctx, " fill-rule=\"evenodd\"/>" + ctx.terminator);
@@ -214,7 +214,7 @@
                             addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; fill: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
                             }
 
                             write(ctx, "/>" + ctx.terminator);

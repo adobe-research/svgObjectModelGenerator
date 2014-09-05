@@ -42,7 +42,7 @@
   <g id="group" class="cls-3">
     <rect id="rect-1" class="cls-4" x="100" y="100" width="200" height="200"/>
     <g id="rectangle-2" filter="url(#inner-shadow-1)">
-      <rect id="rect-2" class="cls-5" x="200" y="200" width="200" height="200" style="stroke: inherit; fill: inherit; filter: none;"/>
+      <rect id="rect-2" class="cls-5" x="200" y="200" width="200" height="200" style="stroke: inherit; filter: none;"/>
     </g>
     <use xlink:href="#rect-2" style="stroke: #f26522; fill: none; filter: none;"/>
   </g>
