@@ -324,23 +324,32 @@
         }
 
         function _computeMaxFontSize(paragraphNode) {
-            var maxSize = { value: 0, units: "pointsUnit" },
-                i = 0;
-
-            // For correct paragraph offset, we need to know the maximal
-            // font size.
-            if (!paragraphNode.children || !paragraphNode.children.length) {
-                return undefined;
-            }
-            for (i = 0; i < paragraphNode.children.length; ++i) {
-                if (!paragraphNode.children[i].style &&
-                    !paragraphNode.children[i].style["font-size"]) {
-                    continue;
+            var maxSize,
+                fontSize,
+                i;
+            
+            // For correct paragraph offset, we need to know the max font size.
+            if (paragraphNode.children && paragraphNode.children.length) {
+                
+                for (i = 0; i < paragraphNode.children.length; ++i) {
+                    if (!paragraphNode.children[i].style || !paragraphNode.children[i].style["font-size"]) {
+                        continue;
+                    }
+                    fontSize = paragraphNode.children[i].style["font-size"]
+                    
+                    if (typeof fontSize === "number") {
+                        if (!isFinite(maxSize) || fontSize > maxSize) {
+                            maxSize = fontSize;
+                        }
+                    } else {
+                        if (!maxSize || fontSize.value > maxSize.value) {
+                            maxSize = maxSize || { units: fontSize.units };
+                            maxSize.value = fontSize.value;
+                        }
+                    }
                 }
-                // FIXME: Support for real unit computation missing. Probably needs to move to writer.
-                // Since fonts always use pt in Adobe products, it most likely doesn't cause issues.
-                maxSize.value = Math.max(maxSize.value, paragraphNode.children[i].style["font-size"].value); 
             }
+                
             return maxSize;
         }
         
@@ -365,8 +374,7 @@
         }
         
         this.addComputedTextStyle = function (svgNode, layer) {
-            var maxSize = { value: _computeMaxFontSize(svgNode), units: "pointsUnit" };
-            svgNode.style["font-size"] = maxSize.value;
+            svgNode.style["font-size"] = _computeMaxFontSize(svgNode);
         };
         
         this.addTextStyle = function (svgNode, layer) {

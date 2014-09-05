@@ -26,13 +26,19 @@
             return Math.round( x * 1000 ) / 1000;
         },
         _boundInPx = function (bnd, dpi) {
+            
+            if (typeof bnd === "number") {
+                return bnd;
+            }
             if (bnd.units === "pointsUnit") {
                 return omgUtils.pt2px(bnd.value, dpi);
+            } else if (bnd.units === "millimetersUnit") {
+                return omgUtils.mm2px(bnd.value, dpi);
             } else if (isFinite(bnd.value)) {
                 console.log("unfamiliar bounds unit for text = " + JSON.stringify(bnd));
                 return bnd.value;
             }
-            return bnd;
+            return parseInt(bnd, 10);
         };
 
 	function SVGOMGeneratorText() {
@@ -119,8 +125,7 @@
         this.addSimpleText = function (svgNode, layer, writer) {
             var self = this;
             
-            return this.textComponentOrigin(layer, function (text) {
-                
+            return this.textComponentOrigin(layer, function (text) {                
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";

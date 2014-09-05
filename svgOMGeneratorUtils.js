@@ -40,6 +40,18 @@
             return Math.round(dpi * (dim / 72.0));
         };
         
+        this.in2px = function(dim, dpi) {
+            return dim * dpi;
+        };
+      
+        this.mm2in = function(dim) {
+            return dim * 0.0393700787;
+        };
+        
+        this.mm2px = function(dim, dpi) {
+            return this.in2px(this.mm2in(dim), dpi);
+        };
+        
         function _addOrEditStop(stops, def, colorDefined) {
             var foundStop;
             stops.forEach(function (stp) {

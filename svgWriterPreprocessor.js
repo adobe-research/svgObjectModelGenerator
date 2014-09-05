@@ -159,13 +159,21 @@
                     }
                 }
             } else if (omIn.type === "tspan") {
-                if (omIn.style && omIn.style["_baseline-script"] === "sub") {
-                    omIn.style["font-size"] = Math.round(omIn.style["font-size"].value / 2.0);
-                } else if (omIn.style && omIn.style["_baseline-script"] === "super") {
-                    omIn.style["font-size"] = Math.round(omIn.style["font-size"].value / 2.0);
-                    omIn.position = omIn.position || {};
-                    omIn.position.y = -0.5;
-                    omIn.position.unitEM = true;
+                if (omIn.style) {
+                    if (omIn.style["_baseline-script"] === "sub" ||
+                        omIn.style["_baseline-script"] === "super") {
+                        if (typeof omIn.style["font-size"] === "number") {
+                            omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
+                        } else {
+                            omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
+                        }
+                    }
+                    
+                    if (omIn.style["_baseline-script"] === "super") {
+                        omIn.position = omIn.position || {};
+                        omIn.position.y = -0.5;
+                        omIn.position.unitEM = true;
+                    }
                 }
             }
                 
