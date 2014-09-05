@@ -14,7 +14,7 @@
     </style>
 
     <filter id="inner-glow-1" filterUnits="userSpaceOnUse">
-      <feGaussianBlur stdDeviation="12.667" in="SourceAlpha" result="outerGlowBlur"/>
+      <feGaussianBlur stdDeviation="12.667" in="SourceAlpha" result="innerGlowBlur"/>
       <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
       <feColorMatrix type="matrix" values="0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0"/>
       <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
@@ -24,14 +24,14 @@
         <feFuncB type="table" tableValues="0.000015258823529411764 0.000012207058823529411 0.00000915529411764706 0.000006103529411764707 0.0000030517647058823537 0 0 0 0 0 0 0 0.16666666666666666 0.3333333333333333 0.5 0.6666666666666666 0.8333333333333334 1 1 1 1 1 1 1 1 1 1 1 1 0.800003051764706 0.6000061035294119 0.40000915529411774 0.20001220705882364 0.000015258823529411764"/>
       </feComponentTransfer>
       <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="innerShadow"/>
+      <feBlend mode="lighten" in2="SourceGraphic" result="innerGlow"/>
     </filter>
     <filter id="inner-glow-2" filterUnits="userSpaceOnUse">
-      <feGaussianBlur stdDeviation="21.667" in="SourceAlpha" result="outerGlowBlur"/>
-      <feFlood flood-color="#bec9ff" flood-opacity="NaN"/>
-      <feComposite operator="out" in2="outerGlowBlur"/>
+      <feGaussianBlur stdDeviation="21.667" in="SourceAlpha" result="innerGlowBlur"/>
+      <feFlood flood-color="#bec9ff" flood-opacity="0.75"/>
+      <feComposite operator="out" in2="innerGlowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="darken" in2="SourceGraphic" result="innerShadow"/>
+      <feBlend mode="darken" in2="SourceGraphic" result="innerGlow"/>
     </filter>
   </defs>
   <rect id="rect-1" class="cls-3" x="150" y="200" width="200" height="200"/>
