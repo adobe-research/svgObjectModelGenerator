@@ -197,6 +197,7 @@
                     color = svgNode.style.fx.innerGlow.color;
                     svgNode.style.fx.innerGlow.color = omgUtils.toColor(color);
                 }
+                svgNode.style.fx.innerGlow.opacity = svgNode.style.fx.innerGlow.opacity ? svgNode.style.fx.innerGlow.opacity.value / 100 : 1;
             }
 
             if (svgNode.style.fx.chromeFX) {
@@ -208,7 +209,7 @@
                 color = svgNode.style.fx.innerShadow.color;
                 svgNode.style.fx.innerShadow.color = omgUtils.toColor(color);
                 
-                //need to collect more info here...
+                svgNode.style.fx.innerShadow.opacity = svgNode.style.fx.innerShadow.opacity ? svgNode.style.fx.innerShadow.opacity.value / 100 : 1;
             }
 
             if (svgNode.style.fx.gradientFill) {

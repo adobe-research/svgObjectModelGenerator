@@ -383,7 +383,7 @@
             var blur = round1k(innerGlow.blur / 3),
                 opacity = round1k(innerGlow.opacity);
 
-            write(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\" result=\"outerGlowBlur\"/>" + ctx.terminator);
+            write(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\" result=\"innerGlowBlur\"/>" + ctx.terminator);
             if (innerGlow.gradient) {
                 var nSegs = this.findMatchingDistributedNSegs(innerGlow.gradient.stops);
                 var colors = this.calcDistributedColors(innerGlow.gradient.stops, nSegs);
@@ -397,10 +397,10 @@
             } else {
                 var color = innerGlow.color;
                 write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-                write(ctx, ctx.currentIndent + "<feComposite operator=\"out\" in2=\"outerGlowBlur\"/>" + ctx.terminator);
+                write(ctx, ctx.currentIndent + "<feComposite operator=\"out\" in2=\"innerGlowBlur\"/>" + ctx.terminator);
             }
             write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + innerGlow.mode + "\" in2=\"" + param.pass + "\" result=\"innerShadow\"/>" + ctx.terminator);
+            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + innerGlow.mode + "\" in2=\"" + param.pass + "\" result=\"innerGlow\"/>" + ctx.terminator);
             param.pass = "innerGlow";
 
             return JSON.stringify({ c: innerGlow.color, g: innerGlow.gradient, o: opacity, b: blur });
@@ -424,7 +424,7 @@
                 return;
             }
             var color = innerShadow.color,
-                opacity = round1k(innerShadow.opacity.value / 100),
+                opacity = round1k(innerShadow.opacity),
                 distance = innerShadow.distance,
                 angle = (innerShadow.useGlobalAngle ? ctx.globalLight.angle : innerShadow.localLightingAngle.value) * Math.PI / 180,
                 blur = round1k(Math.sqrt(innerShadow.blur)),
