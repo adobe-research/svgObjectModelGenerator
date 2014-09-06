@@ -29,41 +29,41 @@
         
         var self = this;
         
-        this.omguid = function (om) {
+        self.omguid = function (om) {
             if (!om._guid) {
                 om._guid = "guid" + guidID++;
             }
             return om._guid;
         };
         
-        this.write = function (ctx, sOut) {
+        self.write = function (ctx, sOut) {
             ctx.sOut += sOut;
         };
     
-        this.indent = function (ctx) {
+        self.indent = function (ctx) {
             ctx.currentIndent += ctx.indent;
         };
     
-        this.undent = function (ctx) {
+        self.undent = function (ctx) {
             ctx.currentIndent = ctx.currentIndent.substr(0, ctx.currentIndent.length - ctx.indent.length);
         };
     
-        this.writeLength = function (val) {
+        self.writeLength = function (val) {
             var length = Math.round(val);
             return (length)?(length+"px"):"0";
         };
 
-        this.componentToHex = function (c) {
+        self.componentToHex = function (c) {
             var rnd = Math.round(c, 0),
                 hex = Number(rnd).toString(16);
             return hex.length == 1 ? "0" + hex : hex;
         };
 
-        this.rgbToHex = function (r, g, b) {
+        self.rgbToHex = function (r, g, b) {
             return "#" + self.componentToHex(r) + self.componentToHex(g) + self.componentToHex(b);
         };
 
-        this.px = function (ctx, length) {
+        self.px = function (ctx, length) {
             if (typeof length === "number")
                 return length;
             // Consider adding string conversion when needed.
@@ -84,7 +84,7 @@
             return 0;
         };
     
-        this.writeColor = function (val) {
+        self.writeColor = function (val) {
             var color;
             val = val || "transparent";
             if (typeof val === "string") {
@@ -96,14 +96,14 @@
             return color;
         };
 
-        this.writeAttrIfNecessary = function (ctx, attr, val, def, unit) {
+        self.writeAttrIfNecessary = function (ctx, attr, val, def, unit) {
             unit = unit || "";
             if (String(val) !== String(def)) {
                 self.write(ctx, " " + attr + "=\"" + val + unit + "\"");
             }
         };
 
-        this.writeTransformIfNecessary = function (ctx, attr, val) {
+        self.writeTransformIfNecessary = function (ctx, attr, val) {
             if (val) {
                 self.write(ctx, " " + attr + "=\"matrix(" +
                            val.a + ", " + val.b + ", " + val.c + ", " +
@@ -111,7 +111,7 @@
             }
         };
 
-        this.writeLinearGradientInternal = function (ctx, stops, gradientID, scale, coords) {
+        self.writeLinearGradientInternal = function (ctx, stops, gradientID, scale, coords) {
             var iStop,
                 stp,
                 stpOpacity,
@@ -158,7 +158,7 @@
                 ya = h2;
             }
 
-            // FIXME: This is a hack to deal with a mistake above that still needs
+            // FIXME: self is a hack to deal with a mistake above that still needs
             // to be fixed.
             if (angle < 0 || gradient.angle == 180 ) {
                 ya = -ya;
@@ -174,14 +174,22 @@
             return { xa: xa, ya: ya, cx: cx, cy: cy };
         };
 
-        this.writeGradientOverlay = function (ctx, gradient, rootBounds, gradientID) {
+        self.writeGradientOverlay = function (ctx, gradient, rootBounds, gradientID) {
 
             var omIn = ctx.currentOMNode,
                 layerBounds = omIn.shapeBounds,
                 bounds,
                 coords,
                 scale = gradient.scale,
-                stops = gradient.stops;
+                stops = gradient.stops,
+                w2,
+                h2,
+                cx,
+                cy,
+                angle,
+                hl,
+                hw,
+                r;
 
             if (gradient.gradientSpace === "objectBoundingBox") {
                 bounds = {
@@ -198,13 +206,26 @@
                     left: rootBounds.left - layerBounds.left
                 };
             }
-            coords = computeLinearGradientCoordinates(gradient, bounds);
-
-            self.writeLinearGradientInternal(ctx, stops, gradientID, scale, coords);
+            if (gradient.type === "radial") {
+                
+                w2 = (bounds.right - bounds.left) / 2;
+                h2 = (bounds.bottom - bounds.top) / 2;
+                cx = self.round1k(bounds.left + w2);
+                cy = self.round1k(bounds.top + h2);
+                angle = Math.abs(gradient.angle - 90 % 180) * Math.PI / 180;
+                hl = Math.abs(h2 / Math.cos(angle));
+                hw = Math.abs(w2 / Math.sin(angle));
+                r = self.round1k(hw < hl ? hw : hl);
+                
+                self.writeRadialGradientInternal(ctx, cx, cy, r, gradientID, stops, gradient.scale);
+            } else {
+                coords = computeLinearGradientCoordinates(gradient, bounds);
+                self.writeLinearGradientInternal(ctx, stops, gradientID, scale, coords);
+            }
             return gradientID;
         };
 
-        this.writeLinearGradient = function (ctx, gradient, flavor) {
+        self.writeLinearGradient = function (ctx, gradient, flavor) {
             
             //TBD: generate a real ID
             
@@ -217,7 +238,7 @@
 
             self.ctxCapture(ctx, function () {
                 self.writeLinearGradientInternal(ctx, stops, gradientID, scale, coords);
-            },
+            }.bind(self),
             function (out) {
                 ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, out, JSON.stringify({ coords: coords, stops: stops, scale: scale }));
             });
@@ -225,7 +246,35 @@
             return gradientID;
         };
 
-        this.writeRadialGradient = function (ctx, gradient, flavor) {
+        self.writeRadialGradientInternal = function (ctx, cx, cy, r, gradientID, stops, scale) {
+            var iStop,
+                stp,
+                stpOpacity;
+
+            self.write(ctx, ctx.currentIndent + "<radialGradient id=\"" + gradientID + "\"");
+            self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
+            self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
+            self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
+            self.writeAttrIfNecessary(ctx, "r", r, "", "");
+            self.write(ctx, ">" + ctx.terminator);
+
+            self.indent(ctx);
+
+            for (iStop = 0; iStop < stops.length; iStop++) {
+                stp = stops[iStop];
+                stpOpacity = '';
+
+                if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
+                    stpOpacity = ' stop-opacity="' + Math.round(stp.color.a, 2) + '"';
+                }
+
+                self.write(ctx, ctx.currentIndent + '<stop offset="' + self.round1k(Math.round(stp.position, 2)/100.0 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
+            }
+            self.undent(ctx);
+            self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
+        };
+        
+        self.writeRadialGradient = function (ctx, gradient, flavor) {
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 gradientID = svgWriterIDs.getUnique("radial-gradient"),
@@ -250,32 +299,8 @@
             r = self.round1k(hw < hl ? hw : hl);
 
             self.ctxCapture(ctx, function () {
-                var iStop,
-                    stp,
-                    stpOpacity;
-                
-                self.write(ctx, ctx.currentIndent + "<radialGradient id=\"" + gradientID + "\"");
-                self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
-                self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
-                self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
-                self.writeAttrIfNecessary(ctx, "r", r, "", "");
-                self.write(ctx, ">" + ctx.terminator);
-
-                self.indent(ctx);
-                
-                for (iStop = 0; iStop < stops.length; iStop++) {
-                    stp = stops[iStop];
-                    stpOpacity = '';
-                    
-                    if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
-                        stpOpacity = ' stop-opacity="' + Math.round(stp.color.a, 2) + '"';
-                    }
-                    
-                    self.write(ctx, ctx.currentIndent + '<stop offset="' + self.round1k(Math.round(stp.position, 2)/100.0 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
-                }
-                self.undent(ctx);
-                self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
-            },
+                self.writeRadialGradientInternal(ctx, cx, cy, r, gradientID, stops, scale);
+            }.bind(self),
             function (out) {
                 ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, out, JSON.stringify({ cx: cx, cy: cy, r: r, stops: stops, scale: scale, gradientSpace: gradientSpace }));
             });
@@ -283,7 +308,7 @@
             return gradientID;
         };
 
-        this.writeTextPath = function (ctx, pathData) {
+        self.writeTextPath = function (ctx, pathData) {
             
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
@@ -302,11 +327,11 @@
             return textPathID;
         };
         
-        this.round1k = function (x) {
+        self.round1k = function (x) {
             return Math.round( x * 1000 ) / 1000;
         };
         
-        this.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
+        self.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
             var hasStyle = false,
                 styleBlock;
             if (ctx.omStylesheet.hasStyleBlock(node)) {
@@ -320,7 +345,7 @@
             }
         };
         
-        this.ctxCapture = function (ctx, fnCapture, fnResult) {
+        self.ctxCapture = function (ctx, fnCapture, fnResult) {
             var origBuffer = ctx.sOut,
                 resultBuffer;
             ctx.sOut = "";
@@ -330,12 +355,12 @@
             fnResult(resultBuffer);
         };
         
-        this.indentify = function (indent, buf) {
+        self.indentify = function (indent, buf) {
             var out = indent + buf.replace(/(\n)/g, "\n" + indent);
             return out.substr(0, out.length - indent.length);
         };
         
-        this.toString = function (ctx) {
+        self.toString = function (ctx) {
             return ctx.sOut;
         };
 
@@ -385,7 +410,7 @@
                 }
             };
         
-        this.extend = function (deep, target, source) {
+        self.extend = function (deep, target, source) {
             var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {},
                 i = 1,
                 length = arguments.length,
@@ -405,7 +430,7 @@
                 target = {};
             }
             if (length === i) {
-                target = this;
+                target = self;
                 --i;
             }
             for (i; i < length; i++) {
@@ -423,7 +448,7 @@
                             } else {
                                 clone = src && jQueryLike.isPlainObject(src) ? src : {};
                             }
-                            target[name] = this.extend(deep, clone, copy);
+                            target[name] = self.extend(deep, clone, copy);
                         } else if (copy !== undefined) {
                             target[name] = copy;
                         }
@@ -433,7 +458,7 @@
             return target;
         };
         
-        this.toBase64 = function (string) {
+        self.toBase64 = function (string) {
             var buf = new Buffer(string);
             return buf.toString("base64");
         };
