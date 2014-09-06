@@ -145,7 +145,7 @@
         };
         
         
-        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer) {
+        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, rootLayerId) {
             var layers = psd.layers,
                 docId = psd.id,
                 docResolution = psd.resolution || 72.2,
@@ -159,7 +159,7 @@
                 lastJSXPromise;
             
             try{
-                patchLayerSVG = function (layer) {
+                patchLayerSVG = function (layer, offsetSettings) {
 
                     var layerId = layer.id,
                         layerIndex = layer.index,
@@ -171,6 +171,13 @@
                         patchSettings;
                     if (layerType === "backgroundLayer") {
                         _hasBackgroundLayer = true;
+                    }
+                    
+                    if (cropToSingleLayer && rootLayerId === layerId) {
+                        offsetSettings = {
+                            xOffset: -layer.bounds.left,
+                            yOffset: -layer.bounds.top
+                        };
                     }
                     
                     if (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer") {
@@ -207,9 +214,9 @@
                             fxSolidFill: true
                         };
                         
-                        if (cropToSingleLayer) {
-                            patchSettings.xOffset = -layer.bounds.left;
-                            patchSettings.yOffset = -layer.bounds.top;
+                        if (cropToSingleLayer && offsetSettings) {
+                            patchSettings.xOffset = offsetSettings.xOffset;
+                            patchSettings.yOffset = offsetSettings.yOffset;
                         } else {
                             patchSettings.xOffset = 0;
                             patchSettings.yOffset = 0;
@@ -254,7 +261,7 @@
                     } else if (layerType === "layerSection") {
                         for (i = 0; i < layer.layers.length; i++) {
                             childLyr = layer.layers[i];
-                            patchLayerSVG(childLyr);
+                            patchLayerSVG(childLyr, offsetSettings);
                         }
                     }
                 }.bind(this);

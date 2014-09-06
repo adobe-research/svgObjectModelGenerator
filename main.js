@@ -100,7 +100,7 @@
                 var doc = JSON.parse(JSON.stringify(document)),
                     cropToSingleLayer = (typeof layerSpec === "number");
                 
-                generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer).then(function () {
+                generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec).then(function () {
                     if (layerSpec === "all") {
                         layerSpec = null;
                     }
