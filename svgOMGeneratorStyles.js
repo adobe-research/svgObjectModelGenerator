@@ -247,6 +247,11 @@
             }
         };
         
+        this.addGroupStylingData = function (svgNode, layer) {
+            svgNode.shapeBounds = layer.bounds;
+            this.addStylingData(svgNode, layer);
+        };
+        
         this.addStylingData = function (svgNode, layer) {
 
             this.addGlobalStyle(svgNode, layer);

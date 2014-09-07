@@ -176,7 +176,8 @@
                     break;
                 case "group":
                     if (!justTraverse) {
-                        omgStyles.addStylingData(svgNode, layer);
+                        
+                        omgStyles.addGroupStylingData(svgNode, layer);
                         writer.pushCurrent(svgNode);
                     }
                     for (i = layer.layers.length - 1; i >= 0; i--) {
