@@ -102,7 +102,7 @@
                 bndsIn = omIn.boundsWithFX;
                 
             } else {
-                if (omIn.type === "shape" || (omIn.type === "generic" && omIn.shapeBounds)) {
+                if (omIn.type === "shape" || omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                     bndsIn = omIn.shapeBounds;
                 } else if (omIn.type === "text") {
                     if (omIn.textBounds) {
@@ -144,7 +144,8 @@
         //shift the bounds recorded in recordBounds
         this.shiftBounds = function (ctx, omIn) {
             var bnds = omIn.bounds;
-            if (omIn.type === "shape" || omIn.type === "text" || (omIn.type === "generic" && omIn.shapeBounds)) {
+            if (omIn.type === "shape" || omIn.type === "text" ||
+                omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bnds = omIn.shapeBounds;
                 if (omIn.type === "text") {
                     //get rid of position?

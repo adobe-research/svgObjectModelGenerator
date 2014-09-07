@@ -259,27 +259,26 @@
             if (!gradientFill || !gradientFill.enabled) {
                 return;
             }
-
             opacity = round1k(gradientFill.opacity.value / 100);
 
-            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.svgOM.viewBox, "grad");
+            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.svgOM.viewBox, 'grad');
 
-            var string = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"" +
-                " width=\"" + (bounds.right - bounds.left) + "\" height=\"" + (bounds.bottom - bounds.top) + "\">" +
-                pseudoCtx.sOut + "<rect width=\"100%\" height=\"100%\"";
+            var string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
+                ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '">' +
+                pseudoCtx.sOut + '<rect width="100%" height="100%"';
             if (opacity != 1) {
-                string += " opacity=\"" + opacity + "\"";
+                string += ' opacity="' + opacity + '"';
             }
-            string += " fill=\"url(#grad)\"/></svg>";
+            string += ' fill="url(#grad)"/></svg>';
             var base64 = svgWriterUtils.toBase64(string);
 
             write(ctx, ctx.currentIndent + "<feImage x=\"" + bounds.left + "\" y=\"" + bounds.top + "\"" +
-                " preserveAspectRatio=\"none\"" +
-                " width=\"" + (bounds.right - bounds.left) + "\" height=\"" + (bounds.bottom - bounds.top) + "\"" +
-                " xlink:href=\"data:image/svg+xml;base64," + base64 + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"atop\" in2=\"SourceGraphic\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + gradientFill.mode + "\" in2=\"" + param.pass + "\" result=\"gradientFill\"/>" + ctx.terminator);
-            param.pass = "gradientFill";
+                ' preserveAspectRatio="none"' +
+                ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '"' +
+                ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feComposite operator="atop" in2="SourceGraphic"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feBlend mode="' + gradientFill.mode + '" in2="' + param.pass + '" result="gradientFill"/>' + ctx.terminator);
+            param.pass = 'gradientFill';
             
             return JSON.stringify({ l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 });
         };
