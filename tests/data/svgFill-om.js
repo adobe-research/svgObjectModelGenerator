@@ -277,6 +277,12 @@ module.exports = {
         "right": 288
     },
     "pxToInchRatio": 72,
+    "docBounds": {
+        "bottom": 288,
+        "left": 0,
+        "right": 288,
+        "top": 0
+    },
     "globalLight": {
         "angle": 120,
         "altitude": 30

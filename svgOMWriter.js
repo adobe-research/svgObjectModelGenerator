@@ -28,6 +28,8 @@
 		    },
             _currentNodeStack = [];
         
+        this._root = _root;
+        
         this.peekCurrent = function () {
             if (_currentNodeStack.length > 0) {
                 return _currentNodeStack[_currentNodeStack.length - 1];
@@ -45,6 +47,10 @@
         this.setDocOffset = function (offX, offY) {
             _root.offsetX = offX;
             _root.offsetY = offY;
+        };
+        
+        this.setDocBounds = function (bounds) {
+            _root.docBounds = bounds;
         };
         
         this.setDocViewBox = function (bounds) {
