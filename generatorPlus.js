@@ -33,6 +33,7 @@
         svgWriterUtils = require("./svgWriterUtils"),
         svgOMGenerator = require("./svgOMGenerator"),
         fs = require("fs"),
+        resolve = require("path").resolve,
         tmp = require("tmp");
     
     function GeneratorPlus() {
@@ -156,17 +157,21 @@
                 layerComp = this.findLayerComp(psd, compId),
                 patchLayerSVG,
                 _hasBackgroundLayer = false,
-                lastJSXPromise;
+                lastJSXPromise,
+                layersToPatch = {},
+                jsxBatchInit = fs.readFileSync(resolve(__dirname, __dirname + "/jsx/patchShapeLayers-init.jsx"), {encoding: "utf8"}),
+                jsxBatchFin = fs.readFileSync(resolve(__dirname, __dirname + "/jsx/patchShapeLayers-fin.jsx"), {encoding: "utf8"}),
+                jsxPatch = [jsxBatchInit],
+                jsxDeferred;
             
             try{
-                patchLayerSVG = function (layer, offsetSettings) {
+                patchLayerSVG = function (layer, offsetSettings, bUnderRoot) {
 
                     var layerId = layer.id,
                         layerIndex = layer.index,
                         i,
                         layerType = layer.type,
                         childLyr,
-                        jsxDeferred,
                         rasterDeferred,
                         patchSettings;
                     if (layerType === "backgroundLayer") {
@@ -174,19 +179,18 @@
                     }
                     
                     if (cropToSingleLayer && rootLayerId === layerId) {
+                        bUnderRoot = true;
                         offsetSettings = {
                             xOffset: -layer.bounds.left,
                             yOffset: -layer.bounds.top
                         };
                     }
                     
-                    if (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer") {
+                    //bUnderRoot is to only crop to the sub-tree being generatored...
+                    if ((!cropToSingleLayer || bUnderRoot) && (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer")) {
                         
                         svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
     
-                        jsxDeferred = Q.defer();
-                        promises.push(jsxDeferred.promise);
-
                         if(svgOMGenerator.layerShouldBeRasterized(layer)) {
                             rasterDeferred = Q.defer();
                             promises.push(rasterDeferred.promise);
@@ -225,43 +229,16 @@
                         //TBD: opportunity to cache .base64-ized layers and speed this up when they don't all change
                         
                         if (layerType === "shapeLayer") {
-                            if (!lastJSXPromise) {
-                                lastJSXPromise = Q.resolve();
-                            }
-
-                            lastJSXPromise.then(function () {
-                                _G.evaluateJSXFile(__dirname + '/jsx/patchShapeLayer.jsx', patchSettings).then(function (oPatch) {
-                                    try {
-                                        if (typeof oPatch  === 'string') {
-                                            oPatch = JSON.parse(oPatch);
-                                        }
-
-                                        if (oPatch.exception) {
-                                            jsxDeferred.reject(new Error("patchShapeLayer.jsx: " + oPatch.exception));
-                                        }
-
-                                        if (oPatch.pathData) {
-                                            layer.path.rawPathData = oPatch.pathData;
-                                        }
-                                        jsxDeferred.resolve();
-                                    } catch (erPatch) {
-                                        console.warn("error patching " + erPatch + " " + erPatch.stack);
-                                        jsxDeferred.reject(erPatch);
-                                    }
-
-                                }, function (err) {
-                                    jsxDeferred.reject(err);
-                                });
-                            });
-                            lastJSXPromise = jsxDeferred.promise;
-                        } else {
-                            jsxDeferred.resolve();
+                            layersToPatch[patchSettings.layerId] = {
+                                settings: patchSettings,
+                                layer: layer
+                            };
                         }
 
                     } else if (layerType === "layerSection") {
                         for (i = 0; i < layer.layers.length; i++) {
                             childLyr = layer.layers[i];
-                            patchLayerSVG(childLyr, offsetSettings);
+                            patchLayerSVG(childLyr, offsetSettings, bUnderRoot);
                         }
                     }
                 }.bind(this);
@@ -272,7 +249,41 @@
                     lyr = layers[iL];
                     patchLayerSVG(lyr);
                 }
+                
+                //now do the consolidated JSX patch
+                jsxDeferred = Q.defer();
+                promises.push(jsxDeferred.promise);
+                
+                Object.keys(layersToPatch).forEach(function (patchLayerId) {
+                    
+                    jsxPatch.push("out = out + sep + \"\\\"" + patchLayerId + "\\\": \\\"\" + patchLayerPath(" + JSON.stringify(layersToPatch[patchLayerId].settings) + ") + \"\\\"\"; ");
+                    jsxPatch.push("sep = \", \"; ");
+                    
+                });
+                jsxPatch.push(jsxBatchFin);
 
+                _G.evaluateJSXString(jsxPatch.join('')).then(function (oPatch) {
+                    try {
+                        if (typeof oPatch  === 'string') {
+                            oPatch = JSON.parse(oPatch);
+                        }
+                        if (oPatch.exception) {
+                            jsxDeferred.reject(new Error("patchShapeLayers.jsx: " + oPatch.exception));
+                        }
+                        Object.keys(oPatch).forEach(function (patchedLayerId) {
+                            layersToPatch[patchedLayerId].layer.path.rawPathData = oPatch[patchedLayerId];
+                        });
+                        jsxDeferred.resolve();
+                    } catch (erPatch) {
+                        console.warn("error patching " + erPatch + " " + erPatch.stack);
+                        jsxDeferred.reject(erPatch);
+                    }
+
+                }, function (err) {
+                    jsxDeferred.reject(err);
+                });
+
+                //all done...
                 Q.all(promises).then(function () {
                     patchDeferred.resolve();
                 });

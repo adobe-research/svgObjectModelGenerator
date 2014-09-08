@@ -54,7 +54,9 @@
             getCompLayerSettings: true,
             selectedLayers:       false,
             getDefaultLayerFX:    true
-        };
+        },
+        _docInfoCache = {},
+        isListeningToGenerator = false;
     
     function onGeneratorDOMMenuClick(event) {
         _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", {}).then(function (origMode) {
@@ -79,7 +81,38 @@
         _G.addMenuItem(MENU_GENERATOR_DOM, "Copy svgOM", true, false);
         _G.onPhotoshopEvent("generatorMenuChanged", onGeneratorDOMMenuClick);
     }
-
+    
+    function invalidateDocInfoCache() {
+        _docInfoCache = {};
+    }
+    
+    function getCachedDocInfo(generator, docId) {
+        if (!isListeningToGenerator) {
+            isListeningToGenerator = true;
+            generator.onPhotoshopEvent("imageChanged", invalidateDocInfoCache);
+            generator.onPhotoshopEvent("generatorMenuChanged", invalidateDocInfoCache);
+        }
+        
+        _docInfoCache[docId] = _docInfoCache[docId] || {};
+        
+        var cacheInfo = _docInfoCache[docId];
+        
+        if (cacheInfo._lastDocInfo) {
+            return Q.resolve(cacheInfo._lastDocInfo);
+        } else {
+            if (cacheInfo._lastDocInfoPromise) {
+                return cacheInfo._lastDocInfoPromise;
+            } else {
+                cacheInfo._lastDocInfoPromise = generator.getDocumentInfo(docId, docInfoFlags).then(function (doc) {
+                    cacheInfo._lastDocInfoPromise = undefined;
+                    cacheInfo._lastDocInfo = doc;
+                    return doc;
+                });
+                return cacheInfo._lastDocInfoPromise;
+            }
+        }
+    }
+    
     function getGeneratorSVG(generator, params) {
         var deferedResult = Q.defer(),
             OMG = require("./svgOMGenerator.js"),
@@ -94,8 +127,7 @@
         layerScale = params.layerScale;
         docId = params.documentId;
         
-        
-        generator.getDocumentInfo(null, docInfoFlags).then(
+        getCachedDocInfo(generator, docId).then(
             function (document) {
                 var doc = JSON.parse(JSON.stringify(document)),
                     cropToSingleLayer = (typeof layerSpec === "number");
