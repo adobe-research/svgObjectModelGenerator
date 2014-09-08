@@ -53,59 +53,90 @@
             return false;
         };
 
+        this._computeTextPath = function (listKey, isBoxMode, boxOrientation, bounds, textHeight) {
+            
+            var points,
+                closedSubpath = !!listKey.closedSubpath,
+                i = 0,
+                pathData = '',
+                controlPoint,
+                lastPoint;
+            
+            if (isBoxMode) {
+                if (boxOrientation === "horizontal") {
+                    points = [listKey.points[3], listKey.points[1]];
+                } else {
+                    points = [listKey.points[2], listKey.points[0]];
+                }
+                pathData = 'M ' + round1k(points[0].anchor.horizontal) + ' ' + round1k(points[0].anchor.vertical);
+                pathData += 'L ' + round1k(points[1].anchor.horizontal) + ' ' + round1k(points[1].anchor.vertical);
+            } else {
+                points = listKey.points;
+            
+                for (; points && i < points.length; ++i) {
+                    if (!i) {
+                        pathData = 'M ' + round1k(points[i].anchor.horizontal) + ' ' + round1k(points[i].anchor.vertical);
+                    } else {
+                        lastPoint = points[i-1].forward ? points[i-1].forward : points[i-1].anchor;
+                        pathData += " C " + round1k(lastPoint.horizontal) + " " + round1k(lastPoint.vertical) + " ";
+                        controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
+                        pathData += round1k(controlPoint.horizontal) + " " + round1k(controlPoint.vertical) + " ";
+                        pathData += round1k(points[i].anchor.horizontal) + " " + round1k(points[i].anchor.vertical);
+                    }
+                }
+                if (closedSubpath) {
+                    pathData += " Z";
+                }
+            }
+            
+            return pathData;
+        };
+        
         this.addTextOnPath = function (svgNode, layer, writer) {
             var self = this;
             return this.textComponentOrigin(layer, function (text) {
-                if (layer.text.textShape[0].char !== "onACurve" ||
+                if ((layer.text.textShape[0].char !== "onACurve" &&
+                     layer.text.textShape[0].char !== "box") ||
                     !layer.text.textShape[0].path) {
                     return false;
                 }
 
                 var svgTextPathNode,
-                    dpi;
+                    isBoxMode = (layer.text.textShape[0].char === "box"),
+                    boxOrientation = layer.text.textShape[0].orientation,
+                    dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
+                    maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
 
-                var computeTextPath = function (points) {
-                    if (!points) {
-                        return "";
-                    }
-                    var i = 0,
-                        pathData = "";
-
-                    for (; i < points.length; ++i) {
-                        if (!i) {
-                            pathData += "M " + round1k(points[i].anchor.horizontal) + " " + round1k(points[i].anchor.vertical);
-                            continue;
-                        }
-                        var lastPoint = points[i-1].forward ? points[i-1].forward : points[i-1].anchor;
-                        pathData += " C " + round1k(lastPoint.horizontal) + " " + round1k(lastPoint.vertical) + " ";
-                        var controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
-                        pathData += round1k(controlPoint.horizontal) + " " + round1k(controlPoint.vertical) + " ";
-                        pathData += round1k(points[i].anchor.horizontal) + " " + round1k(points[i].anchor.vertical);
-                    }
-                    return pathData;
-                };
-
+                try {
+                
                 svgNode.type = "text";
                 svgNode.shapeBounds = layer.bounds;
                 
-                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
-                svgNode.textBounds = {
+                /*
+                svgNode.textBounds = {    
                     top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
                     bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
                     left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
-                    right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)
+                    right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)    
                 };
+                */
                 
+                svgNode.textBounds = {
+                    top: _boundInPx(text.boundingBox.top, dpi),
+                    bottom: _boundInPx(text.boundingBox.bottom, dpi),
+                    left: _boundInPx(text.boundingBox.left, dpi),
+                    right: _boundInPx(text.boundingBox.right, dpi)
+                };
                 svgNode.position = {
                     x: 0,
                     y: 0
                 };
-
                 writer.pushCurrent(svgNode);
                 svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
-                svgTextPathNode.pathData = computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0].points);
+                svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, svgNode.textBounds, maxTextSize);
+                
+                self.addTextTransform(writer, svgNode, text, layer, true, isBoxMode);
 
-                // FIXME: Text on path always has just one paragraph. Avoid creatnig an extra element for it.
                 if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds)) {
                     return false;
                 }
@@ -117,6 +148,11 @@
                 omgStyles.addTextStyle(svgNode, layer);
 
                 omgStyles.addStylingData(svgNode, layer);
+                
+                } catch (exter) {
+                    console.warn(exter.stack);
+                    return false;
+                }
                 return true;
             });
         };
@@ -141,11 +177,18 @@
                 
                 // It seems that textClickPoint is a quite reliable global position for
                 // the initial <text> element. Values in percentage.
+                //svgNode.position = {
+                    //x: text.textClickPoint.horizontal.value,
+                    //y: text.textClickPoint.vertical.value
+                //};
+                //move to pixels so it is easier to work with te position
                 svgNode.position = {
-                    x: text.textClickPoint.horizontal.value,
-                    y: text.textClickPoint.vertical.value
+                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.docBounds.right - writer._root.docBounds.left),
+                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.docBounds.bottom - writer._root.docBounds.top),
+                    unitPX: true
                 };
-                self.addTextTransform(svgNode, text, layer);
+                
+                self.addTextTransform(writer, svgNode, text, layer, false);
                 
                 return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds);
             });
@@ -202,8 +245,9 @@
                     svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan", true);
                     svgParagraphNode.position = {
                         x: position.x,
-                        //y: position.y + pctYPosGuess
-                        y: position.y
+                        y: position.y,
+                        unitPX: position.unitPX,
+                        unitEM: position.unitEM
                     };
                     writer.pushCurrent(svgParagraphNode);
                     pctYPosGuess = 0;
@@ -253,36 +297,64 @@
             return true;
         };
 
-        this.addTextTransform = function (svgNode, text, layer) {
-            if (!text.transform) {
+        this.addTextTransform = function (writer, svgNode, text, layer, isOnPath, boxMode) {
+            if (!text.transform && (!text.textShape || text.textShape.length === 0 || !text.textShape[0].transform)) {
                 return;
             }
-            var t = new Transform(),
+            var transform = text.transform || text.textShape[0].transform,
+                dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
+                t = new Transform(),
                 // The trnasformation matrix is relative to this boundaries.
                 boundsOrig = layer.bounds,
                 // This covers the actual bounds of the text in pt units and needs
                 // to be transformed to pixel.
-                // FIXME: Transform from pt to px first.
                 boundsTransform = {
-                    "left": text.bounds.left.value,
-                    "right": text.bounds.right.value,
-                    "top": text.bounds.top.value,
-                    "bottom": text.bounds.bottom.value
+                    left:   _boundInPx(text.bounds.left, dpi),
+                    right:  _boundInPx(text.bounds.right, dpi),
+                    top:    _boundInPx(text.bounds.top, dpi),
+                    bottom: _boundInPx(text.bounds.bottom, dpi)
                 },
                 obx, oby, tbx, tby;
-            obx = (boundsOrig.right - boundsOrig.left) / 2;
-            oby = (boundsOrig.bottom - boundsOrig.top) / 2;
-            tbx = (boundsTransform.right - boundsTransform.left) / 2;
-            tby = -(boundsTransform.top - boundsTransform.bottom) / 2;
-
+            
+            obx = (boundsOrig.right - boundsOrig.left) / 2.0;
+            oby = (boundsOrig.bottom - boundsOrig.top) / 2.0;
+            tbx = (boundsTransform.right - boundsTransform.left) / 2.0;
+            tby = -(boundsTransform.top - boundsTransform.bottom) / 2.0;
+            
+            svgNode.maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
+            
+            if (transform.xx === 1 && 
+                transform.xy === 0 && 
+                transform.yx === 0 && 
+                transform.yy === 1) {
+                //its just a translate
+                if (transform.tx === 0 && transform.ty === 0) {
+                    //the transform does nothing, ditch it
+                    return;
+                }
+                
+                //It seems like we ought to be able to ditch the transform here
+                //and move it to regular coordinates, but it SVG didn't seem to like it
+                //svgNode.position.x -= (obx - tbx);
+                //svgNode.position.y -= (oby - tby);
+                //svgNode.unitPX = true;
+            }
+            
             t.translate(boundsOrig.left, boundsOrig.top);
+            
+            if (isOnPath && boxMode) {
+                //t.translate(-(tbx*2), -(tby*2));
+            }
+            
             t.translate(obx, oby);
-            t.multiply(text.transform.xx, text.transform.xy, text.transform.yx, text.transform.yy,
-                text.transform.tx, text.transform.ty);
+            t.multiply(transform.xx, transform.xy, transform.yx, transform.yy, transform.tx, transform.ty);
             t.translate(-obx, -oby);
-            // FIXME: Use the biggest font-size for the first line. Transform pt to px.
-            t.translate(obx - tbx, oby - tby + text.textStyleRange[0].textStyle.size.value);
-
+            
+            // Use the biggest font-size for the first line. Transform pt to px.
+            //t.translate(obx - tbx, oby - (tby + svgNode.maxTextSize));
+            t.translate(obx - tbx, (oby - tby) + svgNode.maxTextSize/2.0);
+            //t.translate((obx - tbx), (oby - tby));
+            
             svgNode.position = {
                 x: 0,
                 y: 0

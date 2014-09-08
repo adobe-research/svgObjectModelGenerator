@@ -142,20 +142,27 @@
         };
         
         //shift the bounds recorded in recordBounds
-        this.shiftBounds = function (ctx, omIn) {
+        this.shiftBounds = function (ctx, omIn, nested) {
             var bnds = omIn.bounds;
             if (omIn.type === "shape" || omIn.type === "text" ||
                 omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bnds = omIn.shapeBounds;
                 if (omIn.type === "text") {
-                    //get rid of position?
+                    if (omIn.transform) {
+                        omIn.transform.translate(ctx._shiftContentX, ctx._shiftContentY);
+                    }
                     if (omIn.position) {
-                        omIn.position.x = 0.0;
-                        omIn.position.y = 1.0;
-                        omIn.position.unitEM = true;
+                        if (!nested) {
+                            omIn.position.x = 0.0;
+                            omIn.position.y = 1.0;
+                            omIn.position.unitEM = true;
                         
-                        if (omIn.children && omIn.children.length === 1) {
-                            omIn.children[0].position.x = 0.0;
+                            if (omIn.children && omIn.children.length === 1) {
+                                omIn.children[0].position.x = 0.0;
+                            }
+                        } else if (omIn.position.unitPX) {
+                            omIn.position.x += ctx._shiftContentX;
+                            omIn.position.y += ctx._shiftContentY;
                         }
                     }
                 }
@@ -215,12 +222,6 @@
                     ctx._shiftContentY = (bnds.top * -1.0) + ctx._boundsPadTop;
                     
                     if (ctx.svgOM && ctx.svgOM.viewBox) {
-                        /*
-                        ctx.svgOM.viewBox.left = bnds.left - ctx._boundsPadLeft;
-                        ctx.svgOM.viewBox.top = bnds.top - ctx._boundsPadTop;
-                        ctx.svgOM.viewBox.right = bnds.right + ctx._boundsPadRight;
-                        ctx.svgOM.viewBox.bottom = bnds.bottom + ctx._boundsPadBottom;
-                        */
                         ctx.svgOM.viewBox.left = 0;
                         ctx.svgOM.viewBox.top = 0;
                         ctx.svgOM.viewBox.right = (bnds.right + ctx._boundsPadRight) - (bnds.left - ctx._boundsPadLeft);
@@ -230,13 +231,13 @@
             }
         };
         
-        this.processSVGNode = function (ctx) {
+        this.processSVGNode = function (ctx, nested) {
 
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
             
             if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {
-                this.shiftBounds(ctx, omIn);
+                this.shiftBounds(ctx, omIn, nested);
             }
             
             this.scanForUnsupportedFeatures(ctx);
@@ -247,15 +248,10 @@
                 svgWriterUtils.writeTextPath(ctx, omIn.pathData);
             }
             
-            //TBD: more pre-processing
-            // - groupify coordinates
-            // - add groups for combining effects
-            // - 
-            
             if (children) {
                 children.forEach(function (childNode) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(ctx);
+                    this.processSVGNode(ctx, (omIn !== ctx.svgOM));
                 }.bind(this));
             }
         };

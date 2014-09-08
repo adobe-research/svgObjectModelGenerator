@@ -39,8 +39,9 @@ describe('svgWriter', function (){
             }
             
             if (svgOut != string) {
-                console.log("TESTFILE: " + testName + ".svg");
-                console.log("\n\n" + svgOut + "\n\n");
+                //uncomment to accept the changes by overwriting the comparison
+                //please review the changes carefully and try the media before and after the update
+                //fs.writeFileSync('./tests/data/' + testName + ".svg", svgOut, 'utf8');
             }
             
             expect(svgOut).to.equal(string);

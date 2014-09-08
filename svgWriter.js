@@ -44,6 +44,7 @@
         componentToHex = svgWriterUtils.componentToHex,
         rgbToHex = svgWriterUtils.rgbToHex,
         writeColor = svgWriterUtils.writeColor,
+        round1k = svgWriterUtils.round1k,
         writeTextPath = svgWriterUtils.writeTextPath;
 
     function gWrap(ctx, id, fn) {
@@ -107,6 +108,25 @@
                 write(ctx, " class=\"" + omStyleBlock.class + "\"");
             }
         }
+    }
+    
+    function writePositionIfNecessary(ctx, position) {
+        var unit = '%',
+            x,
+            y;
+        if (position.unitEM) {
+            unit = "em";
+            x = round1k(position.x);
+            y = round1k(position.y);
+        } else {
+            x = rnd(position.x);
+            y = rnd(position.y);
+            if (position.unitPX) {
+                unit = "px";
+            }
+        }
+        writeAttrIfNecessary(ctx, "x", x, 0, unit);
+        writeAttrIfNecessary(ctx, "y", y, 0, unit);
     }
 
     function writeLayerNode(ctx, sibling, siblingsLength) {
@@ -248,7 +268,13 @@
                         (omIn.style["text-anchor"] !== "middle" &&
                          omIn.style["text-anchor"] !== "end") &&
                         isFinite(omIn.position.x)) {
-                        writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
+                        if (omIn.position.unitPX) {
+                            writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "px");
+                        } else if (omIn.position.unitEM) {
+                            writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "em");
+                        } else {
+                            writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
+                        }
                     }
                 }
                 
@@ -277,23 +303,13 @@
             }
             case "text":
                 gWrap(ctx, omIn.id, function () {
-                    // FIXME: We need the dimension of the current viewport here.
-                    // A global unit handler could do the job for us. Use 1024
-                    // as the fixed dimension. The default for my PSD files.
-                    var x = rnd(omIn.position.x);
-                    var y = rnd(omIn.position.y);
+                    
                     write(ctx, ctx.currentIndent + "<text");
 
                     writeClassIfNeccessary(ctx);
-
-                    if (omIn.position.unitEM) {
-                        writeAttrIfNecessary(ctx, "x", omIn.position.x, 0, "em");
-                        writeAttrIfNecessary(ctx, "y", omIn.position.y, 0, "em");
-                    } else {
-                        // FIXME: We should use absolute positions.
-                        writeAttrIfNecessary(ctx, "x", x, 0, "%");
-                        writeAttrIfNecessary(ctx, "y", y, 0, "%");
-                    }
+                    
+                    writePositionIfNecessary(ctx, omIn.position);
+                    
                     writeTransformIfNecessary(ctx, "transform", omIn.transform);
                     write(ctx, ">" + ctx.terminator);
 
@@ -343,8 +359,7 @@
                 }
                 writeAttrIfNecessary(ctx, "startOffset", offset, 0, "%");
                 write(ctx, ">" + ctx.terminator);
-
-                // FIXME: Avoid extra tspan for one paragraph.
+                
                 indent(ctx);
                 ctx.omStylesheet.writePredefines(ctx);
                 var children = ctx.currentOMNode.children;

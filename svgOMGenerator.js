@@ -197,6 +197,7 @@
         // Assume the PSD is at 0,0.
         writer.setDocOffset(0, 0);
         writer.setDocViewBox(psd.bounds);
+        writer.setDocBounds(psd.bounds);
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);
         

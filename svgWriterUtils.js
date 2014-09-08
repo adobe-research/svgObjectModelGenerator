@@ -106,8 +106,8 @@
         self.writeTransformIfNecessary = function (ctx, attr, val) {
             if (val) {
                 self.write(ctx, " " + attr + "=\"matrix(" +
-                           val.a + ", " + val.b + ", " + val.c + ", " +
-                           val.d + ", " + val.e + ", " + val.f + ")\"");
+                           self.round10k(val.a) + ", " + self.round10k(val.b) + ", " + self.round10k(val.c) + ", " +
+                           self.round10k(val.d) + ", " + self.round10k(val.e) + ", " + self.round10k(val.f) + ")\"");
             }
         };
 
@@ -329,6 +329,9 @@
         
         self.round1k = function (x) {
             return Math.round( x * 1000 ) / 1000;
+        };
+        self.round10k = function (x) {
+            return Math.round( x * 10000 ) / 10000;
         };
         
         self.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
