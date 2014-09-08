@@ -135,7 +135,7 @@
                 svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
                 svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, svgNode.textBounds, maxTextSize);
                 
-                self.addTextTransform(writer, svgNode, text, layer, true, isBoxMode);
+                self.addTextTransform(writer, svgNode, text, layer);
 
                 if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds)) {
                     return false;
@@ -176,19 +176,15 @@
                 };
                 
                 // It seems that textClickPoint is a quite reliable global position for
-                // the initial <text> element. Values in percentage.
-                //svgNode.position = {
-                    //x: text.textClickPoint.horizontal.value,
-                    //y: text.textClickPoint.vertical.value
-                //};
-                //move to pixels so it is easier to work with te position
+                // the initial <text> element. 
+                // Values in percentage, moving to pixels so it is easier to work with te position
                 svgNode.position = {
                     x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.docBounds.right - writer._root.docBounds.left),
                     y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.docBounds.bottom - writer._root.docBounds.top),
                     unitPX: true
                 };
                 
-                self.addTextTransform(writer, svgNode, text, layer, false);
+                self.addTextTransform(writer, svgNode, text, layer);
                 
                 return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds);
             });
@@ -297,7 +293,7 @@
             return true;
         };
 
-        this.addTextTransform = function (writer, svgNode, text, layer, isOnPath, boxMode) {
+        this.addTextTransform = function (writer, svgNode, text, layer) {
             if (!text.transform && (!text.textShape || text.textShape.length === 0 || !text.textShape[0].transform)) {
                 return;
             }
@@ -342,18 +338,12 @@
             
             t.translate(boundsOrig.left, boundsOrig.top);
             
-            if (isOnPath && boxMode) {
-                //t.translate(-(tbx*2), -(tby*2));
-            }
-            
             t.translate(obx, oby);
             t.multiply(transform.xx, transform.xy, transform.yx, transform.yy, transform.tx, transform.ty);
             t.translate(-obx, -oby);
             
             // Use the biggest font-size for the first line. Transform pt to px.
-            //t.translate(obx - tbx, oby - (tby + svgNode.maxTextSize));
             t.translate(obx - tbx, (oby - tby) + svgNode.maxTextSize/2.0);
-            //t.translate((obx - tbx), (oby - tby));
             
             svgNode.position = {
                 x: 0,
