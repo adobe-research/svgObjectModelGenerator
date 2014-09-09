@@ -435,11 +435,12 @@
                 childNode,
                 hasRules,
                 hasDefines,
+                round1k = svgWriterUtils.round1k,
                 preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
-                left = +(+omIn.viewBox.left).toFixed(2),
-                top = +(+omIn.viewBox.top).toFixed(2),
-                width = +Math.abs(omIn.viewBox.right - omIn.viewBox.left).toFixed(2),
-                height = +Math.abs(omIn.viewBox.bottom - omIn.viewBox.top).toFixed(2);
+                left = round1k(omIn.viewBox.left),
+                top = round1k(omIn.viewBox.top),
+                width = round1k(Math.abs(omIn.viewBox.right - omIn.viewBox.left)),
+                height = round1k(Math.abs(omIn.viewBox.bottom - omIn.viewBox.top));
             
             write(ctx, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"');
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
