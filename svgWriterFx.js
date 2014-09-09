@@ -432,12 +432,12 @@
                     y: Math.sin(angle) * distance
                 };
 
-            write(ctx, ctx.currentIndent + "<feOffset in=\"SourceAlpha\" dx=\"" + round1k(offset.x) + "\" dy=\"" + round1k(offset.y) + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feGaussianBlur result=\"innerShadowBlur\" stdDeviation=\"" + blur + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"out\" in2=\"innerShadowBlur\" result=\"innerShadow\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + innerShadow.mode + "\" in2=\"" + param.pass + "\" result=\"innerShadow\"/>" + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feOffset in="SourceAlpha" dx="' + round1k(offset.x) + '" dy="' + round1k(offset.y) + '"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feGaussianBlur result="innerShadowBlur" stdDeviation="' + blur + '"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feFlood flood-color="' + svgWriterUtils.writeColor(color) + '" flood-opacity="' + opacity + '"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feComposite operator="out" in2="innerShadowBlur"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceAlpha"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feBlend mode="' + innerShadow.mode + '" in2="' + param.pass + '" result="innerShadow"/>' + ctx.terminator);
             param.pass = "innerShadow";
 
             return JSON.stringify({m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset});

@@ -20,7 +20,7 @@
       <feOffset in="SourceAlpha" dx="0" dy="1"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="0"/>
       <feFlood flood-color="#000000" flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur" result="innerShadow"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="overlay" in2="gradientFill" result="innerShadow"/>
     </filter>

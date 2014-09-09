@@ -34,7 +34,7 @@
       <feOffset in="SourceAlpha" dx="7.5" dy="12.99"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="4.583"/>
       <feFlood flood-color="#0036ff" flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur" result="innerShadow"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
     </filter>

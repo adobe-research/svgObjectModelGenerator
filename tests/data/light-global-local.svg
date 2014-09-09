@@ -41,7 +41,7 @@
       <feOffset in="SourceAlpha" dx="14.142" dy="14.142"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="4.472"/>
       <feFlood flood-color="#000000" flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur" result="innerShadow"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
     </filter>
@@ -49,7 +49,7 @@
       <feOffset in="SourceAlpha" dx="-16.383" dy="-11.472"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="4.472"/>
       <feFlood flood-color="#000000" flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur" result="innerShadow"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
     </filter>
