@@ -328,10 +328,10 @@
         };
         
         self.round1k = function (x) {
-            return Math.round( x * 1000 ) / 1000;
+            return +(+x).toFixed(3);
         };
         self.round10k = function (x) {
-            return Math.round( x * 10000 ) / 10000;
+            return +(+x).toFixed(4);
         };
         
         self.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
@@ -470,5 +470,4 @@
 	module.exports = new SVGWriterUtils();
     
 }());
-     
-    
+
