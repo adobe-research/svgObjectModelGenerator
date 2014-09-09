@@ -435,18 +435,22 @@
                 childNode,
                 hasRules,
                 hasDefines,
-                preserveAspectRatio = ctx.config.preserveAspectRatio || "none";
+                preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
+                left = +(+omIn.viewBox.left).toFixed(2),
+                top = +(+omIn.viewBox.top).toFixed(2),
+                width = +Math.abs(omIn.viewBox.right - omIn.viewBox.left).toFixed(2),
+                height = +Math.abs(omIn.viewBox.bottom - omIn.viewBox.top).toFixed(2);
             
             write(ctx, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"');
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
             writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
             writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
-            write(ctx, ' width="' + Math.abs(omIn.viewBox.right - omIn.viewBox.left) + '" height="' + Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + '"');
+            write(ctx, ' width="' + width + '" height="' + height + '"');
             
             //if (omIn.viewBox.left !== 0 || omIn.viewBox.top !== 0) {
-                write(ctx, ' viewBox="' + omIn.viewBox.left + ' ' + omIn.viewBox.top + ' ');
-                write(ctx, Math.abs(omIn.viewBox.right - omIn.viewBox.left) + ' ');
-                write(ctx, Math.abs(omIn.viewBox.bottom - omIn.viewBox.top) + '"');
+                write(ctx, ' viewBox="' + left + ' ' + top + ' ');
+                write(ctx, width + ' ');
+                write(ctx, height + '"');
             //}
             
             write(ctx, '>' + ctx.terminator);
