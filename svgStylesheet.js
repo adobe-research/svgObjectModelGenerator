@@ -313,7 +313,7 @@
             
             var blockClass;
             
-            write(ctx, ctx.currentIndent + "<style type=\"text/css\">" + ctx.terminator);
+            write(ctx, ctx.currentIndent + "<style>" + ctx.terminator);
             indent(ctx);
             
             for (blockClass in this.blocks) {
