@@ -66,11 +66,11 @@
         ctx._assignNextId = true;
         
         // Any fill operation needs to move up here.
-        svgWriterFill.addShapeFillAttr(ctx);
-        svgWriterFx.addFxAttr(ctx);
+        write(ctx, " style=\"fill: "
+            + ctx.omStylesheet.getStyleBlock(ctx.currentOMNode).getPropertyValue('fill') + ";"
+            + " filter: " + ctx.omStylesheet.getStyleBlock(ctx.currentOMNode).getPropertyValue('filter') + ";\"");
 
-        //do we need to wrap the use and other G in a G so they can be treated as one thing?
-        
+        //do we need to wrap the use and other G in a G so they can be treated as one thing?        
         write(ctx, ">" + ctx.terminator);
         indent(ctx);
         ctx.omStylesheet.writePredefines(ctx);
@@ -84,11 +84,6 @@
 
     function rnd(val, prec) {
         return Math.round(val, prec || 0);
-    }
-    
-    function addAttributeStyles(ctx, omIn) {
-        // FIXME: Deprecated and must be removed.
-        svgWriterFill.addShapeFillAttr(ctx);
     }
 
     function writeIDIfNecessary(ctx, baseName) {
@@ -170,11 +165,9 @@
                             writeAttrIfNecessary(ctx, "cx", rnd(left + w/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "cy", rnd(top + h/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "r", rnd(h/2.0), "0", "");
-                            
-                            addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
                             
                             write(ctx, "/>" + ctx.terminator);
@@ -190,11 +183,9 @@
                             writeAttrIfNecessary(ctx, "cy", rnd(top + h/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "rx", rnd(w/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "ry", rnd(h/2.0), "0", "");
-                            
-                            addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
                             write(ctx, "/>" + ctx.terminator);
@@ -205,11 +196,9 @@
                             
                             writeIDIfNecessary(ctx, "path");
                             writeClassIfNeccessary(ctx);
-                            
-                            addAttributeStyles(ctx, omIn);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
                             write(ctx, " fill-rule=\"evenodd\"/>" + ctx.terminator);
@@ -231,10 +220,8 @@
                                 writeAttrIfNecessary(ctx, "ry", rnd(r), "0", "");
                             }
 
-                            addAttributeStyles(ctx, omIn);
-
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; filter: none;\"");
+                                write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
                             write(ctx, "/>" + ctx.terminator);

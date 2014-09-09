@@ -1,7 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
+
+      .cls-3 {
+        fill: url(#linear-gradient-1);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-3);
+      }
     </style>
+
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="350" y1="150" x2="450" y2="50">
       <stop offset="0" stop-color="#ff0000"/>
       <stop offset="0.15" stop-color="#ff00ff"/>
@@ -30,7 +43,7 @@
       <stop offset="1" stop-color="#ff0000"/>
     </linearGradient>
   </defs>
-  <rect id="rect-1" x="200" y="50" width="400" height="100" fill="url(#linear-gradient-1)"/>
-  <rect id="rect-2" x="350" y="200" width="100" height="100" fill="url(#linear-gradient-2)"/>
-  <rect id="rect-3" x="350" y="350" width="100" height="250" fill="url(#linear-gradient-3)"/>
+  <rect id="rect-1" class="cls-3" x="200" y="50" width="400" height="100"/>
+  <rect id="rect-2" class="cls-4" x="350" y="200" width="100" height="100"/>
+  <rect id="rect-3" class="cls-5" x="350" y="350" width="100" height="250"/>
 </svg>

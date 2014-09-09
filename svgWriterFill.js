@@ -39,28 +39,28 @@
         };
         
         this.externalizeStyles = function (ctx) {
-            
             var omIn = ctx.currentOMNode,
                 fill,
                 gradientID,
-                styleBlock;
+                styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
             
-            if (omIn.style) {
-                fill = omIn.style.fill;
+            if (!omIn.style || !omIn.style.fill) {
+                return;
             }
-            
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            
-            if (fill && fill.style === "solid") {
-                // Make a style for this fill and reference it.
-                styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));                
-                
-            } else if (fill && fill.style === "gradient") {
+            fill = omIn.style.fill;
+
+            if (fill.style === "gradient") {
+                var gradientID;
                 if (fill.gradient.type === "linear") {
-                    writeLinearGradient(ctx, fill.gradient, "-fill");
+                    gradientID = writeLinearGradient(ctx, fill.gradient, "-fill");
                 } else if (fill.gradient.type === "radial") {
-                    writeRadialGradient(ctx, fill.gradient, "-fill");
+                    gradientID = writeRadialGradient(ctx, fill.gradient, "-fill");
+                }                
+                if (gradientID) {
+                    styleBlock.addRule("fill", "url(#" + gradientID + ")");
                 }
+            } else {
+                styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }
         };
         

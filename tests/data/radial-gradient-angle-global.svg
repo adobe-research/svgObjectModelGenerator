@@ -1,7 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
+
+      .cls-3 {
+        fill: url(#radial-gradient-1);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-5 {
+        fill: url(#radial-gradient-3);
+      }
     </style>
+
     <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="300">
       <stop offset="0" stop-color="#ff0000"/>
       <stop offset="0.15" stop-color="#ff00ff"/>
@@ -30,16 +43,16 @@
       <stop offset="1" stop-color="#ff0000"/>
     </radialGradient>
   </defs>
-  <rect id="rect-1" x="50" y="50" width="200" height="100" fill="url(#radial-gradient-1)"/>
-  <rect id="rect-2" x="300" y="50" width="200" height="100" fill="url(#radial-gradient-2)"/>
-  <rect id="rect-3" x="550" y="50" width="200" height="100" fill="url(#radial-gradient-3)"/>
-  <rect id="rect-4" x="50" y="200" width="200" height="100" fill="url(#radial-gradient-2)"/>
-  <rect id="rect-5" x="300" y="200" width="200" height="100" fill="url(#radial-gradient-1)"/>
-  <rect id="rect-6" x="550" y="200" width="200" height="100" fill="url(#radial-gradient-2)"/>
-  <rect id="rect-7" x="50" y="350" width="200" height="100" fill="url(#radial-gradient-3)"/>
-  <rect id="rect-8" x="300" y="350" width="200" height="100" fill="url(#radial-gradient-2)"/>
-  <rect id="rect-9" x="556" y="353" width="194" height="98" fill="url(#radial-gradient-3)"/>
-  <rect id="rect-10" x="50" y="500" width="200" height="100" fill="url(#radial-gradient-1)"/>
-  <rect id="rect-11" x="300" y="500" width="200" height="100" fill="url(#radial-gradient-3)"/>
-  <rect id="rect-12" x="550" y="500" width="200" height="100" fill="url(#radial-gradient-3)"/>
+  <rect id="rect-1" class="cls-3" x="50" y="50" width="200" height="100"/>
+  <rect id="rect-2" class="cls-4" x="300" y="50" width="200" height="100"/>
+  <rect id="rect-3" class="cls-5" x="550" y="50" width="200" height="100"/>
+  <rect id="rect-4" class="cls-4" x="50" y="200" width="200" height="100"/>
+  <rect id="rect-5" class="cls-3" x="300" y="200" width="200" height="100"/>
+  <rect id="rect-6" class="cls-4" x="550" y="200" width="200" height="100"/>
+  <rect id="rect-7" class="cls-5" x="50" y="350" width="200" height="100"/>
+  <rect id="rect-8" class="cls-4" x="300" y="350" width="200" height="100"/>
+  <rect id="rect-9" class="cls-5" x="556" y="353" width="194" height="98"/>
+  <rect id="rect-10" class="cls-3" x="50" y="500" width="200" height="100"/>
+  <rect id="rect-11" class="cls-5" x="300" y="500" width="200" height="100"/>
+  <rect id="rect-12" class="cls-5" x="550" y="500" width="200" height="100"/>
 </svg>

@@ -1,7 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
+
+      .cls-3 {
+        fill: url(#linear-gradient-1);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-6 {
+        fill: url(#radial-gradient-1);
+      }
+
+      .cls-7 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-8 {
+        fill: url(#radial-gradient-3);
+      }
+
+      .cls-9 {
+        fill: url(#radial-gradient-4);
+      }
+
+      .cls-10 {
+        fill: url(#radial-gradient-5);
+      }
+
+      .cls-11 {
+        fill: url(#radial-gradient-6);
+      }
+
+      .cls-12 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-13 {
+        fill: url(#linear-gradient-5);
+      }
+
+      .cls-14 {
+        fill: url(#linear-gradient-6);
+      }
     </style>
+
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="50" y1="100" x2="250" y2="100">
       <stop offset="0.25" stop-color="#ff0000"/>
       <stop offset="0.325" stop-color="#ff00ff"/>
@@ -111,16 +160,16 @@
       <stop offset="1.25" stop-color="#ff0000"/>
     </linearGradient>
   </defs>
-  <rect id="rect-1" x="50" y="50" width="200" height="100" fill="url(#linear-gradient-1)"/>
-  <rect id="rect-2" x="300" y="50" width="200" height="100" fill="url(#linear-gradient-2)"/>
-  <rect id="rect-3" x="550" y="50" width="200" height="100" fill="url(#linear-gradient-3)"/>
-  <rect id="rect-4" x="50" y="500" width="200" height="100" fill="url(#radial-gradient-1)"/>
-  <rect id="rect-5" x="300" y="500" width="200" height="100" fill="url(#radial-gradient-2)"/>
-  <rect id="rect-6" x="550" y="500" width="200" height="100" fill="url(#radial-gradient-3)"/>
-  <rect id="rect-7" x="50" y="200" width="200" height="100" fill="url(#radial-gradient-4)"/>
-  <rect id="rect-8" x="300" y="200" width="200" height="100" fill="url(#radial-gradient-5)"/>
-  <rect id="rect-9" x="552" y="200" width="196" height="94" fill="url(#radial-gradient-6)"/>
-  <rect id="rect-10" x="50" y="350" width="200" height="100" fill="url(#linear-gradient-4)"/>
-  <rect id="rect-11" x="300" y="350" width="200" height="100" fill="url(#linear-gradient-5)"/>
-  <rect id="rect-12" x="550" y="350" width="200" height="100" fill="url(#linear-gradient-6)"/>
+  <rect id="rect-1" class="cls-3" x="50" y="50" width="200" height="100"/>
+  <rect id="rect-2" class="cls-4" x="300" y="50" width="200" height="100"/>
+  <rect id="rect-3" class="cls-5" x="550" y="50" width="200" height="100"/>
+  <rect id="rect-4" class="cls-6" x="50" y="500" width="200" height="100"/>
+  <rect id="rect-5" class="cls-7" x="300" y="500" width="200" height="100"/>
+  <rect id="rect-6" class="cls-8" x="550" y="500" width="200" height="100"/>
+  <rect id="rect-7" class="cls-9" x="50" y="200" width="200" height="100"/>
+  <rect id="rect-8" class="cls-10" x="300" y="200" width="200" height="100"/>
+  <rect id="rect-9" class="cls-11" x="552" y="200" width="196" height="94"/>
+  <rect id="rect-10" class="cls-12" x="50" y="350" width="200" height="100"/>
+  <rect id="rect-11" class="cls-13" x="300" y="350" width="200" height="100"/>
+  <rect id="rect-12" class="cls-14" x="550" y="350" width="200" height="100"/>
 </svg>
