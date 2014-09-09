@@ -180,9 +180,11 @@
                         omgStyles.addGroupStylingData(svgNode, layer);
                         writer.pushCurrent(svgNode);
                     }
-                    for (i = layer.layers.length - 1; i >= 0; i--) {
-                        childLyr = layer.layers[i];
-                        extractLayerSVG(childLyr);
+                    if (layer.layers) {
+                        for (i = layer.layers.length - 1; i >= 0; i--) {
+                            childLyr = layer.layers[i];
+                            extractLayerSVG(childLyr);
+                        }
                     }
                     if (!justTraverse) {
                         writer.popCurrent();
@@ -201,9 +203,11 @@
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);
         
-        for (iL = layers.length - 1; iL >= 0; iL--) {
-            lyr = layers[iL];
-            extractLayerSVG(lyr);
+        if (layers) {
+            for (iL = layers.length - 1; iL >= 0; iL--) {
+                lyr = layers[iL];
+                extractLayerSVG(lyr);
+            }
         }
         
         return writer.toSVGOM();

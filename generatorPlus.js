@@ -236,7 +236,7 @@
                         }
 
                     } else if (layerType === "layerSection" && layer.layers) {
-                        for (i = 0; i < layer.layers.length; i++) {
+                        for (i = 0; layer.layers && i < layer.layers.length; i++) {
                             childLyr = layer.layers[i];
                             patchLayerSVG(childLyr, offsetSettings, bUnderRoot);
                         }
@@ -245,9 +245,11 @@
 
                 //if there is a backgroundLayer we want to hit it first so we can adjust index values after
                 //so we go through the list backwards
-                for (iL = layers.length - 1; iL >= 0; iL--) {
-                    lyr = layers[iL];
-                    patchLayerSVG(lyr);
+                if (layers) {
+                    for (iL = layers.length - 1; iL >= 0; iL--) {
+                        lyr = layers[iL];
+                        patchLayerSVG(lyr);
+                    }
                 }
                 
                 //now do the consolidated JSX patch
