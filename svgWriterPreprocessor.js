@@ -158,6 +158,7 @@
                             omIn.position.unitEM = true;
                         
                             if (omIn.children && omIn.children.length === 1) {
+                                omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
                                 omIn.children[0].position.x = 0.0;
                             }
                         } else if (omIn.position.unitPX) {

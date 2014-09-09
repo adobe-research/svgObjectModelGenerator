@@ -5,14 +5,16 @@
     "main": "main.js",
     "generator-core-version": "~3",
     "license": "Apache 2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe-research/svgObjectModelGenerator.git"
+    },
     "dependencies": {
         "tmp": "~0.0.24"
     },
     "devDependencies": {
-        "jquery": "^2.1.1",
         "mocha": "^1.20.1",
         "chai": "^1.9.1",
-        "jsdom": "^0.11.1",
         "sinon": "^1.10.2",
         "q": "~1.0",
         "blanket": "*",

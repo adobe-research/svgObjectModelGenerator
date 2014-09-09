@@ -14,7 +14,7 @@
 
 /* jshint bitwise: false, strict: false, quotmark: false, forin: false,
    multistr: true, laxbreak: true, maxlen: 255, esnext: true */
-/* global $, app, File, ActionDescriptor, ActionReference, executeAction, PSLayerInfo,
+/* global app, File, ActionDescriptor, ActionReference, executeAction, PSLayerInfo,
    UnitValue, DialogModes, cssToClip, stripUnits, round1k, GradientStop, stringIDToTypeID,
    Folder, kAdjustmentSheet, kLayerGroupSheet, kHiddenSectionBounder, kVectorSheet,
    kTextSheet, kPixelSheet, kSmartObjectSheet, Units, params, runGetLayerSVGfromScript,
@@ -235,7 +235,7 @@
                             };
                         }
 
-                    } else if (layerType === "layerSection") {
+                    } else if (layerType === "layerSection" && layer.layers) {
                         for (i = 0; i < layer.layers.length; i++) {
                             childLyr = layer.layers[i];
                             patchLayerSVG(childLyr, offsetSettings, bUnderRoot);
