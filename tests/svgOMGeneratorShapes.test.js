@@ -43,7 +43,7 @@ describe('svgOMGeneratorShapes', function () {
         expect(svgOMGS.addPath({}, { path: {} })).to.equal(false);
         
         sandbox.stub(console, "log");
-        expect(svgOMGS.addShapeData({}, { path: {} })).to.equal(false);
+        expect(svgOMGS.addShapeData({}, { path: {} }, 72)).to.equal(false);
         expect(console.log.calledOnce).to.equal(true);
         
     });

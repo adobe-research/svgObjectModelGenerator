@@ -40,7 +40,7 @@ describe('svgOMGeneratorImage', function () {
         expect(svgOMGI.pathComponentOrigin({}, fnCallback)).to.equal(false);
         expect(fnCallback.callCount).to.equal(0);
         
-        expect(svgOMGI.addImageData({}, {})).to.equal(false);
+        expect(svgOMGI.addImageData({}, {}, 72)).to.equal(false);
         expect(console.log.calledOnce).to.equal(true);
     });
 

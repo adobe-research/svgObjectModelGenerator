@@ -32,19 +32,19 @@
             return false;
         };
 
-        this.addImage = function (svgNode, layer) {
+        this.addImage = function (svgNode, layer, dpi) {
             return this.pathComponentOrigin(layer, function (pixel) {
                 svgNode.pixel = pixel;
                 svgNode.shapeBounds = layer.bounds;
 
-                omgStyles.addStylingData(svgNode, layer);
+                omgStyles.addStylingData(svgNode, layer, dpi);
                 
                 return true;
             });
         };
 
-        this.addImageData = function(svgNode, layer) {
-            if (this.addImage(svgNode, layer)) {
+        this.addImageData = function(svgNode, layer, dpi) {
+            if (this.addImage(svgNode, layer, dpi)) {
                 return true;
             }
             console.log("ERROR: No image data added for " + JSON.stringify(layer));

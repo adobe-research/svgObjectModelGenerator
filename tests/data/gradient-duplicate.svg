@@ -5,6 +5,7 @@
       .cls-3 {
         fill: url(#linear-gradient-1);
         stroke: url(#linear-gradient-2);
+        stroke-width: 10px;
       }
     </style>
 

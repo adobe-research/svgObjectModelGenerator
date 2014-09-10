@@ -23,6 +23,8 @@
     
     function SVGOMGeneratorUtils() {
         
+        var self = this;
+        
         this.toColor = function (c, a) {
             if (!isFinite(a)) {
                 a = 1.0;
@@ -54,6 +56,22 @@
         
         this.mm2px = function(dim, dpi) {
             return this.in2px(this.mm2in(dim), dpi);
+        };
+        
+        this.boundInPx = function (bnd, dpi) {
+            
+            if (typeof bnd === "number") {
+                return bnd;
+            }
+            if (bnd.units === "pointsUnit") {
+                return self.pt2px(bnd.value, dpi);
+            } else if (bnd.units === "millimetersUnit") {
+                return self.mm2px(bnd.value, dpi);
+            } else if (isFinite(bnd.value)) {
+                console.log("unfamiliar bounds unit for text = " + JSON.stringify(bnd));
+                return bnd.value;
+            }
+            return parseInt(bnd, 10);
         };
         
         function _addOrEditStop(stops, def, colorDefined) {

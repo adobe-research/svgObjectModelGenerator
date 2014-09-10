@@ -32,13 +32,13 @@
             return false;
         };
         
-        this.addEllipse = function (svgNode, layer) {
+        this.addEllipse = function (svgNode, layer, dpi) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 if (origin.type === "ellipse") {
                     svgNode.shape = "ellipse";
                     svgNode.shapeBounds = origin.bounds;
                     
-                    omgStyles.addStylingData(svgNode, layer);
+                    omgStyles.addStylingData(svgNode, layer, dpi);
                     
                     return true;
                 }
@@ -46,7 +46,7 @@
             });
         };
         
-        this.addCircle = function (svgNode, layer) {
+        this.addCircle = function (svgNode, layer, dpi) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 if (origin.type === "ellipse") {
                     
@@ -57,7 +57,7 @@
                         svgNode.shape = "circle";
                         svgNode.shapeBounds = origin.bounds;
                         
-                        omgStyles.addStylingData(svgNode, layer);
+                        omgStyles.addStylingData(svgNode, layer, dpi);
                         
                         return true;
                     }
@@ -66,7 +66,7 @@
             });
         };
 
-        this.addRect = function (svgNode, layer) {
+        this.addRect = function (svgNode, layer, dpi) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 if (origin.type === "rect" || origin.type === "roundedRect") {
                     if (origin.radii &&
@@ -80,7 +80,7 @@
                     svgNode.shapeBounds = origin.bounds;
                     svgNode.shapeRadii = origin.radii;
                         
-                    omgStyles.addStylingData(svgNode, layer);
+                    omgStyles.addStylingData(svgNode, layer, dpi);
 
                     return true;
                 }
@@ -88,7 +88,7 @@
             });
         };
         
-        this.addPath = function (svgNode, layer) {
+        this.addPath = function (svgNode, layer, dpi) {
             var path = layer.path,
                 pathData = layer.path.rawPathData;
             
@@ -98,18 +98,18 @@
                 svgNode.shapeBounds = path.bounds;
                 svgNode.pathData = pathData;
                 
-                omgStyles.addStylingData(svgNode, layer);
+                omgStyles.addStylingData(svgNode, layer, dpi);
                 
                 return true;
             }
             return false;
         };
         
-        this.addShapeData = function(svgNode, layer) {
-            if (this.addCircle(svgNode, layer) || 
-                this.addEllipse(svgNode, layer) ||
-                this.addRect(svgNode, layer) ||
-                this.addPath(svgNode, layer)) {
+        this.addShapeData = function(svgNode, layer, dpi) {
+            if (this.addCircle(svgNode, layer, dpi) || 
+                this.addEllipse(svgNode, layer, dpi) ||
+                this.addRect(svgNode, layer, dpi) ||
+                this.addPath(svgNode, layer, dpi)) {
                 return true;
             }
             console.log("Error: No shape data added for " + JSON.stringify(layer));
