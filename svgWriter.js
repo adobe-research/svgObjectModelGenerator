@@ -26,6 +26,7 @@
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
+        svgWriterText = require("./svgWriterText.js"),
         svgWriterPreprocessor = require("./svgWriterPreprocessor.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
         SVGWriterContext = require("./svgWriterContext.js");
@@ -339,7 +340,8 @@
                         case "end":
                             offset = 100;
                             break;
-                        case "start": break;
+                        case "start":
+                            break;
                         default:
                             break;
                     }

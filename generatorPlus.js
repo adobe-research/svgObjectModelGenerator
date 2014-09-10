@@ -257,8 +257,10 @@
                 promises.push(jsxDeferred.promise);
                 
                 Object.keys(layersToPatch).forEach(function (patchLayerId) {
+                    var patchSettings = layersToPatch[patchLayerId].settings;
                     
-                    jsxPatch.push("out = out + sep + \"\\\"" + patchLayerId + "\\\": \\\"\" + patchLayerPath(" + JSON.stringify(layersToPatch[patchLayerId].settings) + ") + \"\\\"\"; ");
+                    jsxPatch.push("currentLayer = new PSLayerInfo(" + patchSettings.layerIndex + "); ");
+                    jsxPatch.push("out = out + sep + \"\\\"" + patchLayerId + "\\\": { \\\"path\\\": \\\"\" + patchLayerPath(currentLayer, " + JSON.stringify(patchSettings) + ") + \"\\\", \\\"hasPatternOverlay\\\": \\\"\" + patchLayerPatternOverlay(currentLayer) + \"\\\" }\"; ");
                     jsxPatch.push("sep = \", \"; ");
                     
                 });
@@ -273,7 +275,12 @@
                             jsxDeferred.reject(new Error("patchShapeLayers.jsx: " + oPatch.exception));
                         }
                         Object.keys(oPatch).forEach(function (patchedLayerId) {
-                            layersToPatch[patchedLayerId].layer.path.rawPathData = oPatch[patchedLayerId];
+                            var lyr = layersToPatch[patchedLayerId].layer;
+                            if (String(oPatch[patchedLayerId].hasPatternOverlay) === "true") {
+                                lyr.layerEffects = lyr.layerEffects || {};
+                                lyr.layerEffects.patternOverlay = { enabled: true };
+                            }
+                            lyr.path.rawPathData = oPatch[patchedLayerId].path;
                         });
                         jsxDeferred.resolve();
                     } catch (erPatch) {

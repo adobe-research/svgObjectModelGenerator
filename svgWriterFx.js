@@ -49,6 +49,10 @@
                 if (this.hasEmboss(ctx)) {
                     ctx.errors.push("Bevel and Emboss filter effects are not supported by SVG export.");
                 }
+                
+                if (this.hasPatternOverlay(ctx)) {
+                    ctx.errors.push("Pattern Overlay effects are not supported by SVG export.");
+                }
             }
             
         };
@@ -131,6 +135,14 @@
                     styleBlock.addRule("filter", "url(#" + filterID + ")");
                 }
             }
+        };
+        
+        this.hasPatternOverlay = function (ctx) {
+            var omIn = ctx.currentOMNode;
+            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx.patternOverlay && omIn.style.fx.patternOverlay.enabled) {
+                return true;
+            }
+            return false;
         };
         
         this.hasEmboss = function (ctx) {
