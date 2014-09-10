@@ -146,13 +146,19 @@
 
             // SVG wants the angle in cartesian, not polar, coordinates. 
             var angle = (gradient.angle % 360) * Math.PI / 180.0,
-                x1, x2, y1, y2,xa,ya,
+                x1, x2, y1, y2, xa, ya,
                 cx = self.round1k(bounds.left + w2),
                 cy = self.round1k(bounds.top + h2);
 
             if (Math.abs(w2 / Math.cos(angle) * Math.sin(angle)) < h2) {
-                xa = w2;
-                ya = w2 / Math.cos(angle) * Math.sin(angle);
+                
+                if (h2 > w2) {
+                    xa = w2 / Math.cos(angle) * Math.sin(angle);
+                    ya = w2;
+                } else {
+                    xa = w2;
+                    ya = w2 / Math.cos(angle) * Math.sin(angle);
+                }
             } else {
                 xa = h2 / Math.sin(angle) * Math.cos(angle);
                 ya = h2;
