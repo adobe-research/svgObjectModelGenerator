@@ -134,22 +134,27 @@
                 boundPadBottom = omIn.style.stroke.lineWidth/2.0;
             }
             
+            if (omIn.type === "shape" && (omIn.shape === "circle" || omIn.shape === "ellipse")) {
+                if ((bndsIn.right - bndsIn.left) % 2 !== 0) {
+                    boundPadRight += 1.0;
+                }
+                if ((bndsIn.bottom - bndsIn.top) % 2 !== 0) {
+                    boundPadBottom += 1.0;
+                }
+            }
+            
             if (bndsIn) {
-                if (!isFinite(bnds.left) || bndsIn.left < bnds.left) {
-                    bnds.left = bndsIn.left;
-                    ctx._boundsPadLeft = boundPadLeft;
+                if (!isFinite(bnds.left) || (bndsIn.left - boundPadLeft) < bnds.left) {
+                    bnds.left = (bndsIn.left - boundPadLeft);
                 }
-                if (!isFinite(bnds.right) || bndsIn.right > bnds.right) {
-                    bnds.right = bndsIn.right;
-                    ctx._boundsPadRight = boundPadRight;
+                if (!isFinite(bnds.right) || (bndsIn.right + boundPadRight) > bnds.right) {
+                    bnds.right = bndsIn.right + boundPadRight;
                 }
-                if (!isFinite(bnds.top) || bndsIn.top < bnds.top) {
-                    bnds.top = bndsIn.top;
-                    ctx._boundsPadTop = boundPadTop;
+                if (!isFinite(bnds.top) || (bndsIn.top - boundPadTop) < bnds.top) {
+                    bnds.top = bndsIn.top - boundPadTop;
                 }
-                if (!isFinite(bnds.bottom) || bndsIn.bottom > bnds.bottom) {
-                    bnds.bottom = bndsIn.bottom;
-                    ctx._boundsPadBottom = boundPadBottom;
+                if (!isFinite(bnds.bottom) || (bndsIn.bottom + boundPadBottom) > bnds.bottom) {
+                    bnds.bottom = bndsIn.bottom + boundPadBottom;
                 }
             }
         };
@@ -178,6 +183,13 @@
                             omIn.position.x += ctx._shiftContentX;
                             omIn.position.y += ctx._shiftContentY;
                         }
+                    }
+                } else if (omIn.type === "shape" && (omIn.shape === "circle" || omIn.shape === "ellipse")) {
+                    if ((bnds.right - bnds.left) % 2 !== 0) {
+                        bnds.right += 1.0;
+                    }
+                    if ((bnds.bottom - bnds.top) % 2 !== 0) {
+                        bnds.bottom += 1.0;
                     }
                 }
             } else if (omIn.type === "tspan") {
@@ -226,20 +238,20 @@
                 adjustBounds = 1;
             if (ctx.config.trimToArtBounds) {
                 
-                if (bnds) {
-                    bnds.left = bnds.left || 0;
-                    bnds.right = bnds.right || 0;
-                    bnds.top = bnds.top || 0;
-                    bnds.bottom = bnds.bottom || 0;
+                if (bnds) {                    
+                    bnds.left = svgWriterUtils.roundDown(bnds.left || 0);
+                    bnds.right = svgWriterUtils.roundUp(bnds.right || 0);
+                    bnds.top = svgWriterUtils.roundDown(bnds.top || 0);
+                    bnds.bottom = svgWriterUtils.roundUp(bnds.bottom || 0);
 
-                    ctx._shiftContentX = (bnds.left * -1.0) + ctx._boundsPadLeft;
-                    ctx._shiftContentY = (bnds.top * -1.0) + ctx._boundsPadTop;
+                    ctx._shiftContentX = -bnds.left;
+                    ctx._shiftContentY = -bnds.top;
                     
                     if (ctx.svgOM && ctx.svgOM.viewBox) {
                         ctx.svgOM.viewBox.left = 0;
                         ctx.svgOM.viewBox.top = 0;
-                        ctx.svgOM.viewBox.right = (bnds.right + ctx._boundsPadRight) - (bnds.left - ctx._boundsPadLeft);
-                        ctx.svgOM.viewBox.bottom = (bnds.bottom + ctx._boundsPadBottom) - (bnds.top - ctx._boundsPadTop);
+                        ctx.svgOM.viewBox.right = bnds.right - bnds.left;
+                        ctx.svgOM.viewBox.bottom = bnds.bottom - bnds.top;
                     }
                 }
             }

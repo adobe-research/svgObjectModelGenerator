@@ -339,6 +339,12 @@
         self.round10k = function (x) {
             return +(+x).toFixed(4);
         };
+        self.roundUp = function (x) {
+            return Math.ceil(x);
+        };
+        self.roundDown = function (x) {
+            return Math.round(x);
+        };
         
         self.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
             var hasStyle = false,

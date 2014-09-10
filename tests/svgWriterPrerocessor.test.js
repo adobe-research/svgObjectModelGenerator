@@ -112,10 +112,10 @@ describe('SVGWriterPreprocessor', function (){
         expect(svgOM.viewBox.right).to.equal(33);
         expect(svgOM.viewBox.bottom).to.equal(93);
         
-        expect(svgOM.children[0].shapeBounds.top).to.equal(1.5);
-        expect(svgOM.children[0].shapeBounds.left).to.equal(1.5);
-        expect(svgOM.children[0].shapeBounds.right).to.equal(31.5);
-        expect(svgOM.children[0].shapeBounds.bottom).to.equal(91.5);
+        expect(svgOM.children[0].shapeBounds.top).to.equal(1);
+        expect(svgOM.children[0].shapeBounds.left).to.equal(1);
+        expect(svgOM.children[0].shapeBounds.right).to.equal(31);
+        expect(svgOM.children[0].shapeBounds.bottom).to.equal(91);
         
         /*
         //if we don't shift bounds...
