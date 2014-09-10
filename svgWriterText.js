@@ -40,7 +40,7 @@
             if (omIn.type === "text") {
                 if (!ctx._issuedTextWarning && ctx.errors) {
                     ctx._issuedTextWarning = true;
-                    ctx.errors.push("Some fidelity loss is expected with SVG text.  Fonts may render inconsistently and text wrapping is not supported which can result in clipped text.");
+                    ctx.errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a work path to maintain fidelity.");
                 }
             }
             
