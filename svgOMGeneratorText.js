@@ -22,24 +22,9 @@
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         omgUtils = require("./svgOMGeneratorUtils.js"),
-        round1k = function (x) {
-            return Math.round( x * 1000 ) / 1000;
-        },
-        _boundInPx = function (bnd, dpi) {
-            
-            if (typeof bnd === "number") {
-                return bnd;
-            }
-            if (bnd.units === "pointsUnit") {
-                return omgUtils.pt2px(bnd.value, dpi);
-            } else if (bnd.units === "millimetersUnit") {
-                return omgUtils.mm2px(bnd.value, dpi);
-            } else if (isFinite(bnd.value)) {
-                console.log("unfamiliar bounds unit for text = " + JSON.stringify(bnd));
-                return bnd.value;
-            }
-            return parseInt(bnd, 10);
-        };
+        svgWriterUtils = require("./svgWriterUtils.js"),
+        round1k = svgWriterUtils.round1k,
+        _boundInPx = omgUtils.boundInPx;
 
 	function SVGOMGeneratorText() {
         
@@ -109,45 +94,45 @@
 
                 try {
                 
-                svgNode.type = "text";
-                svgNode.shapeBounds = layer.bounds;
-                
-                /*
-                svgNode.textBounds = {    
-                    top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
-                    bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
-                    left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
-                    right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)    
-                };
-                */
-                
-                svgNode.textBounds = {
-                    top: _boundInPx(text.boundingBox.top, dpi),
-                    bottom: _boundInPx(text.boundingBox.bottom, dpi),
-                    left: _boundInPx(text.boundingBox.left, dpi),
-                    right: _boundInPx(text.boundingBox.right, dpi)
-                };
-                svgNode.position = {
-                    x: 0,
-                    y: 0
-                };
-                writer.pushCurrent(svgNode);
-                svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
-                svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, svgNode.textBounds, maxTextSize);
-                
-                self.addTextTransform(writer, svgNode, text, layer);
+                    svgNode.type = "text";
+                    svgNode.shapeBounds = layer.bounds;
 
-                if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds)) {
-                    return false;
-                }
+                    /*
+                    svgNode.textBounds = {    
+                        top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
+                        bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
+                        left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
+                        right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)    
+                    };
+                    */
 
-                omgStyles.addParagraphStyle(svgTextPathNode, text.paragraphStyleRange[0].paragraphStyle);
+                    svgNode.textBounds = {
+                        top: _boundInPx(text.boundingBox.top, dpi),
+                        bottom: _boundInPx(text.boundingBox.bottom, dpi),
+                        left: _boundInPx(text.boundingBox.left, dpi),
+                        right: _boundInPx(text.boundingBox.right, dpi)
+                    };
+                    svgNode.position = {
+                        x: 0,
+                        y: 0
+                    };
+                    writer.pushCurrent(svgNode);
+                    svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
+                    svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, svgNode.textBounds, maxTextSize);
 
-                writer.popCurrent();
+                    self.addTextTransform(writer, svgNode, text, layer);
 
-                omgStyles.addTextStyle(svgNode, layer);
+                    if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds, dpi)) {
+                        return false;
+                    }
 
-                omgStyles.addStylingData(svgNode, layer);
+                    omgStyles.addParagraphStyle(svgTextPathNode, text.paragraphStyleRange[0].paragraphStyle);
+
+                    writer.popCurrent();
+
+                    omgStyles.addTextStyle(svgNode, layer);
+
+                    omgStyles.addStylingData(svgNode, layer, dpi);
                 
                 } catch (exter) {
                     console.warn(exter.stack);
@@ -186,11 +171,11 @@
                 
                 self.addTextTransform(writer, svgNode, text, layer);
                 
-                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds);
+                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds, dpi);
             });
         };
         
-        this.addTextChunks = function (svgNode, layer, text, writer, position, bounds) {
+        this.addTextChunks = function (svgNode, layer, text, writer, position, bounds, dpi) {
             var textString = text.textKey,
                 svgParagraphNode,
                 svgTextChunkNode,
@@ -287,7 +272,7 @@
             });
             
             omgStyles.addTextStyle(svgNode, layer);
-            omgStyles.addStylingData(svgNode, layer);
+            omgStyles.addStylingData(svgNode, layer, dpi);
             
             writer.popCurrent();
             return true;

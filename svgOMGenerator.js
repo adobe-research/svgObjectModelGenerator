@@ -123,7 +123,8 @@
             iL,
             lyr,
             layerSpec = opts.layerSpec,
-            layerSpecFound = !layerSpecActive(layerSpec);
+            layerSpecFound = !layerSpecActive(layerSpec),
+            dpi = (psd.resolution) ? psd.resolution : 72.0;
 
         function extractLayerSVG(layer) {
             
@@ -162,7 +163,7 @@
             switch (layerType) {
                 case "shape":
                     if (!justTraverse) {
-                        omgShapes.addShapeData(svgNode, layer);
+                        omgShapes.addShapeData(svgNode, layer, dpi);
                     }
                     break;
                 case "text":
@@ -174,13 +175,13 @@
                     if (!justTraverse) {
                         // FIXME: Could also be an empty layer or a gradient layer.
                         // Treat all of them as image for now.
-                        omgImage.addImageData(svgNode, layer);
+                        omgImage.addImageData(svgNode, layer, dpi);
                     }
                     break;
                 case "group":
                     if (!justTraverse) {
                         
-                        omgStyles.addGroupStylingData(svgNode, layer);
+                        omgStyles.addGroupStylingData(svgNode, layer, dpi);
                         writer.pushCurrent(svgNode);
                     }
                     if (layer.layers) {

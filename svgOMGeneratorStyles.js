@@ -86,7 +86,7 @@
             }
         };
         
-        this.addStroke = function (svgNode, layer) {
+        this.addStroke = function (svgNode, layer, dpi) {
             var stroke = svgNode.style.stroke || {},
                 strokeStyle = layer.strokeStyle,
                 toStrokeLinecap = {
@@ -106,7 +106,7 @@
                 stroke.strokeEnabled = !!strokeStyle.strokeEnabled;
                 stroke.lineCap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
                 stroke.lineJoin = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
-                stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? strokeStyle.strokeStyleLineWidth.value : 1;
+                stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
                 stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
                 stroke.dashArray = strokeStyle.strokeStyleLineDashSet ? strokeStyle.strokeStyleLineDashSet : [];
                 stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? strokeStyle.strokeStyleLineDashOffset.value : "0";
@@ -247,12 +247,12 @@
             }
         };
         
-        this.addGroupStylingData = function (svgNode, layer) {
+        this.addGroupStylingData = function (svgNode, layer, dpi) {
             svgNode.shapeBounds = layer.bounds;
-            this.addStylingData(svgNode, layer);
+            this.addStylingData(svgNode, layer, dpi);
         };
         
-        this.addStylingData = function (svgNode, layer) {
+        this.addStylingData = function (svgNode, layer, dpi) {
 
             this.addGlobalStyle(svgNode, layer);
 
@@ -261,7 +261,7 @@
                 return;
             }
 
-            this.addStroke(svgNode, layer);
+            this.addStroke(svgNode, layer, dpi);
             this.addFill(svgNode, layer);
             this.addFx(svgNode, layer);
             
