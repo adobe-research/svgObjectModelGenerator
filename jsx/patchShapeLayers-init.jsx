@@ -43,12 +43,20 @@ function setLayerSVGOffset(x,y, layerId) {
     executeAction(klayerSVGcoordinateOffset, cdesc, DialogModes.NO);
 }
 
-function patchLayerPath(prms) {
-    
+function patchLayerPath(crntLayer, prms) {
     setLayerSVGOffset(prms.xOffset, prms.yOffset, prms.layerId);
+    return crntLayer.getLayerAttr("layerVectorPointData");
+}
+
+function patchLayerPatternOverlay(crntLayer) {
+    var attr = crntLayer.getLayerAttr("layerEffects.patternFill"),
+        fxVisible = crntLayer.getLayerAttr("layerFXVisible");
     
-    var currentLayer = new PSLayerInfo(prms.layerIndex);
-    return currentLayer.getLayerAttr("layerVectorPointData");
+    if (attr && attr.getVal("enabled") && fxVisible) {
+        return "true";
+    } else {
+        return "false";
+    }
 }
 
 try {

@@ -25,6 +25,7 @@
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
+        svgWriterText = require("./svgWriterText.js"),
         px = svgWriterUtils.px;
          
     
@@ -34,6 +35,7 @@
             svgWriterFill.scanForUnsupportedFeatures(ctx);
             svgWriterStroke.scanForUnsupportedFeatures(ctx);
             svgWriterFx.scanForUnsupportedFeatures(ctx);
+            svgWriterText.scanForUnsupportedFeatures(ctx);
         };
         
         /**
