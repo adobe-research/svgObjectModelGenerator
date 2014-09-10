@@ -288,7 +288,7 @@
                 ' preserveAspectRatio="none"' +
                 ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '"' +
                 ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feComposite operator="atop" in2="SourceGraphic"/>' + ctx.terminator);
+            write(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceGraphic"/>' + ctx.terminator);
             write(ctx, ctx.currentIndent + '<feBlend mode="' + gradientFill.mode + '" in2="' + param.pass + '" result="gradientFill"/>' + ctx.terminator);
             param.pass = 'gradientFill';
             
@@ -317,7 +317,7 @@
                 opacity = round1k(solidFill.opacity.value / 100);
 
             write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"atop\" in2=\"SourceGraphic\"/>" + ctx.terminator);
+            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceGraphic\"/>" + ctx.terminator);
             write(ctx, ctx.currentIndent + "<feBlend mode=\"" + solidFill.mode + "\" in2=\"" + param.pass + "\" result=\"colorOverlay\"/>" + ctx.terminator);
             param.pass = "colorOverlay";
 

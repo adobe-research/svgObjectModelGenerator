@@ -14,7 +14,7 @@
     </linearGradient>
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#ff0000" flood-opacity="1"/>
-      <feComposite operator="atop" in2="SourceGraphic"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="lighten" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
   </defs>

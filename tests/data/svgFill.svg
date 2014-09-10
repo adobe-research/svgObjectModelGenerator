@@ -32,7 +32,7 @@
     </linearGradient>
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#ff0000" flood-opacity="0.5"/>
-      <feComposite operator="atop" in2="SourceGraphic"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
     <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122">
@@ -44,7 +44,7 @@
     </linearGradient>
     <filter id="color-overlay-2" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#9f07b1" flood-opacity="0.5"/>
-      <feComposite operator="atop" in2="SourceGraphic"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
   </defs>

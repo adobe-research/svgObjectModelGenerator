@@ -213,5 +213,9 @@ describe('svgWriter', function (){
             compareResults('stroke-fx');
         });
 
+        it("should support gradient overlay in combination with color overlay", function () {
+            compareResults('gradient-color-overlay');
+        });
+
     });
 });
