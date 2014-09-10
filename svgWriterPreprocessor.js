@@ -38,6 +38,15 @@
             svgWriterText.scanForUnsupportedFeatures(ctx);
         };
         
+        this.provideBackupDefaults = function (omIn, styleBlock) {
+            if (omIn.style && styleBlock.hasRules()) {
+                if (omIn.type === "shape" && omIn.style["fill"] === undefined) {
+                    omIn.style["fill"] = "none";
+                    styleBlock.addRule("fill", "none");
+                }
+            }
+        }
+        
         /**
          * Externalize styles identifies styles that can be detached from artwork.
          **/
@@ -53,6 +62,8 @@
             svgWriterFx.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
+            
+            this.provideBackupDefaults(omIn, styleBlock);
             
             if (omIn.style) {
                 Object.keys(omIn.style).forEach(function (property) {

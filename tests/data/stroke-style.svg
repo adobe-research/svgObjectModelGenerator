@@ -7,6 +7,7 @@
         stroke-linecap: round;
         stroke-width: 3px;
         stroke-dasharray: 0.001,6;
+        fill: none;
       }
 
       .cls-4 {
@@ -15,6 +16,7 @@
         stroke-linejoin: bevel;
         stroke-width: 10px;
         stroke-dasharray: 50,20,20,50;
+        fill: none;
       }
 
       .cls-5 {
@@ -22,6 +24,7 @@
         stroke-linejoin: round;
         stroke-width: 10px;
         stroke-dasharray: 40,20;
+        fill: none;
       }
 
       .cls-6 {
@@ -29,6 +32,7 @@
         stroke-linejoin: round;
         stroke-width: 3px;
         stroke-dasharray: NaN,12,9;
+        fill: none;
       }
 
       .cls-7 {
@@ -36,6 +40,7 @@
         stroke-linejoin: round;
         stroke-width: 10px;
         stroke-dasharray: NaN,40,30;
+        fill: none;
       }
 
       .cls-8 {
@@ -51,11 +56,13 @@
         stroke-linecap: round;
         stroke-width: 20px;
         stroke-dasharray: 0.001,40;
+        fill: none;
       }
 
       .cls-10 {
         stroke: url(#linear-gradient-3);
         stroke-width: 20px;
+        fill: none;
       }
     </style>
 
