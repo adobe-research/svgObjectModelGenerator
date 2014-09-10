@@ -138,6 +138,9 @@
             
             if (!layerSpecFound && layerSpecActive(layerSpec)) {
                 if (layerSpecMatches(layer, layerSpec)) {
+                    //pretend like it is... we want to render it!
+                    layer.visible = true;
+                    
                     layerSpecFound = true;
                 } else {
                     justTraverse = true;
