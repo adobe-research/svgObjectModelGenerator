@@ -109,11 +109,31 @@
                 boundPadLeft = 0,
                 boundPadRight = 0,
                 boundPadTop = 0,
-                boundPadBottom = 0;
-            
-            if (omIn.boundsWithFX) {
-                bndsIn = omIn.boundsWithFX;
-                
+                boundPadBottom = 0,
+                bndsTextFx,
+                bndsText;
+
+            // FIXME: We need to optimize layer size in general. FX might have the boundaries
+            if (omIn.boundsWithFX && omIn.type !== "text") {
+                if (omIn.type !== "text") {
+                    bndsIn = omIn.boundsWithFX;
+                } else {
+                    bndsTextFx = omIn.boundsWithFX;
+                    if (omIn.textBounds) {
+                        bndsText = omg.textBounds;
+                    } else if (omIn.shapeBounds) {
+                        bndsText = omIn.shapeBounds;
+                    } else {
+                        bndsText = omIn.boundsWithFX;
+                    }
+                    bndsText = omIn.textBounds ? omIn.textBounds : omIn.shapeBounds;
+                    bndsIn = {
+                        top: Math.min(bndsTextFx.top, bndsText.top),
+                        bottom: Math.max(bndsTextFx.bottom, bndsText.bottom),
+                        left: Math.min(bndsTextFx.left, bndsText.left),
+                        right: Math.max(bndsTextFx.right, bndsText.right)
+                    };
+                }
             } else {
                 if (omIn.type === "shape" || omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                     bndsIn = omIn.shapeBounds;
@@ -142,7 +162,7 @@
                     boundPadBottom += 1.0;
                 }
             }
-            
+
             if (bndsIn) {
                 if (!isFinite(bnds.left) || (bndsIn.left - boundPadLeft) < bnds.left) {
                     bnds.left = (bndsIn.left - boundPadLeft);
