@@ -131,7 +131,7 @@
             init(generator)
         }
         
-        _G.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
+        generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
             if (docId !== activeDocId) {
                 deferedResult.reject("svgOMG only works on the active document");
             } else {
