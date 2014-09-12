@@ -115,6 +115,8 @@
 
             // FIXME: We need to optimize layer size in general. FX might have the boundaries
             if (omIn.boundsWithFX) {
+                bndsIn = omIn.boundsWithFX;
+                /*
                 if (omIn.type !== "text") {
                     bndsIn = omIn.boundsWithFX;
                 } else {
@@ -126,6 +128,7 @@
                     } else {
                         bndsText = omIn.boundsWithFX;
                     }
+                    
                     bndsText = omIn.textBounds ? omIn.textBounds : omIn.shapeBounds;
                     bndsIn = {
                         top: Math.min(bndsTextFx.top, bndsText.top),
@@ -134,6 +137,7 @@
                         right: Math.max(bndsTextFx.right, bndsText.right)
                     };
                 }
+                */
             } else {
                 if (omIn.type === "shape" || omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                     bndsIn = omIn.shapeBounds;
