@@ -63,52 +63,20 @@
       }
     </style>
   </defs>
-  <text class="cls-3" x="57px" y="98px">
-    <tspan class="cls-4">Text</tspan>
-  </text>
-  <text class="cls-3" x="64px" y="186px">
-    <tspan class="cls-6">Text</tspan>
-  </text>
-  <text class="cls-3" x="64px" y="273px">
-    <tspan class="cls-8">Text</tspan>
-  </text>
-  <text class="cls-3" x="64px" y="349px">
-    <tspan class="cls-10">Text</tspan>
-  </text>
-  <text class="cls-3" x="57px" y="440px">
-    <tspan class="cls-12">Text</tspan>
-  </text>
-  <text class="cls-3" x="62px" y="525px">
-    <tspan class="cls-14">Text</tspan>
-  </text>
-  <text class="cls-3" x="331px" y="99px">
-    <tspan class="cls-16">Text</tspan>
-  </text>
-  <text class="cls-3" x="332px" y="206px">
-    <tspan class="cls-18">Text</tspan>
-  </text>
-  <text class="cls-3" x="333px" y="267px">
-    <tspan class="cls-18">Text</tspan>
-  </text>
-  <text class="cls-3" x="329px" y="363px">
-    <tspan class="cls-18">Text</tspan>
-  </text>
-  <text class="cls-3" x="330px" y="439px">
-    <tspan class="cls-18">Text</tspan>
-  </text>
-  <text class="cls-3" x="326px" y="568px">
-    <tspan class="cls-18">Text</tspan>
-  </text>
-  <text class="cls-3" x="624px" y="104px">
-    <tspan class="cls-18">Test</tspan>
-  </text>
-  <text class="cls-3" x="626px" y="195px">
-    <tspan class="cls-18">Test</tspan>
-  </text>
-  <text class="cls-3" x="627px" y="283px">
-    <tspan class="cls-18">Test</tspan>
-  </text>
-  <text class="cls-3" x="621px" y="413px">
-    <tspan class="cls-18">Test</tspan>
-  </text>
+  <text class="cls-3" x="57px" y="98px"><tspan class="cls-4">Text</tspan></text>
+  <text class="cls-3" x="64px" y="186px"><tspan class="cls-6">Text</tspan></text>
+  <text class="cls-3" x="64px" y="273px"><tspan class="cls-8">Text</tspan></text>
+  <text class="cls-3" x="64px" y="349px"><tspan class="cls-10">Text</tspan></text>
+  <text class="cls-3" x="57px" y="440px"><tspan class="cls-12">Text</tspan></text>
+  <text class="cls-3" x="62px" y="525px"><tspan class="cls-14">Text</tspan></text>
+  <text class="cls-3" x="331px" y="99px"><tspan class="cls-16">Text</tspan></text>
+  <text class="cls-3" x="332px" y="206px"><tspan class="cls-18">Text</tspan></text>
+  <text class="cls-3" x="333px" y="267px"><tspan class="cls-18">Text</tspan></text>
+  <text class="cls-3" x="329px" y="363px"><tspan class="cls-18">Text</tspan></text>
+  <text class="cls-3" x="330px" y="439px"><tspan class="cls-18">Text</tspan></text>
+  <text class="cls-3" x="326px" y="568px"><tspan class="cls-18">Text</tspan></text>
+  <text class="cls-3" x="624px" y="104px"><tspan class="cls-18">Test</tspan></text>
+  <text class="cls-3" x="626px" y="195px"><tspan class="cls-18">Test</tspan></text>
+  <text class="cls-3" x="627px" y="283px"><tspan class="cls-18">Test</tspan></text>
+  <text class="cls-3" x="621px" y="413px"><tspan class="cls-18">Test</tspan></text>
 </svg>

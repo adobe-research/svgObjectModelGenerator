@@ -124,6 +124,14 @@
         writeAttrIfNecessary(ctx, "x", x, 0, unit);
         writeAttrIfNecessary(ctx, "y", y, 0, unit);
     }
+    
+    function encodedText(txt) {
+        return txt.replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&apos;');
+    }
 
     function writeLayerNode(ctx, sibling, siblingsLength) {
         var omIn = ctx.currentOMNode;
@@ -263,6 +271,11 @@
                         } else {
                             writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
                         }
+                    } else if (omIn.style["text-anchor"] === "middle") {
+                        writeAttrIfNecessary(ctx, "x", "50%", "0%", "");
+                    } else if (omIn.style["text-anchor"] === "end") {
+                        writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
+                        writeAttrIfNecessary(ctx, "startOffset", "100%", "0%", "");
                     }
                 }
                 
@@ -279,7 +292,7 @@
                     }
                 }
                 if (omIn.text) {
-                    write(ctx, omIn.text);
+                    write(ctx, encodedText(omIn.text));
                 }
                 write(ctx, "</tspan>");
                 
@@ -292,28 +305,38 @@
             case "text":
                 gWrap(ctx, omIn.id, function () {
                     
+                    var children = ctx.currentOMNode.children,
+                        rightAligned = false,
+                        i;
+                    
+                    if (children && children.length > 0 &&
+                        children[0].style && children[0].style["text-anchor"] === "end") {
+                        rightAligned = true;
+                    }
+                    
                     write(ctx, ctx.currentIndent + "<text");
 
                     writeClassIfNeccessary(ctx);
                     
-                    writePositionIfNecessary(ctx, omIn.position);
+                    if (rightAligned) {
+                        writeAttrIfNecessary(ctx, "x", "100%", 0, "%");
+                        omIn.position.x = 0;
+                        writePositionIfNecessary(ctx, omIn.position);
+                    } else {
+                        writePositionIfNecessary(ctx, omIn.position);
+                    }
                     
                     writeTransformIfNecessary(ctx, "transform", omIn.transform);
-                    write(ctx, ">" + ctx.terminator);
+                    write(ctx, ">");
 
                     ctx._nextTspanAdjustSuper = false;
-                    indent(ctx);
                     ctx.omStylesheet.writePredefines(ctx);
-                    var children = ctx.currentOMNode.children;
-                    for (var i = 0; i < children.length; i++) {
-                        write(ctx, ctx.currentIndent);
-                        var childNode = children[i];
-                        ctx.currentOMNode = childNode;
+                    
+                    for (i = 0; i < children.length; i++) {
+                        ctx.currentOMNode = children[i];
                         writeSVGNode(ctx, i, children.length);
-                        write(ctx, ctx.terminator);
                     }
-                    undent(ctx);
-                    write(ctx, ctx.currentIndent + "</text>" + ctx.terminator);
+                    write(ctx, "</text>" + ctx.terminator);
                 });
 
                 break;

@@ -56,64 +56,40 @@
     <path id="text-path-11" d="M 191 127 C 191 127 46 127 46 127"/>
     <path id="text-path-12" d="M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"/>
   </defs>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, -21.5, -11)">
-    <textPath xlink:href="#text-path-1">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, -24, -4)">
-    <textPath xlink:href="#text-path-2">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, -14.5, -14.0381)">
-    <textPath xlink:href="#text-path-3">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, 24.5, -14)">
-    <textPath xlink:href="#text-path-4">
-      <tspan class="cls-5">Text</tspan>
-    </textPath>
-  </text>
-  <text class="cls-15" transform="matrix(1, 0, 0, 1, -13.3785, 9.5)">
-    <textPath xlink:href="#text-path-5">
-      <tspan class="cls-5">Text on path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, 33, -11)">
-    <textPath xlink:href="#text-path-6" startOffset="100%">
-      <tspan class="cls-20">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-15" transform="matrix(1, 0, 0, 1, -10, 0)">
-    <textPath xlink:href="#text-path-7">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, -51.5, -14.56)">
-    <textPath xlink:href="#text-path-8">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-15" transform="matrix(1, 0, 0, 1, 32, 0)">
-    <textPath xlink:href="#text-path-9" startOffset="100%">
-      <tspan class="cls-20">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, 9.5, -11)">
-    <textPath xlink:href="#text-path-10" startOffset="50%">
-      <tspan class="cls-32">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, 12.5, 5)">
-    <textPath xlink:href="#text-path-11">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
-  <text class="cls-3" transform="matrix(1, 0, 0, 1, -4.5, -11)">
-    <textPath xlink:href="#text-path-12">
-      <tspan class="cls-5">Text path</tspan>
-    </textPath>
-  </text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, -21.5, -11)"><textPath xlink:href="#text-path-1">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, -24, -4)"><textPath xlink:href="#text-path-2">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, -14.5, -14.0381)"><textPath xlink:href="#text-path-3">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, 24.5, -14)"><textPath xlink:href="#text-path-4">
+    <tspan class="cls-5">Text</tspan>
+  </textPath></text>
+  <text class="cls-15" transform="matrix(1, 0, 0, 1, -13.3785, 9.5)"><textPath xlink:href="#text-path-5">
+    <tspan class="cls-5">Text on path</tspan>
+  </textPath></text>
+  <text class="cls-3" x="100%%" transform="matrix(1, 0, 0, 1, 33, -11)"><textPath xlink:href="#text-path-6" startOffset="100%">
+    <tspan x="100%" startOffset="100%" class="cls-20">Text path</tspan>
+  </textPath></text>
+  <text class="cls-15" transform="matrix(1, 0, 0, 1, -10, 0)"><textPath xlink:href="#text-path-7">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, -51.5, -14.56)"><textPath xlink:href="#text-path-8">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
+  <text class="cls-15" x="100%%" transform="matrix(1, 0, 0, 1, 32, 0)"><textPath xlink:href="#text-path-9" startOffset="100%">
+    <tspan x="100%" startOffset="100%" class="cls-20">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, 9.5, -11)"><textPath xlink:href="#text-path-10" startOffset="50%">
+    <tspan x="50%" class="cls-32">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, 12.5, 5)"><textPath xlink:href="#text-path-11">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
+  <text class="cls-3" transform="matrix(1, 0, 0, 1, -4.5, -11)"><textPath xlink:href="#text-path-12">
+    <tspan class="cls-5">Text path</tspan>
+  </textPath></text>
 </svg>
