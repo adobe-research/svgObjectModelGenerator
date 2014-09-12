@@ -126,6 +126,10 @@
         layerSpec = params.layerSpec;
         layerScale = params.layerScale;
         docId = params.documentId;
+
+        if (!_G) {
+            init(generator)
+        }
         
         _G.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
             if (docId !== activeDocId) {
