@@ -323,6 +323,7 @@
 
                     writeClassIfNeccessary(ctx);
                     
+                    //TBD: move this to the OMG side and get reliable bounds for text FX
                     
                     //if the bounds are aligned use dy to move it
                     //bndNat
@@ -332,15 +333,21 @@
                     
                     if (bndsFx && bndsNat) {
                         
-                        if (omIn.maxTextSize) {
-                            bndsDy = (bndsFx.bottom - bndsFx.top) - omIn.maxTextSize;
+                        if (children && children.length > 0 && children[0].boundsWithFx) {
+                            bndsFx = children[0].boundsWithFx;
+                            bndsNat = children[0].textBounds || children[0].shapeBounds;
+                            bndsAlt = children[0].shapeBounds;
                             
-                            /*
-                            bndsDyAlt = ((bndsFx.bottom - bndsFx.top) - (bndsNat.bottom - bndsNat.top)) * 1;
-                            if (Math.abs(bndsDy) < Math.abs(bndsDyAlt)) {
-                                bndsDy = bndsDyAlt;
+                            if (omIn.maxTextSize) {
+                                bndsDy = (bndsFx.bottom - bndsFx.top) - omIn.maxTextSize;
+                                
+                                /*
+                                bndsDyAlt = ((bndsFx.bottom - bndsFx.top) - (bndsNat.bottom - bndsNat.top)) * 1;
+                                if (Math.abs(bndsDy) < Math.abs(bndsDyAlt)) {
+                                    bndsDy = bndsDyAlt;
+                                }
+                                */
                             }
-                            */
                             
                             bndsDyAlt = ((bndsFx.bottom - bndsFx.top) - (bndsAlt.bottom - bndsAlt.top));
                             
@@ -354,7 +361,9 @@
                                 bndsDy -= bndsDyAlt;
                             }
                         }
-                        writeAttrIfNecessary(ctx, "dy", Math.round(bndsDy), "0px", "px");
+                        if (bndsDy < 0) {
+                            writeAttrIfNecessary(ctx, "dy", Math.round(bndsDy), "0px", "px");
+                        }
                     }
                     if (rightAligned) {
                         writeAttrIfNecessary(ctx, "x", "100%", 0, "%");
