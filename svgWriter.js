@@ -449,22 +449,27 @@
                 hasDefines,
                 round1k = svgWriterUtils.round1k,
                 preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
+                scale = ctx.config.scale || 1.0,
                 left = round1k(omIn.viewBox.left),
                 top = round1k(omIn.viewBox.top),
-                width = round1k(Math.abs(omIn.viewBox.right - omIn.viewBox.left)),
-                height = round1k(Math.abs(omIn.viewBox.bottom - omIn.viewBox.top));
+                
+                width = Math.abs(omIn.viewBox.right - omIn.viewBox.left),
+                height = Math.abs(omIn.viewBox.bottom - omIn.viewBox.top),
+                scaledW = round1k(scale * width),
+                scaledH = round1k(scale * height);
+            
+            width = round1k(width);
+            height = round1k(height);
             
             write(ctx, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"');
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
             writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
             writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
-            write(ctx, ' width="' + width + '" height="' + height + '"');
+            write(ctx, ' width="' + scaledW + '" height="' + scaledH + '"');
             
-            //if (omIn.viewBox.left !== 0 || omIn.viewBox.top !== 0) {
-                write(ctx, ' viewBox="' + left + ' ' + top + ' ');
-                write(ctx, width + ' ');
-                write(ctx, height + '"');
-            //}
+            write(ctx, ' viewBox="' + left + ' ' + top + ' ');
+            write(ctx, width + ' ');
+            write(ctx, height + '"');
             
             write(ctx, '>' + ctx.terminator);
             indent(ctx);

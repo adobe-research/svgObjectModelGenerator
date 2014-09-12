@@ -140,7 +140,8 @@
                         svgWriterErrors = [],
                         svgOut = svgWriter.printSVG(svgOM, {
                             trimToArtBounds: cropToSingleLayer,
-                            preserveAspectRatio: "xMidYMid"
+                            preserveAspectRatio: "xMidYMid",
+                            scale: layerScale
                         }, svgWriterErrors);
                     
                     deferedResult.resolve({
