@@ -114,13 +114,13 @@
                 bndsText;
 
             // FIXME: We need to optimize layer size in general. FX might have the boundaries
-            if (omIn.boundsWithFX && omIn.type !== "text") {
+            if (omIn.boundsWithFX) {
                 if (omIn.type !== "text") {
                     bndsIn = omIn.boundsWithFX;
                 } else {
                     bndsTextFx = omIn.boundsWithFX;
                     if (omIn.textBounds) {
-                        bndsText = omg.textBounds;
+                        bndsText = omIn.textBounds;
                     } else if (omIn.shapeBounds) {
                         bndsText = omIn.shapeBounds;
                     } else {
