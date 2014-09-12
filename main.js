@@ -127,34 +127,38 @@
         layerScale = params.layerScale;
         docId = params.documentId;
         
-        getCachedDocInfo(generator, docId).then(
-            function (document) {
-                var doc = JSON.parse(JSON.stringify(document)),
-                    cropToSingleLayer = (typeof layerSpec === "number");
-                
-                generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec).then(function () {
-                    if (layerSpec === "all") {
-                        layerSpec = null;
-                    }
-                    var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
-                        svgWriterErrors = [],
-                        svgOut = svgWriter.printSVG(svgOM, {
-                            trimToArtBounds: cropToSingleLayer,
-                            preserveAspectRatio: "xMidYMid",
-                            scale: layerScale
-                        }, svgWriterErrors);
-                    
-                    deferedResult.resolve({
-                        svgText: svgOut,
-                        errors: svgWriterErrors
+        _G.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
+            if (docId !== activeDocId) {
+                deferedResult.reject("svgOMG only works on the active document");
+            } else {
+                getCachedDocInfo(generator, docId).then(
+                    function (document) {
+                        var doc = JSON.parse(JSON.stringify(document)),
+                            cropToSingleLayer = (typeof layerSpec === "number");
+                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec).then(function () {
+                            if (layerSpec === "all") {
+                                layerSpec = null;
+                            }
+                            var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
+                                svgWriterErrors = [],
+                                svgOut = svgWriter.printSVG(svgOM, {
+                                    trimToArtBounds: cropToSingleLayer,
+                                    preserveAspectRatio: "xMidYMid",
+                                    scale: layerScale
+                                }, svgWriterErrors);
+
+                            deferedResult.resolve({
+                                svgText: svgOut,
+                                errors: svgWriterErrors
+                            });
+                        });
+                    }, 
+                    function (err) {
+                        console.warn("error with SVGOMG: " + err);
+                        deferedResult.reject(err);
                     });
-                });
-            }, 
-            function (err) {
-                console.warn("error with SVGOMG: " + err);
-                deferedResult.reject(err);
-            });
-        
+            }
+        });
         return deferedResult.promise;
     }
     
