@@ -95,7 +95,8 @@
         
         _docInfoCache[docId] = _docInfoCache[docId] || {};
         
-        var cacheInfo = _docInfoCache[docId];
+        var cacheInfo = _docInfoCache[docId],
+            docInfoDeferred = Q.defer();
         
         if (cacheInfo._lastDocInfo) {
             return Q.resolve(cacheInfo._lastDocInfo);
@@ -103,10 +104,21 @@
             if (cacheInfo._lastDocInfoPromise) {
                 return cacheInfo._lastDocInfoPromise;
             } else {
-                cacheInfo._lastDocInfoPromise = generator.getDocumentInfo(docId, docInfoFlags).then(function (doc) {
-                    cacheInfo._lastDocInfoPromise = undefined;
-                    cacheInfo._lastDocInfo = doc;
-                    return doc;
+                cacheInfo._lastDocInfoPromise = docInfoDeferred.promise;
+                
+                generator.evaluateJSXFile(__dirname + "/jsx/normalizeDoc.jsx", {}).then(function (origMode) {
+                    if (typeof origMode === "string") {
+                        origMode = JSON.parse(origMode);
+                    }
+                    generator.getDocumentInfo(docId, docInfoFlags).then(function (doc) {
+                        cacheInfo._lastDocInfoPromise = undefined;
+                        cacheInfo._lastDocInfo = doc;
+                        docInfoDeferred.resolve(doc);
+                    }, function (err) {
+                        docInfoDeferred.reject(err);
+                    }).finally(function () {
+                        generator.evaluateJSXFile(__dirname + "/jsx/normalizeDoc.jsx", { historyPos: origMode.historyPos, colorMode: origMode.colorMode });
+                    });
                 });
                 return cacheInfo._lastDocInfoPromise;
             }
