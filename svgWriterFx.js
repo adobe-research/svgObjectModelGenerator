@@ -344,8 +344,8 @@
             }
             var color = satin.color,
                 opacity = round1k(satin.opacity.value / 100),
-                dx = round1k(satin.distance * Math.cos(satin.localLightingAngle.value)),
-                dy = round1k(satin.distance * Math.sin(satin.localLightingAngle.value)),
+                dx = round1k(satin.distance * Math.cos(-satin.localLightingAngle.value)),
+                dy = round1k(satin.distance * Math.sin(-satin.localLightingAngle.value)),
                 blur = round1k(Math.sqrt(satin.blur));
 
             write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\"/>" + ctx.terminator);

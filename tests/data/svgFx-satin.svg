@@ -11,8 +11,8 @@
     <filter id="satin-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#d42020"/>
       <feComposite operator="in" in2="SourceAlpha" result="snSilhouette"/>
-      <feOffset in="snSilhouette" dx="-13.641" dy="-24.453" result="snShifted1"/>
-      <feOffset in="snSilhouette" dx="13.641" dy="24.453" result="snShifted2"/>
+      <feOffset in="snSilhouette" dx="-13.641" dy="24.453" result="snShifted1"/>
+      <feOffset in="snSilhouette" dx="13.641" dy="-24.453" result="snShifted2"/>
       <feComposite operator="xor" in="snShifted1" in2="snShifted2"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feGaussianBlur stdDeviation="3.162"/>
