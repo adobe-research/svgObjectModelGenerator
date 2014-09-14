@@ -111,9 +111,21 @@
         return false;
     }
     
-    function layerShouldBeRasterized(layer) {
-        var layerType = getSVGLayerType(layer);
-        return (layerType === "generic" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0);
+    function layerShouldBeRasterized(layer, aErrors) {
+        var layerType = getSVGLayerType(layer),
+            imageType = (layerType === "generic" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0);
+        
+        if (!imageType) {
+            //see if there are special cases to consider...
+            if (layer.strokeStyle && layer.strokeStyle.enabled && layer.strokeStyle.strokeStyleContent && layer.strokeStyle.strokeStyleContent.pattern) {
+                imageType = true;
+                aErrors.push("Stroke patterns are rasterized while extracting SVG.");
+            } else if (layer.fill && layer.fill.pattern) {
+                imageType = true;
+                aErrors.push("Fill patterns are rasterized while extracting SVG.");
+            }
+        }
+        return imageType;
     }
     
     function extractSVGOM (psd, opts) {

@@ -146,7 +146,7 @@
         };
         
         
-        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, rootLayerId) {
+        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, rootLayerId, aErrors) {
             var layers = psd.layers,
                 docId = psd.id,
                 docResolution = psd.resolution || 72.2,
@@ -195,7 +195,11 @@
                         
                         svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
     
-                        if(svgOMGenerator.layerShouldBeRasterized(layer)) {
+                        if(svgOMGenerator.layerShouldBeRasterized(layer, aErrors)) {
+                            
+                            //force it to generic now since we are going to treat it as image
+                            layer.type = "layer";
+                            
                             rasterDeferred = Q.defer();
                             promises.push(rasterDeferred.promise);
                             

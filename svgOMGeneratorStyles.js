@@ -112,6 +112,7 @@
                 stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? strokeStyle.strokeStyleLineDashOffset.value : "0";
                 stroke.color = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color) ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
+                stroke.pattern = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern) ? "PATTERN-PLACEHOLDER" : undefined;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
                     stroke.gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent);
                 }
@@ -144,6 +145,8 @@
                 } else {
                     console.log("WARNING: Unhandled gradient type = " + JSON.stringify(fill));
                 }
+            } else if (fillClass === "patternLayer") {
+                fill.pattern = "PATTERN-PLACEHOLDER";
             } else {
                 //unhandled fill
                 console.log("WARNING: Unhandled fill " + fillClass);

@@ -182,13 +182,13 @@
                 getCachedDocInfo(generator, docId).then(
                     function (document) {
                         var doc = JSON.parse(JSON.stringify(document)),
-                            cropToSingleLayer = (typeof layerSpec === "number");
-                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec).then(function () {
+                            cropToSingleLayer = (typeof layerSpec === "number"),
+                            svgWriterErrors = [];
+                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec, svgWriterErrors).then(function () {
                             if (layerSpec === "all") {
                                 layerSpec = null;
                             }
                             var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
-                                svgWriterErrors = [],
                                 svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: cropToSingleLayer,
                                     preserveAspectRatio: "xMidYMid",
