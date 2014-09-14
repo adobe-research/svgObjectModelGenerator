@@ -203,7 +203,7 @@
                         if (!nested) {
                             omIn.position.x = 0.0;
                             omIn.position.y = 1.0;
-                            omIn.position.unitEM = true;
+                            omIn.position.unitYEM = true;
                             if (omIn.children && omIn.children.length === 1) {
                                 omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
                                 omIn.children[0].position.x = 0.0;
@@ -240,7 +240,7 @@
                 
             } else if (omIn.type === "tspan") {
                 if (omIn.style) {
-                    if (isFinite(omIn.position.x)) {
+                    if (omIn.position && isFinite(omIn.position.x)) {
                         if (omIn.style["text-anchor"] === "middle") {
                             if(omIn._parentBounds) {
                                 pR = omIn._parentBounds.right;
