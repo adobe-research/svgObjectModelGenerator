@@ -175,7 +175,9 @@
                         rasterDeferred,
                         patchSettings,
                         deltaX,
-                        deltaY;
+                        deltaX2,
+                        deltaY,
+                        deltaY2;
                     if (layerType === "backgroundLayer") {
                         _hasBackgroundLayer = true;
                     }
@@ -219,15 +221,21 @@
                             pathData: layerType === "shapeLayer",
                             fxSolidFill: true
                         };
-                        
                         if (cropToSingleLayer && offsetSettings) {
                             if (layer.boundsWithFX) {
                                 deltaX = (layer.boundsWithFX.right - layer.bounds.right);
+                                deltaX2 = (layer.bounds.left - layer.boundsWithFX.left);
                                 deltaY = -(layer.boundsWithFX.top - layer.bounds.top);
+                                deltaY2 = layer.boundsWithFX.bottom - layer.bounds.bottom;
                             } else {
                                 deltaX = 0;
                                 deltaY = 0;
+                                deltaX2 = 0;
+                                deltaY2 = 0;
                             }
+                            
+                            deltaX = (deltaX + deltaX2) / 2.0;
+                            deltaY = (deltaY + deltaY2) / 2.0;
                             
                             patchSettings.xOffset = offsetSettings.xOffset + deltaX;
                             patchSettings.yOffset = offsetSettings.yOffset + deltaY;
@@ -261,7 +269,6 @@
                         patchLayerSVG(lyr);
                     }
                 }
-                
                 //now do the consolidated JSX patch
                 jsxDeferred = Q.defer();
                 promises.push(jsxDeferred.promise);
