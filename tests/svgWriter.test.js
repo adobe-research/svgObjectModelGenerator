@@ -19,34 +19,104 @@ var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     svgWriter = require("../svgWriter.js"),
     sinon = require('sinon'),
-    fs = require('fs');
+    fs = require('fs'),
+    repairMedia = false;
+//! repairMedia = true to update failed media with current results
+//! Please review the changes carefully and try the media before and after the update
+
 
 describe('svgWriter', function (){
     
     describe('our SVG writer', function (){
 
-        var compareResults = function (testName) {
-            var testData = require("./data/" + testName + "-data.js"),
-                svgOM = OMG.extractSVGOM(testData, { }),
-                string,
-                svgOut = svgWriter.printSVG(svgOM);
+        function compareResults (testName) {
+            var testData,
+                svgOM,
+                exptectedOut;
+            
+            testData = require("./data/" + testName + "-data.js"),
+            svgOM = OMG.extractSVGOM(testData, { }),
+            svgOut = svgWriter.printSVG(svgOM);
+            
             try {
-                string = fs.readFileSync('./tests/data/' + testName + ".svg", 'utf8');
+                exptectedOut = fs.readFileSync('./tests/data/' + testName + ".svg", 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/' + testName + ".svg", svgOut, 'utf8');
                 console.log("No reference SVG document found. New one created as " + testName + ".svg");
                 return svgOut;
             }
             
-            if (svgOut != string) {
-                //uncomment to accept the changes by overwriting the comparison
-                //please review the changes carefully and try the media before and after the update
-                //fs.writeFileSync('./tests/data/' + testName + ".svg", svgOut, 'utf8');
+            if (svgOut != exptectedOut && repairMedia) {
+                fs.writeFileSync('./tests/data/' + testName + ".svg", svgOut, 'utf8');
             }
             
-            expect(svgOut).to.equal(string);
+            expect(svgOut).to.equal(exptectedOut);
             return svgOut;
-        };
+        }
+        
+        
+        
+        function compareResultsExport (testName, aTestData) {
+            var testData,
+                svgOM,
+                svgOut,
+                exptectedOut,
+                svgFilename,
+                omOpt,
+                scale,
+                svgWriterErrors,
+                i;
+            
+            for (i = 0; i + 2 < aTestData.length; i = i + 3) {
+                
+                omOpt = { layerSpec: aTestData[i] };
+                testData = require("./data/" + testName + "/" + aTestData[i + 1] + "-data.js");
+                svgFilename = "./tests/data/" + testName + "/" + aTestData[i + 1] + ".svg";
+                try {
+                    exptectedOut = fs.readFileSync(svgFilename, 'utf8');
+                } catch(er) {
+                    expectedOut = "NO-TEST-MEDIA";
+                }
+                    
+                scale = aTestData[i + 2];
+                svgWriterErrors = [];
+                
+                svgOM = OMG.extractSVGOM(testData, omOpt);
+                
+                svgOut = svgWriter.printSVG(svgOM, {
+                    trimToArtBounds: true,
+                    preserveAspectRatio: "xMidYMid",
+                    scale: scale
+                }, svgWriterErrors);
+                
+                if (svgOut != exptectedOut && repairMedia) {
+                    fs.writeFileSync(svgFilename, svgOut, 'utf8');
+                }
+                expect(svgOut).to.equal(exptectedOut);
+            }
+            return svgOut;
+        }
+        
+        /* Sub-tree Export */
+        
+        it("should align text properly inside a paragraph", function () {
+            compareResultsExport("paragraphTextAlign", [
+                26, "Group 1", 1.0,
+                20, "Group 2", 1.0,
+                24, "Group 3", 1.0
+            ]);
+        });
+        
+        it("should resolve bounds and fxBounds to properly clip layers with effects", function () {
+            compareResultsExport("shapes-with-external-fx", [
+                4, "outer-glow", 1.0,
+                3, "drop-shadow", 1.0,
+                2, "stroke", 1.0
+            ]);
+        });
+        
+        
+        /* Document Export */
 
         it("should be able to SVG a gradient fill OM", function () {
             compareResults('svgFill');

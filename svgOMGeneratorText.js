@@ -230,6 +230,7 @@
                         unitPX: position.unitPX,
                         unitEM: position.unitEM
                     };
+                    svgParagraphNode.textBounds = JSON.parse(JSON.stringify(bounds));
                     writer.pushCurrent(svgParagraphNode);
                     pctYPosGuess = 0;
                 }
@@ -250,14 +251,17 @@
                     svgTextChunkNode = writer.addSVGNode(spanId, "tspan", true);
                     svgTextChunkNode.text = textContent;
                     
+                    svgTextChunkNode.textBounds = JSON.parse(JSON.stringify(bounds));
+                    
                     //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
                     xPosGuess = currentFrom / (paragraph.to - paragraph.from);
                     
                     if (indexTextStyleFrom === indexTextStyleTo) {
                         svgTextChunkNode.position = {
-                            x: 0,
+                            x: _boundInPx(position.x, dpi),
                             y: yEMs,
-                            unitEM: true
+                            unitXPX: true,
+                            unitYEM: true
                         };
                         omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
                     }

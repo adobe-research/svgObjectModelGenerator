@@ -84,7 +84,7 @@
     <tspan x="100%" startOffset="100%" class="cls-20">Text path</tspan>
   </textPath></text>
   <text class="cls-3" transform="matrix(1, 0, 0, 1, 9.5, -11)"><textPath xlink:href="#text-path-10" startOffset="50%">
-    <tspan x="50%" class="cls-32">Text path</tspan>
+    <tspan class="cls-32">Text path</tspan>
   </textPath></text>
   <text class="cls-3" transform="matrix(1, 0, 0, 1, 12.5, 5)"><textPath xlink:href="#text-path-11">
     <tspan class="cls-5">Text path</tspan>

@@ -173,7 +173,9 @@
                         layerType = layer.type,
                         childLyr,
                         rasterDeferred,
-                        patchSettings;
+                        patchSettings,
+                        deltaX,
+                        deltaY;
                     if (layerType === "backgroundLayer") {
                         _hasBackgroundLayer = true;
                     }
@@ -219,8 +221,16 @@
                         };
                         
                         if (cropToSingleLayer && offsetSettings) {
-                            patchSettings.xOffset = offsetSettings.xOffset;
-                            patchSettings.yOffset = offsetSettings.yOffset;
+                            if (layer.boundsWithFX) {
+                                deltaX = (layer.boundsWithFX.right - layer.bounds.right);
+                                deltaY = -(layer.boundsWithFX.top - layer.bounds.top);
+                            } else {
+                                deltaX = 0;
+                                deltaY = 0;
+                            }
+                            
+                            patchSettings.xOffset = offsetSettings.xOffset + deltaX;
+                            patchSettings.yOffset = offsetSettings.yOffset + deltaY;
                         } else {
                             patchSettings.xOffset = 0;
                             patchSettings.yOffset = 0;
