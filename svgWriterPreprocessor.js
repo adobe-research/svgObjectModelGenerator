@@ -27,7 +27,6 @@
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
         px = svgWriterUtils.px;
-         
     
 	function SVGWriterPreprocessor() {
         
@@ -184,8 +183,13 @@
         };
         
         //shift the bounds recorded in recordBounds
-        this.shiftBounds = function (ctx, omIn, nested) {
-            var bnds = omIn.bounds;
+        this.shiftBounds = function (ctx, omIn, nested, sibling) {
+            var bnds = omIn.bounds,
+                pR,
+                pL,
+                newMid,
+                deltaX;
+       try {
             if (omIn.type === "shape" || omIn.type === "text" ||
                 omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bnds = omIn.shapeBounds;
@@ -198,7 +202,6 @@
                             omIn.position.x = 0.0;
                             omIn.position.y = 1.0;
                             omIn.position.unitEM = true;
-                        
                             if (omIn.children && omIn.children.length === 1) {
                                 omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
                                 omIn.children[0].position.x = 0.0;
@@ -218,6 +221,47 @@
                 }
             } else if (omIn.type === "tspan") {
                 if (omIn.style) {
+                    if (isFinite(omIn.position.x)) {
+                        if (omIn.style["text-anchor"] === "middle") {
+                            if(omIn._parentBounds) {
+                                pR = omIn._parentBounds.right;
+                                pL = omIn._parentBounds.left;
+                                newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
+                                if (omIn._parentIsRoot) {
+                                    omIn.position.x = 50;
+                                } else {
+                                    omIn.position.x = newMid;
+                                    omIn.position.unitXPX = true;
+                                }
+                            } else {
+                                omIn.position.x = 50;
+                            }
+                            
+                        } else if (omIn.style["text-anchor"] === "end") {
+                            
+                            pR = omIn._parentBounds.right;
+                            pL = omIn._parentBounds.left;
+                            newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
+                            
+                            if (omIn._parentIsRoot || !omIn.textBounds) {
+                                omIn.position.x = 100;
+                            } else {
+                                deltaX = (ctx.contentBounds.right - omIn.textBounds.right);
+                                omIn.position.deltaX = -deltaX;
+                            }
+                        } else {
+                            if (sibling) {
+                                omIn.position.x += ctx._shiftContentX;
+                            } else {
+                                if (omIn._parentIsRoot) {
+                                    omIn.position.x = 0;
+                                } else {
+                                    omIn.position.x = undefined;
+                                }
+                            }
+                        }
+                    }
+                    
                     if (omIn.style["_baseline-script"] === "sub" ||
                         omIn.style["_baseline-script"] === "super") {
                         if (typeof omIn.style["font-size"] === "number") {
@@ -239,6 +283,10 @@
                 this.shiftBoundsX(bnds, ctx._shiftContentX);
                 this.shiftBoundsY(bnds, ctx._shiftContentY);
             }
+           
+       } catch (erro) {
+           console.warn("ERROR: " + erro + " stack " + erro.stack);
+       }
         };
         
         this.preprocessSVGNode = function (ctx) {
@@ -281,13 +329,20 @@
             }
         };
         
-        this.processSVGNode = function (ctx, nested) {
-
+        this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
             
-            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {
-                this.shiftBounds(ctx, omIn, nested);
+            //if these bounds shifted is not 0 then shift children to be relative to this text block...
+            if (omIn.type === "text" && omIn.children) {
+                omIn.children.forEach(function (chld) {
+                    chld._parentBounds = omIn.shapeBounds;
+                    chld._parentIsRoot = !nested;
+                });
+            }
+            
+            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {   
+                this.shiftBounds(ctx, omIn, nested, sibling);
             }
             
             this.scanForUnsupportedFeatures(ctx);
@@ -299,9 +354,9 @@
             }
             
             if (children) {
-                children.forEach(function (childNode) {
+                children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(ctx, (omIn !== ctx.svgOM));
+                    this.processSVGNode(ctx, (omIn !== ctx.svgOM), (ind !== 0));
                 }.bind(this));
             }
         };
@@ -323,9 +378,7 @@
                 this.finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
             }
-
-            this.processSVGNode(ctx, ctx.currentOMNode);
-            
+            this.processSVGNode(ctx, false, false);
             ctx.currentOMNode = omSave;
         };
         

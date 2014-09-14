@@ -106,23 +106,40 @@
         }
     }
     
-    function writePositionIfNecessary(ctx, position) {
-        var unit = '%',
+    function writePositionIfNecessary(ctx, position, overrideExpect) {
+        var yUnit,
+            xUnit,
             x,
             y;
-        if (position.unitEM) {
-            unit = "em";
-            x = round1k(position.x);
-            y = round1k(position.y);
-        } else {
-            x = rnd(position.x);
-            y = rnd(position.y);
-            if (position.unitPX) {
-                unit = "px";
+        overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
+        
+        if (isFinite(position.x)) {
+            if (position.unitXPX || (position.unitPX && !position.unitXEM)) {
+                xUnit = "px";
+                x = rnd(position.x);
+            } else if (position.unitXEM || position.unitEM) {
+                xUnit = "em";
+                x = round1k(position.x);
+            } else {
+                xUnit = "%";
+                x = rnd(position.x);
             }
+            writeAttrIfNecessary(ctx, "x", x, overrideExpect, xUnit);
         }
-        writeAttrIfNecessary(ctx, "x", x, 0, unit);
-        writeAttrIfNecessary(ctx, "y", y, 0, unit);
+        
+        if (isFinite(position.y)) {
+            if (position.unitYPX || (position.unitPX && !position.unitYEM)) {
+                yUnit = "px";
+                y = rnd(position.y);
+            } else if (position.unitYEM || position.unitEM) {
+                yUnit = "em";
+                y = round1k(position.y);
+            } else {
+                yUnit = "%";
+                y = rnd(position.y);
+            }
+            writeAttrIfNecessary(ctx, "y", y, overrideExpect, yUnit);
+        }
     }
     
     function encodedText(txt) {
@@ -264,18 +281,33 @@
                         (omIn.style["text-anchor"] !== "middle" &&
                          omIn.style["text-anchor"] !== "end") &&
                         isFinite(omIn.position.x)) {
-                        if (omIn.position.unitPX) {
-                            writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "px");
-                        } else if (omIn.position.unitEM) {
-                            writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "em");
-                        } else {
-                            writeAttrIfNecessary(ctx, "x", rnd(omIn.position.x), (sibling ? "" : "0"), "%");
+                        
+                        if (sibling) {
+                            writePositionIfNecessary(ctx, {
+                                x: omIn.position.x,
+                                unitXPX: omIn.position.unitXPX,
+                                unitXEM: omIn.position.unitXEM,
+                                unitEM: omIn.position.unitEM,
+                                unitPX: omIn.position.unitPX
+                            }, "");
                         }
                     } else if (omIn.style["text-anchor"] === "middle") {
-                        writeAttrIfNecessary(ctx, "x", "50%", "0%", "");
+                        writePositionIfNecessary(ctx, {
+                            x: omIn.position.x,
+                            unitXPX: omIn.position.unitXPX,
+                            unitXEM: omIn.position.unitXEM,
+                            unitEM: omIn.position.unitEM,
+                            unitPX: omIn.position.unitPX
+                        });
+                        if (isFinite(omIn.position.deltaX)) {
+                            writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
+                        }
                     } else if (omIn.style["text-anchor"] === "end") {
                         writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
                         writeAttrIfNecessary(ctx, "startOffset", "100%", "0%", "");
+                        if (isFinite(omIn.position.deltaX)) {
+                            writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
+                        }
                     }
                 }
                 
@@ -556,6 +588,7 @@
     
     
 	function print(svgOM, opt, errors) {
+        
         var ctx = getFormatContext(svgOM, opt || {}, errors);
         svgWriterIDs.reset();
         try {

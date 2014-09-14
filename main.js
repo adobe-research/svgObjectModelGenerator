@@ -43,6 +43,7 @@
     }
     
     var MENU_GENERATOR_DOM = 'GENERATOR-DOM',
+        MENU_GENERATOR_SUBDOM = 'GENERATOR-SUBDOM',
         generatorPlus = require("./generatorPlus.js"),
         docInfoFlags = {
             compInfo:           true,
@@ -58,27 +59,62 @@
         _docInfoCache = {},
         isListeningToGenerator = false;
     
-    function onGeneratorDOMMenuClick(event) {
-        _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", {}).then(function (origMode) {
-            if (typeof origMode === "string") {
-                origMode = JSON.parse(origMode);
+    function findLayerIdForIndex (layers, index) {
+        var i,
+            ret;
+        for (i = 0; i < layers.length; i++) {
+            if (layers[i].index === index) {
+                return layers[i].id;
             }
-            _G.getDocumentInfo(null, docInfoFlags).then(
-                function (document) {
-                    var doc = JSON.parse(JSON.stringify(document));
-                    generatorPlus.patchGenerator(doc, _G).then(function () {
-                        printDebug(doc);
-                    });
-                }, 
-                error);
-            _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", { colorMode: origMode.colorMode });
-        });
+            if (layers[i].layers && layers[i].layers.length > 0) {
+                ret = findLayerIdForIndex(layers[i].layers, index);
+                if (isFinite(ret)) {
+                    return ret;
+                }
+            }
+        }
+    }
+    
+    
+    function onGeneratorDOMMenuClick(event) {
+        if (event.generatorMenuChanged.name === MENU_GENERATOR_DOM || 
+            event.generatorMenuChanged.name === MENU_GENERATOR_SUBDOM) {
+            
+            _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", {}).then(function (origMode) {
+                if (typeof origMode === "string") {
+                    origMode = JSON.parse(origMode);
+                }
+                _G.getDocumentInfo(null, docInfoFlags).then(
+                    function (gDoc) {
+                        var doc = JSON.parse(JSON.stringify(gDoc)),
+                            subTree = false,
+                            layerId;
+                        
+                        if (event.generatorMenuChanged.name === MENU_GENERATOR_SUBDOM && doc.selection.length > 0) {
+                            //get the selected layer's id and use it to get the sub-tree
+                            subTree = true;
+                            layerId = findLayerIdForIndex (doc.layers, doc.selection[0]);
+                            
+                            console.log("***** LayerId: " + layerId + " from " + doc.selection[0]);
+                        }
+                        
+                        generatorPlus.patchGenerator(doc, _G, undefined, subTree, layerId).then(function () {
+                            printDebug(doc);
+                        });
+                    }, 
+                    error);
+                _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", { colorMode: origMode.colorMode });
+            });
+        }
     }
     
     function init(generator) {
         _G = generator;
         
+        //TBD: only do this when debug is enabled in config
+        
         _G.addMenuItem(MENU_GENERATOR_DOM, "Copy svgOM", true, false);
+        _G.addMenuItem(MENU_GENERATOR_SUBDOM, "Copy svgOM for layer", true, false);
         _G.onPhotoshopEvent("generatorMenuChanged", onGeneratorDOMMenuClick);
     }
     
