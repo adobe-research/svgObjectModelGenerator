@@ -36,7 +36,7 @@ describe('SVGOMGenerator', function (){
         var testData = require("./data/svgFill-data.js"),
             svgOMExpected = require("./data/svgFill-om.js"),
             svgOM = OMG.extractSVGOM(testData, { });
-        expect(svgOMExpected).to.eql(svgOM);
+        expect(JSON.stringify(svgOMExpected)).to.eql(JSON.stringify(svgOM));
     });
 
     it("should be able to OM a group", function (){
