@@ -72,7 +72,12 @@ describe('svgWriter', function (){
                 omOpt = { layerSpec: aTestData[i] };
                 testData = require("./data/" + testName + "/" + aTestData[i + 1] + "-data.js");
                 svgFilename = "./tests/data/" + testName + "/" + aTestData[i + 1] + ".svg";
-                exptectedOut = fs.readFileSync(svgFilename, 'utf8');
+                try {
+                    exptectedOut = fs.readFileSync(svgFilename, 'utf8');
+                } catch(er) {
+                    expectedOut = "NO-TEST-MEDIA";
+                }
+                    
                 scale = aTestData[i + 2];
                 svgWriterErrors = [];
                 
@@ -99,6 +104,14 @@ describe('svgWriter', function (){
                 26, "Group 1", 1.0,
                 20, "Group 2", 1.0,
                 24, "Group 3", 1.0
+            ]);
+        });
+        
+        it("should resolve bounds and fxBounds to properly clip layers with effects", function () {
+            compareResultsExport("shapes-with-external-fx", [
+                4, "outer-glow", 1.0,
+                3, "drop-shadow", 1.0,
+                2, "stroke", 1.0
             ]);
         });
         

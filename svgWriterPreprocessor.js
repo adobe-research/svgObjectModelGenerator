@@ -189,7 +189,6 @@
                 pL,
                 newMid,
                 deltaX;
-       try {
             if (omIn.type === "shape" || omIn.type === "text" ||
                 omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bnds = omIn.shapeBounds;
@@ -211,14 +210,17 @@
                             omIn.position.y += ctx._shiftContentY;
                         }
                     }
-                } else if (omIn.type === "shape" && (omIn.shape === "circle" || omIn.shape === "ellipse")) {
-                    if ((bnds.right - bnds.left) % 2 !== 0) {
-                        bnds.right += 1.0;
-                    }
-                    if ((bnds.bottom - bnds.top) % 2 !== 0) {
-                        bnds.bottom += 1.0;
+                } else if (omIn.type === "shape") {
+                    if (omIn.shape === "circle" || omIn.shape === "ellipse") {
+                        if ((bnds.right - bnds.left) % 2 !== 0) {
+                            bnds.right += 1.0;
+                        }
+                        if ((bnds.bottom - bnds.top) % 2 !== 0) {
+                            bnds.bottom += 1.0;
+                        }
                     }
                 }
+                
             } else if (omIn.type === "tspan") {
                 if (omIn.style) {
                     if (isFinite(omIn.position.x)) {
@@ -283,10 +285,6 @@
                 this.shiftBoundsX(bnds, ctx._shiftContentX);
                 this.shiftBoundsY(bnds, ctx._shiftContentY);
             }
-           
-       } catch (erro) {
-           console.warn("ERROR: " + erro + " stack " + erro.stack);
-       }
         };
         
         this.preprocessSVGNode = function (ctx) {

@@ -218,16 +218,16 @@
                             break;
                             
                          case "path":
-                            write(ctx, ctx.currentIndent + "<path d=\"" + omIn.pathData + "\"");
+                            write(ctx, ctx.currentIndent + '<path d="' + omIn.pathData + '"');
                             
-                            writeIDIfNecessary(ctx, "path");
+                            writeIDIfNecessary(ctx, 'path');
                             writeClassIfNeccessary(ctx);
 
                             if (useTrick) {
-                                write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
+                                write(ctx, ' style="stroke: inherit; filter: none; fill: inherit;"');
                             }
-
-                            write(ctx, " fill-rule=\"evenodd\"/>" + ctx.terminator);
+                            
+                            write(ctx, ' fill-rule="evenodd"/>' + ctx.terminator);
                             break;
                             
                          case "rect":
