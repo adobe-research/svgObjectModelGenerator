@@ -124,6 +124,11 @@
                 boundPadRight = omIn.style.stroke.lineWidth/2.0;
                 boundPadTop = omIn.style.stroke.lineWidth/2.0;
                 boundPadBottom = omIn.style.stroke.lineWidth/2.0;
+            } else if(omIn.style && omIn.style.fx && omIn.style.fx.frameFX && omIn.style.fx.frameFX.enabled && omIn.style.fx.frameFX.size) {
+                boundPadLeft = omIn.style.fx.frameFX.size/2.0;
+                boundPadRight = omIn.style.fx.frameFX.size/2.0;
+                boundPadTop = omIn.style.fx.frameFX.size/2.0;
+                boundPadBottom = omIn.style.fx.frameFX.size/2.0;
             }
             
             if (omIn.type === "shape" && (omIn.shape === "circle" || omIn.shape === "ellipse")) {

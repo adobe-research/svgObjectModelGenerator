@@ -242,6 +242,8 @@
                             
                             if (layer.strokeStyle && layer.strokeStyle.strokeEnabled && layer.strokeStyle.strokeStyleLineWidth) {
                                 lineWidth = omgUtils.boundInPx(layer.strokeStyle.strokeStyleLineWidth, docResolution);
+                            } else if(layer.layerEffects && layer.layerEffects.frameFX && layer.layerEffects.frameFX.enabled && layer.layerEffects.frameFX.size) {
+                                lineWidth = layer.layerEffects.frameFX.size;
                             }
                             
                             deltaX = (lineWidth + deltaX + deltaX2) / 2.0;
