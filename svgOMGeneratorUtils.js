@@ -74,6 +74,16 @@
             return parseInt(bnd, 10);
         };
         
+        this.shiftBoundsX = function (bounds, delta) {
+            bounds.left += delta;
+            bounds.right += delta;
+        };
+        
+        this.shiftBoundsY = function (bounds, delta) {
+            bounds.top += delta;
+            bounds.bottom += delta;
+        };
+        
         function _addOrEditStop(stops, def, colorDefined) {
             var foundStop;
             stops.forEach(function (stp) {

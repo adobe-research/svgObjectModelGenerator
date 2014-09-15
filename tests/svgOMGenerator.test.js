@@ -18,7 +18,8 @@
 
 var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
-    sinon = require('sinon');
+    sinon = require('sinon'),
+    fs = require("fs");
 
 describe('SVGOMGenerator', function (){
     
@@ -34,9 +35,14 @@ describe('SVGOMGenerator', function (){
     it("should be able to OM a gradient fill", function (){
 
         var testData = require("./data/svgFill-data.js"),
-            svgOMExpected = require("./data/svgFill-om.js"),
-            svgOM = OMG.extractSVGOM(testData, { });
-        expect(JSON.stringify(svgOMExpected)).to.eql(JSON.stringify(svgOM));
+            svgOMExpected = JSON.stringify(require("./data/svgFill-om.js")),
+            svgOM = JSON.stringify(OMG.extractSVGOM(testData, { }));
+        
+        if (repairMedia && svgOMExpected !== svgOM) {
+            fs.writeFileSync("./tests/data/svgFill-om.js", "module.exports = " + svgOM + ";\n", "utf8");
+        }
+        
+        expect(svgOMExpected).to.equal(svgOM);
     });
 
     it("should be able to OM a group", function (){

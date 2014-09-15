@@ -37,6 +37,8 @@
         this.sOut = "";
         this.contentBounds = {};
         
+        this.dpi = svgOM.pxToInchRatio;
+        
         //an array for reporting errors
         this.errors = errors;
         

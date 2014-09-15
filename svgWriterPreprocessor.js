@@ -26,6 +26,7 @@
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
+        omgUtils = require("./svgOMGeneratorUtils.js"),
         px = svgWriterUtils.px;
     
 	function SVGWriterPreprocessor() {
@@ -39,12 +40,12 @@
         
         this.provideBackupDefaults = function (omIn, styleBlock) {
             if (omIn.style && styleBlock.hasRules()) {
-                if (omIn.type === "shape" && omIn.style["fill"] === undefined) {
-                    omIn.style["fill"] = "none";
+                if (omIn.type === "shape" && omIn.style.fill === undefined) {
+                    omIn.style.fill = "none";
                     styleBlock.addRule("fill", "none");
                 }
             }
-        }
+        };
         
         /**
          * Externalize styles identifies styles that can be detached from artwork.
@@ -92,16 +93,6 @@
             bounds.bottom += delta;
         };
         
-        this.shiftBoundsX = function (bounds, delta) {
-            bounds.left += delta;
-            bounds.right += delta;
-        };
-        
-        this.shiftBoundsY = function (bounds, delta) {
-            bounds.top += delta;
-            bounds.bottom += delta;
-        };
-        
         this.recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
                 bndsIn = omIn.bounds,
@@ -112,38 +103,16 @@
                 bndsTextFx,
                 bndsText;
 
-            // FIXME: We need to optimize layer size in general. FX might have the boundaries
             if (omIn.boundsWithFX) {
                 bndsIn = omIn.boundsWithFX;
-                /*
-                if (omIn.type !== "text") {
-                    bndsIn = omIn.boundsWithFX;
-                } else {
-                    bndsTextFx = omIn.boundsWithFX;
-                    if (omIn.textBounds) {
-                        bndsText = omIn.textBounds;
-                    } else if (omIn.shapeBounds) {
-                        bndsText = omIn.shapeBounds;
-                    } else {
-                        bndsText = omIn.boundsWithFX;
-                    }
-                    
-                    bndsText = omIn.textBounds ? omIn.textBounds : omIn.shapeBounds;
-                    bndsIn = {
-                        top: Math.min(bndsTextFx.top, bndsText.top),
-                        bottom: Math.max(bndsTextFx.bottom, bndsText.bottom),
-                        left: Math.min(bndsTextFx.left, bndsText.left),
-                        right: Math.max(bndsTextFx.right, bndsText.right)
-                    };
-                }
-                */
+                
             } else {
                 if (omIn.type === "shape" || omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                     bndsIn = omIn.shapeBounds;
                 } else if (omIn.type === "text") {
                     if (omIn.textBounds) {
-                        bndsIn = omIn.textBounds;
-                    } else {
+                        bndsIn = JSON.parse(JSON.stringify(omIn.textBounds));
+                    } else if (omIn.shapeBounds) {
                         bndsIn = omIn.shapeBounds;
                     }
                 }
@@ -196,17 +165,31 @@
                 omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
                 bnds = omIn.shapeBounds;
                 if (omIn.type === "text") {
+                    bnds = omIn.textBounds;
+                    
+                    omgUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
+                    omgUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
+                    
                     if (omIn.transform) {
                         omIn.transform.translate(ctx._shiftContentX, ctx._shiftContentY);
                     }
                     if (omIn.position) {
                         if (!nested) {
                             omIn.position.x = 0.0;
-                            omIn.position.y = 1.0;
-                            omIn.position.unitY = "em";
                             if (omIn.children && omIn.children.length === 1) {
+                                if (omIn.position.unitY === "px") {
+                                    omIn.position.y += ctx._shiftContentY;
+                                }
                                 omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
                                 omIn.children[0].position.x = 0.0;
+                            } else {
+                                
+                                omIn.position.y += ctx._shiftContentY;
+
+                                if (Math.abs(omIn.position.y) === 1) {
+                                    omIn.position.y = 1.0;
+                                    omIn.position.unitY = "em";
+                                }
                             }
                         } else {
                             if (omIn.position.unitX === "px") {
@@ -236,8 +219,8 @@
                             deltaX = -(deltaX + deltaX2) / 2.0;
                             deltaY = -(deltaY + deltaY2) / 2.0;
                             
-                            this.shiftBoundsX(bnds, deltaX);
-                            this.shiftBoundsY(bnds, deltaY);
+                            omgUtils.shiftBoundsX(bnds, deltaX);
+                            omgUtils.shiftBoundsY(bnds, deltaY);
                         }
                     }
                 }
@@ -305,8 +288,8 @@
             }
                 
             if (bnds) {
-                this.shiftBoundsX(bnds, ctx._shiftContentX);
-                this.shiftBoundsY(bnds, ctx._shiftContentY);
+                omgUtils.shiftBoundsX(bnds, ctx._shiftContentX);
+                omgUtils.shiftBoundsY(bnds, ctx._shiftContentY);
             }
         };
         
@@ -357,7 +340,7 @@
             //if these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {
-                    chld._parentBounds = omIn.shapeBounds;
+                    chld._parentBounds = omIn.textBounds;
                     chld._parentIsRoot = !nested;
                 });
             }

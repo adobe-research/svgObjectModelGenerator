@@ -5,7 +5,8 @@ module.exports = {
             "type": "background",
             "visible": true,
             "style": {},
-            "children": []
+            "children": [],
+            "layerName": "Background"
         },
         {
             "id": "ellipsesvg",
@@ -103,6 +104,7 @@ module.exports = {
                 }
             },
             "children": [],
+            "layerName": "Ellipse.svg",
             "boundsWithFX": {
                 "top": 62,
                 "left": 54,
@@ -213,6 +215,7 @@ module.exports = {
                 }
             },
             "children": [],
+            "layerName": "Gelipse",
             "boundsWithFX": {
                 "top": 122,
                 "left": 123,
@@ -259,6 +262,7 @@ module.exports = {
                 }
             },
             "children": [],
+            "layerName": "freelipse",
             "shape": "ellipse",
             "shapeBounds": {
                 "top": 9,
