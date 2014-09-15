@@ -166,7 +166,8 @@
                 svgNode.position = {
                     x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.docBounds.right - writer._root.docBounds.left),
                     y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.docBounds.bottom - writer._root.docBounds.top),
-                    unitPX: true
+                    unitX: "px",
+                    unitY: "px"
                 };
                 
                 self.addTextTransform(writer, svgNode, text, layer);
@@ -227,8 +228,8 @@
                     svgParagraphNode.position = {
                         x: position.x,
                         y: position.y,
-                        unitPX: position.unitPX,
-                        unitEM: position.unitEM
+                        unitX: position.unitX,
+                        unitY: position.unitY
                     };
                     svgParagraphNode.textBounds = JSON.parse(JSON.stringify(bounds));
                     writer.pushCurrent(svgParagraphNode);
@@ -260,8 +261,8 @@
                         svgTextChunkNode.position = {
                             x: _boundInPx(position.x, dpi),
                             y: yEMs,
-                            unitXPX: true,
-                            unitYEM: true
+                            unitX: "px",
+                            unitY: "em"
                         };
                         omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
                     }
@@ -315,14 +316,10 @@
                 //its just a translate
                 if (transform.tx === 0 && transform.ty === 0) {
                     //the transform does nothing, ditch it
+                    
+                    //TBD: consider adding this back - there is a rotate bug...
                     return;
                 }
-                
-                //It seems like we ought to be able to ditch the transform here
-                //and move it to regular coordinates, but it SVG didn't seem to like it
-                //svgNode.position.x -= (obx - tbx);
-                //svgNode.position.y -= (oby - tby);
-                //svgNode.unitPX = true;
             }
             
             t.translate(boundsOrig.left, boundsOrig.top);

@@ -114,31 +114,27 @@
         overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
         
         if (isFinite(position.x)) {
-            if (position.unitXPX || (position.unitPX && !position.unitXEM)) {
-                xUnit = "px";
+            if (position.unitX === "px") {
                 x = rnd(position.x);
-            } else if (position.unitXEM || position.unitEM) {
-                xUnit = "em";
+            } else if (position.unitX === "em") {
                 x = round1k(position.x);
             } else {
-                xUnit = "%";
+                position.unitX = "%";
                 x = rnd(position.x);
             }
-            writeAttrIfNecessary(ctx, "x", x, overrideExpect, xUnit);
+            writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
         }
         
         if (isFinite(position.y)) {
-            if (position.unitYPX || (position.unitPX && !position.unitYEM)) {
-                yUnit = "px";
+            if (position.unitY === "px") {
                 y = rnd(position.y);
-            } else if (position.unitYEM || position.unitEM) {
-                yUnit = "em";
+            } else if (position.unitY === "em") {
                 y = round1k(position.y);
             } else {
-                yUnit = "%";
+                position.unitY = "%";
                 y = rnd(position.y);
             }
-            writeAttrIfNecessary(ctx, "y", y, overrideExpect, yUnit);
+            writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
         }
     }
     
@@ -270,7 +266,7 @@
                 
                 if (omIn.position) {
                     if (!ctx._nextTspanAdjustSuper) {
-                        if (omIn.position.unitEM) {
+                        if (omIn.position.unitY === "em") {
                             writeAttrIfNecessary(ctx, "dy", (omIn.position.y * 1.2) + "em", "0em", "");
                         } else {
                             writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
@@ -285,19 +281,13 @@
                         if (sibling) {
                             writePositionIfNecessary(ctx, {
                                 x: omIn.position.x,
-                                unitXPX: omIn.position.unitXPX,
-                                unitXEM: omIn.position.unitXEM,
-                                unitEM: omIn.position.unitEM,
-                                unitPX: omIn.position.unitPX
+                                unitX: omIn.position.unitX
                             }, "");
                         }
                     } else if (omIn.style["text-anchor"] === "middle") {
                         writePositionIfNecessary(ctx, {
                             x: omIn.position.x,
-                            unitXPX: omIn.position.unitXPX,
-                            unitXEM: omIn.position.unitXEM,
-                            unitEM: omIn.position.unitEM,
-                            unitPX: omIn.position.unitPX
+                            unitX: omIn.position.unitX
                         });
                         if (isFinite(omIn.position.deltaX)) {
                             writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");

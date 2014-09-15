@@ -203,14 +203,18 @@
                         if (!nested) {
                             omIn.position.x = 0.0;
                             omIn.position.y = 1.0;
-                            omIn.position.unitYEM = true;
+                            omIn.position.unitY = "em";
                             if (omIn.children && omIn.children.length === 1) {
                                 omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
                                 omIn.children[0].position.x = 0.0;
                             }
-                        } else if (omIn.position.unitPX) {
-                            omIn.position.x += ctx._shiftContentX;
-                            omIn.position.y += ctx._shiftContentY;
+                        } else {
+                            if (omIn.position.unitX === "px") {
+                                omIn.position.x += ctx._shiftContentX;
+                            }
+                            if (omIn.position.unitY === "px") {
+                                omIn.position.y += ctx._shiftContentY;
+                            }
                         }
                     }
                 } else if (omIn.type === "shape") {
@@ -248,12 +252,14 @@
                                 newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
                                 if (omIn._parentIsRoot) {
                                     omIn.position.x = 50;
+                                    omIn.position.unitX = "%";
                                 } else {
                                     omIn.position.x = newMid;
-                                    omIn.position.unitXPX = true;
+                                    omIn.position.unitX = "px";
                                 }
                             } else {
                                 omIn.position.x = 50;
+                                omIn.position.unitX = "%";
                             }
                             
                         } else if (omIn.style["text-anchor"] === "end") {
@@ -293,7 +299,7 @@
                     if (omIn.style["_baseline-script"] === "super") {
                         omIn.position = omIn.position || {};
                         omIn.position.y = -0.5;
-                        omIn.position.unitEM = true;
+                        omIn.position.unitY = "em";
                     }
                 }
             }
