@@ -167,6 +167,7 @@
             layerType = getSVGLayerType(layer);
             if (!justTraverse) {
                 svgNode = writer.addSVGNode(getSVGID(layer), layerType, layerVisible);
+                svgNode.layerName = layer.name;
                 if (layer.boundsWithFX) {
                     svgNode.boundsWithFX = layer.boundsWithFX;                    
                 }

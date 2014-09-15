@@ -147,18 +147,16 @@
             var self = this;
             
             return this.textComponentOrigin(layer, function (text) {                
+                
+                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
+                
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
                 svgNode.shapeBounds = layer.bounds;
+                svgNode.layerName = layer.name;
                 
-                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
-                svgNode.textBounds = {
-                    top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
-                    bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
-                    left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
-                    right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)
-                };
+                svgNode.textBounds = JSON.parse(JSON.stringify(layer.bounds));
                 
                 // It seems that textClickPoint is a quite reliable global position for
                 // the initial <text> element. 
@@ -322,8 +320,9 @@
                 }
             }
             
-            t.translate(boundsOrig.left, boundsOrig.top);
+            return;//TBD: transform information is not consistent
             
+            t.translate(boundsOrig.left, boundsOrig.top);
             t.translate(obx, oby);
             t.multiply(transform.xx, transform.xy, transform.yx, transform.yy, transform.tx, transform.ty);
             t.translate(-obx, -oby);
