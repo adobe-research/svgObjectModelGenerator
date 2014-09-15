@@ -209,20 +209,6 @@
                             bnds.bottom += 1.0;
                         }
                     }
-                    if (omIn.shape === "circle" || omIn.shape === "ellipse" || omIn.shape === "rect") {
-                        if (omIn.boundsWithFX) {
-                            deltaX = (omIn.boundsWithFX.right - omIn.shapeBounds.right);
-                            deltaX2 = (omIn.shapeBounds.left - omIn.boundsWithFX.left);
-                            deltaY = -(omIn.boundsWithFX.top - omIn.shapeBounds.top);
-                            deltaY2 = omIn.boundsWithFX.bottom - omIn.shapeBounds.bottom;
-                            
-                            deltaX = -(deltaX + deltaX2) / 2.0;
-                            deltaY = -(deltaY + deltaY2) / 2.0;
-                            
-                            omgUtils.shiftBoundsX(bnds, deltaX);
-                            omgUtils.shiftBoundsY(bnds, deltaY);
-                        }
-                    }
                 }
                 
             } else if (omIn.type === "tspan") {
