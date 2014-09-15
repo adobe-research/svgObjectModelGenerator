@@ -34,7 +34,8 @@
         svgOMGenerator = require("./svgOMGenerator"),
         fs = require("fs"),
         resolve = require("path").resolve,
-        tmp = require("tmp");
+        tmp = require("tmp"),
+        omgUtils = require("./svgOMGeneratorUtils");
     
     function GeneratorPlus() {
         
@@ -177,7 +178,8 @@
                         deltaX,
                         deltaX2,
                         deltaY,
-                        deltaY2;
+                        deltaY2,
+                        lineWidth = 0;
                     if (layerType === "backgroundLayer") {
                         _hasBackgroundLayer = true;
                     }
@@ -238,8 +240,12 @@
                                 deltaY2 = 0;
                             }
                             
-                            deltaX = (deltaX + deltaX2) / 2.0;
-                            deltaY = (deltaY + deltaY2) / 2.0;
+                            if (layer.strokeStyle && layer.strokeStyle.strokeEnabled && layer.strokeStyle.strokeStyleLineWidth) {
+                                lineWidth = omgUtils.boundInPx(layer.strokeStyle.strokeStyleLineWidth, docResolution);
+                            }
+                            
+                            deltaX = (lineWidth + deltaX + deltaX2) / 2.0;
+                            deltaY = (lineWidth + deltaY + deltaY2) / 2.0;
                             
                             patchSettings.xOffset = offsetSettings.xOffset + deltaX;
                             patchSettings.yOffset = offsetSettings.yOffset + deltaY;
