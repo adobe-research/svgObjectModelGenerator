@@ -139,8 +139,7 @@
             } else if (fillClass == "gradientLayer") {
                 fill.style = "gradient";
                 fill.gradientType = fillStyle.type;
-                
-                if (fill.style === "gradient") {
+                if (fillStyle.gradient) {
                     fill.gradient = omgUtils.toGradient(fillStyle);
                 } else {
                     console.log("WARNING: Unhandled gradient type = " + JSON.stringify(fill));

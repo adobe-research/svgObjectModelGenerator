@@ -110,11 +110,12 @@
             var gradient,
                 self = this;
             if (!gradientRaw || !gradientRaw.gradient ||
+                gradientRaw.gradient.gradientForm === 'colorNoise' ||
                 (gradientRaw.type !== 'linear' &&
                  gradientRaw.type !== 'radial' &&
-                 gradientRaw.type !== 'reflected'))
-                return gradient;
-
+                 gradientRaw.type !== 'reflected')) {
+                return (gradientRaw) ? gradientRaw.gradient : null;
+            }
             // CSS uses clock orientation, PSDs use trig orientation
             // both point an arrow in direction gradient extends.
             var angle = 0;

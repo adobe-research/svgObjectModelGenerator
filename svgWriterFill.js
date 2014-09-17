@@ -35,7 +35,10 @@
     function SVGWriterFill() {
         
         this.scanForUnsupportedFeatures = function (ctx) {
-            
+            var omIn = ctx.currentOMNode;
+            if(omIn.style && omIn.style.fill && omIn.style.fill.gradient && omIn.style.fill.gradient.gradientForm === 'colorNoise') {
+                ctx.errors.push("Gradients with noise are not supported by SVG export.");
+            }
         };
         
         this.externalizeStyles = function (ctx) {
