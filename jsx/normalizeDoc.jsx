@@ -59,12 +59,10 @@ var currentHistIndex = currentHistoryIndex(-1);
 if (previous) {
     
     params.historyPos = parseInt(params.historyPos, 10);
-    
-    if (params.historyPos >= 0) {
-        currentHistoryIndex(params.historyPos);
-    }
-    
     if (previous !== colorMode) {
+        if (params.historyPos >= 0) {
+            currentHistoryIndex(params.historyPos);
+        }
         changeColorMode(previous);
     }
 } else {
