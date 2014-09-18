@@ -255,7 +255,8 @@
             
             if (omIn && omIn.style && omIn.style.fx) {
                 gradientFill = omIn.style.fx.gradientFill;
-                if (gradientFill && gradientFill.enabled) {
+                if (gradientFill && gradientFill.enabled && gradientFill.gradient &&
+                    gradientFill.gradient.gradientForm !== 'colorNoise') {
                     return true;
                 }
             }
