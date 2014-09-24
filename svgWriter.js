@@ -111,30 +111,32 @@
             xUnit,
             x,
             y;
-        overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
         
-        if (isFinite(position.x)) {
-            if (position.unitX === "px") {
-                x = rnd(position.x);
-            } else if (position.unitX === "em") {
-                x = round1k(position.x);
-            } else {
-                position.unitX = "%";
-                x = rnd(position.x);
+        if (position) {
+            overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
+            if (isFinite(position.x)) {
+                if (position.unitX === "px") {
+                    x = rnd(position.x);
+                } else if (position.unitX === "em") {
+                    x = round1k(position.x);
+                } else {
+                    position.unitX = "%";
+                    x = rnd(position.x);
+                }
+                writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
             }
-            writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
-        }
-        
-        if (isFinite(position.y)) {
-            if (position.unitY === "px") {
-                y = rnd(position.y);
-            } else if (position.unitY === "em") {
-                y = round1k(position.y);
-            } else {
-                position.unitY = "%";
-                y = rnd(position.y);
+
+            if (isFinite(position.y)) {
+                if (position.unitY === "px") {
+                    y = rnd(position.y);
+                } else if (position.unitY === "em") {
+                    y = round1k(position.y);
+                } else {
+                    position.unitY = "%";
+                    y = rnd(position.y);
+                }
+                writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
             }
-            writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
         }
     }
     

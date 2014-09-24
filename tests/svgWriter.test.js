@@ -268,8 +268,7 @@ describe('svgWriter', function (){
             compareResults('text-on-path');
         });
 
-        //transforms are not working correctly.  the transform is not consistent with the paths, so for now it is disabled
-        it.skip("should support text transformation", function () {
+        it("should support text transformation", function () {
             compareResults('text-transform');
         });
 

@@ -1,4 +1,5 @@
 **/node_modules/*
 **/coverage_data/*
 svgomg-code-coverage.html
+npm-debug.log
 
