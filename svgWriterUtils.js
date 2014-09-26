@@ -86,9 +86,9 @@
             }
         };
 
-        self.writeTransformIfNecessary = function (ctx, attr, val) {
+        self.writeTransformIfNecessary = function (ctx, attr, val, tX, tY) {
             if (val) {
-                self.write(ctx, ' ' + attr + '="' + Matrix.writeDecomposedTransform(val) + '"');
+                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(val, tX, tY) + '"');
             }
         };
 

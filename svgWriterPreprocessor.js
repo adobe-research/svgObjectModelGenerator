@@ -179,12 +179,8 @@
                     
                     if (omIn.transform) {
                         
-                        omIn.transform.translation[0] += ctx._shiftContentX;
-                        if (omIn.transform.isInverted) {
-                            omIn.transform.translation[1] += ctx._shiftContentY;
-                        } else {
-                            omIn.transform.translation[1] += ctx._shiftContentY;
-                        }
+                        omIn.transformTX += ctx._shiftContentX;
+                        omIn.transformTY += ctx._shiftContentY;
                         
                         if (omIn.children) {
                             omIn.children.forEach(function (chld) {

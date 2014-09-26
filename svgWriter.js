@@ -331,16 +331,22 @@
                     
                     var children = ctx.currentOMNode.children,
                         rightAligned = false,
+                        centered = false,
                         i,
                         bndsFx,
                         bndsNat,
                         bndsAlt,
                         bndsDy,
-                        bndsDyAlt;
+                        bndsDyAlt,
+                        pxWidth = omIn.textBounds.right - omIn.textBounds.left,
+                        pxHeight = omIn.textBounds.bottom - omIn.textBounds.top;
                     
                     if (children && children.length > 0 &&
                         children[0].style && children[0].style["text-anchor"] === "end") {
                         rightAligned = true;
+                    } else if (children && children.length > 0 &&
+                        children[0].style && children[0].style["text-anchor"] === "middle") {
+                        centered = true;
                     }
                     
                     write(ctx, ctx.currentIndent + "<text");
@@ -355,7 +361,12 @@
                         writePositionIfNecessary(ctx, omIn.position);
                     }
                     
-                    writeTransformIfNecessary(ctx, "transform", omIn.transform);
+                    if (centered && omIn.transform) {
+                        omIn.transformTX += pxWidth;
+                        omIn.transformTY += pxHeight;
+                    }
+                    
+                    writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
                     write(ctx, ">");
 
                     ctx._nextTspanAdjustSuper = false;

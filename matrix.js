@@ -655,6 +655,39 @@
             return returnValue;
         };
         
+        
+        this.writeTransform = function (txfm4x4, tX, tY) {
+            
+            var decomposed = this.decomposeTransform(txfm4x4);
+            
+            if (decomposed.translation[2] ||
+                decomposed.rotation[0] || decomposed.rotation[1] || 
+                round2(decomposed.scale[2]) !== 1) {
+                
+                return this.writeRawMatrix(txfm4x4, tX, tY);
+            } else {
+                
+                decomposed.translation[0] += tX;
+                decomposed.translation[1] += tY;
+                
+                return this.writeDecomposedTransform(decomposed);
+            }
+        };
+        
+        this.writeRawMatrix = function (txfm4x4, tX, tY) {
+            var txfmOut = [];
+            
+            txfmOut.push("matrix(");
+            txfmOut.push(txfm4x4[0][0] + ", ");
+            txfmOut.push(txfm4x4[1][0] + ", ");
+            txfmOut.push(txfm4x4[0][1] + ", ");
+            txfmOut.push(txfm4x4[1][1] + ", ");
+            txfmOut.push((txfm4x4[3][0] + tX) + ", ");
+            txfmOut.push((txfm4x4[3][1] + tY)+ ")");
+            
+            return txfmOut.join("");
+        };
+        
         this.writeDecomposedTransform = function (txfm) {
             var txfmOut = [],
                 sep = "";

@@ -1,0 +1,1 @@
+Placeholder.  This folder is used for comparison data when svgWriter tests fail.

@@ -299,17 +299,7 @@
                     bottom: _boundInPx(text.bounds.bottom, dpi)
                 },
                 inMatrix,
-                matrix4x4,
-                decomposed,
-                scaledFontOffset,
-                widthDiff,
-                heightDiff,
-                ptOffset,
-                ptOffset2,
-                ptOffset3,
-                ptOffset4,
-                minY,
-                minYFlip;
+                matrix4x4;
             
             svgNode.maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
             
@@ -324,33 +314,11 @@
                 if (!Matrix.containsOnlyTranslate(inMatrix)) {
                 
                     matrix4x4 = Matrix.createMatrix(inMatrix);
-                
-                    decomposed = Matrix.decomposeTransform(matrix4x4);
-
-                    //console.log("DECOMPOSED == " + JSON.stringify(decomposed));
-
-                    scaledFontOffset = -svgNode.maxTextSize * 0.5 * decomposed.scale[1];
-
-                    ptOffset = matrix4x4.transformPoint([1, scaledFontOffset]);
-                    ptOffset2 = matrix4x4.transformPoint([boundsTransform.right - boundsTransform.left, scaledFontOffset]);
-                    ptOffset3 = matrix4x4.transformPoint([boundsTransform.right - boundsTransform.left, (boundsTransform.bottom - boundsTransform.top) - svgNode.maxTextSize]);
-                    ptOffset4 = matrix4x4.transformPoint([1, (boundsTransform.bottom - boundsTransform.top) - svgNode.maxTextSize]);
-
-                    svgNode.transform = decomposed;
-                    svgNode.transform.translation[0] += svgNode.position.x;
-
-                    minY = Math.min(ptOffset[1], ptOffset2[1]);
-                    minYFlip = Math.min(ptOffset3[1], ptOffset4[1]);
-
-                    if (minYFlip < minY && minYFlip < 0.0) {
-                        svgNode.transform.isInverted = true;
-                        svgNode.transform.translation[1] += svgNode.position.y;
-                    } else if (minY < 0.0) {
-                        svgNode.transform.translation[1] += svgNode.position.y;
-                    }
-
-                    //console.log("TRANSLATED == " + JSON.stringify(svgNode.transform));
-
+                    
+                    svgNode.transform = matrix4x4;
+                    svgNode.transformTX = svgNode.position.x;
+                    svgNode.transformTY = svgNode.position.y;
+                    
                     svgNode.position = {
                         x: 0,
                         y: 0,

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="468" height="657" viewBox="0 0 468 657">
+  <defs>
+    <style>
+
+      .cls-2 {
+        font-size: 36px;
+      }
+
+      .cls-3 {
+        fill: #226b26;
+        font-size: 36px;
+        font-family: "Optima-ExtraBlack";
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(421 599) rotate(-138.16) skewX(28.99) scale(2.08 2.01)"><tspan class="cls-3">here is</tspan><tspan dy="1.2em" x="0px" class="cls-3">some hard</tspan><tspan dy="1.2em" x="0px" class="cls-3">return point text</tspan></text>
+</svg>

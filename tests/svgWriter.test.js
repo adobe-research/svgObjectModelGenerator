@@ -24,8 +24,108 @@ var expect = require('chai').expect,
 
 describe('svgWriter', function (){
     
+    //report the differences in an easy-to-review format
+    
+    var sandbox = sinon.sandbox.create(),
+        _isLastTest = false,
+        _compareLogDoc = [],
+        _compareLogSubtree = [],
+        itmId = 0;
+    
+    beforeEach(function () {
+    });
+    
+    function writeComparison (out, comparison, level) {
+        var svgA,
+            svgB;
+
+        out.push('<li id="itm' + itmId + '" class="' + level);
+        sep = ' ';
+        if (comparison.passed) {
+            out.push(sep + 'passed');
+            sep = ' ';
+        }
+        if (comparison.repaired) {
+            out.push(sep + 'repaired');
+            sep = ' ';
+            svgA = comparison.filename;
+            svgB = comparison.compareFilename;
+        } else if (!comparison.passed) {
+            svgA = comparison.compareFilename;
+            svgB = comparison.filename;
+        } else {
+            svgA = comparison.filename;
+            svgB = '';
+        }
+
+        out.push('" onclick="compareSVG(\'#itm' + itmId++ + '\', \'' + svgA + '\', \'' + svgB + '\')"><div class="passfail"></div><span>');
+
+        out.push(comparison.name + '</span></li>');
+    }
+    
+    afterEach(function () {
+        var out = [],
+            templ,
+            insertStr = "<!--INSERT-->",
+            pos,
+            header,
+            footer;
+        
+        sandbox.restore();
+        
+        if (_isLastTest) {
+            try {    
+                templ = fs.readFileSync('./tests/report/reportTemplate.html').toString();
+                pos = templ.indexOf(insertStr);
+                header = templ.substring(0, pos);
+                footer = templ.substring(pos + insertStr.length);
+
+                out.push(header);
+
+                _compareLogDoc.forEach(function (comparison) {
+                    writeComparison(out, comparison, 'doc');
+                });
+                
+                _compareLogSubtree.forEach(function (comparison) {
+                    writeComparison(out, comparison, 'subtree');
+                });
+
+                out.push(footer);
+                fs.writeFileSync('./test-summary.html', out.join(""), 'utf8');
+            } catch (err) {
+                console.warn("error making summary " + err);
+            }
+        }
+    });
+    
+    
     describe('our SVG writer', function (){
 
+        function handleResults(compareLog, testName, exptectedOut, svgOut, pathData, pathCompare) {
+            
+            if (svgOut != exptectedOut) {
+                if (repairMedia) {
+                    fs.writeFileSync(pathCompare, exptectedOut, 'utf8');
+                    fs.writeFileSync(pathData, svgOut, 'utf8');
+                } else {
+                    fs.writeFileSync(pathCompare, svgOut, 'utf8');
+                }
+                compareLog.push({
+                    name: testName,
+                    passed: false,
+                    repaired: repairMedia,
+                    compareFilename: pathCompare,
+                    filename: pathData
+                });
+            } else {
+                compareLog.push({
+                    name: testName,
+                    passed: true,
+                    filename: pathData
+                });
+            }
+        }
+        
         function compareResults (testName) {
             var testData,
                 svgOM,
@@ -36,16 +136,14 @@ describe('svgWriter', function (){
             svgOut = svgWriter.printSVG(svgOM);
             
             try {
-                exptectedOut = fs.readFileSync('./tests/data/' + testName + ".svg", 'utf8');
+                exptectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
             } catch (e) {
-                fs.writeFileSync('./tests/data/' + testName + ".svg", svgOut, 'utf8');
-                console.log("No reference SVG document found. New one created as " + testName + ".svg");
+                fs.writeFileSync('./tests/data/' + testName + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            if (svgOut != exptectedOut && repairMedia) {
-                fs.writeFileSync('./tests/data/' + testName + ".svg", svgOut, 'utf8');
-            }
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
             
             expect(svgOut).to.equal(exptectedOut);
             return svgOut;
@@ -86,9 +184,8 @@ describe('svgWriter', function (){
                     scale: scale
                 }, svgWriterErrors);
                 
-                if (svgOut != exptectedOut && repairMedia) {
-                    fs.writeFileSync(svgFilename, svgOut, 'utf8');
-                }
+                handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], exptectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
+                
                 expect(svgOut).to.equal(exptectedOut);
             }
             return svgOut;
@@ -111,6 +208,17 @@ describe('svgWriter', function (){
                 2, "stroke", 1.0
             ]);
         });
+        
+        it("should transform text", function () {
+            compareResultsExport("text-with-transform", [
+                17, "flip-vertical", 1.0,
+                16, "flip-horizontal", 1.0,
+                34, "hard-block-left", 1.0,
+                34, "hard-block-centered", 1.0
+            ]);
+        });
+        
+        
         
         
         /* Document Export */
@@ -282,6 +390,8 @@ describe('svgWriter', function (){
 
         it("should support gradient overlay in combination with color overlay", function () {
             compareResults('gradient-color-overlay');
+            
+            _isLastTest = true;
         });
 
     });
