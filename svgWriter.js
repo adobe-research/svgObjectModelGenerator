@@ -171,10 +171,11 @@
                 }
                 gWrap(ctx, omIn.id, function (useTrick) {
 
-                    var top = parseInt(omIn.shapeBounds.top, 10),
-                        right = parseInt(omIn.shapeBounds.right, 10),
-                        bottom = parseInt(omIn.shapeBounds.bottom, 10),
-                        left = parseInt(omIn.shapeBounds.left, 10),
+                    var bnds = omIn.originBounds || omIn.shapeBounds,
+                        top = parseInt(bnds.top, 10),
+                        right = parseInt(bnds.right, 10),
+                        bottom = parseInt(bnds.bottom, 10),
+                        left = parseInt(bnds.left, 10),
                         w = right - left,
                         h = bottom - top,
                         oReturn = {};
@@ -212,6 +213,8 @@
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
+                            writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
+                            
                             write(ctx, "/>" + ctx.terminator);
                             break;
                             
@@ -248,6 +251,8 @@
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
+                            writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
+                            
                             write(ctx, "/>" + ctx.terminator);
                             break;
                             

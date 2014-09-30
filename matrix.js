@@ -30,7 +30,8 @@
         rad2Deg = 180.0 / Math.PI,
         Utils = require("./utils.js"),
         round2 = Utils.round2,
-        round1k = Utils.round1k;
+        round1k = Utils.round1k,
+        round10k = Utils.round10k;
 
     var MatrixClass = function () {
     
@@ -208,7 +209,8 @@
             this.transformPoint = function (inPt) {
                 var p0 = inPt[0],
                     p1 = inPt[1];
-        
+                
+                inPt = [];
                 inPt[0] = this[0][0] * p0 + this[1][0] * p1 + this[3][0];
                 inPt[1] = this[0][1] * p0 + this[1][1] * p1 + this[3][1];
         
@@ -218,7 +220,7 @@
             this.transformPoints = function (aPoints) {
                 var i;
                 for (i = 0; i < aPoints.length; i++) {
-                    this.transformPoint(aPoints[i]);
+                    aPoints[i] = this.transformPoint(aPoints[i]);
                 }
                 return aPoints;
             };
@@ -492,6 +494,73 @@
         }
         
         
+        // - where rectA is the bounding box and rectB is the set of transformed points
+        this.matrixFromPoints = function (rectA, rectB) {
+            var widthA,
+                heightA,
+                widthB,
+                heightB,
+                scaleX,
+                scaleY,
+                position,
+                rotA,
+                rotB,
+                rotation,
+                mtrx,
+                boundsRet;
+            
+            function lenV (ptA, ptB) {
+                var dX = ptA[0] - ptB[0],
+                    dY = ptA[1] - ptB[1];
+                return Math.sqrt((dX * dX) + (dY * dY));
+            }
+            
+            function midP (ptA, ptB) {
+                return [(ptA[0] + ptB[0]) / 2.0, (ptA[1] + ptB[1]) / 2.0];
+            }
+            
+            function angle (ptA, ptB) {
+                var dX = ptB[0] - ptA[0],
+                    dY = ptB[1] - ptA[1];
+                if (dY === 0) {
+                    return 0;
+                } else {
+                    return round2(rad2Deg * Math.atan(dY/dX));
+                }
+            }
+            
+            widthA = lenV(rectA[0], rectA[1]);
+            heightA = lenV(rectA[0], rectA[3]);
+            widthB = lenV(rectB[0], rectB[1]);
+            heightB = lenV(rectB[0], rectB[3]);
+            
+            //scale
+            scaleX = widthB / widthA;
+            scaleY = heightB / heightA;
+            
+            //translate
+            position = midP (rectA[0], rectB[0]);
+            
+            //rotation
+            rotA = angle(rectA[0], rectA[1]);
+            rotB = angle(rectB[0], rectB[1]);
+            
+            rotation = rotB - rotA;
+            
+            mtrx = new Matrix4x4();
+            mtrx = mtrx.rotateZ(rotation);
+            //mtrx = mtrx.translate3d(position[0], position[1], 0).rotateZ(rotation);
+            
+            //capture scale by fixing the rect bounds
+            boundsRet = [[rectA[0][0], rectA[0][1]],
+                         [rectA[0][0] + widthA * scaleX, rectA[0][1]],
+                         [rectA[0][0] + widthA * scaleX, rectA[0][1] + heightA * scaleY],
+                         [rectA[0][0], rectA[0][1] + heightA * scaleY]];
+            
+            return { matrix: mtrx, bounds: boundsRet };
+        };
+        
+        
         //Caution: currently only functional for 2D
         this.containsOnlyTranslate = function (inMatrix) {
             if (inMatrix[0][0] === 1 && inMatrix[0][1] === 0 && inMatrix[1][0] === 0 && inMatrix[1][1] === 1) {
@@ -662,6 +731,7 @@
             
             if (decomposed.translation[2] ||
                 decomposed.rotation[0] || decomposed.rotation[1] || 
+                decomposed.skew[0] || decomposed.skew[1] || 
                 round2(decomposed.scale[2]) !== 1) {
                 
                 return this.writeRawMatrix(txfm4x4, tX, tY);
@@ -678,12 +748,12 @@
             var txfmOut = [];
             
             txfmOut.push("matrix(");
-            txfmOut.push(txfm4x4[0][0] + ", ");
-            txfmOut.push(txfm4x4[1][0] + ", ");
-            txfmOut.push(txfm4x4[0][1] + ", ");
-            txfmOut.push(txfm4x4[1][1] + ", ");
-            txfmOut.push((txfm4x4[3][0] + tX) + ", ");
-            txfmOut.push((txfm4x4[3][1] + tY)+ ")");
+            txfmOut.push(round10k(txfm4x4[0][0]) + ", ");
+            txfmOut.push(round10k(txfm4x4[0][1]) + ", ");
+            txfmOut.push(round10k(txfm4x4[1][0]) + ", ");
+            txfmOut.push(round10k(txfm4x4[1][1]) + ", ");
+            txfmOut.push(round10k((txfm4x4[3][0] + tX)) + ", ");
+            txfmOut.push(round10k((txfm4x4[3][1] + tY)) + ")");
             
             return txfmOut.join("");
         };
@@ -703,17 +773,17 @@
             }
             
             //rotate
-            if (txfm.rotation[2]) {
+            if (round2(rad2Deg * txfm.rotation[2])) {
                 txfmOut.push(sep + "rotate(" + round2(rad2Deg * txfm.rotation[2]) + ")");
                 sep = " ";
             }
             
             //skew
-            if (txfm.skew[0]) {
+            if (round2(rad2Deg * txfm.skew[0])) {
                 txfmOut.push(sep + "skewX(" + round2(rad2Deg * txfm.skew[0]) + ")");
                 sep = " ";
             }    
-            if (txfm.skew[1]) {
+            if (round2(rad2Deg * txfm.skew[1])) {
                 txfmOut.push(sep + "skewY(" + round2(rad2Deg * txfm.skew[1]) + ")");
                 sep = " ";
             }

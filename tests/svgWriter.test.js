@@ -214,7 +214,16 @@ describe('svgWriter', function (){
                 17, "flip-vertical", 1.0,
                 16, "flip-horizontal", 1.0,
                 34, "hard-block-left", 1.0,
-                34, "hard-block-centered", 1.0
+                34, "hard-block-centered", 1.0,
+                14, "skew-right-bottom", 1.0
+            ]);
+        });
+        
+        it("should transform simple shapes", function () {
+            compareResultsExport("shapes-with-transform", [
+                144, "rect-infer-transform", 1.0,
+                150, "ellipse-infer-transform", 1.0,
+                151, "ellipse-preserve-shape", 1.0
             ]);
         });
         

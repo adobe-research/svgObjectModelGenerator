@@ -286,10 +286,13 @@
                     }
                 }
             }
-                
             if (bnds) {
                 omgUtils.shiftBoundsX(bnds, ctx._shiftContentX);
                 omgUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+            }
+            if (omIn.originBounds) {
+                omgUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
+                omgUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
             }
         };
         

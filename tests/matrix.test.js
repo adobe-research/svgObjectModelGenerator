@@ -151,5 +151,14 @@ describe('Matrix', function (){
         expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("translate(5 10)");
     });
     
+    it("can find affine tranfrom from rects", function () {
+        var rectA = [[0,0], [100,0], [100, 50], [0, 50]],
+            rectB = [[166,679], [237,750], [202, 785], [131, 714]],
+            matrix4x4 = Matrix.matrixFromPoints(rectA, rectB).matrix,
+            decomposed = Matrix.decomposeTransform(matrix4x4);
+        
+        expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("rotate(45)");
+    });
+    
     
 });
