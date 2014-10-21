@@ -26,16 +26,23 @@
         var self = this;
         
         this.toColor = function (c, a) {
+            var red,
+                green,
+                blue;
+            
             if (!isFinite(a)) {
                 a = 1.0;
             }
-            if (c && isFinite(c.red) && isFinite(c.green) && isFinite(c.blue)) {
-                return { "r": c.red, "g": c.green, "b": c.blue, "a": a };
-            } else if (c && isFinite(c.redFloat) && isFinite(c.greenFloat) && isFinite(c.blueFloat)) {
-                return { "r": Math.abs(Math.round(255.0 * c.redFloat)), "g": Math.abs(Math.round(255.0 * c.greenFloat)), "b": Math.abs(Math.round(255.0 * c.blueFloat)), "a": a };
-            } else {
-                return { r: 0, g: 0, b: 0, a: a };
-            }   
+            if (c && (isFinite(c.red) || isFinite(c.green) || isFinite(c.blue))) {
+                red = c.red;
+                green = c.green;
+                blue = c.blue;
+            } else if (c && (isFinite(c.redFloat) || isFinite(c.greenFloat) || isFinite(c.blueFloat))) {
+                red = Math.abs(Math.round(255.0 * c.redFloat));
+                green = Math.abs(Math.round(255.0 * c.greenFloat));
+                blue = Math.abs(Math.round(255.0 * c.blueFloat));
+            }
+            return { "r": red || 0, "g": green || 0, "b": blue || 0, "a": a };
         };
         
         this.pct2px = function(dim, containerPx) {
