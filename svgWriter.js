@@ -482,8 +482,8 @@
                 
                 width = Math.abs(omIn.viewBox.right - omIn.viewBox.left),
                 height = Math.abs(omIn.viewBox.bottom - omIn.viewBox.top),
-                scaledW = (scale === 1.0 && isFinite(ctx.config.targetWidth)) ? ctx.config.targetWidth : round1k(scale * width),
-                scaledH = (scale === 1.0 && isFinite(ctx.config.targetHeight)) ? ctx.config.targetHeight : round1k(scale * height);
+                scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
+                scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
             
             width = round1k(width);
             height = round1k(height);
