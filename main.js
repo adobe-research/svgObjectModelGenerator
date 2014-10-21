@@ -98,7 +98,7 @@
                             console.log("***** LayerId: " + layerId + " from " + doc.selection[0]);
                         }
                         
-                        generatorPlus.patchGenerator(doc, _G, undefined, subTree, layerId).then(function () {
+                        generatorPlus.patchGenerator(doc, _G, undefined, subTree, layerId, 1.0).then(function () {
                             printDebug(doc);
                         });
                     }, 
@@ -188,7 +188,7 @@
                         var doc = JSON.parse(JSON.stringify(document)),
                             cropToSingleLayer = (typeof layerSpec === "number"),
                             svgWriterErrors = [];
-                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec, svgWriterErrors).then(function () {
+                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec, layerScale, svgWriterErrors).then(function () {
                             if (layerSpec === "all") {
                                 layerSpec = null;
                             }
