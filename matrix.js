@@ -551,11 +551,19 @@
             mtrx = mtrx.rotateZ(rotation);
             //mtrx = mtrx.translate3d(position[0], position[1], 0).rotateZ(rotation);
             
+            
+            var newW = widthA * scaleX,
+                newH = heightA * scaleY,
+                offsetX = (widthA - widthB) / 2.0,
+                offsetY = (heightA - heightB) / 2.0,
+                newX = rectA[0][0] + offsetX,
+                newY = rectA[0][1] + offsetY;
+            
             //capture scale by fixing the rect bounds
-            boundsRet = [[rectA[0][0], rectA[0][1]],
-                         [rectA[0][0] + widthA * scaleX, rectA[0][1]],
-                         [rectA[0][0] + widthA * scaleX, rectA[0][1] + heightA * scaleY],
-                         [rectA[0][0], rectA[0][1] + heightA * scaleY]];
+            boundsRet = [[newX, newY],
+                         [newX + newW, newY],
+                         [newX + newW, newY + newH],
+                         [newX, newY + newH]];
             
             return { matrix: mtrx, bounds: boundsRet };
         };

@@ -87,24 +87,53 @@
                 
                 if (!samePts) {
                     
-                    //Work in progress.  Try to infer a reasonable shape and transform that make the origin type accurate.
-                    //This works at least for simple rotation, but the cross-check to bail if the resulting transform
-                    //isn't able to reproduce the points from the basic shape is not working.
+                    //Work in progress.  Working for rectangles, but not for ellipse.  Even for rectangles it does not position the shape properly.
                     
                     /*
+                    //console.log("unshifted rect bounds = " + JSON.stringify(unshiftedRectBounds, null, "  "));
+                    
                     mtrxResult = Matrix.matrixFromPoints(unshiftedRectBounds, txfmBounds);
                     if (mtrxResult.matrix) {
                         mtrx = mtrxResult.matrix;
+                        
+                        //console.log("bounds out == " + JSON.stringify(mtrxResult.bounds, null, "  "));
+                        
                         samePts = true;
                         txOffset = (txfmBounds[1][0] - txfmBounds[0][0])/2.0;
-                        //mtrx = mtrx.translate3d(mtrxResult.bounds[0][0], mtrxResult.bounds[0][1], 0);
                         
+                        //find the center-point and shift the points by it
+                        var ctrX = (points[0].anchor.x + points[1].anchor.x + points[2].anchor.x + points[3].anchor.x) / 4.0,
+                            ctrY = (points[0].anchor.y + points[1].anchor.y + points[2].anchor.y + points[3].anchor.y) / 4.0,
+                            boundCtrX = (mtrxResult.bounds[0][0] + mtrxResult.bounds[1][0]) / 2.0,
+                            boundCtrY = (mtrxResult.bounds[0][1] + mtrxResult.bounds[3][1]) / 2.0;
+                        
+                        //console.log("CENTER == " + ctrX + ", " + ctrY);
+
                         points.forEach(function (pt, i) {
-                            if (!_comparePts([pt.anchor.x, pt.anchor.y], mtrx.transformPoint(mtrxResult.bounds[i]))) {
+                            
+                            var ptBound,
+                                txfmPoint;
+                            
+                            if (!ellipse) {
+                                ptBound = [mtrxResult.bounds[i][0] - boundCtrX, mtrxResult.bounds[i][1] - boundCtrY];
+                            } else {
+                                ptBound = _ellipsePt(mtrxResult.bounds, i);
+                                ptBound[0] -= boundCtrX;
+                                ptBound[1] -= boundCtrY;
+                            }
+                            
+                            txfmPoint = mtrx.transformPoint(ptBound);
+                            txfmPoint[0] += ctrX;
+                            txfmPoint[1] += ctrY;
+                            
+                            //console.log("Synthetic PT: " + JSON.stringify(txfmPoint));
+                            //console.log("Data PT: " + JSON.stringify(pt.anchor));
+                            
+                            if (!_comparePts([pt.anchor.x, pt.anchor.y], txfmPoint)) {
                                 samePts = false;
                             }
                         });
-                        if (samePts || true) {
+                        if (samePts) {
                             console.log("INFERRED = " + JSON.stringify(Matrix.writeDecomposedTransform(Matrix.decomposeTransform(mtrx))));
                             
                             svgNode.transformTX = txOffset;
@@ -120,10 +149,10 @@
                             return newBounds;
                         } else {
                             console.log("BAD GUESS => " + JSON.stringify(Matrix.writeDecomposedTransform(Matrix.decomposeTransform(mtrx))));
-                            //console.log("BAD GUESS => " + JSON.stringify(Matrix.decomposeTransform(mtrx)));
                         }   
                     }
                     */
+                    
                     //fallback to the raw path data
                     return false;
                 } else {
