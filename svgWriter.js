@@ -265,7 +265,15 @@
                 }
                 
                 if (omIn.position) {
-                    var lineEM = 1.0;//1.2
+                    var lineEM = 1.2,
+                        fontSize,
+                        leading = omIn.style["_leading"];
+                    if (leading) {
+                        fontSize = omIn.style["font-size"];
+                        if (fontSize && leading.units === fontSize.units) {
+                            lineEM = util.round1k(leading.value / fontSize.value);
+                        }
+                    }
                     
                     if (!ctx._nextTspanAdjustSuper) {
                         if (omIn.position.unitY === "em") {
