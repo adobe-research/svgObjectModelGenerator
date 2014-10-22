@@ -265,11 +265,13 @@
                 }
                 
                 if (omIn.position) {
+                    var lineEM = 1.0;//1.2
+                    
                     if (!ctx._nextTspanAdjustSuper) {
                         if (omIn.position.unitY === "em") {
-                            writeAttrIfNecessary(ctx, "dy", (omIn.position.y * 1.2) + "em", "0em", "");
+                            writeAttrIfNecessary(ctx, "dy", (omIn.position.y * lineEM) + "em", "0em", "");
                         } else {
-                            writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
+                            writeAttrIfNecessary(ctx, "dy", (sibling ? lineEM : 0) + "em", "0em", "");
                         }
                     }
                     
