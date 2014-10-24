@@ -168,12 +168,16 @@
             svgWriter = require("./svgWriter.js"),
             layerSpec,
             layerScale,
+            targetWidth,
+            targetHeight,
             docId,
             compId;
         
         compId = params.compId;
         layerSpec = params.layerSpec;
         layerScale = params.layerScale;
+        targetWidth = params.targetWidth;
+        targetHeight = params.targetHeight;
         docId = params.documentId;
         
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
@@ -193,7 +197,9 @@
                                 svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: cropToSingleLayer,
                                     preserveAspectRatio: "xMidYMid",
-                                    scale: layerScale
+                                    scale: layerScale,
+                                    targetWidth: targetWidth,
+                                    targetHeight: targetHeight
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({
