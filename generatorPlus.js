@@ -30,7 +30,7 @@
     "use strict";
     
     var Q = require("q"),
-        svgWriterUtils = require("./svgWriterUtils"),
+        Utils = require("./utils"),
         svgOMGenerator = require("./svgOMGenerator"),
         fs = require("fs"),
         resolve = require("path").resolve,
@@ -68,11 +68,10 @@
         };
         
         
-        this.rasterBase64 = function (_G, docId, layerId, resolution) {
-            var pixmapSettings = {},
-                rasterDeferred = Q.defer();
+        this.rasterBase64 = function (_G, docId, layerId, resolution, pixmapSettings) {
+            var rasterDeferred = Q.defer();
             try {
-            
+                
                 //unless we can tell when to use png-8 there is no point in turning on pngQuant
                 //if (this._usePngquant !== undefined) {
                     //pixmapSettings.usePngquant = this._usePngquant;
@@ -147,7 +146,7 @@
         };
         
         
-        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, rootLayerId, aErrors) {
+        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, rootLayerId, layerScale, aErrors) {
             var layers = psd.layers,
                 docId = psd.id,
                 docResolution = psd.resolution || 72.2,
@@ -195,7 +194,7 @@
                     //bUnderRoot is to only crop to the sub-tree being generatored...
                     if ((!cropToSingleLayer || bUnderRoot) && (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer")) {
                         
-                        svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
+                        Utils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
     
                         if(svgOMGenerator.layerShouldBeRasterized(layer, aErrors)) {
                             
@@ -205,7 +204,18 @@
                             rasterDeferred = Q.defer();
                             promises.push(rasterDeferred.promise);
                             
-                            this.rasterBase64(_G, docId, layer.id, docResolution).then(function (result) {
+                            //figure out the target size...
+                            var layerBnds = layer.bounds,
+                                layerBndsFx = layer.boundsWithFX ? layer.boundsWithFX : layer.bounds,
+                                pixmapSettings = _G.getPixmapParams({
+                                    width: layerScale * (layer.bounds.right - layer.bounds.left),
+                                    height: layerScale * (layer.bounds.bottom - layer.bounds.top),
+                                    scaleX: layerScale,
+                                    scaleY: layerScale
+                                }, layerBnds, layerBndsFx);
+                                    
+                            //console.log("pixmapSettings[" + layerScale + "] = " + JSON.stringify(pixmapSettings));
+                            this.rasterBase64(_G, docId, layer.id, docResolution, pixmapSettings).then(function (result) {
                                 //TBD: is image better?
                                 //layer.rawPixel = 'data:image/png;base64,' + result;
                                 layer.rawPixel = 'data:img/png;base64,' + result;

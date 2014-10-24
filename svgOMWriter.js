@@ -26,7 +26,8 @@
 		var _root = {
                 children: []
 		    },
-            _currentNodeStack = [];
+            _currentNodeStack = [],
+            _docIDs = {};
         
         this._root = _root;
         
@@ -65,9 +66,18 @@
             _root.globalLight = globalLight;
         };
 
+        this.uniqueId = function (nodeID) {
+            if (_docIDs[nodeID]) {
+                return nodeID + "-" + _docIDs[nodeID]++;
+            } else {
+                _docIDs[nodeID] = 1;
+            }
+            return nodeID;
+        };
+        
 		this.addSVGNode = function (nodeID, nodeType, nodeVisible) {
 			var n = {
-				id: nodeID,
+				id: this.uniqueId(nodeID),
                 type: nodeType,
                 visible: nodeVisible,
 				style: {},

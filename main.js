@@ -46,15 +46,16 @@
         MENU_GENERATOR_SUBDOM = 'GENERATOR-SUBDOM',
         generatorPlus = require("./generatorPlus.js"),
         docInfoFlags = {
-            compInfo:           true,
-            imageInfo:          true,
-            layerInfo:          true,
-            expandSmartObjects: false,
-            getTextStyles:      true,
+            compInfo:             true,
+            imageInfo:            true,
+            layerInfo:            true,
+            expandSmartObjects:   false,
+            getTextStyles:        true,
             getFullTextStyles:    true,
             getCompLayerSettings: true,
             selectedLayers:       false,
-            getDefaultLayerFX:    true
+            getDefaultLayerFX:    true,
+            getPathData:          true
         },
         _docInfoCache = {},
         isListeningToGenerator = false;
@@ -98,7 +99,7 @@
                             console.log("***** LayerId: " + layerId + " from " + doc.selection[0]);
                         }
                         
-                        generatorPlus.patchGenerator(doc, _G, undefined, subTree, layerId).then(function () {
+                        generatorPlus.patchGenerator(doc, _G, undefined, subTree, layerId, 1.0).then(function () {
                             printDebug(doc);
                         });
                     }, 
@@ -167,12 +168,16 @@
             svgWriter = require("./svgWriter.js"),
             layerSpec,
             layerScale,
+            targetWidth,
+            targetHeight,
             docId,
             compId;
         
         compId = params.compId;
         layerSpec = params.layerSpec;
         layerScale = params.layerScale;
+        targetWidth = params.targetWidth;
+        targetHeight = params.targetHeight;
         docId = params.documentId;
         
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
@@ -184,7 +189,7 @@
                         var doc = JSON.parse(JSON.stringify(document)),
                             cropToSingleLayer = (typeof layerSpec === "number"),
                             svgWriterErrors = [];
-                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec, svgWriterErrors).then(function () {
+                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec, layerScale, svgWriterErrors).then(function () {
                             if (layerSpec === "all") {
                                 layerSpec = null;
                             }
@@ -192,7 +197,9 @@
                                 svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: cropToSingleLayer,
                                     preserveAspectRatio: "xMidYMid",
-                                    scale: layerScale
+                                    scale: layerScale,
+                                    targetWidth: targetWidth,
+                                    targetHeight: targetHeight
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({

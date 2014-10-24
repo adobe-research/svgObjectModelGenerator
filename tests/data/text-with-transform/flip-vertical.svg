@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="162" height="33" viewBox="0 0 162 33">
+  <defs>
+    <style>
+
+      .cls-2 {
+        font-size: 36px;
+      }
+
+      .cls-3 {
+        font-size: 36px;
+        font-family: "Myriad Pro";
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="matrix(1, 0, 0, -1, 0, 7)"><tspan class="cls-3">flip vertical</tspan></text>
+</svg>

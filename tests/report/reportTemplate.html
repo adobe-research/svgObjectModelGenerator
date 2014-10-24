@@ -1,0 +1,167 @@
+<html>
+<head>
+    <title>SVG Test Review</title>
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//use.edgefonts.net/source-sans-pro.js"></script> 
+    
+    <script>
+        function compareSVG(itm, svgA, svgB) {
+            $("#listResults .selected").removeClass("selected");
+            $(itm).addClass("selected");
+            document.getElementById("svgA").setAttribute('src', svgA);
+            document.getElementById("svgB").setAttribute('src', svgB);
+        }
+        
+        function setActiveTab(sel) {
+            $(".tabSet .selected").removeClass("selected");
+            $("#" + sel).addClass("selected");
+            if (sel === 'docTab') {
+                $('#listResults').addClass('doc-level').removeClass('subtree-level');
+            } else {
+                $('#listResults').addClass('subtree-level').removeClass('doc-level');
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #efefef;
+        }
+        
+        body, body *{
+            font-family: source-sans-pro, sans-serif;
+        }
+        
+        .tabSet {
+            position: absolute;
+            top: 35px;
+            height: 38px;
+            left: 5px;
+        }
+        .tabSet div {
+            font-size: 0.9em;
+            color: #333333;
+            font-weight: normal;
+            text-decoration: none;
+            display: inline-block;
+            padding: 4px 12px 2px 12px;
+            border-top: 1px solid #cccccc;
+            border-right: 1px solid #cccccc;
+            background-color: #efefef;
+            padding-top: 6px;
+            cursor: pointer;
+        }
+        .tabSet div:hover { 
+            background-color:#fefefe;
+        }
+        
+        .tabSet .selected {
+            color: black;
+            background-color: #ffffff;
+        }
+        
+        #listResults {
+            position: absolute;
+            top: 60px;
+            bottom: 0px;
+            width: 300px;
+            left: 0px;
+            border-right: 1px solid #666;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            background-color: #ffffff;
+        }
+        
+        #listResults li {
+            padding: 6px 0px 2px 8px;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        #listResults li.selected {
+            background-color: #efefef;
+        }
+        
+        #listResults li .passfail {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            background-color: rgba(255, 31, 31, 0.9);
+        }
+        
+        #listResults li span {
+            display: inline-block;
+            font-size: 0.9em;
+            color: #000;
+            margin-left: 26px;
+            text-decoration: none;
+        }
+        
+        
+        #listResults li.passed .passfail {
+            background-color: rgba(0, 128, 0, 0.59);
+        }
+        
+        ul.doc-level li.subtree {
+            display:none;
+        }
+        
+        ul.subtree-level li.doc {
+            display:none;
+        }
+        
+        .comparison {
+            position: absolute;
+            top: 60px;
+            bottom: 0px;
+            right: 0px;
+            left: 300px;
+            background-color: #efefef;
+        }
+        
+        h1 {
+            padding-left: 300px;
+        }
+        
+        #svgA, #svgB {
+            position: absolute;
+            top: 1%;
+            width: 48%;
+            height: 90%;
+            border: none;
+            background-color:#fff;
+        }
+        #svgA {
+            left: 1%;
+        }
+        
+        #svgB {
+            right: 1%;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <h1>OMG Test Results</h1>
+    
+    <div class="tabSet">
+        <div class="tab selected" id="subtreeTab" onclick="setActiveTab('subtreeTab')">Sub-Tree</div>
+        <div class="tab" id="docTab" onclick="setActiveTab('docTab')">Document</div>
+    </div>
+    
+    <ul id="listResults" class="subtree-level">
+        <!--INSERT-->
+    </ul>
+    
+    <div class="comparison">
+        <iframe id="svgA"></iframe>
+        <iframe id="svgB"></iframe>
+    </div>
+    
+</body>
+</html>

@@ -111,30 +111,32 @@
             xUnit,
             x,
             y;
-        overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
         
-        if (isFinite(position.x)) {
-            if (position.unitX === "px") {
-                x = rnd(position.x);
-            } else if (position.unitX === "em") {
-                x = round1k(position.x);
-            } else {
-                position.unitX = "%";
-                x = rnd(position.x);
+        if (position) {
+            overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
+            if (isFinite(position.x)) {
+                if (position.unitX === "px") {
+                    x = rnd(position.x);
+                } else if (position.unitX === "em") {
+                    x = round1k(position.x);
+                } else {
+                    position.unitX = "%";
+                    x = rnd(position.x);
+                }
+                writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
             }
-            writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
-        }
-        
-        if (isFinite(position.y)) {
-            if (position.unitY === "px") {
-                y = rnd(position.y);
-            } else if (position.unitY === "em") {
-                y = round1k(position.y);
-            } else {
-                position.unitY = "%";
-                y = rnd(position.y);
+
+            if (isFinite(position.y)) {
+                if (position.unitY === "px") {
+                    y = rnd(position.y);
+                } else if (position.unitY === "em") {
+                    y = round1k(position.y);
+                } else {
+                    position.unitY = "%";
+                    y = rnd(position.y);
+                }
+                writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
             }
-            writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
         }
     }
     
@@ -169,10 +171,11 @@
                 }
                 gWrap(ctx, omIn.id, function (useTrick) {
 
-                    var top = parseInt(omIn.shapeBounds.top, 10),
-                        right = parseInt(omIn.shapeBounds.right, 10),
-                        bottom = parseInt(omIn.shapeBounds.bottom, 10),
-                        left = parseInt(omIn.shapeBounds.left, 10),
+                    var bnds = omIn.originBounds || omIn.shapeBounds,
+                        top = parseInt(bnds.top, 10),
+                        right = parseInt(bnds.right, 10),
+                        bottom = parseInt(bnds.bottom, 10),
+                        left = parseInt(bnds.left, 10),
                         w = right - left,
                         h = bottom - top,
                         oReturn = {};
@@ -210,6 +213,8 @@
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
+                            writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
+                            
                             write(ctx, "/>" + ctx.terminator);
                             break;
                             
@@ -246,6 +251,8 @@
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
 
+                            writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
+                            
                             write(ctx, "/>" + ctx.terminator);
                             break;
                             
@@ -265,11 +272,21 @@
                 }
                 
                 if (omIn.position) {
+                    var lineEM = 1.2,
+                        fontSize,
+                        leading = omIn.style["_leading"];
+                    if (leading) {
+                        fontSize = omIn.style["font-size"];
+                        if (fontSize && leading.units === fontSize.units) {
+                            lineEM = util.round1k(leading.value / fontSize.value);
+                        }
+                    }
+                    
                     if (!ctx._nextTspanAdjustSuper) {
                         if (omIn.position.unitY === "em") {
-                            writeAttrIfNecessary(ctx, "dy", (omIn.position.y * 1.2) + "em", "0em", "");
+                            writeAttrIfNecessary(ctx, "dy", (omIn.position.y * lineEM) + "em", "0em", "");
                         } else {
-                            writeAttrIfNecessary(ctx, "dy", (sibling ? 1.2 : 0) + "em", "0em", "");
+                            writeAttrIfNecessary(ctx, "dy", (sibling ? lineEM : 0) + "em", "0em", "");
                         }
                     }
                     
@@ -329,16 +346,22 @@
                     
                     var children = ctx.currentOMNode.children,
                         rightAligned = false,
+                        centered = false,
                         i,
                         bndsFx,
                         bndsNat,
                         bndsAlt,
                         bndsDy,
-                        bndsDyAlt;
+                        bndsDyAlt,
+                        pxWidth = omIn.textBounds.right - omIn.textBounds.left,
+                        pxHeight = omIn.textBounds.bottom - omIn.textBounds.top;
                     
                     if (children && children.length > 0 &&
                         children[0].style && children[0].style["text-anchor"] === "end") {
                         rightAligned = true;
+                    } else if (children && children.length > 0 &&
+                        children[0].style && children[0].style["text-anchor"] === "middle") {
+                        centered = true;
                     }
                     
                     write(ctx, ctx.currentIndent + "<text");
@@ -353,7 +376,12 @@
                         writePositionIfNecessary(ctx, omIn.position);
                     }
                     
-                    writeTransformIfNecessary(ctx, "transform", omIn.transform);
+                    if (centered && omIn.transform) {
+                        omIn.transformTX += pxWidth;
+                        omIn.transformTY += pxHeight;
+                    }
+                    
+                    writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
                     write(ctx, ">");
 
                     ctx._nextTspanAdjustSuper = false;
@@ -482,8 +510,8 @@
                 
                 width = Math.abs(omIn.viewBox.right - omIn.viewBox.left),
                 height = Math.abs(omIn.viewBox.bottom - omIn.viewBox.top),
-                scaledW = round1k(scale * width),
-                scaledH = round1k(scale * height);
+                scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
+                scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
             
             width = round1k(width);
             height = round1k(height);

@@ -23,7 +23,9 @@
 
     var Buffer = require('buffer').Buffer,
         guidID = 1,
-        svgWriterIDs = require("./svgWriterIDs.js");
+        svgWriterIDs = require("./svgWriterIDs.js"),
+        Utils = require("./utils.js"),
+        Matrix = require("./matrix.js");
 
 	function SVGWriterUtils() {
         
@@ -63,26 +65,7 @@
             return "#" + self.componentToHex(r) + self.componentToHex(g) + self.componentToHex(b);
         };
 
-        self.px = function (ctx, length) {
-            if (typeof length === "number")
-                return length;
-            // Consider adding string conversion when needed.
-            if (typeof length !== "object" || !length.units)
-                return 0;
-            switch (length.units) {
-                case "pointsUnit":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 72);
-                case "millimetersUnit":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 25.4);
-                case "rulerCm":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 2.54);
-                case "rulerInches":
-                    return self.round1k(length.value * ctx.pxToInchRatio);
-                case "rulerPicas":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 6);
-            }
-            return 0;
-        };
+        self.px = Utils.px;
     
         self.writeColor = function (val) {
             var color;
@@ -103,11 +86,9 @@
             }
         };
 
-        self.writeTransformIfNecessary = function (ctx, attr, val) {
+        self.writeTransformIfNecessary = function (ctx, attr, val, tX, tY) {
             if (val) {
-                self.write(ctx, " " + attr + "=\"matrix(" +
-                           self.round10k(val.a) + ", " + self.round10k(val.b) + ", " + self.round10k(val.c) + ", " +
-                           self.round10k(val.d) + ", " + self.round10k(val.e) + ", " + self.round10k(val.f) + ")\"");
+                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(val, tX, tY) + '"');
             }
         };
 
@@ -116,25 +97,28 @@
                 stp,
                 stpOpacity,
                 position;
-            
-            self.write(ctx, ctx.currentIndent + "<linearGradient id=\"" + gradientID + "\"");
-            self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
-            self.write(ctx, " x1=\"" + self.round1k(coords.xa + coords.cx) + "\" y1=\"" + self.round1k(coords.ya + coords.cy) + "\"");
-            self.write(ctx, " x2=\"" + self.round1k(-coords.xa + coords.cx) + "\" y2=\"" + self.round1k(-coords.ya + coords.cy) + "\"");
-            self.write(ctx, ">" + ctx.terminator);
-            self.indent(ctx);
-            for (iStop = 0; iStop < stops.length; iStop++) {
-                stp = stops[iStop];
-                stpOpacity = '';
-                position = self.round1k((Math.round(stp.position, 2)/100.0 - 0.5) * scale + 0.5);
-                
-                if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
-                    stpOpacity = ' stop-opacity="' + (Math.round(stp.color.a * 100.0, 2)/100.0) + '"';
+            if (stops) {
+                self.write(ctx, ctx.currentIndent + "<linearGradient id=\"" + gradientID + "\"");
+                self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
+                self.write(ctx, " x1=\"" + self.round1k(coords.xa + coords.cx) + "\" y1=\"" + self.round1k(coords.ya + coords.cy) + "\"");
+                self.write(ctx, " x2=\"" + self.round1k(-coords.xa + coords.cx) + "\" y2=\"" + self.round1k(-coords.ya + coords.cy) + "\"");
+                self.write(ctx, ">" + ctx.terminator);
+                self.indent(ctx);
+                for (iStop = 0; iStop < stops.length; iStop++) {
+                    stp = stops[iStop];
+                    stpOpacity = '';
+                    position = self.round1k((Math.round(stp.position, 2)/100.0 - 0.5) * scale + 0.5);
+
+                    if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
+                        stpOpacity = ' stop-opacity="' + (Math.round(stp.color.a * 100.0, 2)/100.0) + '"';
+                    }
+                    self.write(ctx, ctx.currentIndent + '<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
                 }
-                self.write(ctx, ctx.currentIndent + '<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
+                self.undent(ctx);
+                self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
+            } else {
+                console.warn("encountered gradient with no stops");
             }
-            self.undent(ctx);
-            self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
         };
 
         var computeLinearGradientCoordinates = function (gradient, bounds) {
@@ -333,18 +317,11 @@
             return textPathID;
         };
         
-        self.round1k = function (x) {
-            return +(+x).toFixed(3);
-        };
-        self.round10k = function (x) {
-            return +(+x).toFixed(4);
-        };
-        self.roundUp = function (x) {
-            return Math.ceil(x);
-        };
-        self.roundDown = function (x) {
-            return Math.round(x);
-        };
+        self.round2 = Utils.round2;
+        self.round1k = Utils.round1k;
+        self.round10k = Utils.round10k;
+        self.roundUp = Utils.roundUp;
+        self.roundDown = Utils.roundDown;
         
         self.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
             var hasStyle = false,
@@ -378,105 +355,9 @@
         self.toString = function (ctx) {
             return ctx.sOut;
         };
-
-        /** jQuery-style extend
-         *  https://github.com/jquery/jquery/blob/master/src/core.js
-         */
-        var class2type = {
-              "[object Boolean]": "boolean",
-              "[object Number]": "number",
-              "[object String]": "string",
-              "[object Function]": "function",
-              "[object Array]": "array",
-              "[object Date]": "date",
-              "[object RegExp]": "regexp",
-              "[object Object]": "object"
-            },
-            jQueryLike = {
-                isFunction: function (obj) {
-                    return jQueryLike.type(obj) === "function";
-                },
-                isArray: Array.isArray || function (obj) {
-                    return jQueryLike.type(obj) === "array";
-                },
-                isWindow: function (obj) {
-                    return obj !== null && obj === obj.window;
-                },
-                isNumeric: function (obj) {
-                    return !isNaN(parseFloat(obj)) && isFinite(obj);
-                },
-                type: function (obj) {
-                    return obj == null ? String(obj) : class2type[String(obj)] || "object";
-                },
-                isPlainObject: function (obj) {
-                    if (!obj || jQueryLike.type(obj) !== "object" || obj.nodeType) {
-                        return false;
-                    }
-                    try {
-                        if (obj.constructor && !obj.hasOwnProperty("constructor") && !obj.constructor.prototype.hasOwnProperty("isPrototypeOf")) {
-                            return false;
-                        }
-                    } catch (e) {
-                        return false;
-                    }
-                var key;
-                for (key in obj) {}
-                    return key === undefined || obj.hasOwnProperty(key);
-                }
-            };
         
-        self.extend = function (deep, target, source) {
-            var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {},
-                i = 1,
-                length = arguments.length,
-                deep = false,
-                toString = Object.prototype.toString,
-                hasOwn = Object.prototype.hasOwnProperty,
-                push = Array.prototype.push,
-                slice = Array.prototype.slice,
-                trim = String.prototype.trim,
-                indexOf = Array.prototype.indexOf;
-            if (typeof target === "boolean") {
-                deep = target;
-                target = arguments[1] || {};
-                i = 2;
-            }
-            if (typeof target !== "object" && !jQueryLike.isFunction(target)) {
-                target = {};
-            }
-            if (length === i) {
-                target = self;
-                --i;
-            }
-            for (i; i < length; i++) {
-                if ((options = arguments[i]) != null) {
-                    for (name in options) {
-                        src = target[name];
-                        copy = options[name];
-                        if (target === copy) {
-                            continue;
-                        }
-                        if (deep && copy && (jQueryLike.isPlainObject(copy) || (copyIsArray = jQueryLike.isArray(copy)))) {
-                            if (copyIsArray) {
-                                copyIsArray = false;
-                                clone = src && jQueryLike.isArray(src) ? src : [];
-                            } else {
-                                clone = src && jQueryLike.isPlainObject(src) ? src : {};
-                            }
-                            target[name] = self.extend(deep, clone, copy);
-                        } else if (copy !== undefined) {
-                            target[name] = copy;
-                        }
-                    }
-                }
-            }
-            return target;
-        };
-        
-        self.toBase64 = function (string) {
-            var buf = new Buffer(string);
-            return buf.toString("base64");
-        };
+        self.extend = Utils.extend;
+        self.toBase64 = Utils.toBase64;
 	}
 
 	module.exports = new SVGWriterUtils();
