@@ -1,5 +1,6 @@
 **/node_modules/*
 **/coverage_data/*
 svgomg-code-coverage.html
+npm-debug.log
 test-summary.html
-**/tests/data-compare/*
+tests/data-compare/*.svg
