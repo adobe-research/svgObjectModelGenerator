@@ -46,15 +46,16 @@
         MENU_GENERATOR_SUBDOM = 'GENERATOR-SUBDOM',
         generatorPlus = require("./generatorPlus.js"),
         docInfoFlags = {
-            compInfo:           true,
-            imageInfo:          true,
-            layerInfo:          true,
-            expandSmartObjects: false,
-            getTextStyles:      true,
+            compInfo:             true,
+            imageInfo:            true,
+            layerInfo:            true,
+            expandSmartObjects:   false,
+            getTextStyles:        true,
             getFullTextStyles:    true,
             getCompLayerSettings: true,
             selectedLayers:       false,
-            getDefaultLayerFX:    true
+            getDefaultLayerFX:    true,
+            getPathData:          true
         },
         _docInfoCache = {},
         isListeningToGenerator = false;

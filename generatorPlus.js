@@ -30,7 +30,7 @@
     "use strict";
     
     var Q = require("q"),
-        svgWriterUtils = require("./svgWriterUtils"),
+        Utils = require("./utils"),
         svgOMGenerator = require("./svgOMGenerator"),
         fs = require("fs"),
         resolve = require("path").resolve,
@@ -195,7 +195,7 @@
                     //bUnderRoot is to only crop to the sub-tree being generatored...
                     if ((!cropToSingleLayer || bUnderRoot) && (layerType === "shapeLayer" || layerType === "textLayer" || layerType === "layer")) {
                         
-                        svgWriterUtils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
+                        Utils.extend(true, layer, { layerEffects: this.findCompLayerEffects(layer.id, layerComp) });
     
                         if(svgOMGenerator.layerShouldBeRasterized(layer, aErrors)) {
                             

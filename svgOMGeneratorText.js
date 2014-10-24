@@ -23,6 +23,7 @@
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         omgUtils = require("./svgOMGeneratorUtils.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
+        Matrix = require("./matrix.js"),
         round1k = svgWriterUtils.round1k,
         _boundInPx = omgUtils.boundInPx;
 
@@ -287,7 +288,6 @@
             }
             var transform = text.transform || text.textShape[0].transform,
                 dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
-                t = new Transform(),
                 // The trnasformation matrix is relative to this boundaries.
                 boundsOrig = layer.bounds,
                 // This covers the actual bounds of the text in pt units and needs
@@ -298,72 +298,35 @@
                     top:    _boundInPx(text.bounds.top, dpi),
                     bottom: _boundInPx(text.bounds.bottom, dpi)
                 },
-                obx, oby, tbx, tby;
-            
-            obx = (boundsOrig.right - boundsOrig.left) / 2.0;
-            oby = (boundsOrig.bottom - boundsOrig.top) / 2.0;
-            tbx = (boundsTransform.right - boundsTransform.left) / 2.0;
-            tby = -(boundsTransform.top - boundsTransform.bottom) / 2.0;
+                inMatrix,
+                matrix4x4;
             
             svgNode.maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
             
-            if (transform.xx === 1 && 
-                transform.xy === 0 && 
-                transform.yx === 0 && 
-                transform.yy === 1) {
-                //its just a translate
-                if (transform.tx === 0 && transform.ty === 0) {
-                    //the transform does nothing, ditch it
+            if (transform) {
+                inMatrix = [
+                    [transform.xx, transform.xy, 0, 0],
+                    [transform.yx, transform.yy, 0, 0],
+                    [0, 0, 1, 0],
+                    [transform.tx, transform.ty, 0, 1]
+                ];
+                
+                if (!Matrix.containsOnlyTranslate(inMatrix)) {
+                
+                    matrix4x4 = Matrix.createMatrix(inMatrix);
                     
-                    //TBD: consider adding this back - there is a rotate bug...
-                    return;
+                    svgNode.transform = matrix4x4;
+                    svgNode.transformTX = svgNode.position.x;
+                    svgNode.transformTY = svgNode.position.y;
+                    
+                    svgNode.position = {
+                        x: 0,
+                        y: 0,
+                        unitY: "px",
+                        unitX: "px"
+                    };
                 }
             }
-            
-            return;//TBD: transform information is not consistent
-            
-            t.translate(boundsOrig.left, boundsOrig.top);
-            t.translate(obx, oby);
-            t.multiply(transform.xx, transform.xy, transform.yx, transform.yy, transform.tx, transform.ty);
-            t.translate(-obx, -oby);
-            
-            // Use the biggest font-size for the first line. Transform pt to px.
-            t.translate(obx - tbx, (oby - tby) + svgNode.maxTextSize/2.0);
-            
-            svgNode.position = {
-                x: 0,
-                y: 0
-            };
-            svgNode.transform = t;
-        };
-
-        var Transform = function () {
-            this.a = 1,
-            this.b = 0,
-            this.c = 0,
-            this.d = 1,
-            this.e = 0,
-            this.f = 0;
-
-            this.translate = function (tx, ty) {
-                this.e += tx * this.a + ty * this.c;
-                this.f += tx * this.b + ty * this.d;
-            };
-
-            this.multiply = function (a, b, c, d, e, f) {
-                var t_a = this.a;
-                var t_b = this.b;
-                var t_c = this.c;
-                var t_d = this.d;
-                var t_e = this.e;
-                var t_f = this.f;
-                this.a = a * t_a + b * t_c;
-                this.b = a * t_b + b * t_d;
-                this.c = c * t_a + d * t_c;
-                this.d = c * t_b + d * t_d;
-                this.e = e * t_a + f * t_c + t_e;
-                this.f = e * t_b + f * t_d + t_f;
-            };
         };
 
         this.addTextData = function(svgNode, layer, writer) {

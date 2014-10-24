@@ -172,13 +172,22 @@
                 if (omIn.type === "text") {
                     bnds = omIn.textBounds;
                     
-                    omgUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
-                    omgUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
+                    if (omIn.shapeBounds) {
+                        omgUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
+                        omgUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
+                    }
                     
                     if (omIn.transform) {
-                        omIn.transform.translate(ctx._shiftContentX, ctx._shiftContentY);
-                    }
-                    if (omIn.position) {
+                        
+                        omIn.transformTX += ctx._shiftContentX;
+                        omIn.transformTY += ctx._shiftContentY;
+                        
+                        if (omIn.children) {
+                            omIn.children.forEach(function (chld) {
+                                chld._hasParentTXFM = true;
+                            });
+                        }
+                    } else if (omIn.position) {
                         if (!nested) {
                             omIn.position.x = 0.0;
                             if (omIn.children && omIn.children.length === 1) {
@@ -249,7 +258,7 @@
                                 omIn.position.deltaX = -deltaX;
                             }
                         } else {
-                            if (sibling) {
+                            if (sibling && !omIn._hasParentTXFM) {
                                 omIn.position.x += ctx._shiftContentX;
                             } else {
                                 if (omIn._parentIsRoot) {
@@ -277,10 +286,13 @@
                     }
                 }
             }
-                
             if (bnds) {
                 omgUtils.shiftBoundsX(bnds, ctx._shiftContentX);
                 omgUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+            }
+            if (omIn.originBounds) {
+                omgUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
+                omgUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
             }
         };
         
