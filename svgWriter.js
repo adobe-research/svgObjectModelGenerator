@@ -21,7 +21,7 @@
 	"use strict";
 
     var buffer = require("buffer"),
-        util = require("util"),
+        util = require("./utils.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFill = require("./svgWriterFill.js"),

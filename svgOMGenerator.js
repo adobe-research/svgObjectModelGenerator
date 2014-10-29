@@ -24,8 +24,7 @@
 (function () {
     "use strict";
 
-    var util = require("util"),
-        omgUtils = require("./svgOMGeneratorUtils.js"),
+    var omgUtils = require("./svgOMGeneratorUtils.js"),
         SVGOMWriter = require("./svgOMWriter.js"),
         omgShapes = require("./svgOMGeneratorShapes.js"),
         omgText = require("./svgOMGeneratorText.js"),
