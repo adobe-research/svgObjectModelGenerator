@@ -314,14 +314,21 @@
         
         this.finalizePreprocessing = function (ctx) {
             var bnds = ctx.contentBounds,
-                adjustBounds = 1;
+                adjustBounds = 1,
+                docBounds = ctx.svgOM.docBounds;
             if (ctx.config.trimToArtBounds) {
-                
-                if (bnds) {                    
-                    bnds.left = svgWriterUtils.roundDown(bnds.left || 0);
-                    bnds.right = svgWriterUtils.roundUp(bnds.right || 0);
-                    bnds.top = svgWriterUtils.roundDown(bnds.top || 0);
-                    bnds.bottom = svgWriterUtils.roundUp(bnds.bottom || 0);
+                if (bnds) {
+                    if (ctx.config.constrainToDocBounds && docBounds) {
+                        bnds.left = Math.max(0, svgWriterUtils.roundDown(bnds.left || 0));
+                        bnds.right = Math.min(docBounds.right, svgWriterUtils.roundUp(bnds.right || 0));
+                        bnds.top = Math.max(0, svgWriterUtils.roundDown(bnds.top || 0));
+                        bnds.bottom = Math.min(docBounds.bottom, svgWriterUtils.roundUp(bnds.bottom || 0));
+                    } else {
+                        bnds.left = svgWriterUtils.roundDown(bnds.left || 0);
+                        bnds.right = svgWriterUtils.roundUp(bnds.right || 0);
+                        bnds.top = svgWriterUtils.roundDown(bnds.top || 0);
+                        bnds.bottom = svgWriterUtils.roundUp(bnds.bottom || 0);
+                    }
 
                     ctx._shiftContentX = -bnds.left;
                     ctx._shiftContentY = -bnds.top;
