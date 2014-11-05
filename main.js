@@ -199,7 +199,8 @@
                                     preserveAspectRatio: "xMidYMid",
                                     scale: layerScale,
                                     targetWidth: targetWidth,
-                                    targetHeight: targetHeight
+                                    targetHeight: targetHeight,
+                                    constrainToDocBounds: true
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({
