@@ -146,10 +146,11 @@
         };
         
         
-        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, rootLayerId, layerScale, aErrors) {
+        this.patchGenerator = function (psd, _G, compId, cropToSingleLayer, constrainToDocBounds, rootLayerId, layerScale, aErrors) {
             var layers = psd.layers,
                 docId = psd.id,
                 docResolution = psd.resolution || 72.2,
+                clipRootBoundsTo = (constrainToDocBounds ? psd.bounds : undefined),
                 iL,
                 lyr,
                 patchDeferred = Q.defer(),
@@ -185,10 +186,17 @@
                     
                     if (cropToSingleLayer && rootLayerId === layerId) {
                         bUnderRoot = true;
-                        offsetSettings = {
-                            xOffset: -layer.bounds.left,
-                            yOffset: -layer.bounds.top
-                        };
+                        if (clipRootBoundsTo) {
+                            offsetSettings = {
+                                xOffset: -(Math.max(clipRootBoundsTo.left, layer.bounds.left)),
+                                yOffset: -(Math.max(clipRootBoundsTo.top, layer.bounds.top))
+                            };
+                        } else {
+                            offsetSettings = {
+                                xOffset: -layer.bounds.left,
+                                yOffset: -layer.bounds.top
+                            };
+                        }
                     }
                     
                     //bUnderRoot is to only crop to the sub-tree being generatored...

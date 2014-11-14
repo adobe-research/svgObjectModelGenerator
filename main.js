@@ -99,7 +99,7 @@
                             console.log("***** LayerId: " + layerId + " from " + doc.selection[0]);
                         }
                         
-                        generatorPlus.patchGenerator(doc, _G, undefined, subTree, layerId, 1.0).then(function () {
+                        generatorPlus.patchGenerator(doc, _G, undefined, undefined, subTree, layerId, 1.0).then(function () {
                             printDebug(doc);
                         });
                     }, 
@@ -171,13 +171,15 @@
             targetWidth,
             targetHeight,
             docId,
-            compId;
+            compId,
+            constrainToDocBounds;
         
         compId = params.compId;
         layerSpec = params.layerSpec;
         layerScale = params.layerScale;
         targetWidth = params.targetWidth;
         targetHeight = params.targetHeight;
+        constrainToDocBounds = params.constrainToDocBounds;
         docId = params.documentId;
         
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
@@ -189,7 +191,8 @@
                         var doc = JSON.parse(JSON.stringify(document)),
                             cropToSingleLayer = (typeof layerSpec === "number"),
                             svgWriterErrors = [];
-                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, layerSpec, layerScale, svgWriterErrors).then(function () {
+                        generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, constrainToDocBounds,
+                                                    layerSpec, layerScale, svgWriterErrors).then(function () {
                             if (layerSpec === "all") {
                                 layerSpec = null;
                             }
@@ -200,7 +203,7 @@
                                     scale: layerScale,
                                     targetWidth: targetWidth,
                                     targetHeight: targetHeight,
-                                    constrainToDocBounds: true
+                                    constrainToDocBounds: constrainToDocBounds
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({
