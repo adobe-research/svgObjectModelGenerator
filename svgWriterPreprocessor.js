@@ -189,15 +189,23 @@
                         }
                     } else if (omIn.position) {
                         if (!nested) {
-                            omIn.position.x = 0.0;
                             if (omIn.children && omIn.children.length === 1) {
+                                if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
+                                    omIn.position.x += ctx._shiftContentX;
+                                } else {
+                                    omIn.position.x = 0.0;
+                                }
                                 if (omIn.position.unitY === "px") {
                                     omIn.position.y += ctx._shiftContentY;
                                 }
                                 omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
                                 omIn.children[0].position.x = 0.0;
                             } else {
-                                
+                                if (ctx.config.constrainToDocBounds) {
+                                    omIn.position.x += ctx._shiftContentX;
+                                } else {
+                                    omIn.position.x = 0.0;
+                                }
                                 omIn.position.y += ctx._shiftContentY;
 
                                 if (Math.abs(omIn.position.y) === 1) {
