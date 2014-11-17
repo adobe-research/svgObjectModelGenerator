@@ -36,6 +36,10 @@
             return this.pathComponentOrigin(layer, function (pixel) {
                 svgNode.pixel = pixel;
                 svgNode.shapeBounds = layer.bounds;
+                
+                if (layer.boundsWithFX) {
+                    svgNode.shapeBounds = layer.boundsWithFX;
+                }
 
                 omgStyles.addStylingData(svgNode, layer, dpi);
                 
