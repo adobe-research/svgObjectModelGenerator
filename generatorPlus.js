@@ -216,13 +216,12 @@
                             var layerBnds = layer.bounds,
                                 layerBndsFx = layer.boundsWithFX ? layer.boundsWithFX : layer.bounds,
                                 pixmapSettings = _G.getPixmapParams({
-                                    width: layerScale * (layer.bounds.right - layer.bounds.left),
-                                    height: layerScale * (layer.bounds.bottom - layer.bounds.top),
+                                    width: layerScale * (layerBndsFx.right - layerBndsFx.left),
+                                    height: layerScale * (layerBndsFx.bottom - layerBndsFx.top),
                                     scaleX: layerScale,
-                                    scaleY: layerScale
-                                }, layerBnds, layerBndsFx);
-                                    
-                            //console.log("pixmapSettings[" + layerScale + "] = " + JSON.stringify(pixmapSettings));
+                                    scaleY: layerScale,
+                                    scale: layerScale
+                                }, layerBndsFx, layerBndsFx);
                             this.rasterBase64(_G, docId, layer.id, docResolution, pixmapSettings).then(function (result) {
                                 //TBD: is image better?
                                 //layer.rawPixel = 'data:image/png;base64,' + result;

@@ -181,7 +181,8 @@ describe('svgWriter', function (){
                 svgOut = svgWriter.printSVG(svgOM, {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
-                    scale: scale
+                    scale: scale,
+                    constrainToDocBounds: true
                 }, svgWriterErrors);
                 
                 handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], exptectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
