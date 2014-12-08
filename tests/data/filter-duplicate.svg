@@ -2,19 +2,20 @@
   <defs>
     <style>
 
+      .cls-3, .cls-4, .cls-5 {
+        filter: url(#filter-chain-1);
+      }
+
       .cls-3 {
         fill: #00ff3e;
-        filter: url(#filter-chain-1);
       }
 
       .cls-4 {
         fill: #0000ff;
-        filter: url(#filter-chain-1);
       }
 
       .cls-5 {
         fill: #ff00ff;
-        filter: url(#filter-chain-1);
       }
     </style>
 

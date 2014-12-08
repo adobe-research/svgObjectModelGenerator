@@ -2,6 +2,10 @@
   <defs>
     <style>
 
+      .cls-5, .cls-6 {
+        font-size: 36px;
+      }
+
       .cls-3 {
         fill: #c4df9b;
         stroke: #000000;
@@ -12,14 +16,9 @@
         fill: #00a651;
       }
 
-      .cls-5 {
-        font-size: 36px;
-      }
-
       .cls-6 {
         fill: #226b26;
         text-anchor: middle;
-        font-size: 36px;
         font-family: "Optima-ExtraBlack";
       }
     </style>

@@ -2,15 +2,17 @@
   <defs>
     <style>
 
+      .cls-3, .cls-4 {
+        font-size: 63.635px;
+      }
+
       .cls-3 {
         writing-mode: tb;
         glyph-orientation-vertical: 0;
-        font-size: 63.635px;
       }
 
       .cls-4 {
         fill: #030303;
-        font-size: 63.635px;
         font-family: "Minion Pro";
       }
     </style>

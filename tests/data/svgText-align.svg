@@ -2,28 +2,22 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-4, .cls-5, .cls-6 {
         font-size: 63.635px;
       }
 
-      .cls-4 {
+      .cls-4, .cls-5, .cls-6 {
         fill: #030303;
         font-size: 63.635px;
         font-family: "Minion Pro";
       }
 
       .cls-5 {
-        fill: #030303;
         text-anchor: middle;
-        font-size: 63.635px;
-        font-family: "Minion Pro";
       }
 
       .cls-6 {
-        fill: #030303;
         text-anchor: end;
-        font-size: 63.635px;
-        font-family: "Minion Pro";
       }
     </style>
   </defs>

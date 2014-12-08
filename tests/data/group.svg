@@ -2,22 +2,19 @@
   <defs>
     <style>
 
+      .cls-4, .cls-5 {
+        fill: #2ccf26;
+        stroke: #f26522;
+        stroke-width: 3px;
+      }
+
       .cls-3 {
         filter: url(#drop-shadow-1);
         opacity: 0.35;
         mix-blend-mode: multiply;
       }
 
-      .cls-4 {
-        fill: #2ccf26;
-        stroke: #f26522;
-        stroke-width: 3px;
-      }
-
       .cls-5 {
-        fill: #2ccf26;
-        stroke: #f26522;
-        stroke-width: 3px;
         filter: url(#inner-shadow-1);
         opacity: 0.75;
       }

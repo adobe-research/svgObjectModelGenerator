@@ -2,63 +2,55 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14 {
         fill: #00a99d;
+      }
+
+      .cls-3 {
         filter: url(#gradient-overlay-1);
       }
 
       .cls-4 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-2);
       }
 
       .cls-5 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-3);
       }
 
       .cls-6 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-4);
       }
 
       .cls-7 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-5);
       }
 
       .cls-8 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-6);
       }
 
       .cls-9 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-7);
       }
 
       .cls-10 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-8);
       }
 
       .cls-11 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-9);
       }
 
       .cls-12 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-10);
       }
 
       .cls-13 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-11);
       }
 
       .cls-14 {
-        fill: #00a99d;
         filter: url(#gradient-overlay-12);
       }
     </style>
