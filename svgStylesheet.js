@@ -64,7 +64,7 @@
         };
 
         proto.removeRule = function (prop, val) {
-            for (var i = 0, ii = this.rules.length; i < ii; i++) {
+            for (var i = 0, len = this.rules.length; i < len; i++) {
                 if (this.rules[i].propertyName == prop && this.rules[i].value == val) {
                     this.rules.splice(i, 1);
                     break;
@@ -73,12 +73,12 @@
         };
 
         proto.clone = function () {
-            var clon = new CSSStyleBlock();
-            clon.class = this.class.slice(0);
-            for (var i = 0, ii = this.rules.length; i < ii; i++) {
-                clon.addRule(this.rules[i].propertyName, this.rules[i].value);
+            var clone = new CSSStyleBlock();
+            clone.class = this.class.slice(0);
+            for (var i = 0, len = this.rules.length; i < len; i++) {
+                clone.addRule(this.rules[i].propertyName, this.rules[i].value);
             }
-            return clon;
+            return clone;
         };
 
         proto.add = function (block) {
@@ -92,7 +92,7 @@
                     uniq[this.class[i]] = 1;
                 }
             }
-            for (var i = 0, ii = block.rules.length; i < ii; i++) {
+            for (var i = 0, len = block.rules.length; i < len; i++) {
                 if (!this.hasProperty(block.rules[i].propertyName)) {
                     this.addRule(block.rules[i].propertyName, block.rules[i].value);
                 }
@@ -121,9 +121,8 @@
             if (!this.rules.length) {
                 return "";
             }
-            var out = "." + this.class.join(", .") + " {\n",
-                i = 0;
-            for (; i < this.rules.length; i++) {
+            var out = "." + this.class.join(", .") + " {\n";
+            for (var i = 0; i < this.rules.length; i++) {
                 out += "    " + this.rules[i] + "\n";
             }
             return out + "}";
@@ -388,9 +387,10 @@
                     }
                 }
             }
-            // extract all common rules into coma
+            // extract all common rules into comma
             blocks = this.extract(blocks);
-            for (var i = 0, ii = blocks.length; i < ii; i++) {
+
+            for (var i = 0, len = blocks.length; i < len; i++) {
                 write(ctx, ctx.terminator); //new line before blocks
                 blocks[i].write(ctx);
             }
@@ -453,10 +453,10 @@
                 name,
                 val;
 
-            for (var i = 0, ii = a.rules.length; i < ii; i++) {
+            for (var i = 0, len = a.rules.length; i < len; i++) {
                 rules[a.rules[i].propertyName] = a.rules[i].value;
             }
-            for (i = 0, ii = b.rules.length; i < ii; i++) {
+            for (i = 0, len = b.rules.length; i < len; i++) {
                 name = b.rules[i].propertyName;
                 val = b.rules[i].value;
                 if (rules[name] == val) {
@@ -470,9 +470,9 @@
         extract.finder = function (blocks) {
             var blocksnew = [],
                 blocksadd = [];
-            for (var i = 0, ii = blocks.length; i < ii; i++) {
+            for (var i = 0, len = blocks.length; i < len; i++) {
                 !i && (blocksnew[i] = blocks[i].clone());
-                for (var j = i + 1; j < ii; j++) {
+                for (var j = i + 1; j < len; j++) {
                     !i && (blocksnew[j] = blocks[j].clone());
                     var u = extract.union(blocks[i], blocks[j], blocksnew[i], blocksnew[j]);
                     if (u) {
@@ -486,19 +486,21 @@
             var dup = {},
                 out = [],
                 fprint;
-            for (var i = 0, ii = blocks.length; i < ii; i++) {
+            for (var i = 0, len = blocks.length; i < len; i++) {
                 fprint = blocks[i].rules;
                 if (fprint.length) {
                     dup[fprint] = dup[fprint] || [];
                     dup[fprint].push(blocks[i]);
                 }
             }
-            for (var key in dup) if (dup.hasOwnProperty(key)) {
-                var first = dup[key][0];
-                for (i = 1, ii = dup[key].length; i < ii; i++) {
-                    first.add(dup[key][i]);
+            for (var key in dup) {
+                if (dup.hasOwnProperty(key)) {
+                    var first = dup[key][0];
+                    for (i = 1, len = dup[key].length; i < len; i++) {
+                        first.add(dup[key][i]);
+                    }
+                    out.push(first);
                 }
-                out.push(first);
             }
             return out;
         }
