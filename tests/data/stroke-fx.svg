@@ -2,49 +2,37 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
         fill: #0aff02;
-        stroke: #000000;
         stroke-linejoin: round;
-        stroke-opacity: 0.5;
         stroke-width: 10px;
+      }
+
+      .cls-3 {
+        stroke: #000000;
+        stroke-opacity: 0.5;
       }
 
       .cls-4 {
-        fill: #0aff02;
         stroke: url(#linear-gradient-1);
-        stroke-linejoin: round;
         stroke-opacity: 0.8;
-        stroke-width: 10px;
       }
 
       .cls-5 {
-        fill: #0aff02;
         stroke: url(#linear-gradient-2);
-        stroke-linejoin: round;
         stroke-opacity: 0.1;
-        stroke-width: 10px;
       }
 
       .cls-6 {
-        fill: #0aff02;
         stroke: url(#linear-gradient-3);
-        stroke-linejoin: round;
-        stroke-width: 10px;
       }
 
       .cls-7 {
-        fill: #0aff02;
         stroke: url(#linear-gradient-4);
-        stroke-linejoin: round;
-        stroke-width: 10px;
       }
 
       .cls-8 {
-        fill: #0aff02;
         stroke: url(#radial-gradient-1);
-        stroke-linejoin: round;
-        stroke-width: 10px;
       }
     </style>
 
