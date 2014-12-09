@@ -71,6 +71,104 @@ describe('svgStylesheet', function () {
             
         });
         
+        it("knows how to extract similar rules from 2 blocks", function () {
+
+            var sheet = new svgStylesheet(),
+                blocks = [];
+
+            blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
+            blocks[1] = sheet.getStyleBlock({className: "clsTest2" });
+
+            blocks[0].addRule("fill", "#000");
+            blocks[0].addRule("stroke", "#fff");
+            blocks[0].addRule("opacity", "0.5");
+            blocks[0].addRule("fill-opacity", "0.25");
+
+            blocks[1].addRule("fill", "#000");
+            blocks[1].addRule("opacity", "0.5");
+            blocks[1].addRule("stroke", "#fff");
+            blocks[1].addRule("stroke-opacity", "0.25");
+
+            blocks = sheet.extract(blocks);
+
+            blocks = blocks.map(function (block) {
+                return block.toString("");
+            });
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2 {    fill: #000;    opacity: 0.5;    stroke: #fff;}.clsTest1 {    fill-opacity: 0.25;}.clsTest2 {    stroke-opacity: 0.25;}");
+        });
+
+        it("knows how to extract similar rules from 3 blocks", function () {
+
+            var sheet = new svgStylesheet(),
+                blocks = [];
+
+            blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
+            blocks[1] = sheet.getStyleBlock({className: "clsTest2" });
+            blocks[2] = sheet.getStyleBlock({className: "clsTest3" });
+
+            blocks[0].addRule("fill", "#000");
+            blocks[0].addRule("stroke", "#fff");
+            blocks[0].addRule("opacity", "0.5");
+            blocks[0].addRule("fill-opacity", "0.25");
+
+            blocks[1].addRule("fill", "#000");
+            blocks[1].addRule("opacity", "0.5");
+            blocks[1].addRule("stroke", "#fff");
+            blocks[1].addRule("stroke-opacity", "0.25");
+
+            blocks[2].addRule("fill", "#000");
+            blocks[2].addRule("opacity", "0.25");
+            blocks[2].addRule("stroke", "#fff");
+            blocks[2].addRule("filter", "url(#filter)");
+            blocks[2].addRule("stroke-opacity", "0.25");
+
+            blocks = sheet.extract(blocks);
+
+            blocks = blocks.map(function (block) {
+                return block.toString("");
+            });
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3 {    fill: #000;    stroke: #fff;}.clsTest1, .clsTest2 {    opacity: 0.5;}.clsTest2, .clsTest3 {    stroke-opacity: 0.25;}.clsTest1 {    fill-opacity: 0.25;}.clsTest3 {    opacity: 0.25;    filter: url(#filter);}");
+        });
+
+        it("knows how to extract similar rules from 4 blocks", function () {
+
+            var sheet = new svgStylesheet(),
+                blocks = [];
+
+            blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
+            blocks[1] = sheet.getStyleBlock({className: "clsTest2" });
+            blocks[2] = sheet.getStyleBlock({className: "clsTest3" });
+            blocks[3] = sheet.getStyleBlock({className: "clsTest4" });
+
+            blocks[0].addRule("fill", "#000");
+            blocks[0].addRule("stroke", "#fff");
+            blocks[0].addRule("opacity", "0.5");
+            blocks[0].addRule("fill-opacity", "0.25");
+
+            blocks[1].addRule("fill", "#000");
+            blocks[1].addRule("opacity", "0.5");
+            blocks[1].addRule("stroke", "#fff");
+            blocks[1].addRule("stroke-opacity", "0.25");
+
+            blocks[2].addRule("fill", "#000");
+            blocks[2].addRule("opacity", "0.25");
+            blocks[2].addRule("stroke", "#fff");
+            blocks[2].addRule("filter", "url(#filter)");
+            blocks[2].addRule("stroke-opacity", "0.25");
+
+            blocks[3].addRule("fill", "#000");
+            blocks[3].addRule("opacity", "0.75");
+            blocks[3].addRule("stroke", "#fff");
+            blocks[3].addRule("fill-opacity", "0.25");
+
+            blocks = sheet.extract(blocks);
+
+            blocks = blocks.map(function (block) {
+                return block.toString("");
+            });
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3, .clsTest4 {    fill: #000;    stroke: #fff;}.clsTest1, .clsTest2 {    opacity: 0.5;}.clsTest1, .clsTest4 {    fill-opacity: 0.25;}.clsTest2, .clsTest3 {    stroke-opacity: 0.25;}.clsTest3 {    opacity: 0.25;    filter: url(#filter);}.clsTest4 {    opacity: 0.75;}");
+        });
+
         
         
     });

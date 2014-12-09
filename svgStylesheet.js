@@ -117,13 +117,16 @@
             write(ctx, ctx.currentIndent + "}" + ctx.terminator);
         };
 
-        proto.toString = function () {
+        proto.toString = function (cr) {
             if (!this.rules.length) {
                 return "";
             }
-            var out = "." + this.class.join(", .") + " {\n";
+            if (cr == null) {
+                cr = "\n";
+            }
+            var out = "." + this.class.join(", .") + " {" + cr;
             for (var i = 0; i < this.rules.length; i++) {
-                out += "    " + this.rules[i] + "\n";
+                out += "    " + this.rules[i] + cr;
             }
             return out + "}";
         };
@@ -314,7 +317,7 @@
             this.blocks[omNode.className] = omNode.styleBlock;
             // We create an styleBlock for each element initially.
             // Store the element for later reference.
-            omNode.styleBlock['element'] = omNode.id;
+            omNode.styleBlock.element = omNode.id;
             
             return omNode.styleBlock;
         };
