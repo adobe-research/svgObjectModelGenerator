@@ -2,14 +2,16 @@
   <defs>
     <style>
 
+      .cls-3, .cls-4 {
+        font-size: 63.635px;
+      }
+
       .cls-3 {
         filter: url(#gradient-overlay-1);
-        font-size: 63.635px;
       }
 
       .cls-4 {
         fill: #696969;
-        font-size: 63.635px;
         font-family: "Myriad Pro";
       }
     </style>

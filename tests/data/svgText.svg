@@ -2,56 +2,44 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-4, .cls-7, .cls-8, .cls-15, .cls-17, .cls-19, .cls-22 {
         font-size: 63.635px;
       }
 
-      .cls-4 {
-        fill: #030303;
-        font-size: 63.635px;
+      .cls-4, .cls-7, .cls-8, .cls-15, .cls-17 {
         font-family: "Myriad Pro";
+        font-size: 63.635px;
       }
 
-      .cls-7 {
+      .cls-4, .cls-7, .cls-17 {
         fill: #030303;
         font-family: "Myriad Pro";
         font-size: 63.635px;
+      }
+
+      .cls-4, .cls-7, .cls-19, .cls-17 {
+        fill: #030303;
+        font-size: 63.635px;
+      }
+
+      .cls-19, .cls-22, .cls-27 {
+        font-family: "Minion Pro";
+      }
+
+      .cls-15, .cls-22 {
+        fill: #ff032d;
       }
 
       .cls-8 {
         fill: #39ff02;
-        font-family: "Myriad Pro";
-        font-size: 63.635px;
-      }
-
-      .cls-15 {
-        fill: #ff032d;
-        font-family: "Myriad Pro";
-        font-size: 63.635px;
       }
 
       .cls-17 {
-        fill: #030303;
-        font-family: "Myriad Pro";
-        font-size: 63.635px;
         font-weight: bold;
-      }
-
-      .cls-19 {
-        fill: #030303;
-        font-family: "Minion Pro";
-        font-size: 63.635px;
-      }
-
-      .cls-22 {
-        fill: #ff032d;
-        font-family: "Minion Pro";
-        font-size: 63.635px;
       }
 
       .cls-27 {
         fill: #02ffa2;
-        font-family: "Minion Pro";
         font-size: 20px;
       }
     </style>

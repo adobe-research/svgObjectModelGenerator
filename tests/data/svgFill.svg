@@ -2,17 +2,18 @@
   <defs>
     <style>
 
-      .cls-3 {
-        fill: url(#linear-gradient-1);
+      .cls-3, .cls-4 {
         stroke: #000000;
         stroke-width: 3px;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-1);
         filter: url(#color-overlay-1);
       }
 
       .cls-4 {
         fill: url(#linear-gradient-2);
-        stroke: #000000;
-        stroke-width: 3px;
         filter: url(#color-overlay-2);
       }
 

@@ -2,25 +2,24 @@
   <defs>
     <style>
 
-      .cls-3 {
-        filter: url(#filter-chain-1);
+      .cls-3, .cls-4, .cls-5, .cls-6 {
         font-size: 31.818px;
       }
 
-      .cls-4 {
-        font-size: 31.818px;
+      .cls-5, .cls-6 {
+        font-family: "Minion Pro";
+      }
+
+      .cls-3 {
+        filter: url(#filter-chain-1);
       }
 
       .cls-5 {
         fill: #030303;
-        font-family: "Minion Pro";
-        font-size: 31.818px;
       }
 
       .cls-6 {
         fill: #0241ff;
-        font-family: "Minion Pro";
-        font-size: 31.818px;
       }
     </style>
 

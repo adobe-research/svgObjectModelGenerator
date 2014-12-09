@@ -2,12 +2,11 @@
   <defs>
     <style>
 
-      .cls-2 {
+      .cls-2, .cls-3 {
         font-size: 36px;
       }
 
       .cls-3 {
-        font-size: 36px;
         font-family: "Myriad Pro";
       }
     </style>

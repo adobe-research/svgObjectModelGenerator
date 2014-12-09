@@ -2,12 +2,11 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-4 {
         font-size: 30px;
       }
 
       .cls-4 {
-        font-size: 30px;
         font-family: "Arial";
       }
     </style>

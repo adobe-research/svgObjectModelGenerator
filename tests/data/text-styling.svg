@@ -2,64 +2,55 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
         font-size: 60px;
       }
 
-      .cls-4 {
+      .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
         fill: #030303;
         font-size: 60px;
-        font-family: "Arial-ItalicMT";
-        font-style: italic;
       }
 
-      .cls-6 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial-BoldMT";
-        font-weight: bold;
-      }
-
-      .cls-8 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial-BoldItalicMT";
-        font-weight: bold;
-        font-style: italic;
-      }
-
-      .cls-10 {
+      .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
         fill: #030303;
         font-size: 60px;
         font-family: "Arial";
+      }
+
+      .cls-4, .cls-8 {
+        font-style: italic;
+      }
+
+      .cls-6, .cls-8 {
+        font-weight: bold;
+      }
+
+      .cls-4 {
+        font-family: "Arial-ItalicMT";
+      }
+
+      .cls-6 {
+        font-family: "Arial-BoldMT";
+      }
+
+      .cls-8 {
+        font-family: "Arial-BoldItalicMT";
+      }
+
+      .cls-10 {
         text-decoration: underline;
       }
 
       .cls-12 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial";
         text-decoration: line-through;
       }
 
       .cls-14 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial";
         font-variant: small-caps;
       }
 
       .cls-16 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial";
         text-transform: uppercase;
-      }
-
-      .cls-18 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial";
       }
     </style>
   </defs>

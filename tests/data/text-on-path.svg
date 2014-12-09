@@ -2,44 +2,27 @@
   <defs>
     <style>
 
-      .cls-3 {
+      .cls-3, .cls-5, .cls-15, .cls-19, .cls-20, .cls-31, .cls-32 {
         font-size: 30px;
       }
 
-      .cls-5 {
+      .cls-5, .cls-20, .cls-32 {
         fill: #000300;
         font-size: 30px;
         font-family: "Arial";
+      }
+
+      .cls-19, .cls-20 {
+        text-anchor: end;
+      }
+
+      .cls-31, .cls-32 {
+        text-anchor: middle;
       }
 
       .cls-15 {
         writing-mode: tb;
         glyph-orientation-vertical: 0;
-        font-size: 30px;
-      }
-
-      .cls-19 {
-        text-anchor: end;
-        font-size: 30px;
-      }
-
-      .cls-20 {
-        fill: #000300;
-        text-anchor: end;
-        font-size: 30px;
-        font-family: "Arial";
-      }
-
-      .cls-31 {
-        text-anchor: middle;
-        font-size: 30px;
-      }
-
-      .cls-32 {
-        fill: #000300;
-        text-anchor: middle;
-        font-size: 30px;
-        font-family: "Arial";
       }
     </style>
 
