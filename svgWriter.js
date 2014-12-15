@@ -558,14 +558,14 @@
             indent(ctx);
             
             // Write the style sheet.
-            hasRules = isCSS && ctx.omStylesheet.hasRules();
+            hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules();
             hasDefines = ctx.omStylesheet.hasDefines();
 
             if (hasRules || hasDefines) {
                 write(ctx, ctx.currentIndent + "<defs>" + ctx.terminator);
                 indent(ctx);
                 
-                isCSS && ctx.omStylesheet.writeSheet(ctx);
+                !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
                 
                 if (hasRules && hasDefines) {
                     write(ctx, ctx.terminator);

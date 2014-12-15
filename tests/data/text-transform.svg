@@ -11,6 +11,6 @@
       }
     </style>
   </defs>
-  <text class="cls-3" x="239px" y="261px"><tspan class="cls-4">Text</tspan></text>
+  <text x="239px" y="261px" class="cls-3"><tspan class="cls-4">Text</tspan></text>
   <text class="cls-3" transform="matrix(0.803, -0.697, 0.7029, 1.4869, 242, 284)"><tspan class="cls-4">Text</tspan><tspan dy="1.2em" x="0px" class="cls-4">test</tspan></text>
 </svg>

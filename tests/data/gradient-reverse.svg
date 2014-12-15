@@ -96,10 +96,10 @@
       <stop offset="1" stop-color="#ff0000"/>
     </linearGradient>
   </defs>
-  <rect id="rect-1" class="cls-3" x="50" y="50" width="200" height="100"/>
-  <rect id="rect-2" class="cls-4" x="300" y="50" width="200" height="100"/>
-  <rect id="rect-3" class="cls-5" x="550" y="50" width="200" height="100"/>
-  <rect id="rect-4" class="cls-6" x="50" y="200" width="200" height="100"/>
-  <rect id="rect-5" class="cls-7" x="300" y="200" width="200" height="100"/>
-  <rect id="rect-6" class="cls-8" x="552" y="200" width="196" height="94"/>
+  <rect id="rect-1" x="50" y="50" width="200" height="100" class="cls-3"/>
+  <rect id="rect-2" x="300" y="50" width="200" height="100" class="cls-4"/>
+  <rect id="rect-3" x="550" y="50" width="200" height="100" class="cls-5"/>
+  <rect id="rect-4" x="50" y="200" width="200" height="100" class="cls-6"/>
+  <rect id="rect-5" x="300" y="200" width="200" height="100" class="cls-7"/>
+  <rect id="rect-6" x="552" y="200" width="196" height="94" class="cls-8"/>
 </svg>

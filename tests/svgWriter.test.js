@@ -167,11 +167,6 @@ describe('svgWriter', function (){
                 omOpt = { layerSpec: aTestData[i] };
                 testData = require("./data/" + testName + "/" + aTestData[i + 1] + "-data.js");
                 svgFilename = "./tests/data/" + testName + "/" + aTestData[i + 1] + ".svg";
-                try {
-                    exptectedOut = fs.readFileSync(svgFilename, 'utf8');
-                } catch(er) {
-                    expectedOut = "NO-TEST-MEDIA";
-                }
                     
                 scale = aTestData[i + 2];
                 svgWriterErrors = [];
@@ -185,6 +180,14 @@ describe('svgWriter', function (){
                     constrainToDocBounds: true
                 }, svgWriterErrors);
                 
+                try {
+                    exptectedOut = fs.readFileSync(svgFilename, 'utf8');
+                } catch(er) {
+                    fs.writeFileSync(svgFilename, svgOut, 'utf8');
+                    console.log('No reference SVG document found. New one created as ' + aTestData[i + 1] + '.svg');
+                    continue;
+                }
+
                 handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], exptectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
                 
                 expect(svgOut).to.equal(exptectedOut);

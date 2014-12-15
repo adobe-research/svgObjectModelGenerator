@@ -33,7 +33,7 @@
       <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>
     </filter>
   </defs>
-  <rect id="rect-1" class="cls-3" x="50" y="200" width="200" height="200"/>
-  <rect id="rect-2" class="cls-4" x="300" y="200" width="200" height="200"/>
-  <rect id="rect-3" class="cls-5" x="550" y="200" width="200" height="200"/>
+  <rect id="rect-1" x="50" y="200" width="200" height="200" class="cls-3"/>
+  <rect id="rect-2" x="300" y="200" width="200" height="200" class="cls-4"/>
+  <rect id="rect-3" x="550" y="200" width="200" height="200" class="cls-5"/>
 </svg>

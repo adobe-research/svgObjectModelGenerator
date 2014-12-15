@@ -50,12 +50,12 @@
     </filter>
   </defs>
   <g id="ellipsesvg" style="fill: url(#linear-gradient-1); filter: url(#color-overlay-1);">
-    <circle id="circle-1" class="cls-3" cx="137" cy="145" r="83" style="stroke: inherit; filter: none; fill: inherit;"/>
+    <circle id="circle-1" cx="137" cy="145" r="83" class="cls-3" style="stroke: inherit; filter: none; fill: inherit;"/>
   </g>
   <use xlink:href="#circle-1" style="stroke: #000000; fill: none; filter: none;"/>
   <g id="gelipse" style="fill: url(#linear-gradient-2); filter: url(#color-overlay-2);">
-    <circle id="circle-2" class="cls-4" cx="206" cy="205" r="83" style="stroke: inherit; filter: none; fill: inherit;"/>
+    <circle id="circle-2" cx="206" cy="205" r="83" class="cls-4" style="stroke: inherit; filter: none; fill: inherit;"/>
   </g>
   <use xlink:href="#circle-2" style="stroke: #000000; fill: none; filter: none;"/>
-  <ellipse id="ellipse-1" class="cls-5" cx="234" cy="45" rx="41" ry="36"/>
+  <ellipse id="ellipse-1" cx="234" cy="45" rx="41" ry="36" class="cls-5"/>
 </svg>
