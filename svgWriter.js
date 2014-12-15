@@ -46,9 +46,7 @@
         rgbToHex = svgWriterUtils.rgbToHex,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
-        writeTextPath = svgWriterUtils.writeTextPath,
-        // This should be coming as argument
-        isCSS = true;
+        writeTextPath = svgWriterUtils.writeTextPath;
 
     function gWrap(ctx, id, fn) {
         var useTrick = false;
@@ -99,14 +97,6 @@
         }
     }
 
-    function writeClassIfNeccessary(ctx) {
-        if (ctx.omStylesheet.hasStyleBlock(ctx.currentOMNode)) {
-            var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(ctx.currentOMNode);
-            if (omStyleBlock) {
-                write(ctx, " class=\"" + omStyleBlock.class + "\"");
-            }
-        }
-    }
     var defaults = {
         fill: "#000000",
         stroke: "none",
@@ -123,13 +113,18 @@
         display: "inline",
         visibility: "visible"
     };
-    function writeStylesAsAttrs(ctx) {
+
+    function writeClassIfNeccessary(ctx) {
         if (ctx.omStylesheet.hasStyleBlock(ctx.currentOMNode)) {
             var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(ctx.currentOMNode);
             if (omStyleBlock) {
-                for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
-                    var rule = omStyleBlock.rules[i];
-                    writeAttrIfNecessary(ctx, rule.propertyName, String(rule.value).replace(/"/g, "'"), defaults[rule.propertyName] || "");
+                if (ctx.usePresentationAttribute) {
+                    for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
+                        var rule = omStyleBlock.rules[i];
+                        writeAttrIfNecessary(ctx, rule.propertyName, String(rule.value).replace(/"/g, "'"), defaults[rule.propertyName] || "");
+                    }
+                } else {
+                    write(ctx, " class=\"" + omStyleBlock.class + "\"");
                 }
             }
         }
@@ -214,17 +209,12 @@
                             write(ctx, ctx.currentIndent + "<circle");
                             
                             writeIDIfNecessary(ctx, "circle");
-                            if (isCSS) {
-                                writeClassIfNeccessary(ctx);
-                            }
                             
                             writeAttrIfNecessary(ctx, "cx", rnd(left + w/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "cy", rnd(top + h/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "r", rnd(h/2.0), "0", "");
 
-                            if (!isCSS) {
-                                writeStylesAsAttrs(ctx);
-                            }
+                            writeClassIfNeccessary(ctx);
 
                             if (useTrick) {
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
@@ -237,18 +227,13 @@
                             write(ctx, ctx.currentIndent + "<ellipse");
                             
                             writeIDIfNecessary(ctx, "ellipse");
-                            if (isCSS) {
-                                writeClassIfNeccessary(ctx);
-                            }
                             
                             writeAttrIfNecessary(ctx, "cx", rnd(left + w/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "cy", rnd(top + h/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "rx", rnd(w/2.0), "0", "");
                             writeAttrIfNecessary(ctx, "ry", rnd(h/2.0), "0", "");
 
-                            if (!isCSS) {
-                                writeStylesAsAttrs(ctx);
-                            }
+                            writeClassIfNeccessary(ctx);
 
                             if (useTrick) {
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
@@ -263,11 +248,7 @@
                             write(ctx, ctx.currentIndent + '<path d="' + omIn.pathData + '"');
                             
                             writeIDIfNecessary(ctx, 'path');
-                            if (isCSS) {
-                                writeClassIfNeccessary(ctx);
-                            } else {
-                                writeStylesAsAttrs(ctx);
-                            }
+                            writeClassIfNeccessary(ctx);
 
                             if (useTrick) {
                                 write(ctx, ' style="stroke: inherit; filter: none; fill: inherit;"');
@@ -280,9 +261,6 @@
                             write(ctx, ctx.currentIndent + "<rect");
                             
                             writeIDIfNecessary(ctx, "rect");
-                            if (isCSS) {
-                                writeClassIfNeccessary(ctx);
-                            }
                             
                             writeAttrIfNecessary(ctx, "x", rnd(left), "0", "");
                             writeAttrIfNecessary(ctx, "y", rnd(top), "0", "");
@@ -294,9 +272,7 @@
                                 writeAttrIfNecessary(ctx, "ry", rnd(r), "0", "");
                             }
 
-                            if (!isCSS) {
-                                writeStylesAsAttrs(ctx);
-                            }
+                            writeClassIfNeccessary(ctx);
 
                             if (useTrick) {
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
@@ -371,11 +347,7 @@
                 
                 ctx._nextTspanAdjustSuper = false;
                 
-                if (isCSS) {
-                    writeClassIfNeccessary(ctx);
-                } else {
-                    writeStylesAsAttrs(ctx);
-                }
+                writeClassIfNeccessary(ctx);
                 write(ctx, ">");
 
                 if (omIn.children.length) {
@@ -421,9 +393,6 @@
                     
                     write(ctx, ctx.currentIndent + "<text");
 
-                    if (isCSS) {
-                        writeClassIfNeccessary(ctx);
-                    }
                     
                     if (rightAligned) {
                         writeAttrIfNecessary(ctx, "x", "100%", 0, "%");
@@ -438,10 +407,7 @@
                         omIn.transformTY += pxHeight;
                     }
                     
-                    if (!isCSS) {
-                        writeStylesAsAttrs(ctx);
-                    }
-
+                    writeClassIfNeccessary(ctx);
 
                     writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
                     write(ctx, ">");
@@ -533,11 +499,7 @@
             case "group":
 
                 write(ctx, ctx.currentIndent + "<g id=\"" + omIn.id + "\"");
-                if (isCSS) {
-                    writeClassIfNeccessary(ctx);
-                } else {
-                    writeStylesAsAttrs(ctx);
-                }
+                writeClassIfNeccessary(ctx);
                 write(ctx, ">" + ctx.terminator);
                 indent(ctx);
                 ctx.omStylesheet.writePredefines(ctx);
