@@ -20,7 +20,7 @@
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
   </defs>
-  <rect id="rect-1" class="cls-3" x="50" y="200" width="200" height="200"/>
-  <rect id="rect-2" class="cls-3" x="300" y="200" width="200" height="200"/>
-  <rect id="rect-3" class="cls-3" x="550" y="200" width="200" height="200"/>
+  <rect class="cls-3" x="50" y="200" width="200" height="200"/>
+  <rect class="cls-3" x="300" y="200" width="200" height="200"/>
+  <rect class="cls-3" x="550" y="200" width="200" height="200"/>
 </svg>

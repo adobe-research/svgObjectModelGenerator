@@ -23,5 +23,5 @@
       <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>
     </filter>
   </defs>
-  <rect id="rect-1" class="cls-3" x="100" y="100" width="300" height="150" rx="10" ry="10"/>
+  <rect class="cls-3" x="100" y="100" width="300" height="150" rx="10" ry="10"/>
 </svg>

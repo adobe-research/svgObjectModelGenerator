@@ -23,5 +23,5 @@
       <feBlend mode="lighten" in2="SourceGraphic" result="satin"/>
     </filter>
   </defs>
-  <rect id="rect-1" class="cls-3" x="200" y="225" width="300" height="150"/>
+  <rect class="cls-3" x="200" y="225" width="300" height="150"/>
 </svg>
