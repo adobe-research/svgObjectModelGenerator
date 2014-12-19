@@ -74,10 +74,10 @@
       <stop offset="1" stop-color="#ff0000"/>
     </radialGradient>
   </defs>
-  <rect id="rect-1" class="cls-3" x="100" y="100" width="100" height="100"/>
-  <rect id="rect-2" class="cls-4" x="300" y="100" width="100" height="100"/>
-  <rect id="rect-3" class="cls-5" x="500" y="100" width="100" height="100"/>
-  <rect id="rect-4" class="cls-6" x="100" y="300" width="100" height="100"/>
-  <rect id="rect-5" class="cls-7" x="300" y="300" width="100" height="100"/>
-  <rect id="rect-6" class="cls-8" x="500" y="300" width="100" height="100"/>
+  <rect class="cls-3" x="100" y="100" width="100" height="100"/>
+  <rect class="cls-4" x="300" y="100" width="100" height="100"/>
+  <rect class="cls-5" x="500" y="100" width="100" height="100"/>
+  <rect class="cls-6" x="100" y="300" width="100" height="100"/>
+  <rect class="cls-7" x="300" y="300" width="100" height="100"/>
+  <rect class="cls-8" x="500" y="300" width="100" height="100"/>
 </svg>

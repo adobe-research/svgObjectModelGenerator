@@ -54,8 +54,8 @@
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
     </filter>
   </defs>
-  <rect id="rect-1" class="cls-3" x="50" y="83" width="250" height="150"/>
-  <rect id="rect-2" class="cls-4" x="450" y="80" width="250" height="150"/>
-  <rect id="rect-3" class="cls-5" x="50" y="350" width="250" height="150"/>
-  <rect id="rect-4" class="cls-6" x="450" y="350" width="250" height="150"/>
+  <rect class="cls-3" x="50" y="83" width="250" height="150"/>
+  <rect class="cls-4" x="450" y="80" width="250" height="150"/>
+  <rect class="cls-5" x="50" y="350" width="250" height="150"/>
+  <rect class="cls-6" x="450" y="350" width="250" height="150"/>
 </svg>
