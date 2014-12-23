@@ -89,6 +89,9 @@
                 if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
                     var width = px(ctx, omIn.style.stroke.lineWidth) ? px(ctx, omIn.style.stroke.lineWidth) : 0;
                     var dashArray = omIn.style.stroke.dashArray.map(function(element, index) {
+                        if (element && element.hasOwnProperty("value")) {
+                            element = px(element);
+                        }
                         // This is a work around for a bug in Chrome on [0,2] dash arrays.
                         if (!index && !element)
                             return 0.001;
@@ -127,5 +130,4 @@
 	module.exports = new SVGWriterStroke();
     
 }());
-     
-    
+

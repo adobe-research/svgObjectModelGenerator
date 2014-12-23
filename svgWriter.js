@@ -83,9 +83,7 @@
         }
     }
 
-    function rnd(val, prec) {
-        return Math.round(val, prec || 0);
-    }
+    var rnd = Math.round;
 
     function writeIDIfNecessary(ctx, baseName) {
         var id;
@@ -129,7 +127,7 @@
             }
         }
     }
-    
+
     function writePositionIfNecessary(ctx, position, overrideExpect) {
         var yUnit,
             xUnit,
@@ -196,10 +194,10 @@
                 gWrap(ctx, omIn.id, function (useTrick) {
 
                     var bnds = omIn.originBounds || omIn.shapeBounds,
-                        top = parseInt(bnds.top, 10),
-                        right = parseInt(bnds.right, 10),
-                        bottom = parseInt(bnds.bottom, 10),
-                        left = parseInt(bnds.left, 10),
+                        top = parseFloat(bnds.top),
+                        right = parseFloat(bnds.right),
+                        bottom = parseFloat(bnds.bottom),
+                        left = parseFloat(bnds.left),
                         w = right - left,
                         h = bottom - top,
                         oReturn = {};
@@ -210,9 +208,9 @@
                             
                             writeIDIfNecessary(ctx, "circle");
                             
-                            writeAttrIfNecessary(ctx, "cx", rnd(left + w/2.0), "0", "");
-                            writeAttrIfNecessary(ctx, "cy", rnd(top + h/2.0), "0", "");
-                            writeAttrIfNecessary(ctx, "r", rnd(h/2.0), "0", "");
+                            writeAttrIfNecessary(ctx, "cx", rnd(left + w / 2), "0", "");
+                            writeAttrIfNecessary(ctx, "cy", rnd(top + h / 2), "0", "");
+                            writeAttrIfNecessary(ctx, "r", rnd(h / 2), "0", "");
 
                             writeClassIfNeccessary(ctx);
 
@@ -228,10 +226,10 @@
                             
                             writeIDIfNecessary(ctx, "ellipse");
                             
-                            writeAttrIfNecessary(ctx, "cx", rnd(left + w/2.0), "0", "");
-                            writeAttrIfNecessary(ctx, "cy", rnd(top + h/2.0), "0", "");
-                            writeAttrIfNecessary(ctx, "rx", rnd(w/2.0), "0", "");
-                            writeAttrIfNecessary(ctx, "ry", rnd(h/2.0), "0", "");
+                            writeAttrIfNecessary(ctx, "cx", rnd(left + w / 2), "0", "");
+                            writeAttrIfNecessary(ctx, "cy", rnd(top + h / 2), "0", "");
+                            writeAttrIfNecessary(ctx, "rx", rnd(w / 2), "0", "");
+                            writeAttrIfNecessary(ctx, "ry", rnd(h / 2), "0", "");
 
                             writeClassIfNeccessary(ctx);
 
@@ -245,7 +243,7 @@
                             break;
                             
                          case "path":
-                            write(ctx, ctx.currentIndent + '<path d="' + omIn.pathData + '"');
+                            write(ctx, ctx.currentIndent + '<path d="' + util.optimisePath(omIn.pathData) + '"');
                             
                             writeIDIfNecessary(ctx, 'path');
                             writeClassIfNeccessary(ctx);
@@ -439,18 +437,7 @@
                     }
                 }
                 if (styleBlock.hasProperty("text-anchor")) {
-                    switch (styleBlock.getPropertyValue("text-anchor")) {
-                        case "middle":
-                            offset = 50;
-                            break;
-                        case "end":
-                            offset = 100;
-                            break;
-                        case "start":
-                            break;
-                        default:
-                            break;
-                    }
+                    offset = {middle: 50, end: 100}[styleBlock.getPropertyValue("text-anchor")] || 0;
                 }
                 writeAttrIfNecessary(ctx, "startOffset", offset, 0, "%");
                 write(ctx, ">" + ctx.terminator);
@@ -532,7 +519,7 @@
                 hasDefines,
                 round1k = svgWriterUtils.round1k,
                 preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
-                scale = ctx.config.scale || 1.0,
+                scale = ctx.config.scale || 1,
                 left = round1k(omIn.viewBox.left),
                 top = round1k(omIn.viewBox.top),
                 
