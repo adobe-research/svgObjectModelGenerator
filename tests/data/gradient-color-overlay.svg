@@ -27,6 +27,6 @@
       <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
   </defs>
-  <rect id="rect-1" x="100" y="100" width="400" height="400" class="cls-3"/>
-  <rect id="rect-2" x="550" y="100" width="200" height="200" class="cls-4"/>
+  <rect x="100" y="100" width="400" height="400" class="cls-3"/>
+  <rect x="550" y="100" width="200" height="200" class="cls-4"/>
 </svg>

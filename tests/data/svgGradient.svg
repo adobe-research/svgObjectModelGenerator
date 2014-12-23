@@ -20,6 +20,6 @@
       <stop offset="1" stop-color="#ff7c00"/>
     </linearGradient>
   </defs>
-  <rect id="rect-1" x="300" y="100" width="300" height="150" class="cls-3"/>
-  <rect id="rect-2" x="50" y="350" width="900" height="150" class="cls-4"/>
+  <rect x="300" y="100" width="300" height="150" class="cls-3"/>
+  <rect x="50" y="350" width="900" height="150" class="cls-4"/>
 </svg>

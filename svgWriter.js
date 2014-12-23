@@ -52,7 +52,9 @@
         var useTrick = false;
         
         if (!svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
-            ctx._assignNextId = true;
+            if (useTrick) {
+                ctx._assignNextId = true;
+            }
             ctx.omStylesheet.writePredefines(ctx);
             fn(useTrick);
             return;

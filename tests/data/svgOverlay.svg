@@ -18,5 +18,5 @@
       <feBlend mode="lighten" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
   </defs>
-  <rect id="rect-1" x="100" y="100" width="350" height="150" class="cls-3"/>
+  <rect x="100" y="100" width="350" height="150" class="cls-3"/>
 </svg>

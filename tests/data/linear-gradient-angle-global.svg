@@ -147,16 +147,16 @@
       <stop offset="1" stop-color="#ff0000"/>
     </linearGradient>
   </defs>
-  <rect id="rect-1" x="50" y="50" width="200" height="100" class="cls-3"/>
-  <rect id="rect-2" x="300" y="50" width="200" height="100" class="cls-4"/>
-  <rect id="rect-3" x="550" y="50" width="200" height="100" class="cls-5"/>
-  <rect id="rect-4" x="50" y="200" width="200" height="100" class="cls-6"/>
-  <rect id="rect-5" x="300" y="200" width="200" height="100" class="cls-7"/>
-  <rect id="rect-6" x="550" y="200" width="200" height="100" class="cls-8"/>
-  <rect id="rect-7" x="50" y="350" width="200" height="100" class="cls-9"/>
-  <rect id="rect-8" x="300" y="350" width="200" height="100" class="cls-10"/>
-  <rect id="rect-9" x="556" y="353" width="194" height="98" class="cls-11"/>
-  <rect id="rect-10" x="50" y="500" width="200" height="100" class="cls-12"/>
-  <rect id="rect-11" x="300" y="500" width="200" height="100" class="cls-5"/>
-  <rect id="rect-12" x="550" y="500" width="200" height="100" class="cls-14"/>
+  <rect x="50" y="50" width="200" height="100" class="cls-3"/>
+  <rect x="300" y="50" width="200" height="100" class="cls-4"/>
+  <rect x="550" y="50" width="200" height="100" class="cls-5"/>
+  <rect x="50" y="200" width="200" height="100" class="cls-6"/>
+  <rect x="300" y="200" width="200" height="100" class="cls-7"/>
+  <rect x="550" y="200" width="200" height="100" class="cls-8"/>
+  <rect x="50" y="350" width="200" height="100" class="cls-9"/>
+  <rect x="300" y="350" width="200" height="100" class="cls-10"/>
+  <rect x="556" y="353" width="194" height="98" class="cls-11"/>
+  <rect x="50" y="500" width="200" height="100" class="cls-12"/>
+  <rect x="300" y="500" width="200" height="100" class="cls-5"/>
+  <rect x="550" y="500" width="200" height="100" class="cls-14"/>
 </svg>

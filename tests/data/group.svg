@@ -37,10 +37,10 @@
     </filter>
   </defs>
   <g id="group" class="cls-3">
-    <rect id="rect-1" x="100" y="100" width="200" height="200" class="cls-4"/>
+    <rect x="100" y="100" width="200" height="200" class="cls-4"/>
     <g id="rectangle-2" style="fill: #2ccf26; filter: url(#inner-shadow-1);">
-      <rect id="rect-2" x="200" y="200" width="200" height="200" class="cls-5" style="stroke: inherit; filter: none; fill: inherit;"/>
+      <rect id="rect-1" x="200" y="200" width="200" height="200" class="cls-5" style="stroke: inherit; filter: none; fill: inherit;"/>
     </g>
-    <use xlink:href="#rect-2" style="stroke: #f26522; fill: none; filter: none;"/>
+    <use xlink:href="#rect-1" style="stroke: #f26522; fill: none; filter: none;"/>
   </g>
 </svg>
