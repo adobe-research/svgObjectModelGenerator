@@ -130,4 +130,4 @@
 	module.exports = new SVGWriterStroke();
     
 }());
-     
+

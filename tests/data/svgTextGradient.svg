@@ -22,5 +22,5 @@
       <feBlend mode="normal" in2="SourceGraphic" result="gradientFill"/>
     </filter>
   </defs>
-  <text class="cls-3" x="303px" y="206px"><tspan class="cls-4">This is a text</tspan></text>
+  <text x="303px" y="206px" class="cls-3"><tspan class="cls-4">This is a text</tspan></text>
 </svg>

@@ -54,7 +54,7 @@
   <text class="cls-15"><textPath xlink:href="#text-path-5">
     <tspan class="cls-5">Text on path</tspan>
   </textPath></text>
-  <text class="cls-3" x="100%%"><textPath xlink:href="#text-path-6" startOffset="100%">
+  <text x="100%%" class="cls-3"><textPath xlink:href="#text-path-6" startOffset="100%">
     <tspan x="100%" startOffset="100%" class="cls-20">Text path</tspan>
   </textPath></text>
   <text class="cls-15"><textPath xlink:href="#text-path-7">
@@ -63,7 +63,7 @@
   <text class="cls-3"><textPath xlink:href="#text-path-8">
     <tspan class="cls-5">Text path</tspan>
   </textPath></text>
-  <text class="cls-15" x="100%%"><textPath xlink:href="#text-path-9" startOffset="100%">
+  <text x="100%%" class="cls-15"><textPath xlink:href="#text-path-9" startOffset="100%">
     <tspan x="100%" startOffset="100%" class="cls-20">Text path</tspan>
   </textPath></text>
   <text class="cls-3"><textPath xlink:href="#text-path-10" startOffset="50%">
