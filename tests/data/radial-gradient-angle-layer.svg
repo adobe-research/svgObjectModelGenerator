@@ -60,105 +60,17 @@
       <stop offset="0.84" stop-color="#ffff00"/>
       <stop offset="1" stop-color="#ff0000"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="400" cy="100" r="70.711">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-3" gradientUnits="userSpaceOnUse" cx="650" cy="100" r="100">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-4" gradientUnits="userSpaceOnUse" cx="150" cy="250" r="70.711">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-5" gradientUnits="userSpaceOnUse" cx="400" cy="250" r="50">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-6" gradientUnits="userSpaceOnUse" cx="650" cy="250" r="70.711">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-7" gradientUnits="userSpaceOnUse" cx="150" cy="400" r="100">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-8" gradientUnits="userSpaceOnUse" cx="400" cy="400" r="70.711">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-9" gradientUnits="userSpaceOnUse" cx="653" cy="402" r="97">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-10" gradientUnits="userSpaceOnUse" cx="150" cy="550" r="50">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-11" gradientUnits="userSpaceOnUse" cx="400" cy="550" r="100">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient-12" gradientUnits="userSpaceOnUse" cx="650" cy="550" r="50">
-      <stop offset="0" stop-color="#ff0000"/>
-      <stop offset="0.15" stop-color="#ff00ff"/>
-      <stop offset="0.33" stop-color="#0000ff"/>
-      <stop offset="0.49" stop-color="#00ffff"/>
-      <stop offset="0.67" stop-color="#00ff00"/>
-      <stop offset="0.84" stop-color="#ffff00"/>
-      <stop offset="1" stop-color="#ff0000"/>
-    </radialGradient>
+    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="400" cy="100" r="70.711" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-3" gradientUnits="userSpaceOnUse" cx="650" cy="100" r="100" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-4" gradientUnits="userSpaceOnUse" cx="150" cy="250" r="70.711" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-5" gradientUnits="userSpaceOnUse" cx="400" cy="250" r="50" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-6" gradientUnits="userSpaceOnUse" cx="650" cy="250" r="70.711" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-7" gradientUnits="userSpaceOnUse" cx="150" cy="400" r="100" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-8" gradientUnits="userSpaceOnUse" cx="400" cy="400" r="70.711" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-9" gradientUnits="userSpaceOnUse" cx="653" cy="402" r="97" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-10" gradientUnits="userSpaceOnUse" cx="150" cy="550" r="50" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-11" gradientUnits="userSpaceOnUse" cx="400" cy="550" r="100" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-12" gradientUnits="userSpaceOnUse" cx="650" cy="550" r="50" xlink:href="#radial-gradient-1"/>
   </defs>
   <rect x="50" y="50" width="200" height="100" class="cls-3"/>
   <rect x="300" y="50" width="200" height="100" class="cls-4"/>
