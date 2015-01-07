@@ -14,11 +14,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "linear",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -103,11 +102,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "linear",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -192,11 +190,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "linear",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{

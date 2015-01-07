@@ -36,7 +36,7 @@
         
         this.hasStroke = function (ctx) {
             var omIn = ctx.currentOMNode;
-            if (omIn.style && omIn.style.stroke && omIn.style.stroke.strokeEnabled && omIn.style.stroke.color) {  
+            if (omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none") {  
                 return true;
             }
             return false;
@@ -54,7 +54,7 @@
                 var stroke = omIn.style.stroke;
                 // Make a style for this stroke and reference it.
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-                if (stroke.gradient) {
+                if (stroke.type == "gradient") {
                     var gradientID;
                     if (stroke.gradient.type === "linear") {
                         gradientID = writeLinearGradient(ctx, stroke.gradient, "-stroke");
@@ -108,7 +108,7 @@
                 stroke = node.style.stroke,
                 lineW;
             
-            if (stroke.strokeEnabled) {
+            if (stroke.type != "none") {
                 if (stroke.color) {
                     ifStylesheetDoesNotHaveStyle(ctx, node, "stroke", function () {
                         write(ctx, " stroke=\"" + svgWriterUtils.writeColor(stroke.color) + "\"");

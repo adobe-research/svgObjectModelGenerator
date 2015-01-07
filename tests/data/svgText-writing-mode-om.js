@@ -20,7 +20,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -34,7 +34,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,

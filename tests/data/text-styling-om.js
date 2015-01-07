@@ -18,7 +18,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -32,7 +32,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -90,7 +90,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -104,7 +104,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -162,7 +162,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -176,7 +176,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -235,7 +235,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -249,7 +249,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -307,7 +307,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -321,7 +321,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -379,7 +379,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -393,7 +393,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -451,7 +451,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -465,7 +465,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -523,7 +523,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -537,7 +537,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -595,7 +595,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -609,7 +609,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -667,7 +667,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -681,7 +681,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -738,7 +738,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -752,7 +752,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -809,7 +809,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -823,7 +823,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -880,7 +880,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -894,7 +894,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -951,7 +951,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -965,7 +965,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -1022,7 +1022,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -1036,7 +1036,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -1093,7 +1093,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -1107,7 +1107,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,

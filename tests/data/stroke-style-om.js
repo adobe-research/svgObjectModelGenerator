@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "round",
 					"lineJoin": "miter",
 					"lineWidth": 3,
@@ -49,7 +49,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "round",
 					"lineJoin": "bevel",
 					"lineWidth": 10,
@@ -86,7 +86,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "butt",
 					"lineJoin": "round",
 					"lineWidth": 10,
@@ -121,7 +121,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "butt",
 					"lineJoin": "round",
 					"lineWidth": 3,
@@ -160,7 +160,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineCap": "butt",
 					"lineJoin": "round",
 					"lineWidth": 10,
@@ -232,7 +232,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineCap": "butt",
 					"lineJoin": "round",
 					"lineWidth": 10,
@@ -320,8 +320,7 @@ module.exports = {
 					}
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "radial",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -406,7 +405,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineCap": "round",
 					"lineJoin": "miter",
 					"lineWidth": 20,
@@ -564,7 +563,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineCap": "butt",
 					"lineJoin": "miter",
 					"lineWidth": 20,

@@ -18,7 +18,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fx": {
 					"dropShadow": {
@@ -133,7 +133,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 2.9988,
 										"g": 2.9988,
@@ -162,7 +162,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 2.0043,
 										"g": 65.251953,

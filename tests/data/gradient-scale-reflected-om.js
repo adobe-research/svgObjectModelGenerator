@@ -14,11 +14,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "reflected",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -161,11 +160,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "reflected",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -308,11 +306,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "reflected",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -455,11 +452,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "reflected",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -602,11 +598,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "reflected",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -749,11 +744,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "radial",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{

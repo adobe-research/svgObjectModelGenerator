@@ -18,7 +18,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fx": {
 					"gradientFill": {
@@ -98,7 +98,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 104.998793,
 								"g": 104.998793,
