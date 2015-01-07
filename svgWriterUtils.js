@@ -309,7 +309,7 @@
                     stp;
                 
                 self.write(ctx, ctx.currentIndent + "<path id=\"" + textPathID + "\" ");
-                self.write(ctx, "d=\"" + pathData + "\"/>" + ctx.terminator);
+                self.write(ctx, "d=\"" + Utils.optimisePath(pathData) + "\"/>" + ctx.terminator);
             },
             function (out) {
                 ctx.omStylesheet.define("text-path", omIn.id, textPathID, out, JSON.stringify({ pathData: pathData }));
