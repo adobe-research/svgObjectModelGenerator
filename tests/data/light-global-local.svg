@@ -13,12 +13,12 @@
       }
 
       .cls-5 {
-        fill: #ffffff;
+        fill: #fff;
         filter: url(#inner-shadow-1);
       }
 
       .cls-6 {
-        fill: #ffffff;
+        fill: #fff;
         filter: url(#inner-shadow-2);
       }
     </style>
@@ -26,21 +26,21 @@
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="14.142" dy="14.142"/>
       <feGaussianBlur result="dropShadow" stdDeviation="4.472"/>
-      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feFlood flood-color="#000" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropShadow"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
     <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="-16.383" dy="-11.472"/>
       <feGaussianBlur result="dropShadow" stdDeviation="4.472"/>
-      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feFlood flood-color="#000" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropShadow"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
     <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="14.142" dy="14.142"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="4.472"/>
-      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feFlood flood-color="#000" flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
@@ -48,7 +48,7 @@
     <filter id="inner-shadow-2" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="-16.383" dy="-11.472"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="4.472"/>
-      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feFlood flood-color="#000" flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
