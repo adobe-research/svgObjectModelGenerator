@@ -552,9 +552,9 @@
             var alphaTableValues = "";
         
             colors.forEach(function(color, index, colors) {
-                redTableValues += (color.r / 255.0 + " ");
-                greenTableValues += (color.g / 255.0 + " ");
-                blueTableValues += (color.b / 255.0 + " ");
+                redTableValues += (svgWriterUtils.round10k(color.r / 255) + " ");
+                greenTableValues += (svgWriterUtils.round10k(color.g / 255) + " ");
+                blueTableValues += (svgWriterUtils.round10k(color.b / 255) + " ");
                 alphaTableValues += (color.a + " ");
             });
 
