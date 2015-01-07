@@ -36,13 +36,7 @@
       <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
-    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122">
-      <stop offset="0" stop-color="#0b01b8"/>
-      <stop offset="0.1" stop-color="#0b01b8"/>
-      <stop offset="0.5" stop-color="#fdfa03"/>
-      <stop offset="0.9" stop-color="#0b02aa"/>
-      <stop offset="1" stop-color="#0b02aa"/>
-    </linearGradient>
+    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122" xlink:href="#linear-gradient-1"/>
     <filter id="color-overlay-2" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#9f07b1" flood-opacity="0.5"/>
       <feComposite operator="in" in2="SourceGraphic"/>

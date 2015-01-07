@@ -518,7 +518,6 @@
                 childNode,
                 hasRules,
                 hasDefines,
-                round1k = svgWriterUtils.round1k,
                 preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
                 scale = ctx.config.scale || 1,
                 left = round1k(omIn.viewBox.left),
@@ -550,6 +549,7 @@
             hasDefines = ctx.omStylesheet.hasDefines();
 
             if (hasRules || hasDefines) {
+                svgWriterUtils.gradientStopsReset();
                 write(ctx, ctx.currentIndent + "<defs>" + ctx.terminator);
                 indent(ctx);
                 

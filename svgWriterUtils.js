@@ -134,30 +134,43 @@
             }
         };
 
+        var gradientStops = {};
+        self.gradientStopsReset = function () {
+            gradientStops = {};
+        };
         self.writeLinearGradientInternal = function (ctx, stops, gradientID, scale, coords) {
             var iStop,
                 stp,
                 stpOpacity,
                 position;
             if (stops) {
-                self.write(ctx, ctx.currentIndent + "<linearGradient id=\"" + gradientID + "\"");
-                self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
-                self.write(ctx, " x1=\"" + self.round1k(coords.xa + coords.cx) + "\" y1=\"" + self.round1k(coords.ya + coords.cy) + "\"");
-                self.write(ctx, " x2=\"" + self.round1k(-coords.xa + coords.cx) + "\" y2=\"" + self.round1k(-coords.ya + coords.cy) + "\"");
-                self.write(ctx, ">" + ctx.terminator);
-                self.indent(ctx);
+                self.write(ctx, ctx.currentIndent + '<linearGradient id="' + gradientID + '"');
+                self.write(ctx, ' gradientUnits="userSpaceOnUse"');
+                self.write(ctx, ' x1="' + self.round1k(coords.xa + coords.cx) + '" y1="' + self.round1k(coords.ya + coords.cy) + '"');
+                self.write(ctx, ' x2="' + self.round1k(-coords.xa + coords.cx) + '" y2="' + self.round1k(-coords.ya + coords.cy) + '"');
+                var lines = [];
                 for (iStop = 0; iStop < stops.length; iStop++) {
                     stp = stops[iStop];
                     stpOpacity = '';
-                    position = self.round1k((Math.round(stp.position, 2)/100.0 - 0.5) * scale + 0.5);
+                    position = self.round1k((Math.round(stp.position) / 100 - 0.5) * scale + 0.5);
 
-                    if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
-                        stpOpacity = ' stop-opacity="' + (Math.round(stp.color.a * 100.0, 2)/100.0) + '"';
+                    if (isFinite(stp.color.a) && stp.color.a != 1) {
+                        stpOpacity = ' stop-opacity="' + self.round2(stp.color.a) + '"';
                     }
-                    self.write(ctx, ctx.currentIndent + '<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
+                    lines.push('<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>');
                 }
-                self.undent(ctx);
-                self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
+                if (gradientStops[lines]) {
+                    self.write(ctx, ' xlink:href="#' + gradientStops[lines] + '"/>' + ctx.terminator);
+                } else {
+                    gradientStops[lines] = gradientID;
+                    self.write(ctx, ">" + ctx.terminator);
+                    self.indent(ctx);
+                    for (iStop = 0; iStop < lines.length; iStop++) {
+                        self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                    }
+                    self.undent(ctx);
+                    self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
+                }
             } else {
                 console.warn("encountered gradient with no stops");
             }
@@ -281,29 +294,37 @@
         self.writeRadialGradientInternal = function (ctx, cx, cy, r, gradientID, stops, scale) {
             var iStop,
                 stp,
-                stpOpacity;
+                stpOpacity,
+                lines = [];
 
-            self.write(ctx, ctx.currentIndent + "<radialGradient id=\"" + gradientID + "\"");
-            self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
+            self.write(ctx, ctx.currentIndent + '<radialGradient id="' + gradientID + '"');
+            self.write(ctx, ' gradientUnits="userSpaceOnUse"');
             self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
             self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
             self.writeAttrIfNecessary(ctx, "r", r, "", "");
-            self.write(ctx, ">" + ctx.terminator);
-
-            self.indent(ctx);
 
             for (iStop = 0; iStop < stops.length; iStop++) {
                 stp = stops[iStop];
                 stpOpacity = '';
 
-                if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
-                    stpOpacity = ' stop-opacity="' + Math.round(stp.color.a, 2) + '"';
+                if (isFinite(stp.color.a) && stp.color.a != 1) {
+                    stpOpacity = ' stop-opacity="' + Math.round(stp.color.a) + '"';
                 }
 
-                self.write(ctx, ctx.currentIndent + '<stop offset="' + self.round1k(Math.round(stp.position, 2)/100.0 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
+                lines.push('<stop offset="' + self.round1k(Math.round(stp.position) / 100 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>');
             }
-            self.undent(ctx);
-            self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
+            if (gradientStops[lines]) {
+                self.write(ctx, ' xlink:href="#' + gradientStops[lines] + '"/>' + ctx.terminator);
+            } else {
+                gradientStops[lines] = gradientID;
+                self.write(ctx, ">" + ctx.terminator);
+                self.indent(ctx);
+                for (iStop = 0; iStop < lines.length; iStop++) {
+                    self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                }
+                self.undent(ctx);
+                self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
+            }
         };
         
         self.writeRadialGradient = function (ctx, gradient, flavor) {

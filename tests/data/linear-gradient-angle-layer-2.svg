@@ -24,24 +24,8 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="350" y1="300" x2="450" y2="200">
-      <stop offset="0" stop-color="red"/>
-      <stop offset="0.15" stop-color="#f0f"/>
-      <stop offset="0.33" stop-color="blue"/>
-      <stop offset="0.49" stop-color="aqua"/>
-      <stop offset="0.67" stop-color="lime"/>
-      <stop offset="0.84" stop-color="#ff0"/>
-      <stop offset="1" stop-color="red"/>
-    </linearGradient>
-    <linearGradient id="linear-gradient-3" gradientUnits="userSpaceOnUse" x1="350" y1="525" x2="450" y2="425">
-      <stop offset="0" stop-color="red"/>
-      <stop offset="0.15" stop-color="#f0f"/>
-      <stop offset="0.33" stop-color="blue"/>
-      <stop offset="0.49" stop-color="aqua"/>
-      <stop offset="0.67" stop-color="lime"/>
-      <stop offset="0.84" stop-color="#ff0"/>
-      <stop offset="1" stop-color="red"/>
-    </linearGradient>
+    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="350" y1="300" x2="450" y2="200" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-3" gradientUnits="userSpaceOnUse" x1="350" y1="525" x2="450" y2="425" xlink:href="#linear-gradient-1"/>
   </defs>
   <rect x="200" y="50" width="400" height="100" class="cls-3"/>
   <rect x="350" y="200" width="100" height="100" class="cls-4"/>

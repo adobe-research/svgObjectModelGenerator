@@ -14,11 +14,7 @@
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0">
-      <stop offset="0" stop-color="#0a00b2"/>
-      <stop offset="0.5" stop-color="red"/>
-      <stop offset="1" stop-color="#fffc00"/>
-    </linearGradient>
+    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
   </defs>
   <rect x="50" y="200" width="200" height="200" class="cls-3"/>
   <rect x="300" y="200" width="200" height="200" class="cls-3"/>
