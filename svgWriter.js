@@ -338,7 +338,6 @@
                         }
                     } else if (omIn.style["text-anchor"] === "end") {
                         writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
-                        writeAttrIfNecessary(ctx, "startOffset", "100%", "0%", "");
                         if (isFinite(omIn.position.deltaX)) {
                             writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
                         }
@@ -395,7 +394,7 @@
 
                     
                     if (rightAligned) {
-                        writeAttrIfNecessary(ctx, "x", "100%", 0, "%");
+                        writeAttrIfNecessary(ctx, "x", "100", 0, "%");
                         omIn.position.x = 0;
                         writePositionIfNecessary(ctx, omIn.position);
                     } else {
