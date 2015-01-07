@@ -129,7 +129,8 @@
 
         self.writeTransformIfNecessary = function (ctx, attr, val, tX, tY) {
             if (val) {
-                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(val, tX, tY) + '"');
+                var matrix4x4 = Matrix.createMatrix(val);
+                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(matrix4x4, tX, tY) + '"');
             }
         };
 
