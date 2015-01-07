@@ -15,7 +15,7 @@
       <feFlood flood-color="#d62d2d" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropShadow"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
-      <feFlood flood-color="#ff0000" flood-opacity="0.75"/>
+      <feFlood flood-color="red" flood-opacity="0.75"/>
       <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="lighten" in2="dropShadow" result="colorOverlay"/>
       <feOffset in="SourceAlpha" dx="75" dy="0"/>

@@ -45,24 +45,198 @@ describe('SVGOMGenerator', function (){
         expect(svgOMExpected).to.equal(svgOM);
     });
 
-    it("should be able to OM a group", function (){
+    function compareResults (testName) {
+        var expectedModule,
+            testData = require('./data/' + testName + '-data.js'),
+            svgOMGText = JSON.stringify(OMG.extractSVGOM(testData, { }), null, '\t');
+        try {
+            expectedModule = require('./data/' + testName + '-om.js');
+        } catch (e) {
+            fs.writeFileSync('./tests/data/' + testName + '-om.js', 'module.exports = ' + svgOMGText, 'utf8');
+            console.log('No reference OM document found. New one created as ' + testName + '-om.js');
+            return svgOMGText;
+        }
+        var svgOMExpected = JSON.parse(JSON.stringify(expectedModule)),
+            svgOM = JSON.parse(svgOMGText);
 
-        var testData = require("./data/group-data.js"),
-            svgOMExpected = require("./data/group-om.js"),
-            svgOM = OMG.extractSVGOM(testData, { });
-        // FIXME: This should work and does above. Maybe the Objects are too big?
-        //expect(JSON.stringify(svgOMExpected)).to.eql(JSON.stringify(svgOM));
+        return expect(svgOM).to.eql(svgOMExpected);
+    }
+
+    /**
+     * Test complete Generator JSON to OM extraction
+     **/
+    it("should OM svgFill", function () {
+        compareResults('svgFill');
     });
 
-    it("should be able to OM a text", function (){
-
-        var testData = require("./data/svgText-data.js"),
-            svgOMExpected = require("./data/svgText-om.js"),
-            svgOM = OMG.extractSVGOM(testData, {});
-        
-        //expect(svgOMExpected).to.eql(svgOM);
+    it("should OM gradient-duplicate", function () {
+        compareResults('gradient-duplicate');
     });
 
+    it("should OM AdobeLogo", function () {
+        compareResults('AdobeLogo');
+    });
+
+    it("should OM svgRect.", function () {
+        compareResults('svgRect');
+    });
+
+    it("should OM svgText", function () {
+        compareResults('svgText');
+    });
+
+    it("should OM svgText-align", function () {
+        compareResults('svgText-align');
+    });
+
+    it("should OM svgText-writing-mode", function () {
+        compareResults('svgText-writing-mode');
+    });
+
+    it("should OM svgFx-shadow", function () {
+        compareResults('svgFx-shadow');
+    });
+
+    it("should OM svgFx-shadow-overlay", function () {
+        compareResults('svgFx-shadow-overlay');
+    });
+
+    it("should OM svgOverlay", function () {
+        compareResults('svgOverlay');
+    });
+
+    it("should OM svgGradientOverlay", function () {
+        compareResults('svgGradientOverlay');
+    });
+
+    it("should OM svgGradientOverlay-opacity", function () {
+        compareResults('svgGradientOverlay-opacity');
+    });
+
+    it("should OM svgGradient", function () {
+        compareResults('svgGradient');
+    });
+
+    it("should OM svgTextGradient", function () {
+        compareResults('svgTextGradient');
+    });
+
+    it("should OM svgTextFx", function () {
+        compareResults('svgTextFx');
+    });
+
+    it("should OM svgFx-satin", function () {
+        compareResults('svgFx-satin');
+    });
+
+    it("should OM filter-duplicate", function () {
+        compareResults('filter-duplicate');
+    });
+
+    // FIXME: PSD file missing. Needs to be recreated.
+    // it("should OM svgFx-all", function () {
+    //     compareResults('svgFx-all');
+    // });
+
+    it("should OM pixelImage", function () {
+        compareResults('pixelImage');
+    });
+
+    it("should OM pixelImage-linked", function () {
+        compareResults('pixelImage-linked');
+    });
+
+    it("should OM pixelImage-fx", function () {
+        compareResults('pixelImage-fx');
+    });
+
+    it("should OM outer-glow", function () {
+        compareResults('outer-glow');
+    });
+
+    it("should OM svgFx-inner-glow", function () {
+        compareResults('svgFx-inner-glow');
+    });
+
+    it("should OM svgGradient-radial", function () {
+        compareResults('svgGradient-radial');
+    });
+
+    it("should OM gradient-scale", function () {
+        compareResults('gradient-scale');
+    });
+
+    it("should OM svgGradient-reflected", function () {
+        compareResults('svgGradient-reflected');
+    });
+
+    it("should OM gradient-scale-reflected", function () {
+        compareResults('gradient-scale-reflected');
+    });
+
+    it("should OM gradient-reverse", function () {
+        compareResults('gradient-reverse');
+    });
+
+    it("should OM stroke-style", function () {
+        compareResults('stroke-style');
+    });
+
+    it("should OM group", function () {
+        compareResults('group');
+    });
+
+    it("should OM radial-gradient-angle-layer", function () {
+        compareResults('radial-gradient-angle-layer');
+    });
+
+    it("should OM radial-gradient-angle-global", function () {
+        compareResults('radial-gradient-angle-global');
+    });
+
+    it("should OM linear-gradient-angle-layer", function () {
+        compareResults('linear-gradient-angle-layer');
+    });
+
+    it("should OM linear-gradient-angle-layer-2", function () {
+        compareResults('linear-gradient-angle-layer-2');
+    });
+
+    it("should OM linear-gradient-angle-global", function () {
+        compareResults('linear-gradient-angle-global');
+    });
+
+    it("should OM linear-gradient-angle-global-2", function () {
+        compareResults('linear-gradient-angle-global-2');
+    });
+
+    it("should OM text-styling", function () {
+        compareResults('text-styling');
+    });
+
+    it("should OM text-on-path", function () {
+        compareResults('text-on-path');
+    });
+
+    it("should OM text-transform", function () {
+        compareResults('text-transform');
+    });
+
+    it("should OM light-global-local", function () {
+        compareResults('light-global-local');
+    });
+
+    it("should OM stroke-fx", function () {
+        compareResults('stroke-fx');
+    });
+
+    it("should OM gradient-color-overlay", function () {
+        compareResults('gradient-color-overlay');
+    });
+
+    /**
+     * Test extraction of individual layers
+     **/
     it("should be able to OM a text with a layer spec", function (){
 
         var testData = require("./data/svgText-data.js"),
