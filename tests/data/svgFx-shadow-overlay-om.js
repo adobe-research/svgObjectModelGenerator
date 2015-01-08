@@ -14,10 +14,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 49.63424,
 						"g": 226.000002,

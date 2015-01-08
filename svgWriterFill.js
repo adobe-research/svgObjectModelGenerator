@@ -59,7 +59,7 @@
             }
             fill = omIn.style.fill;
 
-            if (fill.style === "gradient") {
+            if (fill.type === "gradient") {
                 var gradientID;
                 if (fill.gradient.type === "linear") {
                     gradientID = writeLinearGradient(ctx, fill.gradient, "-fill");
@@ -78,7 +78,7 @@
             var node = ctx.currentOMNode,
                 fill = node.style.fill;
             
-            if (node && node.style && node.style.fill && node.style.fill.style === "gradient") {
+            if (node && node.style && node.style.fill && node.style.fill.type === "gradient") {
                 return true;
             }
             return false;
@@ -94,11 +94,11 @@
                 return;
             }
 
-            if (fill.style === "solid") {
+            if (fill.type === "solid") {
                 ifStylesheetDoesNotHaveStyle(ctx, node, "fill", function () {
                     write(ctx, " fill=\"" + svgWriterUtils.writeColor(fill.color) + "\"");
                 });
-            } else if (fill.style === "gradient" && fill.gradient.type === "linear") {
+            } else if (fill.type === "gradient" && fill.gradient.type === "linear") {
                 
                 if (!ctx.hasWritten(node, "linear-gradient-attr")) {
                     ctx.didWrite(node, "linear-gradient-attr");
@@ -110,7 +110,7 @@
                         console.log("WARNING: Gradient without definition found for " + node.id);
                     }
                 }
-            } else if (fill.style === "gradient" && fill.gradient.type === "radial") {
+            } else if (fill.type === "gradient" && fill.gradient.type === "radial") {
                 
                 if (!ctx.hasWritten(node, "radial-gradient-attr")) {
                     ctx.didWrite(node, "radial-gradient-attr");
@@ -122,7 +122,7 @@
                     }
                 }
             } else {
-                console.log("ERROR: Unknown origin of fill style." + fill.style);
+                console.log("ERROR: Unknown origin of fill style." + fill.type);
             }
         };
 	}

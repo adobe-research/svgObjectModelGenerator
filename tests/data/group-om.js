@@ -16,7 +16,7 @@ module.exports = {
 				"opacity": 0.35,
 				"mix-blend-mode": "multiply",
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fx": {
 					"dropShadow": {
@@ -56,7 +56,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"stroke": {
-							"strokeEnabled": true,
+							"type": "color",
 							"lineCap": "butt",
 							"lineJoin": "miter",
 							"lineWidth": 3,
@@ -72,7 +72,7 @@ module.exports = {
 							"opacity": 1
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 43.785993,
 								"g": 207.000003,
@@ -98,7 +98,7 @@ module.exports = {
 					"style": {
 						"opacity": 0.75,
 						"stroke": {
-							"strokeEnabled": true,
+							"type": "color",
 							"lineCap": "butt",
 							"lineJoin": "miter",
 							"lineWidth": 3,
@@ -114,7 +114,7 @@ module.exports = {
 							"opacity": 1
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 43.785993,
 								"g": 207.000003,

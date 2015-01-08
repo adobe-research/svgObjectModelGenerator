@@ -118,7 +118,7 @@
                 }
             }
             
-            if (omIn.style && omIn.style.stroke && omIn.style.stroke.strokeEnabled && omIn.style.stroke.lineWidth) {
+            if (omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" && omIn.style.stroke.lineWidth) {
                 //the shape has a border then we need to bump the bounds up?
                 boundPadLeft = omIn.style.stroke.lineWidth/2.0;
                 boundPadRight = omIn.style.stroke.lineWidth/2.0;

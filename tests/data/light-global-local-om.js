@@ -14,10 +14,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 3,
 						"g": 3,
@@ -78,10 +78,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 3,
 						"g": 3,
@@ -142,10 +142,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 255,
 						"g": 255,
@@ -205,10 +205,10 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 255,
 						"g": 255,

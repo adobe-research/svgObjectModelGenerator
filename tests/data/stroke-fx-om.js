@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,
@@ -29,7 +29,7 @@ module.exports = {
 					"sourceStyle": "outsetFrame"
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 10.44358,
 						"g": 255,
@@ -78,7 +78,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,
@@ -127,7 +127,7 @@ module.exports = {
 					}
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 10.44358,
 						"g": 255,
@@ -253,7 +253,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,
@@ -302,7 +302,7 @@ module.exports = {
 					}
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 10.44358,
 						"g": 255,
@@ -428,7 +428,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,
@@ -509,7 +509,7 @@ module.exports = {
 					}
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 10.44358,
 						"g": 255,
@@ -675,7 +675,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,
@@ -756,7 +756,7 @@ module.exports = {
 					}
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 10.44358,
 						"g": 255,
@@ -922,7 +922,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "gradient",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,
@@ -1003,7 +1003,7 @@ module.exports = {
 					}
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 10.44358,
 						"g": 255,

@@ -18,7 +18,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -32,7 +32,7 @@ module.exports = {
 							"units": "pointsUnit"
 						},
 						"fill": {
-							"style": "solid",
+							"type": "solid",
 							"color": {
 								"r": 3,
 								"g": 3,
@@ -89,7 +89,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -110,7 +110,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -139,7 +139,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 56.813229,
 										"g": 255,
@@ -168,7 +168,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -237,7 +237,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -258,7 +258,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -287,7 +287,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 56.813229,
 										"g": 255,
@@ -316,7 +316,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -345,7 +345,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 255,
 										"g": 2.552529,
@@ -374,7 +374,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -403,7 +403,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -433,7 +433,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -462,7 +462,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -531,7 +531,7 @@ module.exports = {
 					"value": 31.8176
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -552,7 +552,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 255,
 										"g": 2.552529,
@@ -581,7 +581,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -635,7 +635,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 3,
 										"g": 3,
@@ -664,7 +664,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 255,
 										"g": 2.552529,
@@ -693,7 +693,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 2.003891,
 										"g": 255,
@@ -747,7 +747,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 2.003891,
 										"g": 255,
@@ -776,7 +776,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"fill": {
-									"style": "solid",
+									"type": "solid",
 									"color": {
 										"r": 255,
 										"g": 2.552529,

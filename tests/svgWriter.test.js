@@ -178,8 +178,11 @@ describe('svgWriter', function (){
                     constrainToDocBounds: true
                 }, svgWriterErrors);
 
+                fs.writeFileSync("./tests/data/" + testName + "/" + aTestData[i + 1] + '-om.js', JSON.stringify(svgOM, null, '\t'), 'utf8');
+
+
                 try {
-                    exptectedOut = fs.readFileSync(svgFilename, 'utf8');
+                   exptectedOut = fs.readFileSync(svgFilename, 'utf8');
                 } catch(er) {
                     fs.writeFileSync(svgFilename, svgOut, 'utf8');
                     console.log('No reference SVG document found. New one created as ' + aTestData[i + 1] + '.svg');

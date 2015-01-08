@@ -18,7 +18,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [
@@ -80,7 +80,7 @@ module.exports = {
 					"value": 30
 				},
 				"stroke": {
-					"strokeEnabled": false
+					"type": "none"
 				}
 			},
 			"children": [

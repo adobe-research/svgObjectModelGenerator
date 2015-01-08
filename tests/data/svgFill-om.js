@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "butt",
 					"lineJoin": "miter",
 					"lineWidth": 3,
@@ -30,8 +30,7 @@ module.exports = {
 					"opacity": 1
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "linear",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -125,7 +124,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "butt",
 					"lineJoin": "miter",
 					"lineWidth": 3,
@@ -141,8 +140,7 @@ module.exports = {
 					"opacity": 1
 				},
 				"fill": {
-					"style": "gradient",
-					"gradientType": "linear",
+					"type": "gradient",
 					"gradient": {
 						"stops": [
 							{
@@ -236,7 +234,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"strokeEnabled": true,
+					"type": "color",
 					"lineCap": "butt",
 					"lineJoin": "miter",
 					"lineWidth": 6,
@@ -252,7 +250,7 @@ module.exports = {
 					"opacity": 1
 				},
 				"fill": {
-					"style": "solid",
+					"type": "solid",
 					"color": {
 						"r": 145.617382,
 						"g": 38.685375,

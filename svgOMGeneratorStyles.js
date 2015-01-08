@@ -101,9 +101,9 @@
                 };
             
             svgNode.style.stroke = stroke;
-            
+
             if (strokeStyle) {
-                stroke.strokeEnabled = !!strokeStyle.strokeEnabled;
+                stroke.type = !strokeStyle.strokeEnabled ? "none" : "color";
                 stroke.lineCap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
                 stroke.lineJoin = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
                 stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
@@ -114,10 +114,11 @@
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 stroke.pattern = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern) ? "PATTERN-PLACEHOLDER" : undefined;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
+                    stroke.type = "gradient";
                     stroke.gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent);
                 }
             } else {
-                stroke.strokeEnabled = false;
+                stroke.type = "none";
             }
         };
         
@@ -134,19 +135,20 @@
             svgNode.style.fill = fill;
             
             if (fillClass === "solidColorLayer") {
-                fill.style = "solid";
+                fill.type = "solid";
                 fill.color = omgUtils.toColor(fillStyle.color);
             } else if (fillClass == "gradientLayer") {
-                fill.style = "gradient";
-                fill.gradientType = fillStyle.type;
+                fill.type = "gradient";
                 if (fillStyle.gradient) {
                     fill.gradient = omgUtils.toGradient(fillStyle);
                 } else {
                     console.log("WARNING: Unhandled gradient type = " + JSON.stringify(fill));
                 }
             } else if (fillClass === "patternLayer") {
+                fill.type = "pattern";
                 fill.pattern = "PATTERN-PLACEHOLDER";
             } else {
+                fill.type = "none";
                 //unhandled fill
                 console.log("WARNING: Unhandled fill " + fillClass);
             }
@@ -232,7 +234,7 @@
                 svgNode.style.stroke = stroke;
                 
                 if (strokeStyle) {
-                    stroke.strokeEnabled = !!strokeStyle.enabled;
+                    stroke.type = !strokeStyle.enabled ? "none" : "color";
                     stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
                     stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
                     stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
@@ -241,10 +243,11 @@
                     stroke.miterLimit = 100;
                     stroke.sourceStyle = strokeStyle.style;
                     if (strokeStyle.gradient) {
+                        stroke.type = "gradient";
                         stroke.gradient = omgUtils.toGradient(strokeStyle);
                     }
                 } else {
-                    stroke.strokeEnabled = false;
+                    stroke.type = "none";
                 }
             }
         };
@@ -272,10 +275,10 @@
 
         this.addTextChunkStyle = function (span, textStyle) {
             var fontFamily;
-            
+
             if (textStyle.textStyle.color) {
                 span.style["fill"] = {
-                    style: "solid",
+                    type: "solid",
                     color: omgUtils.toColor(textStyle.textStyle.color)
                 };
             }

@@ -37,7 +37,7 @@ describe('SVGWriterFill', function (){
             currentOMNode: {
                 style: {
                     fill: {
-                        style: "gradient"
+                        type: "gradient"
                     }
                 }
             }
@@ -45,7 +45,7 @@ describe('SVGWriterFill', function (){
         
         expect(svgWriterFill.hasGradientFill(goodCTX)).to.equal(true);
         
-        goodCTX.currentOMNode.style.fill.style = "somethingelse";
+        goodCTX.currentOMNode.style.fill.type = "somethingelse";
         expect(svgWriterFill.hasGradientFill(goodCTX)).to.equal(false);
     });
     
@@ -56,7 +56,7 @@ describe('SVGWriterFill', function (){
                 id: 3,
                 style: {
                     fill: {
-                        style: "solid",
+                        type: "solid",
                         color: "rgb(100, 50, 0)"
                     }
                 }
@@ -81,7 +81,7 @@ describe('SVGWriterFill', function (){
                 id: 3,
                 style: {
                     fill: {
-                        style: "gradient",
+                        type: "gradient",
                         gradient: {
                             type: "linear"
                         }
@@ -109,7 +109,7 @@ describe('SVGWriterFill', function (){
                 id: 3,
                 style: {
                     fill: {
-                        style: "gradient",
+                        type: "gradient",
                         gradient: {
                             type: "radial"
                         }
@@ -137,7 +137,7 @@ describe('SVGWriterFill', function (){
                 id: 3,
                 style: {
                     fill: {
-                        style: "frankenstein"
+                        type: "frankenstein"
                     }
                 }
             },
