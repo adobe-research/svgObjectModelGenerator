@@ -103,7 +103,7 @@
             svgNode.style.stroke = stroke;
 
             if (strokeStyle) {
-                stroke.type = !strokeStyle.strokeEnabled ? "none" : "color";
+                stroke.type = !strokeStyle.strokeEnabled ? "none" : "solid";
                 stroke.lineCap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
                 stroke.lineJoin = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
                 stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
@@ -234,7 +234,7 @@
                 svgNode.style.stroke = stroke;
                 
                 if (strokeStyle) {
-                    stroke.type = !strokeStyle.enabled ? "none" : "color";
+                    stroke.type = !strokeStyle.enabled ? "none" : "solid";
                     stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
                     stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
                     stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
