@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "color",
+					"type": "solid",
 					"lineCap": "round",
 					"lineJoin": "miter",
 					"lineWidth": 3,
@@ -49,7 +49,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "color",
+					"type": "solid",
 					"lineCap": "round",
 					"lineJoin": "bevel",
 					"lineWidth": 10,
@@ -86,7 +86,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "color",
+					"type": "solid",
 					"lineCap": "butt",
 					"lineJoin": "round",
 					"lineWidth": 10,
@@ -121,7 +121,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "color",
+					"type": "solid",
 					"lineCap": "butt",
 					"lineJoin": "round",
 					"lineWidth": 3,

@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "color",
+					"type": "solid",
 					"lineWidth": 10,
 					"color": {
 						"r": 0,

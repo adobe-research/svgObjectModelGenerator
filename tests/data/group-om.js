@@ -56,7 +56,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"stroke": {
-							"type": "color",
+							"type": "solid",
 							"lineCap": "butt",
 							"lineJoin": "miter",
 							"lineWidth": 3,
@@ -98,7 +98,7 @@ module.exports = {
 					"style": {
 						"opacity": 0.75,
 						"stroke": {
-							"type": "color",
+							"type": "solid",
 							"lineCap": "butt",
 							"lineJoin": "miter",
 							"lineWidth": 3,
