@@ -281,12 +281,80 @@
         }
 
         self.optimisePath = function (path, precision) {
-            precision = precision == null ? 3 : precision;
+            precision = isFinite(precision) ? precision : 3;
             function isSmall(num) {
                 return Math.abs(num.toFixed(precision)) <= sigma;
             }
             function goodEnough(num) {
                 return Math.abs(num.toFixed(precision - 1)) <= gamma;
+            }
+            function c2l(seg) {
+                if (seg.cmd == "C") {
+                    if (seg.command == "C" && isSmall(seg.rest[0] - seg.x) && isSmall(seg.rest[1] - seg.y) && isSmall(seg.rest[2] - seg.rest[4]) && isSmall(seg.rest[3] - seg.rest[5])) {
+                        seg.command = seg.cmd = "L";
+                        seg.rest = [seg.rest[4], seg.rest[5]];
+                    }
+                    if (seg.command == "c" && seg.rest[0] == 0 && seg.rest[1] == 0 && isSmall(seg.rest[2] - seg.rest[4]) && isSmall(seg.rest[3] - seg.rest[5])) {
+                        seg.command = "l";
+                        seg.cmd = "L";
+                        seg.rest = [seg.rest[4], seg.rest[5]];
+                    }
+                }
+            }
+            function l2h(seg) {
+                if (seg.command == "L" && isSmall(+seg.rest[1] - seg.y)) {
+                    seg.command = seg.cmd = "H";
+                    seg.rest.pop();
+                }
+                if (seg.command == "l" && isSmall(+seg.rest[1])) {
+                    seg.command = "h";
+                    seg.cmd = "H";
+                    seg.rest.pop();
+                }
+            }
+            function l2v(seg) {
+                if (seg.command == "L" && isSmall(+seg.rest[0] - seg.x)) {
+                    seg.command = seg.cmd = "V";
+                    seg.rest.shift();
+                }
+                if (seg.command == "l" && isSmall(+seg.rest[0])) {
+                    seg.command = "v";
+                    seg.cmd = "V";
+                    seg.rest.shift();
+                }
+            }
+            function c2a(segp, seg) {
+                if (seg.cmd == "C") {
+                    var rest = seg.rest,
+                        x = seg.x,
+                        y = seg.y,
+                        arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], rest[4], rest[5]) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, rest[4] + x, rest[5] + y);
+                    // This number 1e5 should be dependant on the dimensions
+                    if (arc && arc.r && arc.r < 1e5) {
+                        seg.command = "A";
+                        seg.rest = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
+                        seg.r = arc.r;
+                        seg.cx = arc.cx;
+                        seg.cy = arc.cy;
+                    }
+                }
+            }
+            function c2s(segp, seg) {
+                if (segp && seg.cmd == "C" && (segp.cmd == "C" || segp.cmd == "S")) {
+                    var prevAnchor = {
+                            x: segp.rest[segp.rest.length - 4] + (segp.type == "rel" ? segp.x : 0),
+                            y: segp.rest[segp.rest.length - 3] + (segp.type == "rel" ? segp.y : 0)
+                        },
+                        anchor = {
+                            x: 2 * seg.x - prevAnchor.x,
+                            y: 2 * seg.y - prevAnchor.y
+                        };
+                    if (goodEnough(seg.rest[0] - anchor.x) && goodEnough(seg.rest[1] - anchor.y)) {
+                        seg.rest.splice(0, 2);
+                        seg.cmd = "S";
+                        seg.command = seg.command == "C" ? "S" : "s";
+                    }
+                }
             }
             var res = "",
                 args = {
@@ -298,118 +366,28 @@
                 gamma = Math.pow(10, 1 - precision),
                 x = 0,
                 y = 0,
+                mx,
+                my,
                 num,
                 prev,
-                nextAnchor;
-            path.replace(/([a-z])\s*([^a-df-z]+)?/ig, function (all, command, rest) {
+                nextAnchor,
+                segs = [];
+            path.replace(/([a-df-z])\s*([^a-df-z]+)?/ig, function (all, command, rest) {
                 if (rest) {
-                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/);
-
+                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/).map(function (x) { return +x; });
                     type = command.toLowerCase() == command ? "rel" : "abs";
-
-                    // Special case for "C" instead of "L"
-                    if (command == "C" && isSmall(rest[0] - x) && isSmall(rest[1] - y) && isSmall(rest[2] - rest[4]) && isSmall(rest[3] - rest[5])) {
-                        command = "L";
-                        rest.splice(0, 4);
+                    if (command.toUpperCase() == "M") {
+                        mx = rest[0];
+                        my = rest[1];
                     }
-                    // Special case if "L" instead of "H"
-                    if (command == "L" && isSmall(+rest[1] - y)) {
-                        command = "H";
-                        rest.pop();
-                    }
-                    // Special case if "L" instead of "V"
-                    if (command == "L" && isSmall(+rest[0] - x)) {
-                        command = "V";
-                        rest.splice(0, 1);
-                    }
-                    // Special case if "C" instead of "A"
-                    if (command.toUpperCase() == "C") {
-                        var arc = type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], rest[4], rest[5]) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, rest[4] + x, rest[5] + y);
-                        // This number 1e5 should be dependant on the dimensions
-                        if (arc && arc.r && arc.r < 1e5) {
-                            command = "A";
-                            rest = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
-                            if (rest[6] == 217.429) {
-                                console.log(command + rest);
-                            }
-                        }
-                    }
-                    // Special case if "C" instead of "S"
-                    if (command.toUpperCase() == "C") {
-                        var X, Y;
-                        if (type == "abs") {
-                            X = +rest[4];
-                            Y = +rest[5];
-                            if (nextAnchor && goodEnough(nextAnchor.x - rest[0]) && goodEnough(nextAnchor.y - rest[1])) {
-                                command = "S";
-                                rest.splice(0, 2);
-                                nextAnchor = {
-                                    x: X - rest[0] + X,
-                                    y: Y - rest[1] + Y
-                                };
-                            } else {
-                                nextAnchor = {
-                                    x: X - rest[2] + X,
-                                    y: Y - rest[3] + Y
-                                };
-                            }
-                        } else {
-                            X += +rest[4];
-                            Y += +rest[5];
-                            if (nextAnchor && goodEnough(nextAnchor.x - rest[0] + x) && goodEnough(nextAnchor.y - rest[1] + y)) {
-                                command = "s";
-                                rest.splice(0, 2);
-                                nextAnchor = {
-                                    x: X + rest[4] - rest[0],
-                                    y: Y + rest[5] - rest[1]
-                                };
-                            } else {
-                                nextAnchor = {
-                                    x: X + rest[4] - rest[2],
-                                    y: Y + rest[5] - rest[3]
-                                };
-                            }
-                        }
-                    } else if (command.toUpperCase() == "S") {
-                        if (type == "abs") {
-                            nextAnchor = {
-                                x: rest[0],
-                                y: rest[1]
-                            };
-                        } else {
-                            nextAnchor = {
-                                x: +rest[0] + x,
-                                y: +rest[1] + y
-                            };
-                        }
-                    } else {
-                        nextAnchor = null;
-                    }
-
-                    args.abs = args.rel = "";
-                    for (var i = 0, ii = rest.length; i < ii; i++) if (isFinite(rest[i])) {
-                        num = +(+rest[i]).toFixed(precision);
-                        if (Math.abs(num - ~~num) < sigma) {
-                            num = ~~num;
-                        }
-                        args[type] += num < 0 || !i ? num : "," + num;
-                        switch (command.toUpperCase()) {
-                            case "M":
-                            case "L":
-                            case "C":
-                            case "S":
-                            case "Q":
-                            case "T":
-                            case "H":
-                                num += (i % 2 ? y : x) * (type == "abs" ? -1 : 1);
-                                break;
-                            case "V":
-                                num += y * (type == "abs" ? -1 : 1);
-                                break;
-                        }
-                        num = +num.toFixed(precision);
-                        args[type == "abs" ? "rel" : "abs"] += num < 0 || !i ? num : "," + num;
-                    }
+                    segs.push({
+                        command: command,
+                        cmd: command.toUpperCase(),
+                        rest: rest,
+                        type: type,
+                        x: x,
+                        y: y
+                    });
                     switch (command.toUpperCase()) {
                         case "M":
                         case "C":
@@ -418,15 +396,68 @@
                         case "S":
                         case "A":
                         case "L":
-                            x = (x * type == "rel") + +rest[rest.length - 2];
-                            y = (y * type == "rel") + +rest[rest.length - 1];
+                            x = (x * type == "rel") + rest[rest.length - 2];
+                            y = (y * type == "rel") + rest[rest.length - 1];
                             break;
                         case "H":
-                            x = (x * type == "rel") + +rest[0];
+                            x = (x * type == "rel") + rest[0];
                             break;
                         case "V":
-                            y = (y * type == "rel") + +rest[0];
+                            y = (y * type == "rel") + rest[0];
                             break;
+                    }
+                } else {
+                    segs.push({
+                        command: command
+                    });
+                    x = mx;
+                    y = my;
+                }
+            });
+            for (var i = 0, ii = segs.length; i < ii; i++) {
+
+                // Special case for "C" instead of "L"
+                c2l(segs[i]);
+                // Special case if "L" instead of "H"
+                l2h(segs[i]);
+                // Special case if "L" instead of "V"
+                l2v(segs[i]);
+                // Special case if "C" instead of "A"
+                c2a(segs[i - 1], segs[i]);
+                // Special case if "C" instead of "S"
+                c2s(segs[i - 1], segs[i], goodEnough);
+
+                var command = segs[i].command,
+                    rest = segs[i].rest,
+                    type = segs[i].type,
+                    x = segs[i].x,
+                    y = segs[i].y,
+                    mul = type == "abs" ? -1 : 1;
+
+                args.abs = args.rel = "";
+                if (rest) {
+                    for (var j = 0, jj = rest.length; j < jj; j++) if (isFinite(rest[j])) {
+                        num = +rest[j].toFixed(precision);
+                        if (Math.abs(num - ~~num) < sigma) {
+                            num = ~~num;
+                        }
+                        args[type] += num < 0 || !j ? num : "," + num;
+                        switch (command.toUpperCase()) {
+                            case "M":
+                            case "L":
+                            case "C":
+                            case "S":
+                            case "Q":
+                            case "T":
+                            case "H":
+                                num += (j % 2 ? y : x) * mul;
+                                break;
+                            case "V":
+                                num += y * mul;
+                                break;
+                        }
+                        num = +num.toFixed(precision);
+                        args[type == "abs" ? "rel" : "abs"] += num < 0 || !j ? num : "," + num;
                     }
 
                     if (args.abs.length <= args.rel.length) {
@@ -449,7 +480,7 @@
                     res += "Z";
                     prev = "Z";
                 }
-            });
+            }
             return res;
         };
         self.safeRound = safeRound;
