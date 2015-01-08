@@ -127,14 +127,12 @@ describe('svgWriter', function (){
         }
         
         function compareResults (testName) {
-            var testData,
-                svgOM,
+            var svgOM,
                 exptectedOut;
             
-            testData = require("./data/" + testName + "-data.js"),
-            svgOM = OMG.extractSVGOM(testData, { }),
+            svgOM = require("./data/" + testName + "-om.js");
             svgOut = svgWriter.printSVG(svgOM);
-            
+
             try {
                 exptectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
             } catch (e) {
@@ -167,19 +165,19 @@ describe('svgWriter', function (){
                 omOpt = { layerSpec: aTestData[i] };
                 testData = require("./data/" + testName + "/" + aTestData[i + 1] + "-data.js");
                 svgFilename = "./tests/data/" + testName + "/" + aTestData[i + 1] + ".svg";
-                    
+
                 scale = aTestData[i + 2];
                 svgWriterErrors = [];
-                
+
                 svgOM = OMG.extractSVGOM(testData, omOpt);
-                
+
                 svgOut = svgWriter.printSVG(svgOM, {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
                     scale: scale,
                     constrainToDocBounds: true
                 }, svgWriterErrors);
-                
+
                 try {
                     exptectedOut = fs.readFileSync(svgFilename, 'utf8');
                 } catch(er) {
@@ -189,7 +187,7 @@ describe('svgWriter', function (){
                 }
 
                 handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], exptectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
-                
+
                 expect(svgOut).to.equal(exptectedOut);
             }
             return svgOut;

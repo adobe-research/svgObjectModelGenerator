@@ -338,7 +338,6 @@
                         }
                     } else if (omIn.style["text-anchor"] === "end") {
                         writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
-                        writeAttrIfNecessary(ctx, "startOffset", "100%", "0%", "");
                         if (isFinite(omIn.position.deltaX)) {
                             writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
                         }
@@ -395,7 +394,7 @@
 
                     
                     if (rightAligned) {
-                        writeAttrIfNecessary(ctx, "x", "100%", 0, "%");
+                        writeAttrIfNecessary(ctx, "x", "100", 0, "%");
                         omIn.position.x = 0;
                         writePositionIfNecessary(ctx, omIn.position);
                     } else {
@@ -519,7 +518,6 @@
                 childNode,
                 hasRules,
                 hasDefines,
-                round1k = svgWriterUtils.round1k,
                 preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
                 scale = ctx.config.scale || 1,
                 left = round1k(omIn.viewBox.left),
@@ -551,6 +549,7 @@
             hasDefines = ctx.omStylesheet.hasDefines();
 
             if (hasRules || hasDefines) {
+                svgWriterUtils.gradientStopsReset();
                 write(ctx, ctx.currentIndent + "<defs>" + ctx.terminator);
                 indent(ctx);
                 

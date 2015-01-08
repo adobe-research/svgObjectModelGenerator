@@ -3,7 +3,7 @@
     <style>
 
       .cls-3, .cls-4 {
-        stroke: #000000;
+        stroke: #000;
         stroke-width: 3px;
       }
 
@@ -32,17 +32,11 @@
       <stop offset="1" stop-color="#0b02aa"/>
     </linearGradient>
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
-      <feFlood flood-color="#ff0000" flood-opacity="0.5"/>
+      <feFlood flood-color="red" flood-opacity="0.5"/>
       <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
     </filter>
-    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122">
-      <stop offset="0" stop-color="#0b01b8"/>
-      <stop offset="0.1" stop-color="#0b01b8"/>
-      <stop offset="0.5" stop-color="#fdfa03"/>
-      <stop offset="0.9" stop-color="#0b02aa"/>
-      <stop offset="1" stop-color="#0b02aa"/>
-    </linearGradient>
+    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="205.5" y1="287" x2="205.5" y2="122" xlink:href="#linear-gradient-1"/>
     <filter id="color-overlay-2" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#9f07b1" flood-opacity="0.5"/>
       <feComposite operator="in" in2="SourceGraphic"/>
@@ -52,10 +46,10 @@
   <g id="ellipsesvg" style="fill: url(#linear-gradient-1); filter: url(#color-overlay-1);">
     <circle id="circle-1" cx="137" cy="145" r="83" class="cls-3" style="stroke: inherit; filter: none; fill: inherit;"/>
   </g>
-  <use xlink:href="#circle-1" style="stroke: #000000; fill: none; filter: none;"/>
+  <use xlink:href="#circle-1" style="stroke: #000; fill: none; filter: none;"/>
   <g id="gelipse" style="fill: url(#linear-gradient-2); filter: url(#color-overlay-2);">
     <circle id="circle-2" cx="206" cy="205" r="83" class="cls-4" style="stroke: inherit; filter: none; fill: inherit;"/>
   </g>
-  <use xlink:href="#circle-2" style="stroke: #000000; fill: none; filter: none;"/>
+  <use xlink:href="#circle-2" style="stroke: #000; fill: none; filter: none;"/>
   <ellipse cx="234" cy="45" rx="41" ry="36" class="cls-5"/>
 </svg>

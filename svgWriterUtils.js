@@ -52,11 +52,11 @@
     
         self.writeLength = function (val) {
             var length = Math.round(val);
-            return (length)?(length+"px"):"0";
+            return length ? length + "px" : "0";
         };
 
         self.componentToHex = function (c) {
-            var rnd = Math.round(c, 0),
+            var rnd = Math.round(c),
                 hex = Number(rnd).toString(16);
             return hex.length == 1 ? "0" + hex : hex;
         };
@@ -67,13 +67,54 @@
 
         self.px = Utils.px;
     
+        var colorNames = {
+            "#fa8072": "salmon",
+            "#ff0000": "red",
+            "#ffc0cb": "pink",
+            "#ff7f50": "coral",
+            "#ff6347": "tomato",
+            "#ffa500": "orange",
+            "#ffd700": "gold",
+            "#f0e68c": "khaki",
+            "#dda0dd": "plum",
+            "#ee82ee": "violet",
+            "#da70d6": "orchid",
+            "#800080": "purple",
+            "#4b0082": "indigo",
+            "#00ff00": "lime",
+            "#008000": "green",
+            "#808000": "olive",
+            "#008080": "teal",
+            "#00ffff": "aqua",
+            "#0000ff": "blue",
+            "#000080": "navy",
+            "#ffe4c4": "bisque",
+            "#f5deb3": "wheat",
+            "#d2b48c": "tan",
+            "#cd853f": "peru",
+            "#a0522d": "sienna",
+            "#a52a2a": "brown",
+            "#800000": "maroon",
+            "#fffafa": "snow",
+            "#f0ffff": "azure",
+            "#f5f5dc": "beige",
+            "#fffff0": "ivory",
+            "#faf0e6": "linen",
+            "#c0c0c0": "silver",
+            "#808080": "gray"
+        };
         self.writeColor = function (val) {
             var color;
             val = val || "transparent";
-            if (typeof val === "string") {
+            if (typeof val == "string") {
                 color = val;
             } else {
                 color = self.rgbToHex(val.r, val.g, val.b);
+            }
+            if (colorNames[color]) {
+                color = colorNames[color];
+            } else {
+                color = color.replace(/^#(.)\1(.)\2(.)\3$/, "#$1$2$3");
             }
 
             return color;
@@ -82,40 +123,54 @@
         self.writeAttrIfNecessary = function (ctx, attr, val, def, unit) {
             unit = unit || "";
             if (String(val) !== String(def)) {
-                self.write(ctx, " " + attr + "=\"" + val + unit + "\"");
+                self.write(ctx, " " + attr + '="' + val + unit + '"');
             }
         };
 
         self.writeTransformIfNecessary = function (ctx, attr, val, tX, tY) {
             if (val) {
-                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(val, tX, tY) + '"');
+                var matrix4x4 = Matrix.createMatrix(val);
+                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(matrix4x4, tX, tY) + '"');
             }
         };
 
+        var gradientStops = {};
+        self.gradientStopsReset = function () {
+            gradientStops = {};
+        };
         self.writeLinearGradientInternal = function (ctx, stops, gradientID, scale, coords) {
             var iStop,
                 stp,
                 stpOpacity,
                 position;
             if (stops) {
-                self.write(ctx, ctx.currentIndent + "<linearGradient id=\"" + gradientID + "\"");
-                self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
-                self.write(ctx, " x1=\"" + self.round1k(coords.xa + coords.cx) + "\" y1=\"" + self.round1k(coords.ya + coords.cy) + "\"");
-                self.write(ctx, " x2=\"" + self.round1k(-coords.xa + coords.cx) + "\" y2=\"" + self.round1k(-coords.ya + coords.cy) + "\"");
-                self.write(ctx, ">" + ctx.terminator);
-                self.indent(ctx);
+                self.write(ctx, ctx.currentIndent + '<linearGradient id="' + gradientID + '"');
+                self.write(ctx, ' gradientUnits="userSpaceOnUse"');
+                self.write(ctx, ' x1="' + self.round1k(coords.xa + coords.cx) + '" y1="' + self.round1k(coords.ya + coords.cy) + '"');
+                self.write(ctx, ' x2="' + self.round1k(-coords.xa + coords.cx) + '" y2="' + self.round1k(-coords.ya + coords.cy) + '"');
+                var lines = [];
                 for (iStop = 0; iStop < stops.length; iStop++) {
                     stp = stops[iStop];
                     stpOpacity = '';
-                    position = self.round1k((Math.round(stp.position, 2)/100.0 - 0.5) * scale + 0.5);
+                    position = self.round1k((Math.round(stp.position) / 100 - 0.5) * scale + 0.5);
 
-                    if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
-                        stpOpacity = ' stop-opacity="' + (Math.round(stp.color.a * 100.0, 2)/100.0) + '"';
+                    if (isFinite(stp.color.a) && stp.color.a != 1) {
+                        stpOpacity = ' stop-opacity="' + self.round2(stp.color.a) + '"';
                     }
-                    self.write(ctx, ctx.currentIndent + '<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
+                    lines.push('<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>');
                 }
-                self.undent(ctx);
-                self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
+                if (gradientStops[lines]) {
+                    self.write(ctx, ' xlink:href="#' + gradientStops[lines] + '"/>' + ctx.terminator);
+                } else {
+                    gradientStops[lines] = gradientID;
+                    self.write(ctx, ">" + ctx.terminator);
+                    self.indent(ctx);
+                    for (iStop = 0; iStop < lines.length; iStop++) {
+                        self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                    }
+                    self.undent(ctx);
+                    self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
+                }
             } else {
                 console.warn("encountered gradient with no stops");
             }
@@ -239,29 +294,37 @@
         self.writeRadialGradientInternal = function (ctx, cx, cy, r, gradientID, stops, scale) {
             var iStop,
                 stp,
-                stpOpacity;
+                stpOpacity,
+                lines = [];
 
-            self.write(ctx, ctx.currentIndent + "<radialGradient id=\"" + gradientID + "\"");
-            self.write(ctx, " gradientUnits=\"userSpaceOnUse\"");
+            self.write(ctx, ctx.currentIndent + '<radialGradient id="' + gradientID + '"');
+            self.write(ctx, ' gradientUnits="userSpaceOnUse"');
             self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
             self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
             self.writeAttrIfNecessary(ctx, "r", r, "", "");
-            self.write(ctx, ">" + ctx.terminator);
-
-            self.indent(ctx);
 
             for (iStop = 0; iStop < stops.length; iStop++) {
                 stp = stops[iStop];
                 stpOpacity = '';
 
-                if (isFinite(stp.color.a) && stp.color.a !== 1.0) {
-                    stpOpacity = ' stop-opacity="' + Math.round(stp.color.a, 2) + '"';
+                if (isFinite(stp.color.a) && stp.color.a != 1) {
+                    stpOpacity = ' stop-opacity="' + Math.round(stp.color.a) + '"';
                 }
 
-                self.write(ctx, ctx.currentIndent + '<stop offset="' + self.round1k(Math.round(stp.position, 2)/100.0 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>' + ctx.terminator);
+                lines.push('<stop offset="' + self.round1k(Math.round(stp.position) / 100 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>');
             }
-            self.undent(ctx);
-            self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
+            if (gradientStops[lines]) {
+                self.write(ctx, ' xlink:href="#' + gradientStops[lines] + '"/>' + ctx.terminator);
+            } else {
+                gradientStops[lines] = gradientID;
+                self.write(ctx, ">" + ctx.terminator);
+                self.indent(ctx);
+                for (iStop = 0; iStop < lines.length; iStop++) {
+                    self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                }
+                self.undent(ctx);
+                self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
+            }
         };
         
         self.writeRadialGradient = function (ctx, gradient, flavor) {
@@ -309,7 +372,7 @@
                     stp;
                 
                 self.write(ctx, ctx.currentIndent + "<path id=\"" + textPathID + "\" ");
-                self.write(ctx, "d=\"" + pathData + "\"/>" + ctx.terminator);
+                self.write(ctx, "d=\"" + Utils.optimisePath(pathData) + "\"/>" + ctx.terminator);
             },
             function (out) {
                 ctx.omStylesheet.define("text-path", omIn.id, textPathID, out, JSON.stringify({ pathData: pathData }));

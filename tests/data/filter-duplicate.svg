@@ -11,23 +11,23 @@
       }
 
       .cls-4 {
-        fill: #0000ff;
+        fill: blue;
       }
 
       .cls-5 {
-        fill: #ff00ff;
+        fill: #f0f;
       }
     </style>
 
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
       <feGaussianBlur result="dropShadow" stdDeviation="2.236"/>
-      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feFlood flood-color="#000" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropShadow"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
       <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="2.236"/>
-      <feFlood flood-color="#000000" flood-opacity="0.75"/>
+      <feFlood flood-color="#000" flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>

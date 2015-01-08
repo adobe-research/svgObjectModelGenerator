@@ -15,10 +15,7 @@
       <stop offset="0" stop-color="#290a59"/>
       <stop offset="1" stop-color="#ff7c00"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="500" cy="375" r="500">
-      <stop offset="0" stop-color="#290a59"/>
-      <stop offset="1" stop-color="#ff7c00"/>
-    </radialGradient>
+    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="500" cy="375" r="500" xlink:href="#radial-gradient-1"/>
   </defs>
   <rect x="300" y="100" width="300" height="150" class="cls-3"/>
   <rect x="50" y="350" width="900" height="150" class="cls-4"/>
