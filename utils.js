@@ -331,11 +331,28 @@
                         arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], rest[4], rest[5]) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, rest[4] + x, rest[5] + y);
                     // This number 1e5 should be dependant on the dimensions
                     if (arc && arc.r && arc.r < 1e5) {
-                        seg.command = "A";
+                        if (segp.r && Math.abs(segp.r - arc.r) < .5 && Math.abs(segp.cx - arc.cx) < .5 && Math.abs(segp.cy - arc.cy) < .5) {
+                            segp.command = "A";
+                            segp.a += arc.a;
+                            if (Math.abs(segp.a) >= 360) {
+                                segp.rest[5] = segp.cx * 2 - segp.x;
+                                segp.rest[6] = segp.cy * 2 - segp.y;
+                                seg.command = seg.cmd = "A";
+                                seg.rest = [segp.r, segp.r, 0, 0, arc.f2, rest[4], rest[5]];
+                                return;
+                            }
+                            segp.rest[3] = +(Math.abs(segp.a) > 180);
+                            segp.rest[4] = +(segp.a > 0);
+                            segp.rest[5] = rest[4];
+                            segp.rest[6] = rest[5];
+                            return "unite";
+                        }
+                        seg.command = seg.cmd = "A";
                         seg.rest = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
                         seg.r = arc.r;
                         seg.cx = arc.cx;
                         seg.cy = arc.cy;
+                        seg.a = arc.a;
                     }
                 }
             }
@@ -414,7 +431,7 @@
                     y = my;
                 }
             });
-            for (var i = 0, ii = segs.length; i < ii; i++) {
+            for (var i = 0; i < segs.length; i++) {
 
                 // Special case for "C" instead of "L"
                 c2l(segs[i]);
@@ -423,10 +440,15 @@
                 // Special case if "L" instead of "V"
                 l2v(segs[i]);
                 // Special case if "C" instead of "A"
-                c2a(segs[i - 1], segs[i]);
+                if (c2a(segs[i - 1], segs[i]) == "unite") {
+                    segs.splice(i, 1);
+                    i--;
+                }
                 // Special case if "C" instead of "S"
                 c2s(segs[i - 1], segs[i], goodEnough);
+            }
 
+            for (i = 0; i < segs.length; i++) {
                 var command = segs[i].command,
                     rest = segs[i].rest,
                     type = segs[i].type,
@@ -455,6 +477,14 @@
                             case "V":
                                 num += y * mul;
                                 break;
+                            case "A":
+                                if (j == 5) {
+                                    num += x * mul;
+                                }
+                                if (j == 6) {
+                                    num += y * mul;
+                                }
+                                break;
                         }
                         num = +num.toFixed(precision);
                         args[type == "abs" ? "rel" : "abs"] += num < 0 || !j ? num : "," + num;
@@ -468,7 +498,7 @@
                     if (prev != command && (prev != "M" || command != "L")) {
                         res += command;
                     } else {
-                        res += +(+rest[0]).toFixed(precision) < 0 ? "" : ",";
+                        res += +rest[0].toFixed(precision) < 0 ? "" : ",";
                     }
                     prev = command;
                     if (args.abs.length <= args.rel.length) {
