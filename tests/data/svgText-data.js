@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406488106.351,
-    "count": 8,
-    "id": 1405,
+    "version": "1.2.0",
+    "timeStamp": 1421238286.261,
+    "count": 2,
+    "id": 1765,
     "file": "svgText.psd",
     "bounds": {
         "top": 0,
@@ -120,6 +120,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -131,10 +133,27 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MinionPro-Regular",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
                                 "red": 255,
-                                "green": 2.552529,
-                                "blue": 44.618676
+                                "green": 2.55255,
+                                "blue": 44.6199
                             }
                         }
                     },
@@ -148,10 +167,27 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MinionPro-Regular",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -165,10 +201,27 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MinionPro-Regular",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
                                 "red": 255,
-                                "green": 2.552529,
-                                "blue": 44.618676
+                                "green": 2.55255,
+                                "blue": 44.6199
                             }
                         }
                     },
@@ -182,10 +235,27 @@ module.exports = {
                                 "value": 10,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MinionPro-Regular",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 2.003891,
+                                "red": 2.0043,
                                 "green": 255,
-                                "blue": 162.233465
+                                "blue": 162.233541
                             }
                         }
                     },
@@ -199,10 +269,27 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MinionPro-Regular",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
                                 "red": 255,
-                                "green": 2.552529,
-                                "blue": 44.618676
+                                "green": 2.55255,
+                                "blue": 44.6199
                             }
                         }
                     }
@@ -212,21 +299,87 @@ module.exports = {
                         "from": 0,
                         "to": 8,
                         "paragraphStyle": {
-                            "align": "left"
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "kashidaWidthType": "kashidaWidthMedium"
                         }
                     },
                     {
                         "from": 8,
                         "to": 15,
                         "paragraphStyle": {
-                            "align": "left"
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "kashidaWidthType": "kashidaWidthMedium"
                         }
                     },
                     {
                         "from": 15,
                         "to": 23,
                         "paragraphStyle": {
-                            "align": "left"
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
                 ]
@@ -332,6 +485,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -343,10 +498,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -360,10 +531,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 56.813229,
+                                "red": 56.814,
                                 "green": 255,
-                                "blue": 2.003891
+                                "blue": 2.0043
                             }
                         }
                     },
@@ -377,10 +564,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -394,10 +597,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
                                 "red": 255,
-                                "green": 2.552529,
-                                "blue": 44.618676
+                                "green": 2.55255,
+                                "blue": 44.6199
                             }
                         }
                     },
@@ -411,10 +630,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -428,10 +663,27 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MyriadPro-BoldCond",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -445,10 +697,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -462,10 +730,27 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "fontPostScriptName": "MinionPro-Regular",
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     }
@@ -475,7 +760,29 @@ module.exports = {
                         "from": 0,
                         "to": 23,
                         "paragraphStyle": {
-                            "align": "left"
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
                 ]
@@ -581,6 +888,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -592,10 +901,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     },
@@ -609,10 +934,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 56.813229,
+                                "red": 56.814,
                                 "green": 255,
-                                "blue": 2.003891
+                                "blue": 2.0043
                             }
                         }
                     },
@@ -626,10 +967,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     }
@@ -639,7 +996,29 @@ module.exports = {
                         "from": 0,
                         "to": 23,
                         "paragraphStyle": {
-                            "align": "left"
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
                 ]
@@ -745,6 +1124,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -756,10 +1137,26 @@ module.exports = {
                                 "value": 31.8176,
                                 "units": "pointsUnit"
                             },
+                            "baselineDirection": "withStream",
+                            "textLanguage": "ukenglishLanguage",
+                            "japaneseAlternate": "defaultForm",
+                            "lineWidth": {
+                                "value": 0.5,
+                                "units": "pointsUnit"
+                            },
+                            "miterLimit": {
+                                "value": 2,
+                                "units": "pointsUnit"
+                            },
+                            "contextualLigatures": true,
+                            "markYDistFromBaseline": {
+                                "value": 50,
+                                "units": "pointsUnit"
+                            },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             }
                         }
                     }
@@ -769,7 +1166,29 @@ module.exports = {
                         "from": 0,
                         "to": 23,
                         "paragraphStyle": {
-                            "align": "left"
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
                 ]

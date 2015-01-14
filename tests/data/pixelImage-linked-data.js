@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406871781.541,
-    "count": 5,
-    "id": 1275,
+    "version": "1.2.0",
+    "timeStamp": 1421236803.628,
+    "count": 2,
+    "id": 1498,
     "file": "pixelImage-linked.psd",
     "bounds": {
         "top": 0,
@@ -35,8 +35,8 @@ module.exports = {
             "clipped": false,
             "generatorSettings": false,
             "smartObject": {
-                "ID": "3428e6f7-5960-1177-ba9e-c6142306e07b",
-                "placed": "3428e6f6-5960-1177-ba9e-c6142306e07b",
+                "ID": "3f63506e-5960-1177-ba9e-c6142306e07b",
+                "placed": "3f63506d-5960-1177-ba9e-c6142306e07b",
                 "antiAliasType": 16,
                 "type": 2,
                 "transform": [
@@ -51,7 +51,7 @@ module.exports = {
                 ],
                 "comp": -1
             },
-            "rawPixel": "data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwD////eW+jDAAAAAWJLR0QB/wIt3gAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC"
+            "rawPixel": "data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwAAAADe5c7RAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC"
         },
         {
             "id": 1,

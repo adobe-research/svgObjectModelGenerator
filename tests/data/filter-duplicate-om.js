@@ -86,10 +86,10 @@ module.exports = {
 			"children": [],
 			"layerName": "Rectangle 1",
 			"boundsWithFX": {
-				"top": 200,
-				"left": 49,
-				"bottom": 409,
-				"right": 258
+				"top": 196,
+				"left": 41,
+				"bottom": 405,
+				"right": 250
 			},
 			"shape": "rect",
 			"shapeBounds": {
@@ -177,10 +177,10 @@ module.exports = {
 			"children": [],
 			"layerName": "Rectangle 2",
 			"boundsWithFX": {
-				"top": 200,
-				"left": 299,
-				"bottom": 409,
-				"right": 508
+				"top": 196,
+				"left": 291,
+				"bottom": 405,
+				"right": 500
 			},
 			"shape": "rect",
 			"shapeBounds": {
@@ -268,10 +268,10 @@ module.exports = {
 			"children": [],
 			"layerName": "Rectangle 3",
 			"boundsWithFX": {
-				"top": 200,
-				"left": 549,
-				"bottom": 409,
-				"right": 758
+				"top": 196,
+				"left": 541,
+				"bottom": 405,
+				"right": 750
 			},
 			"shape": "rect",
 			"shapeBounds": {

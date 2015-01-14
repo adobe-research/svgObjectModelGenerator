@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407361679.192,
+    "version": "1.2.0",
+    "timeStamp": 1421236630.412,
     "count": 2,
-    "id": 1313,
+    "id": 1368,
     "file": "light-global-local.psd",
     "bounds": {
         "top": 0,
@@ -82,6 +82,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 700,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 700,
+                                            "y": 500.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 500.000024
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -165,6 +197,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 500.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 500.000024
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -249,6 +313,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 79.999995
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 700,
+                                            "y": 79.999995
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 700,
+                                            "y": 229.999995
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 229.999995
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -333,6 +429,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 82.999992
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 82.999992
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 232.999992
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 232.999992
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

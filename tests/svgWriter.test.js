@@ -133,13 +133,13 @@ describe('svgWriter', function (){
             svgOM = require("./data/" + testName + "-om.js");
             svgOut = svgWriter.printSVG(svgOM);
 
-            try {
-                exptectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
-            } catch (e) {
+            // try {
+            //     exptectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
+            // } catch (e) {
                 fs.writeFileSync('./tests/data/' + testName + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
-            }
+            // }
             
             handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
             

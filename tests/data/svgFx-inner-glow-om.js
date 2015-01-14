@@ -107,7 +107,7 @@ module.exports = {
 						"antiAlias": false,
 						"innerGlowSource": "edgeGlow",
 						"transferSpec": {
-							"name": "$$$/Contours/Defaults/HalfRound=Half Round"
+							"name": "Half Round"
 						},
 						"inputRange": {
 							"value": 50,

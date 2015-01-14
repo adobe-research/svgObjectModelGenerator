@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406962698.827,
-    "count": 7,
-    "id": 1958,
+    "version": "1.2.0",
+    "timeStamp": 1421238178.956,
+    "count": 2,
+    "id": 1723,
     "file": "svgGradient-reflected.psd",
     "bounds": {
         "top": 0,
@@ -36,7 +36,7 @@ module.exports = {
             "fill": {
                 "dither": true,
                 "angle": {
-                    "value": 215,
+                    "value": 35,
                     "units": "angleUnit"
                 },
                 "type": "reflected",
@@ -92,6 +92,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 50.000012,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 949.999988,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 949.999988,
+                                            "y": 500.000015
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 50.000012,
+                                            "y": 500.000015
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -184,6 +216,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 300.000012,
+                                            "y": 99.999994
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600.000024,
+                                            "y": 99.999994
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600.000024,
+                                            "y": 250.00003
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300.000012,
+                                            "y": 250.00003
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

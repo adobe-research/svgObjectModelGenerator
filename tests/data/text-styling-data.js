@@ -1,9 +1,9 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407181991.07,
-    "count": 54,
-    "id": 1230,
-    "file": "text.psd",
+    "version": "1.2.0",
+    "timeStamp": 1421238379.815,
+    "count": 2,
+    "id": 1825,
+    "file": "text-styling.psd",
     "bounds": {
         "top": 0,
         "left": 0,
@@ -120,6 +120,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -149,9 +151,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -164,6 +166,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -270,6 +292,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -299,9 +323,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1,
                             "tracking": -100
@@ -315,6 +339,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -421,6 +465,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -450,9 +496,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1,
                             "tracking": 200
@@ -466,6 +512,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -572,6 +638,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -605,9 +673,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -620,6 +688,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -726,6 +814,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -755,9 +845,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1,
                             "horizontalScale": 200,
@@ -772,6 +862,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -878,6 +988,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -907,9 +1019,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1,
                             "horizontalScale": 200
@@ -923,6 +1035,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1029,6 +1161,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1059,9 +1193,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -1074,6 +1208,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1180,6 +1334,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1210,9 +1366,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -1225,6 +1381,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1331,6 +1507,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1361,9 +1539,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -1376,6 +1554,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1482,6 +1680,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1512,9 +1712,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -1527,6 +1727,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1633,6 +1853,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1663,9 +1885,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -1678,6 +1900,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1784,6 +2026,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1814,9 +2058,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -1829,6 +2073,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1935,6 +2199,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1964,9 +2230,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1,
                             "underline": "underlineOnLeftInVertical"
@@ -1980,6 +2246,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -2086,6 +2372,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -2115,9 +2403,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -2130,6 +2418,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -2236,6 +2544,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -2265,9 +2575,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -2280,6 +2590,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -2386,6 +2716,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -2415,9 +2747,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 3,
-                                "green": 3,
-                                "blue": 3
+                                "red": 2.9988,
+                                "green": 2.9988,
+                                "blue": 2.9988
                             },
                             "fontTechnology": 1
                         }
@@ -2430,6 +2762,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }

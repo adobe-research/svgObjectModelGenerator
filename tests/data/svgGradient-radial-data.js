@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406928833.052,
-    "count": 7,
-    "id": 1687,
+    "version": "1.2.0",
+    "timeStamp": 1421238158.23,
+    "count": 3,
+    "id": 1662,
     "file": "svgGradient-radial.psd",
     "bounds": {
         "top": 0,
@@ -88,6 +88,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 50.000012,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 949.999988,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 949.999988,
+                                            "y": 500.000015
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 50.000012,
+                                            "y": 500.000015
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -176,6 +208,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 300.000012,
+                                            "y": 99.999994
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600.000024,
+                                            "y": 99.999994
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600.000024,
+                                            "y": 250.00003
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300.000012,
+                                            "y": 250.00003
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

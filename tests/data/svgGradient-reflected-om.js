@@ -125,7 +125,7 @@ module.exports = {
 						],
 						"scale": 1,
 						"type": "linear",
-						"angle": 215,
+						"angle": 35,
 						"gradientSpace": "userSpaceOnUse"
 					}
 				}

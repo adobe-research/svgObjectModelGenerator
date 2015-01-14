@@ -45,9 +45,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -69,7 +69,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 46 75 C 46 75 209 75 209 75"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -128,9 +128,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -152,7 +152,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 55 303 C 55 303 81 256 81 256 C 81 256 118 293 118 293 C 118 293 147 264 147 264"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -211,9 +211,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -235,7 +235,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 41 400 C 105.813 326.531 108.234 327.586 154 402"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -294,9 +294,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -318,7 +318,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 37 447 C 37 447 66 447 66 447 C 66 447 88 447 88 447 C 88 447 114 447 114 447 C 114 447 143 447 143 447 C 143 447 173 447 173 447"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text",
@@ -379,9 +379,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -403,7 +403,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 714 66 C 565.227 214.773 714 173.852 714 380"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text on path",
@@ -464,9 +464,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -488,7 +488,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 282 78 C 282 78 470 78 470 78"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -549,9 +549,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -573,7 +573,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 296 220 C 296 220 467 220 467 220"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -632,9 +632,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -656,7 +656,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 310 366 C 410.875 288.625 444.211 286.211 524 366"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -719,9 +719,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -743,7 +743,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 312 449 C 312 449 496 449 496 449"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -804,9 +804,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -828,7 +828,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 273 133 C 273 133 466 133 466 133"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path",
@@ -887,9 +887,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -911,7 +911,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 191 127 C 191 127 46 127 46 127"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path ",
@@ -970,9 +970,9 @@ module.exports = {
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
+										"r": 0.12495,
+										"g": 2.9988,
+										"b": 0.02295,
 										"a": 1
 									}
 								},
@@ -994,7 +994,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"
+					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN"
 				}
 			],
 			"layerName": "Text path ",

@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407362210.409,
+    "version": "1.2.0",
+    "timeStamp": 1421238045.316,
     "count": 2,
-    "id": 1340,
+    "id": 1656,
     "file": "svgFx-shadow-overlay.psd",
     "bounds": {
         "top": 0,
@@ -131,6 +131,126 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 110,
+                                            "y": 100
+                                        },
+                                        "forward": {
+                                            "x": 110,
+                                            "y": 100
+                                        },
+                                        "backward": {
+                                            "x": 104.477173,
+                                            "y": 100
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 390,
+                                            "y": 100
+                                        },
+                                        "forward": {
+                                            "x": 395.522888,
+                                            "y": 100
+                                        },
+                                        "backward": {
+                                            "x": 390,
+                                            "y": 100
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 400,
+                                            "y": 110
+                                        },
+                                        "forward": {
+                                            "x": 400,
+                                            "y": 110
+                                        },
+                                        "backward": {
+                                            "x": 400,
+                                            "y": 104.477173
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 400,
+                                            "y": 240
+                                        },
+                                        "forward": {
+                                            "x": 400,
+                                            "y": 245.522888
+                                        },
+                                        "backward": {
+                                            "x": 400,
+                                            "y": 240
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 390,
+                                            "y": 250
+                                        },
+                                        "forward": {
+                                            "x": 390,
+                                            "y": 250
+                                        },
+                                        "backward": {
+                                            "x": 395.522888,
+                                            "y": 250
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 110,
+                                            "y": 250
+                                        },
+                                        "forward": {
+                                            "x": 104.477173,
+                                            "y": 250
+                                        },
+                                        "backward": {
+                                            "x": 110,
+                                            "y": 250
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 100,
+                                            "y": 240
+                                        },
+                                        "forward": {
+                                            "x": 100,
+                                            "y": 240
+                                        },
+                                        "backward": {
+                                            "x": 100,
+                                            "y": 245.522888
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 100,
+                                            "y": 110
+                                        },
+                                        "forward": {
+                                            "x": 100,
+                                            "y": 104.477173
+                                        },
+                                        "backward": {
+                                            "x": 100,
+                                            "y": 110
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "radii": [
                                 10,
