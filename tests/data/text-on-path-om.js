@@ -69,7 +69,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 46 75 C 46 75 209 75 209 75"
 				}
 			],
 			"layerName": "Text path",
@@ -152,7 +152,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 55 303 C 55 303 81 256 81 256 C 81 256 118 293 118 293 C 118 293 147 264 147 264"
 				}
 			],
 			"layerName": "Text path",
@@ -235,7 +235,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 41 400 C 105.813 326.531 108.234 327.586 154 402"
 				}
 			],
 			"layerName": "Text path",
@@ -318,7 +318,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 37 447 C 37 447 66 447 66 447 C 66 447 88 447 88 447 C 88 447 114 447 114 447 C 114 447 143 447 143 447 C 143 447 173 447 173 447"
 				}
 			],
 			"layerName": "Text",
@@ -403,7 +403,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 714 66 C 565.227 214.773 714 173.852 714 380"
 				}
 			],
 			"layerName": "Text on path",
@@ -488,7 +488,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 282 78 C 282 78 470 78 470 78"
 				}
 			],
 			"layerName": "Text path",
@@ -573,7 +573,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 296 220 C 296 220 467 220 467 220"
 				}
 			],
 			"layerName": "Text path",
@@ -656,7 +656,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 310 366 C 410.875 288.625 444.211 286.211 524 366"
 				}
 			],
 			"layerName": "Text path",
@@ -743,7 +743,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 312 449 C 312 449 496 449 496 449"
 				}
 			],
 			"layerName": "Text path",
@@ -828,7 +828,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 273 133 C 273 133 466 133 466 133"
 				}
 			],
 			"layerName": "Text path",
@@ -911,7 +911,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 191 127 C 191 127 46 127 46 127"
 				}
 			],
 			"layerName": "Text path ",
@@ -994,7 +994,7 @@ module.exports = {
 							}
 						}
 					],
-					"pathData": "M NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN C NaN NaN NaN NaN NaN NaN"
+					"pathData": "M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"
 				}
 			],
 			"layerName": "Text path ",
