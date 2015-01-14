@@ -48,26 +48,28 @@
                 controlPoint,
                 lastPoint;
             
+
+            // TODO: Generator 1.2.0 added units to path data. Figure out why.
             if (isBoxMode) {
                 if (boxOrientation === "horizontal") {
                     points = [listKey.points[3], listKey.points[1]];
                 } else {
                     points = [listKey.points[2], listKey.points[0]];
                 }
-                pathData = 'M ' + round1k(points[0].anchor.horizontal) + ' ' + round1k(points[0].anchor.vertical);
-                pathData += 'L ' + round1k(points[1].anchor.horizontal) + ' ' + round1k(points[1].anchor.vertical);
+                pathData = 'M ' + round1k(points[0].anchor.horizontal.value) + ' ' + round1k(points[0].anchor.vertical.value);
+                pathData += 'L ' + round1k(points[1].anchor.horizontal.value) + ' ' + round1k(points[1].anchor.vertical.value);
             } else {
                 points = listKey.points;
             
                 for (; points && i < points.length; ++i) {
                     if (!i) {
-                        pathData = 'M ' + round1k(points[i].anchor.horizontal) + ' ' + round1k(points[i].anchor.vertical);
+                        pathData = 'M ' + round1k(points[i].anchor.horizontal.value) + ' ' + round1k(points[i].anchor.vertical.value);
                     } else {
                         lastPoint = points[i-1].forward ? points[i-1].forward : points[i-1].anchor;
-                        pathData += " C " + round1k(lastPoint.horizontal) + " " + round1k(lastPoint.vertical) + " ";
+                        pathData += " C " + round1k(lastPoint.horizontal.value) + " " + round1k(lastPoint.vertical.value) + " ";
                         controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
-                        pathData += round1k(controlPoint.horizontal) + " " + round1k(controlPoint.vertical) + " ";
-                        pathData += round1k(points[i].anchor.horizontal) + " " + round1k(points[i].anchor.vertical);
+                        pathData += round1k(controlPoint.horizontal.value) + " " + round1k(controlPoint.vertical.value) + " ";
+                        pathData += round1k(points[i].anchor.horizontal.value) + " " + round1k(points[i].anchor.vertical.value);
                     }
                 }
                 if (closedSubpath) {
