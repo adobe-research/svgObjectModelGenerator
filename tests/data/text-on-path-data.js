@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407762704.61,
-    "count": 143,
-    "id": 1123,
+    "version": "1.2.0",
+    "timeStamp": 1421238363.303,
+    "count": 2,
+    "id": 1774,
     "file": "text-on-path.psd",
     "bounds": {
         "top": 0,
@@ -93,44 +93,86 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 52,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 52,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 72,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 72,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 92,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 92,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 119,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 119,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 143,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 143,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 168,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 168,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 187,
-                                                        "vertical": 189
+                                                        "horizontal": {
+                                                            "value": 187,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 189,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -140,7 +182,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.245107,
+                            "saturation": 0.24511,
                             "end": 6
                         },
                         "char": "onACurve",
@@ -180,6 +222,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -201,9 +245,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -216,6 +260,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     },
@@ -225,6 +289,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -304,14 +388,26 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 191,
-                                                        "vertical": 127
+                                                        "horizontal": {
+                                                            "value": 191,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 127,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 46,
-                                                        "vertical": 127
+                                                        "horizontal": {
+                                                            "value": 46,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 127,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -361,6 +457,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -382,9 +480,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -397,6 +495,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     },
@@ -406,6 +524,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -485,14 +623,26 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 273,
-                                                        "vertical": 133
+                                                        "horizontal": {
+                                                            "value": 273,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 133,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 466,
-                                                        "vertical": 133
+                                                        "horizontal": {
+                                                            "value": 466,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 133,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -502,7 +652,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.197747,
+                            "saturation": 0.19775,
                             "end": 1
                         },
                         "char": "onACurve",
@@ -542,6 +692,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -563,9 +715,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -655,14 +807,26 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 312,
-                                                        "vertical": 449
+                                                        "horizontal": {
+                                                            "value": 312,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 449,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 496,
-                                                        "vertical": 449
+                                                        "horizontal": {
+                                                            "value": 496,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 449,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -672,7 +836,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.145914,
+                            "saturation": 0.14591,
                             "end": 1
                         },
                         "char": "onACurve",
@@ -712,6 +876,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -733,9 +899,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -825,31 +991,67 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 310,
-                                                        "vertical": 366
+                                                        "horizontal": {
+                                                            "value": 310,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 366,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "forward": {
-                                                        "horizontal": 410.875,
-                                                        "vertical": 288.625
+                                                        "horizontal": {
+                                                            "value": 410.875,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 288.625,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "backward": {
-                                                        "horizontal": 310,
-                                                        "vertical": 366
+                                                        "horizontal": {
+                                                            "value": 310,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 366,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "smooth": false
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 524,
-                                                        "vertical": 366
+                                                        "horizontal": {
+                                                            "value": 524,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 366,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "forward": {
-                                                        "horizontal": 603.789062,
-                                                        "vertical": 445.789062
+                                                        "horizontal": {
+                                                            "value": 603.789062,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 445.789062,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "backward": {
-                                                        "horizontal": 444.210938,
-                                                        "vertical": 286.210938
+                                                        "horizontal": {
+                                                            "value": 444.210938,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 286.210938,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "smooth": true
                                                 }
@@ -860,7 +1062,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.036609,
+                            "saturation": 0.03661,
                             "end": 1
                         },
                         "char": "onACurve",
@@ -900,6 +1102,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -921,9 +1125,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -936,6 +1140,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1015,14 +1239,26 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 296,
-                                                        "vertical": 220
+                                                        "horizontal": {
+                                                            "value": 296,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 220,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 467,
-                                                        "vertical": 220
+                                                        "horizontal": {
+                                                            "value": 467,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 220,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -1032,7 +1268,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.185042,
+                            "saturation": 0.18504,
                             "end": 1
                         },
                         "char": "onACurve",
@@ -1072,6 +1308,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1093,9 +1331,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -1108,6 +1346,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1187,14 +1445,26 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 282,
-                                                        "vertical": 78
+                                                        "horizontal": {
+                                                            "value": 282,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 78,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 470,
-                                                        "vertical": 78
+                                                        "horizontal": {
+                                                            "value": 470,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 78,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -1244,6 +1514,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1265,9 +1537,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -1357,31 +1629,67 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 714,
-                                                        "vertical": 66
+                                                        "horizontal": {
+                                                            "value": 714,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 66,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "forward": {
-                                                        "horizontal": 565.226562,
-                                                        "vertical": 214.773438
+                                                        "horizontal": {
+                                                            "value": 565.226562,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 214.773438,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "backward": {
-                                                        "horizontal": 714,
-                                                        "vertical": 66
+                                                        "horizontal": {
+                                                            "value": 714,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 66,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "smooth": false
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 714,
-                                                        "vertical": 380
+                                                        "horizontal": {
+                                                            "value": 714,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 380,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "forward": {
-                                                        "horizontal": 714,
-                                                        "vertical": 586.148438
+                                                        "horizontal": {
+                                                            "value": 714,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 586.148438,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "backward": {
-                                                        "horizontal": 714,
-                                                        "vertical": 173.851562
+                                                        "horizontal": {
+                                                            "value": 714,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 173.851562,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "smooth": true
                                                 }
@@ -1392,7 +1700,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.027998,
+                            "saturation": 0.028,
                             "end": 1
                         },
                         "char": "onACurve",
@@ -1432,6 +1740,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1453,9 +1763,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -1468,6 +1778,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1547,38 +1877,74 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 37,
-                                                        "vertical": 447
+                                                        "horizontal": {
+                                                            "value": 37,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 447,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 66,
-                                                        "vertical": 447
+                                                        "horizontal": {
+                                                            "value": 66,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 447,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 88,
-                                                        "vertical": 447
+                                                        "horizontal": {
+                                                            "value": 88,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 447,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 114,
-                                                        "vertical": 447
+                                                        "horizontal": {
+                                                            "value": 114,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 447,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 143,
-                                                        "vertical": 447
+                                                        "horizontal": {
+                                                            "value": 143,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 447,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 173,
-                                                        "vertical": 447
+                                                        "horizontal": {
+                                                            "value": 173,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 447,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -1588,7 +1954,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 2.526266,
+                            "saturation": 2.52627,
                             "end": 5
                         },
                         "char": "onACurve",
@@ -1628,6 +1994,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1649,9 +2017,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -1664,6 +2032,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1743,31 +2131,67 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 41,
-                                                        "vertical": 400
+                                                        "horizontal": {
+                                                            "value": 41,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 400,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "forward": {
-                                                        "horizontal": 105.8125,
-                                                        "vertical": 326.53125
+                                                        "horizontal": {
+                                                            "value": 105.8125,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 326.53125,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "backward": {
-                                                        "horizontal": 41,
-                                                        "vertical": 400
+                                                        "horizontal": {
+                                                            "value": 41,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 400,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "smooth": false
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 154,
-                                                        "vertical": 402
+                                                        "horizontal": {
+                                                            "value": 154,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 402,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "forward": {
-                                                        "horizontal": 199.765625,
-                                                        "vertical": 476.414062
+                                                        "horizontal": {
+                                                            "value": 199.765617,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 476.414062,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "backward": {
-                                                        "horizontal": 108.234375,
-                                                        "vertical": 327.585938
+                                                        "horizontal": {
+                                                            "value": 108.234383,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 327.585938,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     },
                                                     "smooth": true
                                                 }
@@ -1778,7 +2202,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.045336,
+                            "saturation": 0.04534,
                             "end": 1
                         },
                         "char": "onACurve",
@@ -1818,6 +2242,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -1839,9 +2265,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -1854,6 +2280,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -1933,26 +2379,50 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 55,
-                                                        "vertical": 303
+                                                        "horizontal": {
+                                                            "value": 55,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 303,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 81,
-                                                        "vertical": 256
+                                                        "horizontal": {
+                                                            "value": 81,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 256,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 118,
-                                                        "vertical": 293
+                                                        "horizontal": {
+                                                            "value": 118,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 293,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 147,
-                                                        "vertical": 264
+                                                        "horizontal": {
+                                                            "value": 147,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 264,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -1962,7 +2432,7 @@ module.exports = {
                             ]
                         },
                         "tRange": {
-                            "saturation": 0.227227,
+                            "saturation": 0.22723,
                             "end": 3
                         },
                         "char": "onACurve",
@@ -2002,6 +2472,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -2023,9 +2495,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -2038,6 +2510,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }
@@ -2117,14 +2609,26 @@ module.exports = {
                                             "points": [
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 46,
-                                                        "vertical": 75
+                                                        "horizontal": {
+                                                            "value": 46,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 75,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 },
                                                 {
                                                     "anchor": {
-                                                        "horizontal": 209,
-                                                        "vertical": 75
+                                                        "horizontal": {
+                                                            "value": 209,
+                                                            "units": "distanceUnit"
+                                                        },
+                                                        "vertical": {
+                                                            "value": 75,
+                                                            "units": "distanceUnit"
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -2174,6 +2678,8 @@ module.exports = {
                         "pathTypeSpacing": 0
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -2195,9 +2701,9 @@ module.exports = {
                                 "units": "pointsUnit"
                             },
                             "color": {
-                                "red": 0.124514,
-                                "green": 3,
-                                "blue": 0.023346
+                                "red": 0.12495,
+                                "green": 2.9988,
+                                "blue": 0.02295
                             },
                             "fontTechnology": 1
                         }
@@ -2210,6 +2716,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }

@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407505473.899,
-    "count": 30,
-    "id": 1116,
+    "version": "1.2.0",
+    "timeStamp": 1421237986.029,
+    "count": 2,
+    "id": 1635,
     "file": "svgFx-inner-glow.psd",
     "bounds": {
         "top": 0,
@@ -91,6 +91,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 650,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 650,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -257,7 +289,7 @@ module.exports = {
                     "antiAlias": false,
                     "innerGlowSource": "edgeGlow",
                     "transferSpec": {
-                        "name": "$$$/Contours/Defaults/HalfRound=Half Round"
+                        "name": "Half Round"
                     },
                     "inputRange": {
                         "value": 50,
@@ -268,6 +300,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 150,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 350,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 350,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 150,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

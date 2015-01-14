@@ -23,7 +23,7 @@
       }
 
       .cls-8 {
-        fill: url(#radial-gradient-1);
+        fill: url(#linear-gradient-6);
       }
     </style>
 
@@ -62,15 +62,7 @@
     </linearGradient>
     <linearGradient id="linear-gradient-4" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-5" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
-    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="400">
-      <stop offset="0" stop-color="red"/>
-      <stop offset="0.225" stop-color="#f0f"/>
-      <stop offset="0.495" stop-color="blue"/>
-      <stop offset="0.735" stop-color="aqua"/>
-      <stop offset="1.005" stop-color="lime"/>
-      <stop offset="1.26" stop-color="#ff0"/>
-      <stop offset="1.5" stop-color="red"/>
-    </radialGradient>
+    <linearGradient id="linear-gradient-6" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
   <rect x="50" y="50" width="200" height="100" class="cls-3"/>
   <rect x="300" y="50" width="200" height="100" class="cls-4"/>

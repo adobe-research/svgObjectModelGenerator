@@ -3,9 +3,9 @@
     <style>
 
       .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
-        fill: #0aff02;
         stroke-linejoin: round;
         stroke-width: 10px;
+        fill: none;
       }
 
       .cls-3 {

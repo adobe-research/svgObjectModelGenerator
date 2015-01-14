@@ -1,9 +1,9 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407932550.275,
-    "count": 21,
-    "id": 1908,
-    "file": "/Users/dschulze/Downloads/plugins/svgesus-psds/gradient-duplicate.psd",
+    "version": "1.2.0",
+    "timeStamp": 1421236505.489,
+    "count": 2,
+    "id": 1265,
+    "file": "gradient-duplicate.psd",
     "bounds": {
         "top": 0,
         "left": 0,
@@ -203,6 +203,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 550,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 750,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 750,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 550,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -407,6 +439,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -611,6 +675,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 250,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 250,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
