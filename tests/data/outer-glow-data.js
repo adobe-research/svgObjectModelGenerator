@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406923892.565,
-    "count": 6,
-    "id": 1657,
+    "version": "1.2.0",
+    "timeStamp": 1421236725.802,
+    "count": 2,
+    "id": 1485,
     "file": "outer-glow.psd",
     "bounds": {
         "top": 0,
@@ -134,7 +134,7 @@ module.exports = {
                     },
                     "antiAlias": false,
                     "transferSpec": {
-                        "name": "$$$/Contours/Defaults/HalfRound=Half Round"
+                        "name": "Half Round"
                     },
                     "inputRange": {
                         "value": 50,
@@ -145,6 +145,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 236.000013,
+                                            "y": 189.999998
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 384.99999,
+                                            "y": 189.999998
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 384.99999,
+                                            "y": 303.999996
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 236.000013,
+                                            "y": 303.999996
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

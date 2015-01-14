@@ -98,7 +98,7 @@ module.exports = {
 						},
 						"antiAlias": false,
 						"transferSpec": {
-							"name": "$$$/Contours/Defaults/HalfRound=Half Round"
+							"name": "Half Round"
 						},
 						"inputRange": {
 							"value": 50,

@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406878257.458,
-    "count": 8,
-    "id": 1272,
+    "version": "1.2.0",
+    "timeStamp": 1421236765.461,
+    "count": 2,
+    "id": 1491,
     "file": "pixelImage.psd",
     "bounds": {
         "top": 0,
@@ -51,7 +51,7 @@ module.exports = {
                 ],
                 "comp": -1
             },
-            "rawPixel": "data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwD////eW+jDAAAAAWJLR0QB/wIt3gAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC"
+            "rawPixel": "data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwAAAADe5c7RAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC"
         },
         {
             "id": 1,

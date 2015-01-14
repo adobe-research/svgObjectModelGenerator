@@ -1,9 +1,9 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406836528.248,
-    "count": 8,
-    "id": 1179,
-    "file": "Untitled-2",
+    "version": "1.2.0",
+    "timeStamp": 1421238001.13,
+    "count": 2,
+    "id": 1644,
+    "file": "svgFx-satin.psd",
     "bounds": {
         "top": 0,
         "left": 0,
@@ -77,6 +77,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 225
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 225
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 375
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 375
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

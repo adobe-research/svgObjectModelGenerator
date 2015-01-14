@@ -23,5 +23,5 @@
       <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>
     </filter>
   </defs>
-  <rect x="100" y="100" width="300" height="150" rx="10" ry="10" class="cls-3"/>
+  <path d="M110,100H390a10,10,0,0,1,10,10V240a10,10,0,0,1-10,10H110a10,10,0,0,1-10-10V110a10,10,0,0,1,10-10Z" class="cls-3" fill-rule="evenodd"/>
 </svg>

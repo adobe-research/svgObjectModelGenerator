@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1406736449.935,
+    "version": "1.2.0",
+    "timeStamp": 1421238345.027,
     "count": 2,
-    "id": 2005,
+    "id": 1771,
     "file": "svgTextGradient.psd",
     "bounds": {
         "top": 0,
@@ -218,6 +218,8 @@ module.exports = {
                         }
                     }
                 ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
                 "textStyleRange": [
                     {
                         "from": 0,
@@ -260,6 +262,26 @@ module.exports = {
                         "paragraphStyle": {
                             "align": "left",
                             "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedStartIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedEndIndent": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceBefore": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
+                            "impliedSpaceAfter": {
+                                "value": 0,
+                                "units": "pointsUnit"
+                            },
                             "kashidaWidthType": "kashidaWidthMedium"
                         }
                     }

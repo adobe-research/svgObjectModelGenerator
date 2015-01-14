@@ -28,15 +28,6 @@ module.exports = {
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame"
 				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 10.44358,
-						"g": 255,
-						"b": 2.003891,
-						"a": 1
-					}
-				},
 				"fx": {
 					"frameFX": {
 						"enabled": true,
@@ -124,15 +115,6 @@ module.exports = {
 						"type": "linear",
 						"angle": 0,
 						"gradientSpace": "objectBoundingBox"
-					}
-				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 10.44358,
-						"g": 255,
-						"b": 2.003891,
-						"a": 1
 					}
 				},
 				"fx": {
@@ -299,15 +281,6 @@ module.exports = {
 						"type": "linear",
 						"angle": 0,
 						"gradientSpace": "objectBoundingBox"
-					}
-				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 10.44358,
-						"g": 255,
-						"b": 2.003891,
-						"a": 1
 					}
 				},
 				"fx": {
@@ -506,15 +479,6 @@ module.exports = {
 						"type": "linear",
 						"angle": 45,
 						"gradientSpace": "objectBoundingBox"
-					}
-				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 10.44358,
-						"g": 255,
-						"b": 2.003891,
-						"a": 1
 					}
 				},
 				"fx": {
@@ -755,15 +719,6 @@ module.exports = {
 						"gradientSpace": "userSpaceOnUse"
 					}
 				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 10.44358,
-						"g": 255,
-						"b": 2.003891,
-						"a": 1
-					}
-				},
 				"fx": {
 					"frameFX": {
 						"enabled": true,
@@ -1000,15 +955,6 @@ module.exports = {
 						"type": "radial",
 						"angle": 45,
 						"gradientSpace": "userSpaceOnUse"
-					}
-				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 10.44358,
-						"g": 255,
-						"b": 2.003891,
-						"a": 1
 					}
 				},
 				"fx": {

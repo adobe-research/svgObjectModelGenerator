@@ -1,9 +1,9 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407931837.992,
-    "count": 35,
-    "id": 1758,
-    "file": "filter-duplicate",
+    "version": "1.2.0",
+    "timeStamp": 1421236304.465,
+    "count": 2,
+    "id": 1240,
+    "file": "filter-duplicate.psd",
     "bounds": {
         "top": 0,
         "left": 0,
@@ -32,10 +32,10 @@ module.exports = {
                 "right": 750
             },
             "boundsWithFX": {
-                "top": 200,
-                "left": 549,
-                "bottom": 409,
-                "right": 758
+                "top": 196,
+                "left": 541,
+                "bottom": 405,
+                "right": 750
             },
             "visible": true,
             "clipped": false,
@@ -112,6 +112,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 550,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 750,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 750,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 550,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -145,10 +177,10 @@ module.exports = {
                 "right": 500
             },
             "boundsWithFX": {
-                "top": 200,
-                "left": 299,
-                "bottom": 409,
-                "right": 508
+                "top": 196,
+                "left": 291,
+                "bottom": 405,
+                "right": 500
             },
             "visible": true,
             "clipped": false,
@@ -225,6 +257,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -258,10 +322,10 @@ module.exports = {
                 "right": 250
             },
             "boundsWithFX": {
-                "top": 200,
-                "left": 49,
-                "bottom": 409,
-                "right": 258
+                "top": 196,
+                "left": 41,
+                "bottom": 405,
+                "right": 250
             },
             "visible": true,
             "clipped": false,
@@ -338,6 +402,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 250,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 250,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 50,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

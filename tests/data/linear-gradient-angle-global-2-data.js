@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1407363488.093,
-    "count": 9,
-    "id": 1349,
+    "version": "1.2.0",
+    "timeStamp": 1421236645.175,
+    "count": 2,
+    "id": 1383,
     "file": "linear-gradient-angle-global-2.psd",
     "bounds": {
         "top": 0,
@@ -142,6 +142,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 350,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 350.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 600
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 350,
+                                            "y": 600
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -285,6 +317,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 350,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 450,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 350,
+                                            "y": 300
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -428,6 +492,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 50.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600,
+                                            "y": 50.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600,
+                                            "y": 150
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 150
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {

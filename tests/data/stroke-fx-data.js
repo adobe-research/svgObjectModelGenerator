@@ -1,8 +1,8 @@
 module.exports = {
-    "version": "1.1.0",
-    "timeStamp": 1409175887.225,
-    "count": 53,
-    "id": 1131,
+    "version": "1.2.0",
+    "timeStamp": 1421236891.755,
+    "count": 2,
+    "id": 1579,
     "file": "stroke-fx.psd",
     "bounds": {
         "top": 0,
@@ -46,6 +46,38 @@ module.exports = {
                     "blue": 2.003891
                 },
                 "class": "solidColorLayer"
+            },
+            "strokeStyle": {
+                "strokeStyleVersion": 2,
+                "strokeEnabled": false,
+                "fillEnabled": false,
+                "strokeStyleLineWidth": {
+                    "value": 3,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleLineDashOffset": {
+                    "value": 0,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleMiterLimit": 100,
+                "strokeStyleLineCapType": "strokeStyleButtCap",
+                "strokeStyleLineJoinType": "strokeStyleMiterJoin",
+                "strokeStyleLineAlignment": "strokeStyleAlignInside",
+                "strokeStyleScaleLock": false,
+                "strokeStyleStrokeAdjust": false,
+                "strokeStyleBlendMode": "normal",
+                "strokeStyleOpacity": {
+                    "value": 100,
+                    "units": "percentUnit"
+                },
+                "strokeStyleContent": {
+                    "color": {
+                        "red": 241.881842,
+                        "green": 101.179413,
+                        "blue": 33.72992
+                    }
+                },
+                "strokeStyleResolution": 72
             },
             "generatorSettings": false,
             "layerEffects": {
@@ -186,6 +218,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -233,6 +297,38 @@ module.exports = {
                     "blue": 2.003891
                 },
                 "class": "solidColorLayer"
+            },
+            "strokeStyle": {
+                "strokeStyleVersion": 2,
+                "strokeEnabled": false,
+                "fillEnabled": false,
+                "strokeStyleLineWidth": {
+                    "value": 3,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleLineDashOffset": {
+                    "value": 0,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleMiterLimit": 100,
+                "strokeStyleLineCapType": "strokeStyleButtCap",
+                "strokeStyleLineJoinType": "strokeStyleMiterJoin",
+                "strokeStyleLineAlignment": "strokeStyleAlignInside",
+                "strokeStyleScaleLock": false,
+                "strokeStyleStrokeAdjust": false,
+                "strokeStyleBlendMode": "normal",
+                "strokeStyleOpacity": {
+                    "value": 100,
+                    "units": "percentUnit"
+                },
+                "strokeStyleContent": {
+                    "color": {
+                        "red": 241.881842,
+                        "green": 101.179413,
+                        "blue": 33.72992
+                    }
+                },
+                "strokeStyleResolution": 72
             },
             "generatorSettings": false,
             "layerEffects": {
@@ -373,6 +469,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 400,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 400,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -420,6 +548,38 @@ module.exports = {
                     "blue": 2.003891
                 },
                 "class": "solidColorLayer"
+            },
+            "strokeStyle": {
+                "strokeStyleVersion": 2,
+                "strokeEnabled": false,
+                "fillEnabled": false,
+                "strokeStyleLineWidth": {
+                    "value": 3,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleLineDashOffset": {
+                    "value": 0,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleMiterLimit": 100,
+                "strokeStyleLineCapType": "strokeStyleButtCap",
+                "strokeStyleLineJoinType": "strokeStyleMiterJoin",
+                "strokeStyleLineAlignment": "strokeStyleAlignInside",
+                "strokeStyleScaleLock": false,
+                "strokeStyleStrokeAdjust": false,
+                "strokeStyleBlendMode": "normal",
+                "strokeStyleOpacity": {
+                    "value": 100,
+                    "units": "percentUnit"
+                },
+                "strokeStyleContent": {
+                    "color": {
+                        "red": 241.881842,
+                        "green": 101.179413,
+                        "blue": 33.72992
+                    }
+                },
+                "strokeStyleResolution": 72
             },
             "generatorSettings": false,
             "layerEffects": {
@@ -560,6 +720,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 100,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 300
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 400.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 100,
+                                            "y": 400.000012
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -607,6 +799,38 @@ module.exports = {
                     "blue": 2.003891
                 },
                 "class": "solidColorLayer"
+            },
+            "strokeStyle": {
+                "strokeStyleVersion": 2,
+                "strokeEnabled": false,
+                "fillEnabled": false,
+                "strokeStyleLineWidth": {
+                    "value": 3,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleLineDashOffset": {
+                    "value": 0,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleMiterLimit": 100,
+                "strokeStyleLineCapType": "strokeStyleButtCap",
+                "strokeStyleLineJoinType": "strokeStyleMiterJoin",
+                "strokeStyleLineAlignment": "strokeStyleAlignInside",
+                "strokeStyleScaleLock": false,
+                "strokeStyleStrokeAdjust": false,
+                "strokeStyleBlendMode": "normal",
+                "strokeStyleOpacity": {
+                    "value": 100,
+                    "units": "percentUnit"
+                },
+                "strokeStyleContent": {
+                    "color": {
+                        "red": 241.881842,
+                        "green": 101.179413,
+                        "blue": 33.72992
+                    }
+                },
+                "strokeStyleResolution": 72
             },
             "generatorSettings": false,
             "layerEffects": {
@@ -707,6 +931,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 100.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600,
+                                            "y": 100.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 600,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 500,
+                                            "y": 200.000024
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -754,6 +1010,38 @@ module.exports = {
                     "blue": 2.003891
                 },
                 "class": "solidColorLayer"
+            },
+            "strokeStyle": {
+                "strokeStyleVersion": 2,
+                "strokeEnabled": false,
+                "fillEnabled": false,
+                "strokeStyleLineWidth": {
+                    "value": 3,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleLineDashOffset": {
+                    "value": 0,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleMiterLimit": 100,
+                "strokeStyleLineCapType": "strokeStyleButtCap",
+                "strokeStyleLineJoinType": "strokeStyleMiterJoin",
+                "strokeStyleLineAlignment": "strokeStyleAlignInside",
+                "strokeStyleScaleLock": false,
+                "strokeStyleStrokeAdjust": false,
+                "strokeStyleBlendMode": "normal",
+                "strokeStyleOpacity": {
+                    "value": 100,
+                    "units": "percentUnit"
+                },
+                "strokeStyleContent": {
+                    "color": {
+                        "red": 241.881842,
+                        "green": 101.179413,
+                        "blue": 33.72992
+                    }
+                },
+                "strokeStyleResolution": 72
             },
             "generatorSettings": false,
             "layerEffects": {
@@ -854,6 +1142,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 100.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 400,
+                                            "y": 100.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 400,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 300,
+                                            "y": 200.000024
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
@@ -902,6 +1222,38 @@ module.exports = {
                 },
                 "class": "solidColorLayer"
             },
+            "strokeStyle": {
+                "strokeStyleVersion": 2,
+                "strokeEnabled": false,
+                "fillEnabled": false,
+                "strokeStyleLineWidth": {
+                    "value": 3,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleLineDashOffset": {
+                    "value": 0,
+                    "units": "pointsUnit"
+                },
+                "strokeStyleMiterLimit": 100,
+                "strokeStyleLineCapType": "strokeStyleButtCap",
+                "strokeStyleLineJoinType": "strokeStyleMiterJoin",
+                "strokeStyleLineAlignment": "strokeStyleAlignInside",
+                "strokeStyleScaleLock": false,
+                "strokeStyleStrokeAdjust": false,
+                "strokeStyleBlendMode": "normal",
+                "strokeStyleOpacity": {
+                    "value": 100,
+                    "units": "percentUnit"
+                },
+                "strokeStyleContent": {
+                    "color": {
+                        "red": 241.881842,
+                        "green": 101.179413,
+                        "blue": 33.72992
+                    }
+                },
+                "strokeStyleResolution": 72
+            },
             "generatorSettings": false,
             "layerEffects": {
                 "frameFX": {
@@ -924,6 +1276,38 @@ module.exports = {
             "path": {
                 "pathComponents": [
                     {
+                        "shapeOperation": "add",
+                        "subpathListKey": [
+                            {
+                                "closedSubpath": true,
+                                "points": [
+                                    {
+                                        "anchor": {
+                                            "x": 100,
+                                            "y": 100.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 100.000012
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 200,
+                                            "y": 200.000024
+                                        }
+                                    },
+                                    {
+                                        "anchor": {
+                                            "x": 100,
+                                            "y": 200.000024
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
                         "origin": {
                             "type": "rect",
                             "bounds": {
