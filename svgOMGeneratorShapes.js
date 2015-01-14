@@ -70,6 +70,25 @@
                 newBounds = {},
                 txOffset;
             
+            // Rounded rectangle case
+            if (points.length == 8 && !ellipse) {
+                if (round2(points[0].anchor.y) == round2(layer.bounds.top) &&
+                    round2(points[1].anchor.y) == round2(layer.bounds.top) &&
+                    round2(points[2].anchor.x) == round2(layer.bounds.right) &&
+                    round2(points[3].anchor.x) == round2(layer.bounds.right) &&
+                    round2(points[4].anchor.y) == round2(layer.bounds.bottom) &&
+                    round2(points[5].anchor.y) == round2(layer.bounds.bottom) &&
+                    round2(points[6].anchor.x) == round2(layer.bounds.left) &&
+                    round2(points[7].anchor.x) == round2(layer.bounds.left) &&
+                    round2(points[0].anchor.x) == round2(points[5].anchor.x) &&
+                    round2(points[1].anchor.x) == round2(points[4].anchor.x) &&
+                    round2(points[7].anchor.y) == round2(points[2].anchor.y) &&
+                    round2(points[6].anchor.y) == round2(points[3].anchor.y)
+                   ) {
+                    return true;
+                }
+            }
+
             if (points.length === 4) {
                 points.forEach(function (pt, i) {
                     txfmBounds.push([pt.anchor.x, pt.anchor.y]);
@@ -282,4 +301,3 @@
     
 }());
      
-    
