@@ -97,7 +97,7 @@
       <stop offset="0.92" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-3" gradientUnits="userSpaceOnUse" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient-1"/>
+    <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#undefined"/>
   </defs>
   <path d="M50,50H250V150H50V50Z" class="cls-3" fill-rule="evenodd"/>
   <path d="M300,50H500V150H300V50Z" class="cls-4" fill-rule="evenodd"/>

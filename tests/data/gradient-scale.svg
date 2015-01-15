@@ -60,7 +60,7 @@
       <stop offset="0.67" stop-color="#ff0"/>
       <stop offset="0.75" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="400" y1="150" x2="400" y2="50" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-2" x1="400" y1="150" x2="400" y2="50" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-3" gradientUnits="userSpaceOnUse" x1="550" y1="100" x2="750" y2="100">
       <stop offset="-0.25" stop-color="red"/>
       <stop offset="-0.025" stop-color="#f0f"/>
@@ -92,9 +92,9 @@
     <radialGradient id="radial-gradient-4" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="400" xlink:href="#radial-gradient-1"/>
     <radialGradient id="radial-gradient-5" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="300" xlink:href="#radial-gradient-1"/>
     <radialGradient id="radial-gradient-6" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="400" xlink:href="#radial-gradient-3"/>
-    <linearGradient id="linear-gradient-4" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-1"/>
-    <linearGradient id="linear-gradient-5" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
-    <linearGradient id="linear-gradient-6" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-4" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-5" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-6" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
   <rect x="50" y="50" width="200" height="100" class="cls-3"/>
   <rect x="300" y="50" width="200" height="100" class="cls-4"/>

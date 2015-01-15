@@ -55,8 +55,8 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-4" gradientUnits="userSpaceOnUse" x1="100" y1="600" x2="700" y2="0" xlink:href="#linear-gradient-3"/>
-    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-4" y1="600" x2="700" y2="0" xlink:href="#linear-gradient-3"/>
+    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="424.264" xlink:href="#[object Object]"/>
   </defs>
   <rect x="100" y="100" width="100" height="100" class="cls-3"/>
   <rect x="300" y="100" width="100" height="100" class="cls-4"/>

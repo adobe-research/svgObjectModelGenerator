@@ -142,13 +142,15 @@
             var iStop,
                 stp,
                 stpOpacity,
-                position;
+                position,
+                link;
             if (stops) {
+                var x1 = self.round1k(coords.xa + coords.cx),
+                    y1 = self.round1k(coords.ya + coords.cy),
+                    x2 = self.round1k(coords.cx - coords.xa),
+                    y2 = self.round1k(coords.cy - coords.ya),
+                    lines = [];
                 self.write(ctx, ctx.currentIndent + '<linearGradient id="' + gradientID + '"');
-                self.write(ctx, ' gradientUnits="userSpaceOnUse"');
-                self.write(ctx, ' x1="' + self.round1k(coords.xa + coords.cx) + '" y1="' + self.round1k(coords.ya + coords.cy) + '"');
-                self.write(ctx, ' x2="' + self.round1k(-coords.xa + coords.cx) + '" y2="' + self.round1k(-coords.ya + coords.cy) + '"');
-                var lines = [];
                 for (iStop = 0; iStop < stops.length; iStop++) {
                     stp = stops[iStop];
                     stpOpacity = '';
@@ -159,11 +161,24 @@
                     }
                     lines.push('<stop offset="' + position + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>');
                 }
-                if (gradientStops[lines]) {
-                    self.write(ctx, ' xlink:href="#' + gradientStops[lines] + '"/>' + ctx.terminator);
+                link = gradientStops[lines];
+                if (link) {
+                    (x1 != link.x1) && self.write(ctx, ' x1="' + x1 + '"');
+                    (y1 != link.y1) && self.write(ctx, ' y1="' + y1 + '"');
+                    (x2 != link.x2) && self.write(ctx, ' x2="' + x2 + '"');
+                    (y2 != link.y2) && self.write(ctx, ' y2="' + y2 + '"');
+                    self.write(ctx, ' xlink:href="#' + link.id + '"/>' + ctx.terminator);
                 } else {
-                    gradientStops[lines] = gradientID;
-                    self.write(ctx, ">" + ctx.terminator);
+                    gradientStops[lines] = {
+                        id: gradientID,
+                        x1: x1,
+                        y1: y1,
+                        x2: x2,
+                        y2: y2
+                    };
+                    self.write(ctx, ' gradientUnits="userSpaceOnUse"');
+                    self.write(ctx, ' x1="' + x1 + '" y1="' + y1 + '"');
+                    self.write(ctx, ' x2="' + x2 + '" y2="' + y2 + '">' + ctx.terminator);
                     self.indent(ctx);
                     for (iStop = 0; iStop < lines.length; iStop++) {
                         self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
