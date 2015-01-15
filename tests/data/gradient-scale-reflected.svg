@@ -35,7 +35,6 @@
       <stop offset="0.415" stop-color="blue"/>
       <stop offset="0.465" stop-color="#f0f"/>
       <stop offset="0.5" stop-color="red"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.535" stop-color="#f0f"/>
       <stop offset="0.585" stop-color="blue"/>
       <stop offset="0.62" stop-color="aqua"/>
@@ -51,7 +50,6 @@
       <stop offset="0.14" stop-color="aqua"/>
       <stop offset="0.245" stop-color="blue"/>
       <stop offset="0.395" stop-color="#f0f"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="0.605" stop-color="#f0f"/>
       <stop offset="0.755" stop-color="blue"/>

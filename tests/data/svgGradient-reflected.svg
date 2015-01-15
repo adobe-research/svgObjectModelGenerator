@@ -14,7 +14,6 @@
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="342.889" y1="250" x2="557.111" y2="100">
       <stop offset="0" stop-color="#ff7c00"/>
       <stop offset="0.5" stop-color="#290a59"/>
-      <stop offset="0.5" stop-color="#290a59"/>
       <stop offset="1" stop-color="#ff7c00"/>
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="0" y1="725.104" x2="1000" y2="24.896" xlink:href="#linear-gradient-1"/>

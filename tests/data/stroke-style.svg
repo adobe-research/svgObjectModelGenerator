@@ -80,7 +80,7 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="650" cy="250" r="50" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-2" r="50" xlink:href="#radial-gradient-1"/>
     <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="150" y1="450" x2="150" y2="350">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.08" stop-color="#ff0"/>
@@ -89,7 +89,6 @@
       <stop offset="0.33" stop-color="blue"/>
       <stop offset="0.43" stop-color="#f0f"/>
       <stop offset="0.5" stop-color="red"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.57" stop-color="#f0f"/>
       <stop offset="0.67" stop-color="blue"/>
       <stop offset="0.74" stop-color="aqua"/>
@@ -97,7 +96,7 @@
       <stop offset="0.92" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#undefined"/>
+    <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient-1"/>
   </defs>
   <path d="M50,50H250V150H50V50Z" class="cls-3" fill-rule="evenodd"/>
   <path d="M300,50H500V150H300V50Z" class="cls-4" fill-rule="evenodd"/>

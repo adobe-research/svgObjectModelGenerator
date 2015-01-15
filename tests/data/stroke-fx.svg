@@ -56,7 +56,7 @@
       <stop offset="1" stop-color="red"/>
     </linearGradient>
     <linearGradient id="linear-gradient-4" y1="600" x2="700" y2="0" xlink:href="#linear-gradient-3"/>
-    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="424.264" xlink:href="#[object Object]"/>
+    <radialGradient id="radial-gradient-1" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
   </defs>
   <rect x="100" y="100" width="100" height="100" class="cls-3"/>
   <rect x="300" y="100" width="100" height="100" class="cls-4"/>

@@ -24,8 +24,8 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="424.264" xlink:href="#radial-gradient-1"/>
-    <radialGradient id="radial-gradient-3" gradientUnits="userSpaceOnUse" cx="400" cy="300" r="400" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-2" r="424.264" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-3" r="400" xlink:href="#radial-gradient-1"/>
   </defs>
   <rect x="50" y="50" width="200" height="100" class="cls-3"/>
   <rect x="300" y="50" width="200" height="100" class="cls-4"/>

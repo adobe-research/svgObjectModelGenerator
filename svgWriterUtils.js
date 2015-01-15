@@ -181,7 +181,9 @@
                     self.write(ctx, ' x2="' + x2 + '" y2="' + y2 + '">' + ctx.terminator);
                     self.indent(ctx);
                     for (iStop = 0; iStop < lines.length; iStop++) {
-                        self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                        if (!iStop || lines[iStop] != lines[iStop - 1]) {
+                            self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                        }
                     }
                     self.undent(ctx);
                     self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
@@ -310,13 +312,10 @@
             var iStop,
                 stp,
                 stpOpacity,
-                lines = [];
+                lines = [],
+                link;
 
             self.write(ctx, ctx.currentIndent + '<radialGradient id="' + gradientID + '"');
-            self.write(ctx, ' gradientUnits="userSpaceOnUse"');
-            self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
-            self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
-            self.writeAttrIfNecessary(ctx, "r", r, "", "");
 
             for (iStop = 0; iStop < stops.length; iStop++) {
                 stp = stops[iStop];
@@ -328,14 +327,29 @@
 
                 lines.push('<stop offset="' + self.round1k(Math.round(stp.position) / 100 * scale) + '" stop-color="' + self.writeColor(stp.color) + '"' + stpOpacity + '/>');
             }
-            if (gradientStops[lines]) {
-                self.write(ctx, ' xlink:href="#' + gradientStops[lines] + '"/>' + ctx.terminator);
+            link = gradientStops[lines];
+            if (link) {
+                (link.cx != cx) && self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
+                (link.cy != cy) && self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
+                (link.r != r) && self.writeAttrIfNecessary(ctx, "r", r, "", "");
+                self.write(ctx, ' xlink:href="#' + link.id + '"/>' + ctx.terminator);
             } else {
-                gradientStops[lines] = gradientID;
+                gradientStops[lines] = {
+                    id: gradientID,
+                    cx: cx,
+                    cy: cy,
+                    r: r
+                };
+                self.write(ctx, ' gradientUnits="userSpaceOnUse"');
+                self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
+                self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
+                self.writeAttrIfNecessary(ctx, "r", r, "", "");
                 self.write(ctx, ">" + ctx.terminator);
                 self.indent(ctx);
                 for (iStop = 0; iStop < lines.length; iStop++) {
-                    self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                    if (!iStop || lines[iStop] != lines[iStop - 1]) {
+                        self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                    }
                 }
                 self.undent(ctx);
                 self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
