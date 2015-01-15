@@ -3,7 +3,7 @@ module.exports = {
     "timeStamp": 1421356863.064,
     "count": 2,
     "id": 35,
-    "file": "/Users/dschulze/Desktop/textOnPath2.psd",
+    "file": "text-on-path-2.psd",
     "bounds": {
         "top": 0,
         "left": 0,
