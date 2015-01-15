@@ -36,7 +36,7 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="400" cy="100" r="100" xlink:href="#linear-gradient-1"/>
+    <radialGradient id="radial-gradient-1" cx="400" cy="100" r="100" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="550" y1="100" x2="750" y2="100">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.08" stop-color="#ff0"/>
@@ -44,7 +44,6 @@
       <stop offset="0.26" stop-color="aqua"/>
       <stop offset="0.33" stop-color="blue"/>
       <stop offset="0.43" stop-color="#f0f"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="0.57" stop-color="#f0f"/>
       <stop offset="0.67" stop-color="blue"/>
@@ -62,7 +61,7 @@
       <stop offset="0.85" stop-color="#f0f"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <radialGradient id="radial-gradient-2" gradientUnits="userSpaceOnUse" cx="400" cy="250" r="100" xlink:href="#linear-gradient-3"/>
+    <radialGradient id="radial-gradient-2" cx="400" cy="250" r="100" xlink:href="#linear-gradient-3"/>
     <linearGradient id="linear-gradient-4" gradientUnits="userSpaceOnUse" x1="552" y1="247" x2="748" y2="247">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.07" stop-color="#f0f"/>
@@ -70,7 +69,6 @@
       <stop offset="0.24" stop-color="aqua"/>
       <stop offset="0.33" stop-color="lime"/>
       <stop offset="0.42" stop-color="#ff0"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="0.58" stop-color="#ff0"/>
       <stop offset="0.67" stop-color="lime"/>

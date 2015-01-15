@@ -35,7 +35,6 @@
       <stop offset="0.415" stop-color="blue"/>
       <stop offset="0.465" stop-color="#f0f"/>
       <stop offset="0.5" stop-color="red"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.535" stop-color="#f0f"/>
       <stop offset="0.585" stop-color="blue"/>
       <stop offset="0.62" stop-color="aqua"/>
@@ -43,7 +42,7 @@
       <stop offset="0.71" stop-color="#ff0"/>
       <stop offset="0.75" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="400" y1="150" x2="400" y2="50" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-2" x1="400" y1="150" x2="400" y2="50" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-3" gradientUnits="userSpaceOnUse" x1="550" y1="100" x2="750" y2="100">
       <stop offset="-0.25" stop-color="red"/>
       <stop offset="-0.13" stop-color="#ff0"/>
@@ -52,7 +51,6 @@
       <stop offset="0.245" stop-color="blue"/>
       <stop offset="0.395" stop-color="#f0f"/>
       <stop offset="0.5" stop-color="red"/>
-      <stop offset="0.5" stop-color="red"/>
       <stop offset="0.605" stop-color="#f0f"/>
       <stop offset="0.755" stop-color="blue"/>
       <stop offset="0.86" stop-color="aqua"/>
@@ -60,9 +58,9 @@
       <stop offset="1.13" stop-color="#ff0"/>
       <stop offset="1.25" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-4" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-1"/>
-    <linearGradient id="linear-gradient-5" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
-    <linearGradient id="linear-gradient-6" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-4" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-5" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-6" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
   <rect x="50" y="50" width="200" height="100" class="cls-3"/>
   <rect x="300" y="50" width="200" height="100" class="cls-4"/>
