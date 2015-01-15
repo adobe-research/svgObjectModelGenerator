@@ -374,14 +374,10 @@
             }
 
         }
-        
-        proto.writeSheet = function (ctx) {
-            
+
+        proto.writeBlocks = function (ctx) {
             var blockClass,
                 blocks = [];
-            
-            write(ctx, ctx.currentIndent + "<style>" + ctx.terminator);
-            indent(ctx);
             
             for (blockClass in this.blocks) {
                 if (this.blocks.hasOwnProperty(blockClass)) {
@@ -397,6 +393,13 @@
                 write(ctx, ctx.terminator); //new line before blocks
                 blocks[i].write(ctx);
             }
+        }
+        
+        proto.writeSheet = function (ctx) {
+            write(ctx, ctx.currentIndent + "<style>" + ctx.terminator);
+            indent(ctx);
+            
+            this.writeBlocks(ctx);
             
             undent(ctx);
             write(ctx, ctx.currentIndent + "</style>" + ctx.terminator);
