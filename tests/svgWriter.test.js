@@ -178,9 +178,6 @@ describe('svgWriter', function (){
                     constrainToDocBounds: true
                 }, svgWriterErrors);
 
-                fs.writeFileSync("./tests/data/" + testName + "/" + aTestData[i + 1] + '-om.js', JSON.stringify(svgOM, null, '\t'), 'utf8');
-
-
                 try {
                    exptectedOut = fs.readFileSync(svgFilename, 'utf8');
                 } catch(er) {
@@ -388,6 +385,10 @@ describe('svgWriter', function (){
 
         it("should support text on path", function () {
             compareResults('text-on-path');
+        });
+
+        it("should support text on path part 2", function () {
+            compareResults('text-on-path-2');
         });
 
         it("should support text transformation", function () {
