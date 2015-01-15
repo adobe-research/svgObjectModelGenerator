@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+
+      .cls-3, .cls-4, .cls-5 {
+        font-size: 150px;
+      }
+
+      .cls-4, .cls-5 {
+        text-anchor: end;
+      }
+
+      .cls-5 {
+        fill: #226b26;
+        font-family: "Optima-ExtraBlack";
+      }
+    </style>
+
+    <path id="text-path-1" d="M145.08,123.12c31.613,0,57.24,17.568,57.24,39.24s-25.627,39.24-57.24,39.24,-57.24-17.568-57.24-39.24Z"/>
+    <path id="text-path-2" d="M360.72,269.76c30.221,0,54.72,15.043,54.72,33.6s-24.499,33.6-54.72,33.6S306,321.917,306,303.36Z"/>
+  </defs>
+  <text x="100%" class="cls-3"><textPath xlink:href="#text-path-1" startOffset="100%">
+    <tspan x="100%" class="cls-5">Text on Path</tspan>
+  </textPath></text>
+  <text x="100%" y="169px" class="cls-3"><tspan x="100%" class="cls-5">Plain text</tspan></text>
+  <text x="100%" class="cls-3"><textPath xlink:href="#text-path-2" startOffset="100%">
+    <tspan x="100%" class="cls-5">more path text </tspan>
+  </textPath></text>
+</svg>

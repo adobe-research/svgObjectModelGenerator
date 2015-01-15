@@ -218,6 +218,10 @@ describe('SVGOMGenerator', function (){
         compareResults('text-on-path');
     });
 
+    it("should OM text-on-path-2", function () {
+        compareResults('text-on-path-2');
+    });
+
     it("should OM text-transform", function () {
         compareResults('text-transform');
     });
