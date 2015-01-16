@@ -1,10 +1,12 @@
 (function () {
 "use strict";
-// {test: name of the test, desc: what is tested, skip: boolean to skip test}
+// { test: name of the test, desc: what is tested,
+//	 skip: boolean to skip test, layerTest: boolean extract all layers individually as well? }
 var database = [
 {
 	test: "svgFill",
-	desc: "should be able to SVG a gradient fill OM"
+	desc: "should be able to SVG a gradient fill OM",
+	layerTest: true
 },
 {
 	test: "gradient-duplicate",
@@ -158,7 +160,8 @@ var database = [
 },
 {
 	test: "text-on-path-2",
-	desc: "should support text on path"
+	desc: "should support text on path",
+	layerTest: true
 },
 {
 	test: "text-transform",
