@@ -82,6 +82,89 @@ describe('svgOMGenerator', function (){
         }
     });
 
+
+    /**
+     * Test individual Generator JSON layers to OM extraction
+     **/
+     describe('Test individual layer extraction to OM', function () {
+
+        function compareResults (testData, layerId, testName) {
+            var expectedModule,
+                svgOM,
+                svgOMGText,
+                svgOMExpected,
+                path = 'data/' + testName + '/' + testName + '-' + layerId + '-om.js';
+                omOpt = { layerSpec: layerId };
+
+            svgOM = OMG.extractSVGOM(testData, omOpt);
+
+            svgOMGText = JSON.stringify(svgOM, null, '\t');
+
+            try {
+                expectedModule = require('./' + path);
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path, 'module.exports = ' + svgOMGText, 'utf8');
+                console.log('No reference OM document found. New one created as ' + testName + '-' + layerId + '-om.js');
+                return svgOMGText;
+            }
+
+            svgOMExpected = JSON.parse(JSON.stringify(expectedModule)),
+            svgOM = JSON.parse(svgOMGText);
+
+            return expect(svgOM).to.eql(svgOMExpected);
+        }
+
+        function runJSONLayerToOMExtractionTest (testData, layer, testName, skipTest) {
+
+            if (skipTest) {
+                it.skip('Extract layer ' + layer.id + ' from ' + testName, function () {
+                    compareResults(testData, layer.id, testName);
+                });
+            } else {
+                it('Extract layer ' + layer.id + ' from ' + testName, function () {
+                    compareResults(testData, layer.id, testName);
+                });
+            }
+
+            if (!layer.layers) {
+                return;
+            }
+
+            for (var i = 0, end = layer.layers.length; i < end; ++i) {
+                runJSONLayerToOMExtractionTest(testData, layer.layers[i], testName, skipTest);
+            }
+        }
+
+        function setupTesting (testName, desc, skipTest) {
+            var testData = require('./data/' + testName + '-data.js');
+            if (!testData.layers) {
+                console.log('Warning: PSD does not have any layers.')
+            }
+
+            // Does the directory with the test results exist? If not create it.
+            if (!fs.existsSync('./tests/data/' + testName)) {
+                fs.mkdirSync('./tests/data/' + testName);
+            }
+
+            for (var j = 0, end = testData.layers.length; j < end; ++j) {
+                runJSONLayerToOMExtractionTest(testData,
+                                               testData.layers[j],
+                                               testName,
+                                               skipTest);
+            }
+        }
+
+        // Call all individual tests from test-database.js
+        for (var i = 0, end = database.length; i < end; i++) {
+            if (!database[i].layerTest) {
+                continue;
+            }
+            setupTesting(database[i].test,
+                database[i].desc,
+                !!database[i].skip);
+        }
+     });
+
     /**
      * Test extraction of individual layers
      **/
