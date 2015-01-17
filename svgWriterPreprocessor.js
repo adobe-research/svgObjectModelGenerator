@@ -237,7 +237,7 @@
                 if (omIn.style) {
                     if (omIn.position && isFinite(omIn.position.x)) {
                         if (omIn.style["text-anchor"] === "middle") {
-                            if(omIn._parentBounds) {
+                            if (omIn._parentBounds) {
                                 pR = omIn._parentBounds.right;
                                 pL = omIn._parentBounds.left;
                                 newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
@@ -254,16 +254,20 @@
                             }
                             
                         } else if (omIn.style["text-anchor"] === "end") {
-                            
-                            pR = omIn._parentBounds.right;
-                            pL = omIn._parentBounds.left;
-                            newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
-                            
-                            if (omIn._parentIsRoot || !omIn.textBounds) {
-                                omIn.position.x = 100;
+                            if (omIn._parentBounds) {
+                                pR = omIn._parentBounds.right;
+                                pL = omIn._parentBounds.left;
+                                newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
+                                
+                                if (omIn._parentIsRoot || !omIn.textBounds) {
+                                    omIn.position.x = 100;
+                                } else {
+                                    deltaX = (ctx.contentBounds.right - omIn.textBounds.right);
+                                    omIn.position.deltaX = -deltaX;
+                                }
                             } else {
-                                deltaX = (ctx.contentBounds.right - omIn.textBounds.right);
-                                omIn.position.deltaX = -deltaX;
+                                omIn.position.x = 100;
+                                omIn.position.unitX = "%";
                             }
                         } else {
                             if (sibling && !omIn._hasParentTXFM) {
