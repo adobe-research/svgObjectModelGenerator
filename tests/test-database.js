@@ -161,7 +161,8 @@ var database = [
 {
 	test: "text-on-path-2",
 	desc: "should support text on path",
-	layerTest: true
+	layerTest: true,
+	skip: true
 },
 {
 	test: "text-transform",

@@ -123,6 +123,90 @@ describe('svgWriter', function (){
         }
     }
 
+
+    /**
+     * Test extraction of all layers to SVG
+     **/
+    describe('Test extraction of all layers to SVG', function () {
+
+        function compareResults (layerId, testName) {
+            var svgOM,
+                exptectedOut,
+                svgWriterErrors = [],
+                path = 'data/' + testName + '/' + testName + '-' + layerId;
+            
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM, {
+                        trimToArtBounds: true,
+                        preserveAspectRatio: "xMidYMid",
+                        scale: 1,
+                        constrainToDocBounds: true
+                    }, svgWriterErrors);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '-' + layerId + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '-' + layerId + '.svg');
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        }
+
+        function runJSONLayerToOMExtractionTest (layer, testName, skipTest) {
+
+            if (skipTest) {
+                it.skip('Extract ' + layer.id + ' from ' + testName, function () {
+                    compareResults(layer.id, testName);
+                });
+            } else {
+                it('Extract layer ' + layer.id + ' from ' + testName, function () {
+                    compareResults(layer.id, testName);
+                });
+            }
+
+            if (!layer.layers) {
+                return;
+            }
+
+            for (var i = 0, end = layer.layers.length; i < end; ++i) {
+                runJSONLayerToOMExtractionTest(layer.layers[i], testName, skipTest);
+            }
+        }
+
+        function setupTesting (testName, desc, skipTest) {
+            var testData = require('./data/' + testName + '-data.js');
+            if (!testData.layers) {
+                console.log('Warning: PSD does not have any layers.')
+            }
+
+            if (!fs.existsSync('./tests/data/' + testName)) {
+                console.log("Error: Expected layer OM data for " + testName);
+                return;
+            }
+
+            for (var j = 0, end = testData.layers.length; j < end; ++j) {
+                runJSONLayerToOMExtractionTest(testData.layers[j],
+                                               testName,
+                                               skipTest);
+            }
+        }
+
+        // Call all individual tests from test-database.js
+        for (var i = 0, end = database.length; i < end; i++) {
+            if (!database[i].layerTest) {
+                continue;
+            }
+            setupTesting(database[i].test,
+                database[i].desc,
+                !!database[i].skip);
+        }
+    });
+
     /**
      * Test individual OM object extraction
      **/
