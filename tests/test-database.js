@@ -178,6 +178,10 @@ var database = [
 {
 	test: "gradient-color-overlay",
 	desc: "should support gradient overlay in combination with color overlay"
+},
+{
+	test: "multi-layer-fx-1",
+	desc: "Test multiple drop shadows per layer."
 }
 ];
 

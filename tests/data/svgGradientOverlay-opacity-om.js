@@ -26,34 +26,6 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"dropShadow": {
-						"enabled": true,
-						"mode": "multiply",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						},
-						"opacity": 0.5,
-						"useGlobalAngle": true,
-						"localLightingAngle": {
-							"value": 120,
-							"units": "angleUnit"
-						},
-						"distance": 2,
-						"chokeMatte": 0,
-						"blur": 2,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
-						},
-						"layerConceals": true
-					},
 					"innerShadow": {
 						"enabled": true,
 						"mode": "overlay",
@@ -136,7 +108,37 @@ module.exports = {
 								"units": "percentUnit"
 							}
 						}
-					}
+					},
+					"dropShadowMulti": [
+						{
+							"enabled": true,
+							"mode": "multiply",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 0.5,
+							"useGlobalAngle": true,
+							"localLightingAngle": {
+								"value": 120,
+								"units": "angleUnit"
+							},
+							"distance": 2,
+							"chokeMatte": 0,
+							"blur": 2,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							},
+							"layerConceals": true
+						}
+					]
 				}
 			},
 			"children": [],

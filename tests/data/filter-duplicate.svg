@@ -23,7 +23,7 @@
       <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2.236" result="dropBlur"/>
       <feFlood flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
       <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2.236" result="innerShadowBlur"/>

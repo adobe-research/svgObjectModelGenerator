@@ -222,9 +222,20 @@
             }
 
             if (svgNode.style.fx.dropShadow) {
-                color = svgNode.style.fx.dropShadow.color;
-                svgNode.style.fx.dropShadow.color = omgUtils.toColor(color);
-                svgNode.style.fx.dropShadow.opacity = svgNode.style.fx.dropShadow.opacity ? svgNode.style.fx.dropShadow.opacity.value / 100 : 1;
+                // Transform single drop-shadows to lists.
+                svgNode.style.fx.dropShadowMulti = [
+                    svgNode.style.fx.dropShadow
+                ];
+                delete svgNode.style.fx.dropShadow;
+            }
+            if (svgNode.style.fx.dropShadowMulti) {
+                // PS exports filters in the opposite order, revert.
+                svgNode.style.fx.dropShadowMulti.reverse();
+                svgNode.style.fx.dropShadowMulti.forEach(function (ele) {
+                    color = ele.color;
+                    ele.color = omgUtils.toColor(color);
+                    ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
+                });
             }
 
             if (svgNode.style.fx.frameFX) {
