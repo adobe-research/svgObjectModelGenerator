@@ -43,7 +43,7 @@
         };
         
         self.writeln = function (ctx, sOut) {
-            ctx.sOut += sOut + ctx.terminator;
+            self.write(ctx, sOut + ctx.terminator);
         };
     
         self.indent = function (ctx) {

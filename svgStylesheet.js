@@ -395,7 +395,7 @@
             blocks = this.extract(blocks);
 
             for (var i = 0, len = blocks.length; i < len; i++) {
-                write(ctx, ctx.terminator); //new line before blocks
+                writeln(ctx, ''); //new line before blocks
                 blocks[i].write(ctx);
             }
             
