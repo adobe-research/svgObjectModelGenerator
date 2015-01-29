@@ -185,9 +185,9 @@
                 };
             
             writeln(ctx, ctx.currentIndent + "<feOffset in=\"SourceAlpha\" dx=\"" + round1k(offset.x) + "\" dy=\"" + round1k(offset.y) + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropShadow\" stdDeviation=\"" + blur + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropBlur\" stdDeviation=\"" + blur + "\"/>");
             writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropShadow\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropBlur\"/>");
             param.pass = "dropShadow";
             
             return JSON.stringify({ c: color, o: opacity, off: offset, b: blur });

@@ -21,9 +21,9 @@
 
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
       <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
-      <feGaussianBlur result="dropShadow" stdDeviation="2.236"/>
+      <feGaussianBlur result="dropBlur" stdDeviation="2.236"/>
       <feFlood flood-color="#000" flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropShadow"/>
+      <feComposite operator="in" in2="dropBlur"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
       <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
       <feGaussianBlur result="innerShadowBlur" stdDeviation="2.236"/>
