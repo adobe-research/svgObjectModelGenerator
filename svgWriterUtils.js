@@ -41,6 +41,10 @@
         self.write = function (ctx, sOut) {
             ctx.sOut += sOut;
         };
+        
+        self.writeln = function (ctx, sOut) {
+            ctx.sOut += sOut + ctx.terminator;
+        };
     
         self.indent = function (ctx) {
             ctx.currentIndent += ctx.indent;
@@ -167,7 +171,7 @@
                     (y1 != link.y1) && self.write(ctx, ' y1="' + y1 + '"');
                     (x2 != link.x2) && self.write(ctx, ' x2="' + x2 + '"');
                     (y2 != link.y2) && self.write(ctx, ' y2="' + y2 + '"');
-                    self.write(ctx, ' xlink:href="#' + link.id + '"/>' + ctx.terminator);
+                    self.writeln(ctx, ' xlink:href="#' + link.id + '"/>');
                 } else {
                     gradientStops[lines] = {
                         id: gradientID,
@@ -178,15 +182,15 @@
                     };
                     self.write(ctx, ' gradientUnits="userSpaceOnUse"');
                     self.write(ctx, ' x1="' + x1 + '" y1="' + y1 + '"');
-                    self.write(ctx, ' x2="' + x2 + '" y2="' + y2 + '">' + ctx.terminator);
+                    self.writeln(ctx, ' x2="' + x2 + '" y2="' + y2 + '">');
                     self.indent(ctx);
                     for (iStop = 0; iStop < lines.length; iStop++) {
                         if (!iStop || lines[iStop] != lines[iStop - 1]) {
-                            self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                            self.writeln(ctx, ctx.currentIndent + lines[iStop]);
                         }
                     }
                     self.undent(ctx);
-                    self.write(ctx, ctx.currentIndent + "</linearGradient>" + ctx.terminator);
+                    self.writeln(ctx, ctx.currentIndent + "</linearGradient>");
                 }
             } else {
                 console.warn("encountered gradient with no stops");
@@ -332,7 +336,7 @@
                 (link.cx != cx) && self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
                 (link.cy != cy) && self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
                 (link.r != r) && self.writeAttrIfNecessary(ctx, "r", r, "", "");
-                self.write(ctx, ' xlink:href="#' + link.id + '"/>' + ctx.terminator);
+                self.writeln(ctx, ' xlink:href="#' + link.id + '"/>');
             } else {
                 gradientStops[lines] = {
                     id: gradientID,
@@ -344,15 +348,15 @@
                 self.writeAttrIfNecessary(ctx, "cx", cx, "", "");
                 self.writeAttrIfNecessary(ctx, "cy", cy, "", "");
                 self.writeAttrIfNecessary(ctx, "r", r, "", "");
-                self.write(ctx, ">" + ctx.terminator);
+                self.writeln(ctx, ">");
                 self.indent(ctx);
                 for (iStop = 0; iStop < lines.length; iStop++) {
                     if (!iStop || lines[iStop] != lines[iStop - 1]) {
-                        self.write(ctx, ctx.currentIndent + lines[iStop] + ctx.terminator);
+                        self.writeln(ctx, ctx.currentIndent + lines[iStop]);
                     }
                 }
                 self.undent(ctx);
-                self.write(ctx, ctx.currentIndent + "</radialGradient>" + ctx.terminator);
+                self.writeln(ctx, ctx.currentIndent + "</radialGradient>");
             }
         };
         
@@ -401,7 +405,7 @@
                     stp;
                 
                 self.write(ctx, ctx.currentIndent + "<path id=\"" + textPathID + "\" ");
-                self.write(ctx, "d=\"" + Utils.optimisePath(pathData) + "\"/>" + ctx.terminator);
+                self.writeln(ctx, "d=\"" + Utils.optimisePath(pathData) + "\"/>");
             },
             function (out) {
                 ctx.omStylesheet.define("text-path", omIn.id, textPathID, out, JSON.stringify({ pathData: pathData }));

@@ -26,6 +26,7 @@
         SVGWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
+        writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
@@ -111,7 +112,7 @@
                         fingerprint = "";
 
                     ctxCapture(ctx, function () {
-                        write(ctx, ctx.currentIndent + "<filter id=\"" + filterID + "\" filterUnits=\"userSpaceOnUse\">" + ctx.terminator);
+                        writeln(ctx, ctx.currentIndent + "<filter id=\"" + filterID + "\" filterUnits=\"userSpaceOnUse\">");
                         indent(ctx);
 
                         var param = { pass: "SourceGraphic" };
@@ -124,7 +125,7 @@
                         fingerprint += this.externalizeInnerShadow(ctx, param);
 
                         undent(ctx);
-                        write(ctx, ctx.currentIndent + "</filter>" + ctx.terminator);
+                        writeln(ctx, ctx.currentIndent + "</filter>");
                     }.bind(this), function (out) {
                         
                         ctx.omStylesheet.define(filterFlavor, omIn.id, filterID, out, fingerprint);
@@ -183,10 +184,10 @@
                     y: Math.sin(angle) * distance
                 };
             
-            write(ctx, ctx.currentIndent + "<feOffset in=\"SourceAlpha\" dx=\"" + round1k(offset.x) + "\" dy=\"" + round1k(offset.y) + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropShadow\" stdDeviation=\"" + blur + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropShadow\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feOffset in=\"SourceAlpha\" dx=\"" + round1k(offset.x) + "\" dy=\"" + round1k(offset.y) + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropShadow\" stdDeviation=\"" + blur + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropShadow\"/>");
             param.pass = "dropShadow";
             
             return JSON.stringify({ c: color, o: opacity, off: offset, b: blur });
@@ -209,7 +210,7 @@
                 outerGlow = omIn.style.fx.outerGlow;
             if (!outerGlow || !outerGlow.enabled) {
                 if (param.pass == "dropShadow") {
-                    write(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"dropShadow\"/>" + ctx.terminator);
+                    writeln(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"dropShadow\"/>");
                 }
                 return;
             }
@@ -219,31 +220,31 @@
             var blur = round1k(outerGlow.blur / 3),
                 opacity = round1k(outerGlow.opacity);
 
-            write(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite result=\"outerGlowBlur\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite result=\"outerGlowBlur\"/>");
             if (outerGlow.gradient) {
                 var nSegs = this.findMatchingDistributedNSegs(outerGlow.gradient.stops);
                 var colors = this.calcDistributedColors(outerGlow.gradient.stops, nSegs);
                 // Inverse colors.
-                write(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
                 // Set RGB channels to A.
-                write(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0\"/>" + ctx.terminator);
-                write(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0\"/>");
+                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
                 // Gradient map.
                 this.createGradientMap(ctx, colors);
             } else {
                 var color = outerGlow.color;
-                write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-                write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"outerGlowBlur\"/>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
+                writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"outerGlowBlur\"/>");
             }
             if (param.pass == "dropShadow") {
                 if (omIn.style.fx.dropShadow) {
-                    write(ctx, ctx.currentIndent + "<feBlend mode=\"" + omIn.style.fx.dropShadow.mode + "\" in2=\"" + param.pass + "\"/>" + ctx.terminator);
+                    writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + omIn.style.fx.dropShadow.mode + "\" in2=\"" + param.pass + "\"/>");
                 }
             }
-            write(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"outerGlow\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"outerGlow\"/>");
             param.pass = "outerGlow";
 
             return JSON.stringify({ c: outerGlow.color, g: outerGlow.gradient, o: opacity, b: blur });
@@ -285,12 +286,12 @@
             string += ' fill="url(#grad)"/></svg>';
             var base64 = svgWriterUtils.toBase64(string);
 
-            write(ctx, ctx.currentIndent + "<feImage x=\"" + bounds.left + "\" y=\"" + bounds.top + "\"" +
+            writeln(ctx, ctx.currentIndent + "<feImage x=\"" + bounds.left + "\" y=\"" + bounds.top + "\"" +
                 ' preserveAspectRatio="none"' +
                 ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '"' +
-                ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceGraphic"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feBlend mode="' + gradientFill.mode + '" in2="' + param.pass + '" result="gradientFill"/>' + ctx.terminator);
+                ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>');
+            writeln(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceGraphic"/>');
+            writeln(ctx, ctx.currentIndent + '<feBlend mode="' + gradientFill.mode + '" in2="' + param.pass + '" result="gradientFill"/>');
             param.pass = 'gradientFill';
             
             return JSON.stringify({ l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 });
@@ -317,9 +318,9 @@
             var color = solidFill.color,
                 opacity = round1k(solidFill.opacity.value / 100);
 
-            write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceGraphic\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + solidFill.mode + "\" in2=\"" + param.pass + "\" result=\"colorOverlay\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceGraphic\"/>");
+            writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + solidFill.mode + "\" in2=\"" + param.pass + "\" result=\"colorOverlay\"/>");
             param.pass = "colorOverlay";
 
             return JSON.stringify({ c: color, m: solidFill.mode, o: opacity});
@@ -349,23 +350,23 @@
                 dy = round1k(satin.distance * Math.sin(-satin.localLightingAngle.value)),
                 blur = round1k(Math.sqrt(satin.blur));
 
-            write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\" result=\"snSilhouette\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feOffset in=\"snSilhouette\" dx=\"" + dx + "\" dy=\"" + dy + "\" result=\"snShifted1\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feOffset in=\"snSilhouette\" dx=\"" + -dx + "\" dy=\"" + -dy + "\" result=\"snShifted2\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"xor\" in=\"snShifted1\" in2=\"snShifted2\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\" result=\"snSilhouette\"/>");
+            writeln(ctx, ctx.currentIndent + "<feOffset in=\"snSilhouette\" dx=\"" + dx + "\" dy=\"" + dy + "\" result=\"snShifted1\"/>");
+            writeln(ctx, ctx.currentIndent + "<feOffset in=\"snSilhouette\" dx=\"" + -dx + "\" dy=\"" + -dy + "\" result=\"snShifted2\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"xor\" in=\"snShifted1\" in2=\"snShifted2\"/>");
             if (satin.invert) {
-                write(ctx, ctx.currentIndent + "<feComposite operator=\"xor\" in2=\"snSilhouette\"/>" + ctx.terminator);                
+                writeln(ctx, ctx.currentIndent + "<feComposite operator=\"xor\" in2=\"snSilhouette\"/>");                
             }
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComponentTransfer>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>");
+            writeln(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feComponentTransfer>");
             indent(ctx);
-            write(ctx, ctx.currentIndent + "<feFuncA type=\"linear\" slope=\"" + opacity + "\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feFuncA type=\"linear\" slope=\"" + opacity + "\"/>");
             undent(ctx);
-            write(ctx, ctx.currentIndent + "</feComponentTransfer>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + satin.mode + "\" in2=\"" + param.pass + "\" result=\"satin\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "</feComponentTransfer>");
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>");
+            writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + satin.mode + "\" in2=\"" + param.pass + "\" result=\"satin\"/>");
             param.pass = "satin";
 
             return JSON.stringify({m: satin.mode, c: color, o: opacity, b: blur, dx: dx, dy: dy});
@@ -395,24 +396,24 @@
             var blur = round1k(innerGlow.blur / 3),
                 opacity = round1k(innerGlow.opacity);
 
-            write(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\" result=\"innerGlowBlur\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\" result=\"innerGlowBlur\"/>");
             if (innerGlow.gradient) {
                 var nSegs = this.findMatchingDistributedNSegs(innerGlow.gradient.stops);
                 var colors = this.calcDistributedColors(innerGlow.gradient.stops, nSegs);
                 // Inverse colors.
-                write(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
                 // Set RGB channels to A.
-                write(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0\"/>" + ctx.terminator);
-                write(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0\"/>");
+                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
                 // Gradient map.
                 this.createGradientMap(ctx, colors);
             } else {
                 var color = innerGlow.color;
-                write(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>" + ctx.terminator);
-                write(ctx, ctx.currentIndent + "<feComposite operator=\"out\" in2=\"innerGlowBlur\"/>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
+                writeln(ctx, ctx.currentIndent + "<feComposite operator=\"out\" in2=\"innerGlowBlur\"/>");
             }
-            write(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feBlend mode=\"" + innerGlow.mode + "\" in2=\"" + param.pass + "\" result=\"innerGlow\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>");
+            writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + innerGlow.mode + "\" in2=\"" + param.pass + "\" result=\"innerGlow\"/>");
             param.pass = "innerGlow";
 
             return JSON.stringify({ c: innerGlow.color, g: innerGlow.gradient, o: opacity, b: blur });
@@ -445,12 +446,12 @@
                     y: Math.sin(angle) * distance
                 };
 
-            write(ctx, ctx.currentIndent + '<feOffset in="SourceAlpha" dx="' + round1k(offset.x) + '" dy="' + round1k(offset.y) + '"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feGaussianBlur result="innerShadowBlur" stdDeviation="' + blur + '"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feFlood flood-color="' + svgWriterUtils.writeColor(color) + '" flood-opacity="' + opacity + '"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feComposite operator="out" in2="innerShadowBlur"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceAlpha"/>' + ctx.terminator);
-            write(ctx, ctx.currentIndent + '<feBlend mode="' + innerShadow.mode + '" in2="' + param.pass + '" result="innerShadow"/>' + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + '<feOffset in="SourceAlpha" dx="' + round1k(offset.x) + '" dy="' + round1k(offset.y) + '"/>');
+            writeln(ctx, ctx.currentIndent + '<feGaussianBlur result="innerShadowBlur" stdDeviation="' + blur + '"/>');
+            writeln(ctx, ctx.currentIndent + '<feFlood flood-color="' + svgWriterUtils.writeColor(color) + '" flood-opacity="' + opacity + '"/>');
+            writeln(ctx, ctx.currentIndent + '<feComposite operator="out" in2="innerShadowBlur"/>');
+            writeln(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceAlpha"/>');
+            writeln(ctx, ctx.currentIndent + '<feBlend mode="' + innerShadow.mode + '" in2="' + param.pass + '" result="innerShadow"/>');
             param.pass = "innerShadow";
 
             return JSON.stringify({m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset});
@@ -564,13 +565,13 @@
                 };  
             }
 
-            write(ctx, ctx.currentIndent + "<feComponentTransfer color-interpolation-filters=\"sRGB\">" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feComponentTransfer color-interpolation-filters=\"sRGB\">");
             indent(ctx);
-            write(ctx, ctx.currentIndent + "<feFuncR type=\"table\" tableValues=\"" + redTableValues.trim() + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feFuncG type=\"table\" tableValues=\"" + greenTableValues.trim() + "\"/>" + ctx.terminator);
-            write(ctx, ctx.currentIndent + "<feFuncB type=\"table\" tableValues=\"" + blueTableValues.trim() + "\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<feFuncR type=\"table\" tableValues=\"" + redTableValues.trim() + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feFuncG type=\"table\" tableValues=\"" + greenTableValues.trim() + "\"/>");
+            writeln(ctx, ctx.currentIndent + "<feFuncB type=\"table\" tableValues=\"" + blueTableValues.trim() + "\"/>");
             undent(ctx);
-            write(ctx, ctx.currentIndent + "</feComponentTransfer>" + ctx.terminator);        
+            writeln(ctx, ctx.currentIndent + "</feComponentTransfer>");        
         };
 	}
 
