@@ -25,6 +25,7 @@
         svgWriterIDs = require("./svgWriterIDs.js");
     
     var write = svgWriterUtils.write,
+        writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
@@ -39,7 +40,7 @@
     
     (function (proto) {
         proto.write = function (ctx) {
-            write(ctx, ctx.currentIndent + this + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + this);
         };
 
         proto.toString = function () {
@@ -106,7 +107,7 @@
         proto.write = function (ctx) {
             var i;
 
-            write(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
             indent(ctx);
 
             for (i = 0; i < this.rules.length; i++) {
@@ -114,7 +115,7 @@
             }
 
             undent(ctx);
-            write(ctx, ctx.currentIndent + "}" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "}");
         };
 
         proto.toString = function (cr) {
@@ -380,7 +381,7 @@
             var blockClass,
                 blocks = [];
             
-            write(ctx, ctx.currentIndent + "<style>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<style>");
             indent(ctx);
             
             for (blockClass in this.blocks) {
@@ -394,12 +395,12 @@
             blocks = this.extract(blocks);
 
             for (var i = 0, len = blocks.length; i < len; i++) {
-                write(ctx, ctx.terminator); //new line before blocks
+                writeln(ctx, ''); //new line before blocks
                 blocks[i].write(ctx);
             }
             
             undent(ctx);
-            write(ctx, ctx.currentIndent + "</style>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "</style>");
             
         };
         

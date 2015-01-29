@@ -37,6 +37,7 @@
     
     var toString = svgWriterUtils.toString,
         write = svgWriterUtils.write,
+        writeln = svgWriterUtils.writeln,
         writeAttrIfNecessary = svgWriterUtils.writeAttrIfNecessary,
         writeTransformIfNecessary = svgWriterUtils.writeTransformIfNecessary,
         indent = svgWriterUtils.indent,
@@ -74,14 +75,14 @@
             + " filter: " + ctx.omStylesheet.getStyleBlock(ctx.currentOMNode).getPropertyValue('filter') + ";\"");
 
         //do we need to wrap the use and other G in a G so they can be treated as one thing?        
-        write(ctx, ">" + ctx.terminator);
+        writeln(ctx, ">");
         indent(ctx);
         ctx.omStylesheet.writePredefines(ctx);
         fn(useTrick);
         undent(ctx);
-        write(ctx, ctx.currentIndent + "</g>" + ctx.terminator);
+        writeln(ctx, ctx.currentIndent + "</g>");
         if (useTrick) {
-            write(ctx, ctx.currentIndent + "<use xlink:href=\"#" + ctx._lastID + "\" style=\"stroke: " + ctx.omStylesheet.getStyleBlock(ctx.currentOMNode).getPropertyValue('stroke') + "; fill: none; filter: none;\"/>" + ctx.terminator);
+            writeln(ctx, ctx.currentIndent + "<use xlink:href=\"#" + ctx._lastID + "\" style=\"stroke: " + ctx.omStylesheet.getStyleBlock(ctx.currentOMNode).getPropertyValue('stroke') + "; fill: none; filter: none;\"/>");
         }
     }
 
@@ -220,7 +221,7 @@
                                 write(ctx, " style=\"stroke: inherit; filter: none; fill: inherit;\"");
                             }
                             
-                            write(ctx, "/>" + ctx.terminator);
+                            writeln(ctx, "/>");
                             break;
                             
                          case "ellipse":
@@ -241,7 +242,7 @@
 
                             writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
                             
-                            write(ctx, "/>" + ctx.terminator);
+                            writeln(ctx, "/>");
                             break;
                             
                          case "path":
@@ -254,7 +255,7 @@
                                 write(ctx, ' style="stroke: inherit; filter: none; fill: inherit;"');
                             }
                             
-                            write(ctx, ' fill-rule="evenodd"/>' + ctx.terminator);
+                            writeln(ctx, ' fill-rule="evenodd"/>');
                             break;
                             
                          case "rect":
@@ -280,7 +281,7 @@
 
                             writeTransformIfNecessary(ctx, "transform", omIn.transform, omIn.transformTX, omIn.transformTY);
                             
-                            write(ctx, "/>" + ctx.terminator);
+                            writeln(ctx, "/>");
                             break;
                             
                          default:
@@ -418,7 +419,7 @@
                         ctx.currentOMNode = children[i];
                         writeSVGNode(ctx, i, children.length);
                     }
-                    write(ctx, "</text>" + ctx.terminator);
+                    writeln(ctx, "</text>");
                 });
 
                 break;
@@ -441,7 +442,7 @@
                     offset = {middle: 50, end: 100}[styleBlock.getPropertyValue("text-anchor")] || 0;
                 }
                 writeAttrIfNecessary(ctx, "startOffset", offset, 0, "%");
-                write(ctx, ">" + ctx.terminator);
+                writeln(ctx, ">");
                 
                 indent(ctx);
                 ctx.omStylesheet.writePredefines(ctx);
@@ -480,7 +481,7 @@
                     writeAttrIfNecessary(ctx, "width", w, "0", "");
                     writeAttrIfNecessary(ctx, "height", h, "0", "");
 
-                    write(ctx, "/>" + ctx.terminator);
+                    writeln(ctx, "/>");
                 });
 
                 break;
@@ -488,7 +489,7 @@
 
                 write(ctx, ctx.currentIndent + "<g id=\"" + omIn.id + "\"");
                 writeClassIfNeccessary(ctx);
-                write(ctx, ">" + ctx.terminator);
+                writeln(ctx, ">");
                 indent(ctx);
                 ctx.omStylesheet.writePredefines(ctx);
                 var childrenGroup = ctx.currentOMNode.children;
@@ -498,7 +499,7 @@
                     writeSVGNode(ctx, iGroupChild, childrenGroup.length);
                 }
                 undent(ctx);
-                write(ctx, ctx.currentIndent + "</g>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "</g>");
 
                 break;
             default:
@@ -541,7 +542,7 @@
             write(ctx, width + ' ');
             write(ctx, height + '"');
             
-            write(ctx, '>' + ctx.terminator);
+            writeln(ctx, '>');
             indent(ctx);
             
             // Write the style sheet.
@@ -550,7 +551,7 @@
 
             if (hasRules || hasDefines) {
                 svgWriterUtils.gradientStopsReset();
-                write(ctx, ctx.currentIndent + "<defs>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "<defs>");
                 indent(ctx);
                 
                 !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
@@ -561,7 +562,7 @@
                 ctx.omStylesheet.writeDefines(ctx);
 
                 undent(ctx);
-                write(ctx, ctx.currentIndent + "</defs>" + ctx.terminator);
+                writeln(ctx, ctx.currentIndent + "</defs>");
             }
             
             for (i = 0; i < children.length; i++) {
@@ -572,7 +573,7 @@
             
             undent(ctx);
             ctx.currentOMNode = omIn;
-            write(ctx, "</svg>" + ctx.terminator);
+            writeln(ctx, "</svg>");
         } else {
             writeLayerNode(ctx, sibling, siblingsLength);
         }
