@@ -44,7 +44,7 @@
     function SVGWriterFx() {
         
         this.hasFx = function (ctx) {
-            return (this.hasDropShadow(ctx) || 
+            return (this.hasEffect(ctx, 'dropShadow') || 
                     this.hasGradientOverlay(ctx) || 
                     this.hasColorOverlay(ctx) ||
                     this.hasSatin(ctx) ||
@@ -79,7 +79,7 @@
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
                 
                 // Check to see if any of the components actually need to write.
-                if (this.hasDropShadow(ctx)) {
+                if (this.hasEffect(ctx, 'dropShadow')) {
                     iFx++;
                     filterFlavor = "drop-shadow";
                 }
@@ -145,6 +145,18 @@
                 }
             }
         };
+
+        this.hasEffect = function (ctx, effect) {
+            var omIn = ctx.currentOMNode;
+
+            effect += 'Multi';
+            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx[effect]) {
+                return omIn.style.fx[effect].some(function(ele) {
+                    return ele.enabled;
+                });
+            }
+            return false;
+        }
         
         this.hasPatternOverlay = function (ctx) {
             var omIn = ctx.currentOMNode;
@@ -161,18 +173,9 @@
             }
             return false;
         };
-        
-        this.hasDropShadow = function (ctx) {
-            var omIn = ctx.currentOMNode;
-            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx.dropShadowMulti) {
-                return omIn.style.fx.dropShadowMulti.some(function(ele) {
-                    return ele.enabled;
-                });
-            }
-            return false;
-        };
+
         this.externalizeDropShadow = function (ctx, param) {
-            if (!this.hasDropShadow(ctx)) {
+            if (!this.hasEffect(ctx, 'dropShadow')) {
                 return;
             }
 

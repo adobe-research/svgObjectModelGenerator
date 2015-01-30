@@ -166,6 +166,23 @@
             }
             svgNode.style.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
+            function prepareEffect (effect, effectFunction) {
+                var list = effect + 'Multi';
+
+                if (svgNode.style.fx[effect]) {
+                    // Transform single effects to lists.
+                    svgNode.style.fx[list] = [
+                        svgNode.style.fx[effect]
+                    ];
+                    delete svgNode.style.fx[effect];
+                }
+                if (svgNode.style.fx[list]) {
+                    // PS exports filters in the opposite order, revert.
+                    svgNode.style.fx[list].reverse();
+                    svgNode.style.fx[list].forEach(effectFunction);
+                }
+            }
+
             // Alpha isn't really used in an solid fill since there is a separate opacity passed.
             if (svgNode.style.fx.solidFill) {
                 color = svgNode.style.fx.solidFill.color;
@@ -221,22 +238,13 @@
                 svgNode.style.fx.gradientFill.gradient = gradient;
             }
 
-            if (svgNode.style.fx.dropShadow) {
-                // Transform single drop-shadows to lists.
-                svgNode.style.fx.dropShadowMulti = [
-                    svgNode.style.fx.dropShadow
-                ];
-                delete svgNode.style.fx.dropShadow;
+            function prepareDropShadow (ele) {
+                color = ele.color;
+                ele.color = omgUtils.toColor(color);
+                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
-            if (svgNode.style.fx.dropShadowMulti) {
-                // PS exports filters in the opposite order, revert.
-                svgNode.style.fx.dropShadowMulti.reverse();
-                svgNode.style.fx.dropShadowMulti.forEach(function (ele) {
-                    color = ele.color;
-                    ele.color = omgUtils.toColor(color);
-                    ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
-                });
-            }
+
+            prepareEffect('dropShadow', prepareDropShadow);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
