@@ -412,6 +412,74 @@
             });
             return textPathID;
         };
+
+        // Filter Effects
+        self.writeFilterConnection = function (ctx, connection) {
+            if (!connection) {
+                return;
+            }
+            if (connection.in1) {
+                self.write(ctx, ' in="' + connection.in1 + '"');
+            }
+            if (connection.in2) {
+                self.write(ctx, ' in2="' + connection.in2 + '"');
+            }
+            if (connection.result) {
+                self.write(ctx, ' result="' + connection.result + '"');
+            }
+        }
+
+        self.writeFeFlood = function (ctx, color, opacity, connection) {
+            self.write(ctx, ctx.currentIndent + '<feFlood');
+            self.writeAttrIfNecessary(ctx, 'flood-color', self.writeColor(color), '#000', '');
+            if (opacity !== undefined && opacity !== null) {
+                self.writeAttrIfNecessary(ctx, 'flood-opacity', opacity, 1, '');
+            }
+            self.writeFilterConnection(ctx, connection);
+            self.writeln(ctx, '/>');
+        }
+
+        self.writeFeBlend = function (ctx, mode, connection) {
+            self.write(ctx, ctx.currentIndent + '<feBlend');
+            if (mode) {
+                self.writeAttrIfNecessary(ctx, 'mode', mode, 'normal', '');
+            }
+            self.writeFilterConnection(ctx, connection);
+            self.writeln(ctx, '/>');
+        }
+
+        self.writeFeComposite = function (ctx, operator, connection) {
+            self.write(ctx, ctx.currentIndent + '<feComposite');
+            if (operator) {
+                self.writeAttrIfNecessary(ctx, 'operator', operator, 'over', '');
+            }
+            self.writeFilterConnection(ctx, connection);
+            self.writeln(ctx, '/>');
+        }
+
+        self.writeFeGauss = function (ctx, blur, connection) {
+            self.write(ctx, ctx.currentIndent + '<feGaussianBlur');
+            self.writeAttrIfNecessary(ctx, 'stdDeviation', self.round1k(blur), 0, '');
+            self.writeFilterConnection(ctx, connection);
+            self.writeln(ctx, '/>');
+        }
+
+        self.writeFeOffset = function (ctx, offset, connection) {
+            self.write(ctx, ctx.currentIndent + '<feOffset');
+            self.writeAttrIfNecessary(ctx, 'dx', self.round1k(offset.x), 0, '');
+            self.writeAttrIfNecessary(ctx, 'dy', self.round1k(offset.y), 0, '');
+            self.writeFilterConnection(ctx, connection);
+            self.writeln(ctx, '/>');
+        }
+
+        // For convenience.
+        self.writeFeInvert = function (ctx) {
+            self.writeln(ctx, ctx.currentIndent + '<feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>');
+        }
+
+        self.writeFeLuminance = function (ctx) {
+            self.writeln(ctx, ctx.currentIndent + '<feColorMatrix type="matrix" values="0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0"/>');
+        }
         
         self.round2 = Utils.round2;
         self.round1k = Utils.round1k;

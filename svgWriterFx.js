@@ -27,6 +27,14 @@
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
+        writeAttrIfNecessary = svgWriterUtils.writeAttrIfNecessary,
+        writeFeFlood = svgWriterUtils.writeFeFlood,
+        writeFeBlend = svgWriterUtils.writeFeBlend,
+        writeFeComposite = svgWriterUtils.writeFeComposite,
+        writeFeGauss = svgWriterUtils.writeFeGauss,
+        writeFeInvert = svgWriterUtils.writeFeInvert,
+        writeFeLuminance = svgWriterUtils.writeFeLuminance,
+        writeFeOffset = svgWriterUtils.writeFeOffset,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
@@ -183,11 +191,11 @@
                     x: -Math.cos(angle) * distance,
                     y: Math.sin(angle) * distance
                 };
-            
-            writeln(ctx, ctx.currentIndent + "<feOffset in=\"SourceAlpha\" dx=\"" + round1k(offset.x) + "\" dy=\"" + round1k(offset.y) + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feGaussianBlur result=\"dropBlur\" stdDeviation=\"" + blur + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"dropBlur\"/>");
+
+            writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
+            writeFeGauss(ctx, blur, {result: 'dropBlur'});
+            writeFeFlood(ctx, color, opacity);
+            writeFeComposite(ctx, 'in', {in2: 'dropBlur'});
             param.pass = "dropShadow";
             
             return JSON.stringify({ c: color, o: opacity, off: offset, b: blur });
@@ -210,7 +218,7 @@
                 outerGlow = omIn.style.fx.outerGlow;
             if (!outerGlow || !outerGlow.enabled) {
                 if (param.pass == "dropShadow") {
-                    writeln(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"dropShadow\"/>");
+                    writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'dropShadow'});
                 }
                 return;
             }
@@ -220,31 +228,30 @@
             var blur = round1k(outerGlow.blur / 3),
                 opacity = round1k(outerGlow.opacity);
 
-            writeln(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\"/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite result=\"outerGlowBlur\"/>");
+            writeFeGauss(ctx, blur, {in1: 'SourceAlpha'});
+            writeFeComposite(ctx);
+            writeFeComposite(ctx);
+            writeFeComposite(ctx, 'over', {result: 'outerGlowBlur'});
             if (outerGlow.gradient) {
                 var nSegs = this.findMatchingDistributedNSegs(outerGlow.gradient.stops);
                 var colors = this.calcDistributedColors(outerGlow.gradient.stops, nSegs);
                 // Inverse colors.
-                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
+                writeFeInvert(ctx);
                 // Set RGB channels to A.
-                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0\"/>");
-                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
+                writeFeLuminance(ctx);
+                writeFeInvert(ctx);
                 // Gradient map.
                 this.createGradientMap(ctx, colors);
             } else {
-                var color = outerGlow.color;
-                writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
-                writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"outerGlowBlur\"/>");
+                writeFeFlood(ctx, outerGlow.color, opacity);
+                writeFeComposite(ctx, 'in', {in2: 'outerGlowBlur'});
             }
             if (param.pass == "dropShadow") {
                 if (omIn.style.fx.dropShadow) {
-                    writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + omIn.style.fx.dropShadow.mode + "\" in2=\"" + param.pass + "\"/>");
+                    writeFeBlend(ctx, omIn.style.fx.dropShadow.mode, {in2: param.pass});
                 }
             }
-            writeln(ctx, ctx.currentIndent + "<feComposite in=\"SourceGraphic\" result=\"outerGlow\"/>");
+            writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'outerGlow'});
             param.pass = "outerGlow";
 
             return JSON.stringify({ c: outerGlow.color, g: outerGlow.gradient, o: opacity, b: blur });
@@ -290,8 +297,8 @@
                 ' preserveAspectRatio="none"' +
                 ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '"' +
                 ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>');
-            writeln(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceGraphic"/>');
-            writeln(ctx, ctx.currentIndent + '<feBlend mode="' + gradientFill.mode + '" in2="' + param.pass + '" result="gradientFill"/>');
+            writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
+            writeFeBlend(ctx, gradientFill.mode, {in2: param.pass, result: 'gradientFill'});
             param.pass = 'gradientFill';
             
             return JSON.stringify({ l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 });
@@ -318,9 +325,9 @@
             var color = solidFill.color,
                 opacity = round1k(solidFill.opacity.value / 100);
 
-            writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceGraphic\"/>");
-            writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + solidFill.mode + "\" in2=\"" + param.pass + "\" result=\"colorOverlay\"/>");
+            writeFeFlood(ctx, color, opacity);
+            writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
+            writeFeBlend(ctx, solidFill.mode, {in2: param.pass, result: 'colorOverlay'});
             param.pass = "colorOverlay";
 
             return JSON.stringify({ c: color, m: solidFill.mode, o: opacity});
@@ -346,30 +353,32 @@
             }
             var color = satin.color,
                 opacity = round1k(satin.opacity.value / 100),
-                dx = round1k(satin.distance * Math.cos(-satin.localLightingAngle.value)),
-                dy = round1k(satin.distance * Math.sin(-satin.localLightingAngle.value)),
+                offset = {
+                    x: round1k(satin.distance * Math.cos(-satin.localLightingAngle.value)),
+                    y: round1k(satin.distance * Math.sin(-satin.localLightingAngle.value))
+                },
                 blur = round1k(Math.sqrt(satin.blur));
 
-            writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\" result=\"snSilhouette\"/>");
-            writeln(ctx, ctx.currentIndent + "<feOffset in=\"snSilhouette\" dx=\"" + dx + "\" dy=\"" + dy + "\" result=\"snShifted1\"/>");
-            writeln(ctx, ctx.currentIndent + "<feOffset in=\"snSilhouette\" dx=\"" + -dx + "\" dy=\"" + -dy + "\" result=\"snShifted2\"/>");
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"xor\" in=\"snShifted1\" in2=\"snShifted2\"/>");
+            writeFeFlood(ctx, color);
+            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha', result: 'snSilhouette'});
+            writeFeOffset(ctx, offset, {in1: 'snSilhouette', result: 'snShifted1'});
+            writeFeOffset(ctx, { x: -offset.x, y: -offset.y }, {in1: 'snSilhouette', result: 'snShifted2'});
+            writeFeComposite(ctx, 'xor', {in1: 'snShifted1', in2: 'snShifted2'});
             if (satin.invert) {
-                writeln(ctx, ctx.currentIndent + "<feComposite operator=\"xor\" in2=\"snSilhouette\"/>");                
+                writeFeComposite(ctx, 'xor', {in2: 'snSilhouette'});
             }
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>");
-            writeln(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\"/>");
+            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+            writeFeGauss(ctx, blur);
             writeln(ctx, ctx.currentIndent + "<feComponentTransfer>");
             indent(ctx);
             writeln(ctx, ctx.currentIndent + "<feFuncA type=\"linear\" slope=\"" + opacity + "\"/>");
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</feComponentTransfer>");
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>");
-            writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + satin.mode + "\" in2=\"" + param.pass + "\" result=\"satin\"/>");
+            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+            writeFeBlend(ctx, satin.mode, {in2: param.pass, result: 'satin'});
             param.pass = "satin";
 
-            return JSON.stringify({m: satin.mode, c: color, o: opacity, b: blur, dx: dx, dy: dy});
+            return JSON.stringify({m: satin.mode, c: color, o: opacity, b: blur, offset: offset});
         };
 
 
@@ -396,24 +405,24 @@
             var blur = round1k(innerGlow.blur / 3),
                 opacity = round1k(innerGlow.opacity);
 
-            writeln(ctx, ctx.currentIndent + "<feGaussianBlur stdDeviation=\"" + blur + "\" in=\"SourceAlpha\" result=\"innerGlowBlur\"/>");
+            writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur'});
             if (innerGlow.gradient) {
                 var nSegs = this.findMatchingDistributedNSegs(innerGlow.gradient.stops);
                 var colors = this.calcDistributedColors(innerGlow.gradient.stops, nSegs);
                 // Inverse colors.
-                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
+                writeFeInvert(ctx);
                 // Set RGB channels to A.
-                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0\"/>");
-                writeln(ctx, ctx.currentIndent + "<feColorMatrix type=\"matrix\" values=\"-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0\"/>");
+                writeFeLuminance(ctx);
+                writeFeInvert(ctx);
                 // Gradient map.
                 this.createGradientMap(ctx, colors);
             } else {
                 var color = innerGlow.color;
-                writeln(ctx, ctx.currentIndent + "<feFlood flood-color=\"" + svgWriterUtils.writeColor(color) + "\" flood-opacity=\"" + opacity + "\"/>");
-                writeln(ctx, ctx.currentIndent + "<feComposite operator=\"out\" in2=\"innerGlowBlur\"/>");
+                writeFeFlood(ctx, color, opacity);
+                writeFeComposite(ctx, 'out', {in2: 'innerGlowBlur'});
             }
-            writeln(ctx, ctx.currentIndent + "<feComposite operator=\"in\" in2=\"SourceAlpha\"/>");
-            writeln(ctx, ctx.currentIndent + "<feBlend mode=\"" + innerGlow.mode + "\" in2=\"" + param.pass + "\" result=\"innerGlow\"/>");
+            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+            writeFeBlend(ctx, innerGlow.mode, {in2: param.pass, result: 'innerGlow'});
             param.pass = "innerGlow";
 
             return JSON.stringify({ c: innerGlow.color, g: innerGlow.gradient, o: opacity, b: blur });
@@ -446,12 +455,12 @@
                     y: Math.sin(angle) * distance
                 };
 
-            writeln(ctx, ctx.currentIndent + '<feOffset in="SourceAlpha" dx="' + round1k(offset.x) + '" dy="' + round1k(offset.y) + '"/>');
-            writeln(ctx, ctx.currentIndent + '<feGaussianBlur result="innerShadowBlur" stdDeviation="' + blur + '"/>');
-            writeln(ctx, ctx.currentIndent + '<feFlood flood-color="' + svgWriterUtils.writeColor(color) + '" flood-opacity="' + opacity + '"/>');
-            writeln(ctx, ctx.currentIndent + '<feComposite operator="out" in2="innerShadowBlur"/>');
-            writeln(ctx, ctx.currentIndent + '<feComposite operator="in" in2="SourceAlpha"/>');
-            writeln(ctx, ctx.currentIndent + '<feBlend mode="' + innerShadow.mode + '" in2="' + param.pass + '" result="innerShadow"/>');
+            writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
+            writeFeGauss(ctx, blur, {result: 'innerShadowBlur'});
+            writeFeFlood(ctx, color, opacity);
+            writeFeComposite(ctx, 'out', {in2: 'innerShadowBlur'});
+            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+            writeFeBlend(ctx, innerShadow.mode, {in2: param.pass, result: 'innerShadow'});
             param.pass = "innerShadow";
 
             return JSON.stringify({m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset});

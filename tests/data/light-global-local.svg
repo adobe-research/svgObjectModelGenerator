@@ -24,31 +24,31 @@
     </style>
 
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="14.142" dy="14.142"/>
-      <feGaussianBlur result="dropBlur" stdDeviation="4.472"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
     <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="-16.383" dy="-11.472"/>
-      <feGaussianBlur result="dropBlur" stdDeviation="4.472"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
     <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="14.142" dy="14.142"/>
-      <feGaussianBlur result="innerShadowBlur" stdDeviation="4.472"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="innerShadowBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
     </filter>
     <filter id="inner-shadow-2" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="-16.383" dy="-11.472"/>
-      <feGaussianBlur result="innerShadowBlur" stdDeviation="4.472"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="innerShadowBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>

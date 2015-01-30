@@ -10,13 +10,13 @@
     </style>
 
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="24" dy="0"/>
-      <feGaussianBlur result="dropBlur" stdDeviation="4.583"/>
+      <feOffset dx="24" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.583" result="dropBlur"/>
       <feFlood flood-color="#d62d2d" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
-      <feOffset in="SourceAlpha" dx="75" dy="0"/>
-      <feGaussianBlur result="innerShadowBlur" stdDeviation="6.782"/>
+      <feOffset dx="75" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6.782" result="innerShadowBlur"/>
       <feFlood flood-color="#2362e1" flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>

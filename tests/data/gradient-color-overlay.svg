@@ -16,15 +16,15 @@
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
       <feImage x="100" y="100" preserveAspectRatio="none" width="400" height="400" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjIwMCIgeTE9IjQwMCIgeDI9IjIwMCIgeTI9IjAiPgogIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="normal" in2="SourceGraphic" result="gradientFill"/>
+      <feBlend in2="SourceGraphic" result="gradientFill"/>
       <feFlood flood-color="red" flood-opacity="0.3"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="normal" in2="gradientFill" result="colorOverlay"/>
+      <feBlend in2="gradientFill" result="colorOverlay"/>
     </filter>
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="red" flood-opacity="0.3"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="normal" in2="SourceGraphic" result="colorOverlay"/>
+      <feBlend in2="SourceGraphic" result="colorOverlay"/>
     </filter>
   </defs>
   <rect x="100" y="100" width="400" height="400" class="cls-3"/>
