@@ -183,15 +183,6 @@
                 }
             }
 
-            // Alpha isn't really used in an solid fill since there is a separate opacity passed.
-            if (svgNode.style.fx.solidFill) {
-                color = svgNode.style.fx.solidFill.color;
-                color.r = color.red;
-                color.g = color.green;
-                color.b = color.blue;
-                color.a = 1;
-            }
-
             if (svgNode.style.fx.outerGlow) {
                 if (svgNode.style.fx.outerGlow.gradient) {
                     var gradient = omgUtils.toColorStops(svgNode.style.fx.outerGlow);
@@ -238,13 +229,14 @@
                 svgNode.style.fx.gradientFill.gradient = gradient;
             }
 
-            function prepareDropShadow (ele) {
+            function prepareColor (ele) {
                 color = ele.color;
                 ele.color = omgUtils.toColor(color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
-            prepareEffect('dropShadow', prepareDropShadow);
+            prepareEffect('solidFill', prepareColor);
+            prepareEffect('dropShadow', prepareColor);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},

@@ -46,7 +46,7 @@
         this.hasFx = function (ctx) {
             return (this.hasEffect(ctx, 'dropShadow') || 
                     this.hasGradientOverlay(ctx) || 
-                    this.hasColorOverlay(ctx) ||
+                    this.hasEffect(ctx, 'solidFill') ||
                     this.hasSatin(ctx) ||
                     this.hasInnerShadow(ctx));
         };
@@ -91,7 +91,7 @@
                     iFx++;
                     filterFlavor = "gradient-overlay";
                 }
-                if (this.hasColorOverlay(ctx)) {
+                if (this.hasEffect(ctx, 'solidFill')) {
                     iFx++;
                     filterFlavor = "color-overlay";
                 }
@@ -323,40 +323,38 @@
             return JSON.stringify({ l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 });
         };
 
-        this.hasColorOverlay = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                solidFill;
-            if (omIn && omIn.style && omIn.style.fx) {
-                solidFill = omIn.style.fx.solidFill
-                if (solidFill && solidFill.enabled) {
-                    return true;
-                }
-
-                solidFill = omIn.style.fx.solidFillMulti;
-                if (solidFill) {
-                    return solidFill.some(function(ele) {
-                        return ele.enabled;
-                    });
-                }
-            }
-            return false;
-        };
         this.externalizeColorOverlay = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                solidFill = omIn.style.fx.solidFill;
-            if (!solidFill || !solidFill.enabled) {
+            if (!this.hasEffect(ctx, 'solidFill')) {
                 return;
             }
 
-            var color = solidFill.color,
-                opacity = round1k(solidFill.opacity.value / 100);
+            var omIn = ctx.currentOMNode,
+                solidFillMulti = omIn.style.fx.solidFillMulti,
+                specifies = [];
 
-            writeFeFlood(ctx, color, opacity);
-            writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
-            writeFeBlend(ctx, solidFill.mode, {in2: param.pass, result: 'colorOverlay'});
-            param.pass = "colorOverlay";
+            function writeColorOverlay(ctx, solidFill) {
+                var color = solidFill.color,
+                    opacity = round1k(solidFill.opacity);
 
-            return JSON.stringify({ c: color, m: solidFill.mode, o: opacity});
+                writeFeFlood(ctx, color, opacity);
+                writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
+                return { c: color, o: opacity, m: solidFill.mode};
+            }
+
+            solidFillMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                param.pass = 'colorOverlay' + ind;
+                specifies.push(writeColorOverlay(ctx, ele));
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
         };
 
         this.hasSatin = function (ctx) {
