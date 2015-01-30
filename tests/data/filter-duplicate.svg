@@ -20,14 +20,14 @@
     </style>
 
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
-      <feGaussianBlur result="dropBlur" stdDeviation="2.236"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.236" result="dropBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
-      <feOffset in="SourceAlpha" dx="2.5" dy="4.33"/>
-      <feGaussianBlur result="innerShadowBlur" stdDeviation="2.236"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.236" result="innerShadowBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
       <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>

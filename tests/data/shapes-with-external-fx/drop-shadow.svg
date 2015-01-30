@@ -9,9 +9,9 @@
     </style>
 
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
-      <feOffset in="SourceAlpha" dx="17" dy="29.445"/>
-      <feGaussianBlur result="dropBlur" stdDeviation="5.196"/>
-      <feFlood flood-color="#000" flood-opacity="0.75"/>
+      <feOffset dx="17" dy="29.445" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5.196" result="dropBlur"/>
+      <feFlood flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
