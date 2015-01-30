@@ -13,7 +13,7 @@
       <feOffset dx="24" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="4.583" result="dropBlur"/>
       <feFlood flood-color="#d62d2d" flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
       <feOffset dx="75" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="6.782" result="innerShadowBlur"/>

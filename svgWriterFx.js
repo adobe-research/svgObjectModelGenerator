@@ -44,7 +44,7 @@
     function SVGWriterFx() {
         
         this.hasFx = function (ctx) {
-            return (this.hasDropShadow(ctx) || 
+            return (this.hasEffect(ctx, 'dropShadow') || 
                     this.hasGradientOverlay(ctx) || 
                     this.hasColorOverlay(ctx) ||
                     this.hasSatin(ctx) ||
@@ -79,7 +79,7 @@
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
                 
                 // Check to see if any of the components actually need to write.
-                if (this.hasDropShadow(ctx)) {
+                if (this.hasEffect(ctx, 'dropShadow')) {
                     iFx++;
                     filterFlavor = "drop-shadow";
                 }
@@ -145,6 +145,18 @@
                 }
             }
         };
+
+        this.hasEffect = function (ctx, effect) {
+            var omIn = ctx.currentOMNode;
+
+            effect += 'Multi';
+            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx[effect]) {
+                return omIn.style.fx[effect].some(function(ele) {
+                    return ele.enabled;
+                });
+            }
+            return false;
+        }
         
         this.hasPatternOverlay = function (ctx) {
             var omIn = ctx.currentOMNode;
@@ -161,44 +173,52 @@
             }
             return false;
         };
-        
-        this.hasDropShadow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                dropShadow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                dropShadow = omIn.style.fx.dropShadow;
-            
-                if (dropShadow && dropShadow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
+
         this.externalizeDropShadow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                dropShadow = omIn.style.fx.dropShadow;
-            
-            if (!dropShadow || !dropShadow.enabled) {
+            if (!this.hasEffect(ctx, 'dropShadow')) {
                 return;
             }
-            
-            var color = dropShadow.color,
-                opacity = round1k(dropShadow.opacity),
-                distance = dropShadow.distance,
-                angle = (dropShadow.useGlobalAngle ? ctx.globalLight.angle : dropShadow.localLightingAngle.value) * Math.PI / 180,
-                blur = round1k(Math.sqrt(dropShadow.blur)),
-                offset = {
-                    x: -Math.cos(angle) * distance,
-                    y: Math.sin(angle) * distance
-                };
 
-            writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
-            writeFeGauss(ctx, blur, {result: 'dropBlur'});
-            writeFeFlood(ctx, color, opacity);
-            writeFeComposite(ctx, 'in', {in2: 'dropBlur'});
-            param.pass = "dropShadow";
+            var omIn = ctx.currentOMNode,
+                dropShadowMulti = omIn.style.fx.dropShadowMulti,
+                specifies = [];
+
+            function writeDropShadow(ctx, dropShadow, ind) {
+                var color = dropShadow.color,
+                    opacity = round1k(dropShadow.opacity),
+                    distance = dropShadow.distance,
+                    angle = (dropShadow.useGlobalAngle ? ctx.globalLight.angle : dropShadow.localLightingAngle.value) * Math.PI / 180,
+                    blur = round1k(Math.sqrt(dropShadow.blur)),
+                    offset = {
+                        x: -Math.cos(angle) * distance,
+                        y: Math.sin(angle) * distance
+                    };
+
+                writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
+                writeFeGauss(ctx, blur, {result: 'dropBlur' + ind});
+                writeFeFlood(ctx, color, opacity);
+                writeFeComposite(ctx, 'in', {in2: 'dropBlur' + ind, result: 'dropShadowComp' + ind});
+
+                return { c: color, o: opacity, off: offset, b: blur, i: ind, m: dropShadow.mode};
+            }
             
-            return JSON.stringify({ c: color, o: opacity, off: offset, b: blur });
+            dropShadowMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                specifies.push(writeDropShadow(ctx, ele, ind));
+                param.pass = num > 0 ? 'dropShadowBlend' + ind : 'dropShadowComp';
+
+                if (num) {
+                    writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+                }
+            });
+            
+            return JSON.stringify(specifies);
         };
 
         this.hasOuterGlow = function (ctx) {
@@ -217,8 +237,9 @@
             var omIn = ctx.currentOMNode,
                 outerGlow = omIn.style.fx.outerGlow;
             if (!outerGlow || !outerGlow.enabled) {
-                if (param.pass == "dropShadow") {
+                if (param.pass.substr(0, 10) == 'dropShadow') {
                     writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'dropShadow'});
+                    param.pass = 'dropShadow';
                 }
                 return;
             }
@@ -246,10 +267,8 @@
                 writeFeFlood(ctx, outerGlow.color, opacity);
                 writeFeComposite(ctx, 'in', {in2: 'outerGlowBlur'});
             }
-            if (param.pass == "dropShadow") {
-                if (omIn.style.fx.dropShadow) {
-                    writeFeBlend(ctx, omIn.style.fx.dropShadow.mode, {in2: param.pass});
-                }
+            if (param.pass.substr(0, 10) == "dropShadow") {
+                writeFeBlend(ctx, omIn.style.fx.outerGlow.mode, {in2: param.pass});
             }
             writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'outerGlow'});
             param.pass = "outerGlow";
@@ -311,6 +330,13 @@
                 solidFill = omIn.style.fx.solidFill
                 if (solidFill && solidFill.enabled) {
                     return true;
+                }
+
+                solidFill = omIn.style.fx.solidFillMulti;
+                if (solidFill) {
+                    return solidFill.some(function(ele) {
+                        return ele.enabled;
+                    });
                 }
             }
             return false;

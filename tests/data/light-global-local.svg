@@ -27,14 +27,14 @@
       <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
       <feFlood flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
     <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
       <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
       <feFlood flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
       <feComposite in="SourceGraphic" result="dropShadow"/>
     </filter>
     <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">

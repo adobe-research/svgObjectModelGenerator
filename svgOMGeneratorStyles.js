@@ -166,6 +166,23 @@
             }
             svgNode.style.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
+            function prepareEffect (effect, effectFunction) {
+                var list = effect + 'Multi';
+
+                if (svgNode.style.fx[effect]) {
+                    // Transform single effects to lists.
+                    svgNode.style.fx[list] = [
+                        svgNode.style.fx[effect]
+                    ];
+                    delete svgNode.style.fx[effect];
+                }
+                if (svgNode.style.fx[list]) {
+                    // PS exports filters in the opposite order, revert.
+                    svgNode.style.fx[list].reverse();
+                    svgNode.style.fx[list].forEach(effectFunction);
+                }
+            }
+
             // Alpha isn't really used in an solid fill since there is a separate opacity passed.
             if (svgNode.style.fx.solidFill) {
                 color = svgNode.style.fx.solidFill.color;
@@ -221,11 +238,13 @@
                 svgNode.style.fx.gradientFill.gradient = gradient;
             }
 
-            if (svgNode.style.fx.dropShadow) {
-                color = svgNode.style.fx.dropShadow.color;
-                svgNode.style.fx.dropShadow.color = omgUtils.toColor(color);
-                svgNode.style.fx.dropShadow.opacity = svgNode.style.fx.dropShadow.opacity ? svgNode.style.fx.dropShadow.opacity.value / 100 : 1;
+            function prepareDropShadow (ele) {
+                color = ele.color;
+                ele.color = omgUtils.toColor(color);
+                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
+
+            prepareEffect('dropShadow', prepareDropShadow);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},

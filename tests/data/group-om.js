@@ -19,34 +19,36 @@ module.exports = {
 					"type": "none"
 				},
 				"fx": {
-					"dropShadow": {
-						"enabled": true,
-						"mode": "multiply",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						},
-						"opacity": 0.75,
-						"useGlobalAngle": false,
-						"localLightingAngle": {
-							"value": 141,
-							"units": "angleUnit"
-						},
-						"distance": 13,
-						"chokeMatte": 0,
-						"blur": 27,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
-						},
-						"layerConceals": true
-					}
+					"dropShadowMulti": [
+						{
+							"enabled": true,
+							"mode": "multiply",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 0.75,
+							"useGlobalAngle": false,
+							"localLightingAngle": {
+								"value": 141,
+								"units": "angleUnit"
+							},
+							"distance": 13,
+							"chokeMatte": 0,
+							"blur": 27,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							},
+							"layerConceals": true
+						}
+					]
 				}
 			},
 			"children": [
