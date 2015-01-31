@@ -233,18 +233,20 @@
                 svgNode.style.fx.innerShadow.opacity = svgNode.style.fx.innerShadow.opacity ? svgNode.style.fx.innerShadow.opacity.value / 100 : 1;
             }
 
-            if (svgNode.style.fx.gradientFill) {
-                var gradient = omgUtils.toGradient(svgNode.style.fx.gradientFill);
-                svgNode.style.fx.gradientFill.gradient = gradient;
-            }
-
             function prepareDropShadow (ele) {
                 color = ele.color;
                 ele.color = omgUtils.toColor(color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
+            function prepareFillGradient (ele) {
+                var gradient = omgUtils.toGradient(ele);
+                ele.gradient = gradient;
+                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
+            }
+
             prepareEffect('dropShadow', prepareDropShadow);
+            prepareEffect('gradientFill', prepareFillGradient);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},

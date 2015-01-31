@@ -92,62 +92,61 @@ module.exports = {
 							"a": 1
 						}
 					},
-					"gradientFill": {
-						"enabled": true,
-						"mode": "normal",
-						"opacity": {
-							"value": 73,
-							"units": "percentUnit"
-						},
-						"gradient": {
-							"stops": [
-								{
-									"position": 0,
-									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 1
+					"gradientFillMulti": [
+						{
+							"enabled": true,
+							"mode": "normal",
+							"opacity": 0.73,
+							"gradient": {
+								"stops": [
+									{
+										"position": 0,
+										"color": {
+											"r": 0,
+											"g": 0,
+											"b": 0,
+											"a": 1
+										}
+									},
+									{
+										"position": 100,
+										"color": {
+											"r": 0,
+											"g": 0,
+											"b": 0,
+											"a": 0
+										}
 									}
-								},
-								{
-									"position": 100,
-									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 0
-									}
-								}
-							],
-							"scale": 1,
+								],
+								"scale": 1,
+								"type": "radial",
+								"angle": 90,
+								"gradientSpace": "objectBoundingBox"
+							},
+							"angle": {
+								"value": 90,
+								"units": "angleUnit"
+							},
 							"type": "radial",
-							"angle": 90,
-							"gradientSpace": "objectBoundingBox"
-						},
-						"angle": {
-							"value": 90,
-							"units": "angleUnit"
-						},
-						"type": "radial",
-						"reverse": false,
-						"dither": false,
-						"align": true,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"offset": {
-							"horizontal": {
-								"value": 0,
+							"reverse": false,
+							"dither": false,
+							"align": true,
+							"scale": {
+								"value": 100,
 								"units": "percentUnit"
 							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
+							"offset": {
+								"horizontal": {
+									"value": 0,
+									"units": "percentUnit"
+								},
+								"vertical": {
+									"value": 0,
+									"units": "percentUnit"
+								}
 							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],
