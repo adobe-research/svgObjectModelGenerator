@@ -125,33 +125,35 @@ module.exports = {
 							}
 						},
 						"fx": {
-							"innerShadow": {
-								"enabled": true,
-								"mode": "multiply",
-								"color": {
-									"r": 0.003891,
-									"g": 54.019456,
-									"b": 255,
-									"a": 1
-								},
-								"opacity": 0.75,
-								"useGlobalAngle": true,
-								"localLightingAngle": {
-									"value": 120,
-									"units": "angleUnit"
-								},
-								"distance": 15,
-								"chokeMatte": 0,
-								"blur": 21,
-								"noise": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"antiAlias": false,
-								"transferSpec": {
-									"name": "Linear"
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0.003891,
+										"g": 54.019456,
+										"b": 255,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 15,
+									"chokeMatte": 0,
+									"blur": 21,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
 								}
-							}
+							]
 						}
 					},
 					"children": [],

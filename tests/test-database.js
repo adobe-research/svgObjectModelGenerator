@@ -182,6 +182,10 @@ var database = [
 {
 	test: "multi-layer-fx-1",
 	desc: "Test multiple drop shadows per layer."
+},
+{
+	test: "multi-layer-fx-4",
+	desc: "Test multiple inline shadows per layer."
 }
 ];
 
