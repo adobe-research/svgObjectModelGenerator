@@ -206,13 +206,6 @@
             if (svgNode.style.fx.innerGlow) {
                 if (svgNode.style.fx.innerGlow.gradient) {
                     var gradient = omgUtils.toColorStops(svgNode.style.fx.innerGlow);
-                    // Reverse gradient.
-                    for (var i = gradient.stops.length - 1; i >= 0; i--) {
-                        gradient.stops[i].position = Math.abs(gradient.stops[i].position - 100);
-                    }
-                    gradient.stops.sort(function (a, b) {
-                        return a.position - b.position;
-                    });
                     svgNode.style.fx.innerGlow.gradient = gradient;
                 } else {
                     color = svgNode.style.fx.innerGlow.color;
