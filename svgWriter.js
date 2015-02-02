@@ -306,7 +306,11 @@
                     if (leading) {
                         fontSize = omIn.style["font-size"];
                         if (fontSize && leading.units === fontSize.units) {
-                            lineEM = util.round1k(leading.value / fontSize.value);
+                            if (fontSize.units) {
+                                lineEM = util.round1k(leading.value / fontSize.value);
+                            } else {
+                                lineEM = util.round1k(leading / fontSize);
+                            }
                         }
                     }
                     

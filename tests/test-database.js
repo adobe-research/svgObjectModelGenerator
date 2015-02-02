@@ -155,6 +155,10 @@ var database = [
 	desc: "should support text styling"
 },
 {
+	test: "text-styling2",
+	desc: "should support font-weight"
+},
+{
 	test: "text-on-path",
 	desc: "should support text on path"
 },

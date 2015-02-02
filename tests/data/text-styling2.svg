@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+
+      .cls-3, .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16 {
+        font-size: 111px;
+      }
+
+      .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16 {
+        text-anchor: middle;
+        font-size: 111px;
+      }
+
+      .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24 {
+        font-size: 72px;
+      }
+
+      .cls-14, .cls-20 {
+        font-style: italic;
+      }
+
+      .cls-4 {
+        font-family: "SourceSansPro-Light";
+      }
+
+      .cls-6 {
+        font-family: "Source Sans Pro";
+      }
+
+      .cls-8 {
+        font-family: "SourceSansPro-Semibold";
+      }
+
+      .cls-10 {
+        font-family: "SourceSansPro-Bold";
+        font-weight: bold;
+      }
+
+      .cls-12 {
+        font-family: "SourceSansPro-Black";
+      }
+
+      .cls-14 {
+        font-family: "SourceSansPro-BlackIt";
+      }
+
+      .cls-16 {
+        font-family: "SourceSansPro-ExtraLight";
+      }
+
+      .cls-18 {
+        font-family: "HelveticaNeue-Thin";
+      }
+
+      .cls-19 {
+        font-family: "HelveticaNeue-UltraLight";
+      }
+
+      .cls-20 {
+        font-family: "HelveticaNeue-ThinItalic";
+      }
+
+      .cls-21 {
+        font-family: "HelveticaNeue-Medium";
+      }
+
+      .cls-22 {
+        font-family: "Helvetica-LightOblique";
+      }
+
+      .cls-23 {
+        font-family: "BodoniSvtyTwoITCTT-Book";
+      }
+
+      .cls-24 {
+        font-family: "LetterGothicStd-Slanted";
+      }
+    </style>
+  </defs>
+  <text x="87px" y="286px" class="cls-3"><tspan x="87px" class="cls-4">2</tspan></text>
+  <text x="87px" y="414px" class="cls-3"><tspan x="87px" class="cls-6">3</tspan></text>
+  <text x="87px" y="539px" class="cls-3"><tspan x="87px" class="cls-8">4</tspan></text>
+  <text x="87px" y="670px" class="cls-3"><tspan x="87px" class="cls-10">5</tspan></text>
+  <text x="87px" y="795px" class="cls-3"><tspan x="87px" class="cls-12">6</tspan></text>
+  <text x="87px" y="920px" class="cls-3"><tspan x="87px" class="cls-14">7</tspan></text>
+  <text x="87px" y="150px" class="cls-3"><tspan x="87px" class="cls-16">1</tspan></text>
+  <text x="370px" y="128px" class="cls-17"><tspan class="cls-18">thin</tspan><tspan dy="1.542em" x="370px" class="cls-19">ultrathin</tspan><tspan dy="1.542em" x="370px" class="cls-20">thin italic</tspan><tspan dy="1.542em" x="370px" class="cls-21">medium</tspan><tspan dy="1.542em" x="370px" class="cls-22">light oblique</tspan><tspan dy="1.542em" x="370px" class="cls-23">book</tspan><tspan dy="1.542em" x="370px" class="cls-24">slanted</tspan></text>
+</svg>
