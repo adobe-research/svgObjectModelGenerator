@@ -99,7 +99,7 @@
     }
 
     var defaults = {
-        fill: "#000000",
+        fill: "#000",
         stroke: "none",
         "stroke-width": 1,
         "stroke-linecap": "butt",
@@ -115,9 +115,10 @@
         visibility: "visible"
     };
 
-    function writeClassIfNeccessary(ctx) {
-        if (ctx.omStylesheet.hasStyleBlock(ctx.currentOMNode)) {
-            var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(ctx.currentOMNode);
+    function writeClassIfNeccessary(ctx, node) {
+        node = node || ctx.currentOMNode;
+        if (ctx.omStylesheet.hasStyleBlock(node)) {
+            var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
             if (omStyleBlock) {
                 if (ctx.usePresentationAttribute) {
                     for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
@@ -292,71 +293,14 @@
 
                 break;
             case "tspan": {
-                write(ctx, "<tspan");
-                // Set paragraph styles.
+                dealWithTSpan(ctx, sibling, omIn);
                 
-                if (ctx._nextTspanAdjustSuper) {
-                    writeAttrIfNecessary(ctx, "dy", "0.6em", "0em", "");
-                }
-                
-                if (omIn.position) {
-                    var lineEM = 1.2,
-                        fontSize,
-                        leading = omIn.style["_leading"];
-                    if (leading) {
-                        fontSize = omIn.style["font-size"];
-                        if (fontSize && leading.units === fontSize.units) {
-                            lineEM = util.round1k(leading.value / fontSize.value);
-                        }
-                    }
-                    
-                    if (!ctx._nextTspanAdjustSuper) {
-                        if (omIn.position.unitY === "em") {
-                            writeAttrIfNecessary(ctx, "dy", (omIn.position.y * lineEM) + "em", "0em", "");
-                        } else {
-                            writeAttrIfNecessary(ctx, "dy", (sibling ? lineEM : 0) + "em", "0em", "");
-                        }
-                    }
-                    
-                    if (!omIn.style ||
-                        (omIn.style["text-anchor"] !== "middle" &&
-                         omIn.style["text-anchor"] !== "end") &&
-                        isFinite(omIn.position.x)) {
-                        
-                        if (sibling) {
-                            writePositionIfNecessary(ctx, {
-                                x: omIn.position.x,
-                                unitX: omIn.position.unitX
-                            }, "");
-                        }
-                    } else if (omIn.style["text-anchor"] === "middle") {
-                        writePositionIfNecessary(ctx, {
-                            x: omIn.position.x,
-                            unitX: omIn.position.unitX
-                        });
-                        if (isFinite(omIn.position.deltaX)) {
-                            writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
-                        }
-                    } else if (omIn.style["text-anchor"] === "end") {
-                        writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
-                        if (isFinite(omIn.position.deltaX)) {
-                            writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
-                        }
-                    }
-                }
-                
-                ctx._nextTspanAdjustSuper = false;
-                
-                writeClassIfNeccessary(ctx);
-                write(ctx, ">");
-
                 if (omIn.children.length) {
-                    for (var i = 0; i < omIn.children.length; i++) {
-                        var childNode = omIn.children[i];
-                        ctx.currentOMNode = childNode;
-                        writeSVGNode(ctx, i, omIn.children.length);
-                    }
+                    mergeTSpans(ctx, sibling, omIn.children);
+//                    break;
                 }
+
+
                 if (omIn.text) {
                     write(ctx, encodedText(omIn.text));
                 }
@@ -595,6 +539,175 @@
 		return toString(ctx);
 	}
 
+    function dealWithTSpan(ctx, sibling, omIn) {
+        write(ctx, "<tspan");
+        // Set paragraph styles.
+
+        if (ctx._nextTspanAdjustSuper) {
+            writeAttrIfNecessary(ctx, "dy", "0.6em", "0em", "");
+        }
+
+        if (omIn.position) {
+            var lineEM = 1.2,
+                fontSize,
+                leading = omIn.style["_leading"];
+            if (leading) {
+                fontSize = omIn.style["font-size"];
+                if (fontSize && leading.units === fontSize.units) {
+                    lineEM = util.round1k(leading.value / fontSize.value);
+                }
+            }
+
+            if (!ctx._nextTspanAdjustSuper) {
+                if (omIn.position.unitY === "em") {
+                    writeAttrIfNecessary(ctx, "dy", (omIn.position.y * lineEM) + "em", "0em", "");
+                } else {
+                    writeAttrIfNecessary(ctx, "dy", (sibling ? lineEM : 0) + "em", "0em", "");
+                }
+            }
+
+            if (!omIn.style ||
+                (omIn.style["text-anchor"] !== "middle" &&
+                 omIn.style["text-anchor"] !== "end") &&
+                isFinite(omIn.position.x)) {
+
+                if (sibling) {
+                    writePositionIfNecessary(ctx, {
+                        x: omIn.position.x,
+                        unitX: omIn.position.unitX
+                    }, "");
+                }
+            } else if (omIn.style["text-anchor"] === "middle") {
+                writePositionIfNecessary(ctx, {
+                    x: omIn.position.x,
+                    unitX: omIn.position.unitX
+                });
+                if (isFinite(omIn.position.deltaX)) {
+                    writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
+                }
+            } else if (omIn.style["text-anchor"] === "end") {
+                writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
+                if (isFinite(omIn.position.deltaX)) {
+                    writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
+                }
+            }
+        }
+
+        ctx._nextTspanAdjustSuper = false;
+
+        writeClassIfNeccessary(ctx, omIn);
+        write(ctx, ">");
+    }
+
+    var mergeTSpans = (function () {
+        var matchAfterDash = /-.*$/,
+            matchAllSpaces = /\s/g
+        function iseq(name, val1, val2) {
+            if (name == "font-family") {
+                val1 = val1.replace(matchAfterDash, "").replace(matchAllSpaces, "").toLowerCase();
+                val2 = val2.replace(matchAfterDash, "").replace(matchAllSpaces, "").toLowerCase();
+            }
+            return val1 == val2;
+        }
+        function compareStyles(st1, st2) {
+            if (!st1) {
+                return;
+            }
+            var eq = 0,
+                s2 = {};
+            for (i = 0, ii = st2.rules.length; i < ii; i++) {
+                s2[st2.rules[i].propertyName] = st2.rules[i].value;
+            }
+            for (var i = 0, ii = st1.rules.length; i < ii; i++) {
+                var prop = st1.rules[i].propertyName;
+                if (prop in s2) {
+                   eq += iseq(prop, st1.rules[i].value, s2[prop]);
+                } else {
+                    return;
+                }
+            }
+            return eq;
+        }
+        function simpleClone(o) {
+            var c = {};
+            for (var prop in o) {
+                c[prop] = o[prop];
+            }
+            return c;
+        }
+        function run(c, css) {
+            css = simpleClone(css);
+            for (var i = 0, len = c.length; i < len; i++) {
+                var style = c[i].style;
+                for (var j = 0; j < style.rules.length; j++) {
+                    if (css[style.rules[j].propertyName] == style.rules[j].value) {
+                        style.rules.splice(j, 1);
+                        j--;
+                    } else {
+                        css[style.rules[j].propertyName] = style.rules[j].value;
+                    }
+                }
+                style.fingerprint = JSON.stringify(style.rules);
+                if (c[i].children && c[i].children.length) {
+                    run(c[i].children, css);
+                }
+            }
+        }
+        return function mergeTSpans(ctx, sibling, tspans) {
+            var str = "",
+                opened = [],
+                styles = [],
+                curstyle = styles;
+            for (var i = 0, len = tspans.length; i < len; i++) {
+                var j = opened.length,
+                    compres = {match: -1},
+                    match;
+                while (j--) {
+                    match = compareStyles(opened[j], tspans[i].styleBlock);
+                    if (match > compres.match) {
+                        compres = {
+                            match: match,
+                            full: match == tspans[i].styleBlock.rules.length,
+                            style: opened[j],
+                            j: j
+                        };
+                    }
+                }
+                if (compres) {
+                    var todel = opened.splice(compres.j + 1);
+                    for (var k = 0; k < todel.length; k++) {
+                        curstyle = curstyle.parent;
+                    }
+                    write(ctx, new Array(todel.length + 1).join("</tspan>"));
+                    if (compres.full) {
+                        if (tspans[i].text) {
+                            write(ctx, encodedText(tspans[i].text));
+                        }
+                        continue;
+                    }
+                } else {
+                    write(ctx, new Array(opened.length + 1).join("</tspan>"));
+                    opened.length = 0;
+                }
+                var chldrn = [];
+                curstyle.push({
+                    style: tspans[i].styleBlock,
+                    children: chldrn,
+                    parent: curstyle
+                });
+                chldrn.parent = curstyle;
+                curstyle = chldrn;
+                dealWithTSpan(ctx, sibling, tspans[i]);
+                if (tspans[i].text) {
+                    write(ctx, encodedText(tspans[i].text));
+                }
+                opened.push(tspans[i].styleBlock);
+            }
+            write(ctx, new Array(opened.length + 1).join("</tspan>"));
+            run(styles, {});
+            return str;
+        };
+    }());
 
 	module.exports.printSVG = print;
 }());
