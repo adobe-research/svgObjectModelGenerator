@@ -431,8 +431,17 @@
 
             writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur'});
             if (innerGlow.gradient) {
-                var nSegs = this.findMatchingDistributedNSegs(innerGlow.gradient.stops);
-                var colors = this.calcDistributedColors(innerGlow.gradient.stops, nSegs);
+                var gradient = innerGlow.gradient,
+                    nSegs,
+                    colors;
+
+                // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
+                gradient.stops.reverse().forEach(function(ele) {
+                    ele.position = Math.abs(ele.position - 100);
+                });
+
+                nSegs = this.findMatchingDistributedNSegs(gradient.stops);
+                colors = this.calcDistributedColors(gradient.stops, nSegs);
                 // Inverse colors.
                 writeFeInvert(ctx);
                 // Set RGB channels to A.
