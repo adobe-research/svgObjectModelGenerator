@@ -217,11 +217,6 @@
                 svgNode.style.fx.innerGlow.opacity = svgNode.style.fx.innerGlow.opacity ? svgNode.style.fx.innerGlow.opacity.value / 100 : 1;
             }
 
-            if (svgNode.style.fx.chromeFX) {
-                color = svgNode.style.fx.chromeFX.color;
-                svgNode.style.fx.chromeFX.color = omgUtils.toColor(color);
-            }
-
             function prepareColor (ele) {
                 color = ele.color;
                 ele.color = omgUtils.toColor(color);
@@ -238,6 +233,7 @@
             prepareEffect('dropShadow', prepareColor);
             prepareEffect('innerShadow', prepareColor);
             prepareEffect('gradientFill', prepareGradient);
+            prepareEffect('chromeFX', prepareColor);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
