@@ -153,48 +153,6 @@ module.exports = {
 				},
 				"fill-rule": "evenodd",
 				"fx": {
-					"outerGlow": {
-						"enabled": true,
-						"present": true,
-						"showInDialog": true,
-						"mode": "normal",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255,
-							"a": 1
-						},
-						"opacity": 1,
-						"glowTechnique": "softMatte",
-						"chokeMatte": 0,
-						"blur": 51,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"shadingNoise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Default",
-							"curve": [
-								{
-									"horizontal": 0,
-									"vertical": 0
-								},
-								{
-									"horizontal": 255,
-									"vertical": 255
-								}
-							]
-						},
-						"inputRange": {
-							"value": 50,
-							"units": "percentUnit"
-						}
-					},
 					"dropShadowMulti": [
 						{
 							"enabled": true,
@@ -225,6 +183,50 @@ module.exports = {
 								"name": "Linear"
 							},
 							"layerConceals": true
+						}
+					],
+					"outerGlowMulti": [
+						{
+							"enabled": true,
+							"present": true,
+							"showInDialog": true,
+							"mode": "normal",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 255,
+								"a": 1
+							},
+							"opacity": 1,
+							"glowTechnique": "softMatte",
+							"chokeMatte": 0,
+							"blur": 51,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"shadingNoise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Default",
+								"curve": [
+									{
+										"horizontal": 0,
+										"vertical": 0
+									},
+									{
+										"horizontal": 255,
+										"vertical": 255
+									}
+								]
+							},
+							"inputRange": {
+								"value": 50,
+								"units": "percentUnit"
+							}
 						}
 					]
 				}
@@ -481,48 +483,50 @@ module.exports = {
 							"layerConceals": true
 						}
 					],
-					"outerGlow": {
-						"enabled": true,
-						"present": true,
-						"showInDialog": true,
-						"mode": "normal",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255,
-							"a": 1
-						},
-						"opacity": 1,
-						"glowTechnique": "softMatte",
-						"chokeMatte": 0,
-						"blur": 51,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"shadingNoise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Default",
-							"curve": [
-								{
-									"horizontal": 0,
-									"vertical": 0
-								},
-								{
-									"horizontal": 255,
-									"vertical": 255
-								}
-							]
-						},
-						"inputRange": {
-							"value": 50,
-							"units": "percentUnit"
+					"outerGlowMulti": [
+						{
+							"enabled": true,
+							"present": true,
+							"showInDialog": true,
+							"mode": "normal",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 255,
+								"a": 1
+							},
+							"opacity": 1,
+							"glowTechnique": "softMatte",
+							"chokeMatte": 0,
+							"blur": 51,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"shadingNoise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Default",
+								"curve": [
+									{
+										"horizontal": 0,
+										"vertical": 0
+									},
+									{
+										"horizontal": 255,
+										"vertical": 255
+									}
+								]
+							},
+							"inputRange": {
+								"value": 50,
+								"units": "percentUnit"
+							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],
@@ -666,48 +670,50 @@ module.exports = {
 							"layerConceals": true
 						}
 					],
-					"outerGlow": {
-						"enabled": true,
-						"present": true,
-						"showInDialog": true,
-						"mode": "normal",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255,
-							"a": 1
-						},
-						"opacity": 1,
-						"glowTechnique": "softMatte",
-						"chokeMatte": 0,
-						"blur": 51,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"shadingNoise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Default",
-							"curve": [
-								{
-									"horizontal": 0,
-									"vertical": 0
-								},
-								{
-									"horizontal": 255,
-									"vertical": 255
-								}
-							]
-						},
-						"inputRange": {
-							"value": 50,
-							"units": "percentUnit"
+					"outerGlowMulti": [
+						{
+							"enabled": true,
+							"present": true,
+							"showInDialog": true,
+							"mode": "normal",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 255,
+								"a": 1
+							},
+							"opacity": 1,
+							"glowTechnique": "softMatte",
+							"chokeMatte": 0,
+							"blur": 51,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"shadingNoise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Default",
+								"curve": [
+									{
+										"horizontal": 0,
+										"vertical": 0
+									},
+									{
+										"horizontal": 255,
+										"vertical": 255
+									}
+								]
+							},
+							"inputRange": {
+								"value": 50,
+								"units": "percentUnit"
+							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],

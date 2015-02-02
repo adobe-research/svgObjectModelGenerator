@@ -81,25 +81,25 @@
                 // Check to see if any of the components actually need to write.
                 if (this.hasEffect(ctx, 'dropShadow')) {
                     iFx++;
-                    filterFlavor = "drop-shadow";
+                    filterFlavor = 'drop-shadow';
                 }
-                if (this.hasOuterGlow(ctx)) {
+                if (this.hasEffect(ctx, 'outerGlow')) {
                     iFx++;
-                    filterFlavor = "outer-glow";
+                    filterFlavor = 'outer-glow';
                 }
                 if (this.hasEffect(ctx, 'gradientFill', this.hasColorNoise)) {
                     iFx++;
-                    filterFlavor = "gradient-overlay";
+                    filterFlavor = 'gradient-overlay';
                 }
                 if (this.hasEffect(ctx, 'solidFill')) {
                     iFx++;
-                    filterFlavor = "color-overlay";
+                    filterFlavor = 'color-overlay';
                 }
                 if (this.hasSatin(ctx)) {
                     iFx++;
                     filterFlavor = "satin";
                 }
-                if (this.hasInnerGlow(ctx)) {
+                if (this.hasEffect(ctx, 'innerGlow')) {
                     iFx++;
                     filterFlavor = "inner-glow";
                 }
@@ -126,6 +126,7 @@
                         var param = { pass: "SourceGraphic" };
                         fingerprint += this.externalizeDropShadow(ctx, param);
                         fingerprint += this.externalizeOuterGlow(ctx, param);
+                        fingerprint += this.externalizeSourceGraphic(ctx, param);
                         fingerprint += this.externalizeGradientOverlay(ctx, param);
                         fingerprint += this.externalizeColorOverlay(ctx, param);
                         fingerprint += this.externalizeSatin(ctx, param);
@@ -164,7 +165,31 @@
             }
             return false;
         }
-        
+
+        this.glowHelperFunction = function (ctx, glow, glowType, ind) {
+                var gradient = glow.gradient,
+                    opacity = round1k(glow.opacity),
+                    nSegs,
+                    colors,
+                    op = glowType == 'innerGlow' ? 'out' : 'in';
+
+                if (glow.gradient) {
+                    nSegs = this.findMatchingDistributedNSegs(gradient.stops);
+                    colors = this.calcDistributedColors(gradient.stops, nSegs);
+                    // Inverse colors.
+                    writeFeInvert(ctx);
+                    // Set RGB channels to A.
+                    writeFeLuminance(ctx);
+                    writeFeInvert(ctx);
+                    // Gradient map.
+                    this.createGradientMap(ctx, colors);
+                } else {
+                    var color = glow.color;
+                    writeFeFlood(ctx, color, opacity);
+                    writeFeComposite(ctx, op, {in2: glowType + 'Blur' + ind});
+                }
+        }
+
         this.hasPatternOverlay = function (ctx) {
             var omIn = ctx.currentOMNode;
             if (omIn && omIn.style && omIn.style.fx && omIn.style.fx.patternOverlay && omIn.style.fx.patternOverlay.enabled) {
@@ -228,60 +253,55 @@
             return JSON.stringify(specifies);
         };
 
-        this.hasOuterGlow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                outerGlow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                outerGlow = omIn.style.fx.outerGlow;
-            
-                if (outerGlow && outerGlow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
         this.externalizeOuterGlow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                outerGlow = omIn.style.fx.outerGlow;
-            if (!outerGlow || !outerGlow.enabled) {
-                if (param.pass.substr(0, 10) == 'dropShadow') {
-                    writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'dropShadow'});
-                    param.pass = 'dropShadow';
-                }
+            if (!this.hasEffect(ctx, 'outerGlow')) {
                 return;
             }
 
-            // There is no particular reason. It just looks correct with the 3 compositing operations
-            // and setting "Contur" to "Half-round".
-            var blur = round1k(outerGlow.blur / 3),
-                opacity = round1k(outerGlow.opacity);
+            var omIn = ctx.currentOMNode,
+                outerGlowMulti = omIn.style.fx.outerGlowMulti,
+                self = this,
+                specifies = [];
 
-            writeFeGauss(ctx, blur, {in1: 'SourceAlpha'});
-            writeFeComposite(ctx);
-            writeFeComposite(ctx);
-            writeFeComposite(ctx, 'over', {result: 'outerGlowBlur'});
-            if (outerGlow.gradient) {
-                var nSegs = this.findMatchingDistributedNSegs(outerGlow.gradient.stops);
-                var colors = this.calcDistributedColors(outerGlow.gradient.stops, nSegs);
-                // Inverse colors.
-                writeFeInvert(ctx);
-                // Set RGB channels to A.
-                writeFeLuminance(ctx);
-                writeFeInvert(ctx);
-                // Gradient map.
-                this.createGradientMap(ctx, colors);
-            } else {
-                writeFeFlood(ctx, outerGlow.color, opacity);
-                writeFeComposite(ctx, 'in', {in2: 'outerGlowBlur'});
-            }
-            if (param.pass.substr(0, 10) == "dropShadow") {
-                writeFeBlend(ctx, omIn.style.fx.outerGlow.mode, {in2: param.pass});
-            }
-            writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'outerGlow'});
-            param.pass = "outerGlow";
+            function writeOuterGlow (ctx, glow, ind) {
+                // There is no particular reason. It just looks correct with the 3 compositing operations
+                // and setting "Contur" to "Half-round".
+                var blur = round1k(glow.blur / 3),
+                    opacity = round1k(glow.opacity);
 
-            return JSON.stringify({ c: outerGlow.color, g: outerGlow.gradient, o: opacity, b: blur });
+                writeFeGauss(ctx, blur, {in1: 'SourceAlpha'});
+                writeFeComposite(ctx);
+                writeFeComposite(ctx);
+                writeFeComposite(ctx, 'over', {result: 'outerGlowBlur' + ind});
+
+                self.glowHelperFunction(ctx, glow, 'outerGlow', ind);
+
+                return { c: glow.color, g: glow.gradient, o: opacity, b: blur };
+            }
+
+            outerGlowMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                specifies.push(writeOuterGlow(ctx, ele, ind));
+                param.pass = 'outerGlow' + ind;
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
         };
+
+        this.externalizeSourceGraphic = function (ctx, param) {
+            if (param.pass == 'SourceGraphic') {
+                return;
+            }
+            param.pass = 'shadowed';
+            writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: param.pass});
+        }
 
         this.externalizeGradientOverlay = function (ctx, param) {
             if (!this.hasEffect(ctx, 'gradientFill', this.hasColorNoise)) {
@@ -423,60 +443,48 @@
             return JSON.stringify({m: satin.mode, c: color, o: opacity, b: blur, offset: offset});
         };
 
-
-        this.hasInnerGlow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                innerGlow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                innerGlow = omIn.style.fx.innerGlow;
-                if (innerGlow && innerGlow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
         this.externalizeInnerGlow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                innerGlow = omIn.style.fx.innerGlow;
-            if (!innerGlow || !innerGlow.enabled) {
+            if (!this.hasEffect(ctx, 'innerGlow')) {
                 return;
             }
+            var omIn = ctx.currentOMNode,
+                innerGlowMulti = omIn.style.fx.innerGlowMulti,
+                self = this,
+                specifies = [];
 
-            // There is no particular reason. It just looks correct with the 3 compositing operations
-            // and setting "Contur" to "Half-round".
-            var blur = round1k(innerGlow.blur / 3),
-                opacity = round1k(innerGlow.opacity);
+            function writeInnerGlow(ctx, glow, ind) {
+                var blur = round1k(glow.blur / 3),
+                    opacity = round1k(glow.opacity);
 
-            writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur'});
-            if (innerGlow.gradient) {
-                var gradient = innerGlow.gradient,
-                    nSegs,
-                    colors;
+                writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur' + ind});
+                if (glow.gradient) {
+                    // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
+                    glow.gradient.stops.reverse().forEach(function(ele) {
+                        ele.position = Math.abs(ele.position - 100);
+                    });
+                }
 
-                // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
-                gradient.stops.reverse().forEach(function(ele) {
-                    ele.position = Math.abs(ele.position - 100);
-                });
+                self.glowHelperFunction(ctx, glow, 'innerGlow', ind);
 
-                nSegs = this.findMatchingDistributedNSegs(gradient.stops);
-                colors = this.calcDistributedColors(gradient.stops, nSegs);
-                // Inverse colors.
-                writeFeInvert(ctx);
-                // Set RGB channels to A.
-                writeFeLuminance(ctx);
-                writeFeInvert(ctx);
-                // Gradient map.
-                this.createGradientMap(ctx, colors);
-            } else {
-                var color = innerGlow.color;
-                writeFeFlood(ctx, color, opacity);
-                writeFeComposite(ctx, 'out', {in2: 'innerGlowBlur'});
+                writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+
+                return { c: glow.color, g: glow.gradient, o: opacity, b: blur };
             }
-            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeBlend(ctx, innerGlow.mode, {in2: param.pass, result: 'innerGlow'});
-            param.pass = "innerGlow";
 
-            return JSON.stringify({ c: innerGlow.color, g: innerGlow.gradient, o: opacity, b: blur });
+            innerGlowMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                specifies.push(writeInnerGlow(ctx, ele, ind));
+                param.pass = 'innerGlow' + ind;
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
         };
 
         this.externalizeInnerShadow = function (ctx, param) {

@@ -24,13 +24,13 @@
       <feGaussianBlur stdDeviation="2.236" result="dropBlur"/>
       <feFlood flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
-      <feComposite in="SourceGraphic" result="dropShadow"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
       <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2.236" result="innerShadowBlur"/>
       <feFlood flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="multiply" in2="dropShadow" result="innerShadow"/>
+      <feBlend mode="multiply" in2="shadowed" result="innerShadow"/>
     </filter>
   </defs>
   <rect x="50" y="200" width="200" height="200" class="cls-3"/>
