@@ -26,62 +26,6 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"gradientFill": {
-						"enabled": true,
-						"mode": "normal",
-						"opacity": {
-							"value": 19,
-							"units": "percentUnit"
-						},
-						"gradient": {
-							"stops": [
-								{
-									"position": 0,
-									"color": {
-										"r": 0.124514,
-										"g": 3,
-										"b": 0.023346,
-										"a": 1
-									}
-								},
-								{
-									"position": 100,
-									"color": {
-										"r": 255,
-										"g": 255,
-										"b": 255,
-										"a": 1
-									}
-								}
-							],
-							"scale": 1,
-							"type": "linear",
-							"angle": 90,
-							"gradientSpace": "objectBoundingBox"
-						},
-						"angle": {
-							"value": 90,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": false,
-						"dither": false,
-						"align": true,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
-							}
-						}
-					},
 					"dropShadowMulti": [
 						{
 							"enabled": true,
@@ -138,6 +82,61 @@ module.exports = {
 							"antiAlias": false,
 							"transferSpec": {
 								"name": "Linear"
+							}
+						}
+					],
+					"gradientFillMulti": [
+						{
+							"enabled": true,
+							"mode": "normal",
+							"opacity": 0.19,
+							"gradient": {
+								"stops": [
+									{
+										"position": 0,
+										"color": {
+											"r": 0.124514,
+											"g": 3,
+											"b": 0.023346,
+											"a": 1
+										}
+									},
+									{
+										"position": 100,
+										"color": {
+											"r": 255,
+											"g": 255,
+											"b": 255,
+											"a": 1
+										}
+									}
+								],
+								"scale": 1,
+								"type": "linear",
+								"angle": 90,
+								"gradientSpace": "objectBoundingBox"
+							},
+							"angle": {
+								"value": 90,
+								"units": "angleUnit"
+							},
+							"type": "linear",
+							"reverse": false,
+							"dither": false,
+							"align": true,
+							"scale": {
+								"value": 100,
+								"units": "percentUnit"
+							},
+							"offset": {
+								"horizontal": {
+									"value": 0,
+									"units": "percentUnit"
+								},
+								"vertical": {
+									"value": 0,
+									"units": "percentUnit"
+								}
 							}
 						}
 					]

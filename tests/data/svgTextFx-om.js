@@ -21,70 +21,6 @@ module.exports = {
 					"type": "none"
 				},
 				"fx": {
-					"gradientFill": {
-						"enabled": true,
-						"mode": "lighten",
-						"opacity": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"gradient": {
-							"stops": [
-								{
-									"position": 0,
-									"color": {
-										"r": 255,
-										"g": 110.268479,
-										"b": 2.003891,
-										"a": 1
-									}
-								},
-								{
-									"position": 50,
-									"color": {
-										"r": 255,
-										"g": 254.984436,
-										"b": 0.003891
-									}
-								},
-								{
-									"position": 100,
-									"color": {
-										"r": 255,
-										"g": 109.124513,
-										"b": 0.003891,
-										"a": 1
-									}
-								}
-							],
-							"scale": 1,
-							"type": "linear",
-							"angle": 35,
-							"gradientSpace": "objectBoundingBox"
-						},
-						"angle": {
-							"value": 35,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": false,
-						"dither": false,
-						"align": true,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
-							}
-						}
-					},
 					"dropShadowMulti": [
 						{
 							"enabled": true,
@@ -113,6 +49,69 @@ module.exports = {
 								"name": "Linear"
 							},
 							"layerConceals": true
+						}
+					],
+					"gradientFillMulti": [
+						{
+							"enabled": true,
+							"mode": "lighten",
+							"opacity": 1,
+							"gradient": {
+								"stops": [
+									{
+										"position": 0,
+										"color": {
+											"r": 255,
+											"g": 110.268479,
+											"b": 2.003891,
+											"a": 1
+										}
+									},
+									{
+										"position": 50,
+										"color": {
+											"r": 255,
+											"g": 254.984436,
+											"b": 0.003891
+										}
+									},
+									{
+										"position": 100,
+										"color": {
+											"r": 255,
+											"g": 109.124513,
+											"b": 0.003891,
+											"a": 1
+										}
+									}
+								],
+								"scale": 1,
+								"type": "linear",
+								"angle": 35,
+								"gradientSpace": "objectBoundingBox"
+							},
+							"angle": {
+								"value": 35,
+								"units": "angleUnit"
+							},
+							"type": "linear",
+							"reverse": false,
+							"dither": false,
+							"align": true,
+							"scale": {
+								"value": 100,
+								"units": "percentUnit"
+							},
+							"offset": {
+								"horizontal": {
+									"value": 0,
+									"units": "percentUnit"
+								},
+								"vertical": {
+									"value": 0,
+									"units": "percentUnit"
+								}
+							}
 						}
 					]
 				}

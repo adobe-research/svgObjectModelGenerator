@@ -44,8 +44,8 @@
     function SVGWriterFx() {
         
         this.hasFx = function (ctx) {
-            return (this.hasEffect(ctx, 'dropShadow') || 
-                    this.hasGradientOverlay(ctx) || 
+            return (this.hasEffect(ctx, 'dropShadow') ||
+                    this.hasEffect(ctx, 'gradientFill', this.hasColorNoise) || 
                     this.hasEffect(ctx, 'solidFill') ||
                     this.hasSatin(ctx) ||
                     this.hasEffect(ctx, 'innerShadow'));
@@ -87,7 +87,7 @@
                     iFx++;
                     filterFlavor = "outer-glow";
                 }
-                if (this.hasGradientOverlay(ctx)) {
+                if (this.hasEffect(ctx, 'gradientFill', this.hasColorNoise)) {
                     iFx++;
                     filterFlavor = "gradient-overlay";
                 }
@@ -146,12 +146,19 @@
             }
         };
 
-        this.hasEffect = function (ctx, effect) {
+        this.hasColorNoise = function (ele) {
+            return ele.gradient.gradientForm !== 'colorNoise';
+        }
+
+        this.hasEffect = function (ctx, effect, custom) {
             var omIn = ctx.currentOMNode;
 
             effect += 'Multi';
             if (omIn && omIn.style && omIn.style.fx && omIn.style.fx[effect]) {
                 return omIn.style.fx[effect].some(function(ele) {
+                    if (custom) {
+                        return ele.enabled && custom(ele);
+                    }
                     return ele.enabled;
                 });
             }
@@ -276,51 +283,62 @@
             return JSON.stringify({ c: outerGlow.color, g: outerGlow.gradient, o: opacity, b: blur });
         };
 
-        this.hasGradientOverlay = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                gradientFill;
-            
-            if (omIn && omIn.style && omIn.style.fx) {
-                gradientFill = omIn.style.fx.gradientFill;
-                if (gradientFill && gradientFill.enabled && gradientFill.gradient &&
-                    gradientFill.gradient.gradientForm !== 'colorNoise') {
-                    return true;
-                }
-            }
-            return false;
-        };
         this.externalizeGradientOverlay = function (ctx, param) {
+            if (!this.hasEffect(ctx, 'gradientFill', this.hasColorNoise)) {
+                return false;
+            }
+
             var omIn = ctx.currentOMNode,
-                gradientFill = omIn.style.fx.gradientFill,
-                bounds = omIn.shapeBounds,
-                pseudoCtx = new SVGWriterContext(omIn),
-                opacity;
+                gradientFillMulti = omIn.style.fx.gradientFillMulti,
+                self = this,
+                specifies = [];
 
-            if (!gradientFill || !gradientFill.enabled) {
-                return;
+            function writeGradientFill (ctx, gradientFill) {
+                var omIn = ctx.currentOMNode,
+                    bounds = omIn.shapeBounds,
+                    pseudoCtx = new SVGWriterContext(omIn),
+                    opacity = round1k(gradientFill.opacity);
+
+                svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.svgOM.viewBox, 'grad');
+
+                var string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
+                    ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '">' +
+                    pseudoCtx.sOut + '<rect width="100%" height="100%"',
+                    base64;
+
+                if (opacity != 1) {
+                    string += ' opacity="' + opacity + '"';
+                }
+                string += ' fill="url(#grad)"/></svg>';
+                base64 = svgWriterUtils.toBase64(string);
+
+                write(ctx, ctx.currentIndent + '<feImage');
+                writeAttrIfNecessary(ctx, 'x', bounds.left);
+                writeAttrIfNecessary(ctx, 'y', bounds.top);
+                writeAttrIfNecessary(ctx, 'width', bounds.right - bounds.left);
+                writeAttrIfNecessary(ctx, 'height', bounds.bottom - bounds.top);
+                writeAttrIfNecessary(ctx, 'preserveAspectRatio', 'none');               
+                writeAttrIfNecessary(ctx, 'xlink:href', 'data:image/svg+xml;base64,' + base64);
+                writeln(ctx, '/>');
+                writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
+                
+                return { l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 };
             }
-            opacity = round1k(gradientFill.opacity.value / 100);
 
-            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.svgOM.viewBox, 'grad');
+            gradientFillMulti.forEach(function (ele) {
+                if (!ele.enabled || !self.hasColorNoise(ele)) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
 
-            var string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
-                ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '">' +
-                pseudoCtx.sOut + '<rect width="100%" height="100%"';
-            if (opacity != 1) {
-                string += ' opacity="' + opacity + '"';
-            }
-            string += ' fill="url(#grad)"/></svg>';
-            var base64 = svgWriterUtils.toBase64(string);
+                specifies.push(writeGradientFill(ctx, ele));
+                param.pass = 'gradientFill' + ind;
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
 
-            writeln(ctx, ctx.currentIndent + "<feImage x=\"" + bounds.left + "\" y=\"" + bounds.top + "\"" +
-                ' preserveAspectRatio="none"' +
-                ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '"' +
-                ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>');
-            writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
-            writeFeBlend(ctx, gradientFill.mode, {in2: param.pass, result: 'gradientFill'});
-            param.pass = 'gradientFill';
-            
-            return JSON.stringify({ l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 });
+            return JSON.stringify(specifies);
         };
 
         this.externalizeColorOverlay = function (ctx, param) {

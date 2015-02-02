@@ -222,20 +222,22 @@
                 svgNode.style.fx.chromeFX.color = omgUtils.toColor(color);
             }
 
-            if (svgNode.style.fx.gradientFill) {
-                var gradient = omgUtils.toGradient(svgNode.style.fx.gradientFill);
-                svgNode.style.fx.gradientFill.gradient = gradient;
-            }
-
             function prepareColor (ele) {
                 color = ele.color;
                 ele.color = omgUtils.toColor(color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
+            function prepareGradient (ele) {
+                var gradient = omgUtils.toGradient(ele);
+                ele.gradient = gradient;
+                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
+            }
+
             prepareEffect('solidFill', prepareColor);
             prepareEffect('dropShadow', prepareColor);
             prepareEffect('innerShadow', prepareColor);
+            prepareEffect('gradientFill', prepareGradient);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
