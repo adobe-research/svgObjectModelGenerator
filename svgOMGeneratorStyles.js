@@ -37,6 +37,10 @@
             return undefined;
         }
 
+        var isPathNode = function (svgNode) {
+            return svgNode.type == 'shape' && svgNode.shape == 'path';
+        }
+
         this.fetchBlendMode = function (layer) {
             var blendMode;
             if (layer.blendOptions &&
@@ -123,7 +127,7 @@
         };
 
         this.addFillRule = function (svgNode, layer) {
-            if (svgNode.type != 'shape' || svgNode.shape != 'path') {
+            if (!isPathNode(svgNode)) {
                 return;
             }
             // evenodd is the default and only fill rule supported in PS.
