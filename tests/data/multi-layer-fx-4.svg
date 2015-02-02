@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+
+      .cls-3 {
+        fill: #ff0;
+        filter: url(#inner-shadow-1);
+      }
+
+      .cls-4 {
+        fill: #ff0;
+        filter: url(#inner-shadow-2);
+      }
+    </style>
+
+    <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="-57.358" dy="-81.915" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.071" result="innerShadowBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
+      <feOffset dx="17.678" dy="-17.678" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.071" result="innerShadowBlur-1"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="out" in2="innerShadowBlur-1"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="innerShadow" result="innerShadow-1"/>
+      <feOffset dx="-17.678" dy="17.678" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.071" result="innerShadowBlur-2"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="out" in2="innerShadowBlur-2"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="innerShadow-1" result="innerShadow-2"/>
+    </filter>
+    <filter id="inner-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="-57.358" dy="-81.915" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.071" result="innerShadowBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend in2="SourceGraphic" result="innerShadow"/>
+      <feOffset dx="17.678" dy="-17.678" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.071" result="innerShadowBlur-1"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="out" in2="innerShadowBlur-1"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend in2="innerShadow" result="innerShadow-1"/>
+      <feOffset dx="-17.678" dy="17.678" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.071" result="innerShadowBlur-2"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="out" in2="innerShadowBlur-2"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend in2="innerShadow-1" result="innerShadow-2"/>
+    </filter>
+  </defs>
+  <rect x="142" y="132" width="500" height="500" class="cls-3"/>
+  <rect x="800" y="132" width="500" height="500" class="cls-4"/>
+</svg>

@@ -158,33 +158,35 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"innerShadow": {
-						"enabled": true,
-						"mode": "multiply",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						},
-						"opacity": 0.75,
-						"useGlobalAngle": true,
-						"localLightingAngle": {
-							"value": 120,
-							"units": "angleUnit"
-						},
-						"distance": 20,
-						"chokeMatte": 0,
-						"blur": 20,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
+					"innerShadowMulti": [
+						{
+							"enabled": true,
+							"mode": "multiply",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 0.75,
+							"useGlobalAngle": true,
+							"localLightingAngle": {
+								"value": 120,
+								"units": "angleUnit"
+							},
+							"distance": 20,
+							"chokeMatte": 0,
+							"blur": 20,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],
@@ -221,33 +223,35 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"innerShadow": {
-						"enabled": true,
-						"mode": "multiply",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						},
-						"opacity": 0.75,
-						"useGlobalAngle": false,
-						"localLightingAngle": {
-							"value": -35,
-							"units": "angleUnit"
-						},
-						"distance": 20,
-						"chokeMatte": 0,
-						"blur": 20,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
+					"innerShadowMulti": [
+						{
+							"enabled": true,
+							"mode": "multiply",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 0.75,
+							"useGlobalAngle": false,
+							"localLightingAngle": {
+								"value": -35,
+								"units": "angleUnit"
+							},
+							"distance": 20,
+							"chokeMatte": 0,
+							"blur": 20,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],

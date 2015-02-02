@@ -38,6 +38,7 @@ module.exports = {
 						"a": 1
 					}
 				},
+				"fill-rule": "evenodd",
 				"fx": {
 					"dropShadowMulti": [
 						{
@@ -150,6 +151,7 @@ module.exports = {
 						"a": 1
 					}
 				},
+				"fill-rule": "evenodd",
 				"fx": {
 					"outerGlow": {
 						"enabled": true,
@@ -415,6 +417,7 @@ module.exports = {
 						"a": 1
 					}
 				},
+				"fill-rule": "evenodd",
 				"fx": {
 					"dropShadowMulti": [
 						{
@@ -569,6 +572,7 @@ module.exports = {
 						"a": 1
 					}
 				},
+				"fill-rule": "evenodd",
 				"fx": {
 					"dropShadowMulti": [
 						{

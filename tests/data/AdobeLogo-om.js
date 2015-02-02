@@ -24,7 +24,8 @@ module.exports = {
 						"b": 35.999451,
 						"a": 1
 					}
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Shape 1",

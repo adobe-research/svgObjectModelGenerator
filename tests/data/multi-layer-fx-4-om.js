@@ -14,37 +14,52 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "none"
+					"type": "none",
+					"lineCap": "butt",
+					"lineJoin": "miter",
+					"lineWidth": 13,
+					"miterLimit": 100,
+					"dashArray": [],
+					"dashOffset": 0,
+					"color": {
+						"r": 0,
+						"g": 0,
+						"b": 0,
+						"a": 1
+					},
+					"opacity": 1
 				},
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 0.003891,
+						"r": 255,
 						"g": 255,
-						"b": 61.56031,
+						"b": 0,
 						"a": 1
 					}
 				},
 				"fx": {
-					"dropShadowMulti": [
+					"innerShadowMulti": [
 						{
 							"enabled": true,
+							"present": true,
+							"showInDialog": true,
 							"mode": "multiply",
 							"color": {
 								"r": 0,
 								"g": 0,
-								"b": 0,
+								"b": 255,
 								"a": 1
 							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
+							"opacity": 1,
+							"useGlobalAngle": false,
 							"localLightingAngle": {
-								"value": 120,
+								"value": -55,
 								"units": "angleUnit"
 							},
-							"distance": 5,
+							"distance": 100,
 							"chokeMatte": 0,
-							"blur": 5,
+							"blur": 50,
 							"noise": {
 								"value": 0,
 								"units": "percentUnit"
@@ -52,29 +67,57 @@ module.exports = {
 							"antiAlias": false,
 							"transferSpec": {
 								"name": "Linear"
-							},
-							"layerConceals": true
-						}
-					],
-					"innerShadowMulti": [
+							}
+						},
 						{
 							"enabled": true,
+							"present": true,
+							"showInDialog": true,
 							"mode": "multiply",
 							"color": {
 								"r": 0,
+								"g": 255,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 1,
+							"useGlobalAngle": false,
+							"localLightingAngle": {
+								"value": -135,
+								"units": "angleUnit"
+							},
+							"distance": 25,
+							"chokeMatte": 0,
+							"blur": 50,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							}
+						},
+						{
+							"enabled": true,
+							"present": true,
+							"showInDialog": true,
+							"mode": "multiply",
+							"color": {
+								"r": 255,
 								"g": 0,
 								"b": 0,
 								"a": 1
 							},
-							"opacity": 0.75,
+							"opacity": 1,
 							"useGlobalAngle": true,
 							"localLightingAngle": {
-								"value": 120,
+								"value": 90,
 								"units": "angleUnit"
 							},
-							"distance": 5,
+							"distance": 25,
 							"chokeMatte": 0,
-							"blur": 5,
+							"blur": 50,
 							"noise": {
 								"value": 0,
 								"units": "percentUnit"
@@ -90,17 +133,17 @@ module.exports = {
 			"children": [],
 			"layerName": "Rectangle 1",
 			"boundsWithFX": {
-				"top": 196,
-				"left": 41,
-				"bottom": 405,
-				"right": 250
+				"top": 132,
+				"left": 142,
+				"bottom": 632,
+				"right": 642
 			},
 			"shape": "rect",
 			"shapeBounds": {
-				"top": 200,
-				"left": 50,
-				"bottom": 400,
-				"right": 250
+				"top": 132,
+				"left": 142,
+				"bottom": 632,
+				"right": 642
 			}
 		},
 		{
@@ -109,37 +152,52 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"stroke": {
-					"type": "none"
+					"type": "none",
+					"lineCap": "butt",
+					"lineJoin": "miter",
+					"lineWidth": 13,
+					"miterLimit": 100,
+					"dashArray": [],
+					"dashOffset": 0,
+					"color": {
+						"r": 0,
+						"g": 0,
+						"b": 0,
+						"a": 1
+					},
+					"opacity": 1
 				},
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 255,
+						"r": 255,
+						"g": 255,
+						"b": 0,
 						"a": 1
 					}
 				},
 				"fx": {
-					"dropShadowMulti": [
+					"innerShadowMulti": [
 						{
 							"enabled": true,
-							"mode": "multiply",
+							"present": true,
+							"showInDialog": true,
+							"mode": "normal",
 							"color": {
 								"r": 0,
 								"g": 0,
-								"b": 0,
+								"b": 255,
 								"a": 1
 							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
+							"opacity": 1,
+							"useGlobalAngle": false,
 							"localLightingAngle": {
-								"value": 120,
+								"value": -55,
 								"units": "angleUnit"
 							},
-							"distance": 5,
+							"distance": 100,
 							"chokeMatte": 0,
-							"blur": 5,
+							"blur": 50,
 							"noise": {
 								"value": 0,
 								"units": "percentUnit"
@@ -147,29 +205,57 @@ module.exports = {
 							"antiAlias": false,
 							"transferSpec": {
 								"name": "Linear"
-							},
-							"layerConceals": true
-						}
-					],
-					"innerShadowMulti": [
+							}
+						},
 						{
 							"enabled": true,
-							"mode": "multiply",
+							"present": true,
+							"showInDialog": true,
+							"mode": "normal",
 							"color": {
 								"r": 0,
+								"g": 255,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 1,
+							"useGlobalAngle": false,
+							"localLightingAngle": {
+								"value": -135,
+								"units": "angleUnit"
+							},
+							"distance": 25,
+							"chokeMatte": 0,
+							"blur": 50,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							}
+						},
+						{
+							"enabled": true,
+							"present": true,
+							"showInDialog": true,
+							"mode": "normal",
+							"color": {
+								"r": 255,
 								"g": 0,
 								"b": 0,
 								"a": 1
 							},
-							"opacity": 0.75,
+							"opacity": 1,
 							"useGlobalAngle": true,
 							"localLightingAngle": {
-								"value": 120,
+								"value": 90,
 								"units": "angleUnit"
 							},
-							"distance": 5,
+							"distance": 25,
 							"chokeMatte": 0,
-							"blur": 5,
+							"blur": 50,
 							"noise": {
 								"value": 0,
 								"units": "percentUnit"
@@ -185,112 +271,17 @@ module.exports = {
 			"children": [],
 			"layerName": "Rectangle 2",
 			"boundsWithFX": {
-				"top": 196,
-				"left": 291,
-				"bottom": 405,
-				"right": 500
+				"top": 132,
+				"left": 800,
+				"bottom": 632,
+				"right": 1300
 			},
 			"shape": "rect",
 			"shapeBounds": {
-				"top": 200,
-				"left": 300,
-				"bottom": 400,
-				"right": 500
-			}
-		},
-		{
-			"id": "rectangle-3",
-			"type": "shape",
-			"visible": true,
-			"style": {
-				"stroke": {
-					"type": "none"
-				},
-				"fill": {
-					"type": "solid",
-					"color": {
-						"r": 255,
-						"g": 0,
-						"b": 255,
-						"a": 1
-					}
-				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
-						}
-					],
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						}
-					]
-				}
-			},
-			"children": [],
-			"layerName": "Rectangle 3",
-			"boundsWithFX": {
-				"top": 196,
-				"left": 541,
-				"bottom": 405,
-				"right": 750
-			},
-			"shape": "rect",
-			"shapeBounds": {
-				"top": 200,
-				"left": 550,
-				"bottom": 400,
-				"right": 750
+				"top": 132,
+				"left": 800,
+				"bottom": 632,
+				"right": 1300
 			}
 		}
 	],
@@ -299,18 +290,18 @@ module.exports = {
 	"viewBox": {
 		"top": 0,
 		"left": 0,
-		"bottom": 600,
-		"right": 800
+		"bottom": 1500,
+		"right": 2100
 	},
 	"docBounds": {
 		"top": 0,
 		"left": 0,
-		"bottom": 600,
-		"right": 800
+		"bottom": 1500,
+		"right": 2100
 	},
-	"pxToInchRatio": 72,
+	"pxToInchRatio": 300,
 	"globalLight": {
-		"angle": 120,
+		"angle": 45,
 		"altitude": 30
 	}
 }

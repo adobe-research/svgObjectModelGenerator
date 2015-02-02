@@ -37,6 +37,10 @@
             return undefined;
         }
 
+        var isPathNode = function (svgNode) {
+            return svgNode.type == 'shape' && svgNode.shape == 'path';
+        }
+
         this.fetchBlendMode = function (layer) {
             var blendMode;
             if (layer.blendOptions &&
@@ -121,6 +125,14 @@
                 stroke.type = "none";
             }
         };
+
+        this.addFillRule = function (svgNode, layer) {
+            if (!isPathNode(svgNode)) {
+                return;
+            }
+            // evenodd is the default and only fill rule supported in PS.
+            svgNode.style['fill-rule'] = 'evenodd';
+        }
         
         this.addFill = function (svgNode, layer) {
             var fill = svgNode.style.fill || {},
@@ -183,15 +195,6 @@
                 }
             }
 
-            // Alpha isn't really used in an solid fill since there is a separate opacity passed.
-            if (svgNode.style.fx.solidFill) {
-                color = svgNode.style.fx.solidFill.color;
-                color.r = color.red;
-                color.g = color.green;
-                color.b = color.blue;
-                color.a = 1;
-            }
-
             if (svgNode.style.fx.outerGlow) {
                 if (svgNode.style.fx.outerGlow.gradient) {
                     var gradient = omgUtils.toColorStops(svgNode.style.fx.outerGlow);
@@ -206,13 +209,6 @@
             if (svgNode.style.fx.innerGlow) {
                 if (svgNode.style.fx.innerGlow.gradient) {
                     var gradient = omgUtils.toColorStops(svgNode.style.fx.innerGlow);
-                    // Reverse gradient.
-                    for (var i = gradient.stops.length - 1; i >= 0; i--) {
-                        gradient.stops[i].position = Math.abs(gradient.stops[i].position - 100);
-                    }
-                    gradient.stops.sort(function (a, b) {
-                        return a.position - b.position;
-                    });
                     svgNode.style.fx.innerGlow.gradient = gradient;
                 } else {
                     color = svgNode.style.fx.innerGlow.color;
@@ -226,25 +222,22 @@
                 svgNode.style.fx.chromeFX.color = omgUtils.toColor(color);
             }
 
-            if (svgNode.style.fx.innerShadow) {
-                color = svgNode.style.fx.innerShadow.color;
-                svgNode.style.fx.innerShadow.color = omgUtils.toColor(color);
-                
-                svgNode.style.fx.innerShadow.opacity = svgNode.style.fx.innerShadow.opacity ? svgNode.style.fx.innerShadow.opacity.value / 100 : 1;
-            }
-
-            if (svgNode.style.fx.gradientFill) {
-                var gradient = omgUtils.toGradient(svgNode.style.fx.gradientFill);
-                svgNode.style.fx.gradientFill.gradient = gradient;
-            }
-
-            function prepareDropShadow (ele) {
+            function prepareColor (ele) {
                 color = ele.color;
                 ele.color = omgUtils.toColor(color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
-            prepareEffect('dropShadow', prepareDropShadow);
+            function prepareGradient (ele) {
+                var gradient = omgUtils.toGradient(ele);
+                ele.gradient = gradient;
+                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
+            }
+
+            prepareEffect('solidFill', prepareColor);
+            prepareEffect('dropShadow', prepareColor);
+            prepareEffect('innerShadow', prepareColor);
+            prepareEffect('gradientFill', prepareGradient);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
@@ -287,6 +280,7 @@
 
             this.addStroke(svgNode, layer, dpi);
             this.addFill(svgNode, layer);
+            this.addFillRule(svgNode, layer);
             this.addFx(svgNode, layer);
             
             //more stuff...
