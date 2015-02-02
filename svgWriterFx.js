@@ -437,7 +437,7 @@
                     nSegs,
                     colors;
 
-                // Reverse gradient.
+                // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
                 gradient.stops.reverse().forEach(function(ele) {
                     ele.position = Math.abs(ele.position - 100);
                 });
