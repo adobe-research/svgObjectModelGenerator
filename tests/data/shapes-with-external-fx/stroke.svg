@@ -7,8 +7,9 @@
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 18px;
+        fill-rule: evenodd;
       }
     </style>
   </defs>
-  <path d="M212.477,285.492,42.046,262.101,11.627,92.783,163.258,11.531,287.389,130.632l-74.912,154.86Z" class="cls-2" fill-rule="evenodd"/>
+  <path d="M212.477,285.492,42.046,262.101,11.627,92.783,163.258,11.531,287.389,130.632l-74.912,154.86Z" class="cls-2"/>
 </svg>

@@ -256,7 +256,7 @@
                                 write(ctx, ' style="stroke: inherit; filter: none; fill: inherit;"');
                             }
                             
-                            writeln(ctx, ' fill-rule="evenodd"/>');
+                            writeln(ctx, '/>');
                             break;
                             
                          case "rect":

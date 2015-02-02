@@ -31,7 +31,8 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 1",
@@ -69,7 +70,8 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 2",
@@ -105,7 +107,8 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 3",
@@ -145,7 +148,8 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 4",
@@ -218,7 +222,8 @@ module.exports = {
 						"angle": 35,
 						"gradientSpace": "objectBoundingBox"
 					}
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 5",
@@ -392,7 +397,8 @@ module.exports = {
 						"angle": 0,
 						"gradientSpace": "objectBoundingBox"
 					}
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 6",
@@ -551,7 +557,8 @@ module.exports = {
 						"angle": 90,
 						"gradientSpace": "objectBoundingBox"
 					}
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 7",
@@ -649,7 +656,8 @@ module.exports = {
 						"angle": 35,
 						"gradientSpace": "userSpaceOnUse"
 					}
-				}
+				},
+				"fill-rule": "evenodd"
 			},
 			"children": [],
 			"layerName": "Rectangle 8",

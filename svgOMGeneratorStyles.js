@@ -37,6 +37,10 @@
             return undefined;
         }
 
+        var isPathNode = function (svgNode) {
+            return svgNode.type == 'shape' && svgNode.shape == 'path';
+        }
+
         this.fetchBlendMode = function (layer) {
             var blendMode;
             if (layer.blendOptions &&
@@ -121,6 +125,14 @@
                 stroke.type = "none";
             }
         };
+
+        this.addFillRule = function (svgNode, layer) {
+            if (!isPathNode(svgNode)) {
+                return;
+            }
+            // evenodd is the default and only fill rule supported in PS.
+            svgNode.style['fill-rule'] = 'evenodd';
+        }
         
         this.addFill = function (svgNode, layer) {
             var fill = svgNode.style.fill || {},
@@ -279,6 +291,7 @@
 
             this.addStroke(svgNode, layer, dpi);
             this.addFill(svgNode, layer);
+            this.addFillRule(svgNode, layer);
             this.addFx(svgNode, layer);
             
             //more stuff...
