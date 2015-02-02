@@ -46,23 +46,19 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"solidFill": {
-						"enabled": true,
-						"mode": "lighten",
-						"opacity": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"color": {
-							"red": 255,
-							"green": 0,
-							"blue": 0,
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+					"solidFillMulti": [
+						{
+							"enabled": true,
+							"mode": "lighten",
+							"opacity": 1,
+							"color": {
+								"r": 255,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],

@@ -83,23 +83,6 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"solidFill": {
-						"enabled": true,
-						"mode": "normal",
-						"opacity": {
-							"value": 50,
-							"units": "percentUnit"
-						},
-						"color": {
-							"red": 255,
-							"green": 0,
-							"blue": 0,
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						}
-					},
 					"gradientFill": {
 						"enabled": true,
 						"mode": "normal",
@@ -155,7 +138,20 @@ module.exports = {
 								"units": "percentUnit"
 							}
 						}
-					}
+					},
+					"solidFillMulti": [
+						{
+							"enabled": true,
+							"mode": "normal",
+							"opacity": 0.5,
+							"color": {
+								"r": 255,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							}
+						}
+					]
 				}
 			},
 			"children": [],
