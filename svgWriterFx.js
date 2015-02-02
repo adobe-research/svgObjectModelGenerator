@@ -45,7 +45,7 @@
         
         this.hasFx = function (ctx) {
             return (this.hasEffect(ctx, 'dropShadow') ||
-                    this.hasEffect(ctx, 'gradientFill', this.hasColorNoise) || 
+                    this.hasEffect(ctx, 'gradientFill', this.hasColorNoise) ||
                     this.hasEffect(ctx, 'solidFill') ||
                     this.hasSatin(ctx) ||
                     this.hasEffect(ctx, 'innerShadow'));
@@ -317,11 +317,11 @@
                 writeAttrIfNecessary(ctx, 'y', bounds.top);
                 writeAttrIfNecessary(ctx, 'width', bounds.right - bounds.left);
                 writeAttrIfNecessary(ctx, 'height', bounds.bottom - bounds.top);
-                writeAttrIfNecessary(ctx, 'preserveAspectRatio', 'none');               
+                writeAttrIfNecessary(ctx, 'preserveAspectRatio', 'none');
                 writeAttrIfNecessary(ctx, 'xlink:href', 'data:image/svg+xml;base64,' + base64);
                 writeln(ctx, '/>');
                 writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
-                
+
                 return { l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 };
             }
 
