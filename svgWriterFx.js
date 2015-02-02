@@ -44,11 +44,11 @@
     function SVGWriterFx() {
         
         this.hasFx = function (ctx) {
-            return (this.hasEffect(ctx, 'dropShadow') || 
+            return (this.hasEffect(ctx, 'dropShadow') ||
                     this.hasEffect(ctx, 'gradientFill', this.hasColorNoise) || 
-                    this.hasColorOverlay(ctx) ||
+                    this.hasEffect(ctx, 'solidFill') ||
                     this.hasSatin(ctx) ||
-                    this.hasInnerShadow(ctx));
+                    this.hasEffect(ctx, 'innerShadow'));
         };
         
         this.scanForUnsupportedFeatures = function (ctx) {
@@ -91,7 +91,7 @@
                     iFx++;
                     filterFlavor = "gradient-overlay";
                 }
-                if (this.hasColorOverlay(ctx)) {
+                if (this.hasEffect(ctx, 'solidFill')) {
                     iFx++;
                     filterFlavor = "color-overlay";
                 }
@@ -103,7 +103,7 @@
                     iFx++;
                     filterFlavor = "inner-glow";
                 }
-                if (this.hasInnerShadow(ctx)) {
+                if (this.hasEffect(ctx, 'innerShadow')) {
                     iFx++;
                     filterFlavor = "inner-shadow";
                 }
@@ -341,40 +341,38 @@
             return JSON.stringify(specifies);
         };
 
-        this.hasColorOverlay = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                solidFill;
-            if (omIn && omIn.style && omIn.style.fx) {
-                solidFill = omIn.style.fx.solidFill
-                if (solidFill && solidFill.enabled) {
-                    return true;
-                }
-
-                solidFill = omIn.style.fx.solidFillMulti;
-                if (solidFill) {
-                    return solidFill.some(function(ele) {
-                        return ele.enabled;
-                    });
-                }
-            }
-            return false;
-        };
         this.externalizeColorOverlay = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                solidFill = omIn.style.fx.solidFill;
-            if (!solidFill || !solidFill.enabled) {
+            if (!this.hasEffect(ctx, 'solidFill')) {
                 return;
             }
 
-            var color = solidFill.color,
-                opacity = round1k(solidFill.opacity.value / 100);
+            var omIn = ctx.currentOMNode,
+                solidFillMulti = omIn.style.fx.solidFillMulti,
+                specifies = [];
 
-            writeFeFlood(ctx, color, opacity);
-            writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
-            writeFeBlend(ctx, solidFill.mode, {in2: param.pass, result: 'colorOverlay'});
-            param.pass = "colorOverlay";
+            function writeColorOverlay(ctx, solidFill) {
+                var color = solidFill.color,
+                    opacity = round1k(solidFill.opacity);
 
-            return JSON.stringify({ c: color, m: solidFill.mode, o: opacity});
+                writeFeFlood(ctx, color, opacity);
+                writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
+                return { c: color, o: opacity, m: solidFill.mode};
+            }
+
+            solidFillMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                param.pass = 'colorOverlay' + ind;
+                specifies.push(writeColorOverlay(ctx, ele));
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
         };
 
         this.hasSatin = function (ctx) {
@@ -451,8 +449,17 @@
 
             writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur'});
             if (innerGlow.gradient) {
-                var nSegs = this.findMatchingDistributedNSegs(innerGlow.gradient.stops);
-                var colors = this.calcDistributedColors(innerGlow.gradient.stops, nSegs);
+                var gradient = innerGlow.gradient,
+                    nSegs,
+                    colors;
+
+                // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
+                gradient.stops.reverse().forEach(function(ele) {
+                    ele.position = Math.abs(ele.position - 100);
+                });
+
+                nSegs = this.findMatchingDistributedNSegs(gradient.stops);
+                colors = this.calcDistributedColors(gradient.stops, nSegs);
                 // Inverse colors.
                 writeFeInvert(ctx);
                 // Set RGB channels to A.
@@ -472,43 +479,50 @@
             return JSON.stringify({ c: innerGlow.color, g: innerGlow.gradient, o: opacity, b: blur });
         };
 
-        this.hasInnerShadow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                innerShadow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                innerShadow = omIn.style.fx.innerShadow;
-                if (innerShadow && innerShadow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
         this.externalizeInnerShadow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                innerShadow = omIn.style.fx.innerShadow;
-            if (!innerShadow || !innerShadow.enabled) {
-                return;
+            if (!this.hasEffect(ctx, 'innerShadow')) {
+                return false;
             }
-            var color = innerShadow.color,
-                opacity = round1k(innerShadow.opacity),
-                distance = innerShadow.distance,
-                angle = (innerShadow.useGlobalAngle ? ctx.globalLight.angle : innerShadow.localLightingAngle.value) * Math.PI / 180,
-                blur = round1k(Math.sqrt(innerShadow.blur)),
-                offset = {
-                    x: -Math.cos(angle) * distance,
-                    y: Math.sin(angle) * distance
-                };
+            var omIn = ctx.currentOMNode,
+                innerShadowMulti = omIn.style.fx.innerShadowMulti,
+                specifies = [];
 
-            writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
-            writeFeGauss(ctx, blur, {result: 'innerShadowBlur'});
-            writeFeFlood(ctx, color, opacity);
-            writeFeComposite(ctx, 'out', {in2: 'innerShadowBlur'});
-            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeBlend(ctx, innerShadow.mode, {in2: param.pass, result: 'innerShadow'});
-            param.pass = "innerShadow";
+            function writeInnerShadow (ctx, innerShadow, ind) {
+                var color = innerShadow.color,
+                    opacity = round1k(innerShadow.opacity),
+                    distance = innerShadow.distance,
+                    angle = (innerShadow.useGlobalAngle ? ctx.globalLight.angle : innerShadow.localLightingAngle.value) * Math.PI / 180,
+                    blur = round1k(Math.sqrt(innerShadow.blur)),
+                    offset = {
+                        x: -Math.cos(angle) * distance,
+                        y: Math.sin(angle) * distance
+                    };
 
-            return JSON.stringify({m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset});
+                writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
+                writeFeGauss(ctx, blur, {result: 'innerShadowBlur' + ind});
+                writeFeFlood(ctx, color, opacity);
+                writeFeComposite(ctx, 'out', {in2: 'innerShadowBlur' + ind});
+                writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+
+                return {m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset};
+            }
+
+            innerShadowMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                specifies.push(writeInnerShadow(ctx, ele, ind));
+                param.pass = 'innerShadow' + ind;
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
         };
+
         
         this.addFxAttr = function (ctx) {
             var node = ctx.currentOMNode;

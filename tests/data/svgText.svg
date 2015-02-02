@@ -40,7 +40,7 @@
     </style>
   </defs>
   <text x="129px" y="121px" class="cls-3"><tspan class="cls-4">This is a text example</tspan></text>
-  <text x="141px" y="232px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">This is a </tspan><tspan class="cls-8">text </tspan><tspan class="cls-7">example</tspan></tspan></text>
-  <text x="139px" y="341px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">Thi</tspan><tspan class="cls-8">s i</tspan><tspan class="cls-7">s </tspan><tspan class="cls-15">a t</tspan><tspan class="cls-7">ex</tspan><tspan class="cls-17">t e</tspan><tspan class="cls-7">xa</tspan><tspan class="cls-19">mple</tspan></tspan></text>
-  <text x="149px" y="440px" class="cls-3"><tspan class="cls-3"><tspan class="cls-22">This i</tspan><tspan class="cls-19">s</tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-19">a te</tspan><tspan class="cls-22">x</tspan><tspan class="cls-27">t</tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-27">exam</tspan><tspan class="cls-22">ple</tspan></tspan></text>
+  <text x="141px" y="232px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">This is a <tspan class="cls-8">text </tspan>example</tspan></tspan></text>
+  <text x="139px" y="341px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">Thi<tspan class="cls-8">s i</tspan>s <tspan class="cls-15">a t</tspan>ex<tspan class="cls-17">t e</tspan>xa<tspan class="cls-19">mple</tspan></tspan></tspan></text>
+  <text x="149px" y="440px" class="cls-3"><tspan class="cls-3"><tspan class="cls-22">This i<tspan class="cls-19">s</tspan></tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-19">a te<tspan class="cls-22">x<tspan class="cls-27">t</tspan></tspan></tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-27">exam<tspan class="cls-22">ple</tspan></tspan></tspan></text>
 </svg>

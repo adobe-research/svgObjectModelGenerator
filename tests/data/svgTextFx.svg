@@ -34,5 +34,5 @@
       <feBlend mode="lighten" in2="dropShadow" result="gradientFill"/>
     </filter>
   </defs>
-  <text x="245px" y="154px" class="cls-3"><tspan class="cls-4"><tspan class="cls-5">This is a </tspan><tspan class="cls-6">text</tspan></tspan></text>
+  <text x="245px" y="154px" class="cls-3"><tspan class="cls-4"><tspan class="cls-5">This is a <tspan class="cls-6">text</tspan></tspan></tspan></text>
 </svg>

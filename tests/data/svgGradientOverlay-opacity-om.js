@@ -26,33 +26,6 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"innerShadow": {
-						"enabled": true,
-						"mode": "overlay",
-						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						},
-						"opacity": 0.75,
-						"useGlobalAngle": true,
-						"localLightingAngle": {
-							"value": 120,
-							"units": "angleUnit"
-						},
-						"distance": 1,
-						"chokeMatte": 0,
-						"blur": 0,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
-						}
-					},
 					"dropShadowMulti": [
 						{
 							"enabled": true,
@@ -81,6 +54,35 @@ module.exports = {
 								"name": "Linear"
 							},
 							"layerConceals": true
+						}
+					],
+					"innerShadowMulti": [
+						{
+							"enabled": true,
+							"mode": "overlay",
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 0.75,
+							"useGlobalAngle": true,
+							"localLightingAngle": {
+								"value": 120,
+								"units": "angleUnit"
+							},
+							"distance": 1,
+							"chokeMatte": 0,
+							"blur": 0,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							}
 						}
 					],
 					"gradientFillMulti": [

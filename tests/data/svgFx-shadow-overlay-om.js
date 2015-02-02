@@ -27,50 +27,19 @@ module.exports = {
 				},
 				"fill-opacity": 0.78,
 				"fx": {
-					"innerShadow": {
-						"enabled": true,
-						"mode": "multiply",
-						"color": {
-							"r": 35.295721,
-							"g": 97.797663,
-							"b": 225.000002,
-							"a": 1
-						},
-						"opacity": 0.75,
-						"useGlobalAngle": false,
-						"localLightingAngle": {
-							"value": 180,
-							"units": "angleUnit"
-						},
-						"distance": 75,
-						"chokeMatte": 0,
-						"blur": 46,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
+					"solidFillMulti": [
+						{
+							"enabled": true,
+							"mode": "lighten",
+							"opacity": 0.75,
+							"color": {
+								"r": 255,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							}
 						}
-					},
-					"solidFill": {
-						"enabled": true,
-						"mode": "lighten",
-						"opacity": {
-							"value": 75,
-							"units": "percentUnit"
-						},
-						"color": {
-							"red": 255,
-							"green": 0,
-							"blue": 0,
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						}
-					},
+					],
 					"dropShadowMulti": [
 						{
 							"enabled": true,
@@ -99,6 +68,35 @@ module.exports = {
 								"name": "Linear"
 							},
 							"layerConceals": true
+						}
+					],
+					"innerShadowMulti": [
+						{
+							"enabled": true,
+							"mode": "multiply",
+							"color": {
+								"r": 35.295721,
+								"g": 97.797663,
+								"b": 225.000002,
+								"a": 1
+							},
+							"opacity": 0.75,
+							"useGlobalAngle": false,
+							"localLightingAngle": {
+								"value": 180,
+								"units": "angleUnit"
+							},
+							"distance": 75,
+							"chokeMatte": 0,
+							"blur": 46,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Linear"
+							}
 						}
 					]
 				}

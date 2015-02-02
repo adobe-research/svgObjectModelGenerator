@@ -184,8 +184,16 @@ var database = [
 	desc: "Test multiple drop shadows per layer."
 },
 {
+	test: "multi-layer-fx-2",
+	desc: "Test multiple color overlays per layer."
+},
+{
 	test: "multi-layer-fx-3",
 	desc: "Test multiple gradient overlays per layer."
+},
+{
+	test: "multi-layer-fx-4",
+	desc: "Test multiple inline shadows per layer."
 }
 ];
 
