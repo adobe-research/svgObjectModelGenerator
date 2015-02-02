@@ -4,8 +4,9 @@
 
       .cls-2 {
         fill: #3af994;
+        fill-rule: evenodd;
       }
     </style>
   </defs>
-  <path d="M35.354-0.002l70.71,70.711L70.709,106.064-0.002,35.354,35.354-0.002Z" class="cls-2" fill-rule="evenodd"/>
+  <path d="M35.354-0.002l70.71,70.711L70.709,106.064-0.002,35.354,35.354-0.002Z" class="cls-2"/>
 </svg>

@@ -27,23 +27,19 @@ module.exports = {
 				},
 				"fill-opacity": 0.78,
 				"fx": {
-					"solidFill": {
-						"enabled": true,
-						"mode": "lighten",
-						"opacity": {
-							"value": 75,
-							"units": "percentUnit"
-						},
-						"color": {
-							"red": 255,
-							"green": 0,
-							"blue": 0,
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+					"solidFillMulti": [
+						{
+							"enabled": true,
+							"mode": "lighten",
+							"opacity": 0.75,
+							"color": {
+								"r": 255,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							}
 						}
-					},
+					],
 					"dropShadowMulti": [
 						{
 							"enabled": true,
