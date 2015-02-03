@@ -14,10 +14,10 @@
       <feGaussianBlur stdDeviation="4.583" result="dropBlur"/>
       <feFlood flood-color="#d62d2d" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
-      <feComposite in="SourceGraphic" result="dropShadow"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
       <feFlood flood-color="red" flood-opacity="0.75"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="dropShadow" result="colorOverlay"/>
+      <feBlend mode="lighten" in2="shadowed" result="colorOverlay"/>
       <feOffset dx="75" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="6.782" result="innerShadowBlur"/>
       <feFlood flood-color="#2362e1" flood-opacity="0.75"/>

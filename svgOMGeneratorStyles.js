@@ -195,28 +195,6 @@
                 }
             }
 
-            if (svgNode.style.fx.outerGlow) {
-                if (svgNode.style.fx.outerGlow.gradient) {
-                    var gradient = omgUtils.toColorStops(svgNode.style.fx.outerGlow);
-                    svgNode.style.fx.outerGlow.gradient = gradient;
-                } else {
-                    color = svgNode.style.fx.outerGlow.color;
-                    svgNode.style.fx.outerGlow.color = omgUtils.toColor(color);
-                }
-                svgNode.style.fx.outerGlow.opacity = svgNode.style.fx.outerGlow.opacity ? svgNode.style.fx.outerGlow.opacity.value / 100 : 1;
-            }
-
-            if (svgNode.style.fx.innerGlow) {
-                if (svgNode.style.fx.innerGlow.gradient) {
-                    var gradient = omgUtils.toColorStops(svgNode.style.fx.innerGlow);
-                    svgNode.style.fx.innerGlow.gradient = gradient;
-                } else {
-                    color = svgNode.style.fx.innerGlow.color;
-                    svgNode.style.fx.innerGlow.color = omgUtils.toColor(color);
-                }
-                svgNode.style.fx.innerGlow.opacity = svgNode.style.fx.innerGlow.opacity ? svgNode.style.fx.innerGlow.opacity.value / 100 : 1;
-            }
-
             if (svgNode.style.fx.chromeFX) {
                 color = svgNode.style.fx.chromeFX.color;
                 svgNode.style.fx.chromeFX.color = omgUtils.toColor(color);
@@ -234,10 +212,22 @@
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
+            function prepareGlow (ele) {
+                if (ele.gradient) {
+                    var gradient = omgUtils.toColorStops(ele);
+                    ele.gradient = gradient;
+                    ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
+                } else {
+                    prepareColor(ele);
+                }
+            }
+
             prepareEffect('solidFill', prepareColor);
             prepareEffect('dropShadow', prepareColor);
             prepareEffect('innerShadow', prepareColor);
             prepareEffect('gradientFill', prepareGradient);
+            prepareEffect('innerGlow', prepareGlow);
+            prepareEffect('outerGlow', prepareGlow);
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
