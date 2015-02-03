@@ -15,7 +15,7 @@
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="red"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="colorOverlay"/>
+      <feBlend mode="lighten" in2="SourceGraphic" result="solidFill"/>
     </filter>
   </defs>
   <rect x="100" y="100" width="350" height="150" class="cls-3"/>

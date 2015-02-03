@@ -23,7 +23,7 @@
       <feBlend in2="SourceGraphic" result="gradientFill"/>
       <feFlood flood-color="red" flood-opacity="0.5"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend in2="gradientFill" result="colorOverlay"/>
+      <feBlend in2="gradientFill" result="solidFill"/>
     </filter>
   </defs>
   <g id="ellipsesvg" style="fill: url(#linear-gradient-1); filter: url(#filter-chain-1);">

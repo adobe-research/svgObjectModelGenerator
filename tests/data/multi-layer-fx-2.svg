@@ -11,10 +11,10 @@
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="#61b18e" flood-opacity="0.75"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="multiply" in2="SourceGraphic" result="colorOverlay"/>
+      <feBlend mode="multiply" in2="SourceGraphic" result="solidFill"/>
       <feFlood flood-color="#d58686"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="multiply" in2="colorOverlay" result="colorOverlay-1"/>
+      <feBlend mode="multiply" in2="solidFill" result="solidFill-1"/>
     </filter>
   </defs>
   <rect x="224" y="204" width="200" height="200" class="cls-3"/>
