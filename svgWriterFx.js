@@ -47,7 +47,7 @@
             return (this.hasEffect(ctx, 'dropShadow') ||
                     this.hasEffect(ctx, 'gradientFill', this.hasColorNoise) ||
                     this.hasEffect(ctx, 'solidFill') ||
-                    this.hasSatin(ctx) ||
+                    this.hasEffect(ctx, 'chromeFX') ||
                     this.hasEffect(ctx, 'innerShadow'));
         };
         
@@ -95,7 +95,7 @@
                     iFx++;
                     filterFlavor = 'color-overlay';
                 }
-                if (this.hasSatin(ctx)) {
+                if (this.hasEffect(ctx, 'chromeFX')) {
                     iFx++;
                     filterFlavor = "satin";
                 }
@@ -395,52 +395,58 @@
             return JSON.stringify(specifies);
         };
 
-        this.hasSatin = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                satin;
-            if (omIn && omIn.style && omIn.style.fx) {
-                satin = omIn.style.fx.chromeFX
-                if (satin && satin.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
-
         this.externalizeSatin = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                satin = omIn.style.fx.chromeFX;
-            if (!satin || !satin.enabled) {
+            if (!this.hasEffect(ctx, 'chromeFX')) {
                 return;
             }
-            var color = satin.color,
-                opacity = round1k(satin.opacity.value / 100),
-                offset = {
-                    x: round1k(satin.distance * Math.cos(-satin.localLightingAngle.value)),
-                    y: round1k(satin.distance * Math.sin(-satin.localLightingAngle.value))
-                },
-                blur = round1k(Math.sqrt(satin.blur));
 
-            writeFeFlood(ctx, color);
-            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha', result: 'snSilhouette'});
-            writeFeOffset(ctx, offset, {in1: 'snSilhouette', result: 'snShifted1'});
-            writeFeOffset(ctx, { x: -offset.x, y: -offset.y }, {in1: 'snSilhouette', result: 'snShifted2'});
-            writeFeComposite(ctx, 'xor', {in1: 'snShifted1', in2: 'snShifted2'});
-            if (satin.invert) {
-                writeFeComposite(ctx, 'xor', {in2: 'snSilhouette'});
+            var omIn = ctx.currentOMNode,
+                chromeFXMulti = omIn.style.fx.chromeFXMulti,
+                specifies = [];
+
+            function writeChromeFX (ctx, satin, ind) {
+                var color = satin.color,
+                    opacity = round1k(satin.opacity),
+                    offset = {
+                        x: round1k(satin.distance * Math.cos(-satin.localLightingAngle.value)),
+                        y: round1k(satin.distance * Math.sin(-satin.localLightingAngle.value))
+                    },
+                    blur = round1k(Math.sqrt(satin.blur));
+
+                writeFeFlood(ctx, color);
+                writeFeComposite(ctx, 'in', {in2: 'SourceAlpha', result: 'snSilhouette' + ind});
+                writeFeOffset(ctx, offset, {in1: 'snSilhouette' + ind, result: 'snShifted1' + ind});
+                writeFeOffset(ctx, { x: -offset.x, y: -offset.y }, {in1: 'snSilhouette' + ind, result: 'snShifted2' + ind});
+                writeFeComposite(ctx, 'xor', {in1: 'snShifted1' + ind, in2: 'snShifted2' + ind});
+                if (satin.invert) {
+                    writeFeComposite(ctx, 'xor', {in2: 'snSilhouette' + ind});
+                }
+                writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+                writeFeGauss(ctx, blur);
+                writeln(ctx, ctx.currentIndent + '<feComponentTransfer>');
+                indent(ctx);
+                writeln(ctx, ctx.currentIndent + '<feFuncA type="linear" slope="' + opacity + '"/>');
+                undent(ctx);
+                writeln(ctx, ctx.currentIndent + '</feComponentTransfer>');
+                writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
+
+                return {m: satin.mode, c: color, o: opacity, b: blur, offset: offset};
             }
-            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeGauss(ctx, blur);
-            writeln(ctx, ctx.currentIndent + "<feComponentTransfer>");
-            indent(ctx);
-            writeln(ctx, ctx.currentIndent + "<feFuncA type=\"linear\" slope=\"" + opacity + "\"/>");
-            undent(ctx);
-            writeln(ctx, ctx.currentIndent + "</feComponentTransfer>");
-            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeBlend(ctx, satin.mode, {in2: param.pass, result: 'satin'});
-            param.pass = "satin";
 
-            return JSON.stringify({m: satin.mode, c: color, o: opacity, b: blur, offset: offset});
+            chromeFXMulti.forEach(function (ele) {
+                if (!ele.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                param.pass = 'satin' + ind;
+                specifies.push(writeChromeFX(ctx, ele, ind));
+                writeFeBlend(ctx, ele.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
         };
 
         this.externalizeInnerGlow = function (ctx, param) {

@@ -178,7 +178,7 @@
             }
             svgNode.style.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
-            function prepareEffect (effect, effectFunction) {
+            function prepareEffect (effect, prepareFunction) {
                 var list = effect + 'Multi';
 
                 if (svgNode.style.fx[effect]) {
@@ -191,13 +191,8 @@
                 if (svgNode.style.fx[list]) {
                     // PS exports filters in the opposite order, revert.
                     svgNode.style.fx[list].reverse();
-                    svgNode.style.fx[list].forEach(effectFunction);
+                    svgNode.style.fx[list].forEach(prepareFunction);
                 }
-            }
-
-            if (svgNode.style.fx.chromeFX) {
-                color = svgNode.style.fx.chromeFX.color;
-                svgNode.style.fx.chromeFX.color = omgUtils.toColor(color);
             }
 
             function prepareColor (ele) {
@@ -226,6 +221,7 @@
             prepareEffect('dropShadow', prepareColor);
             prepareEffect('innerShadow', prepareColor);
             prepareEffect('gradientFill', prepareGradient);
+            prepareEffect('chromeFX', prepareColor);
             prepareEffect('innerGlow', prepareGlow);
             prepareEffect('outerGlow', prepareGlow);
 
