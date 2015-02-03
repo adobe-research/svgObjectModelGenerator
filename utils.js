@@ -245,6 +245,7 @@
                 out.a1 = ang_start;
                 out.a2 = ang_end;
                 out.r = r;
+                out.a = angl;
                 out.f1 = +(Math.abs(angl) > 180);
                 out.f2 = +(angl > 0);
                 out.path = "A" + [safeRound(r), safeRound(r), 0, out.f1, out.f2, x3, y3];
@@ -328,7 +329,9 @@
                     var rest = seg.rest,
                         x = seg.x,
                         y = seg.y,
-                        arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], rest[4], rest[5]) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, rest[4] + x, rest[5] + y);
+                        X = seg.type == "abs" ? rest[4] : rest[4] + x,
+                        Y = seg.type == "abs" ? rest[5] : rest[5] + y,
+                        arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, X, Y);
                     // This number 1e5 should be dependant on the dimensions
                     if (arc && arc.r && arc.r < 1e5) {
                         if (segp.r && Math.abs(segp.r - arc.r) < .5 && Math.abs(segp.cx - arc.cx) < .5 && Math.abs(segp.cy - arc.cy) < .5) {
@@ -338,13 +341,18 @@
                                 segp.rest[5] = segp.cx * 2 - segp.x;
                                 segp.rest[6] = segp.cy * 2 - segp.y;
                                 seg.command = seg.cmd = "A";
-                                seg.rest = [segp.r, segp.r, 0, 0, arc.f2, rest[4], rest[5]];
+                                seg.rest = [segp.r, segp.r, 0, 0, arc.f2, X, Y];
                                 return;
                             }
-                            segp.rest[3] = +(Math.abs(segp.a) > 180);
-                            segp.rest[4] = +(segp.a > 0);
-                            segp.rest[5] = rest[4];
-                            segp.rest[6] = rest[5];
+                            // Need to calculate it again for better precision
+                            arc = arc3(segp.x, segp.y, seg.x, seg.y, X, Y);
+                            segp.a = arc.a;
+                            segp.rest[0] = arc.r;
+                            segp.rest[1] = arc.r;
+                            segp.rest[3] = +(Math.abs(arc.a) > 180);
+                            segp.rest[4] = +(arc.a > 0);
+                            segp.rest[5] = X;
+                            segp.rest[6] = Y;
                             return "unite";
                         }
                         seg.command = seg.cmd = "A";
