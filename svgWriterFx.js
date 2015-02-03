@@ -168,8 +168,7 @@
         }
 
         this.glowHelperFunction = function (ctx, glow, glowType, ind) {
-                var gradient = glow.gradient,
-                    gradientMap = new SVGWriterGradientMap,
+                var gradientMap = new SVGWriterGradientMap,
                     opacity = round1k(glow.opacity),
                     op = glowType == 'innerGlow' ? 'out' : 'in';
 
