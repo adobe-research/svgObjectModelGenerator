@@ -19,12 +19,12 @@
       <feBlend in2="SourceGraphic" result="gradientFill"/>
       <feFlood flood-color="red" flood-opacity="0.3"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend in2="gradientFill" result="colorOverlay"/>
+      <feBlend in2="gradientFill" result="solidFill"/>
     </filter>
     <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
       <feFlood flood-color="red" flood-opacity="0.3"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend in2="SourceGraphic" result="colorOverlay"/>
+      <feBlend in2="SourceGraphic" result="solidFill"/>
     </filter>
   </defs>
   <rect x="100" y="100" width="400" height="400" class="cls-3"/>

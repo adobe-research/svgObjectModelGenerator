@@ -20,7 +20,7 @@
         <feFuncA type="linear" slope="0.7"/>
       </feComponentTransfer>
       <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="satin"/>
+      <feBlend mode="lighten" in2="SourceGraphic" result="chromeFX"/>
     </filter>
   </defs>
   <rect x="200" y="225" width="300" height="150" class="cls-3"/>

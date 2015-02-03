@@ -224,6 +224,8 @@
             prepareEffect('chromeFX', prepareColor);
             prepareEffect('innerGlow', prepareGlow);
             prepareEffect('outerGlow', prepareGlow);
+            prepareEffect('bevelEmboss');
+            prepareEffect('patternOverlay');
 
             if (svgNode.style.fx.frameFX) {
                 var stroke = {},
