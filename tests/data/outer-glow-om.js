@@ -26,85 +26,87 @@ module.exports = {
 					}
 				},
 				"fx": {
-					"outerGlow": {
-						"enabled": true,
-						"mode": "normal",
-						"gradient": {
-							"stops": [
-								{
-									"position": 0,
-									"color": {
-										"r": 249,
-										"g": 229.99611,
-										"b": 0,
-										"a": 1
+					"outerGlowMulti": [
+						{
+							"enabled": true,
+							"mode": "normal",
+							"gradient": {
+								"stops": [
+									{
+										"position": 0,
+										"color": {
+											"r": 249,
+											"g": 229.99611,
+											"b": 0,
+											"a": 1
+										}
+									},
+									{
+										"position": 5.0048828125,
+										"color": {
+											"r": 249,
+											"g": 229.99611,
+											"b": 0
+										}
+									},
+									{
+										"position": 35.009765625,
+										"color": {
+											"r": 111.003892,
+											"g": 21.003892,
+											"b": 108.000001
+										}
+									},
+									{
+										"position": 64.990234375,
+										"color": {
+											"r": 253,
+											"g": 124,
+											"b": 0
+										}
+									},
+									{
+										"position": 94.9951171875,
+										"color": {
+											"r": 0,
+											"g": 40.000001,
+											"b": 116.000001
+										}
+									},
+									{
+										"position": 100,
+										"color": {
+											"r": 0,
+											"g": 40.000001,
+											"b": 116.000001,
+											"a": 1
+										}
 									}
-								},
-								{
-									"position": 5.0048828125,
-									"color": {
-										"r": 249,
-										"g": 229.99611,
-										"b": 0
-									}
-								},
-								{
-									"position": 35.009765625,
-									"color": {
-										"r": 111.003892,
-										"g": 21.003892,
-										"b": 108.000001
-									}
-								},
-								{
-									"position": 64.990234375,
-									"color": {
-										"r": 253,
-										"g": 124,
-										"b": 0
-									}
-								},
-								{
-									"position": 94.9951171875,
-									"color": {
-										"r": 0,
-										"g": 40.000001,
-										"b": 116.000001
-									}
-								},
-								{
-									"position": 100,
-									"color": {
-										"r": 0,
-										"g": 40.000001,
-										"b": 116.000001,
-										"a": 1
-									}
-								}
-							],
-							"scale": 1
-						},
-						"opacity": 1,
-						"glowTechnique": "softMatte",
-						"chokeMatte": 0,
-						"blur": 87,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"shadingNoise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Half Round"
-						},
-						"inputRange": {
-							"value": 50,
-							"units": "percentUnit"
+								],
+								"scale": 1
+							},
+							"opacity": 1,
+							"glowTechnique": "softMatte",
+							"chokeMatte": 0,
+							"blur": 87,
+							"noise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"shadingNoise": {
+								"value": 0,
+								"units": "percentUnit"
+							},
+							"antiAlias": false,
+							"transferSpec": {
+								"name": "Half Round"
+							},
+							"inputRange": {
+								"value": 50,
+								"units": "percentUnit"
+							}
 						}
-					}
+					]
 				}
 			},
 			"children": [],
