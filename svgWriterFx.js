@@ -164,7 +164,7 @@
             if (omIn && omIn.style && omIn.style.fx && omIn.style.fx[effect]) {
                 return omIn.style.fx[effect].some(function(ele) {
                     if (custom) {
-                        return ele.enabled && hasColorNoise(ele);
+                        return ele.enabled && custom(ele);
                     }
                     return ele.enabled;
                 });
