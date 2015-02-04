@@ -519,7 +519,83 @@
         self.toString = function (ctx) {
             return ctx.sOut;
         };
-        
+
+        var defaults = {
+            fill: "#000",
+            stroke: "none",
+            "stroke-width": 1,
+            "stroke-linecap": "butt",
+            "stroke-linejoin": "miter",
+            "stroke-miterlimit": 4,
+            "stroke-dasharray": "none",
+            "stroke-dashoffset": 0,
+            "stroke-opacity": 1,
+            opacity: 1,
+            "fill-rule": "nonzero",
+            "fill-opacity": 1,
+            display: "inline",
+            visibility: "visible"
+        };
+
+        self.writeClassIfNeccessary = function (ctx, node) {
+            node = node || ctx.currentOMNode;
+            if (ctx.omStylesheet.hasStyleBlock(node)) {
+                var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
+                if (omStyleBlock) {
+                    if (ctx.usePresentationAttribute) {
+                        for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
+                            var rule = omStyleBlock.rules[i];
+                            self.writeAttrIfNecessary(ctx, rule.propertyName, String(rule.value).replace(/"/g, "'"), defaults[rule.propertyName] || "");
+                        }
+                    } else {
+                        self.write(ctx, " class=\"" + omStyleBlock.class + "\"");
+                    }
+                }
+            }
+        }
+
+        self.writePositionIfNecessary = function (ctx, position, overrideExpect) {
+            var yUnit,
+                xUnit,
+                x,
+                y;
+
+            if (position) {
+                overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
+                if (isFinite(position.x)) {
+                    if (position.unitX === "px") {
+                        x = Math.round(position.x);
+                    } else if (position.unitX === "em") {
+                        x = self.round1k(position.x);
+                    } else {
+                        position.unitX = "%";
+                        x = Math.round(position.x);
+                    }
+                    self.writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
+                }
+
+                if (isFinite(position.y)) {
+                    if (position.unitY === "px") {
+                        y = Math.round(position.y);
+                    } else if (position.unitY === "em") {
+                        y = self.round1k(position.y);
+                    } else {
+                        position.unitY = "%";
+                        y = Math.round(position.y);
+                    }
+                    self.writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
+                }
+            }
+        }
+
+        self.encodedText = function (txt) {
+            return txt.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&apos;');
+        }
+
         self.extend = Utils.extend;
         self.toBase64 = Utils.toBase64;
 	}
