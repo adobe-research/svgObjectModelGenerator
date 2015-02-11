@@ -102,20 +102,18 @@
             }
         }
     }
-    function writeTSpan(ctx, sibling, omIn) {
-        write(ctx, "<tspan");
-        // Set paragraph styles.
-
+    function makeTSpan(Tag, ctx, sibling, node) {
+        var tag = new Tag("tspan", {}, ctx, node);
         if (ctx._nextTspanAdjustSuper) {
-            writeAttrIfNecessary(ctx, "dy", "0.6em", "0em", "");
+            tag.setAttribute("dy", "0.6em");
         }
 
-        if (omIn.position) {
+        if (node.position) {
             var lineEM = 1.2,
                 fontSize,
-                leading = omIn.style["_leading"];
+                leading = node.style._leading;
             if (leading) {
-                fontSize = omIn.style["font-size"];
+                fontSize = node.style["font-size"];
                 if (fontSize && leading.units === fontSize.units) {
                     if (fontSize.units) {
                         lineEM = round1k(leading.value / fontSize.value);
@@ -126,50 +124,46 @@
             }
 
             if (!ctx._nextTspanAdjustSuper) {
-                if (omIn.position.unitY === "em") {
-                    writeAttrIfNecessary(ctx, "dy", (omIn.position.y * lineEM) + "em", "0em", "");
+                if (node.position.unitY === "em") {
+                    tag.setAttribute("dy", (node.position.y * lineEM) + "em");
                 } else {
-                    writeAttrIfNecessary(ctx, "dy", (sibling ? lineEM : 0) + "em", "0em", "");
+                    tag.setAttribute("dy", (sibling ? lineEM : 0) + "em");
                 }
             }
 
-            if (!omIn.style ||
-                (omIn.style["text-anchor"] !== "middle" &&
-                 omIn.style["text-anchor"] !== "end") &&
-                isFinite(omIn.position.x)) {
+            if (!node.style ||
+                (node.style["text-anchor"] !== "middle" &&
+                 node.style["text-anchor"] !== "end") &&
+                isFinite(node.position.x)) {
 
                 if (sibling) {
-                    writePositionIfNecessary(ctx, {
-                        x: omIn.position.x,
-                        unitX: omIn.position.unitX
-                    }, "");
+                    tag.setAttribute("x", node.position.x);
                 }
-            } else if (omIn.style["text-anchor"] === "middle") {
-                writePositionIfNecessary(ctx, {
-                    x: omIn.position.x,
-                    unitX: omIn.position.unitX
-                });
-                if (isFinite(omIn.position.deltaX)) {
-                    writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
+            } else if (node.style["text-anchor"] === "middle") {
+                tag.setAttribute("x", node.position.x);
+                if (isFinite(node.position.deltaX)) {
+                    tag.setAttribute("dx", node.position.deltaX);
                 }
-            } else if (omIn.style["text-anchor"] === "end") {
-                writeAttrIfNecessary(ctx, "x", "100%", "0%", "");
-                if (isFinite(omIn.position.deltaX)) {
-                    writeAttrIfNecessary(ctx, "dx", omIn.position.deltaX, "0", "px");
+            } else if (node.style["text-anchor"] === "end") {
+                tag.setAttribute("x", "100%");
+                if (isFinite(node.position.deltaX)) {
+                    tag.setAttribute("dx", node.position.deltaX);
                 }
             }
         }
 
         ctx._nextTspanAdjustSuper = false;
 
-        writeClassIfNeccessary(ctx, omIn);
-        write(ctx, ">");
+        return tag;
     }
 
-    function mergeTSpans(ctx, sibling, tspans) {
-        var str = "",
+    function mergeTSpans2Tag(root, ctx, sibling, tspans) {
+        var top = root,
+            Tag = root.constructor,
             opened = [],
+            openedTags = [root],
             styles = [],
+            tag,
             curstyle = styles;
         for (var i = 0, len = tspans.length; i < len; i++) {
             var j = opened.length,
@@ -186,21 +180,23 @@
                     };
                 }
             }
-            if (compres) {
+            if (~compres.match) {
                 var todel = opened.splice(compres.j + 1);
+                openedTags.splice(compres.j + 2);
                 for (var k = 0; k < todel.length; k++) {
                     curstyle = curstyle.parent;
                 }
-                write(ctx, new Array(todel.length + 1).join("</tspan>"));
+                top = openedTags[openedTags.length - 1];
                 if (compres.full) {
                     if (tspans[i].text) {
-                        write(ctx, encodedText(tspans[i].text));
+                        top.children.push(new Tag("#text", tspans[i].text));
                     }
                     continue;
                 }
             } else {
-                write(ctx, new Array(opened.length + 1).join("</tspan>"));
+                top = root;
                 opened.length = 0;
+                openedTags = [root];
             }
             var chldrn = [];
             curstyle.push({
@@ -210,21 +206,23 @@
             });
             chldrn.parent = curstyle;
             curstyle = chldrn;
-            writeTSpan(ctx, sibling, tspans[i]);
+            tag = makeTSpan(Tag, ctx, sibling, tspans[i]);
             if (tspans[i].text) {
-                write(ctx, encodedText(tspans[i].text));
+                tag.children.push(new Tag("#text", tspans[i].text));
             }
             opened.push(tspans[i].styleBlock);
+            openedTags.push(tag);
+            top.children.push(tag);
+            top = openedTags[openedTags.length - 1];
         }
-        write(ctx, new Array(opened.length + 1).join("</tspan>"));
         run(styles, {});
-        return str;
+        return root;
     };
 
 	module.exports = {
         scanForUnsupportedFeatures: scanForUnsupportedFeatures,
-        mergeTSpans: mergeTSpans,
-        writeTSpan: writeTSpan
+        makeTSpan: makeTSpan,
+        mergeTSpans2Tag: mergeTSpans2Tag
     };
 
 }());

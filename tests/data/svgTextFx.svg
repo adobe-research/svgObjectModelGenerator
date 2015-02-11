@@ -2,12 +2,8 @@
   <defs>
     <style>
 
-      .cls-3, .cls-4, .cls-5, .cls-6 {
+      .cls-3, .cls-4, .cls-5 {
         font-size: 31.818px;
-      }
-
-      .cls-5, .cls-6 {
-        font-family: "Minion Pro";
       }
 
       .cls-3 {
@@ -16,6 +12,7 @@
 
       .cls-5 {
         fill: #030303;
+        font-family: "Minion Pro";
       }
 
       .cls-6 {
@@ -34,5 +31,5 @@
       <feBlend mode="lighten" in2="shadowed" result="gradientFill"/>
     </filter>
   </defs>
-  <text x="245px" y="154px" class="cls-3"><tspan class="cls-4"><tspan class="cls-5">This is a <tspan class="cls-6">text</tspan></tspan></tspan></text>
+  <text class="cls-3" x="245" y="154"><tspan class="cls-4"><tspan class="cls-5">This is a <tspan class="cls-6">text</tspan></tspan></tspan></text>
 </svg>

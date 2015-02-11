@@ -2,26 +2,24 @@
   <defs>
     <style>
 
-      .cls-3, .cls-4, .cls-7, .cls-8, .cls-15, .cls-17, .cls-19, .cls-22 {
+      .cls-3, .cls-4, .cls-7, .cls-22 {
         font-size: 63.635px;
       }
 
-      .cls-4, .cls-7, .cls-8, .cls-15 {
-        font-family: "Myriad Pro";
-        font-size: 63.635px;
-      }
-
-      .cls-4, .cls-7, .cls-17, .cls-19 {
+      .cls-4, .cls-7, .cls-17 {
         fill: #030303;
-        font-size: 63.635px;
       }
 
-      .cls-19, .cls-22, .cls-27 {
-        font-family: "Minion Pro";
+      .cls-4, .cls-7 {
+        font-family: "Myriad Pro";
       }
 
       .cls-15, .cls-22 {
         fill: #ff032d;
+      }
+
+      .cls-19, .cls-22 {
+        font-family: "Minion Pro";
       }
 
       .cls-8 {
@@ -39,8 +37,8 @@
       }
     </style>
   </defs>
-  <text x="129px" y="121px" class="cls-3"><tspan class="cls-4">This is a text example</tspan></text>
-  <text x="141px" y="232px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">This is a <tspan class="cls-8">text </tspan>example</tspan></tspan></text>
-  <text x="139px" y="341px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">Thi<tspan class="cls-8">s i</tspan>s <tspan class="cls-15">a t</tspan>ex<tspan class="cls-17">t e</tspan>xa<tspan class="cls-19">mple</tspan></tspan></tspan></text>
-  <text x="149px" y="440px" class="cls-3"><tspan class="cls-3"><tspan class="cls-22">This i<tspan class="cls-19">s</tspan></tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-19">a te<tspan class="cls-22">x<tspan class="cls-27">t</tspan></tspan></tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-27">exam<tspan class="cls-22">ple</tspan></tspan></tspan></text>
+  <text class="cls-3" x="129" y="121"><tspan class="cls-4">This is a text example</tspan></text>
+  <text class="cls-3" x="141" y="232"><tspan class="cls-3"><tspan class="cls-7">This is a <tspan class="cls-8">text </tspan>example</tspan></tspan></text>
+  <text class="cls-3" x="139" y="341"><tspan class="cls-3"><tspan class="cls-7">Thi<tspan class="cls-8">s i</tspan>s <tspan class="cls-15">a t</tspan>ex<tspan class="cls-17">t e</tspan>xa<tspan class="cls-19">mple</tspan></tspan></tspan></text>
+  <text class="cls-3" x="149" y="440"><tspan class="cls-3"><tspan class="cls-22">This i<tspan class="cls-19">s</tspan></tspan></tspan><tspan class="cls-3" dy="1.2em" x="149"><tspan class="cls-19">a te<tspan class="cls-22">x<tspan class="cls-27">t</tspan></tspan></tspan></tspan><tspan class="cls-3" dy="1.2em" x="149"><tspan class="cls-27">exam<tspan class="cls-22">ple</tspan></tspan></tspan></text>
 </svg>

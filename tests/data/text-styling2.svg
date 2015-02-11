@@ -77,12 +77,12 @@
       }
     </style>
   </defs>
-  <text x="87px" y="286px" class="cls-3"><tspan x="87px" class="cls-4">2</tspan></text>
-  <text x="87px" y="414px" class="cls-3"><tspan x="87px" class="cls-6">3</tspan></text>
-  <text x="87px" y="539px" class="cls-3"><tspan x="87px" class="cls-8">4</tspan></text>
-  <text x="87px" y="670px" class="cls-3"><tspan x="87px" class="cls-10">5</tspan></text>
-  <text x="87px" y="795px" class="cls-3"><tspan x="87px" class="cls-12">6</tspan></text>
-  <text x="87px" y="920px" class="cls-3"><tspan x="87px" class="cls-14">7</tspan></text>
-  <text x="87px" y="150px" class="cls-3"><tspan x="87px" class="cls-16">1</tspan></text>
-  <text x="370px" y="128px" class="cls-17"><tspan class="cls-18">thin</tspan><tspan dy="1.542em" x="370px" class="cls-19">ultrathin</tspan><tspan dy="1.542em" x="370px" class="cls-20">thin italic</tspan><tspan dy="1.542em" x="370px" class="cls-21">medium</tspan><tspan dy="1.542em" x="370px" class="cls-22">light oblique</tspan><tspan dy="1.542em" x="370px" class="cls-23">book</tspan><tspan dy="1.542em" x="370px" class="cls-24">slanted</tspan></text>
+  <text class="cls-3" x="87" y="286"><tspan class="cls-4" x="87">2</tspan></text>
+  <text class="cls-3" x="87" y="414"><tspan class="cls-6" x="87">3</tspan></text>
+  <text class="cls-3" x="87" y="539"><tspan class="cls-8" x="87">4</tspan></text>
+  <text class="cls-3" x="87" y="670"><tspan class="cls-10" x="87">5</tspan></text>
+  <text class="cls-3" x="87" y="795"><tspan class="cls-12" x="87">6</tspan></text>
+  <text class="cls-3" x="87" y="920"><tspan class="cls-14" x="87">7</tspan></text>
+  <text class="cls-3" x="87" y="150"><tspan class="cls-16" x="87">1</tspan></text>
+  <text class="cls-17" x="370" y="128"><tspan class="cls-18">thin</tspan><tspan class="cls-19" dy="1.542em" x="370">ultrathin</tspan><tspan class="cls-20" dy="1.542em" x="370">thin italic</tspan><tspan class="cls-21" dy="1.542em" x="370">medium</tspan><tspan class="cls-22" dy="1.542em" x="370">light oblique</tspan><tspan class="cls-23" dy="1.542em" x="370">book</tspan><tspan class="cls-24" dy="1.542em" x="370">slanted</tspan></text>
 </svg>

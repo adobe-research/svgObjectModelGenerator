@@ -17,5 +17,5 @@
       }
     </style>
   </defs>
-  <text x="338px" y="232px" class="cls-3"><tspan class="cls-4">This is a text</tspan></text>
+  <text class="cls-3" x="338" y="232"><tspan class="cls-4">This is a text</tspan></text>
 </svg>

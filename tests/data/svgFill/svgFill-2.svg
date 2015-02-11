@@ -26,8 +26,10 @@
       <feBlend in2="gradientFill" result="solidFill"/>
     </filter>
   </defs>
-  <g id="ellipsesvg" style="fill: url(#linear-gradient-1); filter: url(#filter-chain-1);">
-    <circle id="circle-1" cx="84" cy="84" r="83" class="cls-2" style="stroke: inherit; filter: none; fill: inherit;"/>
+  <g>
+    <g style="fill: url(#linear-gradient-1); filter: url(#filter-chain-1)">
+      <circle cx="84" cy="84" r="83" class="cls-2" id="circle-1" style="stroke: inherit; filter: none; fill: inherit"/>
+    </g>
+    <use xlink:href="#circle-1" style="stroke: #000; filter: none; fill: none"/>
   </g>
-  <use xlink:href="#circle-1" style="stroke: #000; fill: none; filter: none;"/>
 </svg>

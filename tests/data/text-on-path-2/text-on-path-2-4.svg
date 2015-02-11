@@ -13,5 +13,5 @@
       }
     </style>
   </defs>
-  <text x="100%" y="117px" class="cls-2"><tspan x="100%" class="cls-3">Plain text</tspan></text>
+  <text class="cls-2" x="100%" y="117"><tspan class="cls-3" x="100%">Plain text</tspan></text>
 </svg>

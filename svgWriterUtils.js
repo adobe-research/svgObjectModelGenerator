@@ -138,6 +138,14 @@
             }
         };
 
+        self.getTranform = function (val, tX, tY) {
+            if (val) {
+                var matrix4x4 = Matrix.createMatrix(val);
+                return Matrix.writeTransform(matrix4x4, tX, tY);
+            }
+            return "";
+        };
+
         var gradientStops = {};
         self.gradientStopsReset = function () {
             gradientStops = {};
