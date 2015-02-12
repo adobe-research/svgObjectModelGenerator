@@ -34,8 +34,17 @@
     
     var toString = svgWriterUtils.toString;
     
-    function checkGroups(svg, ctx) {
+    function process(tag, parents) {
+        // fill it with processing actions and remove this comment :)
+    }
 
+    function preProcess(tag, parents) {
+        parents = parents || [];
+        process(tag, parents);
+        parents.push(tag);
+        for (var i = 0, len = tag.children.length; i < len; i++) {
+            preProcess(tag.children[i], parents);
+        }
     }
 
 	function print(svgOM, opt, errors) {
@@ -46,7 +55,7 @@
             svgWriterPreprocessor.processSVGOM(ctx);
             ctx.omStylesheet.consolidateStyleBlocks();
             var svg = Tag.make(ctx, svgOM);
-
+            preProcess(svg);
             svg.write(ctx);
         } catch (ex) {
             console.error("Ex: " + ex);
