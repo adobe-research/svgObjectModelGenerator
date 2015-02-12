@@ -19,7 +19,7 @@
 var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     sinon = require('sinon'),
-    database = require('./test-database.js');
+    database = require('./test-database.js'),
     fs = require("fs");
 
 describe('svgOMGenerator', function (){

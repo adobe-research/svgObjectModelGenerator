@@ -25,7 +25,8 @@
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterText = require("./svgWriterText.js"),
-        SVGWriterContext = require("./svgWriterContext.js");
+        SVGWriterContext = require("./svgWriterContext.js"),
+        attrsDefs = require('./attrdefs-database.js');
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
@@ -37,179 +38,6 @@
         encodedText = svgWriterUtils.encodedText,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan;
-    var types = ["number", "number-sequence", "percent", "string", "color"],
-        attrsDefs = {
-        "feFuncA/amplitude": [1, 0],
-        "feFuncB/amplitude": [1, 0],
-        "feFuncG/amplitude": [1, 0],
-        "feFuncR/amplitude": [1, 0],
-        "feDistantLight/azimuth": [0, 0],
-        "feTurbulence/baseFrequency": [0, 1],
-        "feConvolveMatrix/bias": [0, 0],
-        "circle/cx": [0, 0],
-        "ellipse/cx": [0, 0],
-        "radialGradient/cx": ["50%", 2],
-        "circle/cy": [0, 0],
-        "ellipse/cy": [0, 0],
-        "radialGradient/cy": ["50%", 2],
-        "path/d": ["", 3],
-        "feDiffuseLighting/diffuseConstant": [1, 0],
-        "feConvolveMatrix/divisor": [1, 0],
-        "feOffset/dx": [0, 0],
-        "text/dx": [0, 1],
-        "tspan/dx": [0, 1],
-        "feOffset/dy": [0, 0],
-        "text/dy": [0, 1],
-        "tspan/dy": [0, 1],
-        "feConvolveMatrix/edgeMode": ["duplicate", 3],
-        "feDistantLight/elevation": [0, 0],
-        "feFuncA/exponent": [1, 0],
-        "feFuncB/exponent": [1, 0],
-        "feFuncG/exponent": [1, 0],
-        "feFuncR/exponent": [1, 0],
-        "filter/filterRes": [null, 1],
-        "filter/filterUnits": [null, 1],
-        "radialGradient/fx": ["50%", 3],
-        "radialGradient/fy": ["50%", 3],
-        "*/height": [0, 0],
-        "*/in": ["", 3],
-        "*/in2": ["", 3],
-        "feFuncA/intercept": [0, 0],
-        "feFuncB/intercept": [0, 0],
-        "feFuncG/intercept": [0, 0],
-        "feFuncR/intercept": [0, 0],
-        "feComposite/k1": [0, 0],
-        "feComposite/k2": [0, 0],
-        "feComposite/k3": [0, 0],
-        "feComposite/k4": [0, 0],
-        "text/lengthAdjust": ["spacing", 3],
-        "textPath/lengthAdjust": ["spacing", 3],
-        "tspan/lengthAdjust": ["spacing", 3],
-        "marker/markerHeight": [3, 0],
-        "marker/markerUnits": ["strokeWidth", 3],
-        "marker/markerWidth": [3, 0],
-        "mask/maskContentUnits": ["userSpaceOnUse", 3],
-        "mask/maskUnits": ["objectBoundingBox", 3],
-        "textPath/method": ["align", 3],
-        "feBlend/mode": ["normal", 3],
-        "feFuncA/offset": [0, 0],
-        "feFuncB/offset": [0, 0],
-        "feFuncG/offset": [0, 0],
-        "feFuncR/offset": [0, 0],
-        "feComposite/operator": ["over", 3],
-        "feMorphology/operator": ["erode", 3],
-        "feConvolveMatrix/order": [3, 1],
-        "marker/orient": [0, 0],
-        "pattern/patternContentUnits": ["userSpaceOnUse", 3],
-        "pattern/patternUnits": ["objectBoundingBox", 3],
-        "*/points": ["", 1],
-        "feSpotLight/pointsAtX": [0, 0],
-        "feSpotLight/pointsAtY": [0, 0],
-        "feSpotLight/pointsAtZ": [0, 0],
-        "feConvolveMatrix/preserveAlpha": ["false", 3],
-        "*/preserveAspectRatio": ["meet", 3],
-        "filter/primitiveUnits": ["userSpaceOnUse", 3],
-        "circle/r": [0, 0],
-        "radialGradient/r": ["50%", 2],
-        "feMorphology/radius": [0, 1],
-        "marker/refX": [0, 0],
-        "marker/refY": [0, 0],
-        "text/rotate": [0, 1],
-        "tspan/rotate": [0, 1],
-        "ellipse/rx": [0, 0],
-        "rect/rx": [0, 0],
-        "ellipse/ry": [0, 0],
-        "rect/ry": [0, 0],
-        "feDisplacementMap/scale": [0, 0],
-        "feTurbulence/seed": [0, 0],
-        "feFuncA/slope": [1, 0],
-        "feFuncB/slope": [1, 0],
-        "feFuncG/slope": [1, 0],
-        "feFuncR/slope": [1, 0],
-        "textPath/spacing": ["exact", 3],
-        "feSpecularLighting/specularConstant": [1, 0],
-        "feSpecularLighting/specularExponent": [1, 0],
-        "feSpotLight/specularExponent": [1, 0],
-        "*/spreadMethod": ["pad", 3],
-        "textPath/startOffset": [0, 0],
-        "feGaussianBlur/stdDeviation": [0, 1],
-        "feTurbulence/stitchTiles": ["noStitch", 3],
-        "*/surfaceScale": [1, 0],
-        "*/tableValues": ["", 1],
-        "a/target": ["_self", 3],
-        "feColorMatrix/type": ["matrix", 3],
-        "feTurbulence/type": ["turbulence", 3],
-        "feColorMatrix/values": ["", 1],
-        "*/viewBox": ["", 1],
-        "*/width": [0, 0],
-        "*/x": [0, 0],
-        "tspan/x": ["", 0],
-        "line/x1": [0, 0],
-        "linearGradient/x1": [0, 0],
-        "line/x2": [0, 0],
-        "linearGradient/x2": [0, 0],
-        "feDisplacementMap/xChannelSelector": ["A", 3],
-        "*/y": [0, 0],
-        "tspan/y": ["", 0],
-        "line/y1": [0, 0],
-        "linearGradient/y1": [0, 0],
-        "line/y2": [0, 0],
-        "linearGradient/y2": [0, 0],
-        "feDisplacementMap/yChannelSelector": ["A", 3],
-        "fePointLight/z": [0, 0],
-        "feSpotLight/z": [0, 0],
-        // presentational attributes
-        "*/alignment-baseline": ["auto", 3],
-        "*/baseline-shift": ["baseline", 3],
-        "*/clip-path": ["none", 3],
-        "*/clip-rule": ["nonzero", 3],
-        "*/clip": ["auto", 3],
-        "*/color-interpolation-filters": ["linearRGB", 3],
-        "*/color-interpolation": ["sRGB", 3],
-        "*/color-profile": ["auto", 3],
-        "*/color-rendering": ["auto", 3],
-        "*/cursor": ["auto", 3],
-        "*/direction": ["ltr", 3],
-        "*/display": ["inline", 3],
-        "*/dominant-baseline": ["auto", 3],
-        "*/enable-background": ["accumulate", 3],
-        "*/fill-opacity": [1, 0],
-        "*/fill": ["#000", 4],
-        "*/filter": ["none", 3],
-        "*/flood-color": ["#000", 4],
-        "*/flood-opacity": [1, 0],
-        "*/font-style": ["normal", 3],
-        "*/font-variant": ["normal", 3],
-        "*/font-weight": ["400", 3],
-        "*/image-rendering": ["auto", 3],
-        "*/kerning": ["auto", 3],
-        "*/letter-spacing": ["normal", 3],
-        "*/lighting-color": ["#fff", 4],
-        "*/marker-end": ["none", 3],
-        "*/marker-mid": ["none", 3],
-        "*/marker-start": ["none", 3],
-        "*/mask": ["none", 3],
-        "*/opacity": [1, 0],
-        "*/pointer-events": ["visiblePainted", 3],
-        "*/shape-rendering": ["auto", 3],
-        "*/stop-color": ["#000", 4],
-        "*/stop-opacity": [1, 0],
-        "*/stroke-dasharray": ["none", 1],
-        "*/stroke-dashoffset": [0, 1],
-        "*/stroke-linecap": ["butt", 3],
-        "*/stroke-linejoin": ["miter", 3],
-        "*/stroke-miterlimit": [4, 0],
-        "*/stroke-opacity": [1, 0],
-        "*/stroke-width": [1, 0],
-        "*/stroke": ["none", 4],
-        "*/text-anchor": ["start", 3],
-        "*/text-decoration": ["none", 3],
-        "*/text-rendering": ["auto", 3],
-        "*/unicode-bidi": ["normal", 3],
-        "*/visibility": ["visible", 3],
-        "*/word-spacing": ["normal", 3],
-        "*/writing-mode": ["lr-tb", 3]
-    };
 
     function Tag(name, attr, ctx, node) {
         this.name = name;
@@ -250,14 +78,14 @@
         return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
     };
     Tag.prototype.setAttribute = function (name, value) {
-        var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || ["", 3],
+        var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
             deft = desc[0],
             type = desc[1],
             digival = parseFloat(value);
-        if (types[type] == "number") {
+        if (type == "number") {
             value = parseNumber(value);
         }
-        if (types[type] == "number-sequence") {
+        if (type == "number-sequence") {
             if (!Array.isArray(value)) {
                 value = (value + "").split(/[,\s]+/);
             }
@@ -266,14 +94,14 @@
             }
             value = value.join(" ");
         }
-        if (types[type] == "percent" && isFinite(digival)) {
+        if (type == "percent" && isFinite(digival)) {
             if (digival == 0) {
                 value = 0;
             } else {
                 value = round1k(digival) + "%";
             }
         }
-        if (types[type] == "color" && value != "none") {
+        if (type == "color" && value != "none") {
             value = writeColor(value);
         }
         if (value + "" == deft + "") {
@@ -364,7 +192,7 @@
         }
     };
     Tag.prototype.useTrick = function (ctx) {
-        if (!svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
+        if (this.tricked || !svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
             return this;
         }
         var stroke = this.getAttribute("stroke"),
@@ -397,6 +225,7 @@
             this.setAttribute("style", "stroke: inherit; filter: none; fill: inherit");
             use.setAttribute("style", "stroke: " + stroke + "; filter: none; fill: none");
         }
+        this.tricked = true;
         return g;
     };
 
