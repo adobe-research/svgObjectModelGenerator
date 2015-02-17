@@ -85,7 +85,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 2212,
@@ -96,23 +96,29 @@ module.exports = {
 			"pathData": "M2212.000,2212.000 C2212.000,2212.000 2812.000,2212.000 2812.000,2212.000 C2812.000,2212.000 2812.000,2812.000 2812.000,2812.000 C2812.000,2812.000 2212.000,2812.000 2212.000,2812.000 C2212.000,2812.000 2212.000,2212.000 2212.000,2212.000 Z"
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5024,
-		"right": 5924
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5024,
+			"right": 5924
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5024,
+			"right": 5924
+		},
+		"pxToInchRatio": 326
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5024,
-		"right": 5924
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 326,
-	"globalLight": {
-		"angle": 90,
-		"altitude": 30
-	}
+	"title": "Untitled-1"
 }

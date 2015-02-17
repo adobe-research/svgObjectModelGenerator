@@ -49,11 +49,13 @@ describe('SVGWriterPreprocessor', function (){
     it("knows how to trim to artwork", function () {
         
         var svgOM = {
-                viewBox: {
-                    left: 0,
-                    right: 50,
-                    top: 0,
-                    bottom: 100
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 50,
+                        top: 0,
+                        bottom: 100
+                    }
                 },
                 children:[
                     {
@@ -100,6 +102,12 @@ describe('SVGWriterPreprocessor', function (){
                 svgOM: svgOM,
                 currentOMNode: svgOM,
                 contentBounds: {},
+                viewBox: {
+                    left: 0,
+                    right: 50,
+                    top: 0,
+                    bottom: 100
+                },
                 config: {
                     trimToArtBounds: true
                 }
@@ -107,10 +115,10 @@ describe('SVGWriterPreprocessor', function (){
         
         svgWriterPreprocessor.processSVGOM(ctx);
         
-        expect(svgOM.viewBox.top).to.equal(0);
-        expect(svgOM.viewBox.left).to.equal(0);
-        expect(svgOM.viewBox.right).to.equal(33);
-        expect(svgOM.viewBox.bottom).to.equal(93);
+        expect(ctx.viewBox.top).to.equal(0);
+        expect(ctx.viewBox.left).to.equal(0);
+        expect(ctx.viewBox.right).to.equal(33);
+        expect(ctx.viewBox.bottom).to.equal(93);
         
         expect(svgOM.children[0].shapeBounds.top).to.equal(1);
         expect(svgOM.children[0].shapeBounds.left).to.equal(1);

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -35,7 +35,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 50,
@@ -74,7 +74,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 50,
@@ -111,7 +111,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
+			"title": "Rectangle 3",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 50,
@@ -152,7 +152,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 4",
+			"title": "Rectangle 4",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 200,
@@ -226,7 +226,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 5",
+			"title": "Rectangle 5",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 200,
@@ -401,7 +401,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 6",
+			"title": "Rectangle 6",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 200,
@@ -561,7 +561,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 7",
+			"title": "Rectangle 7",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 350,
@@ -660,7 +660,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Rectangle 8",
+			"title": "Rectangle 8",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 350,
@@ -671,23 +671,29 @@ module.exports = {
 			"pathData": "M300.000,350.000 C300.000,350.000 500.000,350.000 500.000,350.000 C500.000,350.000 500.000,450.000 500.000,450.000 C500.000,450.000 300.000,450.000 300.000,450.000 C300.000,450.000 300.000,350.000 300.000,350.000 Z"
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
 }

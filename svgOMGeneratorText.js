@@ -92,7 +92,7 @@
                 var svgTextPathNode,
                     isBoxMode = (layer.text.textShape[0].char === "box"),
                     boxOrientation = layer.text.textShape[0].orientation,
-                    dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
+                    dpi = (writer._root && writer._root.global.pxToInchRatio) ? writer._root.global.pxToInchRatio : 72.0,
                     maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
 
                 try {
@@ -151,13 +151,13 @@
             
             return this.textComponentOrigin(layer, function (text) {                
                 
-                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
+                var dpi = (writer._root && writer._root.global.pxToInchRatio) ? writer._root.global.pxToInchRatio : 72.0;
                 
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
                 svgNode.shapeBounds = layer.bounds;
-                svgNode.layerName = layer.name;
+                svgNode.title = layer.name;
                 
                 svgNode.textBounds = JSON.parse(JSON.stringify(layer.bounds));
                 
@@ -165,8 +165,8 @@
                 // the initial <text> element. 
                 // Values in percentage, moving to pixels so it is easier to work with te position
                 svgNode.position = {
-                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.docBounds.right - writer._root.docBounds.left),
-                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.docBounds.bottom - writer._root.docBounds.top),
+                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.global.bounds.right - writer._root.global.bounds.left),
+                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.global.bounds.bottom - writer._root.global.bounds.top),
                     unitX: "px",
                     unitY: "px"
                 };
@@ -289,7 +289,7 @@
                 return;
             }
             var transform = text.transform || text.textShape[0].transform,
-                dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
+                dpi = (writer._root && writer._root.global.pxToInchRatio) ? writer._root.global.pxToInchRatio : 72.0,
                 // The trnasformation matrix is relative to this boundaries.
                 boundsOrig = layer.bounds,
                 // This covers the actual bounds of the text in pt units and needs

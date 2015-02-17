@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -105,7 +105,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"boundsWithFX": {
 				"top": 455,
 				"left": 418,
@@ -232,7 +232,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 4",
+			"title": "Rectangle 4",
 			"boundsWithFX": {
 				"top": 881,
 				"left": 210,
@@ -374,7 +374,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 7",
+			"title": "Rectangle 7",
 			"boundsWithFX": {
 				"top": 1103,
 				"left": 110,
@@ -530,7 +530,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 5",
+			"title": "Rectangle 5",
 			"boundsWithFX": {
 				"top": 881,
 				"left": 850,
@@ -717,7 +717,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 6",
+			"title": "Rectangle 6",
 			"boundsWithFX": {
 				"top": 881,
 				"left": 1490,
@@ -810,7 +810,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
+			"title": "Rectangle 3",
 			"boundsWithFX": {
 				"top": 197,
 				"left": 210,
@@ -951,7 +951,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"boundsWithFX": {
 				"top": 197,
 				"left": 1490,
@@ -967,23 +967,29 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1500,
-		"right": 2100
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"pxToInchRatio": 300
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1500,
-		"right": 2100
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 45,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 300,
-	"globalLight": {
-		"angle": 45,
-		"altitude": 30
-	}
+	"title": "multi-layer-fx-1.psd"
 }

@@ -66,7 +66,7 @@ module.exports = {
 					"pathData": "M 145.08 123.12 C 176.693 123.12 202.32 140.688 202.32 162.36 C 202.32 184.032 176.693 201.6 145.08 201.6 C 113.467 201.6 87.84 184.032 87.84 162.36 Z"
 				}
 			],
-			"layerName": "Text on Path.svg",
+			"title": "Text on Path.svg",
 			"shapeBounds": {
 				"top": 414,
 				"left": 256,
@@ -86,23 +86,29 @@ module.exports = {
 			"maxTextSize": 150
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1500,
-		"right": 2100
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"pxToInchRatio": 300
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1500,
-		"right": 2100
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 300,
-	"globalLight": {
-		"angle": 90,
-		"altitude": 30
-	}
+	"title": "text-on-path-2.psd"
 }

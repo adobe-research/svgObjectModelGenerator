@@ -297,7 +297,7 @@
             
             var omIn = ctx.currentOMNode,
                 gradientID = svgWriterIDs.getUnique("linear-gradient"),
-                bounds = gradient.gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.svgOM.viewBox,
+                bounds = gradient.gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.viewBox,
                 coords = computeLinearGradientCoordinates(gradient, bounds),
                 scale = gradient.scale,
                 stops = gradient.stops;
@@ -367,7 +367,7 @@
                 scale = gradient.scale,
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,
-                bounds = gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.svgOM.viewBox,
+                bounds = gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.viewBox,
                 w2 = (bounds.right - bounds.left) / 2,
                 h2 = (bounds.bottom - bounds.top) / 2,
                 cx = self.round1k(bounds.left + w2),

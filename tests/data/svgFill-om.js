@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "ellipsesvg",
@@ -154,7 +154,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Ellipse.svg",
+			"title": "Ellipse.svg",
 			"boundsWithFX": {
 				"top": 62,
 				"left": 49,
@@ -170,23 +170,29 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 288,
-		"right": 288
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 288,
+			"right": 288
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 288,
+			"right": 288
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 288,
-		"right": 288
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "svgFill.psd"
 }

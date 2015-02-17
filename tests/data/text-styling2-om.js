@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "layer1",
@@ -45,7 +45,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "2",
+			"title": "2",
 			"shapeBounds": {
 				"top": 211,
 				"left": 79,
@@ -103,7 +103,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "3",
+			"title": "3",
 			"shapeBounds": {
 				"top": 339,
 				"left": 77,
@@ -161,7 +161,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "4",
+			"title": "4",
 			"shapeBounds": {
 				"top": 466,
 				"left": 77,
@@ -220,7 +220,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "5",
+			"title": "5",
 			"shapeBounds": {
 				"top": 597,
 				"left": 76,
@@ -278,7 +278,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "6",
+			"title": "6",
 			"shapeBounds": {
 				"top": 721,
 				"left": 76,
@@ -337,7 +337,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "7",
+			"title": "7",
 			"shapeBounds": {
 				"top": 846,
 				"left": 84,
@@ -395,7 +395,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "1 copy",
+			"title": "1 copy",
 			"shapeBounds": {
 				"top": 76,
 				"left": 84,
@@ -597,7 +597,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "thin ultrathin thin italic medium light oblique book slanted",
+			"title": "thin ultrathin thin italic medium light oblique book slanted",
 			"shapeBounds": {
 				"top": 76,
 				"left": 381,
@@ -619,23 +619,29 @@ module.exports = {
 			"maxTextSize": 72
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "/Users/baranovs/Desktop/texts.psd"
 }

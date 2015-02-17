@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "layer1",
@@ -58,7 +58,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "This is a text example",
+			"title": "This is a text example",
 			"shapeBounds": {
 				"top": 76,
 				"left": 129,
@@ -206,7 +206,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "This is a text example",
+			"title": "This is a text example",
 			"shapeBounds": {
 				"top": 187,
 				"left": 141,
@@ -500,7 +500,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "This is a text example",
+			"title": "This is a text example",
 			"shapeBounds": {
 				"top": 295,
 				"left": 139,
@@ -814,7 +814,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "This is a text example",
+			"title": "This is a text example",
 			"shapeBounds": {
 				"top": 395,
 				"left": 149,
@@ -836,23 +836,29 @@ module.exports = {
 			"maxTextSize": 64
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "svgText.psd"
 }

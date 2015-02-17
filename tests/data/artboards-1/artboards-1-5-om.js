@@ -2,7 +2,7 @@ module.exports = {
 	"children": [
 		{
 			"id": "iphone",
-			"type": "group",
+			"type": "artboard",
 			"visible": true,
 			"style": {
 				"stroke": {
@@ -29,7 +29,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"layerName": "Rectangle 1",
+					"title": "Rectangle 1",
 					"shape": "rect",
 					"shapeBounds": {
 						"top": 2811,
@@ -39,7 +39,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "iPhone",
+			"title": "iPhone",
 			"shapeBounds": {
 				"top": 2497,
 				"left": 3658,
@@ -48,23 +48,39 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5920,
-		"right": 5080
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5920,
+			"right": 5080
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5920,
+			"right": 5080
+		},
+		"pxToInchRatio": 326
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5920,
-		"right": 5080
+	"artboards": {
+		"iphone": {
+			"title": "iPhone",
+			"bounds": {
+				"top": 2497,
+				"left": 3658,
+				"bottom": 3659,
+				"right": 4820
+			}
+		}
 	},
-	"pxToInchRatio": 326,
-	"globalLight": {
-		"angle": 90,
-		"altitude": 30
-	}
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"title": "artboards-1.psd"
 }

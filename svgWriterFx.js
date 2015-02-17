@@ -294,7 +294,7 @@
                 pseudoCtx = new SVGWriterContext(omIn),
                 opacity = round1k(gradientFill.opacity);
 
-            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.svgOM.viewBox, 'grad');
+            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.viewBox, 'grad');
 
             var string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
                 ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '">' +
