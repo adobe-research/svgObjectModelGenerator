@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -84,7 +84,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"boundsWithFX": {
 				"top": 50,
 				"left": 50,
@@ -175,7 +175,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"boundsWithFX": {
 				"top": 50,
 				"left": 300,
@@ -266,7 +266,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
+			"title": "Rectangle 3",
 			"boundsWithFX": {
 				"top": 50,
 				"left": 550,
@@ -357,7 +357,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 4",
+			"title": "Rectangle 4",
 			"boundsWithFX": {
 				"top": 200,
 				"left": 50,
@@ -448,7 +448,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 5",
+			"title": "Rectangle 5",
 			"boundsWithFX": {
 				"top": 200,
 				"left": 300,
@@ -539,7 +539,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 6",
+			"title": "Rectangle 6",
 			"boundsWithFX": {
 				"top": 200,
 				"left": 550,
@@ -630,7 +630,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 7",
+			"title": "Rectangle 7",
 			"boundsWithFX": {
 				"top": 350,
 				"left": 50,
@@ -721,7 +721,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 8",
+			"title": "Rectangle 8",
 			"boundsWithFX": {
 				"top": 350,
 				"left": 300,
@@ -812,7 +812,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 9",
+			"title": "Rectangle 9",
 			"boundsWithFX": {
 				"top": 350,
 				"left": 550,
@@ -903,7 +903,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 10",
+			"title": "Rectangle 10",
 			"boundsWithFX": {
 				"top": 500,
 				"left": 50,
@@ -994,7 +994,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 11",
+			"title": "Rectangle 11",
 			"boundsWithFX": {
 				"top": 500,
 				"left": 300,
@@ -1085,7 +1085,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 12",
+			"title": "Rectangle 12",
 			"boundsWithFX": {
 				"top": 500,
 				"left": 550,
@@ -1101,23 +1101,29 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "svgGradientOverlay.psd"
 }

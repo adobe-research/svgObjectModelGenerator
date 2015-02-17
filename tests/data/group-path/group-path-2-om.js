@@ -33,7 +33,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"layerName": "Shape 1",
+			"title": "Shape 1",
 			"shape": "path",
 			"shapeBounds": {
 				"top": 773.71875,
@@ -44,23 +44,29 @@ module.exports = {
 			"pathData": "M1351.000,777.000 C1210.539,808.937 1071.609,983.375 1191.000,1050.000 C1310.391,1116.625 1474.102,1215.289 1520.000,1084.000 C1565.898,952.711 1491.461,745.062 1351.000,777.000 Z"
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1500,
-		"right": 2100
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"pxToInchRatio": 300
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1500,
-		"right": 2100
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 300,
-	"globalLight": {
-		"angle": 90,
-		"altitude": 30
-	}
+	"title": "Untitled-3"
 }

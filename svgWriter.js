@@ -357,6 +357,8 @@
                 });
 
                 break;
+            case "artboard":
+                // FIXME: We need to have special handling for clipping. Probably use inline <svg>.
             case "group":
 
                 write(ctx, ctx.currentIndent + "<g id=\"" + omIn.id + "\"");
@@ -393,11 +395,11 @@
                 hasDefines,
                 preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
                 scale = ctx.config.scale || 1,
-                left = round1k(omIn.viewBox.left),
-                top = round1k(omIn.viewBox.top),
+                left = round1k(ctx.viewBox.left),
+                top = round1k(ctx.viewBox.top),
                 
-                width = Math.abs(omIn.viewBox.right - omIn.viewBox.left),
-                height = Math.abs(omIn.viewBox.bottom - omIn.viewBox.top),
+                width = Math.abs(ctx.viewBox.right - ctx.viewBox.left),
+                height = Math.abs(ctx.viewBox.bottom - ctx.viewBox.top),
                 scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
                 scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
             
@@ -406,8 +408,6 @@
             
             write(ctx, '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"');
             write(ctx, ' preserveAspectRatio="' + preserveAspectRatio + '"');
-            writeAttrIfNecessary(ctx, "x", omIn.offsetX, "0", "px");
-            writeAttrIfNecessary(ctx, "y", omIn.offsetY, "0", "px");
             write(ctx, ' width="' + scaledW + '" height="' + scaledH + '"');
             
             write(ctx, ' viewBox="' + left + ' ' + top + ' ');

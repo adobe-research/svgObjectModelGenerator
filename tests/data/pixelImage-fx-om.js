@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "green",
@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "green",
+			"title": "green",
 			"boundsWithFX": {
 				"top": 0,
 				"left": 0,
@@ -30,23 +30,29 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 100,
-		"right": 100
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 100,
+			"right": 100
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 100,
+			"right": 100
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 100,
-		"right": 100
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "pixelImage-fx.psd"
 }

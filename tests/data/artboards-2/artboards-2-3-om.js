@@ -2,7 +2,7 @@ module.exports = {
 	"children": [
 		{
 			"id": "circle",
-			"type": "group",
+			"type": "artboard",
 			"visible": true,
 			"style": {
 				"stroke": {
@@ -29,7 +29,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"layerName": "Ellipse 1",
+					"title": "Ellipse 1",
 					"shape": "circle",
 					"shapeBounds": {
 						"top": 2125,
@@ -39,7 +39,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "circle",
+			"title": "circle",
 			"shapeBounds": {
 				"top": 2000,
 				"left": 2000,
@@ -48,23 +48,39 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5024,
-		"right": 5024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5024,
+			"right": 5024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5024,
+			"right": 5024
+		},
+		"pxToInchRatio": 326
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5024,
-		"right": 5024
+	"artboards": {
+		"circle": {
+			"title": "circle",
+			"bounds": {
+				"top": 2000,
+				"left": 2000,
+				"bottom": 3024,
+				"right": 3024
+			}
+		}
 	},
-	"pxToInchRatio": 326,
-	"globalLight": {
-		"angle": 90,
-		"altitude": 30
-	}
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"title": "artboards-2.psd"
 }

@@ -107,7 +107,7 @@
                 bndsIn = omIn.boundsWithFX;
                 
             } else {
-                if (omIn.type === "shape" || omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
+                if (isSizedGraphic(omIn)) {
                     bndsIn = omIn.shapeBounds;
                 } else if (omIn.type === "text") {
                     if (omIn.textBounds) {
@@ -155,6 +155,11 @@
                 }
             }
         };
+
+        var isSizedGraphic = function (omIn) {
+            return omIn.type === "shape" || omIn.type === "group" ||
+                omIn.type === "artboard" || (omIn.type === "generic" && omIn.shapeBounds);
+        }
         
         //shift the bounds recorded in recordBounds
         this.shiftBounds = function (ctx, omIn, nested, sibling) {
@@ -166,8 +171,7 @@
                 deltaX2,
                 deltaY,
                 deltaY2;
-            if (omIn.type === "shape" || omIn.type === "text" ||
-                omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
+            if (isSizedGraphic(omIn) || omIn.type === "text") {
                 bnds = omIn.shapeBounds;
                 if (omIn.type === "text") {
                     bnds = omIn.textBounds;
@@ -327,7 +331,7 @@
         this.finalizePreprocessing = function (ctx) {
             var bnds = ctx.contentBounds,
                 adjustBounds = 1,
-                docBounds = ctx.svgOM.docBounds;
+                docBounds = ctx.docBounds;
             if (ctx.config.trimToArtBounds) {
                 if (bnds) {
                     if (ctx.config.constrainToDocBounds && docBounds) {
@@ -345,11 +349,11 @@
                     ctx._shiftContentX = -bnds.left;
                     ctx._shiftContentY = -bnds.top;
                     
-                    if (ctx.svgOM && ctx.svgOM.viewBox) {
-                        ctx.svgOM.viewBox.left = 0;
-                        ctx.svgOM.viewBox.top = 0;
-                        ctx.svgOM.viewBox.right = bnds.right - bnds.left;
-                        ctx.svgOM.viewBox.bottom = bnds.bottom - bnds.top;
+                    if (ctx.svgOM && ctx.viewBox) {
+                        ctx.viewBox.left = 0;
+                        ctx.viewBox.top = 0;
+                        ctx.viewBox.right = bnds.right - bnds.left;
+                        ctx.viewBox.bottom = bnds.bottom - bnds.top;
                     }
                 }
             }

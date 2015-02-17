@@ -6,11 +6,11 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Layer 1"
+			"title": "Layer 1"
 		},
 		{
 			"id": "artboard-1",
-			"type": "group",
+			"type": "artboard",
 			"visible": true,
 			"style": {
 				"stroke": {
@@ -103,7 +103,7 @@ module.exports = {
 						"fill-rule": "evenodd"
 					},
 					"children": [],
-					"layerName": "Rectangle 2",
+					"title": "Rectangle 2",
 					"shape": "path",
 					"shapeBounds": {
 						"top": 2212,
@@ -114,7 +114,7 @@ module.exports = {
 					"pathData": "M2212.000,2212.000 C2212.000,2212.000 2812.000,2212.000 2812.000,2212.000 C2812.000,2212.000 2812.000,2812.000 2812.000,2812.000 C2812.000,2812.000 2212.000,2812.000 2212.000,2812.000 C2212.000,2812.000 2212.000,2212.000 2212.000,2212.000 Z"
 				}
 			],
-			"layerName": "Artboard 1",
+			"title": "Artboard 1",
 			"shapeBounds": {
 				"top": 2000,
 				"left": 2000,
@@ -124,7 +124,7 @@ module.exports = {
 		},
 		{
 			"id": "artboard-2",
-			"type": "group",
+			"type": "artboard",
 			"visible": true,
 			"style": {
 				"stroke": {
@@ -217,7 +217,7 @@ module.exports = {
 						"fill-rule": "evenodd"
 					},
 					"children": [],
-					"layerName": "Rectangle 1",
+					"title": "Rectangle 1",
 					"shape": "path",
 					"shapeBounds": {
 						"top": 2212,
@@ -228,7 +228,7 @@ module.exports = {
 					"pathData": "M4000.000,2212.000 C4000.000,2212.000 4600.000,2212.000 4600.000,2212.000 C4600.000,2212.000 4600.000,2812.000 4600.000,2812.000 C4600.000,2812.000 4000.000,2812.000 4000.000,2812.000 C4000.000,2812.000 4000.000,2212.000 4000.000,2212.000 Z"
 				}
 			],
-			"layerName": "Artboard 2",
+			"title": "Artboard 2",
 			"shapeBounds": {
 				"top": 2000,
 				"left": 3336,
@@ -237,23 +237,48 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5024,
-		"right": 5924
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5024,
+			"right": 5924
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 5024,
+			"right": 5924
+		},
+		"pxToInchRatio": 326
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 5024,
-		"right": 5924
+	"artboards": {
+		"artboard-1": {
+			"title": "Artboard 1",
+			"bounds": {
+				"top": 2000,
+				"left": 2000,
+				"bottom": 3024,
+				"right": 3024
+			}
+		},
+		"artboard-2": {
+			"title": "Artboard 2",
+			"bounds": {
+				"top": 2000,
+				"left": 3336,
+				"bottom": 3024,
+				"right": 5263
+			}
+		}
 	},
-	"pxToInchRatio": 326,
-	"globalLight": {
-		"angle": 90,
-		"altitude": 30
-	}
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"title": "Untitled-1"
 }

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-2",
@@ -27,7 +27,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
@@ -55,7 +55,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
@@ -71,23 +71,29 @@ module.exports = {
 			]
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "rect.psd"
 }

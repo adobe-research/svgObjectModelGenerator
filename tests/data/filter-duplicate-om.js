@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -88,7 +88,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"boundsWithFX": {
 				"top": 196,
 				"left": 41,
@@ -183,7 +183,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"boundsWithFX": {
 				"top": 196,
 				"left": 291,
@@ -278,7 +278,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
+			"title": "Rectangle 3",
 			"boundsWithFX": {
 				"top": 196,
 				"left": 541,
@@ -294,23 +294,29 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "filter-duplicate.psd"
 }

@@ -23,21 +23,29 @@
     
     var omguid = require("./svgWriterUtils.js").omguid;
     
+    // FIXME: svgWriterFx calls this code but svgOMG
+    // is mostly empty. After filter refactoring,
+    // globalLight should not be required anymore.
     function SVGWriterContext(svgOM, config, errors) {
+        // FIXME: In the future, determine that svgOM is a root element.
         this.config = config;
         this.svgOM = svgOM;
         this.currentOMNode = svgOM;
         this.indent = '  ';
         this.currentIndent = '';
         this.terminator = '\n';
-        this.pxToInchRatio = svgOM.pxToInchRatio;
-        this.globalLight = svgOM.globalLight;
+        if (svgOM.global) {
+            this.docBounds = svgOM.global.bounds;
+            this.viewBox = svgOM.global.viewBox;
+            this.pxToInchRatio = svgOM.global.pxToInchRatio;
+        }
+        if (svgOM.meta) {
+            this.globalLight = svgOM.meta.PS.globalLight;
+        }
         this.encoding =  'utf-8';
         this.out = [];
         this.sOut = "";
         this.contentBounds = {};
-        
-        this.dpi = svgOM.pxToInchRatio;
         
         //an array for reporting errors
         this.errors = errors;
