@@ -92,9 +92,8 @@
                 var svgTextPathNode,
                     isBoxMode = (layer.text.textShape[0].char === "box"),
                     boxOrientation = layer.text.textShape[0].orientation,
-                    dpi = (writer._root && writer._root.global.pxToInchRatio) ? writer._root.global.pxToInchRatio : 72.0,
+                    dpi = writer._dpi(),
                     maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
-
                 try {
                 
                     svgNode.type = "text";
@@ -151,8 +150,8 @@
             
             return this.textComponentOrigin(layer, function (text) {                
                 
-                var dpi = (writer._root && writer._root.global.pxToInchRatio) ? writer._root.global.pxToInchRatio : 72.0;
-                
+                var dpi = writer._dpi();
+
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
@@ -289,7 +288,7 @@
                 return;
             }
             var transform = text.transform || text.textShape[0].transform,
-                dpi = (writer._root && writer._root.global.pxToInchRatio) ? writer._root.global.pxToInchRatio : 72.0,
+                dpi = writer._dpi(),
                 // The trnasformation matrix is relative to this boundaries.
                 boundsOrig = layer.bounds,
                 // This covers the actual bounds of the text in pt units and needs

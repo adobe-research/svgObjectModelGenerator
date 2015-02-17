@@ -35,6 +35,10 @@
             _docIDs = {};
         
         this._root = _root;
+
+        this._dpi = function () {
+            return (_root && _root.global.pxToInchRatio) ? _root.global.pxToInchRatio : 72.0;
+        }
         
         this.peekCurrent = function () {
             if (_currentNodeStack.length > 0) {

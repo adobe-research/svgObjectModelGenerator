@@ -107,8 +107,7 @@
                 bndsIn = omIn.boundsWithFX;
                 
             } else {
-                if (omIn.type === "shape" || omIn.type === "group" || omIn.type === "artboard" ||
-                    (omIn.type === "generic" && omIn.shapeBounds)) {
+                if (isSizedGraphic(omIn)) {
                     bndsIn = omIn.shapeBounds;
                 } else if (omIn.type === "text") {
                     if (omIn.textBounds) {
@@ -156,6 +155,11 @@
                 }
             }
         };
+
+        var isSizedGraphic = function (omIn) {
+            return omIn.type === "shape" || omIn.type === "group" ||
+                omIn.type === "artboard" || (omIn.type === "generic" && omIn.shapeBounds);
+        }
         
         //shift the bounds recorded in recordBounds
         this.shiftBounds = function (ctx, omIn, nested, sibling) {
@@ -167,9 +171,7 @@
                 deltaX2,
                 deltaY,
                 deltaY2;
-            if (omIn.type === "shape" || omIn.type === "text" ||
-                omIn.type === "group" || omIn.type === "artboard" ||
-                (omIn.type === "generic" && omIn.shapeBounds)) {
+            if (isSizedGraphic(omIn) || omIn.type === "text") {
                 bnds = omIn.shapeBounds;
                 if (omIn.type === "text") {
                     bnds = omIn.textBounds;
