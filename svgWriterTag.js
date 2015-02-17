@@ -121,6 +121,26 @@
         }
         this.attrs[name] = value;
     };
+    function writeDefs(ctx) {
+        var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
+            hasDefines = ctx.omStylesheet.hasDefines();
+
+        if (hasRules || hasDefines) {
+            svgWriterUtils.gradientStopsReset();
+            writeln(ctx, ctx.currentIndent + "<defs>");
+            indent(ctx);
+
+            !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
+
+            if (hasRules && hasDefines) {
+                write(ctx, ctx.terminator);
+            }
+            ctx.omStylesheet.writeDefines(ctx);
+
+            undent(ctx);
+            writeln(ctx, ctx.currentIndent + "</defs>");
+        }
+    }
     Tag.prototype.write = function (ctx) {
         var tag = this,
             numChildren = tag.children && tag.children.length;
@@ -153,25 +173,7 @@
                 }
             }
             if (tag.iamroot) {
-                // Write the style sheet.
-                var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
-                    hasDefines = ctx.omStylesheet.hasDefines();
-
-                if (hasRules || hasDefines) {
-                    svgWriterUtils.gradientStopsReset();
-                    writeln(ctx, ctx.currentIndent + "<defs>");
-                    indent(ctx);
-
-                    !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
-
-                    if (hasRules && hasDefines) {
-                        write(ctx, ctx.terminator);
-                    }
-                    ctx.omStylesheet.writeDefines(ctx);
-
-                    undent(ctx);
-                    writeln(ctx, ctx.currentIndent + "</defs>");
-                }
+                writeDefs(ctx);
             }
         }
         for (var i = 0; i < numChildren; i++) {
