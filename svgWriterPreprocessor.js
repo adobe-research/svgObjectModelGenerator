@@ -70,7 +70,7 @@
                         return;
                     }
                     // fill, stroke and fx are handled above.
-                    if (property === "fill" || property === "stroke" || property === "meta") {
+                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta") {
                         return;
                     }
                     if (property === "font-size") {

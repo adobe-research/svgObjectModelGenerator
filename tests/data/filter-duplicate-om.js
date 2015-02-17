@@ -89,7 +89,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -194,7 +195,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-2"
 			},
 			"children": [],
 			"title": "Rectangle 2",
@@ -299,7 +301,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-3"
 			},
 			"children": [],
 			"title": "Rectangle 3",
@@ -326,7 +329,329 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 2.236
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 2.5,
+						"dy": 4.33
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 2.236
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "out"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": 2.5,
+						"dy": 4.33
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"offset-2",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-3",
+							"blend-1"
+						],
+						"mode": "multiply"
+					}
+				]
+			},
+			"filter-2": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 2.236
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 2.5,
+						"dy": 4.33
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 2.236
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "out"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": 2.5,
+						"dy": 4.33
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"offset-2",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-3",
+							"blend-1"
+						],
+						"mode": "multiply"
+					}
+				]
+			},
+			"filter-3": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 2.236
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 2.5,
+						"dy": 4.33
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 2.236
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "out"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": 2.5,
+						"dy": 4.33
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"offset-2",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-3",
+							"blend-1"
+						],
+						"mode": "multiply"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

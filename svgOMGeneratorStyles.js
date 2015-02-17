@@ -20,7 +20,8 @@
 (function () {
     "use strict";
 
-    var omgUtils = require("./svgOMGeneratorUtils.js");
+    var omgUtils = require("./svgOMGeneratorUtils.js"),
+        omgSVGFilter = require("./svgOMGeneratorSVGFilter.js");
 
     var CONST_COLOR_BLACK = { "red": 0, "green": 0, "blue": 0 };
 
@@ -214,9 +215,11 @@
             svgNode.style.meta.PS = svgNode.style.meta.PS || {};
             svgNode.style.meta.PS.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
+            var fx = svgNode.style.meta.PS.fx,
+                filter;
+
             function prepareEffect (effect, prepareFunction) {
-                var list = effect + 'Multi',
-                    fx = svgNode.style.meta.PS.fx;
+                var list = effect + 'Multi';
 
                 if (fx[effect]) {
                     // Transform single effects to lists.
@@ -228,17 +231,14 @@
                 if (fx[list]) {
                     // PS exports filters in the opposite order, revert.
                     fx[list].reverse();
-                    fx[list].forEach(prepareFunction);
+                    if (typeof prepareFunction == "function") {
+                        fx[list].forEach(prepareFunction);
+                    }
                 }
             }
 
             function prepareColor (ele) {
                 ele.color = omgUtils.toColor(ele.color);
-                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
-            }
-
-            function prepareGradient (ele) {
-                ele.gradient = omgUtils.toGradient(ele);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
@@ -253,13 +253,19 @@
 
             prepareEffect('dropShadow', prepareColor);
             prepareEffect('outerGlow', prepareGlow);
-            prepareEffect('gradientFill', prepareGradient);
+            prepareEffect('gradientFill');
             prepareEffect('solidFill', prepareColor);
             prepareEffect('chromeFX', prepareColor);
             prepareEffect('innerGlow', prepareGlow);
             prepareEffect('innerShadow', prepareColor);
             prepareEffect('bevelEmboss');
             prepareEffect('patternOverlay');
+
+            filter = omgSVGFilter.createSVGFilters(svgNode, writer, fx, JSON.parse(JSON.stringify(layerBounds)), JSON.parse(JSON.stringify(writer._root.global.bounds)));
+            if (filter) {
+                svgNode.style.filter = writer.ID.getUnique("filter");
+                writer.global().filters[svgNode.style.filter] = filter;
+            }
 
             applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX, layer, layerBounds, writer);
         };

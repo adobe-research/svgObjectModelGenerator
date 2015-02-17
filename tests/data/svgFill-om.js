@@ -40,31 +40,54 @@ module.exports = {
 								{
 									"enabled": true,
 									"mode": "normal",
-									"opacity": 0.73,
+									"opacity": {
+										"value": 73,
+										"units": "percentUnit"
+									},
 									"gradient": {
-										"stops": [
+										"name": "BlueToWhite",
+										"gradientForm": "customStops",
+										"interfaceIconFrameDimmed": 4096,
+										"colors": [
 											{
-												"offset": 0,
 												"color": {
-													"r": 0,
-													"g": 0,
-													"b": 0,
-													"a": 1
-												}
+													"red": 0,
+													"green": 0,
+													"blue": 0
+												},
+												"type": "userStop",
+												"location": 0,
+												"midpoint": 50
 											},
 											{
-												"offset": 1,
 												"color": {
-													"r": 0,
-													"g": 0,
-													"b": 0,
-													"a": 0
-												}
+													"red": 0,
+													"green": 0,
+													"blue": 0
+												},
+												"type": "userStop",
+												"location": 4096,
+												"midpoint": 50
 											}
 										],
-										"type": "radial",
-										"gradientSpace": "objectBoundingBox",
-										"angle": 90
+										"transparency": [
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 0,
+												"midpoint": 50
+											},
+											{
+												"opacity": {
+													"value": 0,
+													"units": "percentUnit"
+												},
+												"location": 4096,
+												"midpoint": 50
+											}
+										]
 									},
 									"angle": {
 										"value": 90,
@@ -105,7 +128,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Ellipse.svg",
@@ -131,7 +155,72 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feImage",
+						"result": "image-1",
+						"input": [],
+						"x": 49,
+						"y": 62,
+						"width": 165,
+						"height": 165,
+						"preserveAspectRatio": "none",
+						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIHZpZXdCb3g9IjAgMCAxNjUgMTY1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAwLjczOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmFkaWFsLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMTMxLjUiIGN5PSIxNDQuNSIgcj0iODIuNSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"image-1",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-1",
+							"SourceGraphic"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.5
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-1",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-2",
+							"blend-1"
+						],
+						"mode": "normal"
+					}
+				]
+			}
+		},
 		"gradients": {
 			"linear-gradient-1": {
 				"stops": [

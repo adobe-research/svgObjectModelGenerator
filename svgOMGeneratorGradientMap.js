@@ -108,7 +108,7 @@
             return colors;
         };
 
-        this.createGradientMap = function (ctx, stops) {
+        this.createGradientMap = function (stops, effects, getId) {
             stops.forEach(function (ele) {
                 ele.offset *= 100;
             });
@@ -132,13 +132,13 @@
                 };  
             }
 
-            writeln(ctx, ctx.currentIndent + '<feComponentTransfer color-interpolation-filters="sRGB">');
-            indent(ctx);
-            writeln(ctx, ctx.currentIndent + '<feFuncR type="table" tableValues="' + redTableValues.trim() + '"/>');
-            writeln(ctx, ctx.currentIndent + '<feFuncG type="table" tableValues="' + greenTableValues.trim() + '"/>');
-            writeln(ctx, ctx.currentIndent + '<feFuncB type="table" tableValues="' + blueTableValues.trim() + '"/>');
-            undent(ctx);
-            writeln(ctx, ctx.currentIndent + '</feComponentTransfer>');        
+            effects.push(
+              { name: 'feComponentTransfer', result: getId('comp'), input: [effects[effects.length-1].result], 'color-interpolation-filters': 'sRGB', children: [
+                { name: 'feFuncR', input: [], type: 'table', tableValues: redTableValues.trim() },
+                { name: 'feFuncG', input: [], type: 'table', tableValues: greenTableValues.trim() },
+                { name: 'feFuncB', input: [], type: 'table', tableValues: blueTableValues.trim() },
+              ]}
+            );     
         };
     }
 

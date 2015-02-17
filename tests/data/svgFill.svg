@@ -5,7 +5,7 @@
         fill: url(#linear-gradient-1);
         stroke: #000;
         stroke-width: 3px;
-        filter: url(#filter-chain-1);
+        filter: url(#filter-1);
       }
     </style>
 
@@ -16,16 +16,16 @@
       <stop offset="0.9" stop-color="#0b02aa"/>
       <stop offset="1" stop-color="#0b02aa"/>
     </linearGradient>
-    <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
-      <feImage x="49" y="62" width="165" height="165" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTY1IiBoZWlnaHQ9IjE2NSI+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjgyLjUiIGN5PSI4Mi41IiByPSI4Mi41Ij4KICA8c3RvcCBvZmZzZXQ9IjAiLz4KICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iMCIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjczIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend in2="SourceGraphic" result="gradientFill"/>
-      <feFlood flood-color="red" flood-opacity="0.5"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend in2="gradientFill" result="solidFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-1">
+      <feImage result="image-1" x="49" y="62" width="165" height="165" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIHZpZXdCb3g9IjAgMCAxNjUgMTY1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAwLjczOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmFkaWFsLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iMTMxLjUiIGN5PSIxNDQuNSIgcj0iODIuNSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" in2="SourceGraphic"/>
+      <feFlood result="flood-1" flood-color="red" flood-opacity="0.5"/>
+      <feComposite result="composite-2" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in2="blend-1"/>
     </filter>
   </defs>
-  <g style="fill: url(#linear-gradient-1); filter: url(#filter-chain-1)">
+  <g style="fill: url(#linear-gradient-1); filter: url(#filter-1)">
     <circle cx="131.5" cy="144.5" r="82.5" id="circle-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-1"/>
   </g>
   <use xlink:href="#circle-1" style="stroke: #000; filter: none; fill: none"/>
