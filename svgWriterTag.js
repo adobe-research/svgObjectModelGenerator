@@ -112,13 +112,6 @@
             }
             value = value.join(" ");
         }
-        if (type == "percent" && isFinite(digival)) {
-            if (digival == 0) {
-                value = 0;
-            } else {
-                value = round1k(digival) + "%";
-            }
-        }
         if (type == "color" && value != "none") {
             value = writeColor(value);
         }
