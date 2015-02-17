@@ -200,14 +200,14 @@
         if (!omStyleBlock) {
             return;
         }
-        if (ctx.usePresentationAttribute) {
-            for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
-                var rule = omStyleBlock.rules[i];
-                this.setAttribute(rule.propertyName, rule.value);
-            }
+        if (!ctx.usePresentationAttribute) {
+            this.setAttribute("class", omStyleBlock.class);
             return;
         }
-        this.setAttribute("class", omStyleBlock.class);
+        for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
+            var rule = omStyleBlock.rules[i];
+            this.setAttribute(rule.propertyName, rule.value);
+        }
     };
     Tag.prototype.useTrick = function (ctx) {
         if (this.tricked || !svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
