@@ -139,11 +139,11 @@
         };
 
         self.getTranform = function (val, tX, tY) {
-            if (val) {
-                var matrix4x4 = Matrix.createMatrix(val);
-                return Matrix.writeTransform(matrix4x4, tX, tY);
+            if (!val) {
+                return "";
             }
-            return "";
+            var matrix4x4 = Matrix.createMatrix(val);
+            return Matrix.writeTransform(matrix4x4, tX, tY);
         };
 
         var gradientStops = {};

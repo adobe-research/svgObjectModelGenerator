@@ -40,7 +40,11 @@
         makeTSpan = svgWriterText.makeTSpan;
 
     function Tag(name, attr, ctx, node) {
-        this.name = name;
+        // There are three types of tags:
+        // 1. Normal tag. name == "circle", "rect", etc
+        // 2. Text tag. name == "#text" or "#comment"
+        // 3. Tag List. name == ""
+        this.name = name || "";
         if (name == "#text" || name == "#comment") {
             this.text = attr;
         } else {
@@ -55,8 +59,22 @@
         }
     }
     Tag.prototype.setAttributes = function (attr) {
+        if (!attr) {
+            return;
+        }
         for (var name in attr) {
             this.setAttribute(name, attr[name]);
+        }
+    };
+    Tag.prototype.appendChild = function () {
+        var args = [].slice.call(arguments);
+        for (var i = 0, ii = args.length; i < ii; i++) {
+            var child = args[i];
+            if (child.name) {
+                this.children.push(child);
+            } else {
+                this.children = this.children.concat(child.children);
+            }
         }
     };
     function parseNumber(value) {
@@ -111,85 +129,90 @@
         this.attrs[name] = value;
     };
     Tag.prototype.write = function (ctx) {
-        var tag = this;
-        if (tag.name == "#text") {
-            write(ctx, encodedText(tag.text));
-            return;
-        }
-        if (tag.name == "#comment") {
-            writeln(ctx, ctx.currentIndent + "<!-- " + encodedText(tag.text) + " -->");
-            return;
-        }
-        var len = tag.children.length,
-            ind = ctx.currentIndent;
-        if (tag.name == "tspan" || tag.name == "textPath") {
-            ind = "";
-        }
-        write(ctx, ind + "<" + tag.name);
-        for (var name in tag.attrs) {
-            write(ctx, " " + name + '="' + tag.attrs[name] + '"');
-        }
-        if (!len && tag.name != "script") {
-            write(ctx, "/");
-        }
-        if (tag.name == "text" || tag.name == "tspan" || tag.name == "textPath") {
-            write(ctx, ">");
-        } else {
-            writeln(ctx, ">");
-            if (len) {
-                indent(ctx);
+        var tag = this,
+            numChildren = tag.children && tag.children.length;
+        if (tag.name) {
+            if (tag.name == "#text") {
+                write(ctx, encodedText(tag.text));
+                return;
             }
-        }
-        if (tag.name == "svg") {
-            // Write the style sheet.
-            var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
-                hasDefines = ctx.omStylesheet.hasDefines();
-
-            if (hasRules || hasDefines) {
-                svgWriterUtils.gradientStopsReset();
-                writeln(ctx, ctx.currentIndent + "<defs>");
-                indent(ctx);
-
-                !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
-
-                if (hasRules && hasDefines) {
-                    write(ctx, ctx.terminator);
+            if (tag.name == "#comment") {
+                writeln(ctx, ctx.currentIndent + "<!-- " + encodedText(tag.text) + " -->");
+                return;
+            }
+            var ind = ctx.currentIndent;
+            if (tag.name == "tspan" || tag.name == "textPath") {
+                ind = "";
+            }
+            write(ctx, ind + "<" + tag.name);
+            for (var name in tag.attrs) {
+                write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+            }
+            if (!numChildren && tag.name != "script") {
+                write(ctx, "/");
+            }
+            if (tag.name == "text" || tag.name == "tspan" || tag.name == "textPath") {
+                write(ctx, ">");
+            } else {
+                writeln(ctx, ">");
+                if (numChildren) {
+                    indent(ctx);
                 }
-                ctx.omStylesheet.writeDefines(ctx);
+            }
+            if (tag.iamroot) {
+                // Write the style sheet.
+                var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
+                    hasDefines = ctx.omStylesheet.hasDefines();
 
-                undent(ctx);
-                writeln(ctx, ctx.currentIndent + "</defs>");
+                if (hasRules || hasDefines) {
+                    svgWriterUtils.gradientStopsReset();
+                    writeln(ctx, ctx.currentIndent + "<defs>");
+                    indent(ctx);
+
+                    !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
+
+                    if (hasRules && hasDefines) {
+                        write(ctx, ctx.terminator);
+                    }
+                    ctx.omStylesheet.writeDefines(ctx);
+
+                    undent(ctx);
+                    writeln(ctx, ctx.currentIndent + "</defs>");
+                }
             }
         }
-        for (var i = 0; i < len; i++) {
+        for (var i = 0; i < numChildren; i++) {
             tag.children[i].write(ctx);
         }
-        if (len) {
-            if (tag.name == "text") {
-                writeln(ctx, "</" + tag.name + ">");
-            } else if (tag.name == "tspan" || tag.name == "textPath") {
-                write(ctx, "</" + tag.name + ">");
-            } else {
-                undent(ctx);
-                writeln(ctx, ind + "</" + tag.name + ">");
-            }
+        if (!numChildren || !tag.name) {
+            return;
+        }
+        if (tag.name == "text") {
+            writeln(ctx, "</" + tag.name + ">");
+        } else if (tag.name == "tspan" || tag.name == "textPath") {
+            write(ctx, "</" + tag.name + ">");
+        } else {
+            undent(ctx);
+            writeln(ctx, ind + "</" + tag.name + ">");
         }
     };
     Tag.prototype.setClass = function (ctx, node) {
         node = node || ctx.currentOMNode;
-        if (ctx.omStylesheet.hasStyleBlock(node)) {
-            var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
-            if (omStyleBlock) {
-                if (ctx.usePresentationAttribute) {
-                    for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
-                        var rule = omStyleBlock.rules[i];
-                        this.setAttribute(rule.propertyName, rule.value);
-                    }
-                } else {
-                    this.setAttribute("class", omStyleBlock.class);
-                }
-            }
+        if (!ctx.omStylesheet.hasStyleBlock(node)) {
+            return;
         }
+        var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
+        if (!omStyleBlock) {
+            return;
+        }
+        if (ctx.usePresentationAttribute) {
+            for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
+                var rule = omStyleBlock.rules[i];
+                this.setAttribute(rule.propertyName, rule.value);
+            }
+            return;
+        }
+        this.setAttribute("class", omStyleBlock.class);
     };
     Tag.prototype.useTrick = function (ctx) {
         if (this.tricked || !svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
@@ -199,14 +222,14 @@
             fill = this.getAttribute("fill"),
             filter = this.getAttribute("filter"),
             id = svgWriterIDs.getUnique(this.name),
+            list = new Tag(),
             g = new Tag("g"),
-            g2 = new Tag("g"),
             use = new Tag("use", {"xlink:href": "#" + id});
         this.setAttribute("id", id);
-        g.children.push(g2, use);
-        g2.children.push(this);
+        list.appendChild(g, use);
+        g.appendChild(this);
         if (ctx.usePresentationAttribute) {
-            g2.setAttributes({
+            g.setAttributes({
                 fill: fill,
                 filter: filter
             });
@@ -221,12 +244,12 @@
                 filter: "none"
             });
         } else {
-            g2.setAttribute("style", "fill: " + fill + "; filter: " + filter);
+            g.setAttribute("style", "fill: " + fill + "; filter: " + filter);
             this.setAttribute("style", "stroke: inherit; filter: none; fill: inherit");
             use.setAttribute("style", "stroke: " + stroke + "; filter: none; fill: none");
         }
         this.tricked = true;
-        return g;
+        return list;
     };
 
     var factory = {
@@ -367,7 +390,7 @@
             }
 
             if (node.text) {
-                tag.children.push(new Tag("#text", node.text));
+                tag.appendChild(new Tag("#text", node.text));
             }
 
             if (node.style && node.style["_baseline-script"] === "super") {
@@ -411,6 +434,7 @@
         }
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
+            tag.iamroot = true;
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
@@ -438,7 +462,7 @@
                 ctx.currentOMNode = node.children[i];
                 subtag = Tag.make(ctx, node.children[i], i);
                 if (subtag) {
-                    tag.children.push(subtag);
+                    tag.appendChild(subtag);
                 }
             }
         }

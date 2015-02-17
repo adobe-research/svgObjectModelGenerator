@@ -38,11 +38,9 @@
   </defs>
   <g class="cls-3">
     <rect x="100" y="100" width="200" height="200" class="cls-4"/>
-    <g>
-      <g style="fill: #2ccf26; filter: url(#inner-shadow-1)">
-        <rect x="200" y="200" width="200" height="200" class="cls-5" id="rect-1" style="stroke: inherit; filter: none; fill: inherit"/>
-      </g>
-      <use xlink:href="#rect-1" style="stroke: #f26522; filter: none; fill: none"/>
+    <g style="fill: #2ccf26; filter: url(#inner-shadow-1)">
+      <rect x="200" y="200" width="200" height="200" class="cls-5" id="rect-1" style="stroke: inherit; filter: none; fill: inherit"/>
     </g>
+    <use xlink:href="#rect-1" style="stroke: #f26522; filter: none; fill: none"/>
   </g>
 </svg>

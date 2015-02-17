@@ -42,8 +42,10 @@
         parents = parents || [];
         process(tag, parents);
         parents.push(tag);
-        for (var i = 0, len = tag.children.length; i < len; i++) {
-            preProcess(tag.children[i], parents);
+        if (tag.children) {
+            for (var i = 0, len = tag.children.length; i < len; i++) {
+                preProcess(tag.children[i], parents);
+            }
         }
     }
 
