@@ -161,12 +161,17 @@ module.exports = {
 				"bottom": 227,
 				"right": 214
 			},
-			"shape": "circle",
 			"shapeBounds": {
 				"top": 62,
 				"left": 49,
 				"bottom": 227,
 				"right": 214
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 131.5,
+				"cy": 144.5,
+				"r": 82.5
 			}
 		}
 	],

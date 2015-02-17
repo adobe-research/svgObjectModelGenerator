@@ -95,12 +95,18 @@ module.exports = {
 				"bottom": 405,
 				"right": 250
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 200,
 				"left": 50,
 				"bottom": 400,
 				"right": 250
+			},
+			"shape": {
+				"type": "rect",
+				"x": 50,
+				"y": 200,
+				"width": 200,
+				"height": 200
 			}
 		},
 		{
@@ -190,12 +196,18 @@ module.exports = {
 				"bottom": 405,
 				"right": 500
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 200,
 				"left": 300,
 				"bottom": 400,
 				"right": 500
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 200,
+				"width": 200,
+				"height": 200
 			}
 		},
 		{
@@ -285,12 +297,18 @@ module.exports = {
 				"bottom": 405,
 				"right": 750
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 200,
 				"left": 550,
 				"bottom": 400,
 				"right": 750
+			},
+			"shape": {
+				"type": "rect",
+				"x": 550,
+				"y": 200,
+				"width": 200,
+				"height": 200
 			}
 		}
 	],

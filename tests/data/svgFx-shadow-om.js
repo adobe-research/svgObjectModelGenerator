@@ -96,7 +96,6 @@ module.exports = {
 				"bottom": 271,
 				"right": 445
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
@@ -108,7 +107,20 @@ module.exports = {
 				10,
 				10,
 				10
-			]
+			],
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 300,
+				"height": 150,
+				"r": [
+					10,
+					10,
+					10,
+					10
+				]
+			}
 		}
 	],
 	"global": {

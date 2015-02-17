@@ -28,12 +28,18 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 70,
 				"bottom": 263,
 				"right": 408
+			},
+			"shape": {
+				"type": "rect",
+				"x": 70,
+				"y": 100,
+				"width": 338,
+				"height": 163
 			}
 		},
 		{
@@ -56,7 +62,6 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 500,
@@ -68,7 +73,20 @@ module.exports = {
 				30,
 				30,
 				30
-			]
+			],
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 100,
+				"width": 300,
+				"height": 150,
+				"r": [
+					30,
+					30,
+					30,
+					30
+				]
+			}
 		}
 	],
 	"global": {

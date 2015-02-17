@@ -123,12 +123,18 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 275,
 				"left": 208,
 				"bottom": 396,
 				"right": 306
+			},
+			"shape": {
+				"type": "rect",
+				"x": 208,
+				"y": 275,
+				"width": 98,
+				"height": 121
 			}
 		}
 	],

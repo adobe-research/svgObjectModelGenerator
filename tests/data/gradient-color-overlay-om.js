@@ -104,12 +104,18 @@ module.exports = {
 				"bottom": 500,
 				"right": 500
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
 				"bottom": 500,
 				"right": 500
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 400,
+				"height": 400
 			}
 		},
 		{
@@ -153,12 +159,18 @@ module.exports = {
 				"bottom": 300,
 				"right": 750
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 550,
 				"bottom": 300,
 				"right": 750
+			},
+			"shape": {
+				"type": "rect",
+				"x": 550,
+				"y": 100,
+				"width": 200,
+				"height": 200
 			}
 		}
 	],

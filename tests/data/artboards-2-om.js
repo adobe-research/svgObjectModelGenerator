@@ -38,12 +38,17 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Ellipse 1",
-					"shape": "circle",
 					"shapeBounds": {
 						"top": 2125,
 						"left": 2125,
 						"bottom": 2899,
 						"right": 2899
+					},
+					"shape": {
+						"type": "circle",
+						"cx": 2512,
+						"cy": 2512,
+						"r": 387
 					}
 				}
 			],
@@ -85,12 +90,18 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Rectangle 1",
-					"shape": "rect",
 					"shapeBounds": {
 						"top": 2138,
 						"left": 3390,
 						"bottom": 2886,
 						"right": 4138
+					},
+					"shape": {
+						"type": "rect",
+						"x": 3390,
+						"y": 2138,
+						"width": 748,
+						"height": 748
 					}
 				}
 			],

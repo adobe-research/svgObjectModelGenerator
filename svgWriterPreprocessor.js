@@ -131,7 +131,7 @@
                 boundPadBottom = omIn.style.fx.frameFX.size/2.0;
             }
             
-            if (omIn.type === "shape" && (omIn.shape === "circle" || omIn.shape === "ellipse")) {
+            if (omIn.type === "shape" && omIn.shape && (omIn.shape.type === "circle" || omIn.shape.type === "ellipse")) {
                 if ((bndsIn.right - bndsIn.left) % 2 !== 0) {
                     boundPadRight += 1.0;
                 }
@@ -227,7 +227,7 @@
                         }
                     }
                 } else if (omIn.type === "shape") {
-                    if (omIn.shape === "circle" || omIn.shape === "ellipse") {
+                    if (omIn.shape.type === "circle" || omIn.shape.type === "ellipse") {
                         if ((bnds.right - bnds.left) % 2 !== 0) {
                             bnds.right += 1.0;
                         }

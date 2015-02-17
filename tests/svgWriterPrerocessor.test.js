@@ -66,6 +66,13 @@ describe('SVGWriterPreprocessor', function (){
                             top: 10,
                             bottom: 100
                         },
+                        shape: {
+                            type: "rect",
+                            x: 20,
+                            y: 10,
+                            width: 30,
+                            height: 90
+                        },
                         style: {
                             stroke: {
                                 strokeEnabled: true,
