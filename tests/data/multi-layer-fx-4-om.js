@@ -138,12 +138,18 @@ module.exports = {
 				"bottom": 632,
 				"right": 642
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 132,
 				"left": 142,
 				"bottom": 632,
 				"right": 642
+			},
+			"shape": {
+				"type": "rect",
+				"x": 142,
+				"y": 132,
+				"width": 500,
+				"height": 500
 			}
 		},
 		{
@@ -276,12 +282,18 @@ module.exports = {
 				"bottom": 632,
 				"right": 1300
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 132,
 				"left": 800,
 				"bottom": 632,
 				"right": 1300
+			},
+			"shape": {
+				"type": "rect",
+				"x": 800,
+				"y": 132,
+				"width": 500,
+				"height": 500
 			}
 		}
 	],

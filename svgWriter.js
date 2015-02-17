@@ -135,7 +135,7 @@
                         h = bottom - top,
                         oReturn = {};
 
-                    switch(omIn.shape) {
+                    switch(omIn.shape.type) {
                         case "circle":
                             write(ctx, ctx.currentIndent + "<circle");
                             
@@ -176,7 +176,7 @@
                             break;
                             
                          case "path":
-                            write(ctx, ctx.currentIndent + '<path d="' + util.optimisePath(omIn.pathData) + '"');
+                            write(ctx, ctx.currentIndent + '<path d="' + util.optimisePath(omIn.shape.path) + '"');
                             
                             writeIDIfNecessary(ctx, 'path');
                             writeClassIfNeccessary(ctx);

@@ -60,12 +60,18 @@ module.exports = {
 				"bottom": 375,
 				"right": 500
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 225,
 				"left": 200,
 				"bottom": 375,
 				"right": 500
+			},
+			"shape": {
+				"type": "rect",
+				"x": 200,
+				"y": 225,
+				"width": 300,
+				"height": 150
 			}
 		}
 	],

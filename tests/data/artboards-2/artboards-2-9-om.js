@@ -20,12 +20,17 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Ellipse 1",
-			"shape": "circle",
 			"shapeBounds": {
 				"top": 2125,
 				"left": 2125,
 				"bottom": 2899,
 				"right": 2899
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 2512,
+				"cy": 2512,
+				"r": 387
 			}
 		}
 	],

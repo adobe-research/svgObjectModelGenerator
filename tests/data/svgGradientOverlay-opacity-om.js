@@ -150,12 +150,18 @@ module.exports = {
 				"bottom": 250,
 				"right": 458
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 185,
 				"left": 263,
 				"bottom": 246,
 				"right": 456
+			},
+			"shape": {
+				"type": "rect",
+				"x": 263,
+				"y": 185,
+				"width": 193,
+				"height": 61
 			}
 		}
 	],
