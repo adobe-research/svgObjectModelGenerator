@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
       .cls-3, .cls-4, .cls-5 {
         font-size: 31.818px;
       }
@@ -31,5 +30,5 @@
       <feBlend mode="lighten" in2="shadowed" result="gradientFill"/>
     </filter>
   </defs>
-  <text class="cls-3" x="245" y="154"><tspan class="cls-4"><tspan class="cls-5">This is a <tspan class="cls-6">text</tspan></tspan></tspan></text>
+  <text x="245" y="154" class="cls-3"><tspan class="cls-4"><tspan class="cls-5">This is a <tspan class="cls-6">text</tspan></tspan></tspan></text>
 </svg>

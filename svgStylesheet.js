@@ -22,6 +22,7 @@
     "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
+        Tag = require("./svgWriterTag.js"),
         svgWriterIDs = require("./svgWriterIDs.js");
     
     var write = svgWriterUtils.write,
@@ -236,16 +237,18 @@
         proto.removeElementBlocks = function (elId, className) {
             var aDef = this.eleBlocks[elId],
                 i;
-            
+
             for (i = 0; aDef && i < aDef.length; i++) {
                 if (aDef[i].className === className) {
                     aDef.splice(i, 1);
-                    this.eleBocks[elId] = aDef;
+                    this.eleBlocks[elId] = aDef;
                     break;
                 }
             }
 
-            delete this.blocks[className];
+            for (i = 0; i < className.length; i++) {
+                delete this.blocks[className[i]];
+            }
         };
         
         proto.consolidateDefines = function () {
@@ -290,17 +293,12 @@
         };
         
         proto.hasRules = function () {
-            var hasRules = false,
-                cls;
-            for (cls in this.blocks) {
-                if (this.blocks.hasOwnProperty(cls)) {
-                    if (this.blocks[cls].hasRules()) {
-                        hasRules = true;
-                        break;
-                    }
+            for (var cls in this.blocks) {
+                if (this.blocks[cls] && this.blocks[cls].hasRules()) {
+                    return true;
                 }
             }
-            return hasRules;
+            return false;
         };
         
         proto.hasStyleBlock = function (omNode) {
@@ -308,6 +306,10 @@
         };
         
         proto.getStyleBlock = function (omNode) {
+
+            if (omNode.styleBlock) {
+                return omNode.styleBlock;
+            }
             
             omNode.className = omNode.className || svgWriterIDs.getUnique("cls");
             
@@ -332,7 +334,7 @@
         };
 
         proto.consolidateStyleBlocks = function () {
-            
+
             //find dupes and make em shared...
             var dupTable = {},
                 className,
@@ -341,19 +343,21 @@
                 aDups,
                 dup,
                 dupElId,
-                fingerprint;
+                fingerprint,
+                tag,
+                tags;
             
             for (className in this.blocks) {
                 if (this.blocks.hasOwnProperty(className)) {
                     defn = this.blocks[className];
                     fingerprint = JSON.stringify(defn.rules);
-                    defn['fingerprint'] = fingerprint;
+                    defn.fingerprint = fingerprint;
 
                     dupTable[fingerprint] = dupTable[fingerprint] || [];
                     dupTable[fingerprint].push(defn);
                 }
             }
-            
+
             //migrate any eleDefines to re-point
             for (fingerprint in dupTable) {
                 if (dupTable.hasOwnProperty(fingerprint)) {
@@ -364,6 +368,14 @@
                         for (i = 1; i < aDups.length; i++) {
                             dup = aDups[i];
                             dupElId = dup.element;
+                            tags = dup.tags;
+                            for (var j = 0; tags && j < tags.length; j++) {
+                                tag = Tag.getById(tags[j]);
+                                if (tag) {
+                                    tag.styleBlock = aDups[0];
+                                    aDups[0].tags.push(tags[j]);
+                                }
+                            }
 
                             this.removeElementBlocks(dupElId, dup.class);
                             this.addElementDefn(this.eleBlocks, dupElId, aDups[0]);
@@ -373,7 +385,6 @@
                     }
                 }
             }
-
         }
         
         proto.writeSheet = function (ctx) {
@@ -391,11 +402,12 @@
                     }
                 }
             }
+
             // extract all common rules into comma
             blocks = this.extract(blocks);
 
             for (var i = 0, len = blocks.length; i < len; i++) {
-                writeln(ctx, ''); //new line before blocks
+                i && writeln(ctx, ''); //new line before blocks
                 blocks[i].write(ctx);
             }
             

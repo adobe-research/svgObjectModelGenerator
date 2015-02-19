@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="468" height="536" viewBox="0 0 468 536">
   <defs>
     <style>
-
       .cls-2, .cls-3 {
         font-size: 36px;
       }
@@ -13,5 +12,5 @@
       }
     </style>
   </defs>
-  <text class="cls-2" transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 191, 394)"><tspan class="cls-3" x="50">here is</tspan><tspan class="cls-3" dy="1.2em" x="50">some hard</tspan><tspan class="cls-3" dy="1.2em" x="50">return point text</tspan></text>
+  <text transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 191, 394)" class="cls-2"><tspan x="50" class="cls-3">here is</tspan><tspan dy="1.2em" x="50" class="cls-3">some hard</tspan><tspan dy="1.2em" x="50" class="cls-3">return point text</tspan></text>
 </svg>

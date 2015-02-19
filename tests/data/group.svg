@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
       .cls-4, .cls-5 {
         fill: #2ccf26;
         stroke: #f26522;
@@ -39,7 +38,7 @@
   <g class="cls-3">
     <rect x="100" y="100" width="200" height="200" class="cls-4"/>
     <g style="fill: #2ccf26; filter: url(#inner-shadow-1)">
-      <rect x="200" y="200" width="200" height="200" class="cls-5" id="rect-1" style="stroke: inherit; filter: none; fill: inherit"/>
+      <rect x="200" y="200" width="200" height="200" id="rect-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-5"/>
     </g>
     <use xlink:href="#rect-1" style="stroke: #f26522; filter: none; fill: none"/>
   </g>

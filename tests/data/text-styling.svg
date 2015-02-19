@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
       .cls-3, .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
         font-size: 60px;
       }
@@ -54,20 +53,20 @@
       }
     </style>
   </defs>
-  <text class="cls-3" x="57" y="98"><tspan class="cls-4">Text</tspan></text>
-  <text class="cls-3" x="64" y="186"><tspan class="cls-6">Text</tspan></text>
-  <text class="cls-3" x="64" y="273"><tspan class="cls-8">Text</tspan></text>
-  <text class="cls-3" x="64" y="349"><tspan class="cls-10">Text</tspan></text>
-  <text class="cls-3" x="57" y="440"><tspan class="cls-12">Text</tspan></text>
-  <text class="cls-3" x="62" y="525"><tspan class="cls-14">Text</tspan></text>
-  <text class="cls-3" x="331" y="99"><tspan class="cls-16">Text</tspan></text>
-  <text class="cls-3" x="332" y="206"><tspan class="cls-18">Text</tspan></text>
-  <text class="cls-3" x="333" y="267"><tspan class="cls-18" dy="0.6em">Text</tspan></text>
-  <text class="cls-3" x="329" y="363"><tspan class="cls-18">Text</tspan></text>
-  <text class="cls-3" x="330" y="439"><tspan class="cls-18">Text</tspan></text>
-  <text class="cls-3" x="326" y="568"><tspan class="cls-18">Text</tspan></text>
-  <text class="cls-3" x="624" y="104"><tspan class="cls-18">Test</tspan></text>
-  <text class="cls-3" x="626" y="195"><tspan class="cls-18">Test</tspan></text>
-  <text class="cls-3" x="627" y="283"><tspan class="cls-18">Test</tspan></text>
-  <text class="cls-3" x="621" y="413"><tspan class="cls-18">Test</tspan></text>
+  <text x="57" y="98" class="cls-3"><tspan class="cls-4">Text</tspan></text>
+  <text x="64" y="186" class="cls-3"><tspan class="cls-6">Text</tspan></text>
+  <text x="64" y="273" class="cls-3"><tspan class="cls-8">Text</tspan></text>
+  <text x="64" y="349" class="cls-3"><tspan class="cls-10">Text</tspan></text>
+  <text x="57" y="440" class="cls-3"><tspan class="cls-12">Text</tspan></text>
+  <text x="62" y="525" class="cls-3"><tspan class="cls-14">Text</tspan></text>
+  <text x="331" y="99" class="cls-3"><tspan class="cls-16">Text</tspan></text>
+  <text x="332" y="206" class="cls-3"><tspan class="cls-18">Text</tspan></text>
+  <text x="333" y="267" class="cls-3"><tspan dy="0.6em" class="cls-18">Text</tspan></text>
+  <text x="329" y="363" class="cls-3"><tspan class="cls-18">Text</tspan></text>
+  <text x="330" y="439" class="cls-3"><tspan class="cls-18">Text</tspan></text>
+  <text x="326" y="568" class="cls-3"><tspan class="cls-18">Text</tspan></text>
+  <text x="624" y="104" class="cls-3"><tspan class="cls-18">Test</tspan></text>
+  <text x="626" y="195" class="cls-3"><tspan class="cls-18">Test</tspan></text>
+  <text x="627" y="283" class="cls-3"><tspan class="cls-18">Test</tspan></text>
+  <text x="621" y="413" class="cls-3"><tspan class="cls-18">Test</tspan></text>
 </svg>

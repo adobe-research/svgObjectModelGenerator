@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="415" height="33" viewBox="0 0 415 33">
   <defs>
     <style>
-
       .cls-2, .cls-3 {
         font-size: 36px;
       }
@@ -12,5 +11,5 @@
       }
     </style>
   </defs>
-  <text class="cls-2" transform="matrix(1, 0, 1.5049, 1, 23, 26)"><tspan class="cls-3">skewed right from bottom</tspan></text>
+  <text transform="matrix(1, 0, 1.5049, 1, 23, 26)" class="cls-2"><tspan class="cls-3">skewed right from bottom</tspan></text>
 </svg>

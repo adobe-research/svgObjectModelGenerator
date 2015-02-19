@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="704" height="118" viewBox="0 0 704 118">
   <defs>
     <style>
-
       .cls-2, .cls-3 {
         font-size: 150px;
       }
@@ -13,5 +12,5 @@
       }
     </style>
   </defs>
-  <text class="cls-2" x="100%" y="117"><tspan class="cls-3" x="100%">Plain text</tspan></text>
+  <text x="100%" y="117" class="cls-2"><tspan x="100%" class="cls-3">Plain text</tspan></text>
 </svg>

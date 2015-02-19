@@ -37,7 +37,9 @@
         getTransform = svgWriterUtils.getTranform,
         encodedText = svgWriterUtils.encodedText,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
-        makeTSpan = svgWriterText.makeTSpan;
+        makeTSpan = svgWriterText.makeTSpan,
+        root,
+        tagid = 0;
 
     function Tag(name, attr, ctx, node) {
         // There are three types of tags:
@@ -52,12 +54,21 @@
             this.setAttributes(attr);
             this.children = [];
         }
+        this.id = tagid++;
+        if (root) {
+            root.all[this.id] = this;
+        }
         if (ctx) {
             node = node || ctx.currentOMNode;
-            this.setClass(ctx, node);
-            this.styleBlock = node.styleBlock;
+            this.setStyleBlock(ctx, node);
         }
     }
+	Tag.getById = function (id) {
+		if (!root) {
+			return null;
+		}
+		return root.all[id] || null;
+	};
     Tag.prototype.setAttributes = function (attr) {
         if (!attr) {
             return;
@@ -144,6 +155,7 @@
     Tag.prototype.write = function (ctx) {
         var tag = this,
             numChildren = tag.children && tag.children.length;
+        this.setClass(ctx);
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
@@ -191,12 +203,20 @@
             writeln(ctx, ind + "</" + tag.name + ">");
         }
     };
-    Tag.prototype.setClass = function (ctx, node) {
+    Tag.prototype.setStyleBlock = function (ctx, node) {
         node = node || ctx.currentOMNode;
         if (!ctx.omStylesheet.hasStyleBlock(node)) {
             return;
         }
-        var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
+        var omStyleBlock = ctx.omStylesheet.getStyleBlock(node);
+        if (!omStyleBlock) {
+            return;
+        }
+        this.styleBlock = omStyleBlock;
+        omStyleBlock.tags = [this.id];
+    };
+    Tag.prototype.setClass = function (ctx) {
+        var omStyleBlock = this.styleBlock;
         if (!omStyleBlock) {
             return;
         }
@@ -204,7 +224,7 @@
             this.setAttribute("class", omStyleBlock.class);
             return;
         }
-        for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
+        for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
             var rule = omStyleBlock.rules[i];
             this.setAttribute(rule.propertyName, rule.value);
         }
@@ -246,55 +266,58 @@
         this.tricked = true;
         return list;
     };
+    function measure(node) {
+        var bnds = node.originBounds || node.shapeBounds,
+            top = parseFloat(bnds.top),
+            right = parseFloat(bnds.right),
+            bottom = parseFloat(bnds.bottom),
+            left = parseFloat(bnds.left),
+            w = right - left,
+            h = bottom - top;
+        return {
+            x: left,
+            y: top,
+            width: w,
+            height: h,
+            cx: left + w / 2,
+            cy: top + h / 2,
+            r: h / 2,
+            rx: w / 2,
+            ry: h / 2,
+            transform: getTransform(node.transform, node.transformTX, node.transformTY)
+        };
+    }
 
     var factory = {
         circle: function (ctx, node) {
-            var bnds = node.originBounds || node.shapeBounds,
-                top = parseFloat(bnds.top),
-                right = parseFloat(bnds.right),
-                bottom = parseFloat(bnds.bottom),
-                left = parseFloat(bnds.left),
-                w = right - left,
-                h = bottom - top,
+            var box = measure(node),
                 tag = new Tag("circle", {
-                    cx: left + w / 2,
-                    cy: top + h / 2,
-                    r: h / 2,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    cx: box.cx,
+                    cy: box.cy,
+                    r: box.r,
+                    transform: box.transform
                 }, ctx);
             return tag.useTrick(ctx);
         },
         ellipse: function (ctx, node) {
-            var bnds = node.originBounds || node.shapeBounds,
-                top = parseFloat(bnds.top),
-                right = parseFloat(bnds.right),
-                bottom = parseFloat(bnds.bottom),
-                left = parseFloat(bnds.left),
-                w = right - left,
-                h = bottom - top,
+            var box = measure(node),
                 tag = new Tag("ellipse", {
-                    cx: left + w / 2,
-                    cy: top + h / 2,
-                    rx: w / 2,
-                    ry: h / 2,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    cx: box.cx,
+                    cy: box.cy,
+                    rx: box.rx,
+                    ry: box.ry,
+                    transform: box.transform
                 }, ctx);
             return tag.useTrick(ctx);
         },
         rect: function (ctx, node) {
-            var bnds = node.originBounds || node.shapeBounds,
-                top = parseFloat(bnds.top),
-                right = parseFloat(bnds.right),
-                bottom = parseFloat(bnds.bottom),
-                left = parseFloat(bnds.left),
-                w = right - left,
-                h = bottom - top,
+            var box = measure(node),
                 tag = new Tag("rect", {
-                    x: left,
-                    y: top,
-                    width: w,
-                    height: h,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    x: box.x,
+                    y: box.y,
+                    width: box.width,
+                    height: box.height,
+                    transform: box.transform
                 }, ctx);
             if (node.shapeRadii) {
                 var r = parseFloat(node.shapeRadii[0]);
@@ -339,8 +362,7 @@
         },
         textPath: function (ctx, node) {
             var offset = 0,
-                styleBlock = ctx.omStylesheet.getStyleBlock(node),
-                tag = new Tag("textPath", {}, ctx);
+            tag = new Tag("textPath", {}, ctx);
 
             if (!ctx.hasWritten(node, "text-path-attr")) {
                 ctx.didWrite(node, "text-path-attr");
@@ -348,12 +370,10 @@
                 if (textPathDefn) {
                     tag.setAttribute("xlink:href", "#" + textPathDefn.defnId);
                 } else {
-                    console.log("text-path with no def found");
+                    console.warn("text-path with no def found");
                 }
             }
-            if (styleBlock.hasProperty("text-anchor")) {
-                offset = {middle: 50, end: 100}[styleBlock.getPropertyValue("text-anchor")] || 0;
-            }
+            offset = {middle: 50, end: 100}[tag.getAttribute("text-anchor")] || 0;
             tag.setAttribute("startOffset", offset + "%");
             return tag.useTrick(ctx);
         },
@@ -430,6 +450,8 @@
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
+            tag.all = {};
+            root = tag;
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
@@ -438,14 +460,14 @@
                 }
                 f = factory[node.shape];
                 if (!f) {
-                    console.log("NOT HANDLED DEFAULT " + node.shape);
+                    console.warn("NOT HANDLED DEFAULT " + node.shape);
                 } else {
                     tag = f(ctx, node, sibling);
                 }
             } else {
                 f = factory[node.type];
                 if (!f) {
-                    console.log("ERROR: Unknown omIn.type = " + node.type);
+                    console.error("ERROR: Unknown omIn.type = " + node.type);
                 } else {
                     tag = f(ctx, node, sibling);
                 }

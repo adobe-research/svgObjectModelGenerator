@@ -34,19 +34,19 @@
     
     var toString = svgWriterUtils.toString;
     
-    function process(tag, parents) {
+    function process(tag, ctx, parents) {
         // fill it with processing actions and remove this comment :)
     }
 
-    function preProcess(tag, parents) {
+    function preProcess(tag, ctx, parents) {
         parents = parents || [];
-        process(tag, parents);
+        process(tag, ctx, parents);
         parents.push(tag);
         if (!tag.children) {
             return;
         }
-        for (var i = 0, len = tag.children.length; i < len; i++) {
-            preProcess(tag.children[i], parents);
+        for (var i = 0, ii = tag.children.length; i < ii; i++) {
+            preProcess(tag.children[i], ctx, parents);
         }
     }
 
@@ -56,9 +56,10 @@
         svgWriterIDs.reset();
         try {
             svgWriterPreprocessor.processSVGOM(ctx);
-            ctx.omStylesheet.consolidateStyleBlocks();
             var svg = Tag.make(ctx, svgOM);
-            preProcess(svg);
+            ctx.omStylesheet.consolidateStyleBlocks();
+            
+            preProcess(svg, ctx);
             svg.write(ctx);
         } catch (ex) {
             console.error("Ex: " + ex);
