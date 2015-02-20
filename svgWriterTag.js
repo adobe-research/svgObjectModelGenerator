@@ -401,6 +401,9 @@
         group: function (ctx, node) {
             return new Tag("g", {}, ctx).useTrick(ctx);
         },
+        artboard: function (ctx, node) {
+            return new Tag("g", {}, ctx).useTrick(ctx);
+        },
         tspan: function (ctx, node, sibling) {
             var tag = makeTSpan(Tag, ctx, sibling, node);
 
