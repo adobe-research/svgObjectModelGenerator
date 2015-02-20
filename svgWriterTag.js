@@ -382,6 +382,9 @@
             return tag.useTrick(ctx);
         },
         generic: function (ctx, node) {
+            if (!node.shapeBounds) {
+                return;
+            }
             var top = parseFloat(node.shapeBounds.top),
                 right = parseFloat(node.shapeBounds.right),
                 bottom = parseFloat(node.shapeBounds.bottom),
@@ -423,11 +426,11 @@
         svg: function (ctx, node) {
             var preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
                 scale = ctx.config.scale || 1,
-                left = round1k(node.viewBox.left),
-                top = round1k(node.viewBox.top),
+                left = round1k(node.global.viewBox.left),
+                top = round1k(node.global.viewBox.top),
 
-                width = Math.abs(node.viewBox.right - node.viewBox.left),
-                height = Math.abs(node.viewBox.bottom - node.viewBox.top),
+                width = Math.abs(node.global.viewBox.right - node.global.viewBox.left),
+                height = Math.abs(node.global.viewBox.bottom - node.global.viewBox.top),
                 scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
                 scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
 
