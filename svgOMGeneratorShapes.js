@@ -226,15 +226,14 @@
                     
                     if (w == h) {
                         svgNode.shapeBounds = origin.bounds;
-                        
-                        omgStyles.addStylingData(svgNode, layer, dpi);
 
                         svgNode.shape = {
                             type: "circle",
                             cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
                             cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
                             r: (origin.bounds.right - origin.bounds.left) / 2
-                        }                        
+                        }
+                        omgStyles.addStylingData(svgNode, layer, dpi);
                         return true;
                     }
                 }

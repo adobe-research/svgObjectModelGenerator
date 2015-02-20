@@ -335,7 +335,7 @@
         },
         path: function (ctx, node) {
             var tag = new Tag("path", {
-                    d: util.optimisePath(node.pathData),
+                    d: util.optimisePath(node.shape.path),
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             return tag.useTrick(ctx);

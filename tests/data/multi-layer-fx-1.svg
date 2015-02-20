@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-6, .cls-7, .cls-4, .cls-5 {
+        fill: #fff200;
+      }
+
+      .cls-1, .cls-2, .cls-4, .cls-5 {
+        fill: #fff200;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-2 {
+        filter: url(#filter-chain-1);
+      }
+
+      .cls-3 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-4 {
+        filter: url(#filter-chain-2);
+      }
+
+      .cls-5 {
+        filter: url(#filter-chain-3);
+      }
+
+      .cls-6 {
+        filter: url(#drop-shadow-3);
+      }
+
+      .cls-7 {
+        filter: url(#drop-shadow-4);
+      }
+    </style>
+
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="-70.711" dy="70.711" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-1"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur-1" result="dropShadowComp-1"/>
+      <feBlend mode="multiply" in2="dropShadowComp" result="dropShadowBlend-1"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feGaussianBlur stdDeviation="17" in="SourceAlpha"/>
+      <feComposite/>
+      <feComposite/>
+      <feComposite result="outerGlowBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="in" in2="outerGlowBlur"/>
+      <feBlend in2="dropShadowComp" result="outerGlow"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="-106.066" dy="106.066" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feOffset dx="-70.711" dy="70.711" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-1"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="in" in2="dropBlur-1" result="dropShadowComp-1"/>
+      <feBlend in2="dropShadowComp" result="dropShadowBlend-1"/>
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-2"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur-2" result="dropShadowComp-2"/>
+      <feBlend in2="dropShadowBlend-1" result="dropShadowBlend-2"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="filter-chain-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="-70.711" dy="70.711" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-1"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur-1" result="dropShadowComp-1"/>
+      <feBlend mode="multiply" in2="dropShadowComp" result="dropShadowBlend-1"/>
+      <feGaussianBlur stdDeviation="17" in="SourceAlpha"/>
+      <feComposite/>
+      <feComposite/>
+      <feComposite result="outerGlowBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="in" in2="outerGlowBlur"/>
+      <feBlend in2="dropShadowBlend-1" result="outerGlow"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="filter-chain-3" filterUnits="userSpaceOnUse">
+      <feOffset dx="-106.066" dy="106.066" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feOffset dx="-70.711" dy="70.711" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-1"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="in" in2="dropBlur-1" result="dropShadowComp-1"/>
+      <feBlend mode="multiply" in2="dropShadowComp" result="dropShadowBlend-1"/>
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-2"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur-2" result="dropShadowComp-2"/>
+      <feBlend mode="multiply" in2="dropShadowBlend-1" result="dropShadowBlend-2"/>
+      <feGaussianBlur stdDeviation="17" in="SourceAlpha"/>
+      <feComposite/>
+      <feComposite/>
+      <feComposite result="outerGlowBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="in" in2="outerGlowBlur"/>
+      <feBlend in2="dropShadowBlend-2" result="outerGlow"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="drop-shadow-3" filterUnits="userSpaceOnUse">
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="drop-shadow-4" filterUnits="userSpaceOnUse">
+      <feOffset dx="-106.066" dy="106.066" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur"/>
+      <feFlood flood-color="blue"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feOffset dx="-70.711" dy="70.711" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-1"/>
+      <feFlood flood-color="lime"/>
+      <feComposite operator="in" in2="dropBlur-1" result="dropShadowComp-1"/>
+      <feBlend mode="multiply" in2="dropShadowComp" result="dropShadowBlend-1"/>
+      <feOffset dx="-35.355" dy="35.355" in="SourceAlpha"/>
+      <feGaussianBlur result="dropBlur-2"/>
+      <feFlood flood-color="red"/>
+      <feComposite operator="in" in2="dropBlur-2" result="dropShadowComp-2"/>
+      <feBlend mode="multiply" in2="dropShadowBlend-1" result="dropShadowBlend-2"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+  </defs>
+  <path d="M950,197h200V397H950V197Z" class="cls-1"/>
+  <path d="M260,650H460V850H260V650Z" class="cls-2"/>
+  <rect x="260" y="1103" width="200" height="200" class="cls-3"/>
+  <path d="M950,650h200V850H950V650Z" class="cls-4"/>
+  <path d="M1640,650h200V850H1640V650Z" class="cls-5"/>
+  <rect x="260" y="197" width="200" height="200" class="cls-6"/>
+  <rect x="1640" y="197" width="200" height="200" class="cls-7"/>
+</svg>
