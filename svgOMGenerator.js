@@ -44,7 +44,7 @@
             console.log("[svgOMGenerator] skip '" + layer.type + "' - consider adding");
         }
         
-        return layerTypeMap[layer.type];
+        return layer.artboard ? "artboard" : layerTypeMap[layer.type];
     }
     
     function getSVGID(layer) {
@@ -166,7 +166,7 @@
             layerType = getSVGLayerType(layer);
             if (!justTraverse) {
                 svgNode = writer.addSVGNode(getSVGID(layer), layerType, layerVisible);
-                svgNode.layerName = layer.name;
+                svgNode.title = layer.name;
                 if (layer.boundsWithFX) {
                     svgNode.boundsWithFX = layer.boundsWithFX;                    
                 }
@@ -190,6 +190,10 @@
                         omgImage.addImageData(svgNode, layer, dpi);
                     }
                     break;
+                case "artboard":
+                    if (!justTraverse) {
+                        writer.setArtboard(svgNode.id, svgNode.title, layer.artboard.artboardRect);
+                    }
                 case "group":
                     if (!justTraverse) {
                         
@@ -213,7 +217,7 @@
         }
         
         // Assume the PSD is at 0,0.
-        writer.setDocOffset(0, 0);
+        writer.setDocTitle(psd.file);
         writer.setDocViewBox(psd.bounds);
         writer.setDocBounds(psd.bounds);
         writer.setDocPxToInchRatio(psd.resolution);

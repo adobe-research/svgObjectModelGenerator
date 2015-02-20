@@ -195,14 +195,20 @@
                             return false;
                         }
                     }
-                    
-                    svgNode.shape = "ellipse";
-                    
+
                     if (typeof newBounds === "object") {
                         svgNode.originBounds = newBounds;
                     }
                     svgNode.shapeBounds = origin.bounds;
                     
+                    svgNode.shape = {
+                        type: "ellipse",
+                        cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
+                        cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
+                        rx: (origin.bounds.right - origin.bounds.left) / 2,
+                        ry: (origin.bounds.bottom - origin.bounds.top) / 2
+                    }
+
                     omgStyles.addStylingData(svgNode, layer, dpi);
                     
                     return true;
@@ -219,11 +225,16 @@
                         h = parseInt(origin.bounds.bottom) - parseInt(origin.bounds.top);
                     
                     if (w == h) {
-                        svgNode.shape = "circle";
                         svgNode.shapeBounds = origin.bounds;
                         
                         omgStyles.addStylingData(svgNode, layer, dpi);
-                        
+
+                        svgNode.shape = {
+                            type: "circle",
+                            cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
+                            cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
+                            r: (origin.bounds.right - origin.bounds.left) / 2
+                        }                        
                         return true;
                     }
                 }
@@ -252,14 +263,22 @@
                         }
                     }
                     
-                    svgNode.shape = "rect";
                     //may have acquired shapeBounds while inferring the transform
                     if (typeof newBounds === "object") {
                         svgNode.originBounds = newBounds;
                     }
                     svgNode.shapeBounds = origin.bounds;
                     svgNode.shapeRadii = origin.radii;
-                    
+
+                    svgNode.shape = {
+                        type: "rect",
+                        x: origin.bounds.left,
+                        y: origin.bounds.top,
+                        width: origin.bounds.right - origin.bounds.left,
+                        height: origin.bounds.bottom - origin.bounds.top,
+                        r: origin.radii
+                    }
+
                     omgStyles.addStylingData(svgNode, layer, dpi);
 
                     return true;
@@ -273,11 +292,14 @@
                 pathData = layer.path.rawPathData;
             
             if (path && pathData) {
-                svgNode.shape = "path";
                 
                 svgNode.shapeBounds = path.bounds;
-                svgNode.pathData = pathData;
-                
+
+                svgNode.shape = {
+                    type: "path",
+                    path: pathData
+                }
+
                 omgStyles.addStylingData(svgNode, layer, dpi);
                 
                 return true;

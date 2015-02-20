@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -87,13 +87,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
-			"shape": "rect",
+			"title": "Rectangle 1",
 			"shapeBounds": {
 				"top": 50,
 				"left": 200,
 				"bottom": 150,
 				"right": 600
+			},
+			"shape": {
+				"type": "rect",
+				"x": 200,
+				"y": 50,
+				"width": 400,
+				"height": 100
 			}
 		},
 		{
@@ -175,13 +181,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
-			"shape": "rect",
+			"title": "Rectangle 2",
 			"shapeBounds": {
 				"top": 200,
 				"left": 350,
 				"bottom": 300,
 				"right": 450
+			},
+			"shape": {
+				"type": "rect",
+				"x": 350,
+				"y": 200,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -263,33 +275,45 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
-			"shape": "rect",
+			"title": "Rectangle 3",
 			"shapeBounds": {
 				"top": 350,
 				"left": 350,
 				"bottom": 600,
 				"right": 450
+			},
+			"shape": {
+				"type": "rect",
+				"x": 350,
+				"y": 350,
+				"width": 100,
+				"height": 250
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "linear-gradient-angle-layer-2.psd"
 }

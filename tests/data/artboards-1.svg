@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="5080" height="5920" viewBox="0 0 5080 5920">
+  <defs>
+    <style>
+
+      .cls-4 {
+        fill: lime;
+      }
+    </style>
+  </defs>
+  <g id="square">
+    <circle cx="2540" cy="2960" r="393" class="cls-4"/>
+  </g>
+  <g id="iphone">
+    <rect x="3972" y="2811" width="533" height="533" class="cls-4"/>
+  </g>
+</svg>

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -48,19 +48,25 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"boundsWithFX": {
 				"top": 88,
 				"left": 88,
 				"bottom": 212,
 				"right": 212
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
 				"bottom": 200,
 				"right": 200
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -214,19 +220,25 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"boundsWithFX": {
 				"top": 88,
 				"left": 288,
 				"bottom": 212,
 				"right": 412
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 300,
 				"bottom": 200,
 				"right": 400
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 100,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -380,19 +392,25 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
+			"title": "Rectangle 3",
 			"boundsWithFX": {
 				"top": 88,
 				"left": 488,
 				"bottom": 212,
 				"right": 612
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 500,
 				"bottom": 200,
 				"right": 600
+			},
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 100,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -618,19 +636,25 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 4",
+			"title": "Rectangle 4",
 			"boundsWithFX": {
 				"top": 288,
 				"left": 88,
 				"bottom": 412,
 				"right": 212
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 300,
 				"left": 100,
 				"bottom": 400,
 				"right": 200
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 300,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -856,19 +880,25 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 5",
+			"title": "Rectangle 5",
 			"boundsWithFX": {
 				"top": 288,
 				"left": 288,
 				"bottom": 412,
 				"right": 412
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 300,
 				"left": 300,
 				"bottom": 400,
 				"right": 400
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 300,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -1094,39 +1124,51 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 6",
+			"title": "Rectangle 6",
 			"boundsWithFX": {
 				"top": 288,
 				"left": 488,
 				"bottom": 412,
 				"right": 612
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 300,
 				"left": 500,
 				"bottom": 400,
 				"right": 600
+			},
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 300,
+				"width": 100,
+				"height": 100
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "stroke-fx.psd"
 }

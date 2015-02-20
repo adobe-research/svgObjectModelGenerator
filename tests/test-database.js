@@ -198,6 +198,26 @@ var database = [
 {
 	test: "multi-layer-fx-4",
 	desc: "Test multiple inline shadows per layer."
+},
+{
+	test: "artboards-1",
+	desc: "Test of artboards 1.",
+	layerTest: true
+},
+{
+	test: "artboards-2",
+	desc: "Test of artboards 2.",
+	layerTest: true
+},
+{
+	test: "artboards-3",
+	desc: "Test of artboards 3.",
+	layerTest: true
+},
+{
+	test: "group-path",
+	desc: "Test of artboards 3.",
+	layerTest: true
 }
 ];
 

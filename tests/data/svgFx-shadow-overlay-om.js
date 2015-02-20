@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "shadow",
@@ -102,14 +102,13 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "shadow",
+			"title": "shadow",
 			"boundsWithFX": {
 				"top": 80,
 				"left": 100,
 				"bottom": 271,
 				"right": 445
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
@@ -121,26 +120,45 @@ module.exports = {
 				10,
 				10,
 				10
-			]
+			],
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 300,
+				"height": 150,
+				"r": [
+					10,
+					10,
+					10,
+					10
+				]
+			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": -107,
+				"altitude": 90
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": -107,
-		"altitude": 90
-	}
+	"title": "svgFx-shadow-overlay.psd"
 }

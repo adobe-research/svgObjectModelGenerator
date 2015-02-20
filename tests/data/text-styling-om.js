@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "layer1",
@@ -59,7 +59,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 55,
 				"left": 64,
@@ -131,7 +131,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 143,
 				"left": 65,
@@ -204,7 +204,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 230,
 				"left": 71,
@@ -276,7 +276,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 306,
 				"left": 64,
@@ -348,7 +348,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 397,
 				"left": 56,
@@ -420,7 +420,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 482,
 				"left": 63,
@@ -492,7 +492,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 56,
 				"left": 332,
@@ -564,7 +564,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 161,
 				"left": 332,
@@ -636,7 +636,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 262,
 				"left": 333,
@@ -707,7 +707,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 320,
 				"left": 330,
@@ -778,7 +778,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 396,
 				"left": 332,
@@ -849,7 +849,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 482,
 				"left": 328,
@@ -920,7 +920,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Test",
+			"title": "Test",
 			"shapeBounds": {
 				"top": 41,
 				"left": 625,
@@ -991,7 +991,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Test",
+			"title": "Test",
 			"shapeBounds": {
 				"top": 152,
 				"left": 627,
@@ -1062,7 +1062,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Test",
+			"title": "Test",
 			"shapeBounds": {
 				"top": 240,
 				"left": 628,
@@ -1133,7 +1133,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Test",
+			"title": "Test",
 			"shapeBounds": {
 				"top": 370,
 				"left": 622,
@@ -1155,23 +1155,29 @@ module.exports = {
 			"maxTextSize": 60
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "text-styling.psd"
 }

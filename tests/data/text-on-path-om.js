@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "layer1",
@@ -72,7 +72,7 @@ module.exports = {
 					"pathData": "M 46 75 C 46 75 209 75 209 75"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 53,
 				"left": 46,
@@ -155,7 +155,7 @@ module.exports = {
 					"pathData": "M 55 303 C 55 303 81 256 81 256 C 81 256 118 293 118 293 C 118 293 147 264 147 264"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 244,
 				"left": 40,
@@ -238,7 +238,7 @@ module.exports = {
 					"pathData": "M 41 400 C 105.813 326.531 108.234 327.586 154 402"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 329,
 				"left": 34,
@@ -321,7 +321,7 @@ module.exports = {
 					"pathData": "M 37 447 C 37 447 66 447 66 447 C 66 447 88 447 88 447 C 88 447 114 447 114 447 C 114 447 143 447 143 447 C 143 447 173 447 173 447"
 				}
 			],
-			"layerName": "Text",
+			"title": "Text",
 			"shapeBounds": {
 				"top": 425,
 				"left": 102,
@@ -406,7 +406,7 @@ module.exports = {
 					"pathData": "M 714 66 C 565.227 214.773 714 173.852 714 380"
 				}
 			],
-			"layerName": "Text on path",
+			"title": "Text on path",
 			"shapeBounds": {
 				"top": 75,
 				"left": 644,
@@ -491,7 +491,7 @@ module.exports = {
 					"pathData": "M 282 78 C 282 78 470 78 470 78"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 56,
 				"left": 349,
@@ -576,7 +576,7 @@ module.exports = {
 					"pathData": "M 296 220 C 296 220 467 220 467 220"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 211,
 				"left": 315,
@@ -659,7 +659,7 @@ module.exports = {
 					"pathData": "M 310 366 C 410.875 288.625 444.211 286.211 524 366"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 286,
 				"left": 308,
@@ -746,7 +746,7 @@ module.exports = {
 					"pathData": "M 312 449 C 312 449 496 449 496 449"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 440,
 				"left": 380,
@@ -831,7 +831,7 @@ module.exports = {
 					"pathData": "M 273 133 C 273 133 466 133 466 133"
 				}
 			],
-			"layerName": "Text path",
+			"title": "Text path",
 			"shapeBounds": {
 				"top": 111,
 				"left": 319,
@@ -914,7 +914,7 @@ module.exports = {
 					"pathData": "M 191 127 C 191 127 46 127 46 127"
 				}
 			],
-			"layerName": "Text path ",
+			"title": "Text path ",
 			"shapeBounds": {
 				"top": 121,
 				"left": 71,
@@ -997,7 +997,7 @@ module.exports = {
 					"pathData": "M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"
 				}
 			],
-			"layerName": "Text path ",
+			"title": "Text path ",
 			"shapeBounds": {
 				"top": 167,
 				"left": 55,
@@ -1017,23 +1017,29 @@ module.exports = {
 			"maxTextSize": 30
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "text-on-path.psd"
 }

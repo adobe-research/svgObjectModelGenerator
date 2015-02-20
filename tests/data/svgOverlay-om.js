@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -62,39 +62,51 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"boundsWithFX": {
 				"top": 100,
 				"left": 100,
 				"bottom": 250,
 				"right": 450
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
 				"bottom": 250,
 				"right": 450
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 350,
+				"height": 150
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "svgOverlay.psd"
 }

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-2",
@@ -27,13 +27,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
-			"shape": "rect",
+			"title": "Rectangle 2",
 			"shapeBounds": {
 				"top": 100,
 				"left": 70,
 				"bottom": 263,
 				"right": 408
+			},
+			"shape": {
+				"type": "rect",
+				"x": 70,
+				"y": 100,
+				"width": 338,
+				"height": 163
 			}
 		},
 		{
@@ -55,8 +61,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
-			"shape": "rect",
+			"title": "Rectangle 1",
 			"shapeBounds": {
 				"top": 100,
 				"left": 500,
@@ -68,26 +73,45 @@ module.exports = {
 				30,
 				30,
 				30
-			]
+			],
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 100,
+				"width": 300,
+				"height": 150,
+				"r": [
+					30,
+					30,
+					30,
+					30
+				]
+			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "rect.psd"
 }

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "layer1",
@@ -49,7 +49,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "Text.svg",
+			"title": "Text.svg",
 			"shapeBounds": {
 				"top": 314,
 				"left": 232,
@@ -122,33 +122,45 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
-			"shape": "rect",
+			"title": "Rectangle 1",
 			"shapeBounds": {
 				"top": 275,
 				"left": 208,
 				"bottom": 396,
 				"right": 306
+			},
+			"shape": {
+				"type": "rect",
+				"x": 208,
+				"y": 275,
+				"width": 98,
+				"height": 121
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "text-transform.psd"
 }

@@ -38,7 +38,7 @@
         }
 
         var isPathNode = function (svgNode) {
-            return svgNode.type == 'shape' && svgNode.shape == 'path';
+            return svgNode.type == 'shape' && svgNode.shape.type == 'path';
         }
 
         this.fetchBlendMode = function (layer) {
