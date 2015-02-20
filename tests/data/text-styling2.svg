@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        font-size: 111px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        text-anchor: middle;
+        font-size: 111px;
+      }
+
+      .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
+        font-size: 72px;
+      }
+
+      .cls-7, .cls-12 {
+        font-style: italic;
+      }
+
+      .cls-2 {
+        font-family: "SourceSansPro-Light";
+      }
+
+      .cls-3 {
+        font-family: "Source Sans Pro";
+      }
+
+      .cls-4 {
+        font-family: "SourceSansPro-Semibold";
+      }
+
+      .cls-5 {
+        font-family: "SourceSansPro-Bold";
+        font-weight: bold;
+      }
+
+      .cls-6 {
+        font-family: "SourceSansPro-Black";
+      }
+
+      .cls-7 {
+        font-family: "SourceSansPro-BlackIt";
+      }
+
+      .cls-8 {
+        font-family: "SourceSansPro-ExtraLight";
+      }
+
+      .cls-10 {
+        font-family: "HelveticaNeue-Thin";
+      }
+
+      .cls-11 {
+        font-family: "HelveticaNeue-UltraLight";
+      }
+
+      .cls-12 {
+        font-family: "HelveticaNeue-ThinItalic";
+      }
+
+      .cls-13 {
+        font-family: "HelveticaNeue-Medium";
+      }
+
+      .cls-14 {
+        font-family: "Helvetica-LightOblique";
+      }
+
+      .cls-15 {
+        font-family: "BodoniSvtyTwoITCTT-Book";
+      }
+
+      .cls-16 {
+        font-family: "LetterGothicStd-Slanted";
+      }
+    </style>
+  </defs>
+  <text x="87" y="286" class="cls-1"><tspan x="87" class="cls-2">2</tspan></text>
+  <text x="87" y="414" class="cls-1"><tspan x="87" class="cls-3">3</tspan></text>
+  <text x="87" y="539" class="cls-1"><tspan x="87" class="cls-4">4</tspan></text>
+  <text x="87" y="670" class="cls-1"><tspan x="87" class="cls-5">5</tspan></text>
+  <text x="87" y="795" class="cls-1"><tspan x="87" class="cls-6">6</tspan></text>
+  <text x="87" y="920" class="cls-1"><tspan x="87" class="cls-7">7</tspan></text>
+  <text x="87" y="150" class="cls-1"><tspan x="87" class="cls-8">1</tspan></text>
+  <text x="370" y="128" class="cls-9"><tspan class="cls-10">thin</tspan><tspan dy="1.542em" x="370" class="cls-11">ultrathin</tspan><tspan dy="1.542em" x="370" class="cls-12">thin italic</tspan><tspan dy="1.542em" x="370" class="cls-13">medium</tspan><tspan dy="1.542em" x="370" class="cls-14">light oblique</tspan><tspan dy="1.542em" x="370" class="cls-15">book</tspan><tspan dy="1.542em" x="370" class="cls-16">slanted</tspan></text>
+</svg>

@@ -292,7 +292,8 @@
         };
     }
 
-    var factory = {
+    var artboards = 1,
+        factory = {
         circle: function (ctx, node) {
             var box = measure(node),
                 tag = new Tag("circle", {
@@ -405,7 +406,7 @@
             return new Tag("g", {}, ctx).useTrick(ctx);
         },
         artboard: function (ctx, node) {
-            return new Tag("g", {}, ctx).useTrick(ctx);
+            return new Tag("g", {id: "artboard-" + artboards++}, ctx).useTrick(ctx);
         },
         tspan: function (ctx, node, sibling) {
             var tag = makeTSpan(Tag, ctx, sibling, node);
@@ -426,11 +427,11 @@
         svg: function (ctx, node) {
             var preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
                 scale = ctx.config.scale || 1,
-                left = round1k(node.global.viewBox.left),
-                top = round1k(node.global.viewBox.top),
+                left = round1k(ctx.viewBox.left),
+                top = round1k(ctx.viewBox.top),
 
-                width = Math.abs(node.global.viewBox.right - node.global.viewBox.left),
-                height = Math.abs(node.global.viewBox.bottom - node.global.viewBox.top),
+                width = Math.abs(ctx.viewBox.right - ctx.viewBox.left),
+                height = Math.abs(ctx.viewBox.bottom - ctx.viewBox.top),
                 scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
                 scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
 
@@ -441,8 +442,6 @@
                 xmlns: "http://www.w3.org/2000/svg",
                 "xmlns:xlink": "http://www.w3.org/1999/xlink",
                 preserveAspectRatio: preserveAspectRatio,
-                x: node.offsetX,
-                y: node.offsetY,
                 width: scaledW,
                 height: scaledH,
                 viewBox: [left, top, width, height]
@@ -468,9 +467,9 @@
                     console.warn("Shape has no boundaries.");
                     return;
                 }
-                f = factory[node.shape];
+                f = factory[node.shape.type];
                 if (!f) {
-                    console.warn("NOT HANDLED DEFAULT " + node.shape);
+                    console.warn("NOT HANDLED DEFAULT " + node.shape.type);
                 } else {
                     tag = f(ctx, node, sibling);
                 }

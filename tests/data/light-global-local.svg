@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #030303;
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-2 {
+        fill: #030303;
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-3 {
+        fill: #fff;
+        filter: url(#inner-shadow-1);
+      }
+
+      .cls-4 {
+        fill: #fff;
+        filter: url(#inner-shadow-2);
+      }
+    </style>
+
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
+      <feFlood flood-opacity="0.75"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
+      <feFlood flood-opacity="0.75"/>
+      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
+    </filter>
+    <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="innerShadowBlur"/>
+      <feFlood flood-opacity="0.75"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
+    </filter>
+    <filter id="inner-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.472" result="innerShadowBlur"/>
+      <feFlood flood-opacity="0.75"/>
+      <feComposite operator="out" in2="innerShadowBlur"/>
+      <feComposite operator="in" in2="SourceAlpha"/>
+      <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
+    </filter>
+  </defs>
+  <rect x="50" y="83" width="250" height="150" class="cls-1"/>
+  <rect x="450" y="80" width="250" height="150" class="cls-2"/>
+  <rect x="50" y="350" width="250" height="150" class="cls-3"/>
+  <rect x="450" y="350" width="250" height="150" class="cls-4"/>
+</svg>

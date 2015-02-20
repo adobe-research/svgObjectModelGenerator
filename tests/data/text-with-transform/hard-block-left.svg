@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="468" height="657" viewBox="0 0 468 657">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 36px;
+      }
+
+      .cls-2 {
+        fill: #226b26;
+        font-family: "Optima-ExtraBlack";
+      }
+    </style>
+  </defs>
+  <text transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 421, 599)" class="cls-1"><tspan class="cls-2">here is</tspan><tspan dy="1.2em" x="0" class="cls-2">some hard</tspan><tspan dy="1.2em" x="0" class="cls-2">return point text</tspan></text>
+</svg>
