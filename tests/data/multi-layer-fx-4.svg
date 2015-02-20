@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
   <defs>
     <style>
-      .cls-3 {
+      .cls-1 {
         fill: #ff0;
         filter: url(#inner-shadow-1);
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: #ff0;
         filter: url(#inner-shadow-2);
       }
@@ -53,6 +53,6 @@
       <feBlend in2="innerShadow-1" result="innerShadow-2"/>
     </filter>
   </defs>
-  <rect x="142" y="132" width="500" height="500" class="cls-3"/>
-  <rect x="800" y="132" width="500" height="500" class="cls-4"/>
+  <rect x="142" y="132" width="500" height="500" class="cls-1"/>
+  <rect x="800" y="132" width="500" height="500" class="cls-2"/>
 </svg>

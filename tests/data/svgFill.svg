@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="288" height="288" viewBox="0 0 288 288">
   <defs>
     <style>
-      .cls-3 {
+      .cls-1 {
         fill: url(#linear-gradient-1);
         stroke: #000;
         stroke-width: 3px;
@@ -26,7 +26,7 @@
     </filter>
   </defs>
   <g style="fill: url(#linear-gradient-1); filter: url(#filter-chain-1)">
-    <circle cx="131.5" cy="144.5" r="82.5" id="circle-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-3"/>
+    <circle cx="131.5" cy="144.5" r="82.5" id="circle-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-1"/>
   </g>
   <use xlink:href="#circle-1" style="stroke: #000; filter: none; fill: none"/>
 </svg>

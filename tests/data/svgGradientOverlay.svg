@@ -1,55 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14 {
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12 {
         fill: #00a99d;
       }
 
-      .cls-3 {
+      .cls-1 {
         filter: url(#gradient-overlay-1);
       }
 
-      .cls-4 {
+      .cls-2 {
         filter: url(#gradient-overlay-2);
       }
 
-      .cls-5 {
+      .cls-3 {
         filter: url(#gradient-overlay-3);
       }
 
-      .cls-6 {
+      .cls-4 {
         filter: url(#gradient-overlay-4);
       }
 
-      .cls-7 {
+      .cls-5 {
         filter: url(#gradient-overlay-5);
       }
 
-      .cls-8 {
+      .cls-6 {
         filter: url(#gradient-overlay-6);
       }
 
-      .cls-9 {
+      .cls-7 {
         filter: url(#gradient-overlay-7);
       }
 
-      .cls-10 {
+      .cls-8 {
         filter: url(#gradient-overlay-8);
       }
 
-      .cls-11 {
+      .cls-9 {
         filter: url(#gradient-overlay-9);
       }
 
-      .cls-12 {
+      .cls-10 {
         filter: url(#gradient-overlay-10);
       }
 
-      .cls-13 {
+      .cls-11 {
         filter: url(#gradient-overlay-11);
       }
 
-      .cls-14 {
+      .cls-12 {
         filter: url(#gradient-overlay-12);
       }
     </style>
@@ -115,16 +115,16 @@
       <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
     </filter>
   </defs>
-  <rect x="50" y="50" width="200" height="100" class="cls-3"/>
-  <rect x="300" y="50" width="200" height="100" class="cls-4"/>
-  <rect x="550" y="50" width="200" height="100" class="cls-5"/>
-  <rect x="50" y="200" width="200" height="100" class="cls-6"/>
-  <rect x="300" y="200" width="200" height="100" class="cls-7"/>
-  <rect x="550" y="200" width="200" height="100" class="cls-8"/>
-  <rect x="50" y="350" width="200" height="100" class="cls-9"/>
-  <rect x="300" y="350" width="200" height="100" class="cls-10"/>
-  <rect x="550" y="350" width="200" height="100" class="cls-11"/>
-  <rect x="50" y="500" width="200" height="100" class="cls-12"/>
-  <rect x="300" y="500" width="200" height="100" class="cls-13"/>
-  <rect x="550" y="500" width="200" height="100" class="cls-14"/>
+  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
+  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
+  <rect x="550" y="50" width="200" height="100" class="cls-3"/>
+  <rect x="50" y="200" width="200" height="100" class="cls-4"/>
+  <rect x="300" y="200" width="200" height="100" class="cls-5"/>
+  <rect x="550" y="200" width="200" height="100" class="cls-6"/>
+  <rect x="50" y="350" width="200" height="100" class="cls-7"/>
+  <rect x="300" y="350" width="200" height="100" class="cls-8"/>
+  <rect x="550" y="350" width="200" height="100" class="cls-9"/>
+  <rect x="50" y="500" width="200" height="100" class="cls-10"/>
+  <rect x="300" y="500" width="200" height="100" class="cls-11"/>
+  <rect x="550" y="500" width="200" height="100" class="cls-12"/>
 </svg>

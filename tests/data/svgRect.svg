@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-      .cls-3 {
+      .cls-1 {
         fill: #3f90b6;
       }
     </style>
   </defs>
-  <rect x="70" y="100" width="338" height="163" class="cls-3"/>
-  <rect x="500" y="100" width="300" height="150" rx="30" ry="30" class="cls-3"/>
+  <rect x="70" y="100" width="338" height="163" class="cls-1"/>
+  <rect x="500" y="100" width="300" height="150" rx="30" ry="30" class="cls-1"/>
 </svg>

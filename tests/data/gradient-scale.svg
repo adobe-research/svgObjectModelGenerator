@@ -1,51 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-3 {
+      .cls-1 {
         fill: url(#linear-gradient-1);
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: url(#linear-gradient-2);
       }
 
-      .cls-5 {
+      .cls-3 {
         fill: url(#linear-gradient-3);
       }
 
-      .cls-6 {
+      .cls-4 {
         fill: url(#radial-gradient-1);
       }
 
-      .cls-7 {
+      .cls-5 {
         fill: url(#radial-gradient-2);
       }
 
-      .cls-8 {
+      .cls-6 {
         fill: url(#radial-gradient-3);
       }
 
-      .cls-9 {
+      .cls-7 {
         fill: url(#radial-gradient-4);
       }
 
-      .cls-10 {
+      .cls-8 {
         fill: url(#radial-gradient-5);
       }
 
-      .cls-11 {
+      .cls-9 {
         fill: url(#radial-gradient-6);
       }
 
-      .cls-12 {
+      .cls-10 {
         fill: url(#linear-gradient-4);
       }
 
-      .cls-13 {
+      .cls-11 {
         fill: url(#linear-gradient-5);
       }
 
-      .cls-14 {
+      .cls-12 {
         fill: url(#linear-gradient-6);
       }
     </style>
@@ -95,16 +95,16 @@
     <linearGradient id="linear-gradient-5" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-6" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
-  <rect x="50" y="50" width="200" height="100" class="cls-3"/>
-  <rect x="300" y="50" width="200" height="100" class="cls-4"/>
-  <rect x="550" y="50" width="200" height="100" class="cls-5"/>
-  <rect x="50" y="500" width="200" height="100" class="cls-6"/>
-  <rect x="300" y="500" width="200" height="100" class="cls-7"/>
-  <rect x="550" y="500" width="200" height="100" class="cls-8"/>
-  <rect x="50" y="200" width="200" height="100" class="cls-9"/>
-  <rect x="300" y="200" width="200" height="100" class="cls-10"/>
-  <rect x="552" y="200" width="196" height="94" class="cls-11"/>
-  <rect x="50" y="350" width="200" height="100" class="cls-12"/>
-  <rect x="300" y="350" width="200" height="100" class="cls-13"/>
-  <rect x="550" y="350" width="200" height="100" class="cls-14"/>
+  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
+  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
+  <rect x="550" y="50" width="200" height="100" class="cls-3"/>
+  <rect x="50" y="500" width="200" height="100" class="cls-4"/>
+  <rect x="300" y="500" width="200" height="100" class="cls-5"/>
+  <rect x="550" y="500" width="200" height="100" class="cls-6"/>
+  <rect x="50" y="200" width="200" height="100" class="cls-7"/>
+  <rect x="300" y="200" width="200" height="100" class="cls-8"/>
+  <rect x="552" y="200" width="196" height="94" class="cls-9"/>
+  <rect x="50" y="350" width="200" height="100" class="cls-10"/>
+  <rect x="300" y="350" width="200" height="100" class="cls-11"/>
+  <rect x="550" y="350" width="200" height="100" class="cls-12"/>
 </svg>

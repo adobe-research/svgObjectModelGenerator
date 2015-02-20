@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-3, .cls-4, .cls-5 {
+      .cls-1, .cls-2, .cls-3 {
         font-size: 31.818px;
       }
 
-      .cls-3 {
+      .cls-1 {
         filter: url(#filter-chain-1);
       }
 
-      .cls-5 {
+      .cls-3 {
         fill: #030303;
         font-family: "Minion Pro";
       }
 
-      .cls-6 {
+      .cls-4 {
         fill: #0241ff;
       }
     </style>
@@ -30,5 +30,5 @@
       <feBlend mode="lighten" in2="shadowed" result="gradientFill"/>
     </filter>
   </defs>
-  <text x="245" y="154" class="cls-3"><tspan class="cls-4"><tspan class="cls-5">This is a <tspan class="cls-6">text</tspan></tspan></tspan></text>
+  <text x="245" y="154" class="cls-1"><tspan class="cls-2"><tspan class="cls-3">This is a <tspan class="cls-4">text</tspan></tspan></tspan></text>
 </svg>

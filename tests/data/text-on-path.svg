@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-3, .cls-5, .cls-15, .cls-19, .cls-20, .cls-31, .cls-32 {
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
         font-size: 30px;
       }
 
-      .cls-5, .cls-20, .cls-32 {
+      .cls-2, .cls-5, .cls-7 {
         fill: #000300;
         font-size: 30px;
         font-family: "Arial";
       }
 
-      .cls-19, .cls-20 {
+      .cls-4, .cls-5 {
         text-anchor: end;
       }
 
-      .cls-31, .cls-32 {
+      .cls-6, .cls-7 {
         text-anchor: middle;
       }
 
-      .cls-15 {
+      .cls-3 {
         writing-mode: tb;
         glyph-orientation-vertical: 0;
       }
@@ -38,16 +38,16 @@
     <path id="text-path-11" d="M191,127H46"/>
     <path id="text-path-12" d="M52,189H72,92h27,24,25,19"/>
   </defs>
-  <text class="cls-3"><textPath xlink:href="#text-path-1" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-2" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-3" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-4" class="cls-3"><tspan class="cls-5">Text</tspan></textPath></text>
-  <text class="cls-15"><textPath xlink:href="#text-path-5" class="cls-3"><tspan class="cls-5">Text on path</tspan></textPath></text>
-  <text x="100%" class="cls-3"><textPath xlink:href="#text-path-6" startOffset="100%" class="cls-19"><tspan x="100%" class="cls-20">Text path</tspan></textPath></text>
-  <text class="cls-15"><textPath xlink:href="#text-path-7" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-8" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
-  <text x="100%" class="cls-15"><textPath xlink:href="#text-path-9" startOffset="100%" class="cls-19"><tspan x="100%" class="cls-20">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-10" startOffset="50%" class="cls-31"><tspan x="0" class="cls-32">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-11" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
-  <text class="cls-3"><textPath xlink:href="#text-path-12" class="cls-3"><tspan class="cls-5">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-1" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-2" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-3" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-4" class="cls-1"><tspan class="cls-2">Text</tspan></textPath></text>
+  <text class="cls-3"><textPath xlink:href="#text-path-5" class="cls-1"><tspan class="cls-2">Text on path</tspan></textPath></text>
+  <text x="100%" class="cls-1"><textPath xlink:href="#text-path-6" startOffset="100%" class="cls-4"><tspan x="100%" class="cls-5">Text path</tspan></textPath></text>
+  <text class="cls-3"><textPath xlink:href="#text-path-7" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-8" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
+  <text x="100%" class="cls-3"><textPath xlink:href="#text-path-9" startOffset="100%" class="cls-4"><tspan x="100%" class="cls-5">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-10" startOffset="50%" class="cls-6"><tspan x="0" class="cls-7">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-11" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
+  <text class="cls-1"><textPath xlink:href="#text-path-12" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
 </svg>

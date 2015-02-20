@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2015 Adobe Systems Incorporated. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -111,20 +111,24 @@
             deft = desc[0],
             type = desc[1],
             digival = parseFloat(value);
-        if (type == "number") {
-            value = parseNumber(value);
-        }
-        if (type == "number-sequence") {
-            if (!Array.isArray(value)) {
-                value = (value + "").split(/[,\s]+/);
-            }
-            for (var i = 0, ii = value.length; i < ii; i++) {
-                value[i] = parseNumber(value[i]);
-            }
-            value = value.join(" ");
-        }
-        if (type == "color" && value != "none") {
-            value = writeColor(value);
+        switch (type) {
+            case "number":
+                value = parseNumber(value);
+                break;
+            case "number-sequence":
+                if (!Array.isArray(value)) {
+                    value = (value + "").split(/[,\s]+/);
+                }
+                for (var i = 0, ii = value.length; i < ii; i++) {
+                    value[i] = parseNumber(value[i]);
+                }
+                value = value.join(" ");
+                break;
+            case "color":
+                if (value != "none") {
+                    value = writeColor(value);
+                }
+                break;
         }
         if (value + "" == deft + "") {
             delete this.attrs[name];
