@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         stroke: #000;
         stroke-linecap: round;
         stroke-width: 3px;
@@ -11,7 +10,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-4 {
+      .cls-2 {
         stroke: #000;
         stroke-linecap: round;
         stroke-linejoin: bevel;
@@ -21,7 +20,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-5 {
+      .cls-3 {
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 10px;
@@ -30,7 +29,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-6 {
+      .cls-4 {
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 3px;
@@ -39,7 +38,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-7 {
+      .cls-5 {
         stroke: url(#linear-gradient-1);
         stroke-linejoin: round;
         stroke-width: 10px;
@@ -48,7 +47,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-8 {
+      .cls-6 {
         fill: url(#radial-gradient-1);
         stroke: url(#radial-gradient-2);
         stroke-linejoin: round;
@@ -57,7 +56,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-9 {
+      .cls-7 {
         stroke: url(#linear-gradient-2);
         stroke-linecap: round;
         stroke-width: 20px;
@@ -66,7 +65,7 @@
         fill-rule: evenodd;
       }
 
-      .cls-10 {
+      .cls-8 {
         stroke: url(#linear-gradient-3);
         stroke-width: 20px;
         fill: none;
@@ -106,12 +105,12 @@
     </linearGradient>
     <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient-1"/>
   </defs>
-  <path d="M50,50H250V150H50V50Z" class="cls-3"/>
-  <path d="M300,50H500V150H300V50Z" class="cls-4"/>
-  <path d="M550,50H750V150H550V50Z" class="cls-5"/>
-  <path d="M50,200H250V300H50V200Z" class="cls-6"/>
-  <path d="M300,200H500V300H300V200Z" class="cls-7"/>
-  <path d="M550,200H750V300H550V200Z" class="cls-8"/>
-  <path d="M50,350H250V450H50V350Z" class="cls-9"/>
-  <path d="M300,350H500V450H300V350Z" class="cls-10"/>
+  <path d="M50,50H250V150H50V50Z" class="cls-1"/>
+  <path d="M300,50H500V150H300V50Z" class="cls-2"/>
+  <path d="M550,50H750V150H550V50Z" class="cls-3"/>
+  <path d="M50,200H250V300H50V200Z" class="cls-4"/>
+  <path d="M300,200H500V300H300V200Z" class="cls-5"/>
+  <path d="M550,200H750V300H550V200Z" class="cls-6"/>
+  <path d="M50,350H250V450H50V350Z" class="cls-7"/>
+  <path d="M300,350H500V450H300V350Z" class="cls-8"/>
 </svg>

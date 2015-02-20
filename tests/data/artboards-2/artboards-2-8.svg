@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="748" height="748" viewBox="0 0 748 748">
   <defs>
     <style>
-
-      .cls-2 {
+      .cls-1 {
         fill: lime;
       }
     </style>
   </defs>
-  <rect width="748" height="748" class="cls-2"/>
+  <rect width="748" height="748" class="cls-1"/>
 </svg>

@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
-      .cls-4, .cls-5 {
+      .cls-2, .cls-3 {
         fill: #2ccf26;
         stroke: #f26522;
         stroke-width: 3px;
       }
 
-      .cls-3 {
+      .cls-1 {
         filter: url(#drop-shadow-1);
         opacity: 0.35;
         mix-blend-mode: multiply;
       }
 
-      .cls-5 {
+      .cls-3 {
         filter: url(#inner-shadow-1);
         opacity: 0.75;
       }
@@ -36,11 +35,11 @@
       <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
     </filter>
   </defs>
-  <g id="group" class="cls-3">
-    <rect x="100" y="100" width="200" height="200" class="cls-4"/>
-    <g id="rectangle-2" style="fill: #2ccf26; filter: url(#inner-shadow-1);">
-      <rect id="rect-1" x="200" y="200" width="200" height="200" class="cls-5" style="stroke: inherit; filter: none; fill: inherit;"/>
+  <g class="cls-1">
+    <rect x="100" y="100" width="200" height="200" class="cls-2"/>
+    <g style="fill: #2ccf26; filter: url(#inner-shadow-1)">
+      <rect x="200" y="200" width="200" height="200" id="rect-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-3"/>
     </g>
-    <use xlink:href="#rect-1" style="stroke: #f26522; fill: none; filter: none;"/>
+    <use xlink:href="#rect-1" style="stroke: #f26522; filter: none; fill: none"/>
   </g>
 </svg>

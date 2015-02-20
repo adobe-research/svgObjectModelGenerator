@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         fill: #ff0;
         filter: url(#color-overlay-1);
       }
@@ -17,5 +16,5 @@
       <feBlend mode="multiply" in2="solidFill" result="solidFill-1"/>
     </filter>
   </defs>
-  <rect x="224" y="204" width="200" height="200" class="cls-3"/>
+  <rect x="224" y="204" width="200" height="200" class="cls-1"/>
 </svg>

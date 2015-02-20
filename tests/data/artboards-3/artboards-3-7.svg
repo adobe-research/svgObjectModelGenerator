@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="600" height="600" viewBox="0 0 600 600">
   <defs>
     <style>
-
-      .cls-2 {
+      .cls-1 {
         fill: url(#linear-gradient-1);
         fill-rule: evenodd;
       }
@@ -17,5 +16,5 @@
       <stop offset="1" stop-color="#002874"/>
     </linearGradient>
   </defs>
-  <path d="M4000,2212h600v600H4000V2212Z" class="cls-2"/>
+  <path d="M4000,2212h600v600H4000V2212Z" class="cls-1"/>
 </svg>

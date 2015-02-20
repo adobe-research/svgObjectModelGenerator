@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         fill: #000300;
         filter: url(#outer-glow-1);
       }
@@ -25,5 +24,5 @@
       <feComposite in="SourceGraphic" result="shadowed"/>
     </filter>
   </defs>
-  <rect x="236" y="190" width="149" height="114" class="cls-3"/>
+  <rect x="236" y="190" width="149" height="114" class="cls-1"/>
 </svg>

@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
-      .cls-3, .cls-4, .cls-5 {
+      .cls-1, .cls-2, .cls-3 {
         filter: url(#filter-chain-1);
       }
 
-      .cls-3 {
+      .cls-1 {
         fill: #00ff3e;
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: blue;
       }
 
-      .cls-5 {
+      .cls-3 {
         fill: #f0f;
       }
     </style>
@@ -33,7 +32,7 @@
       <feBlend mode="multiply" in2="shadowed" result="innerShadow"/>
     </filter>
   </defs>
-  <rect x="50" y="200" width="200" height="200" class="cls-3"/>
-  <rect x="300" y="200" width="200" height="200" class="cls-4"/>
-  <rect x="550" y="200" width="200" height="200" class="cls-5"/>
+  <rect x="50" y="200" width="200" height="200" class="cls-1"/>
+  <rect x="300" y="200" width="200" height="200" class="cls-2"/>
+  <rect x="550" y="200" width="200" height="200" class="cls-3"/>
 </svg>

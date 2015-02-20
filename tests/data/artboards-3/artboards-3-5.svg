@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="1927" height="1024" viewBox="0 0 1927 1024">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         fill: url(#linear-gradient-1);
         fill-rule: evenodd;
       }
@@ -17,7 +16,7 @@
       <stop offset="1" stop-color="#002874"/>
     </linearGradient>
   </defs>
-  <g id="artboard-2">
-    <path d="M4000,2212h600v600H4000V2212Z" class="cls-3"/>
+  <g id="artboard-5">
+    <path d="M4000,2212h600v600H4000V2212Z" class="cls-1"/>
   </g>
 </svg>

@@ -1,46 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-
-      .cls-3, .cls-4, .cls-7, .cls-8, .cls-15, .cls-17, .cls-19, .cls-22 {
+      .cls-1, .cls-2, .cls-3, .cls-8, .cls-10, .cls-13 {
         font-size: 63.635px;
       }
 
-      .cls-4, .cls-7, .cls-8, .cls-15 {
-        font-family: "Myriad Pro";
-        font-size: 63.635px;
+      .cls-2, .cls-3, .cls-6, .cls-9, .cls-10 {
+        fill: #030303;
       }
 
-      .cls-4, .cls-7, .cls-17, .cls-19 {
+      .cls-2, .cls-3, .cls-10 {
         fill: #030303;
         font-size: 63.635px;
       }
 
-      .cls-19, .cls-22, .cls-27 {
-        font-family: "Minion Pro";
-      }
-
-      .cls-15, .cls-22 {
+      .cls-5, .cls-8, .cls-13 {
         fill: #ff032d;
       }
 
-      .cls-8 {
-        fill: #39ff02;
+      .cls-7, .cls-8, .cls-10, .cls-12 {
+        font-family: "Minion Pro";
       }
 
-      .cls-17 {
-        font-family: "MyriadPro-BoldCond";
-        font-weight: bold;
+      .cls-2, .cls-3 {
+        font-family: "Myriad Pro";
       }
 
-      .cls-27 {
+      .cls-11, .cls-12 {
         fill: #02ffa2;
         font-size: 20px;
       }
+
+      .cls-4 {
+        fill: #39ff02;
+      }
+
+      .cls-6 {
+        font-family: "MyriadPro-BoldCond";
+        font-weight: bold;
+      }
     </style>
   </defs>
-  <text x="129px" y="121px" class="cls-3"><tspan class="cls-4">This is a text example</tspan></text>
-  <text x="141px" y="232px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">This is a <tspan class="cls-8">text </tspan>example</tspan></tspan></text>
-  <text x="139px" y="341px" class="cls-3"><tspan class="cls-3"><tspan class="cls-7">Thi<tspan class="cls-8">s i</tspan>s <tspan class="cls-15">a t</tspan>ex<tspan class="cls-17">t e</tspan>xa<tspan class="cls-19">mple</tspan></tspan></tspan></text>
-  <text x="149px" y="440px" class="cls-3"><tspan class="cls-3"><tspan class="cls-22">This i<tspan class="cls-19">s</tspan></tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-19">a te<tspan class="cls-22">x<tspan class="cls-27">t</tspan></tspan></tspan></tspan><tspan dy="1.2em" x="149px" class="cls-3"><tspan class="cls-27">exam<tspan class="cls-22">ple</tspan></tspan></tspan></text>
+  <text x="129" y="121" class="cls-1"><tspan class="cls-2">This is a text example</tspan></text>
+  <text x="141" y="232" class="cls-1"><tspan class="cls-1"><tspan class="cls-3">This is a <tspan class="cls-4">text </tspan>example</tspan></tspan></text>
+  <text x="139" y="341" class="cls-1"><tspan class="cls-1"><tspan class="cls-3">Thi<tspan class="cls-4">s i</tspan>s <tspan class="cls-5">a t</tspan>ex<tspan class="cls-6">t e</tspan>xa<tspan class="cls-7">mple</tspan></tspan></tspan></text>
+  <text x="149" y="440" class="cls-1"><tspan class="cls-1"><tspan class="cls-8">This i<tspan class="cls-9">s</tspan></tspan></tspan><tspan dy="1.2em" x="149" class="cls-1"><tspan class="cls-10">a te<tspan class="cls-5">x<tspan class="cls-11">t</tspan></tspan></tspan></tspan><tspan dy="1.2em" x="149" class="cls-1"><tspan class="cls-12">exam<tspan class="cls-13">ple</tspan></tspan></tspan></text>
 </svg>

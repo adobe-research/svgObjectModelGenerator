@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         fill: #24da1e;
         filter: url(#satin-1);
       }
@@ -23,5 +22,5 @@
       <feBlend mode="lighten" in2="SourceGraphic" result="chromeFX"/>
     </filter>
   </defs>
-  <rect x="200" y="225" width="300" height="150" class="cls-3"/>
+  <rect x="200" y="225" width="300" height="150" class="cls-1"/>
 </svg>

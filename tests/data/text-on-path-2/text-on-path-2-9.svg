@@ -1,16 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="516" height="395" viewBox="0 0 516 395">
   <defs>
     <style>
-
-      .cls-2, .cls-3, .cls-4 {
+      .cls-1, .cls-2, .cls-3 {
         font-size: 150px;
       }
 
-      .cls-3, .cls-4 {
+      .cls-2, .cls-3 {
         text-anchor: end;
       }
 
-      .cls-4 {
+      .cls-3 {
         fill: #226b26;
         font-family: "Optima-ExtraBlack";
       }
@@ -18,7 +17,5 @@
 
     <path id="text-path-1" d="M360.72,269.76c30.221,0,54.72,15.043,54.72,33.6s-24.499,33.6-54.72,33.6S306,321.917,306,303.36Z"/>
   </defs>
-  <text x="100%" class="cls-2"><textPath xlink:href="#text-path-1" startOffset="100%">
-    <tspan x="100%" class="cls-4">more path text </tspan>
-  </textPath></text>
+  <text x="100%" class="cls-1"><textPath xlink:href="#text-path-1" startOffset="100%" class="cls-2"><tspan x="100%" class="cls-3">more path text </tspan></textPath></text>
 </svg>
