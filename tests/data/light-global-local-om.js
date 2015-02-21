@@ -25,37 +25,41 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 20,
-							"chokeMatte": 0,
-							"blur": 20,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 20,
+									"chokeMatte": 0,
+									"blur": 20,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -97,37 +101,41 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": -35,
-								"units": "angleUnit"
-							},
-							"distance": 20,
-							"chokeMatte": 0,
-							"blur": 20,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": -35,
+										"units": "angleUnit"
+									},
+									"distance": 20,
+									"chokeMatte": 0,
+									"blur": 20,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -169,36 +177,40 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 20,
-							"chokeMatte": 0,
-							"blur": 20,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
+				"meta": {
+					"PS": {
+						"fx": {
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 20,
+									"chokeMatte": 0,
+									"blur": 20,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -240,36 +252,40 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": -35,
-								"units": "angleUnit"
-							},
-							"distance": 20,
-							"chokeMatte": 0,
-							"blur": 20,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
+				"meta": {
+					"PS": {
+						"fx": {
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": -35,
+										"units": "angleUnit"
+									},
+									"distance": 20,
+									"chokeMatte": 0,
+									"blur": 20,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],

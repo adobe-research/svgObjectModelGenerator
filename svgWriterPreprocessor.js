@@ -71,7 +71,7 @@
                         return;
                     }
                     // fill, stroke and fx are handled above.
-                    if (property === "fill" || property === "stroke" | property ==="fx") {
+                    if (property === "fill" || property === "stroke" | property === "meta") {
                         return;
                     }
                     if (property === "font-size") {
@@ -124,11 +124,11 @@
                 boundPadRight = omIn.style.stroke.lineWidth/2.0;
                 boundPadTop = omIn.style.stroke.lineWidth/2.0;
                 boundPadBottom = omIn.style.stroke.lineWidth/2.0;
-            } else if(omIn.style && omIn.style.fx && omIn.style.fx.frameFX && omIn.style.fx.frameFX.enabled && omIn.style.fx.frameFX.size) {
-                boundPadLeft = omIn.style.fx.frameFX.size/2.0;
-                boundPadRight = omIn.style.fx.frameFX.size/2.0;
-                boundPadTop = omIn.style.fx.frameFX.size/2.0;
-                boundPadBottom = omIn.style.fx.frameFX.size/2.0;
+            } else if (omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx && omIn.style.meta.PS.fx.frameFX && omIn.style.meta.PS.fx.frameFX.enabled && omIn.style.meta.PS.fx.frameFX.size) {
+                boundPadLeft = omIn.style.meta.PS.fx.frameFX.size/2.0;
+                boundPadRight = omIn.style.meta.PS.fx.frameFX.size/2.0;
+                boundPadTop = omIn.style.meta.PS.fx.frameFX.size/2.0;
+                boundPadBottom = omIn.style.meta.PS.fx.frameFX.size/2.0;
             }
             
             if (omIn.type === "shape" && omIn.shape && (omIn.shape.type === "circle" || omIn.shape.type === "ellipse")) {

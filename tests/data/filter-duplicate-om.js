@@ -25,66 +25,70 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 5,
+									"chokeMatte": 0,
+									"blur": 5,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							],
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 5,
+									"chokeMatte": 0,
+									"blur": 5,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					],
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -126,66 +130,70 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 5,
+									"chokeMatte": 0,
+									"blur": 5,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							],
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 5,
+									"chokeMatte": 0,
+									"blur": 5,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					],
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -227,66 +235,70 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 5,
+									"chokeMatte": 0,
+									"blur": 5,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							],
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 120,
+										"units": "angleUnit"
+									},
+									"distance": 5,
+									"chokeMatte": 0,
+									"blur": 5,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					],
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 120,
-								"units": "angleUnit"
-							},
-							"distance": 5,
-							"chokeMatte": 0,
-							"blur": 5,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						}
-					]
+					}
 				}
 			},
 			"children": [],

@@ -170,33 +170,61 @@
             }
         };
 
-        this.addFx = function (svgNode, layer) {
-            var color;
+        var applyStrokeFilter = function (svgNode, strokeStyle) {
+            var stroke = {};
 
+            if (!strokeStyle) {
+                return;
+            }
+                
+            svgNode.style.stroke = stroke;
+
+            if (strokeStyle) {
+                stroke.type = !strokeStyle.enabled ? "none" : "solid";
+                stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
+                stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
+                stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
+                stroke.lineCap = "butt";
+                stroke.lineJoin = "round";
+                stroke.miterLimit = 100;
+                stroke.sourceStyle = strokeStyle.style;
+                if (strokeStyle.gradient) {
+                    stroke.type = "gradient";
+                    stroke.gradient = omgUtils.toGradient(strokeStyle);
+                }
+            } else {
+                stroke.type = "none";
+            }
+        }
+
+        this.addFx = function (svgNode, layer) {
             if (!layer.layerEffects || layer.layerEffects.masterFXSwitch === false) {
                 return;
             }
-            svgNode.style.fx = JSON.parse(JSON.stringify(layer.layerEffects));
+            svgNode.style.meta = svgNode.style.meta || {};
+            svgNode.style.meta.PS = svgNode.style.meta.PS || {};
+            svgNode.style.meta.PS.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
             function prepareEffect (effect, prepareFunction) {
-                var list = effect + 'Multi';
+                var list = effect + 'Multi',
+                    fx = svgNode.style.meta.PS.fx;
 
-                if (svgNode.style.fx[effect]) {
+                if (fx[effect]) {
                     // Transform single effects to lists.
-                    svgNode.style.fx[list] = [
-                        svgNode.style.fx[effect]
+                    fx[list] = [
+                        fx[effect]
                     ];
-                    delete svgNode.style.fx[effect];
+                    delete fx[effect];
                 }
-                if (svgNode.style.fx[list]) {
+                if (fx[list]) {
                     // PS exports filters in the opposite order, revert.
-                    svgNode.style.fx[list].reverse();
-                    svgNode.style.fx[list].forEach(prepareFunction);
+                    fx[list].reverse();
+                    fx[list].forEach(prepareFunction);
                 }
             }
 
             function prepareColor (ele) {
-                color = ele.color;
+                var color = ele.color;
                 ele.color = omgUtils.toColor(color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
@@ -217,39 +245,17 @@
                 }
             }
 
-            prepareEffect('solidFill', prepareColor);
             prepareEffect('dropShadow', prepareColor);
-            prepareEffect('innerShadow', prepareColor);
+            prepareEffect('outerGlow', prepareGlow);
             prepareEffect('gradientFill', prepareGradient);
+            prepareEffect('solidFill', prepareColor);
             prepareEffect('chromeFX', prepareColor);
             prepareEffect('innerGlow', prepareGlow);
-            prepareEffect('outerGlow', prepareGlow);
+            prepareEffect('innerShadow', prepareColor);
             prepareEffect('bevelEmboss');
             prepareEffect('patternOverlay');
 
-            if (svgNode.style.fx.frameFX) {
-                var stroke = {},
-                    strokeStyle = svgNode.style.fx.frameFX;
-                
-                svgNode.style.stroke = stroke;
-                
-                if (strokeStyle) {
-                    stroke.type = !strokeStyle.enabled ? "none" : "solid";
-                    stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
-                    stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
-                    stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
-                    stroke.lineCap = "butt";
-                    stroke.lineJoin = "round";
-                    stroke.miterLimit = 100;
-                    stroke.sourceStyle = strokeStyle.style;
-                    if (strokeStyle.gradient) {
-                        stroke.type = "gradient";
-                        stroke.gradient = omgUtils.toGradient(strokeStyle);
-                    }
-                } else {
-                    stroke.type = "none";
-                }
-            }
+            applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX);
         };
         
         this.addGroupStylingData = function (svgNode, layer, dpi) {

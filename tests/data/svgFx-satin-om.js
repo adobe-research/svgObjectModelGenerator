@@ -25,31 +25,35 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"chromeFXMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"color": {
-								"r": 212.000003,
-								"g": 31.595331,
-								"b": 31.595331,
-								"a": 1
-							},
-							"antiAlias": false,
-							"invert": false,
-							"opacity": 0.7,
-							"localLightingAngle": {
-								"value": 155,
-								"units": "angleUnit"
-							},
-							"distance": 28,
-							"blur": 10,
-							"mappingShape": {
-								"name": "Gaussian"
-							}
+				"meta": {
+					"PS": {
+						"fx": {
+							"chromeFXMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"color": {
+										"r": 212.000003,
+										"g": 31.595331,
+										"b": 31.595331,
+										"a": 1
+									},
+									"antiAlias": false,
+									"invert": false,
+									"opacity": 0.7,
+									"localLightingAngle": {
+										"value": 155,
+										"units": "angleUnit"
+									},
+									"distance": 28,
+									"blur": 10,
+									"mappingShape": {
+										"name": "Gaussian"
+									}
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
