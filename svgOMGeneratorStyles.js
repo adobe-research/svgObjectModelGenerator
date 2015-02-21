@@ -252,12 +252,12 @@
             }
         };
         
-        this.addGroupStylingData = function (svgNode, layer, dpi) {
+        this.addGroupStylingData = function (svgNode, layer, writer) {
             svgNode.shapeBounds = layer.bounds;
-            this.addStylingData(svgNode, layer, dpi);
+            this.addStylingData(svgNode, layer, writer);
         };
         
-        this.addStylingData = function (svgNode, layer, dpi) {
+        this.addStylingData = function (svgNode, layer, writer) {
 
             this.addGlobalStyle(svgNode, layer);
 
@@ -266,7 +266,7 @@
                 return;
             }
 
-            this.addStroke(svgNode, layer, dpi);
+            this.addStroke(svgNode, layer, writer._dpi());
             this.addFill(svgNode, layer);
             this.addFillRule(svgNode, layer);
             this.addFx(svgNode, layer);
