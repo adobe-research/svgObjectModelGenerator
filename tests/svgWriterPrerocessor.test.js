@@ -30,22 +30,6 @@ describe('SVGWriterPreprocessor', function (){
         sandbox.restore();
     });
     
-    it("can grow bounds uniformly", function () {
-        var shapeBounds = {
-                left: 20,
-                right: 50,
-                top: 10,
-                bottom: 100
-            };
-        
-        svgWriterPreprocessor.growBoundsUniform(shapeBounds, 3);
-        
-        expect(shapeBounds.left).to.equal(17);
-        expect(shapeBounds.right).to.equal(53);
-        expect(shapeBounds.top).to.equal(7);
-        expect(shapeBounds.bottom).to.equal(103);
-    });
-    
     it("knows how to trim to artwork", function () {
         
         var svgOM = {

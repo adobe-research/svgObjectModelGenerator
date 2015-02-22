@@ -31,6 +31,16 @@
         
         var self = this;
         
+        self.shiftBoundsX = function (bounds, delta) {
+            bounds.left += delta;
+            bounds.right += delta;
+        };
+        
+        self.shiftBoundsY = function (bounds, delta) {
+            bounds.top += delta;
+            bounds.bottom += delta;
+        };
+
         self.omguid = function (om) {
             if (!om._guid) {
                 om._guid = "guid" + guidID++;
