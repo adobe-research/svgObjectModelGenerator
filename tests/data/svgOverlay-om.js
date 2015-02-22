@@ -45,20 +45,24 @@ module.exports = {
 						"gradientSpace": "objectBoundingBox"
 					}
 				},
-				"fx": {
-					"solidFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"color": {
-								"r": 255,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							}
+				"meta": {
+					"PS": {
+						"fx": {
+							"solidFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"color": {
+										"r": 255,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									}
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],

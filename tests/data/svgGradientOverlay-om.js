@@ -25,62 +25,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "objectBoundingBox"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "objectBoundingBox"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": true,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -122,62 +126,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "objectBoundingBox"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": true,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "objectBoundingBox"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": true,
-							"dither": false,
-							"align": true,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -219,62 +227,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1.5,
+										"type": "linear",
+										"angle": -35,
+										"gradientSpace": "objectBoundingBox"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": -35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 150,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1.5,
-								"type": "linear",
-								"angle": -35,
-								"gradientSpace": "objectBoundingBox"
-							},
-							"angle": {
-								"value": -35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": true,
-							"scale": {
-								"value": 150,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -316,62 +328,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 135,
+										"gradientSpace": "userSpaceOnUse"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": 135,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": false,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 135,
-								"gradientSpace": "userSpaceOnUse"
-							},
-							"angle": {
-								"value": 135,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": false,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -413,62 +429,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "userSpaceOnUse"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": true,
+									"dither": false,
+									"align": false,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "userSpaceOnUse"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": true,
-							"dither": false,
-							"align": false,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -510,62 +530,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1.5,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "userSpaceOnUse"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": false,
+									"scale": {
+										"value": 150,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1.5,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "userSpaceOnUse"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": false,
-							"scale": {
-								"value": 150,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -607,62 +631,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "userSpaceOnUse"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": true,
+									"dither": false,
+									"align": false,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "userSpaceOnUse"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": true,
-							"dither": false,
-							"align": false,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -704,62 +732,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 0.8,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 0.8,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "userSpaceOnUse"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": true,
+									"dither": false,
+									"align": false,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "userSpaceOnUse"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": true,
-							"dither": false,
-							"align": false,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -801,62 +833,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 0.1,
+										"type": "linear",
+										"angle": 35,
+										"gradientSpace": "userSpaceOnUse"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": 35,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": false,
+									"scale": {
+										"value": 10,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 0.1,
-								"type": "linear",
-								"angle": 35,
-								"gradientSpace": "userSpaceOnUse"
-							},
-							"angle": {
-								"value": 35,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": false,
-							"scale": {
-								"value": 10,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -898,62 +934,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 90,
+										"gradientSpace": "objectBoundingBox"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": 90,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 90,
-								"gradientSpace": "objectBoundingBox"
-							},
-							"angle": {
-								"value": 90,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": true,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -995,62 +1035,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": -90,
+										"gradientSpace": "objectBoundingBox"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": -90,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": -90,
-								"gradientSpace": "objectBoundingBox"
-							},
-							"angle": {
-								"value": -90,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": true,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -1092,62 +1136,66 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"gradientFillMulti": [
-						{
-							"enabled": true,
-							"mode": "lighten",
-							"opacity": 1,
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 41.003892,
-											"g": 10,
-											"b": 89.003893,
-											"a": 1
-										}
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 41.003892,
+													"g": 10,
+													"b": 89.003893,
+													"a": 1
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 124,
+													"b": 0,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 70,
+										"gradientSpace": "objectBoundingBox"
 									},
-									{
-										"position": 100,
-										"color": {
-											"r": 255,
-											"g": 124,
-											"b": 0,
-											"a": 1
+									"angle": {
+										"value": 70,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
 										}
 									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 70,
-								"gradientSpace": "objectBoundingBox"
-							},
-							"angle": {
-								"value": 70,
-								"units": "angleUnit"
-							},
-							"type": "linear",
-							"reverse": false,
-							"dither": false,
-							"align": true,
-							"scale": {
-								"value": 100,
-								"units": "percentUnit"
-							},
-							"offset": {
-								"horizontal": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"vertical": {
-									"value": 0,
-									"units": "percentUnit"
 								}
-							}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],

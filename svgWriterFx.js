@@ -43,29 +43,38 @@
         ctxCapture = svgWriterUtils.ctxCapture;
     
     function SVGWriterFx() {
+
+        var PSFx = function (omIn) {
+            return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
+        }
         
         this.hasFx = function (ctx) {
             // FIXME: Inner and outer glow are missing.
-            return (hasEffect(ctx, 'dropShadow') ||
+            return PSFx(ctx.currentOMNode) && ((hasEffect(ctx, 'dropShadow') ||
                     hasEffect(ctx, 'gradientFill', hasColorNoise) ||
                     hasEffect(ctx, 'solidFill') ||
                     hasEffect(ctx, 'chromeFX') ||
-                    hasEffect(ctx, 'innerShadow'));
+                    hasEffect(ctx, 'innerShadow')));
         };
         
         this.scanForUnsupportedFeatures = function (ctx) {
-            var omIn = ctx.currentOMNode;
+            var omIn = ctx.currentOMNode,
+                fx = PSFx(omIn);
             
-            if (omIn.style && omIn.style.fx) {
-                if (hasEffect(ctx, 'bevelEmboss')) {
-                    ctx.errors.push("Bevel and Emboss filter effects are not supported by SVG export.");
-                }
-                
-                if (hasEffect(ctx, 'patternOverlay')) {
-                    ctx.errors.push("Pattern Overlay effects are not supported by SVG export.");
-                }
+            if (!fx) {
+                return;
             }
-            
+            if (hasEffect(ctx, 'bevelEmboss')) {
+                ctx.errors.push("Bevel and Emboss filter effects are not supported by SVG export.");
+            }
+            if (hasEffect(ctx, 'patternOverlay')) {
+                ctx.errors.push("Pattern Overlay effects are not supported by SVG export.");
+            }
+            if (fx.gradientFill &&
+                fx.gradientFill.gradient &&
+                fx.gradientFill.gradient.gradientForm === 'colorNoise') {
+                ctx.errors.push("Gradients with noise are not supported by SVG export.");
+            }
         };
         
         this.externalizeStyles = function (ctx) {
@@ -76,7 +85,7 @@
                 iFx = 0,
                 filterFlavor;
             
-            if (!omIn.style || !omIn.style.fx) {
+            if (!PSFx(omIn)) {
                 return;
             }
 
@@ -158,10 +167,9 @@
 
         var hasEffect = function (ctx, effect, custom) {
             var omIn = ctx.currentOMNode;
-
             effect += 'Multi';
-            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx[effect]) {
-                return omIn.style.fx[effect].some(function(ele) {
+            if (omIn.style.meta.PS.fx[effect]) {
+                return omIn.style.meta.PS.fx[effect].some(function(ele) {
                     if (custom) {
                         return ele.enabled && custom(ele);
                     }
@@ -198,7 +206,7 @@
             }
 
             var omIn = ctx.currentOMNode,
-                effects = omIn.style.fx[name + 'Multi'],
+                effects = omIn.style.meta.PS.fx[name + 'Multi'],
                 specifies = [];
 
             effects.forEach(function (effect) {
@@ -223,7 +231,7 @@
             }
 
             var omIn = ctx.currentOMNode,
-                dropShadowMulti = omIn.style.fx.dropShadowMulti,
+                dropShadowMulti = omIn.style.meta.PS.fx.dropShadowMulti,
                 specifies = [];
 
             function writeDropShadow(ctx, dropShadow, ind) {
@@ -396,18 +404,6 @@
 
             return {m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset};
         }
-        
-        this.addFxAttr = function (ctx) {
-            var node = ctx.currentOMNode;
-            //see what we have...
-            if (node._filterflavor && !ctx.hasWritten(node, node._filterflavor + "-attr")) {
-                ctx.didWrite(node, node._filterflavor + "-attr");
-                var overlayDefn = ctx.omStylesheet.getDefine(node.id, node._filterflavor);
-                if (overlayDefn) {
-                    write(ctx, " filter=\"url(#" + overlayDefn.defnId + ")\"");
-                }
-            }
-        };
 	}
 
 	module.exports = new SVGWriterFx();

@@ -38,35 +38,39 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"solidFillMulti": [
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "multiply",
-							"color": {
-								"r": 97.178987,
-								"g": 177.000005,
-								"b": 142.252921,
-								"a": 1
-							},
-							"opacity": 0.75
-						},
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "multiply",
-							"color": {
-								"r": 213.000003,
-								"g": 133.649803,
-								"b": 133.649803,
-								"a": 1
-							},
-							"opacity": 1
+				"meta": {
+					"PS": {
+						"fx": {
+							"solidFillMulti": [
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "multiply",
+									"color": {
+										"r": 97.178987,
+										"g": 177.000005,
+										"b": 142.252921,
+										"a": 1
+									},
+									"opacity": 0.75
+								},
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "multiply",
+									"color": {
+										"r": 213.000003,
+										"g": 133.649803,
+										"b": 133.649803,
+										"a": 1
+									},
+									"opacity": 1
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],

@@ -38,96 +38,100 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 255,
-								"a": 1
-							},
-							"opacity": 1,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": -55,
-								"units": "angleUnit"
-							},
-							"distance": 100,
-							"chokeMatte": 0,
-							"blur": 50,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						},
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 255,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 1,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": -135,
-								"units": "angleUnit"
-							},
-							"distance": 25,
-							"chokeMatte": 0,
-							"blur": 50,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						},
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "multiply",
-							"color": {
-								"r": 255,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 1,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 90,
-								"units": "angleUnit"
-							},
-							"distance": 25,
-							"chokeMatte": 0,
-							"blur": 50,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
+				"meta": {
+					"PS": {
+						"fx": {
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 255,
+										"a": 1
+									},
+									"opacity": 1,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": -55,
+										"units": "angleUnit"
+									},
+									"distance": 100,
+									"chokeMatte": 0,
+									"blur": 50,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								},
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 255,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 1,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": -135,
+										"units": "angleUnit"
+									},
+									"distance": 25,
+									"chokeMatte": 0,
+									"blur": 50,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								},
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "multiply",
+									"color": {
+										"r": 255,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 1,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 90,
+										"units": "angleUnit"
+									},
+									"distance": 25,
+									"chokeMatte": 0,
+									"blur": 50,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
@@ -182,96 +186,100 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fx": {
-					"innerShadowMulti": [
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "normal",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 255,
-								"a": 1
-							},
-							"opacity": 1,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": -55,
-								"units": "angleUnit"
-							},
-							"distance": 100,
-							"chokeMatte": 0,
-							"blur": 50,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						},
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "normal",
-							"color": {
-								"r": 0,
-								"g": 255,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 1,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": -135,
-								"units": "angleUnit"
-							},
-							"distance": 25,
-							"chokeMatte": 0,
-							"blur": 50,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
-						},
-						{
-							"enabled": true,
-							"present": true,
-							"showInDialog": true,
-							"mode": "normal",
-							"color": {
-								"r": 255,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 1,
-							"useGlobalAngle": true,
-							"localLightingAngle": {
-								"value": 90,
-								"units": "angleUnit"
-							},
-							"distance": 25,
-							"chokeMatte": 0,
-							"blur": 50,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							}
+				"meta": {
+					"PS": {
+						"fx": {
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "normal",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 255,
+										"a": 1
+									},
+									"opacity": 1,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": -55,
+										"units": "angleUnit"
+									},
+									"distance": 100,
+									"chokeMatte": 0,
+									"blur": 50,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								},
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "normal",
+									"color": {
+										"r": 0,
+										"g": 255,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 1,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": -135,
+										"units": "angleUnit"
+									},
+									"distance": 25,
+									"chokeMatte": 0,
+									"blur": 50,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								},
+								{
+									"enabled": true,
+									"present": true,
+									"showInDialog": true,
+									"mode": "normal",
+									"color": {
+										"r": 255,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 1,
+									"useGlobalAngle": true,
+									"localLightingAngle": {
+										"value": 90,
+										"units": "angleUnit"
+									},
+									"distance": 25,
+									"chokeMatte": 0,
+									"blur": 50,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [],
