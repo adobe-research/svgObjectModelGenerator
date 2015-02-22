@@ -44,13 +44,13 @@
     
     function SVGWriterFx() {
 
-        var hasPSFx = function (omIn) {
+        var PSFx = function (omIn) {
             return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
         }
         
         this.hasFx = function (ctx) {
             // FIXME: Inner and outer glow are missing.
-            return hasPSFx(ctx.currentOMNode) && ((hasEffect(ctx, 'dropShadow') ||
+            return PSFx(ctx.currentOMNode) && ((hasEffect(ctx, 'dropShadow') ||
                     hasEffect(ctx, 'gradientFill', hasColorNoise) ||
                     hasEffect(ctx, 'solidFill') ||
                     hasEffect(ctx, 'chromeFX') ||
@@ -58,9 +58,10 @@
         };
         
         this.scanForUnsupportedFeatures = function (ctx) {
-            var omIn = ctx.currentOMNode;
+            var omIn = ctx.currentOMNode,
+                fx = PSFx(omIn);
             
-            if (!hasPSFx(omIn)) {
+            if (!fx) {
                 return;
             }
             if (hasEffect(ctx, 'bevelEmboss')) {
@@ -69,9 +70,9 @@
             if (hasEffect(ctx, 'patternOverlay')) {
                 ctx.errors.push("Pattern Overlay effects are not supported by SVG export.");
             }
-            if (omIn.style.meta.PS.fx.gradientFill &&
-                omIn.style.meta.PS.fx.gradientFill.gradient &&
-                omIn.style.meta.PS.fx.gradientFill.gradient.gradientForm === 'colorNoise') {
+            if (fx.gradientFill &&
+                fx.gradientFill.gradient &&
+                fx.gradientFill.gradient.gradientForm === 'colorNoise') {
                 ctx.errors.push("Gradients with noise are not supported by SVG export.");
             }
         };
@@ -84,7 +85,7 @@
                 iFx = 0,
                 filterFlavor;
             
-            if (!hasPSFx(omIn)) {
+            if (!PSFx(omIn)) {
                 return;
             }
 

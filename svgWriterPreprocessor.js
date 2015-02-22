@@ -71,7 +71,7 @@
                         return;
                     }
                     // fill, stroke and fx are handled above.
-                    if (property === "fill" || property === "stroke" | property === "meta") {
+                    if (property == "fill" || property == "stroke" || property == "meta") {
                         return;
                     }
                     if (property === "font-size") {
@@ -118,17 +118,22 @@
                 }
             }
             
-            if (omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" && omIn.style.stroke.lineWidth) {
+            var lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
+                    omIn.style.stroke.lineWidth,
+                strokeFxSize = omIn.style && omIn.style.meta && omIn.style.meta.PS &&
+                    omIn.style.meta.PS.fx && omIn.style.meta.PS.fx.frameFX &&
+                    omIn.style.meta.PS.fx.frameFX.enabled && omIn.style.meta.PS.fx.frameFX.size;
+            if (lineWidth) {
                 //the shape has a border then we need to bump the bounds up?
-                boundPadLeft = omIn.style.stroke.lineWidth/2.0;
-                boundPadRight = omIn.style.stroke.lineWidth/2.0;
-                boundPadTop = omIn.style.stroke.lineWidth/2.0;
-                boundPadBottom = omIn.style.stroke.lineWidth/2.0;
-            } else if (omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx && omIn.style.meta.PS.fx.frameFX && omIn.style.meta.PS.fx.frameFX.enabled && omIn.style.meta.PS.fx.frameFX.size) {
-                boundPadLeft = omIn.style.meta.PS.fx.frameFX.size/2.0;
-                boundPadRight = omIn.style.meta.PS.fx.frameFX.size/2.0;
-                boundPadTop = omIn.style.meta.PS.fx.frameFX.size/2.0;
-                boundPadBottom = omIn.style.meta.PS.fx.frameFX.size/2.0;
+                boundPadLeft = lineWidth / 2;
+                boundPadRight = lineWidth / 2;
+                boundPadTop = lineWidth / 2;
+                boundPadBottom = lineWidth / 2;
+            } else if (strokeFxSize) {
+                boundPadLeft = strokeFxSize / 2;
+                boundPadRight = strokeFxSize / 2;
+                boundPadTop = strokeFxSize / 2;
+                boundPadBottom = strokeFxSize / 2;
             }
             
             if (omIn.type === "shape" && omIn.shape && (omIn.shape.type === "circle" || omIn.shape.type === "ellipse")) {

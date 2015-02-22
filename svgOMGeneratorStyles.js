@@ -224,8 +224,7 @@
             }
 
             function prepareColor (ele) {
-                var color = ele.color;
-                ele.color = omgUtils.toColor(color);
+                ele.color = omgUtils.toColor(ele.color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
