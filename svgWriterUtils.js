@@ -28,9 +28,8 @@
         Matrix = require("./matrix.js");
 
 	function SVGWriterUtils() {
-        
+
         var self = this;
-        
         self.shiftBoundsX = function (bounds, delta) {
             bounds.left += delta;
             bounds.right += delta;
@@ -47,26 +46,21 @@
             }
             return om._guid;
         };
-        
+
         self.write = function (ctx, sOut) {
             ctx.sOut += sOut;
         };
-        
+
         self.writeln = function (ctx, sOut) {
             self.write(ctx, sOut + ctx.terminator);
         };
-    
+
         self.indent = function (ctx) {
             ctx.currentIndent += ctx.indent;
         };
-    
+
         self.undent = function (ctx) {
             ctx.currentIndent = ctx.currentIndent.substr(0, ctx.currentIndent.length - ctx.indent.length);
-        };
-    
-        self.writeLength = function (val) {
-            var length = Math.round(val);
-            return length ? length + "px" : "0";
         };
 
         self.componentToHex = function (c) {
@@ -80,7 +74,7 @@
         };
 
         self.px = Utils.px;
-    
+
         var colorNames = {
             "#fa8072": "salmon",
             "#ff0000": "red",
@@ -138,13 +132,6 @@
             unit = unit || "";
             if (String(val) !== String(def)) {
                 self.write(ctx, " " + attr + '="' + val + unit + '"');
-            }
-        };
-
-        self.writeTransformIfNecessary = function (ctx, attr, val, tX, tY) {
-            if (val) {
-                var matrix4x4 = Matrix.createMatrix(val);
-                self.write(ctx, ' ' + attr + '="' + Matrix.writeTransform(matrix4x4, tX, tY) + '"');
             }
         };
 
@@ -259,7 +246,6 @@
         };
 
         self.writeGradientOverlay = function (ctx, gradient, rootBounds, gradientID) {
-
             var omIn = ctx.currentOMNode,
                 layerBounds = omIn.shapeBounds,
                 bounds,
@@ -310,9 +296,7 @@
         };
 
         self.writeLinearGradient = function (ctx, gradient, flavor) {
-            
             //TBD: generate a real ID
-            
             var omIn = ctx.currentOMNode,
                 gradientID = svgWriterIDs.getUnique("linear-gradient"),
                 bounds = gradient.gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.viewBox,
@@ -326,8 +310,7 @@
             function (out) {
                 ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, out, JSON.stringify({ coords: coords, stops: stops, scale: scale }));
             });
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;
-            return gradientID;
+            return ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;;
         };
 
         self.writeRadialGradientInternal = function (ctx, cx, cy, r, gradientID, stops, scale) {
@@ -408,20 +391,18 @@
             function (out) {
                 ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, out, JSON.stringify({ cx: cx, cy: cy, r: r, stops: stops, scale: scale, gradientSpace: gradientSpace }));
             });
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, "radial-gradient" + flavor).defnId;
-            return gradientID;
+            return ctx.omStylesheet.getDefine(omIn.id, "radial-gradient" + flavor).defnId;
         };
 
         self.writeTextPath = function (ctx, pathData) {
-            
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 textPathID = svgWriterIDs.getUnique("text-path");
-            
+
             self.ctxCapture(ctx, function () {
                 var iStop,
                     stp;
-                
+
                 self.write(ctx, ctx.currentIndent + "<path id=\"" + textPathID + "\" ");
                 self.writeln(ctx, "d=\"" + Utils.optimisePath(pathData) + "\"/>");
             },
@@ -498,27 +479,13 @@
         self.writeFeLuminance = function (ctx) {
             self.writeln(ctx, ctx.currentIndent + '<feColorMatrix type="matrix" values="0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0"/>');
         }
-        
+
         self.round2 = Utils.round2;
         self.round1k = Utils.round1k;
         self.round10k = Utils.round10k;
         self.roundUp = Utils.roundUp;
         self.roundDown = Utils.roundDown;
-        
-        self.ifStylesheetDoesNotHaveStyle = function (ctx, node, property, fn) {
-            var hasStyle = false,
-                styleBlock;
-            if (ctx.omStylesheet.hasStyleBlock(node)) {
-                styleBlock = ctx.omStylesheet.getStyleBlock(node);
-                if (styleBlock.hasProperty(property)) {
-                    hasStyle = true;
-                }
-            }
-            if (!hasStyle) {
-                fn();
-            }
-        };
-        
+
         self.ctxCapture = function (ctx, fnCapture, fnResult) {
             var origBuffer = ctx.sOut,
                 resultBuffer;
@@ -528,12 +495,12 @@
             ctx.sOut = origBuffer;
             fnResult(resultBuffer);
         };
-        
+
         self.indentify = function (indent, buf) {
             var out = indent + buf.replace(/(\n)/g, "\n" + indent);
             return out.substr(0, out.length - indent.length);
         };
-        
+
         self.toString = function (ctx) {
             return ctx.sOut;
         };
@@ -572,40 +539,6 @@
             }
         }
 
-        self.writePositionIfNecessary = function (ctx, position, overrideExpect) {
-            var yUnit,
-                xUnit,
-                x,
-                y;
-
-            if (position) {
-                overrideExpect = (overrideExpect !== undefined) ? overrideExpect : 0;
-                if (isFinite(position.x)) {
-                    if (position.unitX === "px") {
-                        x = Math.round(position.x);
-                    } else if (position.unitX === "em") {
-                        x = self.round1k(position.x);
-                    } else {
-                        position.unitX = "%";
-                        x = Math.round(position.x);
-                    }
-                    self.writeAttrIfNecessary(ctx, "x", x, overrideExpect, position.unitX);
-                }
-
-                if (isFinite(position.y)) {
-                    if (position.unitY === "px") {
-                        y = Math.round(position.y);
-                    } else if (position.unitY === "em") {
-                        y = self.round1k(position.y);
-                    } else {
-                        position.unitY = "%";
-                        y = Math.round(position.y);
-                    }
-                    self.writeAttrIfNecessary(ctx, "y", y, overrideExpect, position.unitY);
-                }
-            }
-        }
-
         self.encodedText = function (txt) {
             return txt.replace(/&/g, '&amp;')
                       .replace(/</g, '&lt;')
@@ -619,6 +552,5 @@
 	}
 
 	module.exports = new SVGWriterUtils();
-    
-}());
 
+}());

@@ -21,9 +21,9 @@
 "use strict";
 
     var omgUtils = require("./svgOMGeneratorUtils.js");
-    
+
     var CONST_COLOR_BLACK = { "red": 0, "green": 0, "blue": 0 };
-    
+
 	function SVGOMGeneratorStyles() {
         var decamelcase = function (string) {
             return string.replace(/([A-Z])/g, "-$1");
@@ -75,7 +75,6 @@
         }
 
         this.addGlobalStyle = function (svgNode, layer) {
-
             var propertyFetchers = { // Properties we fetch for all layers
                     "opacity": fetchOpacity,
                     "mix-blend-mode": this.fetchBlendMode
@@ -89,7 +88,7 @@
                 }
             }
         };
-        
+
         this.addStroke = function (svgNode, layer, dpi) {
             var stroke = svgNode.style.stroke || {},
                 strokeStyle = layer.strokeStyle,
@@ -103,7 +102,7 @@
                     "strokeStyleRoundJoin": "round",
                     "strokeStyleMiterJoin": "miter"
                 };
-            
+
             svgNode.style.stroke = stroke;
 
             if (strokeStyle) {
@@ -143,9 +142,9 @@
             }
 
             var fillClass = fillStyle["class"];
-            
+
             svgNode.style.fill = fill;
-            
+
             if (fillClass === "solidColorLayer") {
                 fill.type = "solid";
                 fill.color = omgUtils.toColor(fillStyle.color);
@@ -176,7 +175,7 @@
             if (!strokeStyle) {
                 return;
             }
-                
+
             svgNode.style.stroke = stroke;
 
             if (strokeStyle) {
@@ -229,15 +228,13 @@
             }
 
             function prepareGradient (ele) {
-                var gradient = omgUtils.toGradient(ele);
-                ele.gradient = gradient;
+                ele.gradient = omgUtils.toGradient(ele);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
             function prepareGlow (ele) {
                 if (ele.gradient) {
-                    var gradient = omgUtils.toColorStops(ele);
-                    ele.gradient = gradient;
+                    ele.gradient = omgUtils.toColorStops(ele);
                     ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
                 } else {
                     prepareColor(ele);
@@ -256,17 +253,16 @@
 
             applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX);
         };
-        
+
         this.addGroupStylingData = function (svgNode, layer, writer) {
             svgNode.shapeBounds = layer.bounds;
             this.addStylingData(svgNode, layer, writer);
         };
-        
+
         this.addStylingData = function (svgNode, layer, writer) {
 
             this.addGlobalStyle(svgNode, layer);
 
-            // FIXME: The PS imported image already has all fx effects applied.
             if (svgNode.type == "generic") {
                 return;
             }
@@ -275,8 +271,6 @@
             this.addFill(svgNode, layer);
             this.addFillRule(svgNode, layer);
             this.addFx(svgNode, layer);
-            
-            //more stuff...
         };
 
         this.addTextChunkStyle = function (span, textStyle) {
@@ -352,7 +346,7 @@
             var maxSize,
                 fontSize,
                 i;
-            
+
             // For correct paragraph offset, we need to know the max font size.
             if (paragraphNode.children && paragraphNode.children.length) {
                 
@@ -361,7 +355,7 @@
                         continue;
                     }
                     fontSize = paragraphNode.children[i].style["font-size"]
-                    
+
                     if (typeof fontSize === "number") {
                         if (!isFinite(maxSize) || fontSize > maxSize) {
                             maxSize = fontSize;
@@ -374,10 +368,10 @@
                     }
                 }
             }
-                
+
             return maxSize;
         }
-        
+
         this.addParagraphStyle = function (paragraphNode, paragraphStyle) {
             function fetchTextAlign(paragraphStyle) {
                 var alignment = {
@@ -391,25 +385,25 @@
                 }
                 return undefined;
             }
-            
+
             paragraphNode.style = {
                 "text-anchor": fetchTextAlign(paragraphStyle),
                 "font-size": _computeMaxFontSize(paragraphNode)
             }
         }
-        
-        this.addComputedTextStyle = function (svgNode, layer) {
+
+        var addComputedTextStyle = function (svgNode, layer) {
             svgNode.style["font-size"] = _computeMaxFontSize(svgNode);
         };
-        
+
         this.addTextStyle = function (svgNode, layer) {
             if (layer.text.textShape[0].orientation &&
                 layer.text.textShape[0].orientation == "vertical") {
                 svgNode.style["writing-mode"] = "tb";
                 svgNode.style["glyph-orientation-vertical"] = "0";
             }
-            
-            this.addComputedTextStyle(svgNode, layer);
+
+            addComputedTextStyle(svgNode, layer);
         }
 	}
 

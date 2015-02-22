@@ -47,7 +47,7 @@
         var PSFx = function (omIn) {
             return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
         }
-        
+
         this.hasFx = function (ctx) {
             // FIXME: Inner and outer glow are missing.
             return PSFx(ctx.currentOMNode) && ((hasEffect(ctx, 'dropShadow') ||
@@ -56,11 +56,11 @@
                     hasEffect(ctx, 'chromeFX') ||
                     hasEffect(ctx, 'innerShadow')));
         };
-        
+
         this.scanForUnsupportedFeatures = function (ctx) {
             var omIn = ctx.currentOMNode,
                 fx = PSFx(omIn);
-            
+
             if (!fx) {
                 return;
             }
@@ -76,21 +76,20 @@
                 ctx.errors.push("Gradients with noise are not supported by SVG export.");
             }
         };
-        
+
         this.externalizeStyles = function (ctx) {
-            
             var omIn = ctx.currentOMNode,
                 stroke,
                 styleBlock,
                 iFx = 0,
                 filterFlavor;
-            
+
             if (!PSFx(omIn)) {
                 return;
             }
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            
+
             // Check to see if any of the components actually need to write.
             if (hasEffect(ctx, 'dropShadow')) {
                 iFx++;
@@ -120,7 +119,7 @@
                 iFx++;
                 filterFlavor = 'inner-shadow';
             }
-            
+
             // No filter found.
             if (!iFx) {
                 return;
@@ -130,9 +129,9 @@
             if (iFx > 1) {
                 filterFlavor = 'filter-chain';
             }
-            
+
             omIn._filterflavor = filterFlavor;
-            
+
             var filterID = svgWriterIDs.getUnique(filterFlavor),
                 fingerprint = "";
 

@@ -24,26 +24,19 @@
     var svgWriterUtils = require("./svgWriterUtils.js");
     
     var write = svgWriterUtils.write,
-        indent = svgWriterUtils.indent,
-        undent = svgWriterUtils.undent,
         writeRadialGradient = svgWriterUtils.writeRadialGradient,
         writeLinearGradient = svgWriterUtils.writeLinearGradient,
         writeColor = svgWriterUtils.writeColor,
-        px = svgWriterUtils.px,
-        ifStylesheetDoesNotHaveStyle = svgWriterUtils.ifStylesheetDoesNotHaveStyle;
+        px = svgWriterUtils.px;
     
     function SVGWriterStroke() {
         
         this.hasStroke = function (ctx) {
             var omIn = ctx.currentOMNode;
-            if (omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none") {  
-                return true;
-            }
-            return false;
+            return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
         };
         
         this.scanForUnsupportedFeatures = function (ctx) {
-            
         };
         
         this.externalizeStyles = function (ctx) {
@@ -101,33 +94,8 @@
                 }
             }
         };
-        
-        
-        this.addShapeStrokeAttr = function (ctx) {
-            var node = ctx.currentOMNode,
-                stroke = node.style.stroke,
-                lineW;
-            
-            if (stroke.type != "none") {
-                if (stroke.color) {
-                    ifStylesheetDoesNotHaveStyle(ctx, node, "stroke", function () {
-                        write(ctx, " stroke=\"" + svgWriterUtils.writeColor(stroke.color) + "\"");
-                    });
-                }
-                
-                if (stroke.lineWidth) {
-                    ifStylesheetDoesNotHaveStyle(ctx, node, "stroke-width", function () {
-                        lineW = parseInt(px(ctx, stroke.lineWidth), 10);
-                        if (lineW !== 1) {
-                            write(ctx, " stroke-width=\"" + lineW + "\"");
-                        }
-                    });
-                }
-            }
-        };
 	}
 
 	module.exports = new SVGWriterStroke();
     
 }());
-

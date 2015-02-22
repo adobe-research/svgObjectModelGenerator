@@ -21,33 +21,21 @@
 (function () {
 "use strict";
     
-    var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js"),
-        SVGWriterContext = require("./svgWriterContext.js");
+    var svgWriterUtils = require("./svgWriterUtils.js");
 
     var write = svgWriterUtils.write,
-        indent = svgWriterUtils.indent,
-        undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
-        writeAttrIfNecessary = svgWriterUtils.writeAttrIfNecessary,
-        writeClassIfNeccessary = svgWriterUtils.writeClassIfNeccessary,
-        writePositionIfNecessary = svgWriterUtils.writePositionIfNecessary,
-        encodedText = svgWriterUtils.encodedText,
-        ctxCapture = svgWriterUtils.ctxCapture;
-
-    var matchAfterDash = /-.*$/,
+        matchAfterDash = /-.*$/,
         matchAllSpaces = /\s/g
 
         
     function scanForUnsupportedFeatures(ctx) {
         var omIn = ctx.currentOMNode;
 
-        if (omIn.type === "text") {
-            if (!ctx._issuedTextWarning && ctx.errors) {
-                ctx._issuedTextWarning = true;
-                ctx.errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.");
-            }
+        if (omIn.type === "text" && !ctx._issuedTextWarning && ctx.errors) {
+            ctx._issuedTextWarning = true;
+            ctx.errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.");
         }
     }
 

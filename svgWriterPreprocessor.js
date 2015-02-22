@@ -39,11 +39,10 @@
         };
         
         this.provideBackupDefaults = function (omIn, styleBlock) {
-            if (omIn.style && styleBlock.hasRules()) {
-                if (omIn.type === "shape" && omIn.style.fill === undefined) {
-                    omIn.style.fill = "none";
-                    styleBlock.addRule("fill", "none");
-                }
+            if (omIn.style && styleBlock.hasRules() && 
+                omIn.type == "shape" && !omIn.style.fill) {
+                omIn.style.fill = "none";
+                styleBlock.addRule("fill", "none");
             }
         };
         
@@ -55,16 +54,16 @@
                 property,
                 styleBlock;
 
-            ctx.stylesCurrentBlock = null;
-            
+            delete ctx.stylesCurrentBlock;
+
             svgWriterFill.externalizeStyles(ctx);
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            
+
             this.provideBackupDefaults(omIn, styleBlock);
-            
+
             if (omIn.style) {
                 Object.keys(omIn.style).forEach(function (property) {
                     if (omIn.style[property] === undefined) {
@@ -83,7 +82,6 @@
                     }
                 });
             }
-            
         };
 
         this.recordBounds = function (ctx, omIn) {
@@ -128,7 +126,7 @@
                 boundPadTop = strokeFxSize / 2;
                 boundPadBottom = strokeFxSize / 2;
             }
-            
+
             if (omIn.type === "shape" && omIn.shape && (omIn.shape.type === "circle" || omIn.shape.type === "ellipse")) {
                 if ((bndsIn.right - bndsIn.left) % 2 !== 0) {
                     boundPadRight += 1.0;
@@ -234,7 +232,6 @@
                         }
                     }
                 }
-                
             } else if (omIn.type === "tspan") {
                 if (omIn.style) {
                     if (omIn.position && isFinite(omIn.position.x)) {
@@ -390,11 +387,7 @@
         };
         
         this.preprocessingNecessary = function (ctx) {
-            //more reasons to be added as necessary
-            if (ctx.config.trimToArtBounds) {
-                return true;
-            }
-            return false;
+            return ctx.config.trimToArtBounds;
         };
         
         this.processSVGOM = function (ctx) {
@@ -413,7 +406,5 @@
 	}
 
 	module.exports = new SVGWriterPreprocessor();
-    
+
 }());
-     
-    

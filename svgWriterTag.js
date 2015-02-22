@@ -25,7 +25,6 @@
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterText = require("./svgWriterText.js"),
-        SVGWriterContext = require("./svgWriterContext.js"),
         attrsDefs = require('./attrdefs-database.js');
 
     var write = svgWriterUtils.write,

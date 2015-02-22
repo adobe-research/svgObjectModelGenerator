@@ -23,9 +23,9 @@
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
-        Matrix = require("./matrix.js"),
-        omgUtils = require("./svgOMGeneratorUtils.js"),
-        round2 = Utils.round2,
+        Matrix = require("./matrix.js");
+
+    var round2 = Utils.round2,
         round1k = Utils.round1k;
     
 	function SVGOMGeneratorShapes() {

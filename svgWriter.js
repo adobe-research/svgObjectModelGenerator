@@ -20,19 +20,17 @@
 (function () {
     "use strict";
 
-    var buffer = require("buffer"),
-        util = require("./utils.js"),
-        svgWriterUtils = require("./svgWriterUtils.js"),
+    var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterPreprocessor = require("./svgWriterPreprocessor.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
         Tag = require("./svgWriterTag.js"),
         SVGWriterContext = require("./svgWriterContext.js");
 
+    var toString = svgWriterUtils.toString;
+
     function getFormatContext(svgOM, cfg, errors) {
         return new SVGWriterContext(svgOM, cfg, errors);
     }
-
-    var toString = svgWriterUtils.toString;
 
     function superfluousGroups(tag, ctx, parents, num) {
         var mum = parents.pop();
