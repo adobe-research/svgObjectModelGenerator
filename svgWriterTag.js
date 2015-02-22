@@ -292,8 +292,7 @@
         };
     }
 
-    var artboards = 1,
-        factory = {
+    var factory = {
         circle: function (ctx, node) {
             var box = measure(node),
                 tag = new Tag("circle", {
@@ -406,7 +405,7 @@
             return new Tag("g", {}, ctx).useTrick(ctx);
         },
         artboard: function (ctx, node) {
-            return new Tag("g", {id: "artboard-" + artboards++}, ctx).useTrick(ctx);
+            return new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
         },
         tspan: function (ctx, node, sibling) {
             var tag = makeTSpan(Tag, ctx, sibling, node);
@@ -461,6 +460,7 @@
             tag.iamroot = true;
             tag.all = {};
             root = tag;
+            root.artboards = 1;
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
