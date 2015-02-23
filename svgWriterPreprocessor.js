@@ -25,9 +25,9 @@
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterText = require("./svgWriterText.js"),
-        omgUtils = require("./svgOMGeneratorUtils.js"),
-        px = svgWriterUtils.px;
+        svgWriterText = require("./svgWriterText.js");
+
+    var px = svgWriterUtils.px;
     
 	function SVGWriterPreprocessor() {
         
@@ -85,14 +85,7 @@
             }
             
         };
-        
-        this.growBoundsUniform = function (bounds, delta) {
-            bounds.left -= delta;
-            bounds.right += delta;
-            bounds.top -= delta;
-            bounds.bottom += delta;
-        };
-        
+
         this.recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
                 bndsIn = omIn.bounds,
@@ -182,8 +175,8 @@
                     bnds = omIn.textBounds;
                     
                     if (omIn.shapeBounds) {
-                        omgUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
-                        omgUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
+                        svgWriterUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
+                        svgWriterUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
                     }
                     
                     if (omIn.transform) {
@@ -308,12 +301,12 @@
                 }
             }
             if (bnds) {
-                omgUtils.shiftBoundsX(bnds, ctx._shiftContentX);
-                omgUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
             }
             if (omIn.originBounds) {
-                omgUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
-                omgUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
+                svgWriterUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
             }
         };
         
