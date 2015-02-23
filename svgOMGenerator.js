@@ -175,7 +175,7 @@
             switch (layerType) {
                 case "shape":
                     if (!justTraverse) {
-                        omgShapes.addShapeData(svgNode, layer, dpi);
+                        omgShapes.addShapeData(svgNode, layer, writer);
                     }
                     break;
                 case "text":
@@ -187,7 +187,7 @@
                     if (!justTraverse) {
                         // FIXME: Could also be an empty layer or a gradient layer.
                         // Treat all of them as image for now.
-                        omgImage.addImageData(svgNode, layer, dpi);
+                        omgImage.addImageData(svgNode, layer, writer);
                     }
                     break;
                 case "artboard":
@@ -197,7 +197,7 @@
                 case "group":
                     if (!justTraverse) {
                         
-                        omgStyles.addGroupStylingData(svgNode, layer, dpi);
+                        omgStyles.addGroupStylingData(svgNode, layer, writer);
                         writer.pushCurrent(svgNode);
                     }
                     if (layer.layers) {
