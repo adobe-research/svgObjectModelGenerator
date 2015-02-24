@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
 /*global define: true, module: true, require: true */
 
@@ -20,25 +19,25 @@
 
 (function () {
     "use strict";
-    
+
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js"),
         svgWriterIDs = require("./svgWriterIDs.js");
-    
+
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         indentify = svgWriterUtils.indentify;
-    
+
     var ONLY_EXTERNALIZE_CONSOLIDATED = false;
-    
+
     function CSSStyleRule(prop, val) {
         this.propertyName = prop;
         this.value = val;
     }
-    
+
     (function (proto) {
         proto.write = function (ctx) {
             writeln(ctx, ctx.currentIndent + this);
@@ -126,7 +125,8 @@
             if (cr == null) {
                 cr = "\n";
             }
-            var out = "." + this.class.join(", .") + " {" + cr;
+            var out = "." + this.class.join(", .");
+            out += " {" + cr;
             for (var i = 0; i < this.rules.length; i++) {
                 out += "    " + this.rules[i] + cr;
             }
@@ -154,9 +154,9 @@
         }
 
     }(CSSStyleBlock.prototype));
-    
+
 	function SVGStylesheet() {
-        
+
         this.defines = {};
         this.eleDefines = {};
         this.blocks = {};
@@ -167,7 +167,7 @@
         proto.hasDefines = function () {
             var hasDefines = false,
                 defn;
-            
+
             for (defn in this.defines) {
                 if (this.defines.hasOwnProperty(defn)) {
                     if (this.defines[defn] && !this.defines[defn].written) {
@@ -176,18 +176,18 @@
                     }
                 }
             }
-            
+
             return hasDefines;
         };
-        
+
         proto.getDefines = function (elId) {
             return this.eleDefines[elId];
         };
-        
+
         proto.getDefine = function (elId, type) {
             var aEl = this.getDefines(elId),
                 i;
-            
+
             for (i = 0; aEl && i < aEl.length; i++) {
                 if (aEl[i].type === type) {
                     return aEl[i];
@@ -195,9 +195,9 @@
             }
             return null;
         };
-        
+
         proto.define = function (type, elId, defnId, defnOut, defnFingerprint) {
-            
+
             this.defines[defnId] = {
                 type: type,
                 defnId: defnId,
@@ -209,7 +209,7 @@
 
             this.addElementDefn(this.eleDefines, elId, this.defines[defnId]);
         };
-        
+
         proto.addElementDefn = function (eleList, elId, defn) {
             eleList[elId] = eleList[elId] || [];
             eleList[elId].push(defn);
@@ -218,11 +218,11 @@
             // duplicates right away.
             this.consolidateDefines();
         };
-        
+
         proto.removeElementDefn = function (elId, defnId) {
             var aDef = this.eleDefines[elId],
                 i;
-            
+
             for (i = 0; aDef && i < aDef.length; i++) {
                 if (aDef[i].defnId === defnId) {
                     aDef.splice(i, 1);
@@ -230,7 +230,7 @@
                     break;
                 }
             }
-            
+
             delete this.defines[defnId];
         };
 
@@ -250,9 +250,9 @@
                 delete this.blocks[className[i]];
             }
         };
-        
+
         proto.consolidateDefines = function () {
-            
+
             //find dupes and make em shared...
             var dupTable = {},
                 defnId,
@@ -262,11 +262,11 @@
                 dup,
                 dupElId,
                 fingerprint;
-            
+
             for (defnId in this.defines) {
                 if (this.defines.hasOwnProperty(defnId)) {
                     defn = this.defines[defnId];
-                
+
                     dupTable[defn.fingerprint] = dupTable[defn.fingerprint] || [];
                     dupTable[defn.fingerprint].push(defn);
                 }
@@ -291,7 +291,7 @@
                 }
             }
         };
-        
+
         proto.hasRules = function () {
             for (var cls in this.blocks) {
                 if (this.blocks[cls] && this.blocks[cls].hasRules()) {
@@ -300,28 +300,28 @@
             }
             return false;
         };
-        
+
         proto.hasStyleBlock = function (omNode) {
             return !!(omNode.styleBlock && omNode.styleBlock.hasRules());
         };
-        
+
         proto.getStyleBlock = function (omNode) {
 
             if (omNode.styleBlock) {
                 return omNode.styleBlock;
             }
-            
+
             omNode.className = omNode.className || svgWriterIDs.getUnique("cls");
-            
+
             //TBD: factor in IDs
-            
+
             omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
-            
+
             this.blocks[omNode.className] = omNode.styleBlock;
             // We create an styleBlock for each element initially.
             // Store the element for later reference.
             omNode.styleBlock.element = omNode.id;
-            
+
             return omNode.styleBlock;
         };
 
@@ -346,7 +346,7 @@
                 fingerprint,
                 tag,
                 tags;
-            
+
             for (className in this.blocks) {
                 if (this.blocks.hasOwnProperty(className)) {
                     defn = this.blocks[className];
@@ -386,15 +386,15 @@
                 }
             }
         }
-        
+
         proto.writeSheet = function (ctx) {
-            
+
             var blockClass,
                 blocks = [];
-            
+
             writeln(ctx, ctx.currentIndent + "<style>");
             indent(ctx);
-            
+
             for (blockClass in this.blocks) {
                 if (this.blocks.hasOwnProperty(blockClass)) {
                     if (this.blocks[blockClass].hasRules()) {
@@ -407,15 +407,15 @@
             blocks = this.extract(blocks);
 
             for (var i = 0, len = blocks.length; i < len; i++) {
-                i && writeln(ctx, ''); //new line before blocks
+                i && writeln(ctx, ""); // new line before blocks
                 blocks[i].write(ctx);
             }
-            
+
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
-            
+
         };
-        
+
         proto.writePredefines = function (ctx) {
             var omIn = ctx.currentOMNode,
                 eleDefines = this.getDefines(omIn.id),
@@ -431,12 +431,12 @@
                 }
             }
         };
-        
+
         proto.writeDefines = function (ctx) {
-            
+
             var defnId,
                 defn;
-            
+
             for (defnId in this.defines) {
                 if (this.defines.hasOwnProperty(defnId)) {
                     defn = this.defines[defnId];
@@ -523,5 +523,5 @@
     }(SVGStylesheet.prototype));
 
 	module.exports = SVGStylesheet;
-    
+
 }());

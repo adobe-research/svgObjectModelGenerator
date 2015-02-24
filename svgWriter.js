@@ -34,20 +34,36 @@
 
     var toString = svgWriterUtils.toString;
 
-    function process(tag, ctx, parents) {
-        // fill it with processing actions and remove this comment :)
+    function superfluousGroups(tag, ctx, parents, num) {
+        var mum = parents.pop();
+        if (tag.name == "g" && tag.children.length < 2 && !tag.isArtboard) {
+            for (var attr in tag.attrs) {
+                return;
+            }
+            if (tag.children.length) {
+                mum.children[num] = tag.children[0];
+            } else {
+                mum.children.splice(num, 1);
+            }
+            return true;
+        }
     }
 
-    function preProcess(tag, ctx, parents) {
+    function process(tag, ctx, parents, num) {
+        superfluousGroups(tag, ctx, parents, num);
+    }
+
+    function preProcess(tag, ctx, parents, num) {
         parents = parents || [];
-        process(tag, ctx, parents);
         parents.push(tag);
         if (!tag.children) {
             return;
         }
         for (var i = 0, ii = tag.children.length; i < ii; i++) {
-            preProcess(tag.children[i], ctx, parents);
+            preProcess(tag.children[i], ctx, parents.slice(0), i);
         }
+        parents.pop();
+        process(tag, ctx, parents.slice(0), num);
     }
 
     function processStyle(blocks) {
