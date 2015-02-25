@@ -525,5 +525,5 @@
     }
 
 	module.exports = new Utils();
-    
+
 }());
