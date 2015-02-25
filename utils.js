@@ -381,6 +381,23 @@
                     }
                 }
             }
+            function h2hv2v(segp, seg) {
+                var pcmd = segp && segp.cmd.toLowerCase();
+                try {
+                if (segp && pcmd == seg.cmd.toLowerCase() && (pcmd == "h" || pcmd == "v")) {
+                    if (seg.type == "rel") {
+                        segp.rest[0] += seg.rest[0];
+                    } else if (segp.type == "rel") {
+                        segp.rest[0] += seg.rest[0] - (pcmd == "h" ? seg.x : seg.y);
+                    } else {
+                        segp.rest[0] = seg.rest[0];
+                    }
+                    return "unite";
+                }
+                } catch (e) {
+                    console.log(seg.cmd, seg);
+                }
+            }
             var res = "",
                 args = {
                     abs: "",
@@ -433,7 +450,8 @@
                     }
                 } else {
                     segs.push({
-                        command: command
+                        command: command,
+                        cmd: command.toUpperCase()
                     });
                     x = mx;
                     y = my;
@@ -454,6 +472,11 @@
                 }
                 // Special case if "C" instead of "S"
                 c2s(segs[i - 1], segs[i], goodEnough);
+                // Special case if "C" instead of "A"
+                if (h2hv2v(segs[i - 1], segs[i]) == "unite") {
+                    segs.splice(i, 1);
+                    i--;
+                }
             }
 
             for (i = 0; i < segs.length; i++) {
