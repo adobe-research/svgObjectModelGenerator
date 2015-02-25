@@ -157,12 +157,7 @@
         }
     }
     Tag.prototype.write = Tag.prototype.toString = function (ctx) {
-        ctx = ctx || {
-            indent: "  ",
-            currentIndent: "",
-            terminator: "\n",
-            sOut: ""
-        };
+        ctx = ctx || new SVGWriterContext({});
         var tag = this,
             numChildren = tag.children && tag.children.length;
         this.setClass(ctx);
