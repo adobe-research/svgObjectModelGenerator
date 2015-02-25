@@ -156,18 +156,19 @@
             writeln(ctx, ctx.currentIndent + "</defs>");
         }
     }
-    Tag.prototype.write = function (ctx) {
+    Tag.prototype.write = Tag.prototype.toString = function (ctx) {
+        ctx = ctx || new SVGWriterContext({});
         var tag = this,
             numChildren = tag.children && tag.children.length;
         this.setClass(ctx);
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
-                return;
+                return ctx.sOut;
             }
             if (tag.name == "#comment") {
                 writeln(ctx, ctx.currentIndent + "<!-- " + encodedText(tag.text) + " -->");
-                return;
+                return ctx.sOut;
             }
             var ind = ctx.currentIndent;
             if (tag.name == "tspan" || tag.name == "textPath") {
@@ -193,10 +194,10 @@
             }
         }
         for (var i = 0; i < numChildren; i++) {
-            tag.children[i].write(ctx);
+            tag.children[i].toString(ctx);
         }
         if (!numChildren || !tag.name) {
-            return;
+            return ctx.sOut;
         }
         if (tag.name == "text") {
             writeln(ctx, "</" + tag.name + ">");
@@ -206,6 +207,7 @@
             undent(ctx);
             writeln(ctx, ind + "</" + tag.name + ">");
         }
+        return ctx.sOut;
     };
     Tag.prototype.setStyleBlock = function (ctx, node) {
         node = node || ctx.currentOMNode;
@@ -405,7 +407,9 @@
             return new Tag("g", {}, ctx).useTrick(ctx);
         },
         artboard: function (ctx, node) {
-            return new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
+            var artboard = new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
+            artboard.isArtboard = true;
+            return artboard;
         },
         tspan: function (ctx, node, sibling) {
             var tag = makeTSpan(Tag, ctx, sibling, node);
