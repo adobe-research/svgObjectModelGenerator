@@ -25,7 +25,7 @@
       <feFlood flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
       <feComposite in="SourceGraphic" result="shadowed"/>
-      <feImage x="246" y="131" width="157" height="23" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTU3IiBoZWlnaHQ9IjIzIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNjIuMDc2IiB5MT0iMjMiIHgyPSI5NC45MjQiIHkyPSIwIj4KICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjZlMDIiLz4KICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2ZmMCIvPgogIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmNmQwMCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
+      <feImage x="246" y="131" width="157" height="23" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTU3IiBoZWlnaHQ9IjIzIj48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNjIuMDc2IiB5MT0iMjMiIHgyPSI5NC45MjQiPgogIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmNmUwMiIvPgogIDxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZmYwIi8+CiAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY2ZDAwIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiLz48L3N2Zz4="/>
       <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend mode="lighten" in2="shadowed" result="gradientFill"/>
     </filter>

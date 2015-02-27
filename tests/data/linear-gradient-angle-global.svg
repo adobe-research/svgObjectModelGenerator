@@ -46,7 +46,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0">
+    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>

@@ -114,7 +114,7 @@ module.exports = {
     "line/y1": [0, "number"],
     "linearGradient/y1": [0, "number"],
     "line/y2": [0, "number"],
-    "linearGradient/y2": ["100%", "number"],
+    "linearGradient/y2": [0, "number"],
     "feDisplacementMap/yChannelSelector": ["A", "string"],
     "fePointLight/z": [0, "number"],
     "feSpotLight/z": [0, "number"],

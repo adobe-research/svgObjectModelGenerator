@@ -173,6 +173,38 @@
             writeln(ctx, ctx.currentIndent + "</defs>");
         }
     }
+    var linkableNames = {
+            linearGradient: 1,
+            radialGradient: 1,
+            filter: 1,
+            pattern: 1
+        };
+    Tag.prototype.writeAttribute = function (ctx, name) {
+        var tag = this,
+            desc = attrsDefs[tag.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
+            deft = desc[0],
+            link,
+            toWrite = tag.attrs[name] + "" != deft + "";
+        // Special case of linked tags
+        if (tag.name in linkableNames && tag.attrs["xlink:href"]) {
+            link = tag;
+            while (link.attrs["xlink:href"]) {
+                link = Tag.getByDOMId(link.attrs["xlink:href"]);
+                if (link && link.name == tag.name) {
+                    if (name in link.attrs) {
+                        toWrite = link.attrs[name] != tag.attrs[name];
+                        break;
+                    }
+                } else {
+                    toWrite = true;
+                    break;
+                }
+            }
+        }
+        if (toWrite) {
+            write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+        }
+    };
     Tag.prototype.write = Tag.prototype.toString = function (ctx) {
         ctx = ctx || new SVGWriterContext({});
         var tag = this,
@@ -193,17 +225,7 @@
             }
             write(ctx, ind + "<" + tag.name);
             for (var name in tag.attrs) {
-                var desc = attrsDefs[tag.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
-                    deft = desc[0],
-                    toWrite = tag.attrs[name] + "" != deft + "";
-                // Special case of linked gradient
-                if ((tag.name == "linearGradient" || tag.name == "radialGradient") && tag.attrs["xlink:href"] && name in {x1: 1, y1: 1, x2: 1, y2: 1, cx: 1, cy: 1, r: 1}) {
-                    var link = Tag.getByDOMId(tag.attrs["xlink:href"]);
-                    toWrite = !link || link.attrs[name] != tag.attrs[name];
-                }
-                if (toWrite) {
-                    write(ctx, " " + name + '="' + tag.attrs[name] + '"');
-                }
+                tag.writeAttribute(ctx, name);
             }
             if (!numChildren && tag.name != "script") {
                 write(ctx, "/");

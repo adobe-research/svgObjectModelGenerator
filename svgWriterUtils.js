@@ -299,6 +299,7 @@
         self.extend = Utils.extend;
         self.toBase64 = Utils.toBase64;
 
+        // FIXME: These functions are going to be removed in the near future with the new filter code.
         self.PSFx = function (omIn) {
             return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
         }
