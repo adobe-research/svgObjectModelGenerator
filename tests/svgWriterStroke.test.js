@@ -30,29 +30,7 @@ describe('SVGWriterStroke', function (){
     afterEach(function () {
         sandbox.restore();
     });
-    
-    it("knows how to add a shape's stroke attribute", function (){
-        
-        var goodCTX = {
-            currentOMNode: {
-                style: {
-                    stroke: {
-                        strokeEnabled: true,
-                        color: "rgb(1, 2, 3)",
-                        lineWidth: 3
-                    }
-                }
-            },
-            omStylesheet: {
-                hasStyleBlock: sinon.spy()
-            },
-            sOut: ""
-        };
-        
-        svgWriterStroke.addShapeStrokeAttr(goodCTX);
-        expect(goodCTX.sOut).to.equal(' stroke="rgb(1, 2, 3)" stroke-width="3"');
-    });
-    
+
     it("knows how to externalize fringe styles", function (){
         var styleBlock = {
                 addRule: sinon.spy()

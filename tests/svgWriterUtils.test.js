@@ -30,15 +30,7 @@ describe('SVGWriterUtils', function (){
     afterEach(function () {
         sandbox.restore();
     });
-    
-    it("knows how to write length", function (){
-        expect(svgWriterUtils.writeLength(44.3)).to.equal("44px");
-        expect(svgWriterUtils.writeLength(0.3)).to.equal("0");
-        expect(svgWriterUtils.writeLength(33.6)).to.equal("34px");
-        expect(svgWriterUtils.writeLength(33.0)).to.equal("33px");
-        expect(svgWriterUtils.writeLength(33)).to.equal("33px");
-    });
-    
+
     it("knows how to write px", function (){
         
         var testCTX = {

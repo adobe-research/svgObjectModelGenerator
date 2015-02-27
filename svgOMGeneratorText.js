@@ -23,8 +23,9 @@
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         omgUtils = require("./svgOMGeneratorUtils.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        Matrix = require("./matrix.js"),
-        round1k = svgWriterUtils.round1k,
+        Matrix = require("./matrix.js");
+
+    var round1k = svgWriterUtils.round1k,
         _boundInPx = omgUtils.boundInPx;
 
 	function SVGOMGeneratorText() {
@@ -342,4 +343,3 @@
     
 }());
      
-    

@@ -19,19 +19,19 @@
 
 (function () {
 "use strict";
-    
+
     var docIDs = {};
-    
+
 	module.exports = {
-        
+
         reset: function () {
             docIDs = {};
         },
-        
+
         getUnique: function (kind) {
             docIDs[kind] = docIDs[kind] || 1;
             return kind + "-" + docIDs[kind]++;
         }
     };
-    
+
 }());

@@ -23,8 +23,8 @@
         util = require("./utils.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
         svgWriterText = require("./svgWriterText.js"),
-        SVGWriterContext = require("./svgWriterContext.js"),
-        attrsDefs = require('./attrdefs-database.js');
+        attrsDefs = require('./attrdefs-database.js'),
+        SVGWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
