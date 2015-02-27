@@ -383,7 +383,6 @@
             }
             function h2hv2v(segp, seg) {
                 var pcmd = segp && segp.cmd.toLowerCase();
-                try {
                 if (segp && pcmd == seg.cmd.toLowerCase() && (pcmd == "h" || pcmd == "v")) {
                     if (seg.type == "rel") {
                         segp.rest[0] += seg.rest[0];
@@ -393,9 +392,6 @@
                         segp.rest[0] = seg.rest[0];
                     }
                     return "unite";
-                }
-                } catch (e) {
-                    console.log(seg.cmd, seg);
                 }
             }
             var res = "",
