@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,7 +22,9 @@
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js"),
-        svgWriterIDs = require("./svgWriterIDs.js");
+        svgWriterGradient = require("./svgWriterGradient.js"),
+        svgWriterIDs = require("./svgWriterIDs.js"),
+        svgWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
@@ -104,7 +106,8 @@
             return (this.rules.length > 0);
         };
 
-        proto.write = function (ctx) {
+        proto.write = proto.toString = function (ctx) {
+            ctx = ctx || new svgWriterContext({});
             var i;
 
             writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
@@ -116,21 +119,7 @@
 
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "}");
-        };
-
-        proto.toString = function (cr) {
-            if (!this.rules.length) {
-                return "";
-            }
-            if (cr == null) {
-                cr = "\n";
-            }
-            var out = "." + this.class.join(", .");
-            out += " {" + cr;
-            for (var i = 0; i < this.rules.length; i++) {
-                out += "    " + this.rules[i] + cr;
-            }
-            return out + "}";
+            return ctx.sOut;
         };
 
         proto.hasProperty = function (prop) {
@@ -437,6 +426,7 @@
             var defnId,
                 defn;
 
+            svgWriterGradient.gradientStopsReset();
             for (defnId in this.defines) {
                 if (this.defines.hasOwnProperty(defnId)) {
                     defn = this.defines[defnId];
