@@ -94,7 +94,7 @@ describe('svgStylesheet', function () {
             blocks = blocks.map(function (block) {
                 return block.toString("");
             });
-            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2 {    fill: #000;    opacity: 0.5;    stroke: #fff;}.clsTest1 {    fill-opacity: 0.25;}.clsTest2 {    stroke-opacity: 0.25;}");
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2 {\n  fill: #000;\n  opacity: 0.5;\n  stroke: #fff;\n}\n.clsTest1 {\n  fill-opacity: 0.25;\n}\n.clsTest2 {\n  stroke-opacity: 0.25;\n}\n");
         });
 
         it("knows how to extract similar rules from 3 blocks", function () {
@@ -127,7 +127,7 @@ describe('svgStylesheet', function () {
             blocks = blocks.map(function (block) {
                 return block.toString("");
             });
-            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3 {    fill: #000;    stroke: #fff;}.clsTest1, .clsTest2 {    opacity: 0.5;}.clsTest2, .clsTest3 {    stroke-opacity: 0.25;}.clsTest1 {    fill-opacity: 0.25;}.clsTest3 {    opacity: 0.25;    filter: url(#filter);}");
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3 {\n  fill: #000;\n  stroke: #fff;\n}\n.clsTest1, .clsTest2 {\n  opacity: 0.5;\n}\n.clsTest2, .clsTest3 {\n  stroke-opacity: 0.25;\n}\n.clsTest1 {\n  fill-opacity: 0.25;\n}\n.clsTest3 {\n  opacity: 0.25;\n  filter: url(#filter);\n}\n");
         });
 
         it("knows how to extract similar rules from 4 blocks", function () {
@@ -166,7 +166,7 @@ describe('svgStylesheet', function () {
             blocks = blocks.map(function (block) {
                 return block.toString("");
             });
-            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3, .clsTest4 {    fill: #000;    stroke: #fff;}.clsTest1, .clsTest2 {    opacity: 0.5;}.clsTest1, .clsTest4 {    fill-opacity: 0.25;}.clsTest2, .clsTest3 {    stroke-opacity: 0.25;}.clsTest3 {    opacity: 0.25;    filter: url(#filter);}.clsTest4 {    opacity: 0.75;}");
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3, .clsTest4 {\n  fill: #000;\n  stroke: #fff;\n}\n.clsTest1, .clsTest2 {\n  opacity: 0.5;\n}\n.clsTest1, .clsTest4 {\n  fill-opacity: 0.25;\n}\n.clsTest2, .clsTest3 {\n  stroke-opacity: 0.25;\n}\n.clsTest3 {\n  opacity: 0.25;\n  filter: url(#filter);\n}\n.clsTest4 {\n  opacity: 0.75;\n}\n");
         });
 
         

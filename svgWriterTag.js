@@ -22,8 +22,6 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
-        svgWriterStroke = require("./svgWriterStroke.js"),
-        svgWriterFx = require("./svgWriterFx.js"),
         svgWriterText = require("./svgWriterText.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
         attrsDefs = require('./attrdefs-database.js');
@@ -34,8 +32,9 @@
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
-        getTransform = svgWriterUtils.getTranform,
+        getTransform = svgWriterUtils.getTransform,
         encodedText = svgWriterUtils.encodedText,
+        hasFx = svgWriterUtils.hasFx,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
         root,
@@ -63,12 +62,26 @@
             this.setStyleBlock(ctx, node);
         }
     }
-	Tag.getById = function (id) {
-		if (!root) {
-			return null;
-		}
-		return root.all[id] || null;
-	};
+    function hasStroke(ctx) {
+        var omIn = ctx.currentOMNode;
+        return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
+    }
+    Tag.getById = function (id) {
+        if (!root) {
+            return null;
+        }
+        return root.all[id] || null;
+    };
+    Tag.getByDOMId = function (id) {
+        id = id + "";
+        if (id.charAt(0) == "#") {
+            id = id.substring(1);
+        }
+        if (!root) {
+            return null;
+        }
+        return root.ids[id] || null;
+    };
     Tag.prototype.setAttributes = function (attr) {
         if (!attr) {
             return;
@@ -108,7 +121,6 @@
     };
     Tag.prototype.setAttribute = function (name, value) {
         var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
-            deft = desc[0],
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {
@@ -130,9 +142,15 @@
                 }
                 break;
         }
-        if (value + "" == deft + "") {
+        if (value === "") {
+            if (name == "id" && root) {
+                delete root.ids[this.attrs.id];
+            }
             delete this.attrs[name];
             return;
+        }
+        if (name == "id" && root) {
+            root.ids[value] = this;
         }
         this.attrs[name] = value;
     };
@@ -141,14 +159,13 @@
             hasDefines = ctx.omStylesheet.hasDefines();
 
         if (hasRules || hasDefines) {
-            svgWriterUtils.gradientStopsReset();
             writeln(ctx, ctx.currentIndent + "<defs>");
             indent(ctx);
 
             !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
 
             if (hasRules && hasDefines) {
-                write(ctx, ctx.terminator);
+                writeln(ctx);
             }
             ctx.omStylesheet.writeDefines(ctx);
 
@@ -160,7 +177,7 @@
         ctx = ctx || new SVGWriterContext({});
         var tag = this,
             numChildren = tag.children && tag.children.length;
-        this.setClass(ctx);
+        tag.setClass(ctx);
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
@@ -176,7 +193,17 @@
             }
             write(ctx, ind + "<" + tag.name);
             for (var name in tag.attrs) {
-                write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+                var desc = attrsDefs[tag.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
+                    deft = desc[0],
+                    toWrite = tag.attrs[name] + "" != deft + "";
+                // Special case of linked gradient
+                if ((tag.name == "linearGradient" || tag.name == "radialGradient") && tag.attrs["xlink:href"] && name in {x1: 1, y1: 1, x2: 1, y2: 1, cx: 1, cy: 1, r: 1}) {
+                    var link = Tag.getByDOMId(tag.attrs["xlink:href"]);
+                    toWrite = !link || link.attrs[name] != tag.attrs[name];
+                }
+                if (toWrite) {
+                    write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+                }
             }
             if (!numChildren && tag.name != "script") {
                 write(ctx, "/");
@@ -236,7 +263,7 @@
         }
     };
     Tag.prototype.useTrick = function (ctx) {
-        if (this.tricked || !svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
+        if (this.tricked || !hasFx(ctx) || !hasStroke(ctx)) {
             return this;
         }
         var stroke = this.getAttribute("stroke"),
@@ -465,6 +492,7 @@
             tag.all = {};
             root = tag;
             root.artboards = 1;
+            root.ids = {};
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {

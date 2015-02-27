@@ -23,6 +23,7 @@
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
+        svgWriterGradient = require("./svgWriterGradient.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
         SVGWriterGradientMap = require("./svgWriterGradientMap.js");
 
@@ -40,22 +41,12 @@
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
-        ctxCapture = svgWriterUtils.ctxCapture;
+        ctxCapture = svgWriterUtils.ctxCapture,
+        hasColorNoise = svgWriterUtils.hasColorNoise,
+        hasEffect = svgWriterUtils.hasEffect,
+        PSFx = svgWriterUtils.PSFx;
     
     function SVGWriterFx() {
-
-        var PSFx = function (omIn) {
-            return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
-        }
-        
-        this.hasFx = function (ctx) {
-            // FIXME: Inner and outer glow are missing.
-            return PSFx(ctx.currentOMNode) && ((hasEffect(ctx, 'dropShadow') ||
-                    hasEffect(ctx, 'gradientFill', hasColorNoise) ||
-                    hasEffect(ctx, 'solidFill') ||
-                    hasEffect(ctx, 'chromeFX') ||
-                    hasEffect(ctx, 'innerShadow')));
-        };
         
         this.scanForUnsupportedFeatures = function (ctx) {
             var omIn = ctx.currentOMNode,
@@ -160,24 +151,6 @@
 
             styleBlock.addRule("filter", "url(#" + filterID + ")");
         };
-
-        var hasColorNoise = function (ele) {
-            return ele.gradient.gradientForm !== 'colorNoise';
-        }
-
-        var hasEffect = function (ctx, effect, custom) {
-            var omIn = ctx.currentOMNode;
-            effect += 'Multi';
-            if (omIn.style.meta.PS.fx[effect]) {
-                return omIn.style.meta.PS.fx[effect].some(function(ele) {
-                    if (custom) {
-                        return ele.enabled && custom(ele);
-                    }
-                    return ele.enabled;
-                });
-            }
-            return false;
-        }
 
         var glowHelperFunction = function (ctx, glow, glowType, ind) {
             var gradientMap = new SVGWriterGradientMap,
@@ -302,7 +275,7 @@
                 pseudoCtx = new SVGWriterContext(omIn),
                 opacity = round1k(gradientFill.opacity);
 
-            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.viewBox, 'grad');
+            svgWriterGradient.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.viewBox, 'grad');
 
             var string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
                 ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '">' +

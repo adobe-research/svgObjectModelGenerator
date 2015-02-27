@@ -21,13 +21,14 @@
 (function () {
 "use strict";
     
-    var svgWriterUtils = require("./svgWriterUtils.js");
+    var svgWriterUtils = require("./svgWriterUtils.js"),
+        svgWriterGradient = require("./svgWriterGradient.js");
     
     var write = svgWriterUtils.write,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
-        writeRadialGradient = svgWriterUtils.writeRadialGradient,
-        writeLinearGradient = svgWriterUtils.writeLinearGradient,
+        writeRadialGradient = svgWriterGradient.writeRadialGradient,
+        writeLinearGradient = svgWriterGradient.writeLinearGradient,
         writeColor = svgWriterUtils.writeColor,
         px = svgWriterUtils.px,
         ifStylesheetDoesNotHaveStyle = svgWriterUtils.ifStylesheetDoesNotHaveStyle;

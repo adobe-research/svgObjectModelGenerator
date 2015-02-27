@@ -22,13 +22,14 @@
 "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js");
+        svgWriterIDs = require("./svgWriterIDs.js"),
+        svgWriterGradient = require("./svgWriterGradient.js");
     
     var write = svgWriterUtils.write,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
-        writeRadialGradient = svgWriterUtils.writeRadialGradient,
-        writeLinearGradient = svgWriterUtils.writeLinearGradient,
+        writeRadialGradient = svgWriterGradient.writeRadialGradient,
+        writeLinearGradient = svgWriterGradient.writeLinearGradient,
         writeColor = svgWriterUtils.writeColor,
         ifStylesheetDoesNotHaveStyle = svgWriterUtils.ifStylesheetDoesNotHaveStyle;
     
