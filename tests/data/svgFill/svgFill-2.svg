@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="169" height="169" viewBox="0 0 169 169">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="168" height="168" viewBox="0 0 168 168">
   <defs>
     <style>
       .cls-1 {
@@ -9,7 +9,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="84" y1="167" x2="84" y2="1">
+    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="84" y1="166.5" x2="84" y2="1.5">
       <stop offset="0" stop-color="#0b01b8"/>
       <stop offset="0.1" stop-color="#0b01b8"/>
       <stop offset="0.5" stop-color="#fdfa03"/>
@@ -17,7 +17,7 @@
       <stop offset="1" stop-color="#0b02aa"/>
     </linearGradient>
     <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
-      <feImage x="1" y="1" width="166" height="166" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTY2IiBoZWlnaHQ9IjE2NiI+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjgzIiBjeT0iODMiIHI9IjgzIj4KICA8c3RvcCBvZmZzZXQ9IjAiLz4KICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iMCIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjczIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
+      <feImage x="1.5" y="1.5" width="165" height="165" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTY1IiBoZWlnaHQ9IjE2NSI+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjgyLjUiIGN5PSI4Mi41IiByPSI4Mi41Ij4KICA8c3RvcCBvZmZzZXQ9IjAiLz4KICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iMCIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjczIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
       <feComposite operator="in" in2="SourceGraphic"/>
       <feBlend in2="SourceGraphic" result="gradientFill"/>
       <feFlood flood-color="red" flood-opacity="0.5"/>
@@ -26,7 +26,7 @@
     </filter>
   </defs>
   <g style="fill: url(#linear-gradient-1); filter: url(#filter-chain-1)">
-    <circle cx="84" cy="84" r="83" id="circle-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-1"/>
+    <circle cx="84" cy="84" r="82.5" id="circle-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-1"/>
   </g>
   <use xlink:href="#circle-1" style="stroke: #000; filter: none; fill: none"/>
 </svg>

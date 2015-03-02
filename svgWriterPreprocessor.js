@@ -25,7 +25,8 @@
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterText = require("./svgWriterText.js");
+        svgWriterText = require("./svgWriterText.js"),
+        utils = require("./utils.js");
 
     var px = svgWriterUtils.px;
 
@@ -83,66 +84,14 @@
             }
         };
 
-        var isSizedGraphic = function (omIn) {
-            return omIn.type === "shape" || omIn.type === "group" ||
-                omIn.type === "artboard" || (omIn.type === "generic" && omIn.shapeBounds);
-        };
-
         var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
-                bndsIn = omIn.bounds,
-                boundPadLeft = 0,
-                boundPadRight = 0,
-                boundPadTop = 0,
-                boundPadBottom = 0;
+                bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
+                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
+                            omIn.style.stroke.lineWidth || 0,
+                expand = lineWidth / 2;
 
-            if (omIn.boundsWithFX) {
-                bndsIn = omIn.boundsWithFX;
-            } else {
-                if (isSizedGraphic(omIn)) {
-                    bndsIn = omIn.shapeBounds;
-                } else if (omIn.type === "text") {
-                    if (omIn.textBounds) {
-                        bndsIn = JSON.parse(JSON.stringify(omIn.textBounds));
-                    } else if (omIn.shapeBounds) {
-                        bndsIn = omIn.shapeBounds;
-                    }
-                }
-            }
-
-            var lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
-                            omIn.style.stroke.lineWidth;
-            if (lineWidth) {
-                // If the shape has a border then we need to bump the bounds up?
-                boundPadLeft = lineWidth / 2;
-                boundPadRight = lineWidth / 2;
-                boundPadTop = lineWidth / 2;
-                boundPadBottom = lineWidth / 2;
-            }
-
-            if (omIn.type === "shape" && omIn.shape && (omIn.shape.type === "circle" || omIn.shape.type === "ellipse")) {
-                if ((bndsIn.right - bndsIn.left) % 2 !== 0) {
-                    boundPadRight += 1;
-                }
-                if ((bndsIn.bottom - bndsIn.top) % 2 !== 0) {
-                    boundPadBottom += 1;
-                }
-            }
-
-            if (bndsIn) {
-                if (!isFinite(bnds.left) || (bndsIn.left - boundPadLeft) < bnds.left) {
-                    bnds.left = (bndsIn.left - boundPadLeft);
-                }
-                if (!isFinite(bnds.right) || (bndsIn.right + boundPadRight) > bnds.right) {
-                    bnds.right = bndsIn.right + boundPadRight;
-                }
-                if (!isFinite(bnds.top) || (bndsIn.top - boundPadTop) < bnds.top) {
-                    bnds.top = bndsIn.top - boundPadTop;
-                }
-                if (!isFinite(bnds.bottom) || (bndsIn.bottom + boundPadBottom) > bnds.bottom) {
-                    bnds.bottom = bndsIn.bottom + boundPadBottom;
-                }
-            }
+            utils.unionRect(bnds, bndsIn, expand);
         };
 
         var shiftTextBounds = function (ctx, omIn, nested, sibling) {
@@ -280,27 +229,13 @@
 
         // Shift the bounds recorded in recordBounds.
         var shiftBounds = function (ctx, omIn, nested, sibling) {
-            var bnds = omIn.bounds;
+            var bnds = omIn.shapeBounds || omIn.bounds;
 
-            if (omIn.type === "text" || omIn.type === "tspan") {
+            if (omIn.type == "text" || omIn.type == "tspan") {
                 shiftTextBounds(ctx, omIn, nested, sibling);
                 return;
             }
 
-            if (isSizedGraphic(omIn)) {
-                bnds = omIn.shapeBounds;
-                if (omIn.type === "shape") {
-                    if (omIn.shape.type === "circle" ||
-                            omIn.shape.type === "ellipse") {
-                        if ((bnds.right - bnds.left) % 2 !== 0) {
-                            bnds.right += 1;
-                        }
-                        if ((bnds.bottom - bnds.top) % 2 !== 0) {
-                            bnds.bottom += 1;
-                        }
-                    }
-                }
-            }
             if (bnds) {
                 svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
                 svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
@@ -332,16 +267,18 @@
                 docBounds = ctx.docBounds;
             if (ctx.config.trimToArtBounds) {
                 if (bnds) {
+                    // FIXME: We rounded the document size before. However, this causes visual problems
+                    // with small viewports or viewBoxes. Move back to more precise dimensions for now.
                     if (ctx.config.constrainToDocBounds) {
-                        bnds.left = Math.max(0, svgWriterUtils.roundDown(bnds.left || 0));
-                        bnds.right = Math.min(docBounds.right, svgWriterUtils.roundUp(bnds.right || 0));
-                        bnds.top = Math.max(0, svgWriterUtils.roundDown(bnds.top || 0));
-                        bnds.bottom = Math.min(docBounds.bottom, svgWriterUtils.roundUp(bnds.bottom || 0));
+                        bnds.left = Math.max(0, bnds.left || 0);
+                        bnds.right = Math.min(docBounds.right, bnds.right || 0);
+                        bnds.top = Math.max(0, bnds.top || 0);
+                        bnds.bottom = Math.min(docBounds.bottom, bnds.bottom || 0);
                     } else {
-                        bnds.left = svgWriterUtils.roundDown(bnds.left || 0);
-                        bnds.right = svgWriterUtils.roundUp(bnds.right || 0);
-                        bnds.top = svgWriterUtils.roundDown(bnds.top || 0);
-                        bnds.bottom = svgWriterUtils.roundUp(bnds.bottom || 0);
+                        bnds.left = bnds.left || 0;
+                        bnds.right = bnds.right || 0;
+                        bnds.top = bnds.top || 0;
+                        bnds.bottom = bnds.bottom || 0;
                     }
 
                     ctx._shiftContentX = -bnds.left;

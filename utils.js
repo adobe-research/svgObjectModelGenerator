@@ -65,6 +65,24 @@
         self.roundDown = function (x) {
             return Math.round(x);
         };
+
+        self.unionRect = function (rect1, rect2, expand) {
+            if (!rect2) {
+                return;
+            }
+            if (!isFinite(rect1.left) || (rect2.left - expand) < rect1.left) {
+                rect1.left = (rect2.left - expand);
+            }
+            if (!isFinite(rect1.right) || (rect2.right + expand) > rect1.right) {
+                rect1.right = rect2.right + expand;
+            }
+            if (!isFinite(rect1.top) || (rect2.top - expand) < rect1.top) {
+                rect1.top = rect2.top - expand;
+            }
+            if (!isFinite(rect1.bottom) || (rect2.bottom + expand) > rect1.bottom) {
+                rect1.bottom = rect2.bottom + expand;
+            }
+        };
         
         /** jQuery-style extend
          *  https://github.com/jquery/jquery/blob/master/src/core.js
