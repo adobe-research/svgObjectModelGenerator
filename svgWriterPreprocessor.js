@@ -25,7 +25,8 @@
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterText = require("./svgWriterText.js");
+        svgWriterText = require("./svgWriterText.js"),
+        utils = require("./utils.js");
 
     var px = svgWriterUtils.px;
 
@@ -83,66 +84,46 @@
             }
         };
 
-        var isSizedGraphic = function (omIn) {
-            return omIn.type === "shape" || omIn.type === "group" ||
-                omIn.type === "artboard" || (omIn.type === "generic" && omIn.shapeBounds);
+        var isCircleOrEllipse = function (omIn) {
+            return omIn.type == "shape" && omIn.shape && (omIn.shape.type == "circle" || omIn.shape.type == "ellipse");
         };
 
         var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
-                bndsIn = omIn.bounds,
-                boundPadLeft = 0,
-                boundPadRight = 0,
-                boundPadTop = 0,
-                boundPadBottom = 0;
+                bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
+                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
+                            omIn.style.stroke.lineWidth,
+                expand = lineWidth / 2,
+                boundPadLeft = expand,
+                boundPadRight = expand,
+                boundPadTop = expand,
+                boundPadBottom = expand;
 
-            if (omIn.boundsWithFX) {
-                bndsIn = omIn.boundsWithFX;
-            } else {
-                if (isSizedGraphic(omIn)) {
-                    bndsIn = omIn.shapeBounds;
-                } else if (omIn.type === "text") {
-                    if (omIn.textBounds) {
-                        bndsIn = JSON.parse(JSON.stringify(omIn.textBounds));
-                    } else if (omIn.shapeBounds) {
-                        bndsIn = omIn.shapeBounds;
-                    }
-                }
-            }
-
-            var lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
-                            omIn.style.stroke.lineWidth;
-            if (lineWidth) {
-                // If the shape has a border then we need to bump the bounds up?
-                boundPadLeft = lineWidth / 2;
-                boundPadRight = lineWidth / 2;
-                boundPadTop = lineWidth / 2;
-                boundPadBottom = lineWidth / 2;
-            }
-
-            if (omIn.type === "shape" && omIn.shape && (omIn.shape.type === "circle" || omIn.shape.type === "ellipse")) {
+            if (isCircleOrEllipse(omIn)) {
                 if ((bndsIn.right - bndsIn.left) % 2 !== 0) {
                     boundPadRight += 1;
                 }
                 if ((bndsIn.bottom - bndsIn.top) % 2 !== 0) {
                     boundPadBottom += 1;
                 }
+                if (bndsIn) {
+                    if (!isFinite(bnds.left) || (bndsIn.left - boundPadLeft) < bnds.left) {
+                        bnds.left = (bndsIn.left - boundPadLeft);
+                    }
+                    if (!isFinite(bnds.right) || (bndsIn.right + boundPadRight) > bnds.right) {
+                        bnds.right = bndsIn.right + boundPadRight;
+                    }
+                    if (!isFinite(bnds.top) || (bndsIn.top - boundPadTop) < bnds.top) {
+                        bnds.top = bndsIn.top - boundPadTop;
+                    }
+                    if (!isFinite(bnds.bottom) || (bndsIn.bottom + boundPadBottom) > bnds.bottom) {
+                        bnds.bottom = bndsIn.bottom + boundPadBottom;
+                    }
+                }
+                return;
             }
 
-            if (bndsIn) {
-                if (!isFinite(bnds.left) || (bndsIn.left - boundPadLeft) < bnds.left) {
-                    bnds.left = (bndsIn.left - boundPadLeft);
-                }
-                if (!isFinite(bnds.right) || (bndsIn.right + boundPadRight) > bnds.right) {
-                    bnds.right = bndsIn.right + boundPadRight;
-                }
-                if (!isFinite(bnds.top) || (bndsIn.top - boundPadTop) < bnds.top) {
-                    bnds.top = bndsIn.top - boundPadTop;
-                }
-                if (!isFinite(bnds.bottom) || (bndsIn.bottom + boundPadBottom) > bnds.bottom) {
-                    bnds.bottom = bndsIn.bottom + boundPadBottom;
-                }
-            }
+            utils.unionRect(bnds, bndsIn, expand);
         };
 
         var shiftTextBounds = function (ctx, omIn, nested, sibling) {
@@ -280,25 +261,20 @@
 
         // Shift the bounds recorded in recordBounds.
         var shiftBounds = function (ctx, omIn, nested, sibling) {
-            var bnds = omIn.bounds;
+            var bnds = omIn.shapeBounds || omIn.bounds;
 
-            if (omIn.type === "text" || omIn.type === "tspan") {
+            if (omIn.type == "text" || omIn.type == "tspan") {
                 shiftTextBounds(ctx, omIn, nested, sibling);
                 return;
             }
 
-            if (isSizedGraphic(omIn)) {
-                bnds = omIn.shapeBounds;
-                if (omIn.type === "shape") {
-                    if (omIn.shape.type === "circle" ||
-                            omIn.shape.type === "ellipse") {
-                        if ((bnds.right - bnds.left) % 2 !== 0) {
-                            bnds.right += 1;
-                        }
-                        if ((bnds.bottom - bnds.top) % 2 !== 0) {
-                            bnds.bottom += 1;
-                        }
-                    }
+            // FIXME: Remove special handling of circle and ellipse.
+            if (isCircleOrEllipse(omIn)) {
+                if ((bnds.right - bnds.left) % 2 !== 0) {
+                    bnds.right += 1;
+                }
+                if ((bnds.bottom - bnds.top) % 2 !== 0) {
+                    bnds.bottom += 1;
                 }
             }
             if (bnds) {
