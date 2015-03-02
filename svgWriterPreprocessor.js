@@ -88,7 +88,7 @@
             var bnds = ctx.contentBounds,
                 bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
                 lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
-                            omIn.style.stroke.lineWidth,
+                            omIn.style.stroke.lineWidth || 0,
                 expand = lineWidth / 2;
 
             utils.unionRect(bnds, bndsIn, expand);
