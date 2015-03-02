@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="86" height="228" viewBox="0 0 86 228">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="86" height="227" viewBox="0 0 86 227">
   <defs>
     <style>
       .cls-1 {
@@ -6,5 +6,5 @@
       }
     </style>
   </defs>
-  <ellipse cx="43" cy="114" rx="43" ry="114" class="cls-1"/>
+  <ellipse cx="43" cy="113.5" rx="43" ry="113.5" class="cls-1"/>
 </svg>
