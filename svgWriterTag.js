@@ -22,10 +22,9 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
-        svgWriterStroke = require("./svgWriterStroke.js"),
-        svgWriterFx = require("./svgWriterFx.js"),
         svgWriterText = require("./svgWriterText.js"),
-        attrsDefs = require('./attrdefs-database.js');
+        attrsDefs = require('./attrdefs-database.js'),
+        SVGWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
@@ -33,8 +32,9 @@
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
-        getTransform = svgWriterUtils.getTranform,
+        getTransform = svgWriterUtils.getTransform,
         encodedText = svgWriterUtils.encodedText,
+        hasFx = svgWriterUtils.hasFx,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
         root,
@@ -62,12 +62,26 @@
             this.setStyleBlock(ctx, node);
         }
     }
-	Tag.getById = function (id) {
-		if (!root) {
-			return null;
-		}
-		return root.all[id] || null;
-	};
+    function hasStroke(ctx) {
+        var omIn = ctx.currentOMNode;
+        return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
+    }
+    Tag.getById = function (id) {
+        if (!root) {
+            return null;
+        }
+        return root.all[id] || null;
+    };
+    Tag.getByDOMId = function (id) {
+        id = id + "";
+        if (id.charAt(0) == "#") {
+            id = id.substring(1);
+        }
+        if (!root) {
+            return null;
+        }
+        return root.ids[id] || null;
+    };
     Tag.prototype.setAttributes = function (attr) {
         if (!attr) {
             return;
@@ -107,7 +121,6 @@
     };
     Tag.prototype.setAttribute = function (name, value) {
         var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
-            deft = desc[0],
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {
@@ -129,9 +142,15 @@
                 }
                 break;
         }
-        if (value + "" == deft + "") {
+        if (value === "") {
+            if (name == "id" && root) {
+                delete root.ids[this.attrs.id];
+            }
             delete this.attrs[name];
             return;
+        }
+        if (name == "id" && root) {
+            root.ids[value] = this;
         }
         this.attrs[name] = value;
     };
@@ -140,14 +159,13 @@
             hasDefines = ctx.omStylesheet.hasDefines();
 
         if (hasRules || hasDefines) {
-            svgWriterUtils.gradientStopsReset();
             writeln(ctx, ctx.currentIndent + "<defs>");
             indent(ctx);
 
             !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
 
             if (hasRules && hasDefines) {
-                write(ctx, ctx.terminator);
+                writeln(ctx);
             }
             ctx.omStylesheet.writeDefines(ctx);
 
@@ -155,11 +173,43 @@
             writeln(ctx, ctx.currentIndent + "</defs>");
         }
     }
+    var linkableNames = {
+            linearGradient: 1,
+            radialGradient: 1,
+            filter: 1,
+            pattern: 1
+        };
+    Tag.prototype.writeAttribute = function (ctx, name) {
+        var tag = this,
+            desc = attrsDefs[tag.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
+            deft = desc[0],
+            link,
+            toWrite = tag.attrs[name] + "" != deft + "";
+        // Special case of linked tags
+        if (tag.name in linkableNames && tag.attrs["xlink:href"]) {
+            link = tag;
+            while (link.attrs["xlink:href"]) {
+                link = Tag.getByDOMId(link.attrs["xlink:href"]);
+                if (link && link.name == tag.name) {
+                    if (name in link.attrs) {
+                        toWrite = link.attrs[name] != tag.attrs[name];
+                        break;
+                    }
+                } else {
+                    toWrite = true;
+                    break;
+                }
+            }
+        }
+        if (toWrite) {
+            write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+        }
+    };
     Tag.prototype.write = Tag.prototype.toString = function (ctx) {
         ctx = ctx || new SVGWriterContext({});
         var tag = this,
             numChildren = tag.children && tag.children.length;
-        this.setClass(ctx);
+        tag.setClass(ctx);
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
@@ -175,7 +225,7 @@
             }
             write(ctx, ind + "<" + tag.name);
             for (var name in tag.attrs) {
-                write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+                tag.writeAttribute(ctx, name);
             }
             if (!numChildren && tag.name != "script") {
                 write(ctx, "/");
@@ -235,7 +285,7 @@
         }
     };
     Tag.prototype.useTrick = function (ctx) {
-        if (this.tricked || !svgWriterFx.hasFx(ctx) || !svgWriterStroke.hasStroke(ctx)) {
+        if (this.tricked || !hasFx(ctx) || !hasStroke(ctx)) {
             return this;
         }
         var stroke = this.getAttribute("stroke"),
@@ -464,6 +514,7 @@
             tag.all = {};
             root = tag;
             root.artboards = 1;
+            root.ids = {};
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {

@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -399,6 +399,19 @@
                     }
                 }
             }
+            function h2hv2v(segp, seg) {
+                var pcmd = segp && segp.cmd.toLowerCase();
+                if (segp && pcmd == seg.cmd.toLowerCase() && (pcmd == "h" || pcmd == "v")) {
+                    if (seg.type == "rel") {
+                        segp.rest[0] += seg.rest[0];
+                    } else if (segp.type == "rel") {
+                        segp.rest[0] += seg.rest[0] - (pcmd == "h" ? seg.x : seg.y);
+                    } else {
+                        segp.rest[0] = seg.rest[0];
+                    }
+                    return "unite";
+                }
+            }
             var res = "",
                 args = {
                     abs: "",
@@ -451,7 +464,8 @@
                     }
                 } else {
                     segs.push({
-                        command: command
+                        command: command,
+                        cmd: command.toUpperCase()
                     });
                     x = mx;
                     y = my;
@@ -472,6 +486,11 @@
                 }
                 // Special case if "C" instead of "S"
                 c2s(segs[i - 1], segs[i], goodEnough);
+                // Special case if "C" instead of "A"
+                if (h2hv2v(segs[i - 1], segs[i]) == "unite") {
+                    segs.splice(i, 1);
+                    i--;
+                }
             }
 
             for (i = 0; i < segs.length; i++) {
