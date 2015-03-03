@@ -18,7 +18,7 @@
 /* Keep track of SVG data */
 
 (function () {
-"use strict";
+    "use strict";
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
@@ -106,7 +106,7 @@
             units = (value + "").match(/[a-z%\-]+$/i);
         if (value == +value) {
             value = round1k(value);
-        } else if (digival == 0) {
+        } else if (digival === 0) {
             value = 0;
         } else if (isFinite(digival)) {
             value = round1k(digival);
@@ -124,23 +124,23 @@
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {
-            case "number":
-                value = parseNumber(value);
-                break;
-            case "number-sequence":
-                if (!Array.isArray(value)) {
-                    value = (value + "").split(/[,\s]+/);
-                }
-                for (var i = 0, ii = value.length; i < ii; i++) {
-                    value[i] = parseNumber(value[i]);
-                }
-                value = value.join(" ");
-                break;
-            case "color":
-                if (value != "none") {
-                    value = writeColor(value);
-                }
-                break;
+        case "number":
+            value = parseNumber(value);
+            break;
+        case "number-sequence":
+            if (!Array.isArray(value)) {
+                value = (value + "").split(/[,\s]+/);
+            }
+            for (var i = 0, ii = value.length; i < ii; i++) {
+                value[i] = parseNumber(value[i]);
+            }
+            value = value.join(" ");
+            break;
+        case "color":
+            if (value != "none") {
+                value = writeColor(value);
+            }
+            break;
         }
         if (value === "") {
             if (name == "id" && root) {
@@ -254,7 +254,7 @@
             write(ctx, "</" + tag.name + ">");
         } else {
             undent(ctx);
-            writeln(ctx, ind + "</" + tag.name + ">");
+            writeln(ctx, ctx.currentIndent + "</" + tag.name + ">");
         }
         return ctx.sOut;
     };
@@ -347,9 +347,9 @@
         circle: function (ctx, node) {
             var box = measure(node),
                 tag = new Tag("circle", {
-                    cx: box.cx,
-                    cy: box.cy,
-                    r: box.r,
+                    cx: node.shape.cx,
+                    cy: node.shape.cy,
+                    r: node.shape.r,
                     transform: box.transform
                 }, ctx);
             return tag.useTrick(ctx);
@@ -357,10 +357,10 @@
         ellipse: function (ctx, node) {
             var box = measure(node),
                 tag = new Tag("ellipse", {
-                    cx: box.cx,
-                    cy: box.cy,
-                    rx: box.rx,
-                    ry: box.ry,
+                    cx: node.shape.cx,
+                    cy: node.shape.cy,
+                    rx: node.shape.rx,
+                    ry: node.shape.ry,
                     transform: box.transform
                 }, ctx);
             return tag.useTrick(ctx);
@@ -368,10 +368,10 @@
         rect: function (ctx, node) {
             var box = measure(node),
                 tag = new Tag("rect", {
-                    x: box.x,
-                    y: box.y,
-                    width: box.width,
-                    height: box.height,
+                    x: node.shape.x,
+                    y: node.shape.y,
+                    width: node.shape.width,
+                    height: node.shape.height,
                     transform: box.transform
                 }, ctx);
             if (node.shapeRadii) {
@@ -498,7 +498,7 @@
                 height: scaledH,
                 viewBox: [left, top, width, height]
             });
-         },
+        },
     };
 
     Tag.make = function (ctx, node, sibling) {

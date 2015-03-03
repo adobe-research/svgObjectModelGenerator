@@ -227,6 +227,21 @@
             }
         };
 
+        var shiftShapePosition = function (ctx, omIn) {
+            var shape = omIn.shape;
+            switch (shape.type) {
+            case "circle":
+            case "ellipse":
+                shape.cx += ctx._shiftContentX;
+                shape.cy += ctx._shiftContentY;
+                break;
+            case "rect":
+                shape.x += ctx._shiftContentX;
+                shape.y += ctx._shiftContentY;
+                break;
+            }
+        };
+
         // Shift the bounds recorded in recordBounds.
         var shiftBounds = function (ctx, omIn, nested, sibling) {
             var bnds = omIn.shapeBounds || omIn.bounds;
@@ -234,6 +249,10 @@
             if (omIn.type == "text" || omIn.type == "tspan") {
                 shiftTextBounds(ctx, omIn, nested, sibling);
                 return;
+            }
+
+            if (omIn.type == "shape") {
+                shiftShapePosition(ctx, omIn);
             }
 
             if (bnds) {
