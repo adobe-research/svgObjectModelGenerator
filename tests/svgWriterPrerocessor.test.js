@@ -89,6 +89,61 @@ describe('SVGWriterPreprocessor', function (){
                     }
                 ]
             },
+            svgOM2 = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 50,
+                        top: 0,
+                        bottom: 100
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        shapeBounds: {
+                            left: 79.29,
+                            right: 220.71,
+                            top: 79.29,
+                            bottom: 220.71
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 100,
+                            height: 100
+                        },
+                        transform: {
+                            "0": [
+                                0.7071067811865476,
+                                0.7071067811865475,
+                                0,
+                                0
+                            ],
+                            "1": [
+                                -0.7071067811865475,
+                                0.7071067811865476,
+                                0,
+                                0
+                            ],
+                            "2": [
+                                0,
+                                0,
+                                1,
+                                0
+                            ],
+                            "3": [
+                                150,
+                                -62.132034355964265,
+                                0,
+                                1
+                            ],
+                            "size": 4
+                        }
+                    }
+                ]
+            },
             ctx = {
                 svgOM: svgOM,
                 currentOMNode: svgOM,
@@ -98,6 +153,20 @@ describe('SVGWriterPreprocessor', function (){
                     right: 50,
                     top: 0,
                     bottom: 100
+                },
+                config: {
+                    trimToArtBounds: true
+                }
+            },
+            ctx2 = {
+                svgOM: svgOM2,
+                currentOMNode: svgOM2,
+                contentBounds: {},
+                viewBox: {
+                    left: 0,
+                    right: 300,
+                    top: 0,
+                    bottom: 300
                 },
                 config: {
                     trimToArtBounds: true
@@ -115,7 +184,14 @@ describe('SVGWriterPreprocessor', function (){
         expect(svgOM.children[0].shapeBounds.left).to.equal(1.5);
         expect(svgOM.children[0].shapeBounds.right).to.equal(31.5);
         expect(svgOM.children[0].shapeBounds.bottom).to.equal(91.5);
-        
+
+        svgWriterPreprocessor.processSVGOM(ctx2);
+
+        expect(ctx2.viewBox.top).to.equal(0);
+        expect(ctx2.viewBox.left).to.equal(0);
+        expect(ctx2.viewBox.right).to.equal(141.42000000000002);
+        expect(ctx2.viewBox.bottom).to.equal(141.42000000000002);
+    
         /*
         //if we don't shift bounds...
         

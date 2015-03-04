@@ -321,58 +321,34 @@
         this.tricked = true;
         return list;
     };
-    function measure(node) {
-        var bnds = node.originBounds || node.shapeBounds,
-            top = parseFloat(bnds.top),
-            right = parseFloat(bnds.right),
-            bottom = parseFloat(bnds.bottom),
-            left = parseFloat(bnds.left),
-            w = right - left,
-            h = bottom - top;
-        return {
-            x: left,
-            y: top,
-            width: w,
-            height: h,
-            cx: left + w / 2,
-            cy: top + h / 2,
-            r: h / 2,
-            rx: w / 2,
-            ry: h / 2,
-            transform: getTransform(node.transform, node.transformTX, node.transformTY)
-        };
-    }
 
     var factory = {
         circle: function (ctx, node) {
-            var box = measure(node),
-                tag = new Tag("circle", {
+            var tag = new Tag("circle", {
                     cx: node.shape.cx,
                     cy: node.shape.cy,
                     r: node.shape.r,
-                    transform: box.transform
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             return tag.useTrick(ctx);
         },
         ellipse: function (ctx, node) {
-            var box = measure(node),
-                tag = new Tag("ellipse", {
+            var tag = new Tag("ellipse", {
                     cx: node.shape.cx,
                     cy: node.shape.cy,
                     rx: node.shape.rx,
                     ry: node.shape.ry,
-                    transform: box.transform
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             return tag.useTrick(ctx);
         },
         rect: function (ctx, node) {
-            var box = measure(node),
-                tag = new Tag("rect", {
+            var tag = new Tag("rect", {
                     x: node.shape.x,
                     y: node.shape.y,
                     width: node.shape.width,
                     height: node.shape.height,
-                    transform: box.transform
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             if (node.shapeRadii) {
                 var r = parseFloat(node.shapeRadii[0]);

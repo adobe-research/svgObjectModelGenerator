@@ -229,6 +229,13 @@
 
         var shiftShapePosition = function (ctx, omIn) {
             var shape = omIn.shape;
+
+            // PS and Ai propagate all transforms to the leaves.
+            if (omIn.transform) {
+                omIn.transformTX += ctx._shiftContentX;
+                omIn.transformTY += ctx._shiftContentY;
+                return;
+            }
             switch (shape.type) {
             case "circle":
             case "ellipse":
