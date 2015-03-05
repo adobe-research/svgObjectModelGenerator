@@ -302,36 +302,58 @@
 
         var finalizePreprocessing = function (ctx) {
             var bnds = ctx.contentBounds,
-                docBounds = ctx.docBounds;
-            if (ctx.config.trimToArtBounds) {
-                if (bnds) {
-                    // FIXME: We rounded the document size before. However, this causes visual problems
-                    // with small viewports or viewBoxes. Move back to more precise dimensions for now.
-                    if (ctx.config.constrainToDocBounds) {
-                        bnds.left = Math.max(0, bnds.left || 0);
-                        bnds.right = Math.min(docBounds.right, bnds.right || 0);
-                        bnds.top = Math.max(0, bnds.top || 0);
-                        bnds.bottom = Math.min(docBounds.bottom, bnds.bottom || 0);
-                    } else {
-                        bnds.left = bnds.left || 0;
-                        bnds.right = bnds.right || 0;
-                        bnds.top = bnds.top || 0;
-                        bnds.bottom = bnds.bottom || 0;
-                    }
+                docBounds = ctx.docBounds,
+                w,
+                h,
+                cropRect = ctx.config.cropRect;
 
-                    ctx._shiftContentX = -bnds.left;
-                    ctx._shiftContentY = -bnds.top;
-
-                    if (ctx.svgOM && ctx.viewBox) {
-                        ctx.viewBox.left = 0;
-                        ctx.viewBox.top = 0;
-                        ctx.viewBox.right = bnds.right - bnds.left;
-                        ctx.viewBox.bottom = bnds.bottom - bnds.top;
-                    } else {
-                        console.log("no viewBox");
-                    }
-                }
+            if (!ctx.config.trimToArtBounds || !bnds) {
+                return;
             }
+
+            // FIXME: We rounded the document size before. However, this causes visual problems
+            // with small viewports or viewBoxes. Move back to more precise dimensions for now.
+            if (ctx.config.constrainToDocBounds) {
+                bnds.left = Math.max(0, bnds.left || 0);
+                bnds.right = Math.min(docBounds.right, bnds.right || 0);
+                bnds.top = Math.max(0, bnds.top || 0);
+                bnds.bottom = Math.min(docBounds.bottom, bnds.bottom || 0);
+            } else {
+                bnds.left = bnds.left || 0;
+                bnds.right = bnds.right || 0;
+                bnds.top = bnds.top || 0;
+                bnds.bottom = bnds.bottom || 0;
+            }
+
+            ctx._shiftContentX = -bnds.left;
+            ctx._shiftContentY = -bnds.top;
+
+            if (!ctx.viewBox) {
+                console.log("no viewBox");
+                return;
+            }
+
+            ctx.viewBox.left = 0;
+            ctx.viewBox.top = 0;
+            ctx.viewBox.right = bnds.right - bnds.left;
+            ctx.viewBox.bottom = bnds.bottom - bnds.top;
+
+            w = ctx.viewBox.right;
+            h = ctx.viewBox.bottom;
+
+            // Clip to crop boundaries.
+            // FIXME: Do we want to allow cropping without trimToArtBounds set?
+            if (!cropRect ||
+                cropRect.width == w &&
+                cropRect.height == h) {
+                return;
+            }
+
+            ctx.viewBox.right = cropRect.width;
+            ctx.viewBox.bottom = cropRect.height;
+
+            ctx._shiftContentX += (cropRect.width - w) / 2;
+            ctx._shiftContentY += (cropRect.height - h) / 2;
         };
 
         this.processSVGNode = function (ctx, nested, sibling) {

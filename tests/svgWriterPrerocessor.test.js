@@ -144,6 +144,34 @@ describe('SVGWriterPreprocessor', function (){
                     }
                 ]
             },
+            svgOM3 = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 400
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        shapeBounds: {
+                            left: 100,
+                            right: 200,
+                            top: 100,
+                            bottom: 200
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 100,
+                            height: 100
+                        }
+                    }
+                ]
+            },
             ctx = {
                 svgOM: svgOM,
                 currentOMNode: svgOM,
@@ -171,6 +199,24 @@ describe('SVGWriterPreprocessor', function (){
                 config: {
                     trimToArtBounds: true
                 }
+            },
+            ctx3 = {
+                svgOM: svgOM3,
+                currentOMNode: svgOM3,
+                contentBounds: {},
+                viewBox: {
+                    left: 0,
+                    right: 400,
+                    top: 0,
+                    bottom: 400
+                },
+                config: {
+                    cropRect: {
+                        width: 200,
+                        height: 200
+                    },
+                    trimToArtBounds: true
+                }
             };
         
         svgWriterPreprocessor.processSVGOM(ctx);
@@ -191,6 +237,15 @@ describe('SVGWriterPreprocessor', function (){
         expect(ctx2.viewBox.left).to.equal(0);
         expect(ctx2.viewBox.right).to.equal(141.42000000000002);
         expect(ctx2.viewBox.bottom).to.equal(141.42000000000002);
+
+        svgWriterPreprocessor.processSVGOM(ctx3);
+
+        expect(ctx3.viewBox.top).to.equal(0);
+        expect(ctx3.viewBox.left).to.equal(0);
+        expect(ctx3.viewBox.right).to.equal(200);
+        expect(ctx3.viewBox.bottom).to.equal(200);
+        expect(ctx3.svgOM.children[0].shape.x).to.equal(50);
+        expect(ctx3.svgOM.children[0].shape.y).to.equal(50);
     
         /*
         //if we don't shift bounds...
