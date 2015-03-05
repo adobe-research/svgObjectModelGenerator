@@ -421,13 +421,11 @@ describe('svgWriter', function (){
             } catch (e) {
                 fs.writeFileSync('./tests/data/polygon-line.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as polygon-line.svg');
-                return svgOut;
+                return;
             }
             
-            // handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
-            
             expect(svgOut).to.equal(exptectedOut);
-            return svgOut;
+            return;
         });
     });
 });
