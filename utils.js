@@ -299,6 +299,15 @@
             return arc;
         }
 
+        self.pointsToString = function (points, precision) {
+            precision = isFinite(precision) ? precision : 3;
+            var array = [];
+            points.forEach(function (item) {
+                array.push(item.x.toFixed(precision) + " " + item.y.toFixed(precision));
+            });
+            return array.join();
+        };
+
         self.optimisePath = function (path, precision) {
             precision = isFinite(precision) ? precision : 3;
             function isSmall(num) {

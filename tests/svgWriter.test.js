@@ -19,7 +19,7 @@ var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     svgWriter = require("../svgWriter.js"),
     sinon = require('sinon'),
-    database = require('./test-database.js');
+    database = require('./test-database.js'),
     fs = require('fs');
 
 
@@ -344,5 +344,90 @@ describe('svgWriter', function (){
                 i == end - 1);
         }
 
+    });
+
+    /**
+     * Test polygon and line shapes.
+     **/
+    describe("Test polygon and line shapes", function () {
+        it("polygons and lines should be transformed to SVG", function () {
+            var svgOM = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        shapeBounds: {
+                            left: 100,
+                            right: 200,
+                            top: 100,
+                            bottom: 200
+                        },
+                        shape: {
+                            type: "polygon",
+                            points: [
+                                {
+                                    x: 100,
+                                    y: 200
+                                },
+                                {
+                                    x: 150,
+                                    y: 100
+                                },
+                                {
+                                    x: 200,
+                                    y: 100
+                                },
+                                {
+                                    x: 200,
+                                    y: 200
+                                },
+                                {
+                                    x: 100,
+                                    y: 200
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        type: "shape",
+                        shapeBounds: {
+                            left: 100,
+                            right: 200,
+                            top: 300,
+                            bottom: 400
+                        },
+                        shape: {
+                            type: "line",
+                            x1: 100,
+                            y1: 400,
+                            x2: 200,
+                            y2: 300
+                        }
+                    },
+                ]
+            },
+            exptectedOut,
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/data/polygon-line.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/polygon-line.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as polygon-line.svg');
+                return svgOut;
+            }
+            
+            // handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        });
     });
 });
