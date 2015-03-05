@@ -342,6 +342,32 @@
                 }, ctx);
             return tag.useTrick(ctx);
         },
+        line: function (ctx, node) {
+            var tag = new Tag("line", {
+                    x1: node.shape.x1,
+                    y1: node.shape.y1,
+                    x2: node.shape.x2,
+                    y2: node.shape.y2,
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                }, ctx);
+            return tag.useTrick(ctx);
+
+        },
+        path: function (ctx, node) {
+            var tag = new Tag("path", {
+                    d: util.optimisePath(node.shape.path),
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                }, ctx);
+            return tag.useTrick(ctx);
+        },
+        polygon: function (ctx, node) {
+            var tag = new Tag("polygon", {
+                    points: util.pointsToString(node.shape.points),
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                }, ctx);
+            return tag.useTrick(ctx);
+
+        },
         rect: function (ctx, node) {
             var tag = new Tag("rect", {
                     x: node.shape.x,
@@ -357,13 +383,6 @@
                     ry: r
                 });
             }
-            return tag.useTrick(ctx);
-        },
-        path: function (ctx, node) {
-            var tag = new Tag("path", {
-                    d: util.optimisePath(node.shape.path),
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
             return tag.useTrick(ctx);
         },
         text: function (ctx, node) {

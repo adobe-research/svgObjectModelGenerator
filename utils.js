@@ -298,9 +298,19 @@
             }
             return arc;
         }
+        self.precision = function (arg) {
+            return isFinite(arg) ? arg : 3;
+        }
+
+        self.pointsToString = function (points, precision) {
+            var precision = self.precision(precision);
+            return points.map(function (item) {
+                return item.x.toFixed(precision) + " " + item.y.toFixed(precision);
+            }).join();
+        };
 
         self.optimisePath = function (path, precision) {
-            precision = isFinite(precision) ? precision : 3;
+            var precision = self.precision(precision);
             function isSmall(num) {
                 return Math.abs(num.toFixed(precision)) <= sigma;
             }

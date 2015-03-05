@@ -242,6 +242,18 @@
                 shape.cx += ctx._shiftContentX;
                 shape.cy += ctx._shiftContentY;
                 break;
+            case "line":
+                shape.x1 += ctx._shiftContentX;
+                shape.y1 += ctx._shiftContentY;
+                shape.x2 += ctx._shiftContentX;
+                shape.y2 += ctx._shiftContentY;
+                break;
+            case "polygon":
+                shape.points.forEach(function (item) {
+                    item.x += ctx._shiftContentX;
+                    item.y += ctx._shiftContentY;
+                });
+                break;
             case "rect":
                 shape.x += ctx._shiftContentX;
                 shape.y += ctx._shiftContentY;
