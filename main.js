@@ -172,7 +172,8 @@
             targetHeight,
             docId,
             compId,
-            constrainToDocBounds;
+            constrainToDocBounds,
+            cropRect;
         
         compId = params.compId;
         layerSpec = params.layerSpec;
@@ -180,6 +181,7 @@
         targetWidth = params.targetWidth;
         targetHeight = params.targetHeight;
         constrainToDocBounds = params.constrainToDocBounds;
+        cropRect = params.cropRect;
         docId = params.documentId;
         
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
@@ -203,7 +205,8 @@
                                     scale: layerScale,
                                     targetWidth: targetWidth,
                                     targetHeight: targetHeight,
-                                    constrainToDocBounds: constrainToDocBounds
+                                    constrainToDocBounds: constrainToDocBounds,
+                                    cropRect: cropRect
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({
