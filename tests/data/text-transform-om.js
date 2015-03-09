@@ -93,8 +93,7 @@ module.exports = {
 					0,
 					0,
 					1
-				],
-				"size": 4
+				]
 			},
 			"transformTX": 247,
 			"transformTY": 366
