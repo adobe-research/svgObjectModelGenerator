@@ -115,7 +115,6 @@
                     this[i][i] = 1;
                 }
             }
-            this.size = 4;
         
             this.identity = function () {
                 var i,
