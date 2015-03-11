@@ -44,6 +44,7 @@
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
+                gradient,
                 gradientID,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
             
@@ -53,12 +54,12 @@
             fill = omIn.style.fill;
 
             if (fill.type === "gradient") {
-                var gradientID;
-                if (fill.gradient.type === "linear") {
-                    gradientID = writeLinearGradient(ctx, fill.gradient, "-fill");
-                } else if (fill.gradient.type === "radial") {
-                    gradientID = writeRadialGradient(ctx, fill.gradient, "-fill");
-                }                
+                gradient = ctx.svgOM.global.gradients[fill.gradient];
+                if (gradient.type === "linear") {
+                    gradientID = writeLinearGradient(ctx, gradient, "-fill");
+                } else if (gradient.type === "radial") {
+                    gradientID = writeRadialGradient(ctx, gradient, "-fill");
+                }
                 if (gradientID) {
                     styleBlock.addRule("fill", "url(#" + gradientID + ")");
                 }

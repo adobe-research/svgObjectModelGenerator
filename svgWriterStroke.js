@@ -42,19 +42,21 @@
         
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                styleBlock;
+                styleBlock,
+                gradient,
+                gradientID;
             
             if (this.hasStroke(ctx)) {
                 var stroke = omIn.style.stroke;
                 // Make a style for this stroke and reference it.
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
                 if (stroke.type == "gradient") {
-                    var gradientID;
-                    if (stroke.gradient.type === "linear") {
-                        gradientID = writeLinearGradient(ctx, stroke.gradient, "-stroke");
-                    } else if (stroke.gradient.type === "radial") {
-                        gradientID = writeRadialGradient(ctx, stroke.gradient, "-stroke");
-                    }                
+                    gradient = ctx.svgOM.global.gradients[stroke.gradient];
+                    if (gradient.type === "linear") {
+                        gradientID = writeLinearGradient(ctx, gradient, "-stroke");
+                    } else if (gradient.type === "radial") {
+                        gradientID = writeRadialGradient(ctx, gradient, "-stroke");
+                    }
                     if (gradientID) {
                         styleBlock.addRule("stroke", "url(#" + gradientID + ")");
                     }

@@ -33,64 +33,7 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": {
-								"stops": [
-									{
-										"position": 0,
-										"color": {
-											"r": 249,
-											"g": 229.99611,
-											"b": 0,
-											"a": 1
-										}
-									},
-									{
-										"position": 5.0048828125,
-										"color": {
-											"r": 249,
-											"g": 229.99611,
-											"b": 0
-										}
-									},
-									{
-										"position": 35.009765625,
-										"color": {
-											"r": 111.003892,
-											"g": 21.003892,
-											"b": 108.000001
-										}
-									},
-									{
-										"position": 64.990234375,
-										"color": {
-											"r": 253,
-											"g": 124,
-											"b": 0
-										}
-									},
-									{
-										"position": 94.9951171875,
-										"color": {
-											"r": 0,
-											"g": 40.000001,
-											"b": 116.000001
-										}
-									},
-									{
-										"position": 100,
-										"color": {
-											"r": 0,
-											"g": 40.000001,
-											"b": 116.000001,
-											"a": 1
-										}
-									}
-								],
-								"scale": 1,
-								"type": "linear",
-								"angle": 0,
-								"gradientSpace": "userSpaceOnUse"
-							}
+							"gradient": "linear-gradient-71"
 						},
 						"fill-rule": "evenodd"
 					},
@@ -118,6 +61,70 @@ module.exports = {
 		}
 	],
 	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"linear-gradient-71": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 249,
+							"g": 229.99611,
+							"b": 0,
+							"a": 1
+						}
+					},
+					{
+						"position": 5.0048828125,
+						"color": {
+							"r": 249,
+							"g": 229.99611,
+							"b": 0
+						}
+					},
+					{
+						"position": 35.009765625,
+						"color": {
+							"r": 111.003892,
+							"g": 21.003892,
+							"b": 108.000001
+						}
+					},
+					{
+						"position": 64.990234375,
+						"color": {
+							"r": 253,
+							"g": 124,
+							"b": 0
+						}
+					},
+					{
+						"position": 94.9951171875,
+						"color": {
+							"r": 0,
+							"g": 40.000001,
+							"b": 116.000001
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 0,
+							"g": 40.000001,
+							"b": 116.000001,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 0,
+				"gradientSpace": "userSpaceOnUse"
+			}
+		},
+		"masks": {},
+		"patterns": {},
 		"viewBox": {
 			"top": 0,
 			"left": 0,

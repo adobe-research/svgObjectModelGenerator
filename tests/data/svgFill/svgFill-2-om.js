@@ -23,56 +23,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 11.260701,
-									"g": 1.44358,
-									"b": 184.000004,
-									"a": 1
-								}
-							},
-							{
-								"position": 10.009765625,
-								"color": {
-									"r": 11.260701,
-									"g": 1.44358,
-									"b": 184.000004
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 253,
-									"g": 250.054474,
-									"b": 2.976654
-								}
-							},
-							{
-								"position": 89.990234375,
-								"color": {
-									"r": 11.035019,
-									"g": 2,
-									"b": 170.000005
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 11.035019,
-									"g": 2,
-									"b": 170.000005,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 90,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-68"
 				},
 				"meta": {
 					"PS": {
@@ -172,6 +123,62 @@ module.exports = {
 		}
 	],
 	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"linear-gradient-68": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 11.260701,
+							"g": 1.44358,
+							"b": 184.000004,
+							"a": 1
+						}
+					},
+					{
+						"position": 10.009765625,
+						"color": {
+							"r": 11.260701,
+							"g": 1.44358,
+							"b": 184.000004
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 253,
+							"g": 250.054474,
+							"b": 2.976654
+						}
+					},
+					{
+						"position": 89.990234375,
+						"color": {
+							"r": 11.035019,
+							"g": 2,
+							"b": 170.000005
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 11.035019,
+							"g": 2,
+							"b": 170.000005,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 90,
+				"gradientSpace": "objectBoundingBox"
+			}
+		},
+		"masks": {},
+		"patterns": {},
 		"viewBox": {
 			"top": 0,
 			"left": 0,

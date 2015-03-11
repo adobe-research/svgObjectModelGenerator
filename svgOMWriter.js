@@ -26,7 +26,13 @@
         
 		var _root = {
                 children: [],
-                global: {},
+                global: {
+                    clipPaths: {},
+                    filters: {},
+                    gradients: {},
+                    masks: {},
+                    patterns: {}
+                },
                 artboards: {},
                 meta: {
                     PS: {}
@@ -53,6 +59,10 @@
             _currentNodeStack.pop();
         };
         this.pushCurrent(_root);
+
+        this.global = function () {
+            return _root.global;
+        };
 
         this.resetIDs = function () {
             ID.reset();

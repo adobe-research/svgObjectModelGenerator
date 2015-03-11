@@ -27,77 +27,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 9.575876,
-									"g": 0.003891,
-									"b": 178.000005,
-									"a": 1
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.027237
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 251.996109,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 90,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "linear-gradient-2"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 9.575876,
-									"g": 0.003891,
-									"b": 178.000005,
-									"a": 1
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.027237
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 251.996109,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 45,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "linear-gradient-3"
 				}
 			},
 			"children": [],
@@ -135,77 +69,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 9.575876,
-									"g": 0.003891,
-									"b": 178.000005,
-									"a": 1
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.027237
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 251.996109,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 90,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "linear-gradient-4"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 9.575876,
-									"g": 0.003891,
-									"b": 178.000005,
-									"a": 1
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.027237
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 251.996109,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 45,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "linear-gradient-5"
 				}
 			},
 			"children": [],
@@ -243,77 +111,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 9.575876,
-									"g": 0.003891,
-									"b": 178.000005,
-									"a": 1
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.027237
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 251.996109,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 90,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "linear-gradient-6"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 9.575876,
-									"g": 0.003891,
-									"b": 178.000005,
-									"a": 1
-								}
-							},
-							{
-								"position": 50,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.027237
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 251.996109,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 45,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "linear-gradient-7"
 				}
 			},
 			"children": [],
@@ -334,6 +136,216 @@ module.exports = {
 		}
 	],
 	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"linear-gradient-2": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 90,
+				"gradientSpace": "userSpaceOnUse"
+			},
+			"linear-gradient-3": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 45,
+				"gradientSpace": "userSpaceOnUse"
+			},
+			"linear-gradient-4": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 90,
+				"gradientSpace": "userSpaceOnUse"
+			},
+			"linear-gradient-5": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 45,
+				"gradientSpace": "userSpaceOnUse"
+			},
+			"linear-gradient-6": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 90,
+				"gradientSpace": "userSpaceOnUse"
+			},
+			"linear-gradient-7": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 45,
+				"gradientSpace": "userSpaceOnUse"
+			}
+		},
+		"masks": {},
+		"patterns": {},
 		"viewBox": {
 			"top": 0,
 			"left": 0,
