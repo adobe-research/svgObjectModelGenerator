@@ -27,11 +27,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-2"
+					"gradient": "linear-gradient-1"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-3"
+					"gradient": "linear-gradient-2"
 				}
 			},
 			"children": [],
@@ -69,11 +69,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-4"
+					"gradient": "linear-gradient-3"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-5"
+					"gradient": "linear-gradient-4"
 				}
 			},
 			"children": [],
@@ -111,11 +111,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-6"
+					"gradient": "linear-gradient-5"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-7"
+					"gradient": "linear-gradient-6"
 				}
 			},
 			"children": [],
@@ -139,7 +139,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-2": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -171,6 +171,40 @@ module.exports = {
 				"scale": 1,
 				"type": "linear",
 				"angle": 90,
+				"gradientSpace": "userSpaceOnUse"
+			},
+			"linear-gradient-2": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 9.575876,
+							"g": 0.003891,
+							"b": 178.000005,
+							"a": 1
+						}
+					},
+					{
+						"position": 50,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.027237
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 251.996109,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 45,
 				"gradientSpace": "userSpaceOnUse"
 			},
 			"linear-gradient-3": {
@@ -204,7 +238,7 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 45,
+				"angle": 90,
 				"gradientSpace": "userSpaceOnUse"
 			},
 			"linear-gradient-4": {
@@ -238,7 +272,7 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 90,
+				"angle": 45,
 				"gradientSpace": "userSpaceOnUse"
 			},
 			"linear-gradient-5": {
@@ -272,44 +306,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 45,
-				"gradientSpace": "userSpaceOnUse"
-			},
-			"linear-gradient-6": {
-				"stops": [
-					{
-						"position": 0,
-						"color": {
-							"r": 9.575876,
-							"g": 0.003891,
-							"b": 178.000005,
-							"a": 1
-						}
-					},
-					{
-						"position": 50,
-						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.027237
-						}
-					},
-					{
-						"position": 100,
-						"color": {
-							"r": 255,
-							"g": 251.996109,
-							"b": 0.003891,
-							"a": 1
-						}
-					}
-				],
-				"scale": 1,
-				"type": "linear",
 				"angle": 90,
 				"gradientSpace": "userSpaceOnUse"
 			},
-			"linear-gradient-7": {
+			"linear-gradient-6": {
 				"stops": [
 					{
 						"position": 0,

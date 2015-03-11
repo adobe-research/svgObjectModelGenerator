@@ -18,7 +18,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-32"
+					"gradient": "linear-gradient-1"
 				}
 			},
 			"children": [],
@@ -47,7 +47,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-33"
+					"gradient": "linear-gradient-2"
 				}
 			},
 			"children": [],
@@ -76,7 +76,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-34"
+					"gradient": "linear-gradient-3"
 				}
 			},
 			"children": [],
@@ -105,7 +105,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-35"
+					"gradient": "linear-gradient-4"
 				}
 			},
 			"children": [],
@@ -134,7 +134,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-36"
+					"gradient": "linear-gradient-5"
 				}
 			},
 			"children": [],
@@ -163,7 +163,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-37"
+					"gradient": "linear-gradient-6"
 				}
 			},
 			"children": [],
@@ -192,7 +192,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-38"
+					"gradient": "linear-gradient-7"
 				}
 			},
 			"children": [],
@@ -221,7 +221,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-39"
+					"gradient": "linear-gradient-8"
 				}
 			},
 			"children": [],
@@ -250,7 +250,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-40"
+					"gradient": "linear-gradient-9"
 				}
 			},
 			"children": [],
@@ -279,7 +279,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-41"
+					"gradient": "linear-gradient-10"
 				}
 			},
 			"children": [],
@@ -308,7 +308,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-42"
+					"gradient": "linear-gradient-11"
 				}
 			},
 			"children": [],
@@ -337,7 +337,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-43"
+					"gradient": "linear-gradient-12"
 				}
 			},
 			"children": [],
@@ -361,7 +361,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-32": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -427,7 +427,7 @@ module.exports = {
 				"angle": 90,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-33": {
+			"linear-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -493,7 +493,7 @@ module.exports = {
 				"angle": 65,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-34": {
+			"linear-gradient-3": {
 				"stops": [
 					{
 						"position": 0,
@@ -559,7 +559,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-35": {
+			"linear-gradient-4": {
 				"stops": [
 					{
 						"position": 0,
@@ -625,7 +625,7 @@ module.exports = {
 				"angle": -65,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-36": {
+			"linear-gradient-5": {
 				"stops": [
 					{
 						"position": 0,
@@ -691,7 +691,7 @@ module.exports = {
 				"angle": -90,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-37": {
+			"linear-gradient-6": {
 				"stops": [
 					{
 						"position": 0,
@@ -757,7 +757,7 @@ module.exports = {
 				"angle": -115,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-38": {
+			"linear-gradient-7": {
 				"stops": [
 					{
 						"position": 0,
@@ -823,7 +823,7 @@ module.exports = {
 				"angle": -180,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-39": {
+			"linear-gradient-8": {
 				"stops": [
 					{
 						"position": 0,
@@ -889,7 +889,7 @@ module.exports = {
 				"angle": 115,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-40": {
+			"linear-gradient-9": {
 				"stops": [
 					{
 						"position": 0,
@@ -955,7 +955,7 @@ module.exports = {
 				"angle": 180,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-41": {
+			"linear-gradient-10": {
 				"stops": [
 					{
 						"position": 0,
@@ -1021,7 +1021,7 @@ module.exports = {
 				"angle": 270,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-42": {
+			"linear-gradient-11": {
 				"stops": [
 					{
 						"position": 0,
@@ -1087,7 +1087,7 @@ module.exports = {
 				"angle": 360,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-43": {
+			"linear-gradient-12": {
 				"stops": [
 					{
 						"position": 0,

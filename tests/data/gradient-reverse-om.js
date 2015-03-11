@@ -18,7 +18,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-25"
+					"gradient": "linear-gradient-1"
 				}
 			},
 			"children": [],
@@ -47,7 +47,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-9"
+					"gradient": "radial-gradient-1"
 				}
 			},
 			"children": [],
@@ -76,7 +76,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-26"
+					"gradient": "linear-gradient-2"
 				}
 			},
 			"children": [],
@@ -105,7 +105,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-27"
+					"gradient": "linear-gradient-3"
 				}
 			},
 			"children": [],
@@ -134,7 +134,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-10"
+					"gradient": "radial-gradient-2"
 				}
 			},
 			"children": [],
@@ -163,7 +163,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-28"
+					"gradient": "linear-gradient-4"
 				}
 			},
 			"children": [],
@@ -187,7 +187,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-25": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -253,7 +253,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-9": {
+			"radial-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -319,7 +319,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-26": {
+			"linear-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -443,7 +443,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-27": {
+			"linear-gradient-3": {
 				"stops": [
 					{
 						"position": 0,
@@ -509,7 +509,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-10": {
+			"radial-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -575,7 +575,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-28": {
+			"linear-gradient-4": {
 				"stops": [
 					{
 						"position": 0,

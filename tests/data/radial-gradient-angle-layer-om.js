@@ -18,7 +18,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-13"
+					"gradient": "radial-gradient-1"
 				}
 			},
 			"children": [],
@@ -47,7 +47,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-14"
+					"gradient": "radial-gradient-2"
 				}
 			},
 			"children": [],
@@ -76,7 +76,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-15"
+					"gradient": "radial-gradient-3"
 				}
 			},
 			"children": [],
@@ -105,7 +105,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-16"
+					"gradient": "radial-gradient-4"
 				}
 			},
 			"children": [],
@@ -134,7 +134,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-17"
+					"gradient": "radial-gradient-5"
 				}
 			},
 			"children": [],
@@ -163,7 +163,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-18"
+					"gradient": "radial-gradient-6"
 				}
 			},
 			"children": [],
@@ -192,7 +192,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-19"
+					"gradient": "radial-gradient-7"
 				}
 			},
 			"children": [],
@@ -221,7 +221,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-20"
+					"gradient": "radial-gradient-8"
 				}
 			},
 			"children": [],
@@ -250,7 +250,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-21"
+					"gradient": "radial-gradient-9"
 				}
 			},
 			"children": [],
@@ -279,7 +279,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-22"
+					"gradient": "radial-gradient-10"
 				}
 			},
 			"children": [],
@@ -308,7 +308,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-23"
+					"gradient": "radial-gradient-11"
 				}
 			},
 			"children": [],
@@ -337,7 +337,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-24"
+					"gradient": "radial-gradient-12"
 				}
 			},
 			"children": [],
@@ -361,7 +361,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"radial-gradient-13": {
+			"radial-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -427,7 +427,7 @@ module.exports = {
 				"angle": 90,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-14": {
+			"radial-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -493,7 +493,7 @@ module.exports = {
 				"angle": 45,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-15": {
+			"radial-gradient-3": {
 				"stops": [
 					{
 						"position": 0,
@@ -559,7 +559,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-16": {
+			"radial-gradient-4": {
 				"stops": [
 					{
 						"position": 0,
@@ -625,7 +625,7 @@ module.exports = {
 				"angle": -45,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-17": {
+			"radial-gradient-5": {
 				"stops": [
 					{
 						"position": 0,
@@ -691,7 +691,7 @@ module.exports = {
 				"angle": -90,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-18": {
+			"radial-gradient-6": {
 				"stops": [
 					{
 						"position": 0,
@@ -757,7 +757,7 @@ module.exports = {
 				"angle": -135,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-19": {
+			"radial-gradient-7": {
 				"stops": [
 					{
 						"position": 0,
@@ -823,7 +823,7 @@ module.exports = {
 				"angle": -180,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-20": {
+			"radial-gradient-8": {
 				"stops": [
 					{
 						"position": 0,
@@ -889,7 +889,7 @@ module.exports = {
 				"angle": 135,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-21": {
+			"radial-gradient-9": {
 				"stops": [
 					{
 						"position": 0,
@@ -955,7 +955,7 @@ module.exports = {
 				"angle": 180,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-22": {
+			"radial-gradient-10": {
 				"stops": [
 					{
 						"position": 0,
@@ -1021,7 +1021,7 @@ module.exports = {
 				"angle": 270,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-23": {
+			"radial-gradient-11": {
 				"stops": [
 					{
 						"position": 0,
@@ -1087,7 +1087,7 @@ module.exports = {
 				"angle": 360,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-24": {
+			"radial-gradient-12": {
 				"stops": [
 					{
 						"position": 0,

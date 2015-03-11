@@ -23,7 +23,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-68"
+					"gradient": "linear-gradient-1"
 				},
 				"meta": {
 					"PS": {
@@ -126,7 +126,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-68": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,

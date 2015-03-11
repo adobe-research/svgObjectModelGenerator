@@ -33,7 +33,7 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "linear-gradient-71"
+							"gradient": "linear-gradient-1"
 						},
 						"fill-rule": "evenodd"
 					},
@@ -64,7 +64,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-71": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,

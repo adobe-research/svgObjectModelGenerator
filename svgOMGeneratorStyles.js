@@ -21,7 +21,7 @@
 "use strict";
 
     var omgUtils = require("./svgOMGeneratorUtils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js");
+        ID = require("./idGenerator.js");
 
     var CONST_COLOR_BLACK = { "red": 0, "green": 0, "blue": 0 };
 
@@ -122,7 +122,7 @@
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
                     stroke.type = "gradient";
                     gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent);
-                    stroke.gradient = svgWriterIDs.getUnique(gradient.type + "-gradient");
+                    stroke.gradient = ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[stroke.gradient] = gradient;
                 }
             } else {
@@ -158,7 +158,7 @@
                 fill.type = "gradient";
                 if (fillStyle.gradient) {
                     gradient = omgUtils.toGradient(fillStyle);
-                    fill.gradient = svgWriterIDs.getUnique(gradient.type + "-gradient");
+                    fill.gradient = ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[fill.gradient] = gradient;
                 } else {
                     console.log("WARNING: Unhandled gradient type = " + JSON.stringify(fill));
@@ -199,7 +199,7 @@
                 if (strokeStyle.gradient) {
                     stroke.type = "gradient";
                     gradient = omgUtils.toGradient(strokeStyle);
-                    stroke.gradient = svgWriterIDs.getUnique(gradient.type + "-gradient");
+                    stroke.gradient = ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[stroke.gradient] = gradient;
                 }
             } else {

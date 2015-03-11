@@ -41,7 +41,7 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "linear-gradient-66"
+							"gradient": "linear-gradient-1"
 						},
 						"fill-rule": "evenodd"
 					},
@@ -100,7 +100,7 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "linear-gradient-67"
+							"gradient": "linear-gradient-2"
 						},
 						"fill-rule": "evenodd"
 					},
@@ -131,7 +131,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-66": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -189,7 +189,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "userSpaceOnUse"
 			},
-			"linear-gradient-67": {
+			"linear-gradient-2": {
 				"stops": [
 					{
 						"position": 0,

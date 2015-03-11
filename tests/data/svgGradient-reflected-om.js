@@ -18,7 +18,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-17"
+					"gradient": "linear-gradient-1"
 				}
 			},
 			"children": [],
@@ -47,7 +47,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-18"
+					"gradient": "linear-gradient-2"
 				}
 			},
 			"children": [],
@@ -71,7 +71,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-17": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -115,7 +115,7 @@ module.exports = {
 				"angle": 35,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-18": {
+			"linear-gradient-2": {
 				"stops": [
 					{
 						"position": 0,

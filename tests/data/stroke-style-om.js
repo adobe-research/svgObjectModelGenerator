@@ -196,7 +196,7 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-29"
+					"gradient": "linear-gradient-1"
 				},
 				"fill-rule": "evenodd"
 			},
@@ -239,11 +239,11 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "radial-gradient-11"
+					"gradient": "radial-gradient-1"
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-12"
+					"gradient": "radial-gradient-2"
 				},
 				"fill-rule": "evenodd"
 			},
@@ -282,7 +282,7 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-30"
+					"gradient": "linear-gradient-2"
 				},
 				"fill-rule": "evenodd"
 			},
@@ -318,7 +318,7 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-31"
+					"gradient": "linear-gradient-3"
 				},
 				"fill-rule": "evenodd"
 			},
@@ -340,7 +340,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-29": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -374,7 +374,7 @@ module.exports = {
 				"angle": 35,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-11": {
+			"radial-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -440,7 +440,7 @@ module.exports = {
 				"angle": 90,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"radial-gradient-12": {
+			"radial-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -506,7 +506,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-30": {
+			"linear-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -630,7 +630,7 @@ module.exports = {
 				"angle": 90,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-31": {
+			"linear-gradient-3": {
 				"stops": [
 					{
 						"position": 0,

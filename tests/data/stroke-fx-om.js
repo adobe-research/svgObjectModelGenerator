@@ -92,7 +92,7 @@ module.exports = {
 					"lineJoin": "round",
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-62"
+					"gradient": "linear-gradient-1"
 				},
 				"meta": {
 					"PS": {
@@ -235,7 +235,7 @@ module.exports = {
 					"lineJoin": "round",
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-63"
+					"gradient": "linear-gradient-2"
 				},
 				"meta": {
 					"PS": {
@@ -378,7 +378,7 @@ module.exports = {
 					"lineJoin": "round",
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-64"
+					"gradient": "linear-gradient-3"
 				},
 				"meta": {
 					"PS": {
@@ -561,7 +561,7 @@ module.exports = {
 					"lineJoin": "round",
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-65"
+					"gradient": "linear-gradient-4"
 				},
 				"meta": {
 					"PS": {
@@ -744,7 +744,7 @@ module.exports = {
 					"lineJoin": "round",
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "radial-gradient-37"
+					"gradient": "radial-gradient-1"
 				},
 				"meta": {
 					"PS": {
@@ -913,7 +913,7 @@ module.exports = {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-62": {
+			"linear-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
@@ -947,7 +947,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-63": {
+			"linear-gradient-2": {
 				"stops": [
 					{
 						"position": 0,
@@ -981,7 +981,7 @@ module.exports = {
 				"angle": 0,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-64": {
+			"linear-gradient-3": {
 				"stops": [
 					{
 						"position": 0,
@@ -1047,7 +1047,7 @@ module.exports = {
 				"angle": 45,
 				"gradientSpace": "objectBoundingBox"
 			},
-			"linear-gradient-65": {
+			"linear-gradient-4": {
 				"stops": [
 					{
 						"position": 0,
@@ -1113,7 +1113,7 @@ module.exports = {
 				"angle": 45,
 				"gradientSpace": "userSpaceOnUse"
 			},
-			"radial-gradient-37": {
+			"radial-gradient-1": {
 				"stops": [
 					{
 						"position": 0,
