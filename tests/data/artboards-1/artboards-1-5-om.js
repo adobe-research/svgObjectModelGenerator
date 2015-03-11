@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "iphone",
+			"id": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -11,7 +11,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "rectangle-1",
+					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -75,7 +75,7 @@ module.exports = {
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"iphone": {
+		"artboard-1": {
 			"title": "iPhone",
 			"bounds": {
 				"top": 2497,

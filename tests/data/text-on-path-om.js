@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background",
+			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +9,7 @@ module.exports = {
 			"title": "Background"
 		},
 		{
-			"id": "layer1",
+			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -23,7 +23,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer1-path",
+					"id": "textPath-1",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -34,7 +34,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer1-path-0",
+							"id": "tspan-1",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -92,7 +92,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer2",
+			"id": "text-2",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -106,7 +106,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer2-path",
+					"id": "textPath-2",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -117,7 +117,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer2-path-0",
+							"id": "tspan-2",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -175,7 +175,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer3",
+			"id": "text-3",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -189,7 +189,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer3-path",
+					"id": "textPath-3",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -200,7 +200,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer3-path-0",
+							"id": "tspan-3",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -258,7 +258,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer4",
+			"id": "text-4",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -272,7 +272,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer4-path",
+					"id": "textPath-4",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -283,7 +283,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer4-path-0",
+							"id": "tspan-4",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -341,7 +341,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer5",
+			"id": "text-5",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -357,7 +357,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer5-path",
+					"id": "textPath-5",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -368,7 +368,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer5-path-0",
+							"id": "tspan-5",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -426,7 +426,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer6",
+			"id": "text-6",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -440,7 +440,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer6-path",
+					"id": "textPath-6",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -452,7 +452,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer6-path-0",
+							"id": "tspan-6",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -511,7 +511,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer7",
+			"id": "text-7",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -527,7 +527,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer7-path",
+					"id": "textPath-7",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -538,7 +538,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer7-path-0",
+							"id": "tspan-7",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -596,7 +596,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer8",
+			"id": "text-8",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -610,7 +610,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer8-path",
+					"id": "textPath-8",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -621,7 +621,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer8-path-0",
+							"id": "tspan-8",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -679,7 +679,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer9",
+			"id": "text-9",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -695,7 +695,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer9-path",
+					"id": "textPath-9",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -707,7 +707,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer9-path-0",
+							"id": "tspan-9",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -766,7 +766,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer10",
+			"id": "text-10",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -780,7 +780,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer10-path",
+					"id": "textPath-10",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -792,7 +792,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer10-path-0",
+							"id": "tspan-10",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -851,7 +851,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer11",
+			"id": "text-11",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -865,7 +865,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer11-path",
+					"id": "textPath-11",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -876,7 +876,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer11-path-0",
+							"id": "tspan-11",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -934,7 +934,7 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "layer12",
+			"id": "text-12",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -948,7 +948,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer12-path",
+					"id": "textPath-12",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -959,7 +959,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer12-path-0",
+							"id": "tspan-12",
 							"type": "tspan",
 							"visible": true,
 							"style": {

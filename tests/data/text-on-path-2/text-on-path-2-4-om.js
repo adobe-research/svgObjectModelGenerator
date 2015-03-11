@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "layer2",
+			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -15,7 +15,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer2-0",
+					"id": "tspan-1",
 					"type": "tspan",
 					"visible": true,
 					"style": {

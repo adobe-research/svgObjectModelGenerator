@@ -19,11 +19,10 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
 
     var Buffer = require('buffer').Buffer,
-        guidID = 1,
-        svgWriterIDs = require("./svgWriterIDs.js"),
+        ID = require("./idGenerator.js"),
         Utils = require("./utils.js"),
         Matrix = require("./matrix.js");
 
@@ -40,18 +39,12 @@
             bounds.bottom += delta;
         };
 
-        self.omguid = function (om) {
-            if (!om._guid) {
-                om._guid = "guid" + guidID++;
-            }
-            return om._guid;
-        };
-
         self.write = function (ctx, sOut) {
             ctx.sOut += sOut;
         };
 
         self.writeln = function (ctx, sOut) {
+            // FIXME: This breaks when using ===.
             sOut = sOut == null ? "" : sOut;
             self.write(ctx, sOut + ctx.terminator);
         };
@@ -146,7 +139,7 @@
         self.writeTextPath = function (ctx, pathData) {
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
-                textPathID = svgWriterIDs.getUnique("text-path");
+                textPathID = ID.getUnique("text-path");
 
             self.ctxCapture(ctx, function () {
                 var iStop,

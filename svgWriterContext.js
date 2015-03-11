@@ -19,9 +19,9 @@
 /* Track context while writing SVG */
 
 (function () {
-"use strict";
+    "use strict";
     
-    var omguid = require("./svgWriterUtils.js").omguid;
+    var ID = require("./idGenerator.js");
     
     // FIXME: svgWriterFx calls this code but svgOMG
     // is mostly empty. After filter refactoring,
@@ -50,12 +50,14 @@
         //an array for reporting errors
         this.errors = errors;
         
+        // FIXME: Do we even need unique IDs for node.ids that
+        // are unique already?
         this._hasWritten = {};
         this.didWrite = function (node, prop) {
-            this._hasWritten[omguid(node) + prop] = true;
+            this._hasWritten[ID.getUnique(node.id) + prop] = true;
         };
         this.hasWritten = function (node, prop) {
-            return this._hasWritten[omguid(node) + prop];
+            return this._hasWritten[ID.getUnique(node.id) + prop];
         };
 	}
 	module.exports = SVGWriterContext;

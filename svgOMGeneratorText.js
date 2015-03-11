@@ -120,7 +120,7 @@
                         y: 0
                     };
                     writer.pushCurrent(svgNode);
-                    svgTextPathNode = writer.addSVGNode(svgNode.id + "-path", "textPath", true);
+                    svgTextPathNode = writer.addSVGNode("textPath", true);
                     svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, svgNode.textBounds, maxTextSize);
 
                     self.addTextTransform(writer, svgNode, text, layer);
@@ -223,7 +223,7 @@
                 if (indexTextStyleFrom !== indexTextStyleTo) {
                     
                     //then nest a paragraphNode...
-                    svgParagraphNode = writer.addSVGNode(svgNode.id + "-" + i, "tspan", true);
+                    svgParagraphNode = writer.addSVGNode("tspan", true);
                     svgParagraphNode.position = {
                         x: position.x,
                         y: position.y,
@@ -248,7 +248,7 @@
                         continue;
                     }
                     spanId = (indexTextStyleTo === indexTextStyleFrom) ? paragraphId : paragraphId + "-" + (i - indexTextStyleFrom);
-                    svgTextChunkNode = writer.addSVGNode(spanId, "tspan", true);
+                    svgTextChunkNode = writer.addSVGNode("tspan", true);
                     svgTextChunkNode.text = textContent;
                     
                     svgTextChunkNode.textBounds = JSON.parse(JSON.stringify(bounds));

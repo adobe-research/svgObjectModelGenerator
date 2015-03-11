@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "layer-1",
+			"id": "generic-1",
 			"type": "generic",
 			"visible": true,
 			"style": {},
@@ -9,7 +9,7 @@ module.exports = {
 			"title": "Layer 1"
 		},
 		{
-			"id": "square",
+			"id": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -19,7 +19,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "ellipse-1",
+					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -61,7 +61,7 @@ module.exports = {
 			}
 		},
 		{
-			"id": "iphone",
+			"id": "artboard-2",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -71,7 +71,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "rectangle-1",
+					"id": "shape-2",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -135,7 +135,7 @@ module.exports = {
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"square": {
+		"artboard-1": {
 			"title": "square",
 			"bounds": {
 				"top": 2000,
@@ -144,7 +144,7 @@ module.exports = {
 				"right": 3080
 			}
 		},
-		"iphone": {
+		"artboard-2": {
 			"title": "iPhone",
 			"bounds": {
 				"top": 2497,

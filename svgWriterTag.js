@@ -21,7 +21,7 @@
     "use strict";
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js"),
+        ID = require("./idGenerator.js"),
         svgWriterText = require("./svgWriterText.js"),
         attrsDefs = require('./attrdefs-database.js'),
         SVGWriterContext = require("./svgWriterContext.js");
@@ -291,7 +291,7 @@
         var stroke = this.getAttribute("stroke"),
             fill = this.getAttribute("fill"),
             filter = this.getAttribute("filter"),
-            id = svgWriterIDs.getUnique(this.name),
+            id = ID.getUnique(this.name),
             list = new Tag(),
             g = new Tag("g"),
             use = new Tag("use", {"xlink:href": "#" + id});
