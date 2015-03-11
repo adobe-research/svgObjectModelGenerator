@@ -31,47 +31,6 @@
         round2 = svgWriterUtils.round2,
         gradientStops = {};
 
-    function computeLinearGradientCoordinates(gradient, bounds) {
-        //TBD: generate a real ID
-        var w2 = (bounds.right - bounds.left) / 2,
-            h2 = (bounds.bottom - bounds.top) / 2,
-            scale = gradient.scale,
-            coords;
-
-        // SVG wants the angle in cartesian, not polar, coordinates.
-        var angle = (gradient.angle % 360) * Math.PI / 180,
-            x1, x2, y1, y2, xa, ya,
-            cx = round1k(bounds.left + w2),
-            cy = round1k(bounds.top + h2);
-
-        if (Math.abs(w2 / Math.cos(angle) * Math.sin(angle)) < h2) {
-            if (h2 > w2) {
-                xa = w2 / Math.cos(angle) * Math.sin(angle);
-                ya = w2;
-            } else {
-                xa = w2;
-                ya = w2 / Math.cos(angle) * Math.sin(angle);
-            }
-        } else {
-            xa = h2 / Math.sin(angle) * Math.cos(angle);
-            ya = h2;
-        }
-
-        // FIXME: self is a hack to deal with a mistake above that still needs
-        // to be fixed.
-        if (angle < 0 || gradient.angle == 180 ) {
-            ya = -ya;
-        } else {
-            xa = -xa;
-        }
-
-        // FIXME: We should be able to optimize the cases of angle mod 90 to use %
-        // and possibly switch to objectBoundingBox.
-        // FIXME : We could optimize cases where x1 == x2 or y1 == y2 to reduce
-        // generated content.
-
-        return { xa: xa, ya: ya, cx: cx, cy: cy };
-    }
     function removeDups(lines) {
         var out = [lines[0]];
         for (var i = 1; i < lines.length; i++) {
@@ -82,21 +41,63 @@
         return out;
     }
     var self = {
+        // FIXME: Move this function to svgOMGeneratorUtils once overlay gradients
+        // were transformed as well.
+        computeLinearGradientCoordinates: function (gradient, bounds, angle) {
+            var w2 = (bounds.right - bounds.left) / 2,
+                h2 = (bounds.bottom - bounds.top) / 2,
+                coords;
+
+            // SVG wants the angle in cartesian, not polar, coordinates.
+            var rad = (angle % 360) * Math.PI / 180;
+            var x1, x2, y1, y2, xa, ya,
+                cx = bounds.left + w2,
+                cy = bounds.top + h2;
+
+            if (Math.abs(w2 / Math.cos(rad) * Math.sin(rad)) < h2) {
+                if (h2 > w2) {
+                    xa = w2 / Math.cos(rad) * Math.sin(rad);
+                    ya = w2;
+                } else {
+                    xa = w2;
+                    ya = w2 / Math.cos(rad) * Math.sin(rad);
+                }
+            } else {
+                xa = h2 / Math.sin(rad) * Math.cos(rad);
+                ya = h2;
+            }
+
+            // FIXME: self is a hack to deal with a mistake above that still needs
+            // to be fixed.
+            if (rad < 0 || angle == 180 ) {
+                ya = -ya;
+            } else {
+                xa = -xa;
+            }
+
+            // FIXME: We should be able to optimize the cases of angle mod 90 to use %
+            // and possibly switch to objectBoundingBox.
+            // FIXME : We could optimize cases where x1 == x2 or y1 == y2 to reduce
+            // generated content.
+
+            return { xa: xa, ya: ya, cx: cx, cy: cy };
+        },
         gradientStopsReset: function () {
             gradientStops = {};
         },
-        getLinearGradientInternal: function (stops, gradientID, scale, coords) {
+        getLinearGradientInternal: function (ctx, stops, gradientID, scale, x1, y1, x2, y2) {
             var iStop,
                 stp,
                 stpOpacity,
                 position,
                 link;
+            x1 += ctx._shiftContentX || 0;
+            x2 += ctx._shiftContentX || 0;
+            y1 += ctx._shiftContentY || 0;
+            y2 += ctx._shiftContentY || 0;
+
             if (stops) {
-                var x1 = round1k(coords.xa + coords.cx),
-                    y1 = round1k(coords.ya + coords.cy),
-                    x2 = round1k(coords.cx - coords.xa),
-                    y2 = round1k(coords.cy - coords.ya),
-                    lines = [],
+                var lines = [],
                     tag = new Tag("linearGradient", {
                         id: gradientID
                     });
@@ -175,7 +176,6 @@
                 };
             }
             if (gradient.type === "radial") {
-
                 w2 = (bounds.right - bounds.left) / 2;
                 h2 = (bounds.bottom - bounds.top) / 2;
                 cx = round1k(bounds.left + w2);
@@ -186,22 +186,23 @@
                 r = round1k(hw < hl ? hw : hl);
                 self.getRadialGradientInternal(cx, cy, r, gradientID, stops, gradient.scale).write(ctx);
             } else {
-                coords = computeLinearGradientCoordinates(gradient, bounds);
-                self.getLinearGradientInternal(stops, gradientID, scale, coords).write(ctx);
+                coords = self.computeLinearGradientCoordinates(gradient, bounds, gradient.angle);
+                var x1 = round1k(coords.xa + coords.cx),
+                    y1 = round1k(coords.ya + coords.cy),
+                    x2 = round1k(coords.cx - coords.xa),
+                    y2 = round1k(coords.cy - coords.ya);
+                self.getLinearGradientInternal(ctx, stops, gradientID, scale, x1, y1, x2, y2).write(ctx);
             }
             return gradientID;
         },
         writeLinearGradient: function (ctx, gradient, flavor) {
-            //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 gradientID = ID.getUnique("linear-gradient"),
-                bounds = gradient.gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.viewBox,
-                coords = computeLinearGradientCoordinates(gradient, bounds),
                 scale = gradient.scale,
                 stops = gradient.stops,
-                tag = self.getLinearGradientInternal(stops, gradientID, scale, coords);
+                tag = self.getLinearGradientInternal(ctx, stops, gradientID, scale, gradient.x1, gradient.y1, gradient.x2, gradient.y2);
 
-            ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({ coords: coords, stops: stops, scale: scale }));
+            ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({ x1: gradient.x1, y1: gradient.y1, x2: gradient.x2, y2: gradient.y2, stops: stops, scale: scale }));
             gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;
             return gradientID;
         },

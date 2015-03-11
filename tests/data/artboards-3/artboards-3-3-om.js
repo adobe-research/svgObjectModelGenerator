@@ -119,7 +119,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 0,
+				"x1": 0,
+				"y1": 2512,
+				"x2": 5924,
+				"y2": 2512,
 				"gradientSpace": "userSpaceOnUse"
 			}
 		},

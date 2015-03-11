@@ -207,9 +207,9 @@
                         cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
                         rx: (origin.bounds.right - origin.bounds.left) / 2,
                         ry: (origin.bounds.bottom - origin.bounds.top) / 2
-                    }
+                    };
 
-                    omgStyles.addStylingData(svgNode, layer, writer);
+                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
                     
                     return true;
                 }
@@ -232,8 +232,8 @@
                             cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
                             cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
                             r: (origin.bounds.right - origin.bounds.left) / 2
-                        }
-                        omgStyles.addStylingData(svgNode, layer, writer);
+                        };
+                        omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
                         return true;
                     }
                 }
@@ -276,9 +276,9 @@
                         width: origin.bounds.right - origin.bounds.left,
                         height: origin.bounds.bottom - origin.bounds.top,
                         r: origin.radii
-                    }
+                    };
 
-                    omgStyles.addStylingData(svgNode, layer, writer);
+                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
 
                     return true;
                 }
@@ -297,9 +297,9 @@
                 svgNode.shape = {
                     type: "path",
                     path: pathData
-                }
+                };
 
-                omgStyles.addStylingData(svgNode, layer, writer);
+                omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
                 
                 return true;
             }
