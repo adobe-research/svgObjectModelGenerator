@@ -18,7 +18,7 @@
 /* Keep track of SVG data */
 
 (function () {
-"use strict";
+    "use strict";
 
     var docIDs = {};
 

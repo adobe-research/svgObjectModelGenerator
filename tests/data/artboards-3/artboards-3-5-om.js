@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "artboard-2",
+			"id": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -11,7 +11,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "rectangle-1",
+					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -133,7 +133,7 @@ module.exports = {
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"artboard-2": {
+		"artboard-1": {
 			"title": "Artboard 2",
 			"bounds": {
 				"top": 2000,

@@ -46,43 +46,6 @@
         return layer.artboard ? "artboard" : layerTypeMap[layer.type];
     }
 
-    function getSVGID(layer) {
-        var l = "layer" + layer.index, // Default is 'layerN'
-            wsSequence = false;
-
-        function _toClass(c) {
-            var ret = c,
-                skip = ".<>[]`~!@#$%^&*(){}|?/\\:;\"',";
-
-            if (c.trim().length === 0) { // Whitespace?
-                if (wsSequence === false) {
-                    ret = "-"; // Convert first WS in a sequence to a dash.
-                    wsSequence = true;
-                } else {
-                    ret = "";
-                }
-            } else {
-                wsSequence = false;
-            }
-
-            if (skip.indexOf(c) >= 0) {
-                ret = "";
-            }
-
-            return ret;
-        }
-
-        if (layer.name && layer.type !== "textLayer") {
-            // Otherwise, lowercase everthing. Collapse 1+ whitespace to dash.
-            l = layer.name.toLowerCase();
-            var buffer = l.split("");
-            buffer = buffer.map(_toClass);
-            l = buffer.join("");
-        }
-
-        return l;
-    }
-
     function layerSpecActive(layerSpec) {
         return !!(layerSpec && typeof layerSpec === "number");
     }
@@ -144,10 +107,10 @@
 
             layerType = getSVGLayerType(layer);
             if (!justTraverse) {
-                svgNode = writer.addSVGNode(getSVGID(layer), layerType, layerVisible);
+                svgNode = writer.addSVGNode(layerType, layerVisible);
                 svgNode.title = layer.name;
                 if (layer.boundsWithFX) {
-                    svgNode.boundsWithFX = layer.boundsWithFX;                    
+                    svgNode.boundsWithFX = layer.boundsWithFX;
                 }
             }
 
@@ -195,6 +158,7 @@
             layerSpecFound = specFound;
         }
 
+        writer.resetIDs();
         writer.setDocTitle(psd.file);
         writer.setDocViewBox(psd.bounds);
         writer.setDocBounds(psd.bounds);
@@ -216,5 +180,4 @@
     module.exports._getSVGLayerType = getSVGLayerType;
     module.exports._layerSpecActive = layerSpecActive;
     module.exports._layerSpecMatches = layerSpecMatches;
-    module.exports._getSVGID = getSVGID;
 } ());

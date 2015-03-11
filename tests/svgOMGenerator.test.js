@@ -200,14 +200,5 @@ describe('svgOMGenerator', function (){
             expect(OMG._layerSpecMatches(layer, undefined)).to.equal(false);
             expect(OMG._layerSpecMatches(layer, layerSpec)).to.equal(true);
         });
-        
-        it("should eat unnecessary whitespace when making an ID", function (){
-            
-            var lyr = {
-                    index: 3,
-                    name: "  franklinstein"
-                };
-            expect(OMG._getSVGID(lyr)).to.equal("-franklinstein");
-        });
     });
 });

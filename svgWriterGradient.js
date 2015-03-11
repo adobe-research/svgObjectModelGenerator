@@ -18,7 +18,7 @@
     "use strict";
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js"),
+        ID = require("./idGenerator.js"),
         Tag = require("./svgWriterTag.js");
 
     var write = svgWriterUtils.write,
@@ -194,7 +194,7 @@
         writeLinearGradient: function (ctx, gradient, flavor) {
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
-                gradientID = svgWriterIDs.getUnique("linear-gradient"),
+                gradientID = ID.getUnique("linear-gradient"),
                 bounds = gradient.gradientSpace === "objectBoundingBox" ? omIn.shapeBounds : ctx.viewBox,
                 coords = computeLinearGradientCoordinates(gradient, bounds),
                 scale = gradient.scale,
@@ -252,7 +252,7 @@
         writeRadialGradient: function (ctx, gradient, flavor) {
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
-                gradientID = svgWriterIDs.getUnique("radial-gradient"),
+                gradientID = ID.getUnique("radial-gradient"),
                 scale = gradient.scale,
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,

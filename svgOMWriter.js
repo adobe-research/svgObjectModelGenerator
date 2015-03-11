@@ -19,7 +19,8 @@
 /* Help construct the svgOM */
 
 (function () {
-"use strict";
+    "use strict";
+    var ID = require("./idGenerator.js");
 
 	function SVGOMWriter() {
         
@@ -30,15 +31,14 @@
                 meta: {
                     PS: {}
                 }
-		    },
-            _currentNodeStack = [],
-            _docIDs = {};
+            },
+            _currentNodeStack = [];
         
         this._root = _root;
 
         this._dpi = function () {
             return (_root && _root.global.pxToInchRatio) ? _root.global.pxToInchRatio : 72.0;
-        }
+        };
         
         this.peekCurrent = function () {
             if (_currentNodeStack.length > 0) {
@@ -53,7 +53,11 @@
             _currentNodeStack.pop();
         };
         this.pushCurrent(_root);
-        
+
+        this.resetIDs = function () {
+            ID.reset();
+        };
+
         this.setDocBounds = function (bounds) {
             _root.global.bounds = bounds;
         };
@@ -64,7 +68,7 @@
 
         this.setDocTitle = function (title) {
             _root.title = title;
-        }
+        };
 
         this.setDocPxToInchRatio = function (pxToInchRatio) {
             _root.global.pxToInchRatio = pxToInchRatio;
@@ -75,24 +79,15 @@
                 title: title,
                 bounds: bounds
             };
-        }
+        };
 
         this.setDocGlobalLight = function (globalLight) {
             _root.meta.PS.globalLight = globalLight;
         };
-
-        this.uniqueId = function (nodeID) {
-            if (_docIDs[nodeID]) {
-                return nodeID + "-" + _docIDs[nodeID]++;
-            } else {
-                _docIDs[nodeID] = 1;
-            }
-            return nodeID;
-        };
         
-		this.addSVGNode = function (nodeID, nodeType, nodeVisible) {
+		this.addSVGNode = function (nodeType, nodeVisible) {
 			var n = {
-				id: this.uniqueId(nodeID),
+				id: ID.getUnique(nodeType),
                 type: nodeType,
                 visible: nodeVisible,
 				style: {},

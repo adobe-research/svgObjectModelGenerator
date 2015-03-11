@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background",
+			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +9,7 @@ module.exports = {
 			"title": "Background"
 		},
 		{
-			"id": "layer1",
+			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -122,7 +122,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer1-undefined",
+					"id": "tspan-1",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -133,7 +133,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer1-0-0",
+							"id": "tspan-2",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -162,7 +162,7 @@ module.exports = {
 							}
 						},
 						{
-							"id": "layer1-0-1",
+							"id": "tspan-3",
 							"type": "tspan",
 							"visible": true,
 							"style": {

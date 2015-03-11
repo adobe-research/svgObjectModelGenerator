@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background",
+			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +9,7 @@ module.exports = {
 			"title": "Background"
 		},
 		{
-			"id": "rectangle-1svg",
+			"id": "shape-1",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -123,7 +123,7 @@ module.exports = {
 			}
 		},
 		{
-			"id": "rectangle-2svg",
+			"id": "shape-2",
 			"type": "shape",
 			"visible": true,
 			"style": {

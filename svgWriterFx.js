@@ -19,10 +19,10 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js"),
+        ID = require("./idGenerator.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
         SVGWriterGradientMap = require("./svgWriterGradientMap.js");
@@ -122,7 +122,7 @@
 
             omIn._filterflavor = filterFlavor;
 
-            var filterID = svgWriterIDs.getUnique(filterFlavor),
+            var filterID = ID.getUnique(filterFlavor),
                 fingerprint = "";
 
             ctxCapture(ctx, function () {

@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "circle",
+			"id": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -11,7 +11,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "ellipse-1",
+					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -69,7 +69,7 @@ module.exports = {
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"circle": {
+		"artboard-1": {
 			"title": "circle",
 			"bounds": {
 				"top": 2000,

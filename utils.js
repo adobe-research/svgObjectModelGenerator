@@ -19,11 +19,9 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
 
-    var Buffer = require('buffer').Buffer,
-        guidID = 1,
-        svgWriterIDs = require("./svgWriterIDs.js");
+    var Buffer = require('buffer').Buffer;
 
 	function Utils() {
         
