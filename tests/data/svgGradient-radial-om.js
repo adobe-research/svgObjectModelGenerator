@@ -18,32 +18,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 41.003892,
-									"g": 10,
-									"b": 89.003893,
-									"a": 1
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 124,
-									"b": 0,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "radial",
-						"angle": 0,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "radial-gradient-1"
 				}
 			},
 			"children": [],
@@ -72,32 +47,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 41.003892,
-									"g": 10,
-									"b": 89.003893,
-									"a": 1
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 124,
-									"b": 0,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "radial",
-						"angle": 0,
-						"gradientSpace": "userSpaceOnUse"
-					}
+					"gradient": "radial-gradient-2"
 				}
 			},
 			"children": [],
@@ -118,6 +68,64 @@ module.exports = {
 		}
 	],
 	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"radial-gradient-1": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 41.003892,
+							"g": 10,
+							"b": 89.003893,
+							"a": 1
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 124,
+							"b": 0,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "radial",
+				"angle": 0,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"radial-gradient-2": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 41.003892,
+							"g": 10,
+							"b": 89.003893,
+							"a": 1
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 124,
+							"b": 0,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "radial",
+				"angle": 0,
+				"gradientSpace": "userSpaceOnUse"
+			}
+		},
+		"masks": {},
+		"patterns": {},
 		"viewBox": {
 			"top": 0,
 			"left": 0,

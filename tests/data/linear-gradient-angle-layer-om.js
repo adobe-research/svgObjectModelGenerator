@@ -18,72 +18,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 90,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-32"
 				}
 			},
 			"children": [],
@@ -112,72 +47,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 65,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-33"
 				}
 			},
 			"children": [],
@@ -206,72 +76,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 0,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-34"
 				}
 			},
 			"children": [],
@@ -300,72 +105,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": -65,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-35"
 				}
 			},
 			"children": [],
@@ -394,72 +134,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": -90,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-36"
 				}
 			},
 			"children": [],
@@ -488,72 +163,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": -115,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-37"
 				}
 			},
 			"children": [],
@@ -582,72 +192,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": -180,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-38"
 				}
 			},
 			"children": [],
@@ -676,72 +221,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 115,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-39"
 				}
 			},
 			"children": [],
@@ -770,72 +250,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 180,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-40"
 				}
 			},
 			"children": [],
@@ -864,72 +279,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 270,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-41"
 				}
 			},
 			"children": [],
@@ -958,72 +308,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": 360,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-42"
 				}
 			},
 			"children": [],
@@ -1052,72 +337,7 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": {
-						"stops": [
-							{
-								"position": 0,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							},
-							{
-								"position": 14.990234375,
-								"color": {
-									"r": 255,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 33.0078125,
-								"color": {
-									"r": 0,
-									"g": 0,
-									"b": 255
-								}
-							},
-							{
-								"position": 48.9990234375,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 255
-								}
-							},
-							{
-								"position": 66.9921875,
-								"color": {
-									"r": 0,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 84.0087890625,
-								"color": {
-									"r": 255,
-									"g": 255,
-									"b": 0
-								}
-							},
-							{
-								"position": 100,
-								"color": {
-									"r": 255,
-									"g": 0.003891,
-									"b": 0.003891,
-									"a": 1
-								}
-							}
-						],
-						"scale": 1,
-						"type": "linear",
-						"angle": -270,
-						"gradientSpace": "objectBoundingBox"
-					}
+					"gradient": "linear-gradient-43"
 				}
 			},
 			"children": [],
@@ -1138,6 +358,804 @@ module.exports = {
 		}
 	],
 	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"linear-gradient-32": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 90,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-33": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 65,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-34": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 0,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-35": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": -65,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-36": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": -90,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-37": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": -115,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-38": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": -180,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-39": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 115,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-40": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 180,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-41": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 270,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-42": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": 360,
+				"gradientSpace": "objectBoundingBox"
+			},
+			"linear-gradient-43": {
+				"stops": [
+					{
+						"position": 0,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					},
+					{
+						"position": 14.990234375,
+						"color": {
+							"r": 255,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 33.0078125,
+						"color": {
+							"r": 0,
+							"g": 0,
+							"b": 255
+						}
+					},
+					{
+						"position": 48.9990234375,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 255
+						}
+					},
+					{
+						"position": 66.9921875,
+						"color": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 84.0087890625,
+						"color": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						}
+					},
+					{
+						"position": 100,
+						"color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						}
+					}
+				],
+				"scale": 1,
+				"type": "linear",
+				"angle": -270,
+				"gradientSpace": "objectBoundingBox"
+			}
+		},
+		"masks": {},
+		"patterns": {},
 		"viewBox": {
 			"top": 0,
 			"left": 0,
