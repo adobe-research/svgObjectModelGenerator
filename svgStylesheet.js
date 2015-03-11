@@ -23,7 +23,7 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
-        svgWriterIDs = require("./svgWriterIDs.js"),
+        ID = require("./idGenerator.js"),
         svgWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
@@ -300,7 +300,7 @@
                 return omNode.styleBlock;
             }
 
-            omNode.className = omNode.className || svgWriterIDs.getUnique("cls");
+            omNode.className = omNode.className || ID.getUnique("cls");
 
             //TBD: factor in IDs
 

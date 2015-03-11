@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "layer-1",
+			"id": "generic-1",
 			"type": "generic",
 			"visible": true,
 			"style": {},
@@ -19,7 +19,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "rectangle-2",
+					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -135,7 +135,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "rectangle-1",
+					"id": "shape-2",
 					"type": "shape",
 					"visible": true,
 					"style": {

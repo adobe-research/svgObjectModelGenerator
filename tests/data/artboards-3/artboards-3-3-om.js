@@ -11,7 +11,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "rectangle-2",
+					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {

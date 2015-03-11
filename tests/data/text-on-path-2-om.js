@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background",
+			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +9,7 @@ module.exports = {
 			"title": "Background"
 		},
 		{
-			"id": "layer1",
+			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -23,7 +23,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer1-path",
+					"id": "textPath-1",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -35,7 +35,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer1-path-0",
+							"id": "tspan-1",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -94,7 +94,7 @@ module.exports = {
 			"maxTextSize": 150
 		},
 		{
-			"id": "layer2",
+			"id": "text-2",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -108,7 +108,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer2-0",
+					"id": "tspan-2",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -166,7 +166,7 @@ module.exports = {
 			"maxTextSize": 150
 		},
 		{
-			"id": "layer3",
+			"id": "text-3",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -180,7 +180,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer3-path",
+					"id": "textPath-2",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -192,7 +192,7 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "layer3-path-0",
+							"id": "tspan-3",
 							"type": "tspan",
 							"visible": true,
 							"style": {

@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "layer-1",
+			"id": "generic-1",
 			"type": "generic",
 			"visible": true,
 			"style": {},

@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background",
+			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +9,7 @@ module.exports = {
 			"title": "Background"
 		},
 		{
-			"id": "layer1",
+			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -23,7 +23,7 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "layer1-0",
+					"id": "tspan-1",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -99,7 +99,7 @@ module.exports = {
 			"transformTY": 366
 		},
 		{
-			"id": "rectangle-1",
+			"id": "shape-1",
 			"type": "shape",
 			"visible": true,
 			"style": {
