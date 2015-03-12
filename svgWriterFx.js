@@ -335,7 +335,7 @@
             writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
 
             return {m: satin.mode, c: color, o: opacity, b: blur, offset: offset};
-        }
+        };
 
         var writeInnerGlow = function (ctx, glow, ind) {
             var blur = round1k(glow.blur / 3),
@@ -345,7 +345,7 @@
             if (glow.gradient) {
                 // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
                 glow.gradient.stops.reverse().forEach(function(ele) {
-                    ele.position = Math.abs(ele.position - 100);
+                    ele.offset = Math.abs(ele.offset - 1);
                 });
             }
 
@@ -354,7 +354,7 @@
             writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
 
             return { c: glow.color, g: glow.gradient, o: opacity, b: blur };
-        }
+        };
 
         var writeInnerShadow = function (ctx, innerShadow, ind) {
             var color = innerShadow.color,

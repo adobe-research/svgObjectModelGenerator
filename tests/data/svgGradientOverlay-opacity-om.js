@@ -66,7 +66,7 @@ module.exports = {
 									"gradient": {
 										"stops": [
 											{
-												"position": 0,
+												"offset": 0,
 												"color": {
 													"r": 0.124514,
 													"g": 3,
@@ -75,7 +75,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 100,
+												"offset": 1,
 												"color": {
 													"r": 255,
 													"g": 255,

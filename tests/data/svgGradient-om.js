@@ -74,7 +74,7 @@ module.exports = {
 			"linear-gradient-1": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 41.003892,
 							"g": 10,
@@ -83,7 +83,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 124,
@@ -103,7 +103,7 @@ module.exports = {
 			"linear-gradient-2": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 41.003892,
 							"g": 10,
@@ -112,7 +112,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 124,

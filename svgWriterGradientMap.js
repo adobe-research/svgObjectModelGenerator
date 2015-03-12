@@ -39,7 +39,7 @@
                 var segSize = maxNumSegs / nSegs;
                 matched = true;
                 for (var i = 1; i < stops.length-1; i++) {
-                    var pos = stops[i].position;
+                    var pos = stops[i].offset;
                     if (pos < segSize) {
                         matched = false;
                         break;
@@ -67,7 +67,7 @@
             var segSize = 100 / nSegs;
             for (var i = 1; i < stops.length-1; i++) {
                 var stop = stops[i];
-                var n = Math.round(stop.position / segSize);
+                var n = Math.round(stop.offset / segSize);
                 colors[n] = stop.color;
             }
             colors[nSegs] = stops[stops.length-1].color;
@@ -109,6 +109,9 @@
         };
 
         this.createGradientMap = function (ctx, stops) {
+            stops.forEach(function (ele) {
+                ele.offset *= 100;
+            });
             var nSegs = findMatchingDistributedNSegs(stops),
                 colors = calcDistributedColors(stops, nSegs),
                 redTableValues = '',

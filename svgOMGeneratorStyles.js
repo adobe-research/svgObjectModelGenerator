@@ -18,7 +18,7 @@
 /* Help construct the svgOM from generator data */
 
 (function () {
-"use strict";
+    "use strict";
 
     var omgUtils = require("./svgOMGeneratorUtils.js"),
         ID = require("./idGenerator.js");
@@ -28,7 +28,7 @@
 	function SVGOMGeneratorStyles() {
         var decamelcase = function (string) {
             return string.replace(/([A-Z])/g, "-$1");
-        }
+        };
 
         var fetchOpacity = function (layer) {
             if (layer.blendOptions &&
@@ -36,11 +36,11 @@
                 return layer.blendOptions.opacity.value / 100;
             }
             return undefined;
-        }
+        };
 
         var isPathNode = function (svgNode) {
             return svgNode.type == 'shape' && svgNode.shape.type == 'path';
-        }
+        };
 
         this.fetchBlendMode = function (layer) {
             var blendMode;
@@ -51,29 +51,29 @@
             }
 
             switch (blendMode) {
-                case "pass-Through":
-                case "normal":
-                    return undefined;
-                case "multiply":
-                case "screen":
-                case "overlay":
-                case "darken":
-                case "lighten":
-                case "color-dodge":
-                case "color-burn":
-                case "hard-light":
-                case "soft-light":
-                case "difference":
-                case "exclusion":
-                case "hue":
-                case "saturation":
-                case "color":
-                case "luminosity":
-                    return blendMode;
-                default:
-                    return undefined;
+            case "pass-Through":
+            case "normal":
+                return undefined;
+            case "multiply":
+            case "screen":
+            case "overlay":
+            case "darken":
+            case "lighten":
+            case "color-dodge":
+            case "color-burn":
+            case "hard-light":
+            case "soft-light":
+            case "difference":
+            case "exclusion":
+            case "hue":
+            case "saturation":
+            case "color":
+            case "luminosity":
+                return blendMode;
+            default:
+                return undefined;
             }
-        }
+        };
 
         this.addGlobalStyle = function (svgNode, layer) {
             var propertyFetchers = { // Properties we fetch for all layers
@@ -205,7 +205,7 @@
             } else {
                 stroke.type = "none";
             }
-        }
+        };
 
         this.addFx = function (svgNode, layer, layerBounds, writer) {
             if (!layer.layerEffects || layer.layerEffects.masterFXSwitch === false) {
@@ -319,30 +319,30 @@
             }
 
             if (textStyle.textStyle.strikethrough && textStyle.textStyle.strikethrough.indexOf("StrikethroughOn") >= 0) {
-                span.style["text-decoration"] = "line-through";                
+                span.style["text-decoration"] = "line-through";
             }
 
             if (textStyle.textStyle.underline && textStyle.textStyle.underline.indexOf("underlineOn") >= 0) {
                 if (span.style["text-decoration"]) {
                     span.style["text-decoration"] += " underline";
                 } else {
-                    span.style["text-decoration"] = "underline";                    
-                }             
+                    span.style["text-decoration"] = "underline";
+                }
             }
 
             if (textStyle.textStyle.fontCaps) {
                 if (textStyle.textStyle.fontCaps === "smallCaps") {
                     span.style["font-variant"] = "small-caps";
                 } else if (textStyle.textStyle.fontCaps === "allCaps") {
-                    span.style["text-transform"] = "uppercase";                    
-                }         
+                    span.style["text-transform"] = "uppercase";
+                }
             }
 
             if (textStyle.textStyle.baseline) {
                 if (textStyle.textStyle.baseline === "smallCaps") {
                     span.style["baseline-shift"] = "super";
                 } else if (textStyle.textStyle.baseline === "allCaps") {
-                    span.style["baseline-shift"] = "sub";                    
+                    span.style["baseline-shift"] = "sub";
                 } else if (textStyle.textStyle.baseline === "subScript") {
                     //cut size in half and stick to bottom
                     span.style["_baseline-script"] = "sub";
@@ -351,7 +351,7 @@
                     span.style["_baseline-script"] = "super";
                 }
             }
-        }
+        };
 
         function _computeMaxFontSize(paragraphNode) {
             var maxSize,
@@ -365,7 +365,7 @@
                     if (!paragraphNode.children[i].style || !paragraphNode.children[i].style["font-size"]) {
                         continue;
                     }
-                    fontSize = paragraphNode.children[i].style["font-size"]
+                    fontSize = paragraphNode.children[i].style["font-size"];
 
                     if (typeof fontSize === "number") {
                         if (!isFinite(maxSize) || fontSize > maxSize) {
@@ -400,8 +400,8 @@
             paragraphNode.style = {
                 "text-anchor": fetchTextAlign(paragraphStyle),
                 "font-size": _computeMaxFontSize(paragraphNode)
-            }
-        }
+            };
+        };
 
         var addComputedTextStyle = function (svgNode, layer) {
             svgNode.style["font-size"] = _computeMaxFontSize(svgNode);
@@ -415,7 +415,7 @@
             }
 
             addComputedTextStyle(svgNode, layer);
-        }
+        };
 	}
 
 	module.exports = new SVGOMGeneratorStyles();
