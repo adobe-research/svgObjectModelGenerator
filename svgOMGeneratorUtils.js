@@ -19,7 +19,9 @@
 /* Help construct the svgOM from generator data */
 
 (function () {
-"use strict";
+    "use strict";
+
+    var svgWriterGradient = require("./svgWriterGradient.js");
     
     function SVGOMGeneratorUtils() {
         
@@ -102,8 +104,8 @@
                 stops.push(def);
             }
         }
-        
-        this.toGradient = function (gradientRaw) {
+
+        this.toGradient = function (gradientRaw, layerBounds, docBounds) {
             var gradient,
                 self = this;
             if (!gradientRaw || !gradientRaw.gradient ||
@@ -124,7 +126,20 @@
 
             gradient = this.toColorStops(gradientRaw);
             gradient.type = gradientRaw.type === "radial" ? "radial" : "linear";
-            gradient.angle = angle;
+            // FIXME: The last two conditions must be removed when overlay gradients were
+            // transformed to the new format.
+            if (gradient.type == "radial" || !layerBounds || !docBounds) {
+                gradient.angle = angle;
+            } else {
+                var bounds = gradientSpace === "objectBoundingBox" ? layerBounds : docBounds,
+                    coords = svgWriterGradient.computeLinearGradientCoordinates(gradient, bounds, angle),
+                    scale = gradient.scale,
+                    stops = gradient.stops;
+                gradient.x1 = coords.xa + coords.cx;
+                gradient.y1 = coords.ya + coords.cy;
+                gradient.x2 = coords.cx - coords.xa;
+                gradient.y2 = coords.cy - coords.ya;
+            }
             gradient.gradientSpace = gradientSpace;
 
             return gradient;

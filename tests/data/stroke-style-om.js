@@ -371,7 +371,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 35,
+				"x1": 328.59259966289426,
+				"y1": 300,
+				"x2": 471.40740033710574,
+				"y2": 200,
 				"gradientSpace": "objectBoundingBox"
 			},
 			"radial-gradient-1": {
@@ -627,7 +630,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 90,
+				"x1": 150,
+				"y1": 450,
+				"x2": 150,
+				"y2": 350,
 				"gradientSpace": "objectBoundingBox"
 			},
 			"linear-gradient-3": {
@@ -693,7 +699,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 35,
+				"x1": 0,
+				"y1": 580.0830152838839,
+				"x2": 800,
+				"y2": 19.916984716116133,
 				"gradientSpace": "userSpaceOnUse"
 			}
 		},

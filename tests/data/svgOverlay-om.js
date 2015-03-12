@@ -90,7 +90,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
-				"angle": 90,
+				"x1": 275,
+				"y1": 250,
+				"x2": 275,
+				"y2": 100,
 				"gradientSpace": "objectBoundingBox"
 			}
 		},

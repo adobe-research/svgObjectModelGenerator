@@ -90,11 +90,11 @@
             }
         };
 
-        this.addStroke = function (svgNode, layer, writer) {
-            var stroke = svgNode.style.stroke || {},
+        this.addStroke = function (svgNode, layer, layerBounds, writer) {
+            var dpi = writer._dpi(),
+                stroke = svgNode.style.stroke || {},
                 strokeStyle = layer.strokeStyle,
                 gradient,
-                dpi = writer._dpi(),
                 toStrokeLinecap = {
                     "strokeStyleRoundCap": "round",
                     "strokeStyleButtCap": "butt",
@@ -121,7 +121,7 @@
                 stroke.pattern = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern) ? "PATTERN-PLACEHOLDER" : undefined;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
                     stroke.type = "gradient";
-                    gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent);
+                    gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
                     stroke.gradient = ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[stroke.gradient] = gradient;
                 }
@@ -138,7 +138,7 @@
             svgNode.style['fill-rule'] = 'evenodd';
         };
         
-        this.addFill = function (svgNode, layer, writer) {
+        this.addFill = function (svgNode, layer, layerBounds, writer) {
             var fill = svgNode.style.fill || {},
                 fillStyle = layer.fill,
                 gradient,
@@ -157,7 +157,7 @@
             } else if (fillClass == "gradientLayer") {
                 fill.type = "gradient";
                 if (fillStyle.gradient) {
-                    gradient = omgUtils.toGradient(fillStyle);
+                    gradient = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
                     fill.gradient = ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[fill.gradient] = gradient;
                 } else {
@@ -177,7 +177,7 @@
             }
         };
 
-        var applyStrokeFilter = function (svgNode, strokeStyle, writer) {
+        var applyStrokeFilter = function (svgNode, strokeStyle, layer, layerBounds, writer) {
             var stroke = {},
                 gradient;
 
@@ -198,7 +198,7 @@
                 stroke.sourceStyle = strokeStyle.style;
                 if (strokeStyle.gradient) {
                     stroke.type = "gradient";
-                    gradient = omgUtils.toGradient(strokeStyle);
+                    gradient = omgUtils.toGradient(strokeStyle, layerBounds, writer._root.global.bounds);
                     stroke.gradient = ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[stroke.gradient] = gradient;
                 }
@@ -207,7 +207,7 @@
             }
         }
 
-        this.addFx = function (svgNode, layer, writer) {
+        this.addFx = function (svgNode, layer, layerBounds, writer) {
             if (!layer.layerEffects || layer.layerEffects.masterFXSwitch === false) {
                 return;
             }
@@ -262,15 +262,15 @@
             prepareEffect('bevelEmboss');
             prepareEffect('patternOverlay');
 
-            applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX, writer);
+            applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX, layer, layerBounds, writer);
         };
 
         this.addGroupStylingData = function (svgNode, layer, writer) {
             svgNode.shapeBounds = layer.bounds;
-            this.addStylingData(svgNode, layer, writer);
+            this.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
         };
 
-        this.addStylingData = function (svgNode, layer, writer) {
+        this.addStylingData = function (svgNode, layer, layerBounds, writer) {
 
             this.addGlobalStyle(svgNode, layer);
 
@@ -278,10 +278,10 @@
                 return;
             }
 
-            this.addStroke(svgNode, layer, writer);
-            this.addFill(svgNode, layer, writer);
+            this.addStroke(svgNode, layer, layerBounds, writer);
+            this.addFill(svgNode, layer, layerBounds, writer);
             this.addFillRule(svgNode, layer);
-            this.addFx(svgNode, layer, writer);
+            this.addFx(svgNode, layer, layerBounds, writer);
         };
 
         this.addTextChunkStyle = function (span, textStyle) {

@@ -135,7 +135,7 @@
 
                     omgStyles.addTextStyle(svgNode, layer);
 
-                    omgStyles.addStylingData(svgNode, layer, writer);
+                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
                 
                 } catch (exter) {
                     console.warn(exter.stack);
@@ -276,7 +276,7 @@
             });
             
             omgStyles.addTextStyle(svgNode, layer);
-            omgStyles.addStylingData(svgNode, layer, writer);
+            omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
             
             writer.popCurrent();
             return true;

@@ -41,7 +41,7 @@
                     svgNode.shapeBounds = layer.boundsWithFX;
                 }
 
-                omgStyles.addStylingData(svgNode, layer, writer);
+                omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
                 
                 return true;
             });
