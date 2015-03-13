@@ -422,7 +422,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 300,
@@ -490,7 +489,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 424.2640687119285,
@@ -558,7 +556,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 400,
@@ -626,7 +623,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 424.26406871192853,
@@ -694,7 +690,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 300,
@@ -762,7 +757,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 424.2640687119284,
@@ -830,7 +824,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 400,
@@ -898,7 +891,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 424.2640687119285,
@@ -966,7 +958,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 400,
@@ -1034,7 +1025,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 300,
@@ -1102,7 +1092,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 400,
@@ -1170,7 +1159,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 400,

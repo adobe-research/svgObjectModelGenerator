@@ -942,7 +942,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 300,
@@ -979,7 +978,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 500,
@@ -1048,7 +1046,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 100,
@@ -1117,7 +1114,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 99.99999999999994,
@@ -1186,7 +1182,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 424.2640687119285,

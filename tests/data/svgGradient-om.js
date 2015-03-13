@@ -92,7 +92,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 342.8888994943414,
@@ -121,7 +120,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 0,

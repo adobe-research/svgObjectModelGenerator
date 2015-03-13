@@ -92,8 +92,7 @@ module.exports = {
 													"a": 1
 												}
 											}
-										],
-										"scale": 1
+										]
 									},
 									"opacity": 0.75,
 									"glowTechnique": "softMatte",

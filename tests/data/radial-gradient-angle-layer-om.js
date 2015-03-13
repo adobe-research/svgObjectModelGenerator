@@ -422,7 +422,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 50,
@@ -490,7 +489,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 70.71067811865474,
@@ -558,7 +556,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 100,
@@ -626,7 +623,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 70.71067811865476,
@@ -694,7 +690,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 50,
@@ -762,7 +757,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 70.71067811865474,
@@ -830,7 +824,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 100,
@@ -898,7 +891,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 70.71067811865474,
@@ -966,7 +958,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 97,
@@ -1034,7 +1025,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 50,
@@ -1102,7 +1092,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 100,
@@ -1170,7 +1159,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 50,
