@@ -364,7 +364,7 @@ module.exports = {
 			"linear-gradient-1": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -373,7 +373,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -381,7 +381,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -389,7 +389,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -397,7 +397,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -405,7 +405,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -413,7 +413,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -433,7 +433,7 @@ module.exports = {
 			"linear-gradient-2": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -442,7 +442,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -450,7 +450,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -458,7 +458,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -466,7 +466,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -474,7 +474,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -482,7 +482,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -502,7 +502,7 @@ module.exports = {
 			"linear-gradient-3": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -511,7 +511,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -519,7 +519,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -527,7 +527,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -535,7 +535,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -543,7 +543,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -551,7 +551,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -571,7 +571,7 @@ module.exports = {
 			"radial-gradient-1": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -580,7 +580,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -588,7 +588,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -596,7 +596,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -604,7 +604,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -612,7 +612,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -620,7 +620,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -637,7 +637,7 @@ module.exports = {
 			"radial-gradient-2": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -646,7 +646,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -654,7 +654,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -662,7 +662,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -670,7 +670,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -678,7 +678,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -686,7 +686,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -703,7 +703,7 @@ module.exports = {
 			"radial-gradient-3": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -712,7 +712,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -720,7 +720,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -728,7 +728,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -736,7 +736,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -744,7 +744,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -752,7 +752,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -769,7 +769,7 @@ module.exports = {
 			"radial-gradient-4": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -778,7 +778,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -786,7 +786,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -794,7 +794,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -802,7 +802,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -810,7 +810,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -818,7 +818,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -835,7 +835,7 @@ module.exports = {
 			"radial-gradient-5": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -844,7 +844,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -852,7 +852,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -860,7 +860,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -868,7 +868,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -876,7 +876,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -884,7 +884,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -901,7 +901,7 @@ module.exports = {
 			"radial-gradient-6": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -910,7 +910,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -918,7 +918,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -926,7 +926,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -934,7 +934,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -942,7 +942,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -950,7 +950,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -967,7 +967,7 @@ module.exports = {
 			"linear-gradient-4": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -976,7 +976,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -984,7 +984,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -992,7 +992,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -1000,7 +1000,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -1008,7 +1008,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -1016,7 +1016,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -1036,7 +1036,7 @@ module.exports = {
 			"linear-gradient-5": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -1045,7 +1045,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -1053,7 +1053,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -1061,7 +1061,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -1069,7 +1069,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -1077,7 +1077,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -1085,7 +1085,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -1105,7 +1105,7 @@ module.exports = {
 			"linear-gradient-6": {
 				"stops": [
 					{
-						"position": 0,
+						"offset": 0,
 						"color": {
 							"r": 255,
 							"g": 0.003891,
@@ -1114,7 +1114,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 14.990234375,
+						"offset": 0.14990234375,
 						"color": {
 							"r": 255,
 							"g": 0,
@@ -1122,7 +1122,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 33.0078125,
+						"offset": 0.330078125,
 						"color": {
 							"r": 0,
 							"g": 0,
@@ -1130,7 +1130,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 48.9990234375,
+						"offset": 0.489990234375,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -1138,7 +1138,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 66.9921875,
+						"offset": 0.669921875,
 						"color": {
 							"r": 0,
 							"g": 255,
@@ -1146,7 +1146,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 84.0087890625,
+						"offset": 0.840087890625,
 						"color": {
 							"r": 255,
 							"g": 255,
@@ -1154,7 +1154,7 @@ module.exports = {
 						}
 					},
 					{
-						"position": 100,
+						"offset": 1,
 						"color": {
 							"r": 255,
 							"g": 0.003891,

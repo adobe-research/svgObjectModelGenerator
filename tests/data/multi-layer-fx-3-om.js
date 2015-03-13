@@ -51,7 +51,7 @@ module.exports = {
 									"gradient": {
 										"stops": [
 											{
-												"position": 0,
+												"offset": 0,
 												"color": {
 													"r": 40.801557,
 													"g": 136.809333,
@@ -60,7 +60,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 50,
+												"offset": 0.5,
 												"color": {
 													"r": 255,
 													"g": 255,
@@ -68,7 +68,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 52.001953125,
+												"offset": 0.52001953125,
 												"color": {
 													"r": 144.000007,
 													"g": 105.731515,
@@ -76,7 +76,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 63.9892578125,
+												"offset": 0.639892578125,
 												"color": {
 													"r": 217.000002,
 													"g": 159.334631,
@@ -84,7 +84,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 100,
+												"offset": 1,
 												"color": {
 													"r": 255,
 													"g": 255,
@@ -130,7 +130,7 @@ module.exports = {
 									"gradient": {
 										"stops": [
 											{
-												"position": 0,
+												"offset": 0,
 												"color": {
 													"r": 151.000006,
 													"g": 70.000003,
@@ -139,7 +139,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 30.0048828125,
+												"offset": 0.300048828125,
 												"color": {
 													"r": 251,
 													"g": 215.918292,
@@ -147,7 +147,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 83.0078125,
+												"offset": 0.830078125,
 												"color": {
 													"r": 108.000001,
 													"g": 46.000001,
@@ -155,7 +155,7 @@ module.exports = {
 												}
 											},
 											{
-												"position": 100,
+												"offset": 1,
 												"color": {
 													"r": 239.000001,
 													"g": 219.000002,

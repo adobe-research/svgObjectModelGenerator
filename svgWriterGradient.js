@@ -89,7 +89,7 @@
             var iStop,
                 stp,
                 stpOpacity,
-                position,
+                offset,
                 link;
             x1 += ctx._shiftContentX || 0;
             x2 += ctx._shiftContentX || 0;
@@ -104,10 +104,9 @@
                 for (iStop = 0; iStop < stops.length; iStop++) {
                     stp = stops[iStop];
                     stpOpacity = '';
-                    position = round1k((Math.round(stp.position) / 100 - 0.5) * scale + 0.5);
-
+                    offset = (stp.offset - 0.5) * scale + 0.5;
                     var stop = new Tag("stop", {
-                        offset: position,
+                        offset: offset,
                         "stop-color": stp.color,
                         "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
                     });
@@ -220,7 +219,7 @@
                 stp = stops[iStop];
                 stpOpacity = '';
                 lines.push(new Tag("stop", {
-                    offset: Math.round(stp.position) / 100 * scale,
+                    offset: stp.offset * scale,
                     "stop-color": stp.color,
                     "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
                 }));

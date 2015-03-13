@@ -86,7 +86,7 @@
         function _addOrEditStop(stops, def, colorDefined) {
             var foundStop;
             stops.forEach(function (stp) {
-                if (stp.position === def.position) {
+                if (stp.offset === def.offset) {
                     foundStop = stp;
                 }
             });
@@ -292,15 +292,18 @@
                     color = interpolateStop(prevStopColor, nextStopColor, prevStopOpacity, nextStopOpacity, stops[i], firstLoc, lastLoc);
                 }
                 
-                _addOrEditStop(gradient.stops, { position: distance, color: color }, !!stops[i].color);
+                _addOrEditStop(gradient.stops, { offset: distance, color: color }, !!stops[i].color);
             }
+            gradient.stops.forEach(function (ele) {
+                ele.offset /= 100;
+            });
             var stops = gradient.stops;
             if (reverse) {
                 for (var i = stops.length - 1; i >= 0; i--) {
-                    stops[i].position = Math.abs(stops[i].position - 100);
+                    stops[i].offset = Math.abs(stops[i].offset - 1);
                 }
                 stops.sort(function (a, b) {
-                    return a.position - b.position;
+                    return a.offset - b.offset;
                 });
             }
 
@@ -310,12 +313,12 @@
 
             var stops = gradient.stops;
             for (i = stops.length - 1; i >= 0; i--) {
-                stops[i].position = Math.abs(stops[i].position - 100) * 0.5;
-                gradient.stops.push({ position: 100 - stops[i].position, color: stops[i].color });
+                stops[i].offset = Math.abs(stops[i].offset - 1) * 0.5;
+                gradient.stops.push({ offset: 1 - stops[i].offset, color: stops[i].color });
             }
 
             stops.sort(function (a, b) {
-                return a.position - b.position;
+                return a.offset - b.offset;
             });
             return gradient;
         };
