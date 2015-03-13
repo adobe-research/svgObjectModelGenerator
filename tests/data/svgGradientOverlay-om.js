@@ -56,8 +56,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -157,8 +157,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -258,8 +258,8 @@ module.exports = {
 										],
 										"scale": 1.5,
 										"type": "linear",
-										"angle": -35,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": -35
 									},
 									"angle": {
 										"value": -35,
@@ -359,8 +359,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 135,
-										"gradientSpace": "userSpaceOnUse"
+										"gradientSpace": "userSpaceOnUse",
+										"angle": 135
 									},
 									"angle": {
 										"value": 135,
@@ -460,8 +460,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "userSpaceOnUse"
+										"gradientSpace": "userSpaceOnUse",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -561,8 +561,8 @@ module.exports = {
 										],
 										"scale": 1.5,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "userSpaceOnUse"
+										"gradientSpace": "userSpaceOnUse",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -662,8 +662,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "userSpaceOnUse"
+										"gradientSpace": "userSpaceOnUse",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -763,8 +763,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "userSpaceOnUse"
+										"gradientSpace": "userSpaceOnUse",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -864,8 +864,8 @@ module.exports = {
 										],
 										"scale": 0.1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "userSpaceOnUse"
+										"gradientSpace": "userSpaceOnUse",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
@@ -965,8 +965,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 90,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": 90
 									},
 									"angle": {
 										"value": 90,
@@ -1066,8 +1066,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": -90,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": -90
 									},
 									"angle": {
 										"value": -90,
@@ -1167,8 +1167,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 70,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": 70
 									},
 									"angle": {
 										"value": 70,

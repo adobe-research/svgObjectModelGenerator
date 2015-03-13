@@ -64,8 +64,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "radial",
-										"angle": 90,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": 90
 									},
 									"angle": {
 										"value": 90,
@@ -181,11 +181,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "objectBoundingBox",
 				"x1": 131.5,
 				"y1": 227,
 				"x2": 131.5,
-				"y2": 62,
-				"gradientSpace": "objectBoundingBox"
+				"y2": 62
 			}
 		},
 		"masks": {},
