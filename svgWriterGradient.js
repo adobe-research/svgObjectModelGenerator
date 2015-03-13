@@ -21,15 +21,8 @@
         ID = require("./idGenerator.js"),
         Tag = require("./svgWriterTag.js");
 
-    var write = svgWriterUtils.write,
-        writeln = svgWriterUtils.writeln,
-        indent = svgWriterUtils.indent,
-        undent = svgWriterUtils.undent,
-        writeAttrIfNecessary = svgWriterUtils.writeAttrIfNecessary,
-        writeColor = svgWriterUtils.writeColor,
-        round1k = svgWriterUtils.round1k,
+    var round1k = svgWriterUtils.round1k,
         round10k = svgWriterUtils.round10k,
-        round2 = svgWriterUtils.round2,
         gradientStops = {};
 
     function removeDups(lines) {
