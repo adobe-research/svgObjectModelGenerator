@@ -163,11 +163,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "objectBoundingBox",
 				"x1": 350,
 				"y1": 150,
 				"x2": 450,
-				"y2": 50,
-				"gradientSpace": "objectBoundingBox"
+				"y2": 50
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -232,11 +232,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "objectBoundingBox",
 				"x1": 350,
 				"y1": 300,
 				"x2": 450,
-				"y2": 200,
-				"gradientSpace": "objectBoundingBox"
+				"y2": 200
 			},
 			"linear-gradient-3": {
 				"stops": [
@@ -301,11 +301,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "objectBoundingBox",
 				"x1": 350,
 				"y1": 525,
 				"x2": 450,
-				"y2": 425,
-				"gradientSpace": "objectBoundingBox"
+				"y2": 425
 			}
 		},
 		"masks": {},

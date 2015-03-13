@@ -94,8 +94,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 0,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 150,
+				"cx": 450,
+				"cy": 175
 			},
 			"radial-gradient-2": {
 				"stops": [
@@ -120,8 +122,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 0,
-				"gradientSpace": "userSpaceOnUse"
+				"gradientSpace": "userSpaceOnUse",
+				"r": 500,
+				"cx": 500,
+				"cy": 375
 			}
 		},
 		"masks": {},

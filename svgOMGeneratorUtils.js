@@ -121,26 +121,39 @@
             if (gradientRaw.angle) {
                 angle += gradientRaw.angle.value;
             }
+
             var gradientSpace = (gradientRaw.align === undefined || gradientRaw.align) ?
-                "objectBoundingBox" : "userSpaceOnUse";
+                "objectBoundingBox" : "userSpaceOnUse",
+                bounds = gradientSpace === "objectBoundingBox" ? layerBounds : docBounds;
 
             gradient = this.toColorStops(gradientRaw);
             gradient.type = gradientRaw.type === "radial" ? "radial" : "linear";
-            // FIXME: The last two conditions must be removed when overlay gradients were
+            gradient.gradientSpace = gradientSpace;
+
+            // FIXME: This must be removed when overlay gradients were
             // transformed to the new format.
-            if (gradient.type == "radial" || !layerBounds || !docBounds) {
+            if (!layerBounds || !docBounds) {
                 gradient.angle = angle;
+                return gradient;
+            }
+
+            if (gradient.type == "radial") {
+                angle = Math.abs(angle - 90 % 180) * Math.PI / 180;
+
+                var w2 = (bounds.right - bounds.left) / 2,
+                    h2 = (bounds.bottom - bounds.top) / 2,
+                    hl = Math.abs(h2 / Math.cos(angle)),
+                    hw = Math.abs(w2 / Math.sin(angle));
+                gradient.r = hw < hl ? hw : hl;
+                gradient.cx = bounds.left + w2;
+                gradient.cy = bounds.top + h2;
             } else {
-                var bounds = gradientSpace === "objectBoundingBox" ? layerBounds : docBounds,
-                    coords = svgWriterGradient.computeLinearGradientCoordinates(gradient, bounds, angle),
-                    scale = gradient.scale,
-                    stops = gradient.stops;
+                var coords = svgWriterGradient.computeLinearGradientCoordinates(gradient, bounds, angle);
                 gradient.x1 = coords.xa + coords.cx;
                 gradient.y1 = coords.ya + coords.cy;
                 gradient.x2 = coords.cx - coords.xa;
                 gradient.y2 = coords.cy - coords.ya;
             }
-            gradient.gradientSpace = gradientSpace;
 
             return gradient;
         };

@@ -424,11 +424,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 400,
 				"y1": 600,
 				"x2": 400,
-				"y2": 0,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 0
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -493,11 +493,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 260.1077025535004,
 				"y1": 600,
 				"x2": 539.8922974464996,
-				"y2": 0,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 0
 			},
 			"linear-gradient-3": {
 				"stops": [
@@ -562,11 +562,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 0,
 				"y1": 300,
 				"x2": 800,
-				"y2": 300,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 300
 			},
 			"linear-gradient-4": {
 				"stops": [
@@ -631,11 +631,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 260.1077025535004,
 				"y1": 0,
 				"x2": 539.8922974464996,
-				"y2": 600,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 600
 			},
 			"linear-gradient-5": {
 				"stops": [
@@ -700,11 +700,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 400,
 				"y1": 0,
 				"x2": 400,
-				"y2": 600,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 600
 			},
 			"linear-gradient-6": {
 				"stops": [
@@ -769,11 +769,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 539.8922974464995,
 				"y1": 0,
 				"x2": 260.1077025535005,
-				"y2": 600,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 600
 			},
 			"linear-gradient-7": {
 				"stops": [
@@ -838,11 +838,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 800,
 				"y1": 299.99999999999994,
 				"x2": 0,
-				"y2": 300.00000000000006,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 300.00000000000006
 			},
 			"linear-gradient-8": {
 				"stops": [
@@ -907,11 +907,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 539.8922974464995,
 				"y1": 600,
 				"x2": 260.1077025535005,
-				"y2": 0,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 0
 			},
 			"linear-gradient-9": {
 				"stops": [
@@ -976,11 +976,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 800,
 				"y1": 300.00000000000006,
 				"x2": 0,
-				"y2": 299.99999999999994,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 299.99999999999994
 			},
 			"linear-gradient-10": {
 				"stops": [
@@ -1045,11 +1045,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 399.99999999999994,
 				"y1": 600,
 				"x2": 400.00000000000006,
-				"y2": 0,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 0
 			},
 			"linear-gradient-11": {
 				"stops": [
@@ -1114,11 +1114,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 0,
 				"y1": 300,
 				"x2": 800,
-				"y2": 300,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 300
 			},
 			"linear-gradient-12": {
 				"stops": [
@@ -1183,11 +1183,11 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 399.99999999999994,
 				"y1": 0,
 				"x2": 400.00000000000006,
-				"y2": 600,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 600
 			}
 		},
 		"masks": {},

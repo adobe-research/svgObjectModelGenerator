@@ -424,8 +424,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 90,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 50,
+				"cx": 150,
+				"cy": 100
 			},
 			"radial-gradient-2": {
 				"stops": [
@@ -490,8 +492,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 45,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 70.71067811865474,
+				"cx": 400,
+				"cy": 100
 			},
 			"radial-gradient-3": {
 				"stops": [
@@ -556,8 +560,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 0,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 100,
+				"cx": 650,
+				"cy": 100
 			},
 			"radial-gradient-4": {
 				"stops": [
@@ -622,8 +628,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": -45,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 70.71067811865476,
+				"cx": 150,
+				"cy": 250
 			},
 			"radial-gradient-5": {
 				"stops": [
@@ -688,8 +696,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": -90,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 50,
+				"cx": 400,
+				"cy": 250
 			},
 			"radial-gradient-6": {
 				"stops": [
@@ -754,8 +764,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": -135,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 70.71067811865474,
+				"cx": 650,
+				"cy": 250
 			},
 			"radial-gradient-7": {
 				"stops": [
@@ -820,8 +832,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": -180,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 100,
+				"cx": 150,
+				"cy": 400
 			},
 			"radial-gradient-8": {
 				"stops": [
@@ -886,8 +900,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 135,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 70.71067811865474,
+				"cx": 400,
+				"cy": 400
 			},
 			"radial-gradient-9": {
 				"stops": [
@@ -952,8 +968,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 180,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 97,
+				"cx": 653,
+				"cy": 402
 			},
 			"radial-gradient-10": {
 				"stops": [
@@ -1018,8 +1036,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 270,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 50,
+				"cx": 150,
+				"cy": 550
 			},
 			"radial-gradient-11": {
 				"stops": [
@@ -1084,8 +1104,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": 360,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 100,
+				"cx": 400,
+				"cy": 550
 			},
 			"radial-gradient-12": {
 				"stops": [
@@ -1150,8 +1172,10 @@ module.exports = {
 				],
 				"scale": 1,
 				"type": "radial",
-				"angle": -270,
-				"gradientSpace": "objectBoundingBox"
+				"gradientSpace": "objectBoundingBox",
+				"r": 50,
+				"cx": 650,
+				"cy": 550
 			}
 		},
 		"masks": {},

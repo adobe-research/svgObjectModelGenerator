@@ -28,6 +28,7 @@
         writeAttrIfNecessary = svgWriterUtils.writeAttrIfNecessary,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
+        round10k = svgWriterUtils.round10k,
         round2 = svgWriterUtils.round2,
         gradientStops = {};
 
@@ -250,35 +251,18 @@
             return tag;
         },
         writeRadialGradient: function (ctx, gradient, flavor) {
-            //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 gradientID = ID.getUnique("radial-gradient"),
                 scale = gradient.scale,
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,
-                bounds = gradientSpace == "objectBoundingBox" ? omIn.shapeBounds : ctx.viewBox,
-                w2 = (bounds.right - bounds.left) / 2,
-                h2 = (bounds.bottom - bounds.top) / 2,
-                cx = round1k(bounds.left + w2),
-                cy = round1k(bounds.top + h2),
-                angle = Math.abs(gradient.angle - 90 % 180) * Math.PI / 180,
-                hl,
-                hw,
-                r,
                 tag;
 
-            // PS has a weird behavior for values exceeding (-180,180) up to (-360,360).
-            // It seems to scale the gradient between these values. After that it does
-            // modulo again. A bug?
-            hl = Math.abs(h2 / Math.cos(angle));
-            hw = Math.abs(w2 / Math.sin(angle));
-            r = round1k(hw < hl ? hw : hl);
-            tag = self.getRadialGradientInternal(cx, cy, r, gradientID, stops, scale);
-
+            tag = self.getRadialGradientInternal(gradient.cx, gradient.cy, gradient.r, gradientID, stops, scale);
             ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({
-                cx: cx,
-                cy: cy,
-                r: r,
+                cx: round10k(gradient.cx),
+                cy: round10k(gradient.cy),
+                r: round10k(gradient.r),
                 stops: stops,
                 scale: scale,
                 gradientSpace: gradientSpace

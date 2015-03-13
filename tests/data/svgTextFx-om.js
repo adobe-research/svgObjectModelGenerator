@@ -89,8 +89,8 @@ module.exports = {
 										],
 										"scale": 1,
 										"type": "linear",
-										"angle": 35,
-										"gradientSpace": "objectBoundingBox"
+										"gradientSpace": "objectBoundingBox",
+										"angle": 35
 									},
 									"angle": {
 										"value": 35,
