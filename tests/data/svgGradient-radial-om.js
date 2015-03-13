@@ -92,7 +92,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "objectBoundingBox",
 				"r": 150,
@@ -120,7 +119,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "radial",
 				"gradientSpace": "userSpaceOnUse",
 				"r": 500,

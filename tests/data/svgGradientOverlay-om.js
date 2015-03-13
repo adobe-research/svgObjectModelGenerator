@@ -54,7 +54,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "objectBoundingBox",
 										"angle": 35
@@ -155,7 +154,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "objectBoundingBox",
 										"angle": 35
@@ -238,7 +236,7 @@ module.exports = {
 									"gradient": {
 										"stops": [
 											{
-												"offset": 0,
+												"offset": -0.25,
 												"color": {
 													"r": 41.003892,
 													"g": 10,
@@ -247,7 +245,7 @@ module.exports = {
 												}
 											},
 											{
-												"offset": 1,
+												"offset": 1.25,
 												"color": {
 													"r": 255,
 													"g": 124,
@@ -256,7 +254,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1.5,
 										"type": "linear",
 										"gradientSpace": "objectBoundingBox",
 										"angle": -35
@@ -357,7 +354,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "userSpaceOnUse",
 										"angle": 135
@@ -458,7 +454,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "userSpaceOnUse",
 										"angle": 35
@@ -541,7 +536,7 @@ module.exports = {
 									"gradient": {
 										"stops": [
 											{
-												"offset": 0,
+												"offset": -0.25,
 												"color": {
 													"r": 41.003892,
 													"g": 10,
@@ -550,7 +545,7 @@ module.exports = {
 												}
 											},
 											{
-												"offset": 1,
+												"offset": 1.25,
 												"color": {
 													"r": 255,
 													"g": 124,
@@ -559,7 +554,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1.5,
 										"type": "linear",
 										"gradientSpace": "userSpaceOnUse",
 										"angle": 35
@@ -660,7 +654,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "userSpaceOnUse",
 										"angle": 35
@@ -761,7 +754,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "userSpaceOnUse",
 										"angle": 35
@@ -844,7 +836,7 @@ module.exports = {
 									"gradient": {
 										"stops": [
 											{
-												"offset": 0,
+												"offset": 0.45,
 												"color": {
 													"r": 41.003892,
 													"g": 10,
@@ -853,7 +845,7 @@ module.exports = {
 												}
 											},
 											{
-												"offset": 1,
+												"offset": 0.55,
 												"color": {
 													"r": 255,
 													"g": 124,
@@ -862,7 +854,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 0.1,
 										"type": "linear",
 										"gradientSpace": "userSpaceOnUse",
 										"angle": 35
@@ -963,7 +954,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "objectBoundingBox",
 										"angle": 90
@@ -1064,7 +1054,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "objectBoundingBox",
 										"angle": -90
@@ -1165,7 +1154,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "linear",
 										"gradientSpace": "objectBoundingBox",
 										"angle": 70

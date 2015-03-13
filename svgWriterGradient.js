@@ -86,7 +86,7 @@
         gradientStopsReset: function () {
             gradientStops = {};
         },
-        getLinearGradientInternal: function (ctx, stops, gradientID, scale, x1, y1, x2, y2) {
+        getLinearGradientInternal: function (ctx, stops, gradientID, x1, y1, x2, y2) {
             var iStop,
                 stp,
                 stpOpacity,
@@ -105,9 +105,8 @@
                 for (iStop = 0; iStop < stops.length; iStop++) {
                     stp = stops[iStop];
                     stpOpacity = '';
-                    offset = (stp.offset - 0.5) * scale + 0.5;
                     var stop = new Tag("stop", {
-                        offset: offset,
+                        offset: stp.offset,
                         "stop-color": stp.color,
                         "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
                     });
@@ -149,7 +148,6 @@
                 layerBounds = omIn.shapeBounds,
                 bounds,
                 coords,
-                scale = gradient.scale,
                 stops = gradient.stops,
                 w2,
                 h2,
@@ -184,29 +182,28 @@
                 hl = Math.abs(h2 / Math.cos(angle));
                 hw = Math.abs(w2 / Math.sin(angle));
                 r = round1k(hw < hl ? hw : hl);
-                self.getRadialGradientInternal(cx, cy, r, gradientID, stops, gradient.scale).write(ctx);
+                self.getRadialGradientInternal(cx, cy, r, gradientID, stops).write(ctx);
             } else {
                 coords = self.computeLinearGradientCoordinates(gradient, bounds, gradient.angle);
                 var x1 = round1k(coords.xa + coords.cx),
                     y1 = round1k(coords.ya + coords.cy),
                     x2 = round1k(coords.cx - coords.xa),
                     y2 = round1k(coords.cy - coords.ya);
-                self.getLinearGradientInternal(ctx, stops, gradientID, scale, x1, y1, x2, y2).write(ctx);
+                self.getLinearGradientInternal(ctx, stops, gradientID, x1, y1, x2, y2).write(ctx);
             }
             return gradientID;
         },
         writeLinearGradient: function (ctx, gradient, flavor) {
             var omIn = ctx.currentOMNode,
                 gradientID = ID.getUnique("linear-gradient"),
-                scale = gradient.scale,
                 stops = gradient.stops,
-                tag = self.getLinearGradientInternal(ctx, stops, gradientID, scale, gradient.x1, gradient.y1, gradient.x2, gradient.y2);
+                tag = self.getLinearGradientInternal(ctx, stops, gradientID, gradient.x1, gradient.y1, gradient.x2, gradient.y2);
 
-            ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({ x1: gradient.x1, y1: gradient.y1, x2: gradient.x2, y2: gradient.y2, stops: stops, scale: scale }));
+            ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({ x1: gradient.x1, y1: gradient.y1, x2: gradient.x2, y2: gradient.y2, stops: stops }));
             gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;
             return gradientID;
         },
-        getRadialGradientInternal: function (cx, cy, r, gradientID, stops, scale) {
+        getRadialGradientInternal: function (cx, cy, r, gradientID, stops) {
             var iStop,
                 stp,
                 stpOpacity,
@@ -220,7 +217,7 @@
                 stp = stops[iStop];
                 stpOpacity = '';
                 lines.push(new Tag("stop", {
-                    offset: stp.offset * scale,
+                    offset: stp.offset,
                     "stop-color": stp.color,
                     "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
                 }));
@@ -253,18 +250,16 @@
         writeRadialGradient: function (ctx, gradient, flavor) {
             var omIn = ctx.currentOMNode,
                 gradientID = ID.getUnique("radial-gradient"),
-                scale = gradient.scale,
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,
                 tag;
 
-            tag = self.getRadialGradientInternal(gradient.cx, gradient.cy, gradient.r, gradientID, stops, scale);
+            tag = self.getRadialGradientInternal(gradient.cx, gradient.cy, gradient.r, gradientID, stops);
             ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({
                 cx: round10k(gradient.cx),
                 cy: round10k(gradient.cy),
                 r: round10k(gradient.r),
                 stops: stops,
-                scale: scale,
                 gradientSpace: gradientSpace
             }));
             gradientID = ctx.omStylesheet.getDefine(omIn.id, "radial-gradient" + flavor).defnId;

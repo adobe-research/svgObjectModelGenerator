@@ -84,8 +84,7 @@ module.exports = {
 													"a": 1
 												}
 											}
-										],
-										"scale": 1
+										]
 									},
 									"opacity": 1,
 									"glowTechnique": "softMatte",

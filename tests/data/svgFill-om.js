@@ -62,7 +62,6 @@ module.exports = {
 												}
 											}
 										],
-										"scale": 1,
 										"type": "radial",
 										"gradientSpace": "objectBoundingBox",
 										"angle": 90
@@ -179,7 +178,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 131.5,

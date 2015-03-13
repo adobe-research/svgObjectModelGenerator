@@ -168,7 +168,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 400,
@@ -205,7 +204,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 99.99999999999994,
@@ -242,7 +240,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 400,
@@ -279,7 +276,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 99.99999999999994,
@@ -316,7 +312,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 400,
@@ -353,7 +348,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "userSpaceOnUse",
 				"x1": 99.99999999999994,

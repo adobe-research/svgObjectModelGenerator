@@ -422,7 +422,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 150,
@@ -491,7 +490,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 376.68461709225005,
@@ -560,7 +558,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 550,
@@ -629,7 +626,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 126.68461709225008,
@@ -698,7 +694,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 400,
@@ -767,7 +762,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 673.31538290775,
@@ -836,7 +830,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 250,
@@ -905,7 +898,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 423.31538290774995,
@@ -974,7 +966,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 750,
@@ -1043,7 +1034,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 150,
@@ -1112,7 +1102,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 300,
@@ -1181,7 +1170,6 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
 				"gradientSpace": "objectBoundingBox",
 				"x1": 650,

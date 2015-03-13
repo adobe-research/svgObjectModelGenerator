@@ -98,13 +98,12 @@ module.exports = {
 						}
 					}
 				],
-				"scale": 1,
 				"type": "linear",
+				"gradientSpace": "userSpaceOnUse",
 				"x1": 0,
 				"y1": 2512,
 				"x2": 5924,
-				"y2": 2512,
-				"gradientSpace": "userSpaceOnUse"
+				"y2": 2512
 			}
 		},
 		"masks": {},

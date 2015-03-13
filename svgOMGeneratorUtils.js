@@ -107,7 +107,10 @@
 
         this.toGradient = function (gradientRaw, layerBounds, docBounds) {
             var gradient,
+                gradientType = gradientRaw.type === "radial" ? "radial" : "linear",
+                scale = gradientRaw.scale ? (gradientRaw.scale.value / 100) : 1,
                 self = this;
+
             if (!gradientRaw || !gradientRaw.gradient ||
                 gradientRaw.gradient.gradientForm === 'colorNoise' ||
                 (gradientRaw.type !== 'linear' &&
@@ -127,7 +130,14 @@
                 bounds = gradientSpace === "objectBoundingBox" ? layerBounds : docBounds;
 
             gradient = this.toColorStops(gradientRaw);
-            gradient.type = gradientRaw.type === "radial" ? "radial" : "linear";
+            gradient.type = gradientType;
+            gradient.stops.forEach(function (ele) {
+                if (gradientType == "radial") {
+                    ele.offset *= scale;
+                } else if (gradientType == "linear") {
+                    ele.offset = (ele.offset - 0.5) * scale + 0.5;
+                }
+            });
             gradient.gradientSpace = gradientSpace;
 
             // FIXME: This must be removed when overlay gradients were
@@ -159,15 +169,13 @@
         };
 
         this.toColorStops = function (gradientRaw) {
-            var gradient = { stops: [], scale: 1 };
+            var gradient = { stops: [] };
 
             var stops = [].concat(gradientRaw.gradient.colors, gradientRaw.gradient.transparency),
                 length = gradientRaw.gradient.interfaceIconFrameDimmed,
                 reflected = gradientRaw.type && gradientRaw.type === "reflected",
                 reverse = gradientRaw.reverse,
                 self = this;
-
-            gradient.scale = gradientRaw.scale ? (gradientRaw.scale.value / 100) : 1;
 
             stops.sort(function (a, b) {
                 return a.location - b.location;
