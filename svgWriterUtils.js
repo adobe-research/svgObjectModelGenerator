@@ -22,7 +22,6 @@
     "use strict";
 
     var Buffer = require('buffer').Buffer,
-        ID = require("./idGenerator.js"),
         Utils = require("./utils.js"),
         Matrix = require("./matrix.js");
 
@@ -139,7 +138,7 @@
         self.writeTextPath = function (ctx, pathData) {
             //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
-                textPathID = ID.getUnique("text-path");
+                textPathID = ctx.ID.getUnique("text-path");
 
             self.ctxCapture(ctx, function () {
                 var iStop,

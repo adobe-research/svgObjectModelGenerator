@@ -20,8 +20,7 @@
 (function () {
     "use strict";
 
-    var omgUtils = require("./svgOMGeneratorUtils.js"),
-        ID = require("./idGenerator.js");
+    var omgUtils = require("./svgOMGeneratorUtils.js");
 
     var CONST_COLOR_BLACK = { "red": 0, "green": 0, "blue": 0 };
 
@@ -122,7 +121,7 @@
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
                     stroke.type = "gradient";
                     gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
-                    stroke.gradient = ID.getUnique(gradient.type + "-gradient");
+                    stroke.gradient = writer.ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[stroke.gradient] = gradient;
                 }
             } else {
@@ -158,7 +157,7 @@
                 fill.type = "gradient";
                 if (fillStyle.gradient) {
                     gradient = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
-                    fill.gradient = ID.getUnique(gradient.type + "-gradient");
+                    fill.gradient = writer.ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[fill.gradient] = gradient;
                 } else {
                     console.log("WARNING: Unhandled gradient type = " + JSON.stringify(fill));
@@ -199,7 +198,7 @@
                 if (strokeStyle.gradient) {
                     stroke.type = "gradient";
                     gradient = omgUtils.toGradient(strokeStyle, layerBounds, writer._root.global.bounds);
-                    stroke.gradient = ID.getUnique(gradient.type + "-gradient");
+                    stroke.gradient = writer.ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[stroke.gradient] = gradient;
                 }
             } else {

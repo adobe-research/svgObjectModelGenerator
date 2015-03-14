@@ -18,6 +18,7 @@
 
 var expect = require('chai').expect,
     svgWriterStroke = require("../svgWriterStroke.js"),
+    ID = require("../idGenerator.js"),
     sinon = require('sinon');
 
 describe('SVGWriterStroke', function (){
@@ -36,6 +37,7 @@ describe('SVGWriterStroke', function (){
                 addRule: sinon.spy()
             },
             goodCTX = {
+                ID: new ID(),
                 currentOMNode: {
                     style: {
                         stroke: {

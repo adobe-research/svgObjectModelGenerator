@@ -17,6 +17,7 @@
 
 var expect = require('chai').expect,
     svgWriterPreprocessor = require("../svgWriterPreprocessor.js"),
+    ID = require("../idGenerator.js"),
     sinon = require('sinon');
 
 describe('SVGWriterPreprocessor', function (){
@@ -174,6 +175,7 @@ describe('SVGWriterPreprocessor', function (){
             },
             ctx = {
                 svgOM: svgOM,
+                ID: new ID(),
                 currentOMNode: svgOM,
                 contentBounds: {},
                 viewBox: {
@@ -188,6 +190,7 @@ describe('SVGWriterPreprocessor', function (){
             },
             ctx2 = {
                 svgOM: svgOM2,
+                ID: new ID(),
                 currentOMNode: svgOM2,
                 contentBounds: {},
                 viewBox: {
@@ -202,6 +205,7 @@ describe('SVGWriterPreprocessor', function (){
             },
             ctx3 = {
                 svgOM: svgOM3,
+                ID: new ID(),
                 currentOMNode: svgOM3,
                 contentBounds: {},
                 viewBox: {

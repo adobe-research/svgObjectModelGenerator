@@ -18,7 +18,6 @@
     "use strict";
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        ID = require("./idGenerator.js"),
         Tag = require("./svgWriterTag.js");
 
     var round1k = svgWriterUtils.round1k,
@@ -188,7 +187,7 @@
         },
         writeLinearGradient: function (ctx, gradient, flavor) {
             var omIn = ctx.currentOMNode,
-                gradientID = ID.getUnique("linear-gradient"),
+                gradientID = ctx.ID.getUnique("linear-gradient"),
                 stops = gradient.stops,
                 tag = self.getLinearGradientInternal(ctx, stops, gradientID, gradient.x1, gradient.y1, gradient.x2, gradient.y2);
 
@@ -242,7 +241,7 @@
         },
         writeRadialGradient: function (ctx, gradient, flavor) {
             var omIn = ctx.currentOMNode,
-                gradientID = ID.getUnique("radial-gradient"),
+                gradientID = ctx.ID.getUnique("radial-gradient"),
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,
                 tag;

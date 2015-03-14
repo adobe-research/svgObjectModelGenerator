@@ -23,7 +23,6 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
-        ID = require("./idGenerator.js"),
         svgWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
@@ -294,13 +293,13 @@
             return !!(omNode.styleBlock && omNode.styleBlock.hasRules());
         };
 
-        proto.getStyleBlock = function (omNode) {
+        proto.getStyleBlock = function (omNode, getUnique) {
 
             if (omNode.styleBlock) {
                 return omNode.styleBlock;
             }
 
-            omNode.className = omNode.className || ID.getUnique("cls");
+            omNode.className = omNode.className || getUnique("cls");
 
             //TBD: factor in IDs
 

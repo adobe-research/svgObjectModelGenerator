@@ -158,7 +158,6 @@
             layerSpecFound = specFound;
         }
 
-        writer.resetIDs();
         writer.setDocTitle(psd.file);
         writer.setDocViewBox(psd.bounds);
         writer.setDocBounds(psd.bounds);

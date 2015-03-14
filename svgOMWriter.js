@@ -42,6 +42,8 @@
         
         this._root = _root;
 
+        this.ID = new ID();
+
         this._dpi = function () {
             return (_root && _root.global.pxToInchRatio) ? _root.global.pxToInchRatio : 72.0;
         };
@@ -62,10 +64,6 @@
 
         this.global = function () {
             return _root.global;
-        };
-
-        this.resetIDs = function () {
-            ID.reset();
         };
 
         this.setDocBounds = function (bounds) {
@@ -97,7 +95,7 @@
         
 		this.addSVGNode = function (nodeType, nodeVisible) {
 			var n = {
-				id: ID.getUnique(nodeType),
+				id: this.ID.getUnique(nodeType),
                 type: nodeType,
                 visible: nodeVisible,
 				style: {},

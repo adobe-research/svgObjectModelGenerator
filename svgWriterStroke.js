@@ -49,7 +49,7 @@
             if (this.hasStroke(ctx)) {
                 var stroke = omIn.style.stroke;
                 // Make a style for this stroke and reference it.
-                styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
+                styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
                 if (stroke.type == "gradient") {
                     gradient = ctx.svgOM.global.gradients[stroke.gradient];
                     if (gradient.type === "linear") {

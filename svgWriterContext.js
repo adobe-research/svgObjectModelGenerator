@@ -20,9 +20,9 @@
 
 (function () {
     "use strict";
-    
+
     var ID = require("./idGenerator.js");
-    
+
     // FIXME: svgWriterFx calls this code but svgOMG
     // is mostly empty. After filter refactoring,
     // globalLight should not be required anymore.
@@ -46,18 +46,20 @@
         this.out = [];
         this.sOut = "";
         this.contentBounds = {};
-        
+
         //an array for reporting errors
         this.errors = errors;
-        
+
+        this.ID = new ID();
+
         // FIXME: Do we even need unique IDs for node.ids that
         // are unique already?
         this._hasWritten = {};
         this.didWrite = function (node, prop) {
-            this._hasWritten[ID.getUnique(node.id) + prop] = true;
+            this._hasWritten[this.ID.getUnique(node.id) + prop] = true;
         };
         this.hasWritten = function (node, prop) {
-            return this._hasWritten[ID.getUnique(node.id) + prop];
+            return this._hasWritten[this.ID.getUnique(node.id) + prop];
         };
 	}
 	module.exports = SVGWriterContext;
