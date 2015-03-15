@@ -132,7 +132,8 @@ var database = [
 },
 {
 	test: "radial-gradient-angle-global",
-	desc: "should support different radii for radial gradients in global space"
+	desc: "should support different radii for radial gradients in global space",
+	layerTest: true
 },
 {
 	test: "linear-gradient-angle-layer",

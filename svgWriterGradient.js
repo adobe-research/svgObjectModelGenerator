@@ -174,7 +174,7 @@
                 hl = Math.abs(h2 / Math.cos(angle));
                 hw = Math.abs(w2 / Math.sin(angle));
                 r = round1k(hw < hl ? hw : hl);
-                self.getRadialGradientInternal(cx, cy, r, gradientID, stops).write(ctx);
+                self.getRadialGradientInternal(ctx, cx, cy, r, gradientID, stops).write(ctx);
             } else {
                 coords = self.computeLinearGradientCoordinates(gradient, bounds, gradient.angle);
                 var x1 = round1k(coords.xa + coords.cx),
@@ -195,7 +195,7 @@
             gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;
             return gradientID;
         },
-        getRadialGradientInternal: function (cx, cy, r, gradientID, stops) {
+        getRadialGradientInternal: function (ctx, cx, cy, r, gradientID, stops) {
             var iStop,
                 stp,
                 stpOpacity,
@@ -204,6 +204,9 @@
                 tag = new Tag("radialGradient", {
                     id: gradientID
                 });
+
+            cx += ctx._shiftContentX || 0;
+            cy += ctx._shiftContentY || 0;
 
             for (iStop = 0; iStop < stops.length; iStop++) {
                 stp = stops[iStop];
@@ -246,7 +249,7 @@
                 gradientSpace = gradient.gradientSpace,
                 tag;
 
-            tag = self.getRadialGradientInternal(gradient.cx, gradient.cy, gradient.r, gradientID, stops);
+            tag = self.getRadialGradientInternal(ctx, gradient.cx, gradient.cy, gradient.r, gradientID, stops);
             ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({
                 cx: round10k(gradient.cx),
                 cy: round10k(gradient.cy),
