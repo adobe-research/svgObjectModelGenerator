@@ -9,9 +9,9 @@
 
     <filter filterUnits="userSpaceOnUse" id="filter-1">
       <feFlood result="flood-1" flood-color="#d42020"/>
-      <feComposite result="composite-1" in2="SourceAlpha"/>
+      <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
       <feOffset result="offset-1" dx="-13.641" dy="24.453"/>
-      <feOffset result="offset-2" dx="13.641" dy="-24.453"/>
+      <feOffset result="offset-2" dx="13.641" dy="-24.453" in="composite-1"/>
       <feComposite result="composite-2" operator="xor" in="offset-1"/>
       <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
       <feGaussianBlur result="blur-1" stdDeviation="3.162"/>

@@ -226,9 +226,9 @@
 
             effects.push(
                 { name: 'feFlood', result: feFlood, input: [], 'flood-color': color },
-                { name: 'feComposite', result: feComposite, input: [feFlood, 'SourceAlpha']},
+                { name: 'feComposite', result: feComposite, input: [feFlood, 'SourceAlpha'], operator: 'in'},
                 { name: 'feOffset', result: feOffset, input: [feComposite], dx: offset.x, dy: offset.y },
-                { name: 'feOffset', result: feOffset2, input: [feOffset], dx: -offset.x, dy: -offset.y },
+                { name: 'feOffset', result: feOffset2, input: [feComposite], dx: -offset.x, dy: -offset.y },
                 { name: 'feComposite', result: feComposite2, input: [feOffset, feOffset2], operator: 'xor'}
             );
             if (satin.invert) {
@@ -262,7 +262,7 @@
             if (glow.gradient) {
                 // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
                 glow.gradient.stops.reverse().forEach(function(ele) {
-                    ele.position = Math.abs(ele.position - 100);
+                    ele.offset = Math.abs(ele.offset - 1);
                 });
             }
 

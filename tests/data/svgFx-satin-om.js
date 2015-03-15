@@ -103,7 +103,8 @@ module.exports = {
 						"input": [
 							"flood-1",
 							"SourceAlpha"
-						]
+						],
+						"operator": "in"
 					},
 					{
 						"name": "feOffset",
@@ -118,7 +119,7 @@ module.exports = {
 						"name": "feOffset",
 						"result": "offset-2",
 						"input": [
-							"offset-1"
+							"composite-1"
 						],
 						"dx": 13.641,
 						"dy": -24.453

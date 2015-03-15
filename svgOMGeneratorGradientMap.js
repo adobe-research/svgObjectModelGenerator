@@ -112,6 +112,7 @@
             stops.forEach(function (ele) {
                 ele.offset *= 100;
             });
+
             var nSegs = findMatchingDistributedNSegs(stops),
                 colors = calcDistributedColors(stops, nSegs),
                 redTableValues = '',

@@ -19,8 +19,8 @@
       <feColorMatrix result="color-3" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
       <feComponentTransfer result="comp-1" color-interpolation-filters="sRGB">
         <feFuncR type="table" tableValues="1 1 1 1 1 1 0.833 0.667 0.5 0.333 0.167 0 0 0 0 0 0 0 0 0 0 0 0 0.167 0.333 0.5 0.667 0.833 1 1 1 1 1 1"/>
-        <feFuncG type="table" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0"/>
-        <feFuncB type="table" tableValues="0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 0.833 0.667 0.5 0.333 0.167 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <feFuncG type="table" tableValues="0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0 0 0 0 0 0 0 0 0 0 0 0"/>
+        <feFuncB type="table" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0.167 0.333 0.5 0.667 0.833 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0"/>
       </feComponentTransfer>
       <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
       <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
