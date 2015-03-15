@@ -60,7 +60,7 @@
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
 
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
 
             this.provideBackupDefaults(omIn, styleBlock);
 

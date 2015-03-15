@@ -20,18 +20,19 @@
 (function () {
     "use strict";
 
-    var docIDs = {};
+    function ID() {
+        var docIDs = {};
 
-	module.exports = {
-
-        reset: function () {
+        this.reset = function () {
             docIDs = {};
-        },
+        };
 
-        getUnique: function (kind) {
+        this.getUnique = function (kind) {
             docIDs[kind] = docIDs[kind] || 1;
             return kind + "-" + docIDs[kind]++;
-        }
-    };
+        };
+    }
+
+	module.exports = ID;
 
 }());

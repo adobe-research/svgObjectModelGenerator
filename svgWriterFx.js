@@ -122,7 +122,7 @@
 
             omIn._filterflavor = filterFlavor;
 
-            var filterID = ID.getUnique(filterFlavor),
+            var filterID = ctx.ID.getUnique(filterFlavor),
                 fingerprint = "";
 
             ctxCapture(ctx, function () {

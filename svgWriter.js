@@ -22,7 +22,6 @@
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterPreprocessor = require("./svgWriterPreprocessor.js"),
-        ID = require("./idGenerator.js"),
         Tag = require("./svgWriterTag.js"),
         SVGWriterContext = require("./svgWriterContext.js");
 
@@ -75,7 +74,6 @@
 
     function print(svgOM, opt, errors) {
         var ctx = getFormatContext(svgOM, opt || {}, errors);
-        ID.reset();
         try {
             svgWriterPreprocessor.processSVGOM(ctx);
             var svg = Tag.make(ctx, svgOM);

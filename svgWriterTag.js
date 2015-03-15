@@ -21,7 +21,6 @@
     "use strict";
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
-        ID = require("./idGenerator.js"),
         svgWriterText = require("./svgWriterText.js"),
         attrsDefs = require('./attrdefs-database.js'),
         SVGWriterContext = require("./svgWriterContext.js");
@@ -263,7 +262,7 @@
         if (!ctx.omStylesheet.hasStyleBlock(node)) {
             return;
         }
-        var omStyleBlock = ctx.omStylesheet.getStyleBlock(node);
+        var omStyleBlock = ctx.omStylesheet.getStyleBlock(node, ctx.ID.getUnique);
         if (!omStyleBlock) {
             return;
         }
@@ -291,7 +290,7 @@
         var stroke = this.getAttribute("stroke"),
             fill = this.getAttribute("fill"),
             filter = this.getAttribute("filter"),
-            id = ID.getUnique(this.name),
+            id = ctx.ID.getUnique(this.name),
             list = new Tag(),
             g = new Tag("g"),
             use = new Tag("use", {"xlink:href": "#" + id});
