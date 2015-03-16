@@ -42,6 +42,15 @@
             return svgNode.type == 'shape' && svgNode.shape.type == 'path';
         };
 
+        var scanForUnsupportedFeatures = function (omIn, errors) {
+            if (omIn.style &&
+                omIn.style.fill &&
+                omIn.style.fill.gradient &&
+                omIn.style.fill.gradient.gradientForm === 'colorNoise') {
+                errors.push("Gradients with noise are not supported by SVG export.");
+            }
+        };
+
         this.fetchBlendMode = function (layer) {
             var blendMode;
             if (layer.blendOptions &&

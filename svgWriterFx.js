@@ -59,30 +59,6 @@
             return cur;
         };
 
-        var hasPSEffect = function (fx, effect) {
-            if (!fx[effect]) {
-                return false;
-            }
-            return fx[effect].some(function(ele) {
-                return ele.enabled;
-            });
-        };
-
-        this.scanForUnsupportedFeatures = function (ctx) {
-            var omIn = ctx.currentOMNode;
-
-            // This scans for unsupported PS filter effects.
-            if (omIn.style && omIn.style.meta && omIn.style.meta.PS) {
-                if (hasPSEffect(omIn.style.meta.PS, 'bevelEmbossMulti')) {
-                    ctx.errors.push('Bevel and Emboss filter effects are not supported by SVG export.');
-                }
-                
-                if (hasPSEffect(omIn.style.meta.PS, 'patternOverlayMulti')) {
-                    ctx.errors.push('Pattern Overlay effects are not supported by SVG export.');
-                }
-            }
-        };
-
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
                 styleBlock,

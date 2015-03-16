@@ -27,16 +27,6 @@
         matchAfterDash = /-.*$/,
         matchAllSpaces = /\s/g;
 
-        
-    function scanForUnsupportedFeatures(ctx) {
-        var omIn = ctx.currentOMNode;
-
-        if (omIn.type === "text" && !ctx._issuedTextWarning && ctx.errors) {
-            ctx._issuedTextWarning = true;
-            ctx.errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.");
-        }
-    }
-
     function iseq(name, val1, val2) {
         if (name == "font-family") {
             val1 = val1.replace(matchAfterDash, "").replace(matchAllSpaces, "").toLowerCase();
@@ -206,7 +196,6 @@
     }
 
 	module.exports = {
-        scanForUnsupportedFeatures: scanForUnsupportedFeatures,
         makeTSpan: makeTSpan,
         mergeTSpans2Tag: mergeTSpans2Tag
     };

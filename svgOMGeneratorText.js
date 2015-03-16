@@ -18,7 +18,7 @@
 /* Help construct the svgOM */
 
 (function () {
-"use strict";
+    "use strict";
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         omgUtils = require("./svgOMGeneratorUtils.js"),
@@ -29,7 +29,14 @@
         _boundInPx = omgUtils.boundInPx;
 
 	function SVGOMGeneratorText() {
-        
+
+        this.scanForUnsupportedFeatures = function (omIn, errors) {
+            if (omIn.type === "text" && !ctx._issuedTextWarning && errors) {
+                ctx._issuedTextWarning = true;
+                errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.");
+            }
+        };
+
         this.textComponentOrigin = function (layer, fn) {
             if (layer.text &&
                 layer.text.textStyleRange && layer.text.textStyleRange[0] &&
@@ -144,7 +151,6 @@
                 return true;
             });
         };
-
         
         this.addSimpleText = function (svgNode, layer, writer) {
             var self = this;
