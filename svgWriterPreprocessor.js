@@ -32,6 +32,8 @@
 
     function SVGWriterPreprocessor() {
 
+        // FIXME: This checks for PS specific features and therefore
+        // should be moved to svgOM...
         this.scanForUnsupportedFeatures = function (ctx) {
             svgWriterFill.scanForUnsupportedFeatures(ctx);
             svgWriterStroke.scanForUnsupportedFeatures(ctx);
