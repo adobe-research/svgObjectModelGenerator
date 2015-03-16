@@ -24,8 +24,7 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js");
     
-    var writeRadialGradient = svgWriterGradient.writeRadialGradient,
-        writeLinearGradient = svgWriterGradient.writeLinearGradient,
+    var writeGradient = svgWriterGradient.writeGradient,
         writeColor = svgWriterUtils.writeColor,
         px = svgWriterUtils.px;
     
@@ -41,7 +40,6 @@
         
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                gradient,
                 gradientID,
                 styleBlock,
                 stroke;
@@ -54,12 +52,7 @@
             // Make a style for this stroke and reference it.
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             if (stroke.type == "gradient") {
-                gradient = ctx.svgOM.global.gradients[stroke.gradient];
-                if (gradient.type === "linear") {
-                    gradientID = writeLinearGradient(ctx, gradient, "-stroke");
-                } else if (gradient.type === "radial") {
-                    gradientID = writeRadialGradient(ctx, gradient, "-stroke");
-                }
+                gradientID = writeGradient(ctx, ctx.svgOM.global.gradients[stroke.gradient], "-stroke");
                 if (gradientID) {
                     styleBlock.addRule("stroke", "url(#" + gradientID + ")");
                 }

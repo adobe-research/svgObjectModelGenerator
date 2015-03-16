@@ -36,96 +36,41 @@
         gradientStopsReset: function () {
             gradientStops = {};
         },
-        getLinearGradientInternal: function (ctx, stops, gradientID, x1, y1, x2, y2) {
-            var iStop,
-                stp,
-                stpOpacity,
-                offset,
-                link;
-            x1 += ctx._shiftContentX || 0;
-            x2 += ctx._shiftContentX || 0;
-            y1 += ctx._shiftContentY || 0;
-            y2 += ctx._shiftContentY || 0;
-
-            if (stops) {
-                var lines = [],
-                    tag = new Tag("linearGradient", {
-                        id: gradientID
-                    });
-                for (iStop = 0; iStop < stops.length; iStop++) {
-                    stp = stops[iStop];
-                    stpOpacity = '';
-                    var stop = new Tag("stop", {
-                        offset: stp.offset,
-                        "stop-color": stp.color,
-                        "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
-                    });
-                    lines.push(stop);
-                }
-                link = gradientStops[lines];
-                if (link) {
-                    tag.setAttributes({
-                        x1: x1,
-                        y1: y1,
-                        x2: x2,
-                        y2: y2,
-                        "xlink:href": "#" + link.id
-                    });
-                } else {
-                    gradientStops[lines] = {
-                        id: gradientID,
-                        x1: x1,
-                        y1: y1,
-                        x2: x2,
-                        y2: y2
-                    };
-                    tag.setAttributes({
-                        gradientUnits: "userSpaceOnUse",
-                        x1: x1,
-                        y1: y1,
-                        x2: x2,
-                        y2: y2
-                    });
-                    tag.children = removeDups(lines);
-                }
-                return tag;
-            } else {
-                console.warn("encountered gradient with no stops");
-            }
-        },
-        writeLinearGradient: function (ctx, gradient, flavor) {
-            var omIn = ctx.currentOMNode,
-                gradientID = ctx.ID.getUnique("linear-gradient"),
-                stops = gradient.stops,
-                tag = self.getLinearGradientInternal(ctx, stops, gradientID, gradient.x1, gradient.y1, gradient.x2, gradient.y2);
-
-            ctx.omStylesheet.define("linear-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({ x1: gradient.x1, y1: gradient.y1, x2: gradient.x2, y2: gradient.y2, stops: stops }));
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, "linear-gradient" + flavor).defnId;
-            return gradientID;
-        },
-        getRadialGradientInternal: function (ctx, cx, cy, r, gradientID, stops) {
-            var iStop,
-                stp,
-                stpOpacity,
-                lines = [],
-                link,
-                tag = new Tag("radialGradient", {
-                    id: gradientID
+        getLinearGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
+            var x1 = gradient.x1 + (ctx._shiftContentX || 0),
+                x2 = gradient.x2 + (ctx._shiftContentX || 0),
+                y1 = gradient.y1 + (ctx._shiftContentY || 0),
+                y2 = gradient.y2 + (ctx._shiftContentY || 0);
+            if (link) {
+                tag.setAttributes({
+                    x1: x1,
+                    y1: y1,
+                    x2: x2,
+                    y2: y2,
+                    "xlink:href": "#" + link.id
                 });
-
-            cx += ctx._shiftContentX || 0;
-            cy += ctx._shiftContentY || 0;
-
-            for (iStop = 0; iStop < stops.length; iStop++) {
-                stp = stops[iStop];
-                stpOpacity = '';
-                lines.push(new Tag("stop", {
-                    offset: stp.offset,
-                    "stop-color": stp.color,
-                    "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
-                }));
+            } else {
+                gradientStops[lines] = {
+                    id: gradientID,
+                    x1: x1,
+                    y1: y1,
+                    x2: x2,
+                    y2: y2
+                };
+                tag.setAttributes({
+                    gradientUnits: "userSpaceOnUse",
+                    x1: x1,
+                    y1: y1,
+                    x2: x2,
+                    y2: y2
+                });
+                tag.children = removeDups(lines);
             }
-            link = gradientStops[lines];
+        },
+        getRadialGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
+            var cx = gradient.cx + (ctx._shiftContentX || 0),
+                cy = gradient.cy + (ctx._shiftContentY || 0),
+                r = gradient.r;
             if (link) {
                 tag.setAttributes({
                     cx: cx,
@@ -148,25 +93,59 @@
                 });
                 tag.children = removeDups(lines);
             }
-            return tag;
         },
-        writeRadialGradient: function (ctx, gradient, flavor) {
+        writeGradient: function (ctx, gradient, flavor) {
             var omIn = ctx.currentOMNode,
-                gradientID = ctx.ID.getUnique("radial-gradient"),
+                gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,
-                tag;
+                stp,
+                stpOpacity,
+                lines = [],
+                link,
+                tag = new Tag(gradient.type + "Gradient", {
+                    id: gradientID
+                });
 
-            tag = self.getRadialGradientInternal(ctx, gradient.cx, gradient.cy, gradient.r, gradientID, stops);
-            ctx.omStylesheet.define("radial-gradient" + flavor, omIn.id, gradientID, tag.toString(), JSON.stringify({
-                cx: round10k(gradient.cx),
-                cy: round10k(gradient.cy),
-                r: round10k(gradient.r),
-                stops: stops,
-                gradientSpace: gradientSpace
-            }));
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, "radial-gradient" + flavor).defnId;
-            return gradientID;
+            if (!stops) {
+                console.warn("encountered gradient with no stops");
+                return;
+            }
+
+            for (var i = 0, ii = stops.length; i < ii; ++i) {
+                stp = stops[i];
+                stpOpacity = "";
+                lines.push(new Tag("stop", {
+                    offset: stp.offset,
+                    "stop-color": stp.color,
+                    "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
+                }));
+            }
+
+            link = gradientStops[lines];
+            if (gradient.type == "linear") {
+                self.getLinearGradientInternal(ctx, gradient, tag, link, lines, gradientID);
+            } else {
+                self.getRadialGradientInternal(ctx, gradient, tag, link, lines, gradientID);
+            }
+            ctx.omStylesheet.define(
+                gradient.type + "-gradient" + flavor,
+                omIn.id,
+                gradientID,
+                tag.toString(),
+                JSON.stringify({
+                    cx: round10k(gradient.cx),
+                    cy: round10k(gradient.cy),
+                    x1: round10k(gradient.x1),
+                    y1: round10k(gradient.y1),
+                    x2: round10k(gradient.x2),
+                    y2: round10k(gradient.y2),
+                    r: round10k(gradient.r),
+                    stops: stops,
+                    gradientSpace: gradientSpace
+                })
+            );
+            return ctx.omStylesheet.getDefine(omIn.id, gradient.type + "-gradient" + flavor).defnId;
         }
     };
 

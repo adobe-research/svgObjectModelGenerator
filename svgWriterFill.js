@@ -24,8 +24,7 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js");
     
-    var writeRadialGradient = svgWriterGradient.writeRadialGradient,
-        writeLinearGradient = svgWriterGradient.writeLinearGradient,
+    var writeGradient = svgWriterGradient.writeGradient,
         writeColor = svgWriterUtils.writeColor;
     
     function SVGWriterFill() {
@@ -43,7 +42,6 @@
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
-                gradient,
                 gradientID,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             
@@ -53,12 +51,7 @@
             fill = omIn.style.fill;
 
             if (fill.type === "gradient") {
-                gradient = ctx.svgOM.global.gradients[fill.gradient];
-                if (gradient.type === "linear") {
-                    gradientID = writeLinearGradient(ctx, gradient, "-fill");
-                } else if (gradient.type === "radial") {
-                    gradientID = writeRadialGradient(ctx, gradient, "-fill");
-                }
+                gradientID = writeGradient(ctx, ctx.svgOM.global.gradients[fill.gradient], "-fill");
                 if (gradientID) {
                     styleBlock.addRule("fill", "url(#" + gradientID + ")");
                 }
