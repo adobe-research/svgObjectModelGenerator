@@ -19,13 +19,12 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js");
     
-    var write = svgWriterUtils.write,
-        writeRadialGradient = svgWriterGradient.writeRadialGradient,
+    var writeRadialGradient = svgWriterGradient.writeRadialGradient,
         writeLinearGradient = svgWriterGradient.writeLinearGradient,
         writeColor = svgWriterUtils.writeColor;
     
@@ -66,11 +65,6 @@
             } else {
                 styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }
-        };
-        
-        this.hasGradientFill = function (ctx) {
-            var node = ctx.currentOMNode;
-            return node && node.style && node.style.fill && node.style.fill.type === "gradient";
         };
 	}
 

@@ -121,13 +121,6 @@
             return color;
         };
 
-        self.writeAttrIfNecessary = function (ctx, attr, val, def, unit) {
-            unit = unit || "";
-            if (String(val) !== String(def)) {
-                self.write(ctx, " " + attr + '="' + val + unit + '"');
-            }
-        };
-
         self.getTransform = function (val, tX, tY) {
             if (!val) {
                 return "";
@@ -136,7 +129,6 @@
         };
 
         self.writeTextPath = function (ctx, pathData) {
-            //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 textPathID = ctx.ID.getUnique("text-path");
 
@@ -178,81 +170,20 @@
             return ctx.sOut;
         };
 
-        var defaults = {
-            fill: "#000",
-            stroke: "none",
-            "stroke-width": 1,
-            "stroke-linecap": "butt",
-            "stroke-linejoin": "miter",
-            "stroke-miterlimit": 4,
-            "stroke-dasharray": "none",
-            "stroke-dashoffset": 0,
-            "stroke-opacity": 1,
-            opacity: 1,
-            "fill-rule": "nonzero",
-            "fill-opacity": 1,
-            display: "inline",
-            visibility: "visible"
-        };
-
-        self.writeClassIfNeccessary = function (ctx, node) {
-            node = node || ctx.currentOMNode;
-            if (ctx.omStylesheet.hasStyleBlock(node)) {
-                var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
-                if (omStyleBlock) {
-                    if (ctx.usePresentationAttribute) {
-                        for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
-                            var rule = omStyleBlock.rules[i];
-                            self.writeAttrIfNecessary(ctx, rule.propertyName, String(rule.value).replace(/"/g, "'"), defaults[rule.propertyName] || "");
-                        }
-                    } else {
-                        self.write(ctx, " class=\"" + omStyleBlock.class + "\"");
-                    }
-                }
-            }
-        }
-
         self.encodedText = function (txt) {
             return txt.replace(/&/g, '&amp;')
                       .replace(/</g, '&lt;')
                       .replace(/>/g, '&gt;')
                       .replace(/"/g, '&quot;')
                       .replace(/'/g, '&apos;');
-        }
+        };
 
         self.extend = Utils.extend;
         self.toBase64 = Utils.toBase64;
 
-        // FIXME: These functions are going to be removed in the near future with the new filter code.
-        self.PSFx = function (omIn) {
-            return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
-        }
-
         self.hasFx = function (ctx) {
-            // FIXME: Inner and outer glow are missing.
-            return self.PSFx(ctx.currentOMNode) && ((self.hasEffect(ctx, 'dropShadow') ||
-                    self.hasEffect(ctx, 'gradientFill', self.hasColorNoise) ||
-                    self.hasEffect(ctx, 'solidFill') ||
-                    self.hasEffect(ctx, 'chromeFX') ||
-                    self.hasEffect(ctx, 'innerShadow')));
+            return ctx.currentOMNode.style && ctx.currentOMNode.style.filter;
         };
-        self.hasColorNoise = function (ele) {
-            return ele.gradient.gradientForm !== 'colorNoise';
-        };
-        self.hasEffect = function (ctx, effect, custom) {
-            var omIn = ctx.currentOMNode;
-            effect += 'Multi';
-            if (omIn.style.meta.PS.fx[effect]) {
-                return omIn.style.meta.PS.fx[effect].some(function(ele) {
-                    if (custom) {
-                        return ele.enabled && custom(ele);
-                    }
-                    return ele.enabled;
-                });
-            }
-            return false;
-        };
-
     }
 
     module.exports = new SVGWriterUtils();
