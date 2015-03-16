@@ -196,8 +196,7 @@
                 {
                     name: 'feComposite',
                     result: feComposite3,
-                    input: [feComposite2,
-                    feComposite2],
+                    input: [feComposite2, feComposite2],
                     operator: 'over'
                 }
             );
@@ -570,9 +569,6 @@
                     filterList[i].fn(item, effects, globalLight, writer._dpi(), layerBounds, docBounds);
                 });
             }
-
-            // FIXME: We need to find a way to reset the generated filter ids for
-            // the next filter run.
 
             if (!effects.length) {
                 return;
