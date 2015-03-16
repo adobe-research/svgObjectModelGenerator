@@ -134,12 +134,33 @@
             }
 
             effects.push(
-              { name: 'feComponentTransfer', result: getId('comp'), input: [effects[effects.length-1].result], 'color-interpolation-filters': 'sRGB', children: [
-                { name: 'feFuncR', input: [], type: 'table', tableValues: redTableValues.trim() },
-                { name: 'feFuncG', input: [], type: 'table', tableValues: greenTableValues.trim() },
-                { name: 'feFuncB', input: [], type: 'table', tableValues: blueTableValues.trim() },
-              ]}
-            );     
+                {
+                    name: 'feComponentTransfer',
+                    result: getId('comp'),
+                    input: [effects[effects.length-1].result],
+                    'color-interpolation-filters': 'sRGB',
+                    children: [
+                        {
+                            name: 'feFuncR',
+                            input: [],
+                            type: 'table',
+                            tableValues: redTableValues.trim()
+                        },
+                        {
+                            name: 'feFuncG',
+                            input: [],
+                            type: 'table',
+                            tableValues: greenTableValues.trim()
+                        },
+                        {
+                            name: 'feFuncB',
+                            input: [],
+                            type: 'table',
+                            tableValues: blueTableValues.trim()
+                        }
+                    ]
+                }
+            );
         };
     }
 
