@@ -18,6 +18,7 @@
 
 var expect = require('chai').expect,
     svgStylesheet = require("../svgStylesheet.js"),
+    ID = require("../idGenerator.js"),
     sinon = require('sinon');
 
 describe('svgStylesheet', function () {
@@ -31,7 +32,7 @@ describe('svgStylesheet', function () {
             
             expect(sheet.hasRules()).to.equal(false);
             
-            styleBlock = sheet.getStyleBlock({className: "clsTest" });
+            styleBlock = sheet.getStyleBlock({className: "clsTest" }, (new ID()).getUnique);
             styleBlock.addRule("fill", "#ed3ecc");
             
             expect(sheet.hasRules()).to.equal(true);

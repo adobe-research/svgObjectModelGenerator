@@ -106,7 +106,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -239,7 +240,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-2"
 			},
 			"children": [],
 			"title": "Rectangle 4",
@@ -387,7 +389,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-3"
 			},
 			"children": [],
 			"title": "Rectangle 7",
@@ -553,7 +556,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-4"
 			},
 			"children": [],
 			"title": "Rectangle 5",
@@ -746,7 +750,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-5"
 			},
 			"children": [],
 			"title": "Rectangle 6",
@@ -845,7 +850,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-6"
 			},
 			"children": [],
 			"title": "Rectangle 3",
@@ -996,7 +1002,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-7"
 			},
 			"children": [],
 			"title": "Rectangle 2",
@@ -1023,7 +1030,930 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 255,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -70.711,
+						"dy": 70.711
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"offset-2",
+							"offset-1"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"SourceGraphic",
+							"blend-1"
+						]
+					}
+				]
+			},
+			"filter-2": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 17
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"blur-2",
+							"blur-2"
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"composite-2",
+							"composite-2"
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-4",
+						"input": [
+							"composite-3",
+							"composite-3"
+						],
+						"operator": "over"
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-5",
+						"input": [
+							"flood-2",
+							"composite-4"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-5",
+							"offset-1"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"SourceGraphic",
+							"blend-1"
+						]
+					}
+				]
+			},
+			"filter-3": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -106.066,
+						"dy": 106.066
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 255,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": -70.711,
+						"dy": 70.711
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"offset-2",
+							"offset-1"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-3",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-3",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"flood-3",
+							"blur-3"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-3",
+						"input": [
+							"composite-3"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"offset-3",
+							"blend-1"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-3",
+						"input": [
+							"SourceGraphic",
+							"blend-2"
+						]
+					}
+				]
+			},
+			"filter-4": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 255,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -70.711,
+						"dy": 70.711
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"offset-2",
+							"offset-1"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-3",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 17
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"blur-3",
+							"blur-3"
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-4",
+						"input": [
+							"composite-3",
+							"composite-3"
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-5",
+						"input": [
+							"composite-4",
+							"composite-4"
+						],
+						"operator": "over"
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-3",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-6",
+						"input": [
+							"flood-3",
+							"composite-5"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-6",
+							"blend-1"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-3",
+						"input": [
+							"SourceGraphic",
+							"blend-2"
+						]
+					}
+				]
+			},
+			"filter-5": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -106.066,
+						"dy": 106.066
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 255,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": -70.711,
+						"dy": 70.711
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"offset-2",
+							"offset-1"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-3",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-3",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"flood-3",
+							"blur-3"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-3",
+						"input": [
+							"composite-3"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"offset-3",
+							"blend-1"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-4",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 17
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-4",
+						"input": [
+							"blur-4",
+							"blur-4"
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-5",
+						"input": [
+							"composite-4",
+							"composite-4"
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-6",
+						"input": [
+							"composite-5",
+							"composite-5"
+						],
+						"operator": "over"
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-4",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-7",
+						"input": [
+							"flood-4",
+							"composite-6"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-3",
+						"input": [
+							"composite-7",
+							"blend-2"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-4",
+						"input": [
+							"SourceGraphic",
+							"blend-3"
+						]
+					}
+				]
+			},
+			"filter-6": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					}
+				]
+			},
+			"filter-7": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -106.066,
+						"dy": 106.066
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 255,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": -70.711,
+						"dy": 70.711
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"offset-2",
+							"offset-1"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-3",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-3",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0.003891,
+							"b": 0.003891,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"flood-3",
+							"blur-3"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-3",
+						"input": [
+							"composite-3"
+						],
+						"dx": -35.355,
+						"dy": 35.355
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"offset-3",
+							"blend-1"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-3",
+						"input": [
+							"SourceGraphic",
+							"blend-2"
+						]
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

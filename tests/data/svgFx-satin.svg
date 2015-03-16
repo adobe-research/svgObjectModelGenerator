@@ -3,23 +3,23 @@
     <style>
       .cls-1 {
         fill: #24da1e;
-        filter: url(#satin-1);
+        filter: url(#filter-1);
       }
     </style>
 
-    <filter id="satin-1" filterUnits="userSpaceOnUse">
-      <feFlood flood-color="#d42020"/>
-      <feComposite operator="in" in2="SourceAlpha" result="snSilhouette"/>
-      <feOffset dx="-13.641" dy="24.453" in="snSilhouette" result="snShifted1"/>
-      <feOffset dx="13.641" dy="-24.453" in="snSilhouette" result="snShifted2"/>
-      <feComposite operator="xor" in="snShifted1" in2="snShifted2"/>
-      <feComposite operator="in" in2="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="3.162"/>
-      <feComponentTransfer>
+    <filter filterUnits="userSpaceOnUse" id="filter-1">
+      <feFlood result="flood-1" flood-color="#d42020"/>
+      <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
+      <feOffset result="offset-1" dx="-13.641" dy="24.453"/>
+      <feOffset result="offset-2" dx="13.641" dy="-24.453" in="composite-1"/>
+      <feComposite result="composite-2" operator="xor" in="offset-1"/>
+      <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
+      <feGaussianBlur result="blur-1" stdDeviation="3.162"/>
+      <feComponentTransfer result="comp-1">
         <feFuncA type="linear" slope="0.7"/>
       </feComponentTransfer>
-      <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="chromeFX"/>
+      <feComposite result="composite-4" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
   <rect x="200" y="225" width="300" height="150" class="cls-1"/>

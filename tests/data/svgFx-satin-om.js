@@ -54,7 +54,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -81,7 +82,109 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 212.000003,
+							"g": 31.595331,
+							"b": 31.595331,
+							"a": 1
+						}
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": -13.641,
+						"dy": 24.453
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-1"
+						],
+						"dx": 13.641,
+						"dy": -24.453
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"offset-1",
+							"offset-2"
+						],
+						"operator": "xor"
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"composite-2",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"composite-3"
+						],
+						"stdDeviation": 3.162
+					},
+					{
+						"name": "feComponentTransfer",
+						"result": "comp-1",
+						"input": [
+							"blur-1"
+						],
+						"children": [
+							{
+								"name": "feFuncA",
+								"type": "linear",
+								"slope": 0.7
+							}
+						]
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-4",
+						"input": [
+							"comp-1",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-4",
+							"SourceGraphic"
+						],
+						"mode": "lighten"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

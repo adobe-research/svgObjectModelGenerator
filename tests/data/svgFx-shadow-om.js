@@ -90,7 +90,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "shadow",
@@ -129,7 +130,115 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 4.583
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 214.000002,
+							"g": 45.319066,
+							"b": 45.319066,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 24,
+						"dy": 0
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 6.782
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 35.295721,
+							"g": 97.797663,
+							"b": 225.000002,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "out"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-2"
+						],
+						"dx": 75,
+						"dy": 0
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"offset-2",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-3",
+							"blend-1"
+						],
+						"mode": "multiply"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

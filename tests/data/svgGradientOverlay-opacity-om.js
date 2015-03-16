@@ -62,31 +62,54 @@ module.exports = {
 								{
 									"enabled": true,
 									"mode": "normal",
-									"opacity": 0.19,
+									"opacity": {
+										"value": 19,
+										"units": "percentUnit"
+									},
 									"gradient": {
-										"stops": [
+										"name": "$$$/DefaultGradient/ForegroundToBackground=Foreground to Background",
+										"gradientForm": "customStops",
+										"interfaceIconFrameDimmed": 4096,
+										"colors": [
 											{
-												"offset": 0,
 												"color": {
-													"r": 0.124514,
-													"g": 3,
-													"b": 0.023346,
-													"a": 1
-												}
+													"red": 0.124514,
+													"green": 3,
+													"blue": 0.023346
+												},
+												"type": "userStop",
+												"location": 0,
+												"midpoint": 50
 											},
 											{
-												"offset": 1,
 												"color": {
-													"r": 255,
-													"g": 255,
-													"b": 255,
-													"a": 1
-												}
+													"red": 255,
+													"green": 255,
+													"blue": 255
+												},
+												"type": "userStop",
+												"location": 4096,
+												"midpoint": 50
 											}
 										],
-										"type": "linear",
-										"gradientSpace": "objectBoundingBox",
-										"angle": 90
+										"transparency": [
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 0,
+												"midpoint": 50
+											},
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 4096,
+												"midpoint": 50
+											}
+										]
 									},
 									"angle": {
 										"value": 90,
@@ -143,7 +166,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -170,7 +194,144 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 1.414
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.5
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 0,
+						"dy": 2
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					},
+					{
+						"name": "feImage",
+						"result": "image-1",
+						"input": [],
+						"x": 263,
+						"y": 185,
+						"width": 193,
+						"height": 61,
+						"preserveAspectRatio": "none",
+						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE5MyIgaGVpZ2h0PSI2MSIgdmlld0JveD0iMCAwIDE5MyA2MSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtMSk7CiAgICAgICAgb3BhY2l0eTogMC4xOTsKICAgICAgfQogICAgPC9zdHlsZT4KCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0xIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ijk2LjUiIHkxPSI2MSIgeDI9Ijk2LjUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDAzMDAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjYxIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"image-1",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-2",
+							"blend-1"
+						],
+						"mode": "normal"
+					},
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-2",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 0
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-3",
+						"input": [
+							"flood-2",
+							"blur-2"
+						],
+						"operator": "out"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-2",
+						"input": [
+							"composite-3"
+						],
+						"dx": 0,
+						"dy": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-4",
+						"input": [
+							"offset-2",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-3",
+						"input": [
+							"composite-4",
+							"blend-2"
+						],
+						"mode": "overlay"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

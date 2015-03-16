@@ -3,54 +3,54 @@
     <style>
       .cls-1 {
         fill: #030303;
-        filter: url(#drop-shadow-1);
+        filter: url(#filter-1);
       }
 
       .cls-2 {
         fill: #030303;
-        filter: url(#drop-shadow-2);
+        filter: url(#filter-2);
       }
 
       .cls-3 {
         fill: #fff;
-        filter: url(#inner-shadow-1);
+        filter: url(#filter-3);
       }
 
       .cls-4 {
         fill: #fff;
-        filter: url(#inner-shadow-2);
+        filter: url(#filter-4);
       }
     </style>
 
-    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
-      <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
-      <feFlood flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
-      <feComposite in="SourceGraphic" result="shadowed"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-1">
+      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feComposite result="composite-1" operator="in" in2="blur-1"/>
+      <feOffset result="offset-1" dx="14.142" dy="14.142"/>
+      <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
-    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
-      <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="4.472" result="dropBlur"/>
-      <feFlood flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
-      <feComposite in="SourceGraphic" result="shadowed"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-2">
+      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feComposite result="composite-1" operator="in" in2="blur-1"/>
+      <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
+      <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
-    <filter id="inner-shadow-1" filterUnits="userSpaceOnUse">
-      <feOffset dx="14.142" dy="14.142" in="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="4.472" result="innerShadowBlur"/>
-      <feFlood flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur"/>
-      <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-3">
+      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feComposite result="composite-1" operator="out" in2="blur-1"/>
+      <feOffset result="offset-1" dx="14.142" dy="14.142"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
     </filter>
-    <filter id="inner-shadow-2" filterUnits="userSpaceOnUse">
-      <feOffset dx="-16.383" dy="-11.472" in="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="4.472" result="innerShadowBlur"/>
-      <feFlood flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur"/>
-      <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="multiply" in2="SourceGraphic" result="innerShadow"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-4">
+      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feComposite result="composite-1" operator="out" in2="blur-1"/>
+      <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
   <rect x="50" y="83" width="250" height="150" class="cls-1"/>

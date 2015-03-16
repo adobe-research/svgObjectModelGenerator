@@ -71,7 +71,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -98,7 +99,73 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 97.178987,
+							"g": 177.000005,
+							"b": 142.252921,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-1",
+							"SourceGraphic"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-2",
+						"input": [],
+						"flood-color": {
+							"r": 213.000003,
+							"g": 133.649803,
+							"b": 133.649803,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"flood-2",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-2",
+							"blend-1"
+						],
+						"mode": "multiply"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

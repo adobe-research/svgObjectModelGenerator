@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1, .cls-2, .cls-3 {
-        filter: url(#filter-chain-1);
+        filter: url(#filter-1);
       }
 
       .cls-1 {
@@ -18,18 +18,18 @@
       }
     </style>
 
-    <filter id="filter-chain-1" filterUnits="userSpaceOnUse">
-      <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="2.236" result="dropBlur"/>
-      <feFlood flood-opacity="0.75"/>
-      <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
-      <feComposite in="SourceGraphic" result="shadowed"/>
-      <feOffset dx="2.5" dy="4.33" in="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="2.236" result="innerShadowBlur"/>
-      <feFlood flood-opacity="0.75"/>
-      <feComposite operator="out" in2="innerShadowBlur"/>
-      <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="multiply" in2="shadowed" result="innerShadow"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-1">
+      <feGaussianBlur result="blur-1" stdDeviation="2.236" in="SourceAlpha"/>
+      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feComposite result="composite-1" operator="in" in2="blur-1"/>
+      <feOffset result="offset-1" dx="2.5" dy="4.33"/>
+      <feBlend result="blend-1" in="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" stdDeviation="2.236" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.75"/>
+      <feComposite result="composite-2" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dx="2.5" dy="4.33"/>
+      <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend-1"/>
     </filter>
   </defs>
   <rect x="50" y="200" width="200" height="200" class="cls-1"/>

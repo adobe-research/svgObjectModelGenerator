@@ -3,25 +3,25 @@
     <style>
       .cls-1 {
         fill: #000300;
-        filter: url(#outer-glow-1);
+        filter: url(#filter-1);
       }
     </style>
 
-    <filter id="outer-glow-1" filterUnits="userSpaceOnUse">
-      <feGaussianBlur stdDeviation="29" in="SourceAlpha"/>
-      <feComposite/>
-      <feComposite/>
-      <feComposite result="outerGlowBlur"/>
-      <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
-      <feColorMatrix type="matrix" values="0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0"/>
-      <feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>
-      <feComponentTransfer color-interpolation-filters="sRGB">
-        <feFuncR type="table" tableValues="0.9765 0.9765 0.8863 0.7961 0.7059 0.6157 0.5255 0.4353 0.5281 0.6209 0.7137 0.8065 0.8993 0.9922 0.8268 0.6614 0.4961 0.3307 0.1654 0 0"/>
-        <feFuncG type="table" tableValues="0.9019 0.9019 0.7653 0.6288 0.4922 0.3556 0.219 0.0824 0.1497 0.217 0.2843 0.3516 0.419 0.4863 0.4314 0.3765 0.3216 0.2667 0.2118 0.1569 0.1569"/>
-        <feFuncB type="table" tableValues="0 0 0.0706 0.1412 0.2118 0.2824 0.3529 0.4235 0.3529 0.2824 0.2118 0.1412 0.0706 0 0.0758 0.1516 0.2275 0.3033 0.3791 0.4549 0.4549"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-1">
+      <feGaussianBlur result="blur-1" stdDeviation="29" in="SourceAlpha"/>
+      <feComposite result="composite-1"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feColorMatrix result="color-1" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+      <feColorMatrix result="color-2" values="0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0"/>
+      <feColorMatrix result="color-3" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+      <feComponentTransfer result="comp-1" color-interpolation-filters="sRGB">
+        <feFuncR type="table" tableValues="0.977 0.977 0.886 0.796 0.706 0.616 0.525 0.435 0.528 0.621 0.714 0.806 0.899 0.992 0.827 0.661 0.496 0.331 0.165 0 0"/>
+        <feFuncG type="table" tableValues="0.902 0.902 0.765 0.629 0.492 0.356 0.219 0.082 0.15 0.217 0.284 0.352 0.419 0.486 0.431 0.377 0.322 0.267 0.212 0.157 0.157"/>
+        <feFuncB type="table" tableValues="0 0 0.071 0.141 0.212 0.282 0.353 0.423 0.353 0.282 0.212 0.141 0.071 0 0.076 0.152 0.228 0.303 0.379 0.455 0.455"/>
       </feComponentTransfer>
-      <feBlend in2="SourceGraphic" result="outerGlow"/>
-      <feComposite in="SourceGraphic" result="shadowed"/>
+      <feBlend result="blend-1" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
     </filter>
   </defs>
   <rect x="236" y="190" width="149" height="114" class="cls-1"/>

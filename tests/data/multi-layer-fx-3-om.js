@@ -47,55 +47,84 @@ module.exports = {
 									"present": true,
 									"showInDialog": true,
 									"mode": "multiply",
-									"opacity": 0.5,
+									"opacity": {
+										"value": 50,
+										"units": "percentUnit"
+									},
 									"gradient": {
-										"stops": [
+										"name": "$$$/DefaultGradient/Chrome=Chrome",
+										"gradientForm": "customStops",
+										"interfaceIconFrameDimmed": 4096,
+										"colors": [
 											{
-												"offset": 0,
 												"color": {
-													"r": 40.801557,
-													"g": 136.809333,
-													"b": 204.000003,
-													"a": 1
-												}
+													"red": 40.801557,
+													"green": 136.809333,
+													"blue": 204.000003
+												},
+												"type": "userStop",
+												"location": 0,
+												"midpoint": 50
 											},
 											{
-												"offset": 0.5,
 												"color": {
-													"r": 255,
-													"g": 255,
-													"b": 255
-												}
+													"red": 255,
+													"green": 255,
+													"blue": 255
+												},
+												"type": "userStop",
+												"location": 2048,
+												"midpoint": 50
 											},
 											{
-												"offset": 0.52001953125,
 												"color": {
-													"r": 144.000007,
-													"g": 105.731515,
-													"b": 0.003891
-												}
+													"red": 144.000007,
+													"green": 105.731515,
+													"blue": 0.003891
+												},
+												"type": "userStop",
+												"location": 2130,
+												"midpoint": 13
 											},
 											{
-												"offset": 0.639892578125,
 												"color": {
-													"r": 217.000002,
-													"g": 159.334631,
-													"b": 0.003891
-												}
+													"red": 217.000002,
+													"green": 159.334631,
+													"blue": 0.003891
+												},
+												"type": "userStop",
+												"location": 2621,
+												"midpoint": 50
 											},
 											{
-												"offset": 1,
 												"color": {
-													"r": 255,
-													"g": 255,
-													"b": 255,
-													"a": 1
-												}
+													"red": 255,
+													"green": 255,
+													"blue": 255
+												},
+												"type": "userStop",
+												"location": 4096,
+												"midpoint": 50
 											}
 										],
-										"type": "linear",
-										"gradientSpace": "objectBoundingBox",
-										"angle": -90
+										"transparency": [
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 0,
+												"midpoint": 50
+											},
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 4096,
+												"midpoint": 50
+											}
+										]
 									},
 									"angle": {
 										"value": -90,
@@ -125,47 +154,74 @@ module.exports = {
 									"present": true,
 									"showInDialog": true,
 									"mode": "multiply",
-									"opacity": 1,
+									"opacity": {
+										"value": 100,
+										"units": "percentUnit"
+									},
 									"gradient": {
-										"stops": [
+										"name": "$$$/DefaultGradient/Copper=Copper",
+										"gradientForm": "customStops",
+										"interfaceIconFrameDimmed": 4096,
+										"colors": [
 											{
-												"offset": 0,
 												"color": {
-													"r": 151.000006,
-													"g": 70.000003,
-													"b": 26,
-													"a": 1
-												}
+													"red": 151.000006,
+													"green": 70.000003,
+													"blue": 26
+												},
+												"type": "userStop",
+												"location": 0,
+												"midpoint": 50
 											},
 											{
-												"offset": 0.300048828125,
 												"color": {
-													"r": 251,
-													"g": 215.918292,
-													"b": 196.863819
-												}
+													"red": 251,
+													"green": 215.918292,
+													"blue": 196.863819
+												},
+												"type": "userStop",
+												"location": 1229,
+												"midpoint": 50
 											},
 											{
-												"offset": 0.830078125,
 												"color": {
-													"r": 108.000001,
-													"g": 46.000001,
-													"b": 22.000001
-												}
+													"red": 108.000001,
+													"green": 46.000001,
+													"blue": 22.000001
+												},
+												"type": "userStop",
+												"location": 3400,
+												"midpoint": 50
 											},
 											{
-												"offset": 1,
 												"color": {
-													"r": 239.000001,
-													"g": 219.000002,
-													"b": 205.000003,
-													"a": 1
-												}
+													"red": 239.000001,
+													"green": 219.000002,
+													"blue": 205.000003
+												},
+												"type": "userStop",
+												"location": 4096,
+												"midpoint": 60
 											}
 										],
-										"type": "linear",
-										"gradientSpace": "objectBoundingBox",
-										"angle": 90
+										"transparency": [
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 0,
+												"midpoint": 50
+											},
+											{
+												"opacity": {
+													"value": 100,
+													"units": "percentUnit"
+												},
+												"location": 4096,
+												"midpoint": 50
+											}
+										]
 									},
 									"angle": {
 										"value": 90,
@@ -193,7 +249,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -220,7 +277,71 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feImage",
+						"result": "image-1",
+						"input": [],
+						"x": 218,
+						"y": 219,
+						"width": 200,
+						"height": 200,
+						"preserveAspectRatio": "none",
+						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAwLjU7CiAgICAgIH0KICAgIDwvc3R5bGU+CgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMDAiIHgyPSIxMDAiIHkyPSIyMDAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyOTg5Y2MiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjUiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjUyIiBzdG9wLWNvbG9yPSIjOTA2YTAwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC42NCIgc3RvcC1jb2xvcj0iI2Q5OWYwMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"image-1",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-1",
+							"SourceGraphic"
+						],
+						"mode": "multiply"
+					},
+					{
+						"name": "feImage",
+						"result": "image-2",
+						"input": [],
+						"x": 0,
+						"y": 0,
+						"width": 200,
+						"height": 200,
+						"preserveAspectRatio": "none",
+						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwIiB5MT0iMjAwIiB4Mj0iMTAwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOTc0NjFhIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zIiBzdG9wLWNvbG9yPSIjZmJkOGM1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC44MyIgc3RvcC1jb2xvcj0iIzZjMmUxNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmRiY2QiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"image-2",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-2",
+						"input": [
+							"composite-2",
+							"blend-1"
+						],
+						"mode": "multiply"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
