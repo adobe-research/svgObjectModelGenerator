@@ -30,22 +30,4 @@ describe('SVGWriterFill', function (){
     afterEach(function () {
         sandbox.restore();
     });
-    
-    it("knows how to check for a gradient fill", function (){
-        
-        var goodCTX = {
-            currentOMNode: {
-                style: {
-                    fill: {
-                        type: "gradient"
-                    }
-                }
-            }
-        };
-        
-        expect(svgWriterFill.hasGradientFill(goodCTX)).to.equal(true);
-        
-        goodCTX.currentOMNode.style.fill.type = "somethingelse";
-        expect(svgWriterFill.hasGradientFill(goodCTX)).to.equal(false);
-    });
 });

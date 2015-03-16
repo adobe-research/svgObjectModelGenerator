@@ -19,15 +19,13 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js");
 
-    var write = svgWriterUtils.write,
-        writeColor = svgWriterUtils.writeColor,
-        round1k = svgWriterUtils.round1k,
+    var round1k = svgWriterUtils.round1k,
         matchAfterDash = /-.*$/,
-        matchAllSpaces = /\s/g
+        matchAllSpaces = /\s/g;
 
         
     function scanForUnsupportedFeatures(ctx) {
@@ -58,7 +56,7 @@
         for (var i = 0, ii = st1.rules.length; i < ii; i++) {
             var prop = st1.rules[i].propertyName;
             if (prop in s2) {
-               eq += iseq(prop, st1.rules[i].value, s2[prop]);
+                eq += iseq(prop, st1.rules[i].value, s2[prop]);
             } else {
                 return;
             }
@@ -205,7 +203,7 @@
         }
         run(styles, {});
         return root;
-    };
+    }
 
 	module.exports = {
         scanForUnsupportedFeatures: scanForUnsupportedFeatures,
