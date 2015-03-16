@@ -32,6 +32,8 @@
 
     function SVGWriterPreprocessor() {
 
+        // FIXME: This checks for PS specific features and therefore
+        // should be moved to svgOM...
         this.scanForUnsupportedFeatures = function (ctx) {
             svgWriterFill.scanForUnsupportedFeatures(ctx);
             svgWriterStroke.scanForUnsupportedFeatures(ctx);
@@ -70,7 +72,7 @@
                         return;
                     }
                     // fill, stroke and fx are handled above.
-                    if (property === "fill" || property === "stroke" || property === "meta") {
+                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta") {
                         return;
                     }
                     if (property === "font-size") {

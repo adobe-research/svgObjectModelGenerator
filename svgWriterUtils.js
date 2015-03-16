@@ -121,13 +121,6 @@
             return color;
         };
 
-        self.writeAttrIfNecessary = function (ctx, attr, val, def, unit) {
-            unit = unit || "";
-            if (String(val) !== String(def)) {
-                self.write(ctx, " " + attr + '="' + val + unit + '"');
-            }
-        };
-
         self.getTransform = function (val, tX, tY) {
             if (!val) {
                 return "";
@@ -136,7 +129,6 @@
         };
 
         self.writeTextPath = function (ctx, pathData) {
-            //TBD: generate a real ID
             var omIn = ctx.currentOMNode,
                 textPathID = ctx.ID.getUnique("text-path");
 
@@ -152,74 +144,6 @@
             });
             return textPathID;
         };
-
-        // Filter Effects
-        self.writeFilterConnection = function (ctx, connection) {
-            if (!connection) {
-                return;
-            }
-            if (connection.in1) {
-                self.write(ctx, ' in="' + connection.in1 + '"');
-            }
-            if (connection.in2) {
-                self.write(ctx, ' in2="' + connection.in2 + '"');
-            }
-            if (connection.result) {
-                self.write(ctx, ' result="' + connection.result + '"');
-            }
-        }
-
-        self.writeFeFlood = function (ctx, color, opacity, connection) {
-            self.write(ctx, ctx.currentIndent + '<feFlood');
-            self.writeAttrIfNecessary(ctx, 'flood-color', self.writeColor(color), '#000', '');
-            if (opacity !== undefined && opacity !== null) {
-                self.writeAttrIfNecessary(ctx, 'flood-opacity', opacity, 1, '');
-            }
-            self.writeFilterConnection(ctx, connection);
-            self.writeln(ctx, '/>');
-        }
-
-        self.writeFeBlend = function (ctx, mode, connection) {
-            self.write(ctx, ctx.currentIndent + '<feBlend');
-            if (mode) {
-                self.writeAttrIfNecessary(ctx, 'mode', mode, 'normal', '');
-            }
-            self.writeFilterConnection(ctx, connection);
-            self.writeln(ctx, '/>');
-        }
-
-        self.writeFeComposite = function (ctx, operator, connection) {
-            self.write(ctx, ctx.currentIndent + '<feComposite');
-            if (operator) {
-                self.writeAttrIfNecessary(ctx, 'operator', operator, 'over', '');
-            }
-            self.writeFilterConnection(ctx, connection);
-            self.writeln(ctx, '/>');
-        }
-
-        self.writeFeGauss = function (ctx, blur, connection) {
-            self.write(ctx, ctx.currentIndent + '<feGaussianBlur');
-            self.writeAttrIfNecessary(ctx, 'stdDeviation', self.round1k(blur), 0, '');
-            self.writeFilterConnection(ctx, connection);
-            self.writeln(ctx, '/>');
-        }
-
-        self.writeFeOffset = function (ctx, offset, connection) {
-            self.write(ctx, ctx.currentIndent + '<feOffset');
-            self.writeAttrIfNecessary(ctx, 'dx', self.round1k(offset.x), 0, '');
-            self.writeAttrIfNecessary(ctx, 'dy', self.round1k(offset.y), 0, '');
-            self.writeFilterConnection(ctx, connection);
-            self.writeln(ctx, '/>');
-        }
-
-        // For convenience.
-        self.writeFeInvert = function (ctx) {
-            self.writeln(ctx, ctx.currentIndent + '<feColorMatrix type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0"/>');
-        }
-
-        self.writeFeLuminance = function (ctx) {
-            self.writeln(ctx, ctx.currentIndent + '<feColorMatrix type="matrix" values="0 0 0 1 0  0 0 0 1 0  0 0 0 1 0  0 0 0 1 0"/>');
-        }
 
         self.round2 = Utils.round2;
         self.round1k = Utils.round1k;
@@ -246,81 +170,20 @@
             return ctx.sOut;
         };
 
-        var defaults = {
-            fill: "#000",
-            stroke: "none",
-            "stroke-width": 1,
-            "stroke-linecap": "butt",
-            "stroke-linejoin": "miter",
-            "stroke-miterlimit": 4,
-            "stroke-dasharray": "none",
-            "stroke-dashoffset": 0,
-            "stroke-opacity": 1,
-            opacity: 1,
-            "fill-rule": "nonzero",
-            "fill-opacity": 1,
-            display: "inline",
-            visibility: "visible"
-        };
-
-        self.writeClassIfNeccessary = function (ctx, node) {
-            node = node || ctx.currentOMNode;
-            if (ctx.omStylesheet.hasStyleBlock(node)) {
-                var omStyleBlock = ctx.omStylesheet.getStyleBlockForElement(node);
-                if (omStyleBlock) {
-                    if (ctx.usePresentationAttribute) {
-                        for (var i = 0, len = omStyleBlock.rules.length; i < len; i++) {
-                            var rule = omStyleBlock.rules[i];
-                            self.writeAttrIfNecessary(ctx, rule.propertyName, String(rule.value).replace(/"/g, "'"), defaults[rule.propertyName] || "");
-                        }
-                    } else {
-                        self.write(ctx, " class=\"" + omStyleBlock.class + "\"");
-                    }
-                }
-            }
-        }
-
         self.encodedText = function (txt) {
             return txt.replace(/&/g, '&amp;')
                       .replace(/</g, '&lt;')
                       .replace(/>/g, '&gt;')
                       .replace(/"/g, '&quot;')
                       .replace(/'/g, '&apos;');
-        }
+        };
 
         self.extend = Utils.extend;
         self.toBase64 = Utils.toBase64;
 
-        // FIXME: These functions are going to be removed in the near future with the new filter code.
-        self.PSFx = function (omIn) {
-            return omIn && omIn.style && omIn.style.meta && omIn.style.meta.PS && omIn.style.meta.PS.fx;
-        }
-
         self.hasFx = function (ctx) {
-            // FIXME: Inner and outer glow are missing.
-            return self.PSFx(ctx.currentOMNode) && ((self.hasEffect(ctx, 'dropShadow') ||
-                    self.hasEffect(ctx, 'gradientFill', self.hasColorNoise) ||
-                    self.hasEffect(ctx, 'solidFill') ||
-                    self.hasEffect(ctx, 'chromeFX') ||
-                    self.hasEffect(ctx, 'innerShadow')));
+            return ctx.currentOMNode.style && ctx.currentOMNode.style.filter;
         };
-        self.hasColorNoise = function (ele) {
-            return ele.gradient.gradientForm !== 'colorNoise';
-        };
-        self.hasEffect = function (ctx, effect, custom) {
-            var omIn = ctx.currentOMNode;
-            effect += 'Multi';
-            if (omIn.style.meta.PS.fx[effect]) {
-                return omIn.style.meta.PS.fx[effect].some(function(ele) {
-                    if (custom) {
-                        return ele.enabled && custom(ele);
-                    }
-                    return ele.enabled;
-                });
-            }
-            return false;
-        };
-
     }
 
     module.exports = new SVGWriterUtils();

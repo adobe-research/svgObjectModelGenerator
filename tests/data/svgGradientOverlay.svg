@@ -6,113 +6,113 @@
       }
 
       .cls-1 {
-        filter: url(#gradient-overlay-1);
+        filter: url(#filter-1);
       }
 
       .cls-2 {
-        filter: url(#gradient-overlay-2);
+        filter: url(#filter-2);
       }
 
       .cls-3 {
-        filter: url(#gradient-overlay-3);
+        filter: url(#filter-3);
       }
 
       .cls-4 {
-        filter: url(#gradient-overlay-4);
+        filter: url(#filter-4);
       }
 
       .cls-5 {
-        filter: url(#gradient-overlay-5);
+        filter: url(#filter-5);
       }
 
       .cls-6 {
-        filter: url(#gradient-overlay-6);
+        filter: url(#filter-6);
       }
 
       .cls-7 {
-        filter: url(#gradient-overlay-7);
+        filter: url(#filter-7);
       }
 
       .cls-8 {
-        filter: url(#gradient-overlay-8);
+        filter: url(#filter-8);
       }
 
       .cls-9 {
-        filter: url(#gradient-overlay-9);
+        filter: url(#filter-9);
       }
 
       .cls-10 {
-        filter: url(#gradient-overlay-10);
+        filter: url(#filter-10);
       }
 
       .cls-11 {
-        filter: url(#gradient-overlay-11);
+        filter: url(#filter-11);
       }
 
       .cls-12 {
-        filter: url(#gradient-overlay-12);
+        filter: url(#filter-12);
       }
     </style>
 
-    <filter id="gradient-overlay-1" filterUnits="userSpaceOnUse">
-      <feImage x="50" y="50" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI4LjU5MyIgeTE9IjEwMCIgeDI9IjE3MS40MDciPgogIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-1">
+      <feImage result="image-1" x="50" y="50" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjguNTkzIiB5MT0iMTAwIiB4Mj0iMTcxLjQwNyI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjdjMDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-2" filterUnits="userSpaceOnUse">
-      <feImage x="300" y="50" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI4LjU5MyIgeTE9IjEwMCIgeDI9IjE3MS40MDciPgogIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-2">
+      <feImage result="image-1" x="300" y="50" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjguNTkzIiB5MT0iMTAwIiB4Mj0iMTcxLjQwNyI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-3" filterUnits="userSpaceOnUse">
-      <feImage x="550" y="50" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI4LjU5MyIgeDI9IjE3MS40MDciIHkyPSIxMDAiPgogIDxzdG9wIG9mZnNldD0iLTAuMjUiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICA8c3RvcCBvZmZzZXQ9IjEuMjUiIHN0b3AtY29sb3I9IiNmZjdjMDAiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-3">
+      <feImage result="image-1" x="550" y="50" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjguNTkzIiB4Mj0iMTcxLjQwNyIgeTI9IjEwMCI+CiAgICAgIDxzdG9wIG9mZnNldD0iLTAuMjUiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxLjI1IiBzdG9wLWNvbG9yPSIjZmY3YzAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgY2xhc3M9ImNscy0xIi8+Cjwvc3ZnPgo="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-4" filterUnits="userSpaceOnUse">
-      <feImage x="50" y="200" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-4">
+      <feImage result="image-1" x="50" y="200" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNjUwIiB5MT0iNDAwIiB4Mj0iNTAiIHkyPSItMjAwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjkwYTU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-5" filterUnits="userSpaceOnUse">
-      <feImage x="300" y="200" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-5">
+      <feImage result="image-1" x="300" y="200" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTMwMCIgeTE9IjM4MC4wODMiIHgyPSI1MDAiIHkyPSItMTgwLjA4MyI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-6" filterUnits="userSpaceOnUse">
-      <feImage x="550" y="200" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-6">
+      <feImage result="image-1" x="550" y="200" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTU1MCIgeTE9IjM4MC4wODMiIHgyPSIyNTAiIHkyPSItMTgwLjA4MyI+CiAgICAgIDxzdG9wIG9mZnNldD0iLTAuMjUiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxLjI1IiBzdG9wLWNvbG9yPSIjZmY3YzAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgY2xhc3M9ImNscy0xIi8+Cjwvc3ZnPgo="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-7" filterUnits="userSpaceOnUse">
-      <feImage x="50" y="350" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-7">
+      <feImage result="image-1" x="50" y="350" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTUwIiB5MT0iMjMwLjA4MyIgeDI9Ijc1MCIgeTI9Ii0zMzAuMDgzIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY3YzAwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-8" filterUnits="userSpaceOnUse">
-      <feImage x="300" y="350" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC44IiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-8">
+      <feImage result="image-1" x="300" y="350" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAwLjg7CiAgICAgIH0KICAgIDwvc3R5bGU+CgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSItMzAwIiB5MT0iMjMwLjA4MyIgeDI9IjUwMCIgeTI9Ii0zMzAuMDgzIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY3YzAwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-9" filterUnits="userSpaceOnUse">
-      <feImage x="550" y="350" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ii01NTAiIHkxPSIyMzAuMDgzIiB4Mj0iMjUwIiB5Mj0iLTMzMC4wODMiPgogIDxzdG9wIG9mZnNldD0iMC40NSIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIi8+PC9zdmc+"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-9">
+      <feImage result="image-1" x="550" y="350" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTU1MCIgeTE9IjIzMC4wODMiIHgyPSIyNTAiIHkyPSItMzMwLjA4MyI+CiAgICAgIDxzdG9wIG9mZnNldD0iMC40NSIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNmZjdjMDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-10" filterUnits="userSpaceOnUse">
-      <feImage x="50" y="500" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-10">
+      <feImage result="image-1" x="50" y="500" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwIiB5MT0iMTAwIiB4Mj0iMTAwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjkwYTU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-11" filterUnits="userSpaceOnUse">
-      <feImage x="300" y="500" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-11">
+      <feImage result="image-1" x="300" y="500" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwIiB4Mj0iMTAwIiB5Mj0iMTAwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjkwYTU5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIGNsYXNzPSJjbHMtMSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter id="gradient-overlay-12" filterUnits="userSpaceOnUse">
-      <feImage x="550" y="500" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCI+PGxpbmVhckdyYWRpZW50Lz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIvPjwvc3ZnPg=="/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="SourceGraphic" result="gradientFill"/>
+    <filter filterUnits="userSpaceOnUse" id="filter-12">
+      <feImage result="image-1" x="550" y="500" width="200" height="100" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAxOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iODEuODAxIiB5MT0iMTAwIiB4Mj0iMTE4LjE5OSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjdjMDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
   <rect x="50" y="50" width="200" height="100" class="cls-1"/>

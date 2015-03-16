@@ -53,7 +53,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [
 				{
@@ -168,7 +169,8 @@ module.exports = {
 									]
 								}
 							}
-						}
+						},
+						"filter": "filter-2"
 					},
 					"children": [],
 					"title": "Rectangle 2",
@@ -210,7 +212,120 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 5.196
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 10.103,
+						"dy": 8.181
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"SourceGraphic",
+							"offset-1"
+						]
+					}
+				]
+			},
+			"filter-2": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feGaussianBlur",
+						"result": "blur-1",
+						"input": [
+							"SourceAlpha"
+						],
+						"stdDeviation": 4.583
+					},
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 0.003891,
+							"g": 54.019456,
+							"b": 255,
+							"a": 1
+						},
+						"flood-opacity": 0.75
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"blur-1"
+						],
+						"operator": "out"
+					},
+					{
+						"name": "feOffset",
+						"result": "offset-1",
+						"input": [
+							"composite-1"
+						],
+						"dx": 7.5,
+						"dy": 12.99
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-2",
+						"input": [
+							"offset-1",
+							"SourceAlpha"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-2",
+							"SourceGraphic"
+						],
+						"mode": "multiply"
+					}
+				]
+			}
+		},
 		"gradients": {},
 		"masks": {},
 		"patterns": {},

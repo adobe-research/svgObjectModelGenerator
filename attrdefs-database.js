@@ -9,6 +9,8 @@ module.exports = {
     "feConvolveMatrix/bias": [0, "number"],
     "circle/cx": [0, "number"],
     "ellipse/cx": [0, "number"],
+    "feImage/x": ["0%", "string"],
+    "feImage/y": ["0%", "string"],
     "radialGradient/cx": ["50%", "number"],
     "circle/cy": [0, "number"],
     "ellipse/cy": [0, "number"],

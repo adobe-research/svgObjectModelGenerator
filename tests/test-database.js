@@ -46,7 +46,8 @@ var database = [
 },
 {
 	test: "svgGradientOverlay",
-	desc: "should support gradientOverlay"
+	desc: "should support gradientOverlay",
+	layerTest: true
 },
 {
 	test: "svgGradientOverlay-opacity",

@@ -23,7 +23,7 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
-        svgWriterContext = require("./svgWriterContext.js");
+        SVGWriterContext = require("./svgWriterContext.js");
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
@@ -106,7 +106,7 @@
         };
 
         proto.write = proto.toString = function (ctx) {
-            ctx = ctx || new svgWriterContext({});
+            ctx = ctx || new SVGWriterContext({});
             var i;
 
             writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
@@ -139,7 +139,7 @@
                 }
             }
             return;
-        }
+        };
 
     }(CSSStyleBlock.prototype));
 
@@ -373,7 +373,7 @@
                     }
                 }
             }
-        }
+        };
 
         proto.writeSheet = function (ctx) {
 
@@ -402,22 +402,6 @@
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
 
-        };
-
-        proto.writePredefines = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                eleDefines = this.getDefines(omIn.id),
-                defn,
-                i;
-            if (eleDefines && eleDefines.length > 0) {
-                for (i = 0; i < eleDefines.length; i++) {
-                    defn = eleDefines[i];
-                    if (!defn.written) {
-                        write(ctx, indentify(ctx.currentIndent, defn.out));
-                        defn.written = true;
-                    }
-                }
-            }
         };
 
         proto.writeDefines = function (ctx) {
@@ -450,7 +434,7 @@
                 return out;
             }
             return blocks;
-        }
+        };
 
         extract.union = function (a, b, ba, bb) {
             var bab = new CSSStyleBlock([].concat(a.class, b.class)),
@@ -508,7 +492,7 @@
                 }
             }
             return out;
-        }
+        };
     }(SVGStylesheet.prototype));
 
 	module.exports = SVGStylesheet;

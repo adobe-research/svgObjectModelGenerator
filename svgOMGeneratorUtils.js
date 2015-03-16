@@ -20,8 +20,6 @@
 
 (function () {
     "use strict";
-
-    var svgWriterGradient = require("./svgWriterGradient.js");
     
     function SVGOMGeneratorUtils() {
         
@@ -105,6 +103,46 @@
             }
         }
 
+        function computeLinearGradientCoordinates(gradient, bounds, angle) {
+            var w2 = (bounds.right - bounds.left) / 2,
+                h2 = (bounds.bottom - bounds.top) / 2,
+                coords;
+
+            // SVG wants the angle in cartesian, not polar, coordinates.
+            var rad = (angle % 360) * Math.PI / 180;
+            var x1, x2, y1, y2, xa, ya,
+                cx = bounds.left + w2,
+                cy = bounds.top + h2;
+
+            if (Math.abs(w2 / Math.cos(rad) * Math.sin(rad)) < h2) {
+                if (h2 > w2) {
+                    xa = w2 / Math.cos(rad) * Math.sin(rad);
+                    ya = w2;
+                } else {
+                    xa = w2;
+                    ya = w2 / Math.cos(rad) * Math.sin(rad);
+                }
+            } else {
+                xa = h2 / Math.sin(rad) * Math.cos(rad);
+                ya = h2;
+            }
+
+            // FIXME: self is a hack to deal with a mistake above that still needs
+            // to be fixed.
+            if (rad < 0 || angle == 180 ) {
+                ya = -ya;
+            } else {
+                xa = -xa;
+            }
+
+            // FIXME: We should be able to optimize the cases of angle mod 90 to use %
+            // and possibly switch to objectBoundingBox.
+            // FIXME : We could optimize cases where x1 == x2 or y1 == y2 to reduce
+            // generated content.
+
+            return { xa: xa, ya: ya, cx: cx, cy: cy };
+        }
+
         this.toGradient = function (gradientRaw, layerBounds, docBounds) {
             var gradient,
                 gradientType = gradientRaw.type === "radial" ? "radial" : "linear",
@@ -158,7 +196,7 @@
                 gradient.cx = bounds.left + w2;
                 gradient.cy = bounds.top + h2;
             } else {
-                var coords = svgWriterGradient.computeLinearGradientCoordinates(gradient, bounds, angle);
+                var coords = computeLinearGradientCoordinates(gradient, bounds, angle);
                 gradient.x1 = coords.xa + coords.cx;
                 gradient.y1 = coords.ya + coords.cy;
                 gradient.x2 = coords.cx - coords.xa;

@@ -38,7 +38,8 @@ module.exports = {
 							]
 						}
 					}
-				}
+				},
+				"filter": "filter-1"
 			},
 			"children": [],
 			"title": "Rectangle 1",
@@ -65,7 +66,43 @@ module.exports = {
 	],
 	"global": {
 		"clipPaths": {},
-		"filters": {},
+		"filters": {
+			"filter-1": {
+				"filterUnits": "userSpaceOnUse",
+				"children": [
+					{
+						"name": "feFlood",
+						"result": "flood-1",
+						"input": [],
+						"flood-color": {
+							"r": 255,
+							"g": 0,
+							"b": 0,
+							"a": 1
+						},
+						"flood-opacity": 1
+					},
+					{
+						"name": "feComposite",
+						"result": "composite-1",
+						"input": [
+							"flood-1",
+							"SourceGraphic"
+						],
+						"operator": "in"
+					},
+					{
+						"name": "feBlend",
+						"result": "blend-1",
+						"input": [
+							"composite-1",
+							"SourceGraphic"
+						],
+						"mode": "lighten"
+					}
+				]
+			}
+		},
 		"gradients": {
 			"linear-gradient-1": {
 				"stops": [

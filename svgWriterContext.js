@@ -23,9 +23,6 @@
 
     var ID = require("./idGenerator.js");
 
-    // FIXME: svgWriterFx calls this code but svgOMG
-    // is mostly empty. After filter refactoring,
-    // globalLight should not be required anymore.
     function SVGWriterContext(svgOM, config, errors) {
         // FIXME: In the future, determine that svgOM is a root element.
         this.config = config;
@@ -34,6 +31,7 @@
         this.indent = '  ';
         this.currentIndent = '';
         this.terminator = '\n';
+        // svgStylesheed creates new svgWriterContexts without a global object.
         if (svgOM.global) {
             this.docBounds = svgOM.global.bounds;
             this.viewBox = svgOM.global.viewBox;

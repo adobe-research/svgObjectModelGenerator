@@ -19,20 +19,19 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js");
     
-    var write = svgWriterUtils.write,
-        writeRadialGradient = svgWriterGradient.writeRadialGradient,
+    var writeRadialGradient = svgWriterGradient.writeRadialGradient,
         writeLinearGradient = svgWriterGradient.writeLinearGradient,
         writeColor = svgWriterUtils.writeColor,
         px = svgWriterUtils.px;
     
     function SVGWriterStroke() {
         
-        this.hasStroke = function (ctx) {
+        var hasStroke = function (ctx) {
             var omIn = ctx.currentOMNode;
             return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
         };
@@ -42,59 +41,62 @@
         
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                styleBlock,
                 gradient,
-                gradientID;
+                gradientID,
+                styleBlock,
+                stroke;
             
-            if (this.hasStroke(ctx)) {
-                var stroke = omIn.style.stroke;
-                // Make a style for this stroke and reference it.
-                styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
-                if (stroke.type == "gradient") {
-                    gradient = ctx.svgOM.global.gradients[stroke.gradient];
-                    if (gradient.type === "linear") {
-                        gradientID = writeLinearGradient(ctx, gradient, "-stroke");
-                    } else if (gradient.type === "radial") {
-                        gradientID = writeRadialGradient(ctx, gradient, "-stroke");
+            if (!hasStroke(ctx)) {
+                return;
+            }
+
+            stroke = omIn.style.stroke;
+            // Make a style for this stroke and reference it.
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            if (stroke.type == "gradient") {
+                gradient = ctx.svgOM.global.gradients[stroke.gradient];
+                if (gradient.type === "linear") {
+                    gradientID = writeLinearGradient(ctx, gradient, "-stroke");
+                } else if (gradient.type === "radial") {
+                    gradientID = writeRadialGradient(ctx, gradient, "-stroke");
+                }
+                if (gradientID) {
+                    styleBlock.addRule("stroke", "url(#" + gradientID + ")");
+                }
+            } else {
+                styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
+            }
+            if (omIn.style.stroke.lineCap !== "butt") {
+                styleBlock.addRule("stroke-linecap", omIn.style.stroke.lineCap);
+            }
+            if (omIn.style.stroke.lineJoin !== "miter") {
+                styleBlock.addRule("stroke-linejoin", omIn.style.stroke.lineJoin);
+            }
+            if (px(ctx, omIn.style.stroke.miterLimit) !== 100) {
+                styleBlock.addRule("stroke-miterlimit", px(ctx, omIn.style.stroke.miterLimit) + "px");
+            }
+            if (omIn.style.stroke.dashOffset) {
+                styleBlock.addRule("stroke-dashoffset", px(ctx, omIn.style.stroke.dashOffset) + "px");
+            }
+            if (omIn.style.stroke.opacity !== 1) {
+                styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
+            }
+            if (omIn.style.stroke.lineWidth) {
+                ctx._lastStrokeWidth = px(ctx, omIn.style.stroke.lineWidth);
+                styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
+            }
+            if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
+                var width = px(ctx, omIn.style.stroke.lineWidth) ? px(ctx, omIn.style.stroke.lineWidth) : 0;
+                var dashArray = omIn.style.stroke.dashArray.map(function(element, index) {
+                    if (element && element.hasOwnProperty("value")) {
+                        element = px(element);
                     }
-                    if (gradientID) {
-                        styleBlock.addRule("stroke", "url(#" + gradientID + ")");
-                    }
-                } else {
-                    styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
-                }
-                if (omIn.style.stroke.lineCap !== "butt") {
-                    styleBlock.addRule("stroke-linecap", omIn.style.stroke.lineCap);
-                }
-                if (omIn.style.stroke.lineJoin !== "miter") {
-                    styleBlock.addRule("stroke-linejoin", omIn.style.stroke.lineJoin);
-                }
-                if (px(ctx, omIn.style.stroke.miterLimit) !== 100) {
-                    styleBlock.addRule("stroke-miterlimit", px(ctx, omIn.style.stroke.miterLimit) + "px");
-                }
-                if (omIn.style.stroke.dashOffset) {
-                    styleBlock.addRule("stroke-dashoffset", px(ctx, omIn.style.stroke.dashOffset) + "px");
-                }
-                if (omIn.style.stroke.opacity !== 1) {
-                    styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
-                }
-                if (omIn.style.stroke.lineWidth) {
-                    ctx._lastStrokeWidth = px(ctx, omIn.style.stroke.lineWidth);
-                    styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
-                }
-                if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
-                    var width = px(ctx, omIn.style.stroke.lineWidth) ? px(ctx, omIn.style.stroke.lineWidth) : 0;
-                    var dashArray = omIn.style.stroke.dashArray.map(function(element, index) {
-                        if (element && element.hasOwnProperty("value")) {
-                            element = px(element);
-                        }
-                        // This is a work around for a bug in Chrome on [0,2] dash arrays.
-                        if (!index && !element)
-                            return 0.001;
-                        return width * element;
-                    }).join();
-                    styleBlock.addRule("stroke-dasharray", dashArray);
-                }
+                    // This is a work around for a bug in Chrome on [0,2] dash arrays.
+                    if (!index && !element)
+                        return 0.001;
+                    return width * element;
+                }).join();
+                styleBlock.addRule("stroke-dasharray", dashArray);
             }
         };
 	}
