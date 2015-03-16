@@ -42,15 +42,6 @@
             return svgNode.type == 'shape' && svgNode.shape.type == 'path';
         };
 
-        var scanForUnsupportedFeatures = function (omIn, errors) {
-            if (omIn.style &&
-                omIn.style.fill &&
-                omIn.style.fill.gradient &&
-                omIn.style.fill.gradient.gradientForm === 'colorNoise') {
-                errors.push("Gradients with noise are not supported by SVG export.");
-            }
-        };
-
         this.fetchBlendMode = function (layer) {
             var blendMode;
             if (layer.blendOptions &&
@@ -129,6 +120,7 @@
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 stroke.pattern = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern) ? "PATTERN-PLACEHOLDER" : undefined;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
+                    omgUtils.scanForUnsupportedGradientFeatures(strokeStyle.strokeStyleContent, writer);
                     stroke.type = "gradient";
                     gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
                     stroke.gradient = writer.ID.getUnique(gradient.type + "-gradient");
@@ -166,6 +158,7 @@
             } else if (fillClass == "gradientLayer") {
                 fill.type = "gradient";
                 if (fillStyle.gradient) {
+                    omgUtils.scanForUnsupportedGradientFeatures(fillStyle, writer);
                     gradient = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
                     fill.gradient = writer.ID.getUnique(gradient.type + "-gradient");
                     writer.global().gradients[fill.gradient] = gradient;
@@ -269,6 +262,8 @@
             prepareEffect('innerShadow', prepareColor);
             prepareEffect('bevelEmboss');
             prepareEffect('patternOverlay');
+
+            omgSVGFilter.scanForUnsupportedFilterFeatures(fx, writer);
 
             filter = omgSVGFilter.createSVGFilters(svgNode, writer, fx, JSON.parse(JSON.stringify(layerBounds)), JSON.parse(JSON.stringify(writer._root.global.bounds)));
             if (filter) {

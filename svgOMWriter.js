@@ -22,7 +22,7 @@
     "use strict";
     var ID = require("./idGenerator.js");
 
-	function SVGOMWriter() {
+	function SVGOMWriter(errors) {
         
 		var _root = {
                 children: [],
@@ -41,6 +41,8 @@
             _currentNodeStack = [];
         
         this._root = _root;
+
+        this.errors = errors || [];
 
         this.ID = new ID();
 

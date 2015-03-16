@@ -143,6 +143,12 @@
             return { xa: xa, ya: ya, cx: cx, cy: cy };
         }
 
+        this.scanForUnsupportedGradientFeatures = function (gradientRaw, writer) {
+            if (gradientRaw.gradient.gradientForm === 'colorNoise') {
+                writer.errors.push("Gradients with noise are not supported by SVG export.");
+            }
+        };
+
         this.toGradient = function (gradientRaw, layerBounds, docBounds) {
             var gradient,
                 gradientType = gradientRaw.type === "radial" ? "radial" : "linear",

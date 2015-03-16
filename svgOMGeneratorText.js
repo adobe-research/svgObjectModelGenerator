@@ -30,10 +30,10 @@
 
 	function SVGOMGeneratorText() {
 
-        this.scanForUnsupportedFeatures = function (omIn, errors) {
-            if (omIn.type === "text" && !ctx._issuedTextWarning && errors) {
-                ctx._issuedTextWarning = true;
-                errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.");
+        var scanForUnsupportedTextFeatures = function (writer) {
+            if (!writer._issuedTextWarning && writer.errors) {
+                writer._issuedTextWarning = true;
+                writer.errors.push("Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.");
             }
         };
 
@@ -338,6 +338,7 @@
         this.addTextData = function(svgNode, layer, writer) {
             if (this.addTextOnPath(svgNode, layer, writer) ||
                 this.addSimpleText(svgNode, layer, writer)) {
+                scanForUnsupportedTextFeatures(writer);
                 return true;
             }
             console.log("Error: No text data added for " + JSON.stringify(layer));
