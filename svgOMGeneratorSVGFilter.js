@@ -51,10 +51,37 @@
                 feColorMatrix3 = getId('color');
                 effects.push(
                     // Inverse colors.
-                    { name: 'feColorMatrix', result: feColorMatrix, input: [previousEffect],type: 'matrix', values: [-1,0,0,0,1,0,-1,0,0,1,0,0,-1,0,1,0,0,0,1,0]},
+                    {
+                        name: 'feColorMatrix',
+                        result: feColorMatrix,
+                        input: [previousEffect],
+                        type: 'matrix',
+                        values:[-1,  0,  0,  0,  1,
+                                 0, -1,  0,  0,  1,
+                                 0,  0, -1,  0,  1,
+                                 0,  0,  0,  1,  0]
+                    },
                     // Set RGB channels to A.
-                    { name: 'feColorMatrix', result: feColorMatrix2, input: [feColorMatrix], type: 'matrix', values: [0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0]},
-                    { name: 'feColorMatrix', result: feColorMatrix3, input: [feColorMatrix2], type: 'matrix', values: [-1,0,0,0,1,0,-1,0,0,1,0,0,-1,0,1,0,0,0,1,0]}
+                    {
+                        name: 'feColorMatrix',
+                        result: feColorMatrix2,
+                        input: [feColorMatrix],
+                        type: 'matrix',
+                        values: [0,  0,  0,  1,  0,
+                                 0,  0,  0,  1,  0,
+                                 0,  0,  0,  1,  0,
+                                 0,  0,  0,  1,  0]
+                    },
+                    {
+                        name: 'feColorMatrix',
+                        result: feColorMatrix3,
+                        input: [feColorMatrix2],
+                        type: 'matrix',
+                        values: [-1,  0,  0,  0,  1,
+                                  0, -1,  0,  0,  1,
+                                  0,  0, -1,  0,  1,
+                                  0,  0,  0,  1,  0]
+                    }
                 );
                 // Gradient map.
                 gradientMap.createGradientMap(glow.gradient.stops, effects, getId);
@@ -62,8 +89,19 @@
                 color = glow.color;
                 feFlood = getId('flood');
                 effects.push(
-                    { name: 'feFlood', result: feFlood, input: [], 'flood-color': color, 'flood-opacity': opacity},
-                    { name: 'feComposite', result: getId('composite'), input: [feFlood, previousEffect], operator: op}
+                    {
+                        name: 'feFlood',
+                        result: feFlood,
+                        input: [],
+                        'flood-color': color,
+                        'flood-opacity': opacity
+                    },
+                    {
+                        name: 'feComposite',
+                        result: getId('composite'),
+                        input: [feFlood, previousEffect],
+                        operator: op
+                    }
                 );
             }
         };
@@ -85,10 +123,32 @@
                 previousEffect = effects.length ? effects[effects.length-1].result : 'SourceGraphic';
 
             effects.push(
-                { name: 'feGaussianBlur', result: feBlur, input: ['SourceAlpha'], stdDeviation: blur},
-                { name: 'feFlood', result: feFlood, input: [], 'flood-color': color, 'flood-opacity': opacity},
-                { name: 'feComposite', result: feComposite, input: [feFlood, feBlur], operator: 'in'},
-                { name: 'feOffset', result: feOffset, input: [feComposite], dx: offset.x, dy: offset.y}
+                {
+                    name: 'feGaussianBlur',
+                    result: feBlur,
+                    input: ['SourceAlpha'],
+                    stdDeviation: blur
+                },
+                {
+                    name: 'feFlood',
+                    result: feFlood,
+                    input: [],
+                    'flood-color': color,
+                    'flood-opacity': opacity
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [feFlood, feBlur],
+                    operator: 'in'
+                },
+                {
+                    name: 'feOffset',
+                    result: feOffset,
+                    input: [feComposite],
+                    dx: offset.x,
+                    dy: offset.y
+                }
             );
 
             if (previousEffect == 'SourceGraphic') {
@@ -96,7 +156,12 @@
             }
             // If we have multiple shadows, then we need to blend them.
             effects.push(
-                { name: 'feBlend',        result: getId('blend'),  input: [feOffset, previousEffect], mode: dropShadow.mode}
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [feOffset, previousEffect],
+                    mode: dropShadow.mode
+                }
             );
         };
 
@@ -112,16 +177,40 @@
                 feComposite3 = getId('composite');
 
             effects.push(
-                { name: 'feGaussianBlur', result: feBlur, input: ['SourceAlpha'], stdDeviation: blur},
-                { name: 'feComposite', result: feComposite, input: [feBlur, feBlur] },
-                { name: 'feComposite', result: feComposite2, input: [feComposite, feComposite] },
-                { name: 'feComposite', result: feComposite3, input: [feComposite2, feComposite2], operator: 'over' }
+                {
+                    name: 'feGaussianBlur',
+                    result: feBlur,
+                    input: ['SourceAlpha'],
+                    stdDeviation: blur
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [feBlur, feBlur]
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite2,
+                    input: [feComposite, feComposite]
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite3,
+                    input: [feComposite2,
+                    feComposite2],
+                    operator: 'over'
+                }
             );
 
             glowHelperFunction(glow, effects, 'outerGlow');
 
             effects.push(
-                { name: 'feBlend', result: getId('blend'), input: [effects[effects.length-1].result, previousEffect], mode: glow.mode}
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [effects[effects.length-1].result, previousEffect],
+                    mode: glow.mode
+                }
             );
         };
 
@@ -132,7 +221,11 @@
                 return;
             }
             effects.push(
-                { name: 'feBlend', result: getId('blend'), input: ['SourceGraphic', previousEffect]}
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: ['SourceGraphic', previousEffect]
+                }
             );
         };
 
@@ -183,10 +276,29 @@
             base64 = svgWriterUtils.toBase64(svgWriter.printSVG(omWriter._root, { trimToArtBounds: true, preserveAspectRatio: "xMidYMid", scale: 1 }));
 
             effects.push(
-                { name: 'feImage', result: feImage, input: [], x: x, y: y, width: w, height: h, preserveAspectRatio: 'none',
-                'xlink:href': 'data:image/svg+xml;base64,' + base64 },
-                { name: 'feComposite', result: feComposite, input: [feImage, 'SourceGraphic'], operator: 'in' },
-                { name: 'feBlend', result: getId('blend'), input: [feComposite, previousEffect], mode: gradientFill.mode }
+                {
+                    name: 'feImage',
+                    result: feImage,
+                    input: [],
+                    x: x,
+                    y: y,
+                    width: w,
+                    height: h,
+                    preserveAspectRatio: 'none',
+                    'xlink:href': 'data:image/svg+xml;base64,' + base64
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [feImage, 'SourceGraphic'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [feComposite, previousEffect],
+                    mode: gradientFill.mode
+                }
             );
         };
 
@@ -198,9 +310,25 @@
                 feComposite = getId('composite');
 
             effects.push(
-                { name: 'feFlood', result: feFlood, input: [], 'flood-color': color, 'flood-opacity': opacity },
-                { name: 'feComposite', result: feComposite, input: [feFlood, 'SourceGraphic'], operator: 'in' },
-                { name: 'feBlend', result: getId('blend'), input: [feComposite, previousEffect], mode: solidFill.mode }
+                {
+                    name: 'feFlood',
+                    result: feFlood,
+                    input: [],
+                    'flood-color': color,
+                    'flood-opacity': opacity
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [feFlood, 'SourceGraphic'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [feComposite, previousEffect],
+                    mode: solidFill.mode
+                }
             );
         };
 
@@ -225,26 +353,87 @@
                 feBlur = getId('blur');
 
             effects.push(
-                { name: 'feFlood', result: feFlood, input: [], 'flood-color': color },
-                { name: 'feComposite', result: feComposite, input: [feFlood, 'SourceAlpha'], operator: 'in'},
-                { name: 'feOffset', result: feOffset, input: [feComposite], dx: offset.x, dy: offset.y },
-                { name: 'feOffset', result: feOffset2, input: [feComposite], dx: -offset.x, dy: -offset.y },
-                { name: 'feComposite', result: feComposite2, input: [feOffset, feOffset2], operator: 'xor'}
+                {
+                    name: 'feFlood',
+                    result: feFlood,
+                    input: [],
+                    'flood-color': color
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [feFlood, 'SourceAlpha'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feOffset',
+                    result: feOffset,
+                    input: [feComposite],
+                    dx: offset.x,
+                    dy: offset.y
+                },
+                {
+                    name: 'feOffset',
+                    result: feOffset2,
+                    input: [feComposite],
+                    dx: -offset.x,
+                    dy: -offset.y
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite2,
+                    input: [feOffset, feOffset2],
+                    operator: 'xor'
+                }
             );
             if (satin.invert) {
                 feComposite5 = getId('composite');
                 effects.push(
-                    { name: 'feComposite', result: feComposite5, input: [feComposite2, feComposite], operator: 'xor' }
+                    {
+                        name: 'feComposite',
+                        result: feComposite5,
+                        input: [feComposite2, feComposite],
+                        operator: 'xor'
+                    }
                 );
             }
             effects.push(
-                { name: 'feComposite', result: feComposite3, input: [(feComposite5 ? feComposite5 : feComposite2), 'SourceAlpha'], operator: 'in'},
-                { name: 'feGaussianBlur', result: feBlur, input: [feComposite3], stdDeviation: blur },
-                { name: 'feComponentTransfer', result: feComp, input: [feBlur], children: [
-                    { name: 'feFuncA', type: 'linear', slope: opacity }
-                ]},
-                { name: 'feComposite', result: feComposite4, input: [feComp, 'SourceAlpha'], operator: 'in' },
-                { name: 'feBlend', result: getId('blend'), input: [feComposite4, previousEffect], mode: satin.mode }
+                {
+                    name: 'feComposite',
+                    result: feComposite3,
+                    input: [(feComposite5 ? feComposite5 : feComposite2), 'SourceAlpha'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feGaussianBlur',
+                    result: feBlur,
+                    input: [feComposite3],
+                    stdDeviation: blur
+                },
+                {
+                    name: 'feComponentTransfer',
+                    result: feComp,
+                    input: [feBlur],
+                    children: [
+                        {
+                            name: 'feFuncA',
+                            type: 'linear',
+                            slope: opacity
+                        }
+                    ]
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite4,
+                    input: [feComp, 'SourceAlpha'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [feComposite4, previousEffect],
+                    mode: satin.mode
+                }
             );
         };
 
@@ -256,7 +445,12 @@
                 previousEffect = effects.length ? effects[effects.length-1].result : 'SourceGraphic';
 
             effects.push(
-                { name: 'feGaussianBlur', result: feBlur, input: ['SourceAlpha'], stdDeviation: blur}
+                {
+                    name: 'feGaussianBlur',
+                    result: feBlur,
+                    input: ['SourceAlpha'],
+                    stdDeviation: blur
+                }
             );
 
             if (glow.gradient) {
@@ -269,8 +463,18 @@
             glowHelperFunction(glow, effects, 'innerGlow');
 
             effects.push(
-                { name: 'feComposite', result: feComposite,  input: [effects[effects.length-1].result, 'SourceAlpha'], operator: 'in'},
-                { name: 'feBlend', result: getId('blend'), input: [feComposite, previousEffect], mode: glow.mode}
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [effects[effects.length-1].result, 'SourceAlpha'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [feComposite, previousEffect],
+                    mode: glow.mode
+                }
             );
         };
 
@@ -292,12 +496,44 @@
                 previousEffect = effects.length ? effects[effects.length-1].result : 'SourceGraphic';
 
             effects.push(
-                { name: 'feGaussianBlur', result: feBlur, input: ['SourceAlpha'], stdDeviation: blur},
-                { name: 'feFlood', result: feFlood, input: [], 'flood-color': color, 'flood-opacity': opacity},
-                { name: 'feComposite', result: feComposite, input: [feFlood, feBlur], operator: 'out'},
-                { name: 'feOffset', result: feOffset, input: [feComposite], dx: offset.x, dy: offset.y},
-                { name: 'feComposite', result: feComposite2, input: [feOffset, 'SourceAlpha'],  operator: 'in'},
-                { name: 'feBlend', result: getId('blend'), input: [feComposite2, previousEffect], mode: innerShadow.mode}
+                {
+                    name: 'feGaussianBlur',
+                    result: feBlur,
+                    input: ['SourceAlpha'],
+                    stdDeviation: blur
+                },
+                {
+                    name: 'feFlood',
+                    result: feFlood,
+                    input: [],
+                    'flood-color': color,
+                    'flood-opacity': opacity
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite,
+                    input: [feFlood, feBlur],
+                    operator: 'out'
+                },
+                {
+                    name: 'feOffset',
+                    result: feOffset,
+                    input: [feComposite],
+                    dx: offset.x,
+                    dy: offset.y
+                },
+                {
+                    name: 'feComposite',
+                    result: feComposite2,
+                    input: [feOffset, 'SourceAlpha'],
+                    operator: 'in'
+                },
+                {
+                    name: 'feBlend',
+                    result: getId('blend'),
+                    input: [feComposite2, previousEffect],
+                    mode: innerShadow.mode
+                }
             );
         };
 
