@@ -35,9 +35,6 @@
             return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
         };
         
-        this.scanForUnsupportedFeatures = function (ctx) {
-        };
-        
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
                 gradientID,

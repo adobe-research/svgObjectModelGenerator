@@ -198,7 +198,7 @@
                             if (layerSpec === "all") {
                                 layerSpec = null;
                             }
-                            var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec }),
+                            var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec, errors: svgWriterErrors }),
                                 svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: cropToSingleLayer,
                                     preserveAspectRatio: "xMidYMid",

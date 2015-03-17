@@ -32,15 +32,6 @@
 
     function SVGWriterPreprocessor() {
 
-        // FIXME: This checks for PS specific features and therefore
-        // should be moved to svgOM...
-        this.scanForUnsupportedFeatures = function (ctx) {
-            svgWriterFill.scanForUnsupportedFeatures(ctx);
-            svgWriterStroke.scanForUnsupportedFeatures(ctx);
-            svgWriterFx.scanForUnsupportedFeatures(ctx);
-            svgWriterText.scanForUnsupportedFeatures(ctx);
-        };
-
         this.provideBackupDefaults = function (omIn, styleBlock) {
             if (omIn.style && styleBlock.hasRules() &&
                     omIn.type === "shape" && !omIn.style.fill) {
@@ -374,7 +365,6 @@
                 shiftBounds(ctx, omIn, nested, sibling);
             }
 
-            this.scanForUnsupportedFeatures(ctx);
             this.externalizeStyles(ctx);
 
             if (omIn.type === "textPath") {

@@ -33,6 +33,26 @@
 
     function SVGOMGeneratorSVGFilter() {
 
+        var hasPSEffect = function (fx, effect) {
+            if (!fx[effect]) {
+                return false;
+            }
+            return fx[effect].some(function(ele) {
+                return ele.enabled;
+            });
+        };
+
+        this.scanForUnsupportedFilterFeatures = function (fx, writer) {
+            // This scans for unsupported PS filter effects.
+            if (hasPSEffect(fx, 'bevelEmbossMulti')) {
+                writer.errors.push('Bevel and Emboss filter effects are not supported by SVG export.');
+            }
+            
+            if (hasPSEffect(fx, 'patternOverlayMulti')) {
+                writer.errors.push('Pattern Overlay effects are not supported by SVG export.');
+            }
+        };
+
         var glowHelperFunction = function (glow, effects, glowType) {
             var gradientMap = new GradientMap(),
                 color,

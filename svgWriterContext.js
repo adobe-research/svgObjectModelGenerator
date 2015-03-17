@@ -46,7 +46,7 @@
         this.contentBounds = {};
 
         //an array for reporting errors
-        this.errors = errors;
+        this.errors = errors || [];
 
         this.ID = new ID();
 

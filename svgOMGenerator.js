@@ -73,7 +73,7 @@
 
     function extractSVGOM (psd, opts) {
         var layers = psd.layers,
-            writer = new SVGOMWriter(),
+            writer = new SVGOMWriter(opts.errors),
             iL,
             lyr,
             layerSpec = opts.layerSpec,
