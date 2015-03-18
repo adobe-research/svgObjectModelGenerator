@@ -35,13 +35,13 @@
         this.addImage = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (pixel) {
                 svgNode.pixel = pixel;
-                svgNode.shapeBounds = layer.bounds;
+                svgNode.bounds = layer.bounds;
                 
                 if (layer.boundsWithFX) {
-                    svgNode.shapeBounds = layer.boundsWithFX;
+                    svgNode.bounds = layer.boundsWithFX;
                 }
 
-                omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                omgStyles.addStylingData(svgNode, layer, svgNode.bounds, writer);
                 
                 return true;
             });
