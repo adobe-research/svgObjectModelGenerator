@@ -427,13 +427,13 @@
             return tag.useTrick(ctx);
         },
         generic: function (ctx, node) {
-            if (!node.shapeBounds) {
+            if (!node.bounds) {
                 return;
             }
-            var top = parseFloat(node.shapeBounds.top),
-                right = parseFloat(node.shapeBounds.right),
-                bottom = parseFloat(node.shapeBounds.bottom),
-                left = parseFloat(node.shapeBounds.left),
+            var top = parseFloat(node.bounds.top),
+                right = parseFloat(node.bounds.right),
+                bottom = parseFloat(node.bounds.bottom),
+                left = parseFloat(node.bounds.left),
                 w = right - left,
                 h = bottom - top,
                 tag = new Tag("image", {

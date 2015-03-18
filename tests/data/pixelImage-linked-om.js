@@ -16,7 +16,7 @@ module.exports = {
 			"children": [],
 			"title": "green",
 			"pixel": "data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwAAAADe5c7RAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC",
-			"shapeBounds": {
+			"bounds": {
 				"top": 0,
 				"left": 0,
 				"bottom": 100,
