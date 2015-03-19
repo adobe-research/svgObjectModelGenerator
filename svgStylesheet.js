@@ -130,8 +130,11 @@
         proto.write = proto.toString = function (ctx) {
             ctx = ctx || new SVGWriterContext({});
             var i;
-
-            writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
+            if (ctx.minify()) {
+                writeln(ctx, ctx.currentIndent + "." + this.class.join(",.") + "{");
+            } else {
+                writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
+            }
             indent(ctx);
 
             for (i = 0; i < this.rules.length; i++) {
@@ -393,7 +396,6 @@
         };
 
         proto.writeSheet = function (ctx) {
-
             var blockClass,
                 blocks = [];
 

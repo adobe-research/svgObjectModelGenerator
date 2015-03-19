@@ -24,13 +24,21 @@
     var ID = require("./idGenerator.js");
 
     function SVGWriterContext(svgOM, config, errors) {
+        var minify = false;
+
         // FIXME: In the future, determine that svgOM is a root element.
         this.config = config;
         this.svgOM = svgOM;
         this.currentOMNode = svgOM;
-        this.indent = '  ';
-        this.currentIndent = '';
-        this.terminator = '\n';
+        if (this.config) {
+            minify = !!this.config.minify;
+        }
+
+        this.indent = minify ? "" : "  ";
+        this.currentIndent = "";
+        this.terminator = minify ? "" : "\n";
+        this.idType = minify ? "minimal" : "regular";
+
         // svgStylesheed creates new svgWriterContexts without a global object.
         if (svgOM.global) {
             this.docBounds = svgOM.global.bounds;
@@ -48,7 +56,9 @@
         //an array for reporting errors
         this.errors = errors || [];
 
-        this.ID = new ID();
+        this.ID = new ID(this.idType);
+
+        this.minify = function () { return minify; };
 
         // FIXME: Do we even need unique IDs for node.ids that
         // are unique already?

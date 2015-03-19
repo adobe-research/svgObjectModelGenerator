@@ -22,6 +22,7 @@
 
     var round10k = svgWriterUtils.round10k,
         gradientStops = {};
+    var ctxCapture = svgWriterUtils.ctxCapture;
 
     function removeDups(lines) {
         var out = [lines[0]];
@@ -99,6 +100,7 @@
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
                 stops = gradient.stops,
                 gradientSpace = gradient.gradientSpace,
+                fingerprint = "",
                 stp,
                 stpOpacity,
                 lines = [],
@@ -128,12 +130,9 @@
             } else {
                 self.getRadialGradientInternal(ctx, gradient, tag, link, lines, gradientID);
             }
-            ctx.omStylesheet.define(
-                gradient.type + "-gradient" + flavor,
-                omIn.id,
-                gradientID,
-                tag.toString(),
-                JSON.stringify({
+
+            ctxCapture(ctx, function () {
+                fingerprint = JSON.stringify({
                     cx: round10k(gradient.cx),
                     cy: round10k(gradient.cy),
                     x1: round10k(gradient.x1),
@@ -143,8 +142,13 @@
                     r: round10k(gradient.r),
                     stops: stops,
                     gradientSpace: gradientSpace
-                })
-            );
+                });
+
+                tag.write(ctx);
+            }.bind(this), function (out) {
+                ctx.omStylesheet.define(gradient.type + "-gradient" + flavor, omIn.id, gradientID, out, fingerprint);
+            }.bind(this));
+
             return ctx.omStylesheet.getDefine(omIn.id, gradient.type + "-gradient" + flavor).defnId;
         }
     };

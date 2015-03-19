@@ -23,7 +23,8 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterPreprocessor = require("./svgWriterPreprocessor.js"),
         Tag = require("./svgWriterTag.js"),
-        SVGWriterContext = require("./svgWriterContext.js");
+        SVGWriterContext = require("./svgWriterContext.js"),
+        ID = require("./idGenerator.js");
 
     var toString = svgWriterUtils.toString;
 
@@ -63,11 +64,11 @@
         process(tag, ctx, parents.slice(0), num);
     }
 
-    function processStyle(blocks) {
-        var j = 1;
+    function processStyle(ctx, blocks) {
+        var id = new ID(ctx.idType);
         for (var i in blocks) {
             if (blocks[i].tags) {
-                blocks[i].class[0] = "cls-" + j++;
+                blocks[i].class[0] = id.getUnique("cls");
             }
         }
     }
@@ -79,7 +80,7 @@
             svgWriterPreprocessor.processSVGOM(ctx);
             var svg = Tag.make(ctx, svgOM);
             ctx.omStylesheet.consolidateStyleBlocks();
-            processStyle(ctx.omStylesheet.blocks);
+            processStyle(ctx, ctx.omStylesheet.blocks);
             preProcess(svg, ctx);
             svg.write(ctx);
         } catch (ex) {
