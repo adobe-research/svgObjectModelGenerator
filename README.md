@@ -1,21 +1,82 @@
 # SVG Object Model Generator  [![Build Status](https://travis-ci.org/adobe-research/svgObjectModelGenerator.png?branch=master)](https://travis-ci.org/adobe-research/svgObjectModelGenerator)
 
 
-An abstract object model generator and SVG writer.
+An OMG generator and SVG writer. OMG is a JSON based vector graphics format used as intermediate format for transformation to different output formats.
 
 ## Overview
 
-This engine is designed to meet the needs of modern SVG and to be sharable by any client apps that can generate the standard JSON.
+svgObjectModelGenerator consists of two parts
 
-The engine currently works, in an experimental manner, with Photoshop Generator.
+1. **svgOM to generate OMG from Generator JSON**
+
+	This part of the library is Photoshop specific and requires the [Generator](https://github.com/adobe-photoshop/generator-core) module to be active and running in Photoshop. svgOM itself is a Node.js module that takes Generator JSONs as input and transforms it to OMG.
+
+	svgOM can just be used with Generator JSON.
+
+2. **svgWriter to generate SVG from OMG**
+
+	svgWriter is another Node.js based module that takes OMG as input and transforms it to highly optimized yet easy to read and script SVG.
+
+	svgWriter is application-independent and can be used in other environments than Photoshop as well.
 
 ## License
 All code is offered under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 
-## Development
+## Development and Contributions
 
 We :clap: pull requests! If you submit one, please also sign our [Contributor License Agreement](https://adobe.echosign.com/public/esignWidget?wid=9SNA9H6XX64Q5C).
+
+Every pull request must be reviewed by at least one contributor. A patch gets merged on a positive review.
+
+The project follows the default code conventions of the ESLint project. Dependent on the used code editor there may be extensions for automatic checking:
+
+* **Sublime Text 2/3** Use [SublimeLinter](https://github.com/roadhump/SublimeLinter-eslint) in a combination with a [ESLint](https://github.com/roadhump/SublimeLinter-eslint).
+* **Brackets** Use the extension [brackets-eslint](https://github.com/peol/brackets-eslint).
+
+## Running svgWriter
+
+To run *svgWriter* as a Node.js module separately from svgOM do the following.
+
+In `package.json` replace the line
+
+```javascript
+"main": "main.js",
+```
+
+with
+
+```javascript
+"main": "svgWriter.js",
+```
+
+**svgWriter** takes multiple arguments to pass over OMG as well as parametrization for svgWriter.
+
+First include svgWriter
+
+```javascript
+svgWriter = require("./svgWriter.js");
+```
+
+then call svgWriter
+
+```javascript
+svgWriter.printSVG(OMG, config, errors)
+```
+
+* **OMG** The parsed JSON object.
+* **config** The configuration of *svgWriter*.
+* **errors** An array with string items. Each item a error report.
+
+The configuration object has the following arguments:
+
+* **trimToArtBounds** *boolean* The SVG will cover the art bounds independent of the dimension of the OMG document.
+* **constrainToDocBounds** *boolean*
+* **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute).
+* **scale** *number* A scale factor.
+* **targetWidth** *number* The width the SVG document needs to fit into.
+* **targetHeight** *number* The height the SVG document needs to fit into.
+* **cropRect** *object* A rectangle with the properties `x`, `y`, `width` and `height`. `x` and `y` are optional. Defines a rectangle the SVG document gets cropped to. It may create a padding if the dimension is smaller than the crop rectangle.
 
 ## Setup Generator
 
