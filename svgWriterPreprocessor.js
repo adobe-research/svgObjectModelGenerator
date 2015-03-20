@@ -24,6 +24,7 @@
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
+        svgWriterMask = require("./svgWriterMask.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
         utils = require("./utils.js");
@@ -52,6 +53,7 @@
             svgWriterFill.externalizeStyles(ctx);
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
+            svgWriterMask.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
 
@@ -62,15 +64,15 @@
                     if (omIn.style[property] === undefined) {
                         return;
                     }
-                    // fill, stroke and fx are handled above.
-                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta") {
+                    // fill, stroke, mask and fx are handled above.
+                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta" || property == "mask") {
                         return;
                     }
-                    if (property === "font-size") {
+                    if (property == "font-size") {
                         styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
                         return;
                     }
-                    if (property.indexOf("_") !== 0) {
+                    if (property.indexOf("_") != 0) {
                         styleBlock.addRule(property, omIn.style[property]);
                     }
                 });
@@ -80,7 +82,7 @@
         var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
                 bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
-                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
+                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                             omIn.style.stroke.lineWidth || 0,
                 expand = lineWidth / 2;
 
@@ -374,21 +376,36 @@
             if (children) {
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(ctx, (omIn !== ctx.svgOM), (ind !== 0));
+                    this.processSVGNode(ctx, (omIn !== ctx.svgOM), ind);
                 }.bind(this));
             }
         };
 
         this.processSVGOM = function (ctx) {
-            var omSave = ctx.currentOMNode;
-            ctx.omStylesheet = new SVGStylesheet();
+            var omSave = ctx.currentOMNode,
+                prep = this,
+                global = ctx.svgOM.global;
+            ctx.omStylesheet = new SVGStylesheet;
 
             if (ctx.config.trimToArtBounds) {
                 preprocessSVGNode(ctx, ctx.currentOMNode);
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
             }
-            this.processSVGNode(ctx, false, false);
+            Object.keys(global.masks || {}).forEach(function (key) {
+                ctx.currentOMNode = global.masks[key];
+                prep.processSVGNode(ctx);
+            });
+            Object.keys(global.patterns || {}).forEach(function (key) {
+                ctx.currentOMNode = global.patterns[key];
+                prep.processSVGNode(ctx);
+            });
+            Object.keys(global.symbols || {}).forEach(function (key) {
+                ctx.currentOMNode = global.symbols[key];
+                prep.processSVGNode(ctx);
+            });
+            ctx.currentOMNode = omSave;
+            this.processSVGNode(ctx);
             ctx.currentOMNode = omSave;
         };
     }

@@ -141,7 +141,7 @@
             }
             break;
         }
-        if (value === "") {
+        if (value === "" || value == null) {
             if (name == "id" && root) {
                 delete root.ids[this.attrs.id];
             }
@@ -242,7 +242,7 @@
             }
         }
         for (var i = 0; i < numChildren; i++) {
-            tag.children[i].toString(ctx);
+            tag.children[i].write(ctx);
         }
         if (!numChildren || !tag.name) {
             return ctx.sOut;
@@ -365,7 +365,20 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             return tag.useTrick(ctx);
-
+        },
+        mask: function (ctx, node) {
+            var attr = {};
+            if (node.bounds) {
+                attr.x = node.bounds.left;
+                attr.y = node.bounds.top;
+                attr.width = node.bounds.right - node.bounds.left;
+                attr.height = node.bounds.bottom - node.bounds.top;
+            }
+            attr.maskUnits = node.maskUnits;
+            if (node.kind != "luminocity") {
+                attr.style = "mask-type:alpha";
+            }
+            return new Tag("mask", attr, ctx);
         },
         rect: function (ctx, node) {
             var tag = new Tag("rect", {

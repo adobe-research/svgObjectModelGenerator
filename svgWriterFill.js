@@ -26,15 +26,13 @@
     
     var writeGradient = svgWriterGradient.writeGradient,
         writeColor = svgWriterUtils.writeColor;
-    
-    function SVGWriterFill() {
 
-        this.externalizeStyles = function (ctx) {
+	module.exports = {
+        externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
                 gradientID,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
-            
             if (!omIn.style || !omIn.style.fill) {
                 return;
             }
@@ -48,9 +46,7 @@
             } else {
                 styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }
-        };
-	}
-
-	module.exports = new SVGWriterFill();
+        }
+    };
     
 }());

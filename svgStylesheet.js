@@ -50,19 +50,37 @@
     }(CSSStyleRule.prototype));
 
     function CSSStyleBlock(cls) {
-        if (cls && cls.splice) {
-            this.class = cls;
+        if (this && this.constructor == CSSStyleBlock) {
+            if (cls && cls.splice) {
+                this.class = cls;
+            } else {
+                this.class = [].slice.call(arguments, 0);
+            }
+            this.rules = [];
+            this.elements = [];
         } else {
-            this.class = [].slice.call(arguments, 0);
+            if (cls && cls.constructor == CSSStyleBlock) {
+                return cls;
+            }
+            if (cls) {
+                return CSSStyleBlock.prototype.clone.call(cls);
+            }
+            return new CSSStyleBlock;
         }
-        this.rules = [];
-        this.elements = [];
     }
 
     (function (proto) {
 
-        proto.addRule = function (prop, val) {
-            this.rules.push(new CSSStyleRule(prop, val));
+        proto.addRule = function (prop, value, force) {
+            if (!force) {
+                for (var i = 0; i < this.rules.length; i++) {
+                    if (this.rules[i].propertyName == prop) {
+                        this.rules[i].value = value;
+                        return;
+                    }
+                }
+            }
+            this.rules.push(new CSSStyleRule(prop, value));
         };
 
         proto.removeRule = function (prop, val) {
@@ -80,6 +98,10 @@
             for (var i = 0, len = this.rules.length; i < len; i++) {
                 clone.addRule(this.rules[i].propertyName, this.rules[i].value);
             }
+            clone.elements = this.elements || [];
+            clone.element = this.element;
+            clone.tags = this.tags || [];
+            clone.fingerprint = this.fingerprint;
             return clone;
         };
 
@@ -102,7 +124,7 @@
         };
 
         proto.hasRules = function () {
-            return (this.rules.length > 0);
+            return this.rules.length > 0;
         };
 
         proto.write = proto.toString = function (ctx) {
@@ -134,11 +156,10 @@
         proto.getPropertyValue = function (prop) {
             var i;
             for (i = 0; i < this.rules.length; i++) {
-                if (this.rules[i].propertyName === prop) {
+                if (this.rules[i].propertyName == prop) {
                     return this.rules[i].value;
                 }
             }
-            return;
         };
 
     }(CSSStyleBlock.prototype));
@@ -290,20 +311,16 @@
         };
 
         proto.hasStyleBlock = function (omNode) {
-            return !!(omNode.styleBlock && omNode.styleBlock.hasRules());
+            return omNode.styleBlock && CSSStyleBlock(omNode.styleBlock).hasRules();
         };
 
         proto.getStyleBlock = function (omNode, getUnique) {
-
-            if (omNode.styleBlock) {
-                return omNode.styleBlock;
-            }
 
             omNode.className = omNode.className || getUnique("cls");
 
             //TBD: factor in IDs
 
-            omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
+            omNode.styleBlock = CSSStyleBlock(omNode.styleBlock || new CSSStyleBlock(omNode.className));
 
             this.blocks[omNode.className] = omNode.styleBlock;
             // We create an styleBlock for each element initially.
@@ -415,7 +432,11 @@
                     defn = this.defines[defnId];
 
                     if (!defn.written && (!ONLY_EXTERNALIZE_CONSOLIDATED || (ONLY_EXTERNALIZE_CONSOLIDATED && defn.consolidated))) {
-                        write(ctx, indentify(ctx.currentIndent, defn.out));
+                        if (typeof defn.out == "string") {
+                            write(ctx, indentify(ctx.currentIndent, defn.out));
+                        } else {
+                            defn.out.write(ctx);
+                        }
                         defn.written = true;
                     }
                 }
