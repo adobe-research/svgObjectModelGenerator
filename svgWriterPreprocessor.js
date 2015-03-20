@@ -383,7 +383,7 @@
 
         this.processSVGOM = function (ctx) {
             var omSave = ctx.currentOMNode,
-                prep = this,
+                self = this,
                 global = ctx.svgOM.global;
             ctx.omStylesheet = new SVGStylesheet;
 
@@ -392,17 +392,11 @@
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
             }
+            // Preprocess the content of the resources,
+            // since they are not a part of the tree
             Object.keys(global.masks || {}).forEach(function (key) {
                 ctx.currentOMNode = global.masks[key];
-                prep.processSVGNode(ctx);
-            });
-            Object.keys(global.patterns || {}).forEach(function (key) {
-                ctx.currentOMNode = global.patterns[key];
-                prep.processSVGNode(ctx);
-            });
-            Object.keys(global.symbols || {}).forEach(function (key) {
-                ctx.currentOMNode = global.symbols[key];
-                prep.processSVGNode(ctx);
+                self.processSVGNode(ctx);
             });
             ctx.currentOMNode = omSave;
             this.processSVGNode(ctx);
