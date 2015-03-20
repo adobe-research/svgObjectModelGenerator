@@ -69,5 +69,36 @@ describe('SVGWriterUtils', function (){
         expect(svgWriterUtils.px(testCTX, testLengthUnknown)).to.equal(0);
         
     });
+
+    it("test transformation matrix without translation values", function () {
+        var val = {
+                "0": [
+                    0.707107,
+                    -0.707107,
+                    0,
+                    0
+                ],
+                "1": [
+                    0.707107,
+                    0.707107,
+                    0,
+                    0
+                ],
+                "2": [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                "3": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            };
+
+        expect(svgWriterUtils.getTransform(val, undefined, undefined)).to.equal("rotate(-45)");
+    });
     
 });
