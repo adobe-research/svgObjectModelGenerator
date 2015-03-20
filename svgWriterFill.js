@@ -33,7 +33,7 @@
                 fill,
                 gradientID,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
-            if (!omIn.style || !omIn.style.fill) {
+            if (!omIn.style || !omIn.style.fill || omIn.style.fill.type == "none") {
                 return;
             }
             fill = omIn.style.fill;

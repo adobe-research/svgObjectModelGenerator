@@ -32,6 +32,7 @@
         this.currentOMNode = svgOM;
         if (this.config) {
             this.minify = !!this.config.minify;
+            this.usePresentationAttribute = !!config.usePresentationAttribute;
         }
 
         this.indent = this.minify ? "" : "  ";
