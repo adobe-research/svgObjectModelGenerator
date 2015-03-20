@@ -584,7 +584,7 @@
         this.decomposeTransform = function (matrix) {
             // fields will be : translation, rotation, scale, skew, perspective
             var returnValue,
-                mtrx = matrix,
+                mtrx = new Matrix4x4(matrix),
                 perspectiveMatrix,
                 i,
                 rightHandSide,
