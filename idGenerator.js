@@ -22,7 +22,7 @@
 
     // Types can be "minimal", "unique", "regular"
     function ID (type) {
-        var docIDs = {},
+        var docIDs = type == "minimal" ? {"min": "`"} : {},
             _type = type;
 
 
@@ -60,7 +60,7 @@
         this.reset = function () {
             docIDs = {};
             if (_type == "minimal") {
-                docIDs.mid = "`";
+                docIDs.min = "`";
             }
         };
 
@@ -77,8 +77,6 @@
                 return kind + "-" + docIDs[kind]++;
             }
         };
-
-        this.reset();
     }
 
 	module.exports = ID;
