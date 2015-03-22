@@ -20,27 +20,26 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js");
 
-    var round10k = svgWriterUtils.round10k;
-
     module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
                 mask,
-                styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+                styleBlock,
+                maskTag;
 
             if (!omIn.style || !omIn.style.mask) {
                 return;
             }
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             mask = omIn.style.mask;
             if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
                 styleBlock.addRule("mask", "url(#" + mask + ")");
                 ctx.currentOMNode = ctx.svgOM.global.masks[mask];
-                var msk = Tag.make(ctx);
+                maskTag = Tag.make(ctx);
                 ctx.currentOMNode = omIn;
-                msk.setAttribute("id", mask);
-                ctx.omStylesheet.define("mask", omIn.id, mask, msk, msk.toString());
+                maskTag.setAttribute("id", mask);
+                ctx.omStylesheet.define("mask", omIn.id, mask, maskTag, maskTag.toString());
             }
         }
     };
-
 }());
