@@ -20,14 +20,14 @@
 
 (function () {
     "use strict";
-    
+
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js");
-    
+
     var writeGradient = svgWriterGradient.writeGradient,
         writeColor = svgWriterUtils.writeColor;
 
-	module.exports = {
+    module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
@@ -48,5 +48,4 @@
             }
         }
     };
-    
 }());
