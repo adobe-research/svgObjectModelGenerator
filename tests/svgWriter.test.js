@@ -400,6 +400,7 @@ describe('svgWriter', function (){
                 children:[
                     {
                         type: "shape",
+                        visible: true,
                         shapeBounds: {
                             left: 100,
                             right: 200,
@@ -434,6 +435,7 @@ describe('svgWriter', function (){
                     },
                     {
                         type: "shape",
+                        visible: true,
                         shapeBounds: {
                             left: 100,
                             right: 200,
@@ -458,6 +460,83 @@ describe('svgWriter', function (){
             } catch (e) {
                 fs.writeFileSync('./tests/data/polygon-line.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as polygon-line.svg');
+                return;
+            }
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return;
+        });
+    });
+
+    /**
+     * Test termination of rendering on visible: false.
+     **/
+    describe("Test termination of rendering on visible: false", function () {
+        it("should not render circle", function () {
+            var svgOM = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        visible: false,
+                        shapeBounds: {
+                            left: 50,
+                            right: 150,
+                            top: 50,
+                            bottom: 150
+                        },
+                        shape: {
+                            type: "circle",
+                            cx: 100,
+                            cy: 100,
+                            r: 50
+                        },
+                        style: {
+                            stroke: {
+                                type: "solid",
+                                color: {r:255,g:0,b:0,a:1},
+                                lineWidht: 10,
+                                "stroke-opacity": 1,
+                            }
+                        }
+                    },
+                    {
+                        type: "shape",
+                        visible: true,
+                        shapeBounds: {
+                            left: 100,
+                            right: 300,
+                            top: 100,
+                            bottom: 300
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 200,
+                            height: 200
+                        },
+                    },
+                ]
+            },
+            exptectedOut,
+            svgOut = svgWriter.printSVG(svgOM, {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid"
+            });
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/data/invisible-circle.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/invisible-circle.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as invisible-circle.svg');
                 return;
             }
             

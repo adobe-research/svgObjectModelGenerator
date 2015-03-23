@@ -530,6 +530,9 @@
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
         } else {
+            if (!node.visible) {
+                return;
+            }
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
                     console.warn("Shape has no boundaries.");

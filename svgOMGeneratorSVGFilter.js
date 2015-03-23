@@ -263,6 +263,7 @@
                 rect = {
                     id: "shape-1",
                     type: "shape",
+                    visible: true,
                     shape: {
                         type: "rect",
                         x: x,

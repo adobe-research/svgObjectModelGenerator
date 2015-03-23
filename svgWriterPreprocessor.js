@@ -279,9 +279,18 @@
             }
         };
 
+        var isVisible = function (ctx, omIn) {
+            return omIn == ctx.svgOM || omIn.visible;
+        };
+
         var preprocessSVGNode = function (ctx) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
+
+            // Do not process style of element if it is not visible.
+            if (!isVisible(ctx, omIn)) {
+                return;
+            }
 
             if (ctx.config.trimToArtBounds) {
                 recordBounds(ctx, omIn);
@@ -354,6 +363,11 @@
         this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
+
+            // Do not process style of element if it is not visible.
+            if (!isVisible(ctx, omIn)) {
+				return;
+			}
 
             if (omIn.processed) {
                 return;
