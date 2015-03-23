@@ -175,7 +175,7 @@
             }
 
             if (layer.blendOptions && layer.blendOptions.fillOpacity) {
-                svgNode.style["fill-opacity"] = layer.blendOptions.fillOpacity.value / 100;
+                fill.opacity = layer.blendOptions.fillOpacity.value / 100;
             }
         };
 
