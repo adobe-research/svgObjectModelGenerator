@@ -355,6 +355,10 @@
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
 
+            if (omIn.processed) {
+                return;
+            }
+
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {
@@ -367,6 +371,15 @@
                 shiftBounds(ctx, omIn, nested, sibling);
             }
 
+            omIn.processed = true;
+
+            // We should process mask before masked element
+            if (omIn.style && omIn.style.mask && ctx.svgOM.global.masks) {
+                ctx.currentOMNode = ctx.svgOM.global.masks[omIn.style.mask];
+                this.processSVGNode(ctx);
+                ctx.currentOMNode = omIn;
+            }
+
             this.externalizeStyles(ctx);
 
             if (omIn.type === "textPath") {
@@ -377,7 +390,7 @@
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
                     this.processSVGNode(ctx, (omIn !== ctx.svgOM), ind);
-                }.bind(this));
+                }, this);
             }
         };
 

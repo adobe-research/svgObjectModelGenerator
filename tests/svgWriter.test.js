@@ -125,12 +125,49 @@ describe('svgWriter', function (){
 
 
     /**
+     * Test extraction of masks to SVG
+     **/
+    describe('Test extraction of masks to SVG', function () {
+
+        function compareResults (testName) {
+            var svgOM,
+                svgOut,
+                exptectedOut,
+                svgWriterErrors = [],
+                path = 'data/mask/' + testName;
+
+            svgOM = JSON.parse(fs.readFileSync('./tests/' + path + '-om.json'));
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        }
+
+        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5"];
+
+        for (var i = 0, end = database.length; i < end; i++) {
+            compareResults(database[i]);
+        }
+    });
+
+    /**
      * Test extraction of all layers to SVG
      **/
     describe('Test extraction of all layers to SVG', function () {
 
         function compareResults (layerId, testName) {
             var svgOM,
+                svgOut,
                 exptectedOut,
                 svgWriterErrors = [],
                 path = 'data/' + testName + '/' + testName + '-' + layerId;

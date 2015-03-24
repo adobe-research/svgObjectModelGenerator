@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #0072bc;
+        stroke: #000;
+        stroke-width: 14px;
+      }
+
+      .cls-1 {
+        stroke-opacity: 0.5;
+      }
+
+      .cls-3 {
+        fill: #ed1c24;
+        mask: url(#mask1);
+      }
+    </style>
+
+    <mask style="mask-type:alpha" id="mask1">
+      <rect x="130" y="67" width="110" height="179" class="cls-1"/>
+      <rect x="270" y="67" width="39" height="179" class="cls-1"/>
+    </mask>
+  </defs>
+  <rect x="130" y="66" width="179" height="179" class="cls-2"/>
+  <circle cx="309" cy="245" r="94" class="cls-3"/>
+</svg>

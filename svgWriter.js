@@ -75,6 +75,7 @@
     function print(svgOM, opt, errors) {
         var ctx = getFormatContext(svgOM, opt || {}, errors);
         try {
+            Tag.resetRoot();
             svgWriterPreprocessor.processSVGOM(ctx);
             var svg = Tag.make(ctx, svgOM);
             ctx.omStylesheet.consolidateStyleBlocks();

@@ -65,6 +65,13 @@
         var omIn = ctx.currentOMNode;
         return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
     }
+    Tag.resetRoot = function () {
+        root = {
+            all: {},
+            artboards: 1,
+            ids: {}
+        };
+    };
     Tag.getById = function (id) {
         if (!root) {
             return null;
@@ -374,7 +381,11 @@
                 attr.width = node.bounds.right - node.bounds.left;
                 attr.height = node.bounds.bottom - node.bounds.top;
             }
-            attr.maskUnits = node.maskUnits;
+            attr.maskUnits = node.maskUnits || "userSpaceOnUse";
+            if (!node.bounds && !node.maskUnits) {
+                delete attr.maskUnits;
+            }
+            attr.maskContentUnits = node.maskContentUnits;
             if (node.kind != "luminocity") {
                 attr.style = "mask-type:alpha";
             }
@@ -518,10 +529,6 @@
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
-            tag.all = {};
-            root = tag;
-            root.artboards = 1;
-            root.ids = {};
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
