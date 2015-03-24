@@ -46,6 +46,10 @@
             } else {
                 styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }
+
+            if (isFinite(omIn.style.fill.opacity) && omIn.style.fill.opacity !== 1) {
+                styleBlock.addRule("fill-opacity", omIn.style.fill.opacity);
+            }
         }
     };
 }());

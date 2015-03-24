@@ -23,9 +23,9 @@ module.exports = {
 						"g": 226.000002,
 						"b": 161.33074,
 						"a": 1
-					}
+					},
+					"opacity": 0.78
 				},
-				"fill-opacity": 0.78,
 				"meta": {
 					"PS": {
 						"fx": {

@@ -20,16 +20,62 @@
 (function () {
     "use strict";
 
-    function ID() {
-        var docIDs = {};
+    // Types can be "minimal", "unique", "regular"
+    function ID (type) {
+        var docIDs = type == "minimal" ? {"min": "`"} : {},
+            _type = type;
+
+
+        // Will create minimal Ids in the format
+        // a, b, c, ..., z, aa, ab, ..., az, ba, ...
+        var minimalId = function () {
+            var s = docIDs['min'],
+                pos = s.length - 1,
+                n,
+                replaceAtPos = function(s, i, c) {
+                    return s.substr(0, i) + c + s.substr(i + c.length);
+                };
+            do {
+                n = s.charCodeAt(pos);
+                if (n < 122) {
+                    s = replaceAtPos(s, pos, String.fromCharCode(++n));
+                    docIDs['min'] = s;
+                    return s;
+                } else {
+                    s = replaceAtPos(s, pos, 'a');
+                }
+                --pos;
+            } while (pos >= 0);
+            docIDs['min'] = 'a' + s;
+            return docIDs['min'];
+        };
+
+        var uniqueId = function () {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 3| 8);
+                    return v.toString(16);
+                });
+        };
 
         this.reset = function () {
             docIDs = {};
+            if (_type == "minimal") {
+                docIDs.min = "`";
+            }
         };
 
         this.getUnique = function (kind) {
-            docIDs[kind] = docIDs[kind] || 1;
-            return kind + "-" + docIDs[kind]++;
+            switch (type) {
+            case "unique":
+                return uniqueId();
+            case "minimal":
+                return minimalId();
+            case "regular":
+                // falls through
+            default:
+                docIDs[kind] = docIDs[kind] || 1;
+                return kind + "-" + docIDs[kind]++;
+            }
         };
     }
 
