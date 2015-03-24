@@ -130,23 +130,23 @@
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {
-            case "number":
-                value = parseNumber(value);
-                break;
-            case "number-sequence":
-                if (!Array.isArray(value)) {
-                    value = (value + "").split(/[,\s]+/);
-                }
-                for (var i = 0, ii = value.length; i < ii; i++) {
-                    value[i] = parseNumber(value[i]);
-                }
-                value = value.join(" ");
-                break;
-            case "color":
-                if (value != "none") {
-                    value = writeColor(value);
-                }
-                break;
+        case "number":
+            value = parseNumber(value);
+            break;
+        case "number-sequence":
+            if (!Array.isArray(value)) {
+                value = (value + "").split(/[,\s]+/);
+            }
+            for (var i = 0, ii = value.length; i < ii; i++) {
+                value[i] = parseNumber(value[i]);
+            }
+            value = value.join(" ");
+            break;
+        case "color":
+            if (value != "none") {
+                value = writeColor(value);
+            }
+            break;
         }
         return value;
     };
