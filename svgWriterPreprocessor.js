@@ -366,8 +366,8 @@
 
             // Do not process style of element if it is not visible.
             if (!isVisible(ctx, omIn)) {
-				return;
-			}
+                return;
+            }
 
             if (omIn.processed) {
                 return;
