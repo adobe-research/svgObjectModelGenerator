@@ -530,7 +530,7 @@
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
         } else {
-            if (!node.visible) {
+            if (typeof node.visible == "boolean" && !node.visible) {
                 return;
             }
             if (node.type == "shape") {
