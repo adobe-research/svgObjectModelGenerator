@@ -24,6 +24,7 @@
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
+        svgWriterMask = require("./svgWriterMask.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
         utils = require("./utils.js");
@@ -52,6 +53,7 @@
             svgWriterFill.externalizeStyles(ctx);
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
+            svgWriterMask.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
 
@@ -62,15 +64,15 @@
                     if (omIn.style[property] === undefined) {
                         return;
                     }
-                    // fill, stroke and fx are handled above.
-                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta") {
+                    // fill, stroke, mask and fx are handled above.
+                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta" || property == "mask") {
                         return;
                     }
-                    if (property === "font-size") {
+                    if (property == "font-size") {
                         styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
                         return;
                     }
-                    if (property.indexOf("_") !== 0) {
+                    if (property.indexOf("_") != 0) {
                         styleBlock.addRule(property, omIn.style[property]);
                     }
                 });
@@ -80,7 +82,7 @@
         var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
                 bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
-                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
+                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                             omIn.style.stroke.lineWidth || 0,
                 expand = lineWidth / 2;
 
@@ -353,6 +355,10 @@
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
 
+            if (omIn.processed) {
+                return;
+            }
+
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {
@@ -365,6 +371,15 @@
                 shiftBounds(ctx, omIn, nested, sibling);
             }
 
+            omIn.processed = true;
+
+            // We should process mask before masked element
+            if (omIn.style && omIn.style.mask && ctx.svgOM.global.masks) {
+                ctx.currentOMNode = ctx.svgOM.global.masks[omIn.style.mask];
+                this.processSVGNode(ctx);
+                ctx.currentOMNode = omIn;
+            }
+
             this.externalizeStyles(ctx);
 
             if (omIn.type === "textPath") {
@@ -374,21 +389,30 @@
             if (children) {
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(ctx, (omIn !== ctx.svgOM), (ind !== 0));
-                }.bind(this));
+                    this.processSVGNode(ctx, (omIn !== ctx.svgOM), ind);
+                }, this);
             }
         };
 
         this.processSVGOM = function (ctx) {
-            var omSave = ctx.currentOMNode;
-            ctx.omStylesheet = new SVGStylesheet();
+            var omSave = ctx.currentOMNode,
+                self = this,
+                global = ctx.svgOM.global;
+            ctx.omStylesheet = new SVGStylesheet;
 
             if (ctx.config.trimToArtBounds) {
                 preprocessSVGNode(ctx, ctx.currentOMNode);
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
             }
-            this.processSVGNode(ctx, false, false);
+            // Preprocess the content of the resources,
+            // since they are not a part of the tree
+            Object.keys(global.masks || {}).forEach(function (key) {
+                ctx.currentOMNode = global.masks[key];
+                self.processSVGNode(ctx);
+            });
+            ctx.currentOMNode = omSave;
+            this.processSVGNode(ctx);
             ctx.currentOMNode = omSave;
         };
     }

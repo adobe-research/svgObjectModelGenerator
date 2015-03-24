@@ -20,21 +20,19 @@
 
 (function () {
     "use strict";
-    
+
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js");
-    
+
     var writeGradient = svgWriterGradient.writeGradient,
         writeColor = svgWriterUtils.writeColor;
-    
-    function SVGWriterFill() {
 
-        this.externalizeStyles = function (ctx) {
+    module.exports = {
+        externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
                 gradientID,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
-            
             if (!omIn.style || !omIn.style.fill) {
                 return;
             }
@@ -52,9 +50,6 @@
             if (isFinite(omIn.style.fill.opacity) && omIn.style.fill.opacity !== 1) {
                 styleBlock.addRule("fill-opacity", omIn.style.fill.opacity);
             }
-        };
-	}
-
-	module.exports = new SVGWriterFill();
-    
+        }
+    };
 }());

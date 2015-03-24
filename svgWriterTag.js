@@ -65,6 +65,13 @@
         var omIn = ctx.currentOMNode;
         return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
     }
+    Tag.resetRoot = function () {
+        root = {
+            all: {},
+            artboards: 1,
+            ids: {}
+        };
+    };
     Tag.getById = function (id) {
         if (!root) {
             return null;
@@ -141,7 +148,7 @@
             }
             break;
         }
-        if (value === "") {
+        if (value === "" || value == null) {
             if (name == "id" && root) {
                 delete root.ids[this.attrs.id];
             }
@@ -242,7 +249,7 @@
             }
         }
         for (var i = 0; i < numChildren; i++) {
-            tag.children[i].toString(ctx);
+            tag.children[i].write(ctx);
         }
         if (!numChildren || !tag.name) {
             return ctx.sOut;
@@ -365,7 +372,24 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             return tag.useTrick(ctx);
-
+        },
+        mask: function (ctx, node) {
+            var attr = {};
+            if (node.bounds) {
+                attr.x = node.bounds.left;
+                attr.y = node.bounds.top;
+                attr.width = node.bounds.right - node.bounds.left;
+                attr.height = node.bounds.bottom - node.bounds.top;
+            }
+            attr.maskUnits = node.maskUnits || "userSpaceOnUse";
+            if (!node.bounds && !node.maskUnits) {
+                delete attr.maskUnits;
+            }
+            attr.maskContentUnits = node.maskContentUnits;
+            if (node.kind != "luminocity") {
+                attr.style = "mask-type:alpha";
+            }
+            return new Tag("mask", attr, ctx);
         },
         rect: function (ctx, node) {
             var tag = new Tag("rect", {
@@ -505,10 +529,6 @@
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
-            tag.all = {};
-            root = tag;
-            root.artboards = 1;
-            root.ids = {};
         } else {
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
