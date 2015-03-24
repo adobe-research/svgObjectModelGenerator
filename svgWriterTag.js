@@ -125,29 +125,33 @@
     Tag.prototype.getAttribute = function (name) {
         return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
     };
-    Tag.prototype.setAttribute = function (name, value) {
-        var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
+    Tag.getValue = function (name, value, tagname) {
+        var desc = attrsDefs[tagname + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {
-        case "number":
-            value = parseNumber(value);
-            break;
-        case "number-sequence":
-            if (!Array.isArray(value)) {
-                value = (value + "").split(/[,\s]+/);
-            }
-            for (var i = 0, ii = value.length; i < ii; i++) {
-                value[i] = parseNumber(value[i]);
-            }
-            value = value.join(" ");
-            break;
-        case "color":
-            if (value != "none") {
-                value = writeColor(value);
-            }
-            break;
+            case "number":
+                value = parseNumber(value);
+                break;
+            case "number-sequence":
+                if (!Array.isArray(value)) {
+                    value = (value + "").split(/[,\s]+/);
+                }
+                for (var i = 0, ii = value.length; i < ii; i++) {
+                    value[i] = parseNumber(value[i]);
+                }
+                value = value.join(" ");
+                break;
+            case "color":
+                if (value != "none") {
+                    value = writeColor(value);
+                }
+                break;
         }
+        return value;
+    };
+    Tag.prototype.setAttribute = function (name, value) {
+        value = Tag.getValue(name, value, this.name);
         if (value === "" || value == null) {
             if (name == "id" && root) {
                 delete root.ids[this.attrs.id];
