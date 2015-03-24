@@ -56,10 +56,10 @@
             } else {
                 styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
             }
-            if (omIn.style.stroke.lineCap !== "butt") {
+            if (omIn.style.stroke.lineCap && omIn.style.stroke.lineCap !== "butt") {
                 styleBlock.addRule("stroke-linecap", omIn.style.stroke.lineCap);
             }
-            if (omIn.style.stroke.lineJoin !== "miter") {
+            if (omIn.style.stroke.lineJoin && omIn.style.stroke.lineJoin !== "miter") {
                 styleBlock.addRule("stroke-linejoin", omIn.style.stroke.lineJoin);
             }
             if (px(ctx, omIn.style.stroke.miterLimit) !== 100) {
@@ -68,10 +68,10 @@
             if (omIn.style.stroke.dashOffset) {
                 styleBlock.addRule("stroke-dashoffset", px(ctx, omIn.style.stroke.dashOffset) + "px");
             }
-            if (omIn.style.stroke.opacity !== 1) {
+            if (isFinite(omIn.style.stroke.opacity) && omIn.style.stroke.opacity !== 1) {
                 styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
             }
-            if (omIn.style.stroke.lineWidth) {
+            if (isFinite(omIn.style.stroke.lineWidth)) {
                 ctx._lastStrokeWidth = px(ctx, omIn.style.stroke.lineWidth);
                 styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
             }

@@ -41,7 +41,7 @@ describe('SVGWriterStroke', function (){
                 currentOMNode: {
                     style: {
                         stroke: {
-                            strokeEnabled: true,
+                            type: "solid",
                             color: "rgb(1, 2, 3)",
                             miterLimit: 300,
                             dashOffset: 4
@@ -54,9 +54,8 @@ describe('SVGWriterStroke', function (){
                 },
                 sOut: ""
             };
-        
         svgWriterStroke.externalizeStyles(goodCTX);
-        expect(styleBlock.addRule.callCount).to.equal(6);
+        expect(styleBlock.addRule.callCount).to.equal(3);
     });
     
    
