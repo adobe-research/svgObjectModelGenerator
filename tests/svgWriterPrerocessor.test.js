@@ -45,6 +45,7 @@ describe('SVGWriterPreprocessor', function (){
                 children:[
                     {
                         type: "shape",
+                        visible: true,
                         shapeBounds: {
                             left: 20,
                             right: 50,
@@ -67,6 +68,7 @@ describe('SVGWriterPreprocessor', function (){
                     },
                     {
                         type: "text",
+                        visible: true,
                         shapeBounds: {
                             left: 20,
                             right: 50,
@@ -80,6 +82,7 @@ describe('SVGWriterPreprocessor', function (){
                         children: [
                             {
                                 type: "tspan",
+                                visible: true,
                                 text: "spanny t",
                                 position: {
                                     x: 10.0,
@@ -102,6 +105,7 @@ describe('SVGWriterPreprocessor', function (){
                 children:[
                     {
                         type: "shape",
+                        visible: true,
                         shapeBounds: {
                             left: 79.29,
                             right: 220.71,
@@ -157,6 +161,7 @@ describe('SVGWriterPreprocessor', function (){
                 children:[
                     {
                         type: "shape",
+                        visible: true,
                         shapeBounds: {
                             left: 100,
                             right: 200,
