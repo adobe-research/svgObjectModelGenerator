@@ -125,7 +125,7 @@
     Tag.prototype.getAttribute = function (name) {
         return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
     };
-    Tag.getValue = function (name, value, tagname) {
+    Tag.prototype.setAttribute = function (name, value) {
         var desc = attrsDefs[tagname + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
             type = desc[1],
             digival = parseFloat(value);
@@ -148,10 +148,6 @@
             }
             break;
         }
-        return value;
-    };
-    Tag.prototype.setAttribute = function (name, value) {
-        value = Tag.getValue(name, value, this.name);
         if (value === "" || value == null) {
             if (name == "id" && root) {
                 delete root.ids[this.attrs.id];
