@@ -126,7 +126,7 @@
         return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
     };
     Tag.prototype.setAttribute = function (name, value) {
-        var desc = attrsDefs[tagname + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
+        var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {

@@ -5,29 +5,29 @@
         stroke: #000;
       }
 
-      .cls-2, .cls-3 {
+      .cls-1, .cls-2 {
         fill: #ed1c24;
         stroke-opacity: 0.5;
         stroke-width: 50px;
       }
 
-      .cls-1 {
+      .cls-2 {
+        mask: url(#mask2);
+      }
+
+      .cls-3 {
         fill: #0072bc;
         stroke-width: 14px;
         mask: url(#mask1);
       }
-
-      .cls-3 {
-        mask: url(#mask2);
-      }
     </style>
 
     <mask x="96" y="126" width="238" height="238" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" style="mask-type:alpha" id="mask2">
-      <circle cx="0.25" cy="0.5" r="0.4" class="cls-2"/>
+      <circle cx="0.25" cy="0.5" r="0.4" class="cls-1"/>
     </mask>
     <mask style="mask-type:alpha" id="mask1">
-      <circle cx="309" cy="245" r="94" class="cls-3"/>
+      <circle cx="309" cy="245" r="94" class="cls-2"/>
     </mask>
   </defs>
-  <rect x="130" y="66" width="179" height="179" class="cls-1"/>
+  <rect x="130" y="66" width="179" height="179" class="cls-3"/>
 </svg>

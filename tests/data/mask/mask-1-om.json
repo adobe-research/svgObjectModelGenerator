@@ -45,8 +45,7 @@
                 "y": 66,
                 "width": 179,
                 "height": 179
-            },
-            "className": "cls-2"
+            }
         },
         {
             "id": "shape-2",
@@ -93,8 +92,7 @@
                 "cx": 309,
                 "cy": 245,
                 "r": 94
-            },
-            "className": "cls-3"
+            }
         }
     ],
     "global": {
@@ -148,8 +146,7 @@
                         "y": 67,
                         "width": 179,
                         "height": 179
-                    },
-                    "className": "cls-4"
+                    }
                 }],
                 "type": "mask"
             }
@@ -178,6 +175,5 @@
             }
         }
     },
-    "title": "Untitled-1",
-    "className": "cls-1"
+    "title": "Untitled-1"
 }
