@@ -280,7 +280,7 @@
         };
 
         var isVisible = function (ctx, omIn) {
-            return omIn == ctx.svgOM || typeof omIn.visible != "boolean" || omIn.visible;
+            return omIn == ctx.svgOM || !omIn.hasOwnProperty("visible") || omIn.visible;
         };
 
         var preprocessSVGNode = function (ctx) {
