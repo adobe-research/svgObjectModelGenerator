@@ -534,10 +534,6 @@
                 return;
             }
             if (node.type == "shape") {
-                if (!node.shapeBounds) {
-                    console.warn("Shape has no boundaries.");
-                    return;
-                }
                 f = factory[node.shape.type];
                 if (!f) {
                     console.warn("NOT HANDLED DEFAULT " + node.shape.type);
