@@ -684,4 +684,83 @@ describe('svgWriter', function (){
             return;
         });
     });
+
+    /**
+     * Test scale factors.
+     **/
+    describe("Test polygon and line shapes", function () {
+        it("polygons and lines should be transformed to SVG", function () {
+            var svgOM = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 600,
+                        top: 0,
+                        bottom: 600
+                    },
+                    bounds: {
+                        left: 0,
+                        right: 600,
+                        top: 0,
+                        bottom: 600
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        shapeBounds: {
+                            left: 100,
+                            right: 300,
+                            top: 100,
+                            bottom: 200
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 200,
+                            height: 100
+                        }
+                    }
+                ]
+            },
+            exptectedOut1,
+            svgOut1 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 2,
+                constrainToDocBounds: true
+            }),
+            exptectedOut2,
+            svgOut2 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 2,
+                constrainToDocBounds: true,
+                cropRect: {
+                    width: 600,
+                    height: 300
+                }
+            });
+
+            try {
+                exptectedOut1 = fs.readFileSync('./tests/data/scale-1.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/scale-1.svg', svgOut1, 'utf8');
+                console.log('No reference SVG document found. New one created as scale-1.svg');
+                return;
+            }
+            expect(svgOut1).to.equal(exptectedOut1);
+
+            try {
+                exptectedOut2 = fs.readFileSync('./tests/data/scale-2.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/scale-2.svg', svgOut2, 'utf8');
+                console.log('No reference SVG document found. New one created as scale-2.svg');
+                return;
+            }
+            expect(svgOut2).to.equal(exptectedOut2);
+            return;
+        });
+    });
 });
