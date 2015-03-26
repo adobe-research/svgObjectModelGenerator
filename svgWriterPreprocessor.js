@@ -352,8 +352,13 @@
 
             // Clip to crop boundaries.
             // FIXME: Do we want to allow cropping without trimToArtBounds set?
-            if (!cropRect ||
-                cropRect.width == w &&
+            if (!cropRect) {
+                return;
+            }
+            cropRect.width /= ctx.config.scale || 1;
+            cropRect.height /= ctx.config.scale || 1;
+
+            if (cropRect.width == w &&
                 cropRect.height == h) {
                 return;
             }
