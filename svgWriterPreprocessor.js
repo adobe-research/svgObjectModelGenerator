@@ -284,9 +284,18 @@
             }
         };
 
+        var isVisible = function (ctx, omIn) {
+            return omIn == ctx.svgOM || !omIn.hasOwnProperty("visible") || omIn.visible;
+        };
+
         var preprocessSVGNode = function (ctx) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
+
+            // Do not process style of element if it is not visible.
+            if (!isVisible(ctx, omIn)) {
+                return;
+            }
 
             if (ctx.config.trimToArtBounds) {
                 recordBounds(ctx, omIn);
@@ -359,6 +368,11 @@
         this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
+
+            // Do not process style of element if it is not visible.
+            if (!isVisible(ctx, omIn)) {
+                return;
+            }
 
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {

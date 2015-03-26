@@ -511,6 +511,9 @@
             root.artboards = 1;
             root.ids = {};
         } else {
+            if (node.hasOwnProperty("visible") && !node.visible) {
+                return;
+            }
             if (node.type == "shape") {
                 if (!node.shapeBounds) {
                     console.warn("Shape has no boundaries.");
