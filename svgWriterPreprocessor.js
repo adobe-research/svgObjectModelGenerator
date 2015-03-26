@@ -151,47 +151,13 @@
             } else if (omIn.type === "tspan") {
                 if (omIn.style) {
                     if (omIn.position && isFinite(omIn.position.x)) {
-                        if (omIn.style["text-anchor"] === "middle") {
-                            if (omIn._parentBounds) {
-                                pR = omIn._parentBounds.right;
-                                pL = omIn._parentBounds.left;
-                                newMid = omIn._parentBounds.left + (pR - pL) / 2;
-                                if (omIn._parentIsRoot) {
-                                    omIn.position.x = 50;
-                                    omIn.position.unitX = "%";
-                                } else {
-                                    omIn.position.x = newMid;
-                                    omIn.position.unitX = "px";
-                                }
-                            } else {
-                                omIn.position.x = 50;
-                                omIn.position.unitX = "%";
-                            }
-                        } else if (omIn.style["text-anchor"] === "end") {
-                            if (omIn._parentBounds) {
-                                pR = omIn._parentBounds.right;
-                                pL = omIn._parentBounds.left;
-                                newMid = omIn._parentBounds.left + (pR - pL) / 2;
-
-                                if (omIn._parentIsRoot || !omIn.textBounds) {
-                                    omIn.position.x = 100;
-                                } else {
-                                    deltaX = (ctx.contentBounds.right - omIn.textBounds.right);
-                                    omIn.position.deltaX = -deltaX;
-                                }
-                            } else {
-                                omIn.position.x = 100;
-                                omIn.position.unitX = "%";
-                            }
+                        if (sibling && !omIn._hasParentTXFM) {
+                            omIn.position.x += ctx._shiftContentX;
                         } else {
-                            if (sibling && !omIn._hasParentTXFM) {
-                                omIn.position.x += ctx._shiftContentX;
+                            if (omIn._parentIsRoot) {
+                                omIn.position.x = 0;
                             } else {
-                                if (omIn._parentIsRoot) {
-                                    omIn.position.x = 0;
-                                } else {
-                                    omIn.position.x = undefined;
-                                }
+                                omIn.position.x = undefined;
                             }
                         }
                     }
