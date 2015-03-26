@@ -196,9 +196,6 @@
                         }
                     }
 
-                    if (typeof newBounds === "object") {
-                        svgNode.originBounds = newBounds;
-                    }
                     svgNode.shapeBounds = origin.bounds;
                     
                     svgNode.shape = {
@@ -209,7 +206,7 @@
                         ry: (origin.bounds.bottom - origin.bounds.top) / 2
                     };
 
-                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                    omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
                     
                     return true;
                 }
@@ -233,7 +230,7 @@
                             cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
                             r: (origin.bounds.right - origin.bounds.left) / 2
                         };
-                        omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                        omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
                         return true;
                     }
                 }
@@ -261,11 +258,7 @@
                             return false;
                         }
                     }
-                    
-                    //may have acquired shapeBounds while inferring the transform
-                    if (typeof newBounds === "object") {
-                        svgNode.originBounds = newBounds;
-                    }
+
                     svgNode.shapeBounds = origin.bounds;
                     svgNode.shapeRadii = origin.radii;
 
@@ -278,7 +271,7 @@
                         r: origin.radii
                     };
 
-                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                    omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
 
                     return true;
                 }
@@ -299,7 +292,7 @@
                     path: pathData
                 };
 
-                omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                omgStyles.addStylingData(svgNode, layer, path.bounds, writer);
                 
                 return true;
             }
@@ -307,7 +300,7 @@
         };
         
         this.addShapeData = function(svgNode, layer, writer) {
-            if (this.addCircle(svgNode, layer, writer) || 
+            if (this.addCircle(svgNode, layer, writer) ||
                 this.addEllipse(svgNode, layer, writer) ||
                 this.addRect(svgNode, layer, writer) ||
                 this.addPath(svgNode, layer, writer)) {

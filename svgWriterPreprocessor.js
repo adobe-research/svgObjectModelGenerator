@@ -72,7 +72,7 @@
                         styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
                         return;
                     }
-                    if (property.indexOf("_") != 0) {
+                    if (property.indexOf("_") !== 0) {
                         styleBlock.addRule(property, omIn.style[property]);
                     }
                 });
@@ -182,10 +182,6 @@
                 svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
                 svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
             }
-            if (omIn.originBounds) {
-                svgWriterUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
-                svgWriterUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
-            }
         };
 
         var shiftShapePosition = function (ctx, omIn) {
@@ -238,10 +234,6 @@
             if (bnds) {
                 svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
                 svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
-            }
-            if (omIn.originBounds) {
-                svgWriterUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
-                svgWriterUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
             }
         };
 

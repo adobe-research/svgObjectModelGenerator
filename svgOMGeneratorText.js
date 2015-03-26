@@ -132,7 +132,7 @@
 
                     self.addTextTransform(writer, svgNode, text, layer);
 
-                    if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds)) {
+                    if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, layer.bounds)) {
                         return false;
                     }
 
@@ -142,7 +142,7 @@
 
                     omgStyles.addTextStyle(svgNode, layer);
 
-                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                    omgStyles.addStylingData(svgNode, layer, layer.bounds, writer);
                 
                 } catch (exter) {
                     console.warn(exter.stack);
@@ -176,7 +176,7 @@
                 
                 self.addTextTransform(writer, svgNode, text, layer);
                 
-                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds);
+                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, layer.bounds);
             });
         };
         
@@ -282,7 +282,7 @@
             });
             
             omgStyles.addTextStyle(svgNode, layer);
-            omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+            omgStyles.addStylingData(svgNode, layer, layer.bounds, writer);
             
             writer.popCurrent();
             return true;
