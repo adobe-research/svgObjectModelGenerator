@@ -89,103 +89,99 @@
             utils.unionRect(bnds, bndsIn, expand);
         };
 
+        var shiftTspanBounds = function (ctx, omIn, nested, sibling) {
+            if (!omIn.style) {
+                return;
+            }
+
+            if (omIn.position && isFinite(omIn.position.x)) {
+                if (sibling && !omIn._hasParentTXFM) {
+                    omIn.position.x += ctx._shiftContentX;
+                } else {
+                    if (omIn._parentIsRoot) {
+                        omIn.position.x = 0;
+                    } else {
+                        omIn.position.x = undefined;
+                    }
+                }
+            }
+
+            if (omIn.style["_baseline-script"] === "sub" ||
+                    omIn.style["_baseline-script"] === "super") {
+                if (typeof omIn.style["font-size"] === "number") {
+                    omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
+                } else {
+                    omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
+                }
+            }
+
+            if (omIn.style["_baseline-script"] === "super") {
+                omIn.position = omIn.position || {};
+                omIn.position.y = -0.5;
+                omIn.position.unitY = "em";
+            }
+        };
+
         var shiftTextBounds = function (ctx, omIn, nested, sibling) {
-            var bnds = omIn.bounds,
-                pR,
+            var pR,
                 pL,
                 newMid,
                 deltaX;
 
-            if (omIn.type === "text") {
-                bnds = omIn.textBounds;
+            if (omIn.transform) {
+                omIn.transformTX += ctx._shiftContentX;
+                omIn.transformTY += ctx._shiftContentY;
 
-                if (omIn.shapeBounds) {
-                    svgWriterUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
-                    svgWriterUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
+                if (omIn.children) {
+                    omIn.children.forEach(function (chld) {
+                        chld._hasParentTXFM = true;
+                    });
                 }
-
-                if (omIn.transform) {
-                    omIn.transformTX += ctx._shiftContentX;
-                    omIn.transformTY += ctx._shiftContentY;
-
-                    if (omIn.children) {
-                        omIn.children.forEach(function (chld) {
-                            chld._hasParentTXFM = true;
-                        });
-                    }
-                } else if (omIn.position) {
-                    if (!nested) {
-                        if (omIn.children && omIn.children.length === 1) {
-                            if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
-                                omIn.position.x += ctx._shiftContentX;
-                            } else {
-                                omIn.position.x = 0;
-                            }
-                            if (omIn.position.unitY === "px") {
-                                omIn.position.y += ctx._shiftContentY;
-                            }
-                            omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
-                            omIn.children[0].position.x = 0;
-                        } else {
-                            if (ctx.config.constrainToDocBounds) {
-                                omIn.position.x += ctx._shiftContentX;
-                            } else {
-                                omIn.position.x = 0;
-                            }
-                            omIn.position.y += ctx._shiftContentY;
-
-                            if (Math.abs(omIn.position.y) === 1) {
-                                omIn.position.y = 1;
-                                omIn.position.unitY = "em";
-                            }
-                        }
-                    } else {
-                        if (omIn.position.unitX === "px") {
+            } else if (omIn.position) {
+                if (!nested) {
+                    if (omIn.children && omIn.children.length === 1) {
+                        if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
                             omIn.position.x += ctx._shiftContentX;
+                        } else {
+                            omIn.position.x = 0;
                         }
                         if (omIn.position.unitY === "px") {
                             omIn.position.y += ctx._shiftContentY;
                         }
-                    }
-                }
-            } else if (omIn.type === "tspan") {
-                if (omIn.style) {
-                    if (omIn.position && isFinite(omIn.position.x)) {
-                        if (sibling && !omIn._hasParentTXFM) {
+                        omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
+                        omIn.children[0].position.x = 0;
+                    } else {
+                        if (ctx.config.constrainToDocBounds) {
                             omIn.position.x += ctx._shiftContentX;
                         } else {
-                            if (omIn._parentIsRoot) {
-                                omIn.position.x = 0;
-                            } else {
-                                omIn.position.x = undefined;
-                            }
+                            omIn.position.x = 0;
+                        }
+                        omIn.position.y += ctx._shiftContentY;
+
+                        if (Math.abs(omIn.position.y) === 1) {
+                            omIn.position.y = 1;
+                            omIn.position.unitY = "em";
                         }
                     }
-
-                    if (omIn.style["_baseline-script"] === "sub" ||
-                            omIn.style["_baseline-script"] === "super") {
-                        if (typeof omIn.style["font-size"] === "number") {
-                            omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
-                        } else {
-                            omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
-                        }
+                } else {
+                    if (omIn.position.unitX === "px") {
+                        omIn.position.x += ctx._shiftContentX;
                     }
-
-                    if (omIn.style["_baseline-script"] === "super") {
-                        omIn.position = omIn.position || {};
-                        omIn.position.y = -0.5;
-                        omIn.position.unitY = "em";
+                    if (omIn.position.unitY === "px") {
+                        omIn.position.y += ctx._shiftContentY;
                     }
                 }
-            }
-            if (bnds) {
-                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
-                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
             }
         };
 
         var shiftShapePosition = function (ctx, omIn) {
-            var shape = omIn.shape;
+            var shape = omIn.shape,
+                bnds = omIn.shapeBounds;
+
+            if (bnds) {
+                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+            }
 
             // PS and Ai propagate all transforms to the leaves.
             if (omIn.transform) {
@@ -220,20 +216,12 @@
 
         // Shift the bounds recorded in recordBounds.
         var shiftBounds = function (ctx, omIn, nested, sibling) {
-            var bnds = omIn.shapeBounds || omIn.bounds;
-
-            if (omIn.type == "text" || omIn.type == "tspan") {
+            if (omIn.type == "text") {
                 shiftTextBounds(ctx, omIn, nested, sibling);
-                return;
-            }
-
-            if (omIn.type == "shape") {
+            } else if (omIn.type == "tspan") {
+                shiftTspanBounds(ctx, omIn, nested, sibling);
+            } else if (omIn.type == "shape") {
                 shiftShapePosition(ctx, omIn);
-            }
-
-            if (bnds) {
-                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
-                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
             }
         };
 
