@@ -218,7 +218,9 @@
                 if (fx[list]) {
                     // PS exports filters in the opposite order, revert.
                     fx[list].reverse();
-                    fx[list].forEach(prepareFunction);
+                    if (typeof prepareFunction == "function") {
+                        fx[list].forEach(prepareFunction);
+                    }
                 }
             }
 
