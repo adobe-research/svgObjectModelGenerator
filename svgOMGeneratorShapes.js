@@ -19,14 +19,13 @@
 /* Help construct the svgOM */
 
 (function () {
-"use strict";
+    "use strict";
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
         Matrix = require("./matrix.js");
 
-    var round2 = Utils.round2,
-        round1k = Utils.round1k;
+    var round2 = Utils.round2;
     
 	function SVGOMGeneratorShapes() {
         
