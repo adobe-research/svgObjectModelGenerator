@@ -122,7 +122,7 @@
             }
         };
 
-        var shiftTextBounds = function (ctx, omIn, nested, sibling) {
+        var shiftTextBounds = function (ctx, omIn, nested) {
             var pR,
                 pL,
                 newMid,
@@ -217,7 +217,7 @@
         // Shift the bounds recorded in recordBounds.
         var shiftBounds = function (ctx, omIn, nested, sibling) {
             if (omIn.type == "text") {
-                shiftTextBounds(ctx, omIn, nested, sibling);
+                shiftTextBounds(ctx, omIn, nested);
             } else if (omIn.type == "tspan") {
                 shiftTspanBounds(ctx, omIn, nested, sibling);
             } else if (omIn.type == "shape") {
