@@ -386,28 +386,11 @@
             return tag.useTrick(ctx);
         },
         text: function (ctx, node) {
-            var children = node.children,
-                rightAligned,
-                centered;
-
-            if (children && children.length > 0 &&
-                children[0].style && children[0].style["text-anchor"] === "end") {
-                rightAligned = true;
-            } else if (children && children.length > 0 &&
-                children[0].style && children[0].style["text-anchor"] === "middle") {
-                centered = true;
-            }
-            var tag = new Tag("text", {}, ctx);
-            if (rightAligned) {
-                tag.setAttribute("x", "100%");
-                node.position.x = 0;
-            } else {
-                tag.setAttribute("x", node.position.x + (node.position.unitX || ""));
-            }
-            tag.setAttributes({
+            var tag = new Tag("text", {
+                x: node.position.x + (node.position.unitX || ""),
                 y: node.position.y + (node.position.unitY || ""),
                 transform: getTransform(node.transform, node.transformTX, node.transformTY)
-            });
+            }, ctx);
             return tag.useTrick(ctx);
         },
         textPath: function (ctx, node) {

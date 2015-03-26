@@ -20,5 +20,5 @@
       }
     </style>
   </defs>
-  <text x="460" y="270" class="cls-1"><tspan class="cls-2">Left aligned</tspan><tspan dy="1.2em" x="460" class="cls-3">center</tspan><tspan dy="1.2em" x="100%" class="cls-4">right aligned</tspan></text>
+  <text x="460" y="270" class="cls-1"><tspan class="cls-2">Left aligned</tspan><tspan dy="1.2em" x="460" class="cls-3">center</tspan><tspan dy="1.2em" x="460" class="cls-4">right aligned</tspan></text>
 </svg>

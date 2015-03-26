@@ -99,7 +99,8 @@
         if (node.position) {
             var lineEM = 1.2,
                 fontSize,
-                leading = node.style._leading;
+                leading = node.style._leading,
+                dy;
             if (leading) {
                 fontSize = node.style["font-size"];
                 if (fontSize && leading.units === fontSize.units) {
@@ -113,10 +114,11 @@
 
             if (!ctx._nextTspanAdjustSuper) {
                 if (node.position.unitY === "em") {
-                    tag.setAttribute("dy", (node.position.y * lineEM) + "em");
+                    dy =  node.position.y * lineEM + "em";
                 } else {
-                    tag.setAttribute("dy", (sibling ? lineEM : 0) + "em");
+                    dy = (sibling ? lineEM : 0) + "em";
                 }
+                tag.setAttribute("dy", dy);
             }
 
             if (!node.style ||
@@ -127,13 +129,10 @@
                 if (sibling) {
                     tag.setAttribute("x", node.position.x);
                 }
-            } else if (node.style["text-anchor"] === "middle") {
-                tag.setAttribute("x", node.position.x);
-                if (isFinite(node.position.deltaX)) {
-                    tag.setAttribute("dx", node.position.deltaX);
+            } else if (node.style["text-anchor"] === "middle" || node.style["text-anchor"] === "end") {
+                if (isFinite(node.position.x)) {
+                    tag.setAttribute("x", node.position.x);
                 }
-            } else if (node.style["text-anchor"] === "end") {
-                tag.setAttribute("x", "100%");
                 if (isFinite(node.position.deltaX)) {
                     tag.setAttribute("dx", node.position.deltaX);
                 }
