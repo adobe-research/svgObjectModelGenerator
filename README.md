@@ -77,6 +77,7 @@ The configuration object has the following arguments:
 * **targetWidth** *number* The width the SVG document needs to fit into.
 * **targetHeight** *number* The height the SVG document needs to fit into.
 * **cropRect** *object* A rectangle with the properties `x`, `y`, `width` and `height`. `x` and `y` are optional. Defines a rectangle the SVG document gets cropped to. It may create a padding if the dimension is smaller than the crop rectangle.
+* **minify** Avoids indentations, newlines and whitespaces in the SVG output. Uses minimal IDs.
 
 ## Setup Generator
 
