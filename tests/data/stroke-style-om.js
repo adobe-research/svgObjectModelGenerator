@@ -36,11 +36,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"shapeBounds": {
-				"top": 50,
-				"left": 50,
-				"bottom": 150,
-				"right": 250
+			"visualBounds": {
+				"top": 48.5,
+				"left": 48.5,
+				"bottom": 151.5,
+				"right": 251.5
 			},
 			"shape": {
 				"type": "path",
@@ -77,11 +77,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"shapeBounds": {
-				"top": 50,
-				"left": 300,
-				"bottom": 150,
-				"right": 500
+			"visualBounds": {
+				"top": 45,
+				"left": 295,
+				"bottom": 155,
+				"right": 505
 			},
 			"shape": {
 				"type": "path",
@@ -116,11 +116,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 3",
-			"shapeBounds": {
-				"top": 50,
-				"left": 550,
-				"bottom": 150,
-				"right": 750
+			"visualBounds": {
+				"top": 45,
+				"left": 545,
+				"bottom": 155,
+				"right": 755
 			},
 			"shape": {
 				"type": "path",
@@ -159,11 +159,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 4",
-			"shapeBounds": {
-				"top": 200,
-				"left": 50,
-				"bottom": 300,
-				"right": 250
+			"visualBounds": {
+				"top": 198.5,
+				"left": 48.5,
+				"bottom": 301.5,
+				"right": 251.5
 			},
 			"shape": {
 				"type": "path",
@@ -202,11 +202,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 5",
-			"shapeBounds": {
-				"top": 200,
-				"left": 300,
-				"bottom": 300,
-				"right": 500
+			"visualBounds": {
+				"top": 195,
+				"left": 295,
+				"bottom": 305,
+				"right": 505
 			},
 			"shape": {
 				"type": "path",
@@ -249,11 +249,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 6",
-			"shapeBounds": {
-				"top": 200,
-				"left": 550,
-				"bottom": 300,
-				"right": 750
+			"visualBounds": {
+				"top": 195,
+				"left": 545,
+				"bottom": 305,
+				"right": 755
 			},
 			"shape": {
 				"type": "path",
@@ -288,11 +288,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 7",
-			"shapeBounds": {
-				"top": 350,
-				"left": 50,
-				"bottom": 450,
-				"right": 250
+			"visualBounds": {
+				"top": 340,
+				"left": 40,
+				"bottom": 460,
+				"right": 260
 			},
 			"shape": {
 				"type": "path",
@@ -324,11 +324,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 8",
-			"shapeBounds": {
-				"top": 350,
-				"left": 300,
-				"bottom": 450,
-				"right": 500
+			"visualBounds": {
+				"top": 340,
+				"left": 290,
+				"bottom": 460,
+				"right": 510
 			},
 			"shape": {
 				"type": "path",

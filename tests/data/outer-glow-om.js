@@ -115,17 +115,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 104,
 				"left": 150,
 				"bottom": 391,
 				"right": 472
-			},
-			"shapeBounds": {
-				"top": 190,
-				"left": 236,
-				"bottom": 304,
-				"right": 385
 			},
 			"shape": {
 				"type": "rect",

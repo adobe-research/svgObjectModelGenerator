@@ -125,13 +125,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1.svg",
-			"boundsWithFX": {
-				"top": 100,
-				"left": 100,
-				"bottom": 500,
-				"right": 500
-			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 100,
 				"left": 100,
 				"bottom": 500,
@@ -185,13 +179,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2.svg",
-			"boundsWithFX": {
-				"top": 100,
-				"left": 550,
-				"bottom": 300,
-				"right": 750
-			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 100,
 				"left": 550,
 				"bottom": 300,

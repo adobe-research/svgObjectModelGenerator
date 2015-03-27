@@ -105,30 +105,21 @@
                 try {
                 
                     svgNode.type = "text";
-                    svgNode.shapeBounds = layer.bounds;
 
-                    /*
-                    svgNode.textBounds = {    
-                        top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
-                        bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
-                        left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
-                        right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)    
-                    };
-                    */
-
-                    svgNode.textBounds = {
+                    var textBounds = {
                         top: _boundInPx(text.boundingBox.top, dpi),
                         bottom: _boundInPx(text.boundingBox.bottom, dpi),
                         left: _boundInPx(text.boundingBox.left, dpi),
                         right: _boundInPx(text.boundingBox.right, dpi)
                     };
+                    svgNode.visualBounds = layer.boundsWithFX || textBounds || layer.bounds;
                     svgNode.position = {
                         x: 0,
                         y: 0
                     };
                     writer.pushCurrent(svgNode);
                     svgTextPathNode = writer.addSVGNode("textPath", true);
-                    svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, svgNode.textBounds, maxTextSize);
+                    svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, textBounds, maxTextSize);
 
                     self.addTextTransform(writer, svgNode, text, layer);
 
@@ -159,10 +150,9 @@
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
-                svgNode.shapeBounds = layer.bounds;
                 svgNode.title = layer.name;
                 
-                svgNode.textBounds = JSON.parse(JSON.stringify(layer.bounds));
+                svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
                 
                 // It seems that textClickPoint is a quite reliable global position for
                 // the initial <text> element. 
@@ -236,7 +226,6 @@
                         unitX: position.unitX,
                         unitY: position.unitY
                     };
-                    svgParagraphNode.textBounds = JSON.parse(JSON.stringify(bounds));
                     writer.pushCurrent(svgParagraphNode);
                     pctYPosGuess = 0;
                 }
@@ -257,7 +246,7 @@
                     svgTextChunkNode = writer.addSVGNode("tspan", true);
                     svgTextChunkNode.text = textContent;
                     
-                    svgTextChunkNode.textBounds = JSON.parse(JSON.stringify(bounds));
+                    svgTextChunkNode.visualBounds = JSON.parse(JSON.stringify(bounds));
                     
                     //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
                     xPosGuess = currentFrom / (paragraph.to - paragraph.from);

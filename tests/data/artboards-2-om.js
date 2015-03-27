@@ -38,7 +38,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Ellipse 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 2125,
 						"left": 2125,
 						"bottom": 2899,
@@ -53,7 +53,7 @@ module.exports = {
 				}
 			],
 			"title": "circle",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 2000,
 				"left": 2000,
 				"bottom": 3024,
@@ -90,7 +90,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Rectangle 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 2138,
 						"left": 3390,
 						"bottom": 2886,
@@ -106,7 +106,7 @@ module.exports = {
 				}
 			],
 			"title": "square",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 2000,
 				"left": 3252,
 				"bottom": 3024,

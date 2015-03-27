@@ -401,7 +401,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: true,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 200,
                             top: 100,
@@ -436,7 +436,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: true,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 200,
                             top: 300,
@@ -486,7 +486,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: false,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 50,
                             right: 150,
                             top: 50,
@@ -510,7 +510,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: true,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 300,
                             top: 100,
@@ -552,7 +552,7 @@ describe('svgWriter', function (){
                                 },
                                 "children": [],
                                 "title": "Rectangle 1",
-                                "shapeBounds": {
+                                "visualBounds": {
                                     "top": 67,
                                     "left": 130,
                                     "bottom": 245,
@@ -586,7 +586,7 @@ describe('svgWriter', function (){
                                 },
                                 "children": [],
                                 "title": "Rectangle 1",
-                                "shapeBounds": {
+                                "visualBounds": {
                                     "top": 67,
                                     "left": 130,
                                     "bottom": 245,
@@ -608,7 +608,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: false,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 50,
                             right: 150,
                             top: 50,
@@ -632,7 +632,7 @@ describe('svgWriter', function (){
                     },
                     {
                         type: "shape",
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 300,
                             top: 100,
@@ -708,7 +708,7 @@ describe('svgWriter', function (){
                 children:[
                     {
                         type: "shape",
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 300,
                             top: 100,

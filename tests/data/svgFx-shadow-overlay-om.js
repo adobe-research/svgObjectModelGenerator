@@ -108,17 +108,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "shadow",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 80,
 				"left": 100,
 				"bottom": 271,
 				"right": 445
-			},
-			"shapeBounds": {
-				"top": 100,
-				"left": 100,
-				"bottom": 250,
-				"right": 400
 			},
 			"shapeRadii": [
 				10,

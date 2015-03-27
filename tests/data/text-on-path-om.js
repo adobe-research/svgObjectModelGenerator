@@ -55,7 +55,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 53,
 								"left": 46,
 								"bottom": 81,
@@ -73,13 +73,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 53,
-				"left": 46,
-				"bottom": 81,
-				"right": 166
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
 				"left": 1,
@@ -138,7 +132,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 244,
 								"left": 40,
 								"bottom": 293,
@@ -156,13 +150,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 244,
-				"left": 40,
-				"bottom": 293,
-				"right": 133
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -12,
 				"bottom": 36,
 				"left": -15,
@@ -221,7 +209,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 329,
 								"left": 34,
 								"bottom": 385,
@@ -239,13 +227,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 329,
-				"left": 34,
-				"bottom": 385,
-				"right": 150
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -16,
 				"bottom": 39,
 				"left": -7,
@@ -304,7 +286,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text",
-							"textBounds": {
+							"visualBounds": {
 								"top": 425,
 								"left": 102,
 								"bottom": 447,
@@ -322,13 +304,7 @@ module.exports = {
 				}
 			],
 			"title": "Text",
-			"shapeBounds": {
-				"top": 425,
-				"left": 102,
-				"bottom": 447,
-				"right": 157
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -22,
 				"bottom": 0,
 				"left": 66,
@@ -389,7 +365,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text on path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 75,
 								"left": 644,
 								"bottom": 360,
@@ -407,13 +383,7 @@ module.exports = {
 				}
 			],
 			"title": "Text on path",
-			"shapeBounds": {
-				"top": 75,
-				"left": 644,
-				"bottom": 360,
-				"right": 721
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 10,
 				"bottom": 294,
 				"left": -3,
@@ -474,7 +444,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 56,
 								"left": 349,
 								"bottom": 84,
@@ -492,13 +462,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 56,
-				"left": 349,
-				"bottom": 84,
-				"right": 469
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
 				"left": 67,
@@ -559,7 +523,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 211,
 								"left": 315,
 								"bottom": 229,
@@ -577,13 +541,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 211,
-				"left": 315,
-				"bottom": 229,
-				"right": 428
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -9,
 				"bottom": 8,
 				"left": 19,
@@ -642,7 +600,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 286,
 								"left": 308,
 								"bottom": 354,
@@ -660,13 +618,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 286,
-				"left": 308,
-				"bottom": 354,
-				"right": 428
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -21,
 				"bottom": 46,
 				"left": -1,
@@ -729,7 +681,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 440,
 								"left": 380,
 								"bottom": 458,
@@ -747,13 +699,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 440,
-				"left": 380,
-				"bottom": 458,
-				"right": 492
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -9,
 				"bottom": 8,
 				"left": 68,
@@ -814,7 +760,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 111,
 								"left": 319,
 								"bottom": 139,
@@ -832,13 +778,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path",
-			"shapeBounds": {
-				"top": 111,
-				"left": 319,
-				"bottom": 139,
-				"right": 439
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
 				"left": 46,
@@ -897,7 +837,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 121,
 								"left": 71,
 								"bottom": 149,
@@ -915,13 +855,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path ",
-			"shapeBounds": {
-				"top": 121,
-				"left": 71,
-				"bottom": 149,
-				"right": 191
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -6,
 				"bottom": 22,
 				"left": 25,
@@ -980,7 +914,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 167,
 								"left": 55,
 								"bottom": 195,
@@ -998,13 +932,7 @@ module.exports = {
 				}
 			],
 			"title": "Text path ",
-			"shapeBounds": {
-				"top": 167,
-				"left": 55,
-				"bottom": 195,
-				"right": 175
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
 				"left": 4,

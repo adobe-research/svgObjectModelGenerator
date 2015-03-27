@@ -44,7 +44,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "Left aligned",
-					"textBounds": {
+					"visualBounds": {
 						"top": 224,
 						"left": 138,
 						"bottom": 438,
@@ -80,7 +80,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "center",
-					"textBounds": {
+					"visualBounds": {
 						"top": 224,
 						"left": 138,
 						"bottom": 438,
@@ -116,7 +116,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "right aligned",
-					"textBounds": {
+					"visualBounds": {
 						"top": 224,
 						"left": 138,
 						"bottom": 438,
@@ -131,13 +131,7 @@ module.exports = {
 				}
 			],
 			"title": "Left aligned center right aligned",
-			"shapeBounds": {
-				"top": 224,
-				"left": 138,
-				"bottom": 438,
-				"right": 760
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 224,
 				"left": 138,
 				"bottom": 438,

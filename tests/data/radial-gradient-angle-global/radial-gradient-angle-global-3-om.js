@@ -15,7 +15,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 300,
 				"bottom": 150,

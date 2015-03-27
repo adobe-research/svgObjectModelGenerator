@@ -109,9 +109,6 @@
             if (!justTraverse) {
                 svgNode = writer.addSVGNode(layerType, layerVisible);
                 svgNode.title = layer.name;
-                if (layer.boundsWithFX) {
-                    svgNode.boundsWithFX = layer.boundsWithFX;
-                }
             }
 
             switch (layerType) {

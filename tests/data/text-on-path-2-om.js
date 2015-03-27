@@ -57,7 +57,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text on Path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 414,
 								"left": 256,
 								"bottom": 948,
@@ -75,13 +75,7 @@ module.exports = {
 				}
 			],
 			"title": "Text on Path.svg",
-			"shapeBounds": {
-				"top": 414,
-				"left": 256,
-				"bottom": 948,
-				"right": 951
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -99,
 				"bottom": 435,
 				"left": -109,
@@ -130,7 +124,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "Plain text",
-					"textBounds": {
+					"visualBounds": {
 						"top": 52,
 						"left": 44,
 						"bottom": 170,
@@ -145,13 +139,7 @@ module.exports = {
 				}
 			],
 			"title": "Plain text.svg",
-			"shapeBounds": {
-				"top": 52,
-				"left": 44,
-				"bottom": 170,
-				"right": 748
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 52,
 				"left": 44,
 				"bottom": 170,
@@ -214,7 +202,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "more path text ",
-							"textBounds": {
+							"visualBounds": {
 								"top": 1042,
 								"left": 1192,
 								"bottom": 1520,
@@ -232,13 +220,7 @@ module.exports = {
 				}
 			],
 			"title": "more path text.svg",
-			"shapeBounds": {
-				"top": 1042,
-				"left": 1192,
-				"bottom": 1520,
-				"right": 1792
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -81,
 				"bottom": 395,
 				"left": -82,

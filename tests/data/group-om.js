@@ -90,7 +90,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Rectangle 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 100,
 						"left": 100,
 						"bottom": 300,
@@ -174,13 +174,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Rectangle 2",
-					"boundsWithFX": {
-						"top": 200,
-						"left": 200,
-						"bottom": 400,
-						"right": 400
-					},
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 200,
 						"left": 200,
 						"bottom": 400,
@@ -196,13 +190,7 @@ module.exports = {
 				}
 			],
 			"title": "Group",
-			"boundsWithFX": {
-				"top": 82,
-				"left": 84,
-				"bottom": 435,
-				"right": 437
-			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 100,
 				"left": 100,
 				"bottom": 400,
