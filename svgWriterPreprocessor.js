@@ -81,7 +81,7 @@
 
         var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
-                bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
+                bndsIn = omIn.visualBounds || omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
                 lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                             omIn.style.stroke.lineWidth || 0,
                 expand = lineWidth / 2;
@@ -176,7 +176,7 @@
 
         var shiftShapePosition = function (ctx, omIn) {
             var shape = omIn.shape,
-                bnds = omIn.shapeBounds;
+                bnds = omIn.visualBounds;
 
             if (bnds) {
                 svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);

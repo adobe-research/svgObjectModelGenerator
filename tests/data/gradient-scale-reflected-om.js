@@ -23,7 +23,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 50,
 				"bottom": 150,
@@ -52,7 +52,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 300,
 				"bottom": 150,
@@ -81,7 +81,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 3",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 550,
 				"bottom": 150,
@@ -110,7 +110,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 10",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 50,
 				"bottom": 300,
@@ -139,7 +139,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 11",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 300,
 				"bottom": 300,
@@ -168,7 +168,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 12",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 552,
 				"bottom": 294,

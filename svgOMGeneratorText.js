@@ -107,15 +107,6 @@
                     svgNode.type = "text";
                     svgNode.shapeBounds = layer.bounds;
 
-                    /*
-                    svgNode.textBounds = {    
-                        top: layer.bounds.top + _boundInPx(layer.text.bounds.top, dpi),
-                        bottom: layer.bounds.top + _boundInPx(layer.text.bounds.bottom, dpi),
-                        left: layer.bounds.left + _boundInPx(layer.text.bounds.left, dpi),
-                        right: layer.bounds.left + _boundInPx(layer.text.bounds.right, dpi)    
-                    };
-                    */
-
                     svgNode.textBounds = {
                         top: _boundInPx(text.boundingBox.top, dpi),
                         bottom: _boundInPx(text.boundingBox.bottom, dpi),

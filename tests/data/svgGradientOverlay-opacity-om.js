@@ -177,11 +177,11 @@ module.exports = {
 				"bottom": 250,
 				"right": 458
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 185,
-				"left": 263,
-				"bottom": 246,
-				"right": 456
+				"left": 262,
+				"bottom": 250,
+				"right": 458
 			},
 			"shape": {
 				"type": "rect",

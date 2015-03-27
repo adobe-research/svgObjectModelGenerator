@@ -44,7 +44,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Shape 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 773.71875,
 						"left": 1145.75,
 						"bottom": 1148.59375,
@@ -57,7 +57,7 @@ module.exports = {
 				}
 			],
 			"title": "Group 1",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 773.71875,
 				"left": 1145.75,
 				"bottom": 1148.59375,

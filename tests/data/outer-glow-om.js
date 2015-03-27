@@ -121,11 +121,11 @@ module.exports = {
 				"bottom": 391,
 				"right": 472
 			},
-			"shapeBounds": {
-				"top": 190,
-				"left": 236,
-				"bottom": 304,
-				"right": 385
+			"visualBounds": {
+				"top": 104,
+				"left": 150,
+				"bottom": 391,
+				"right": 472
 			},
 			"shape": {
 				"type": "rect",

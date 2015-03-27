@@ -101,11 +101,11 @@ module.exports = {
 				"bottom": 271,
 				"right": 445
 			},
-			"shapeBounds": {
-				"top": 100,
+			"visualBounds": {
+				"top": 80,
 				"left": 100,
-				"bottom": 250,
-				"right": 400
+				"bottom": 271,
+				"right": 445
 			},
 			"shapeRadii": [
 				10,

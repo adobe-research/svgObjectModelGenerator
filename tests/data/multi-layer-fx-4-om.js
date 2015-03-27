@@ -143,7 +143,7 @@ module.exports = {
 				"bottom": 632,
 				"right": 642
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 132,
 				"left": 142,
 				"bottom": 632,
@@ -292,7 +292,7 @@ module.exports = {
 				"bottom": 632,
 				"right": 1300
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 132,
 				"left": 800,
 				"bottom": 632,

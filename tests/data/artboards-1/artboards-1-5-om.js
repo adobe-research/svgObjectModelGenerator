@@ -30,7 +30,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Rectangle 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 2811,
 						"left": 3972,
 						"bottom": 3344,
@@ -46,7 +46,7 @@ module.exports = {
 				}
 			],
 			"title": "iPhone",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 2497,
 				"left": 3658,
 				"bottom": 3659,

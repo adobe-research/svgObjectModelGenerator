@@ -122,7 +122,7 @@
                         }
                     }
 
-                    svgNode.shapeBounds = origin.bounds;
+                    svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
                     
                     svgNode.shape = {
                         type: "ellipse",
@@ -148,7 +148,7 @@
                         h = parseInt(origin.bounds.bottom) - parseInt(origin.bounds.top);
                     
                     if (w == h) {
-                        svgNode.shapeBounds = origin.bounds;
+                        svgNode.visualBounds = origin.boundsWithFX || origin.bounds;
 
                         svgNode.shape = {
                             type: "circle",
@@ -185,7 +185,7 @@
                         }
                     }
 
-                    svgNode.shapeBounds = origin.bounds;
+                    svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
                     svgNode.shapeRadii = origin.radii;
 
                     svgNode.shape = {
@@ -211,7 +211,7 @@
             
             if (path && pathData) {
                 
-                svgNode.shapeBounds = path.bounds;
+                svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
                 svgNode.shape = {
                     type: "path",

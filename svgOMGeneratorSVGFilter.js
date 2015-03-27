@@ -271,7 +271,7 @@
                         width: w,
                         height: h,
                     },
-                    shapeBounds: layerBounds,
+                    visualBounds: layerBounds,
                     style: {
                         fill: {
                             type: "gradient",

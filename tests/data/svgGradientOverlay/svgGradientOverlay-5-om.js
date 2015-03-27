@@ -110,7 +110,7 @@ module.exports = {
 				"bottom": 300,
 				"right": 250
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 50,
 				"bottom": 300,

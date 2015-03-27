@@ -71,10 +71,10 @@ module.exports = {
 				"bottom": 253,
 				"right": 300
 			},
-			"shapeBounds": {
-				"top": 83,
-				"left": 50,
-				"bottom": 233,
+			"visualBounds": {
+				"top": 64,
+				"left": 11,
+				"bottom": 253,
 				"right": 300
 			},
 			"shape": {
@@ -148,11 +148,11 @@ module.exports = {
 				"bottom": 239,
 				"right": 704
 			},
-			"shapeBounds": {
-				"top": 80,
-				"left": 450,
-				"bottom": 230,
-				"right": 700
+			"visualBounds": {
+				"top": 50,
+				"left": 415,
+				"bottom": 239,
+				"right": 704
 			},
 			"shape": {
 				"type": "rect",
@@ -224,7 +224,7 @@ module.exports = {
 				"bottom": 500,
 				"right": 300
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 350,
 				"left": 50,
 				"bottom": 500,
@@ -300,7 +300,7 @@ module.exports = {
 				"bottom": 500,
 				"right": 700
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 350,
 				"left": 450,
 				"bottom": 500,

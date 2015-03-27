@@ -117,11 +117,11 @@ module.exports = {
 				"bottom": 655,
 				"right": 718
 			},
-			"shapeBounds": {
-				"top": 197,
-				"left": 950,
-				"bottom": 397,
-				"right": 1150
+			"visualBounds": {
+				"top": 455,
+				"left": 418,
+				"bottom": 655,
+				"right": 718
 			},
 			"shape": {
 				"type": "path",
@@ -251,11 +251,11 @@ module.exports = {
 				"bottom": 1182,
 				"right": 511
 			},
-			"shapeBounds": {
-				"top": 650,
-				"left": 260,
-				"bottom": 850,
-				"right": 460
+			"visualBounds": {
+				"top": 881,
+				"left": 210,
+				"bottom": 1182,
+				"right": 511
 			},
 			"shape": {
 				"type": "path",
@@ -400,9 +400,9 @@ module.exports = {
 				"bottom": 1303,
 				"right": 460
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 1103,
-				"left": 260,
+				"left": 110,
 				"bottom": 1303,
 				"right": 460
 			},
@@ -567,11 +567,11 @@ module.exports = {
 				"bottom": 1182,
 				"right": 1201
 			},
-			"shapeBounds": {
-				"top": 650,
-				"left": 950,
-				"bottom": 850,
-				"right": 1150
+			"visualBounds": {
+				"top": 881,
+				"left": 850,
+				"bottom": 1182,
+				"right": 1201
 			},
 			"shape": {
 				"type": "path",
@@ -761,11 +761,11 @@ module.exports = {
 				"bottom": 1182,
 				"right": 1891
 			},
-			"shapeBounds": {
-				"top": 650,
-				"left": 1640,
-				"bottom": 850,
-				"right": 1840
+			"visualBounds": {
+				"top": 881,
+				"left": 1490,
+				"bottom": 1182,
+				"right": 1891
 			},
 			"shape": {
 				"type": "path",
@@ -861,9 +861,9 @@ module.exports = {
 				"bottom": 397,
 				"right": 460
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 197,
-				"left": 260,
+				"left": 210,
 				"bottom": 397,
 				"right": 460
 			},
@@ -1013,9 +1013,9 @@ module.exports = {
 				"bottom": 397,
 				"right": 1840
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 197,
-				"left": 1640,
+				"left": 1490,
 				"bottom": 397,
 				"right": 1840
 			},

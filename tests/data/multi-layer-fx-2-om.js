@@ -82,7 +82,7 @@ module.exports = {
 				"bottom": 404,
 				"right": 424
 			},
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 204,
 				"left": 224,
 				"bottom": 404,

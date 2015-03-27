@@ -23,7 +23,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 50,
 				"bottom": 150,
@@ -52,7 +52,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 300,
 				"bottom": 150,
@@ -81,7 +81,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 3",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 50,
 				"left": 550,
 				"bottom": 150,
@@ -110,7 +110,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 4",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 50,
 				"bottom": 300,
@@ -139,7 +139,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 5",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 300,
 				"bottom": 300,
@@ -168,7 +168,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 6",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 200,
 				"left": 550,
 				"bottom": 300,
@@ -197,7 +197,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 7",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 350,
 				"left": 50,
 				"bottom": 450,
@@ -226,7 +226,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 8",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 350,
 				"left": 300,
 				"bottom": 450,
@@ -255,7 +255,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 9",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 353,
 				"left": 556,
 				"bottom": 451,
@@ -284,7 +284,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 10",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 500,
 				"left": 50,
 				"bottom": 600,
@@ -313,7 +313,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 11",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 500,
 				"left": 300,
 				"bottom": 600,
@@ -342,7 +342,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 12",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 500,
 				"left": 550,
 				"bottom": 600,
