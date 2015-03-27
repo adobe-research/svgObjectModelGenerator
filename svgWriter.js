@@ -56,7 +56,7 @@
         if (!tag.children) {
             return;
         }
-        for (var i = 0, ii = tag.children.length; i < ii; i++) {
+        for (var i = 0; i < tag.children.length; i++) {
             preProcess(tag.children[i], ctx, parents.slice(0), i);
         }
         parents.pop();
