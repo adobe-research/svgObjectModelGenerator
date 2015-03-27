@@ -276,7 +276,7 @@
 
         this.addGroupStylingData = function (svgNode, layer, writer) {
             svgNode.shapeBounds = layer.bounds;
-            this.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+            this.addStylingData(svgNode, layer, layer.bounds, writer);
         };
 
         this.addStylingData = function (svgNode, layer, layerBounds, writer) {
