@@ -138,7 +138,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "This is a text",
-					"textBounds": {
+					"visualBounds": {
 						"top": 161,
 						"left": 303,
 						"bottom": 207,
@@ -153,19 +153,7 @@ module.exports = {
 				}
 			],
 			"title": "This is a text.svg",
-			"boundsWithFX": {
-				"top": 161,
-				"left": 303,
-				"bottom": 207,
-				"right": 623
-			},
-			"shapeBounds": {
-				"top": 161,
-				"left": 303,
-				"bottom": 207,
-				"right": 623
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 161,
 				"left": 303,
 				"bottom": 207,

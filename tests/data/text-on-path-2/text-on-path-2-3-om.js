@@ -49,7 +49,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Text on Path",
-							"textBounds": {
+							"visualBounds": {
 								"top": 414,
 								"left": 256,
 								"bottom": 948,
@@ -67,13 +67,7 @@ module.exports = {
 				}
 			],
 			"title": "Text on Path.svg",
-			"shapeBounds": {
-				"top": 414,
-				"left": 256,
-				"bottom": 948,
-				"right": 951
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": -99,
 				"bottom": 435,
 				"left": -109,

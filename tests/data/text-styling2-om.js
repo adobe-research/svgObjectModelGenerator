@@ -31,7 +31,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "2",
-					"textBounds": {
+					"visualBounds": {
 						"top": 211,
 						"left": 79,
 						"bottom": 257,
@@ -46,13 +46,7 @@ module.exports = {
 				}
 			],
 			"title": "2",
-			"shapeBounds": {
-				"top": 211,
-				"left": 79,
-				"bottom": 257,
-				"right": 109
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 211,
 				"left": 79,
 				"bottom": 257,
@@ -89,7 +83,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "3",
-					"textBounds": {
+					"visualBounds": {
 						"top": 339,
 						"left": 77,
 						"bottom": 386,
@@ -104,13 +98,7 @@ module.exports = {
 				}
 			],
 			"title": "3",
-			"shapeBounds": {
-				"top": 339,
-				"left": 77,
-				"bottom": 386,
-				"right": 109
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 339,
 				"left": 77,
 				"bottom": 386,
@@ -147,7 +135,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "4",
-					"textBounds": {
+					"visualBounds": {
 						"top": 466,
 						"left": 77,
 						"bottom": 510,
@@ -162,13 +150,7 @@ module.exports = {
 				}
 			],
 			"title": "4",
-			"shapeBounds": {
-				"top": 466,
-				"left": 77,
-				"bottom": 510,
-				"right": 113
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 466,
 				"left": 77,
 				"bottom": 510,
@@ -206,7 +188,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "5",
-					"textBounds": {
+					"visualBounds": {
 						"top": 597,
 						"left": 76,
 						"bottom": 643,
@@ -221,13 +203,7 @@ module.exports = {
 				}
 			],
 			"title": "5",
-			"shapeBounds": {
-				"top": 597,
-				"left": 76,
-				"bottom": 643,
-				"right": 111
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 597,
 				"left": 76,
 				"bottom": 643,
@@ -264,7 +240,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "6",
-					"textBounds": {
+					"visualBounds": {
 						"top": 721,
 						"left": 76,
 						"bottom": 768,
@@ -279,13 +255,7 @@ module.exports = {
 				}
 			],
 			"title": "6",
-			"shapeBounds": {
-				"top": 721,
-				"left": 76,
-				"bottom": 768,
-				"right": 112
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 721,
 				"left": 76,
 				"bottom": 768,
@@ -323,7 +293,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "7",
-					"textBounds": {
+					"visualBounds": {
 						"top": 846,
 						"left": 84,
 						"bottom": 890,
@@ -338,13 +308,7 @@ module.exports = {
 				}
 			],
 			"title": "7",
-			"shapeBounds": {
-				"top": 846,
-				"left": 84,
-				"bottom": 890,
-				"right": 119
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 846,
 				"left": 84,
 				"bottom": 890,
@@ -381,7 +345,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "1",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 84,
 						"bottom": 120,
@@ -396,13 +360,7 @@ module.exports = {
 				}
 			],
 			"title": "1 copy",
-			"shapeBounds": {
-				"top": 76,
-				"left": 84,
-				"bottom": 120,
-				"right": 97
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 76,
 				"left": 84,
 				"bottom": 120,
@@ -438,7 +396,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "thin",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -462,7 +420,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "ultrathin",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -487,7 +445,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "thin italic",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -511,7 +469,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "medium",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -535,7 +493,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "light oblique",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -559,7 +517,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "book",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -583,7 +541,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "slanted",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 381,
 						"bottom": 897,
@@ -598,13 +556,7 @@ module.exports = {
 				}
 			],
 			"title": "thin ultrathin thin italic medium light oblique book slanted",
-			"shapeBounds": {
-				"top": 76,
-				"left": 381,
-				"bottom": 897,
-				"right": 784
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 76,
 				"left": 381,
 				"bottom": 897,

@@ -95,12 +95,6 @@ module.exports = {
 			},
 			"children": [],
 			"title": "shadow",
-			"boundsWithFX": {
-				"top": 80,
-				"left": 100,
-				"bottom": 271,
-				"right": 445
-			},
 			"visualBounds": {
 				"top": 80,
 				"left": 100,

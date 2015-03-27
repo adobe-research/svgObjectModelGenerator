@@ -81,7 +81,7 @@
 
         var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
-                bndsIn = omIn.visualBounds || omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
+                bndsIn = omIn.visualBounds,
                 lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                             omIn.style.stroke.lineWidth || 0,
                 expand = lineWidth / 2;
@@ -178,6 +178,8 @@
             var shape = omIn.shape,
                 bnds = omIn.visualBounds;
 
+            // The bounds shift here is still necessary for gradient overlays.
+            // FIXME: Is there a way to get rid of the bounds shifting?
             if (bnds) {
                 svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
                 svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
