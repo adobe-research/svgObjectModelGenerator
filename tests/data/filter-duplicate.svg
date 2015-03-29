@@ -20,12 +20,12 @@
 
     <filter filterUnits="userSpaceOnUse" id="filter-1">
       <feGaussianBlur result="blur-1" stdDeviation="2.236" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="2.5" dy="4.33"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
       <feGaussianBlur result="blur-2" stdDeviation="2.236" in="SourceAlpha"/>
-      <feFlood result="flood-2" flood-opacity="0.75"/>
+      <feFlood result="flood-2" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-2" operator="out" in2="blur-2"/>
       <feOffset result="offset-2" dx="2.5" dy="4.33"/>
       <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>

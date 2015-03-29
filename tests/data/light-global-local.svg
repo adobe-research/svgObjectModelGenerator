@@ -24,21 +24,21 @@
 
     <filter filterUnits="userSpaceOnUse" id="filter-1">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="14.142" dy="14.142"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
     <filter filterUnits="userSpaceOnUse" id="filter-2">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
     <filter filterUnits="userSpaceOnUse" id="filter-3">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="out" in2="blur-1"/>
       <feOffset result="offset-1" dx="14.142" dy="14.142"/>
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
@@ -46,7 +46,7 @@
     </filter>
     <filter filterUnits="userSpaceOnUse" id="filter-4">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="out" in2="blur-1"/>
       <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>

@@ -21,7 +21,7 @@
 
     <filter filterUnits="userSpaceOnUse" id="filter-1">
       <feGaussianBlur result="blur-1" stdDeviation="4.243" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="4" dy="6.928"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
@@ -30,5 +30,5 @@
       <feBlend result="blend-2" mode="lighten" in2="blend-1"/>
     </filter>
   </defs>
-  <text x="245" y="154" class="cls-1"><tspan class="cls-2"><tspan class="cls-3">This is a <tspan class="cls-4">text</tspan></tspan></tspan></text>
+  <text x="245" y="154" class="cls-1"><tspan dy="0" class="cls-2"><tspan class="cls-3">This is a <tspan class="cls-4">text</tspan></tspan></tspan></text>
 </svg>

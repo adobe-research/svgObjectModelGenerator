@@ -12,5 +12,5 @@
       }
     </style>
   </defs>
-  <text transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 191, 394)" class="cls-1"><tspan x="0" class="cls-2">here is</tspan><tspan dy="1.2em" x="0" class="cls-2">some hard</tspan><tspan dy="1.2em" x="0" class="cls-2">return point text</tspan></text>
+  <text x="0" y="0" transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 191, 394)" class="cls-1"><tspan dy="0" x="0" class="cls-2">here is</tspan><tspan dy="1.2em" x="0" class="cls-2">some hard</tspan><tspan dy="1.2em" x="0" class="cls-2">return point text</tspan></text>
 </svg>

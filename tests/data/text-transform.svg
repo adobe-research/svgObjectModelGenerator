@@ -16,6 +16,6 @@
       }
     </style>
   </defs>
-  <text transform="translate(247 366) rotate(-45)" class="cls-1"><tspan class="cls-2">Text</tspan></text>
+  <text x="0" y="0" transform="translate(247 366) rotate(-45)" class="cls-1"><tspan dy="0" class="cls-2">Text</tspan></text>
   <rect x="208" y="275" width="98" height="121" class="cls-3"/>
 </svg>

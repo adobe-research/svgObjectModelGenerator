@@ -5,7 +5,7 @@
         stroke: #000;
         stroke-linecap: round;
         stroke-width: 3px;
-        stroke-dasharray: 0.001,6;
+        stroke-dasharray: 0.001 6;
         fill: none;
         fill-rule: evenodd;
       }
@@ -15,7 +15,7 @@
         stroke-linecap: round;
         stroke-linejoin: bevel;
         stroke-width: 10px;
-        stroke-dasharray: 50,20,20,50;
+        stroke-dasharray: 50 20 20 50;
         fill: none;
         fill-rule: evenodd;
       }
@@ -24,7 +24,7 @@
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 10px;
-        stroke-dasharray: 40,20;
+        stroke-dasharray: 40 20;
         fill: none;
         fill-rule: evenodd;
       }
@@ -33,7 +33,7 @@
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 3px;
-        stroke-dasharray: 0.001,12,9;
+        stroke-dasharray: 0.001 12 9;
         fill: none;
         fill-rule: evenodd;
       }
@@ -42,7 +42,7 @@
         stroke: url(#linear-gradient-1);
         stroke-linejoin: round;
         stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
+        stroke-dasharray: 0.001 40 30;
         fill: none;
         fill-rule: evenodd;
       }
@@ -52,7 +52,7 @@
         stroke: url(#radial-gradient-2);
         stroke-linejoin: round;
         stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
+        stroke-dasharray: 0.001 40 30;
         fill-rule: evenodd;
       }
 
@@ -60,7 +60,7 @@
         stroke: url(#linear-gradient-2);
         stroke-linecap: round;
         stroke-width: 20px;
-        stroke-dasharray: 0.001,40;
+        stroke-dasharray: 0.001 40;
         fill: none;
         fill-rule: evenodd;
       }
@@ -74,34 +74,34 @@
     </style>
 
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="328.593" y1="300" x2="471.407" y2="200">
-      <stop offset="0" stop-color="#0a00b2"/>
-      <stop offset="0.5" stop-color="red"/>
-      <stop offset="1" stop-color="#fffc00"/>
+      <stop offset="0" stop-color="#0a00b2" stop-opacity="1"/>
+      <stop offset="0.5" stop-color="red" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fffc00" stop-opacity="1"/>
     </linearGradient>
     <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="650" cy="250" r="100">
-      <stop offset="0" stop-color="red"/>
-      <stop offset="0.15" stop-color="#f0f"/>
-      <stop offset="0.33" stop-color="blue"/>
-      <stop offset="0.49" stop-color="aqua"/>
-      <stop offset="0.67" stop-color="lime"/>
-      <stop offset="0.84" stop-color="#ff0"/>
-      <stop offset="1" stop-color="red"/>
+      <stop offset="0" stop-color="red" stop-opacity="1"/>
+      <stop offset="0.15" stop-color="#f0f" stop-opacity="1"/>
+      <stop offset="0.33" stop-color="blue" stop-opacity="1"/>
+      <stop offset="0.49" stop-color="aqua" stop-opacity="1"/>
+      <stop offset="0.67" stop-color="lime" stop-opacity="1"/>
+      <stop offset="0.84" stop-color="#ff0" stop-opacity="1"/>
+      <stop offset="1" stop-color="red" stop-opacity="1"/>
     </radialGradient>
     <radialGradient id="radial-gradient-2" r="50" xlink:href="#radial-gradient-1"/>
     <linearGradient id="linear-gradient-2" gradientUnits="userSpaceOnUse" x1="150" y1="450" x2="150" y2="350">
-      <stop offset="0" stop-color="red"/>
-      <stop offset="0.08" stop-color="#ff0"/>
-      <stop offset="0.165" stop-color="lime"/>
-      <stop offset="0.255" stop-color="aqua"/>
-      <stop offset="0.335" stop-color="blue"/>
-      <stop offset="0.425" stop-color="#f0f"/>
-      <stop offset="0.5" stop-color="red"/>
-      <stop offset="0.575" stop-color="#f0f"/>
-      <stop offset="0.665" stop-color="blue"/>
-      <stop offset="0.745" stop-color="aqua"/>
-      <stop offset="0.835" stop-color="lime"/>
-      <stop offset="0.92" stop-color="#ff0"/>
-      <stop offset="1" stop-color="red"/>
+      <stop offset="0" stop-color="red" stop-opacity="1"/>
+      <stop offset="0.08" stop-color="#ff0" stop-opacity="1"/>
+      <stop offset="0.165" stop-color="lime" stop-opacity="1"/>
+      <stop offset="0.255" stop-color="aqua" stop-opacity="1"/>
+      <stop offset="0.335" stop-color="blue" stop-opacity="1"/>
+      <stop offset="0.425" stop-color="#f0f" stop-opacity="1"/>
+      <stop offset="0.5" stop-color="red" stop-opacity="1"/>
+      <stop offset="0.575" stop-color="#f0f" stop-opacity="1"/>
+      <stop offset="0.665" stop-color="blue" stop-opacity="1"/>
+      <stop offset="0.745" stop-color="aqua" stop-opacity="1"/>
+      <stop offset="0.835" stop-color="lime" stop-opacity="1"/>
+      <stop offset="0.92" stop-color="#ff0" stop-opacity="1"/>
+      <stop offset="1" stop-color="red" stop-opacity="1"/>
     </linearGradient>
     <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient-1"/>
   </defs>

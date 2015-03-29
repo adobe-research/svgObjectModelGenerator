@@ -11,7 +11,7 @@
       <feFlood result="flood-1" flood-color="#61b18e" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
-      <feFlood result="flood-2" flood-color="#d58686"/>
+      <feFlood result="flood-2" flood-color="#d58686" flood-opacity="1"/>
       <feComposite result="composite-2" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend-2" mode="multiply" in2="blend-1"/>
     </filter>

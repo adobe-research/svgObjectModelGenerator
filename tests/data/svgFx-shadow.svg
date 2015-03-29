@@ -12,12 +12,12 @@
       <feGaussianBlur result="blur-1" stdDeviation="4.583" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-color="#d62d2d" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
-      <feOffset result="offset-1" dx="24"/>
+      <feOffset result="offset-1" dx="24" dy="0"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
       <feGaussianBlur result="blur-2" stdDeviation="6.782" in="SourceAlpha"/>
       <feFlood result="flood-2" flood-color="#2362e1" flood-opacity="0.75"/>
       <feComposite result="composite-2" operator="out" in2="blur-2"/>
-      <feOffset result="offset-2" dx="75"/>
+      <feOffset result="offset-2" dx="75" dy="0"/>
       <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
       <feBlend result="blend-2" mode="multiply" in2="blend-1"/>
     </filter>

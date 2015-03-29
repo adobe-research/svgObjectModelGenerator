@@ -13,5 +13,5 @@
       <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect width="200" height="100" class="cls-1"/>
+  <rect x="0" y="0" width="200" height="100" class="cls-1"/>
 </svg>

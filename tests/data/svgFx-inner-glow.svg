@@ -14,9 +14,9 @@
 
     <filter filterUnits="userSpaceOnUse" id="filter-1">
       <feGaussianBlur result="blur-1" stdDeviation="12.667" in="SourceAlpha"/>
-      <feColorMatrix result="color-1" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
-      <feColorMatrix result="color-2" values="0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0"/>
-      <feColorMatrix result="color-3" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+      <feColorMatrix result="color-1" type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+      <feColorMatrix result="color-2" type="matrix" values="0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0"/>
+      <feColorMatrix result="color-3" type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
       <feComponentTransfer result="comp-1" color-interpolation-filters="sRGB">
         <feFuncR type="table" tableValues="1 1 1 1 1 1 0.833 0.667 0.5 0.333 0.167 0 0 0 0 0 0 0 0 0 0 0 0 0.167 0.333 0.5 0.667 0.833 1 1 1 1 1 1"/>
         <feFuncG type="table" tableValues="0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0 0 0 0 0 0 0 0 0 0 0 0"/>

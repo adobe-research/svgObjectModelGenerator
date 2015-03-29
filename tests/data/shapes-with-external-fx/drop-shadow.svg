@@ -10,7 +10,7 @@
 
     <filter filterUnits="userSpaceOnUse" id="filter-1">
       <feGaussianBlur result="blur-1" stdDeviation="5.196" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
+      <feFlood result="flood-1" flood-color="#000" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="17" dy="29.445"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
