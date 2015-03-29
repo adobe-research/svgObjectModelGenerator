@@ -46,7 +46,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "This is a text",
-					"textBounds": {
+					"visualBounds": {
 						"top": 241,
 						"left": 321,
 						"bottom": 965,
@@ -61,13 +61,7 @@ module.exports = {
 				}
 			],
 			"title": "This is a text",
-			"shapeBounds": {
-				"top": 241,
-				"left": 321,
-				"bottom": 965,
-				"right": 357
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 241,
 				"left": 321,
 				"bottom": 965,

@@ -44,7 +44,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "This is a text example",
-					"textBounds": {
+					"visualBounds": {
 						"top": 76,
 						"left": 129,
 						"bottom": 134,
@@ -59,13 +59,7 @@ module.exports = {
 				}
 			],
 			"title": "This is a text example",
-			"shapeBounds": {
-				"top": 76,
-				"left": 129,
-				"bottom": 134,
-				"right": 690
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 76,
 				"left": 129,
 				"bottom": 134,
@@ -126,7 +120,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "This is a ",
-							"textBounds": {
+							"visualBounds": {
 								"top": 187,
 								"left": 141,
 								"bottom": 245,
@@ -155,7 +149,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "text ",
-							"textBounds": {
+							"visualBounds": {
 								"top": 187,
 								"left": 141,
 								"bottom": 245,
@@ -184,7 +178,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "example",
-							"textBounds": {
+							"visualBounds": {
 								"top": 187,
 								"left": 141,
 								"bottom": 245,
@@ -197,23 +191,11 @@ module.exports = {
 						"y": 232,
 						"unitX": "px",
 						"unitY": "px"
-					},
-					"textBounds": {
-						"top": 187,
-						"left": 141,
-						"bottom": 245,
-						"right": 702
 					}
 				}
 			],
 			"title": "This is a text example",
-			"shapeBounds": {
-				"top": 187,
-				"left": 141,
-				"bottom": 245,
-				"right": 702
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 187,
 				"left": 141,
 				"bottom": 245,
@@ -274,7 +256,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "Thi",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -303,7 +285,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "s i",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -332,7 +314,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "s ",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -361,7 +343,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "a t",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -390,7 +372,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "ex",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -420,7 +402,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "t e",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -449,7 +431,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "xa",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -478,7 +460,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "mple",
-							"textBounds": {
+							"visualBounds": {
 								"top": 295,
 								"left": 139,
 								"bottom": 356,
@@ -491,23 +473,11 @@ module.exports = {
 						"y": 341,
 						"unitX": "px",
 						"unitY": "px"
-					},
-					"textBounds": {
-						"top": 295,
-						"left": 139,
-						"bottom": 356,
-						"right": 681
 					}
 				}
 			],
 			"title": "This is a text example",
-			"shapeBounds": {
-				"top": 295,
-				"left": 139,
-				"bottom": 356,
-				"right": 681
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 295,
 				"left": 139,
 				"bottom": 356,
@@ -568,7 +538,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "This i",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -597,7 +567,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "s",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -610,12 +580,6 @@ module.exports = {
 						"y": 440,
 						"unitX": "px",
 						"unitY": "px"
-					},
-					"textBounds": {
-						"top": 395,
-						"left": 149,
-						"bottom": 608,
-						"right": 310
 					}
 				},
 				{
@@ -651,7 +615,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "a te",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -680,7 +644,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "x",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -709,7 +673,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "t",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -722,12 +686,6 @@ module.exports = {
 						"y": 440,
 						"unitX": "px",
 						"unitY": "px"
-					},
-					"textBounds": {
-						"top": 395,
-						"left": 149,
-						"bottom": 608,
-						"right": 310
 					}
 				},
 				{
@@ -763,7 +721,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "exam",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -792,7 +750,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "ple",
-							"textBounds": {
+							"visualBounds": {
 								"top": 395,
 								"left": 149,
 								"bottom": 608,
@@ -805,23 +763,11 @@ module.exports = {
 						"y": 440,
 						"unitX": "px",
 						"unitY": "px"
-					},
-					"textBounds": {
-						"top": 395,
-						"left": 149,
-						"bottom": 608,
-						"right": 310
 					}
 				}
 			],
 			"title": "This is a text example",
-			"shapeBounds": {
-				"top": 395,
-				"left": 149,
-				"bottom": 608,
-				"right": 310
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 395,
 				"left": 149,
 				"bottom": 608,

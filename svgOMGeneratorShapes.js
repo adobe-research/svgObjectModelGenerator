@@ -19,14 +19,13 @@
 /* Help construct the svgOM */
 
 (function () {
-"use strict";
+    "use strict";
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
         Matrix = require("./matrix.js");
 
-    var round2 = Utils.round2,
-        round1k = Utils.round1k;
+    var round2 = Utils.round2;
     
 	function SVGOMGeneratorShapes() {
         
@@ -104,80 +103,7 @@
                     }
                 });
                 
-                if (!samePts) {
-                    
-                    //Work in progress.  Working for rectangles, but not for ellipse.  Even for rectangles it does not position the shape properly.
-                    
-                    /*
-                    //console.log("unshifted rect bounds = " + JSON.stringify(unshiftedRectBounds, null, "  "));
-                    
-                    mtrxResult = Matrix.matrixFromPoints(unshiftedRectBounds, txfmBounds);
-                    if (mtrxResult.matrix) {
-                        mtrx = mtrxResult.matrix;
-                        
-                        //console.log("bounds out == " + JSON.stringify(mtrxResult.bounds, null, "  "));
-                        
-                        samePts = true;
-                        txOffset = (txfmBounds[1][0] - txfmBounds[0][0])/2.0;
-                        
-                        //find the center-point and shift the points by it
-                        var ctrX = (points[0].anchor.x + points[1].anchor.x + points[2].anchor.x + points[3].anchor.x) / 4.0,
-                            ctrY = (points[0].anchor.y + points[1].anchor.y + points[2].anchor.y + points[3].anchor.y) / 4.0,
-                            boundCtrX = (mtrxResult.bounds[0][0] + mtrxResult.bounds[1][0]) / 2.0,
-                            boundCtrY = (mtrxResult.bounds[0][1] + mtrxResult.bounds[3][1]) / 2.0;
-                        
-                        //console.log("CENTER == " + ctrX + ", " + ctrY);
-
-                        points.forEach(function (pt, i) {
-                            
-                            var ptBound,
-                                txfmPoint;
-                            
-                            if (!ellipse) {
-                                ptBound = [mtrxResult.bounds[i][0] - boundCtrX, mtrxResult.bounds[i][1] - boundCtrY];
-                            } else {
-                                ptBound = _ellipsePt(mtrxResult.bounds, i);
-                                ptBound[0] -= boundCtrX;
-                                ptBound[1] -= boundCtrY;
-                            }
-                            
-                            txfmPoint = mtrx.transformPoint(ptBound);
-                            txfmPoint[0] += ctrX;
-                            txfmPoint[1] += ctrY;
-                            
-                            //console.log("Synthetic PT: " + JSON.stringify(txfmPoint));
-                            //console.log("Data PT: " + JSON.stringify(pt.anchor));
-                            
-                            if (!_comparePts([pt.anchor.x, pt.anchor.y], txfmPoint)) {
-                                samePts = false;
-                            }
-                        });
-                        if (samePts) {
-                            console.log("INFERRED = " + JSON.stringify(Matrix.writeDecomposedTransform(Matrix.decomposeTransform(mtrx))));
-                            
-                            svgNode.transformTX = txOffset;
-                            svgNode.transformTY = 0;
-                            svgNode.transform = mtrxResult.matrix;
-                            
-                            //apply the bounds revision
-                            newBounds.top = mtrxResult.bounds[0][1];
-                            newBounds.right = mtrxResult.bounds[1][0];
-                            newBounds.bottom = mtrxResult.bounds[3][1];
-                            newBounds.left = mtrxResult.bounds[0][0];
-                            
-                            return newBounds;
-                        } else {
-                            console.log("BAD GUESS => " + JSON.stringify(Matrix.writeDecomposedTransform(Matrix.decomposeTransform(mtrx))));
-                        }   
-                    }
-                    */
-                    
-                    //fallback to the raw path data
-                    return false;
-                } else {
-                    //natural shape, untransformed
-                    return true;
-                }
+                return samePts;
             }
             return false;
         };
@@ -196,10 +122,7 @@
                         }
                     }
 
-                    if (typeof newBounds === "object") {
-                        svgNode.originBounds = newBounds;
-                    }
-                    svgNode.shapeBounds = origin.bounds;
+                    svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
                     
                     svgNode.shape = {
                         type: "ellipse",
@@ -209,7 +132,7 @@
                         ry: (origin.bounds.bottom - origin.bounds.top) / 2
                     };
 
-                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                    omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
                     
                     return true;
                 }
@@ -225,7 +148,7 @@
                         h = parseInt(origin.bounds.bottom) - parseInt(origin.bounds.top);
                     
                     if (w == h) {
-                        svgNode.shapeBounds = origin.bounds;
+                        svgNode.visualBounds = origin.boundsWithFX || origin.bounds;
 
                         svgNode.shape = {
                             type: "circle",
@@ -233,7 +156,7 @@
                             cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
                             r: (origin.bounds.right - origin.bounds.left) / 2
                         };
-                        omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                        omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
                         return true;
                     }
                 }
@@ -261,12 +184,8 @@
                             return false;
                         }
                     }
-                    
-                    //may have acquired shapeBounds while inferring the transform
-                    if (typeof newBounds === "object") {
-                        svgNode.originBounds = newBounds;
-                    }
-                    svgNode.shapeBounds = origin.bounds;
+
+                    svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
                     svgNode.shapeRadii = origin.radii;
 
                     svgNode.shape = {
@@ -278,7 +197,7 @@
                         r: origin.radii
                     };
 
-                    omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                    omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
 
                     return true;
                 }
@@ -292,14 +211,14 @@
             
             if (path && pathData) {
                 
-                svgNode.shapeBounds = path.bounds;
+                svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
                 svgNode.shape = {
                     type: "path",
                     path: pathData
                 };
 
-                omgStyles.addStylingData(svgNode, layer, svgNode.shapeBounds, writer);
+                omgStyles.addStylingData(svgNode, layer, path.bounds, writer);
                 
                 return true;
             }
@@ -307,7 +226,7 @@
         };
         
         this.addShapeData = function(svgNode, layer, writer) {
-            if (this.addCircle(svgNode, layer, writer) || 
+            if (this.addCircle(svgNode, layer, writer) ||
                 this.addEllipse(svgNode, layer, writer) ||
                 this.addRect(svgNode, layer, writer) ||
                 this.addPath(svgNode, layer, writer)) {

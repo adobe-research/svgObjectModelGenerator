@@ -20,7 +20,7 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Ellipse 1",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 2125,
 				"left": 2125,
 				"bottom": 2899,

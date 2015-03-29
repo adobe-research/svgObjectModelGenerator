@@ -401,7 +401,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: true,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 200,
                             top: 100,
@@ -436,7 +436,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: true,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 200,
                             top: 300,
@@ -486,7 +486,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: false,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 50,
                             right: 150,
                             top: 50,
@@ -510,7 +510,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: true,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 300,
                             top: 100,
@@ -552,7 +552,7 @@ describe('svgWriter', function (){
                                 },
                                 "children": [],
                                 "title": "Rectangle 1",
-                                "shapeBounds": {
+                                "visualBounds": {
                                     "top": 67,
                                     "left": 130,
                                     "bottom": 245,
@@ -586,7 +586,7 @@ describe('svgWriter', function (){
                                 },
                                 "children": [],
                                 "title": "Rectangle 1",
-                                "shapeBounds": {
+                                "visualBounds": {
                                     "top": 67,
                                     "left": 130,
                                     "bottom": 245,
@@ -608,7 +608,7 @@ describe('svgWriter', function (){
                     {
                         type: "shape",
                         visible: false,
-                        shapeBounds: {
+                        visualBounds: {
                             left: 50,
                             right: 150,
                             top: 50,
@@ -632,7 +632,7 @@ describe('svgWriter', function (){
                     },
                     {
                         type: "shape",
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 300,
                             top: 100,
@@ -708,7 +708,7 @@ describe('svgWriter', function (){
                 children:[
                     {
                         type: "shape",
-                        shapeBounds: {
+                        visualBounds: {
                             left: 100,
                             right: 300,
                             top: 100,
@@ -761,6 +761,66 @@ describe('svgWriter', function (){
             }
             expect(svgOut2).to.equal(exptectedOut2);
             return;
+        });
+    });
+
+    /**
+     * Test empty groups.
+     **/
+    describe("Test empty groups", function () {
+        it("printSVG should not throw on empty groups", function () {
+            var svgOM = {"children": [
+                    {
+                        "children": [],
+                        "id": "just-circles",
+                        "title": "",
+                        "type": "group",
+                        "visible": true
+                    },
+                    {
+                        "id": "red-rect",
+                        "shape": {
+                            "height": 58.2535,
+                            "r": [
+                                0,
+                                0,
+                                0,
+                                0
+                            ],
+                            "type": "rect",
+                            "width": 233.099,
+                            "x": 18.6056,
+                            "y": 29.4085
+                        },
+                        "shapeBounds": {
+                            "bottom": 200,
+                            "left": 100,
+                            "right": 200,
+                            "top": 100
+                        },
+                        "title": "",
+                        "type": "shape",
+                        "visible": true
+                    }
+                ],
+                "global": {
+                    "bounds": {
+                        "bottom": 653.761,
+                        "left": 3.9507,
+                        "right": 576.93,
+                        "top": -23.9085
+                    },
+                    "viewBox": {
+                        "bottom": 653.761,
+                        "left": 3.9507,
+                        "right": 576.93,
+                        "top": -23.9085
+                    }
+                },
+                "title": "layers",
+                "version": "0.1.0"
+            };
+            expect(svgWriter.printSVG(svgOM)).to.not.equal('');
         });
     });
 });

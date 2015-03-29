@@ -53,17 +53,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 88,
 				"left": 88,
 				"bottom": 212,
 				"right": 212
-			},
-			"shapeBounds": {
-				"top": 100,
-				"left": 100,
-				"bottom": 200,
-				"right": 200
 			},
 			"shape": {
 				"type": "rect",
@@ -196,17 +190,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 88,
 				"left": 288,
 				"bottom": 212,
 				"right": 412
-			},
-			"shapeBounds": {
-				"top": 100,
-				"left": 300,
-				"bottom": 200,
-				"right": 400
 			},
 			"shape": {
 				"type": "rect",
@@ -339,17 +327,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 3",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 88,
 				"left": 488,
 				"bottom": 212,
 				"right": 612
-			},
-			"shapeBounds": {
-				"top": 100,
-				"left": 500,
-				"bottom": 200,
-				"right": 600
 			},
 			"shape": {
 				"type": "rect",
@@ -522,17 +504,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 4",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 288,
 				"left": 88,
 				"bottom": 412,
 				"right": 212
-			},
-			"shapeBounds": {
-				"top": 300,
-				"left": 100,
-				"bottom": 400,
-				"right": 200
 			},
 			"shape": {
 				"type": "rect",
@@ -705,17 +681,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 5",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 288,
 				"left": 288,
 				"bottom": 412,
 				"right": 412
-			},
-			"shapeBounds": {
-				"top": 300,
-				"left": 300,
-				"bottom": 400,
-				"right": 400
 			},
 			"shape": {
 				"type": "rect",
@@ -888,17 +858,11 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 6",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 288,
 				"left": 488,
 				"bottom": 412,
 				"right": 612
-			},
-			"shapeBounds": {
-				"top": 300,
-				"left": 500,
-				"bottom": 400,
-				"right": 600
 			},
 			"shape": {
 				"type": "rect",

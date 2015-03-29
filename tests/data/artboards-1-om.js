@@ -38,7 +38,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Ellipse 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 2567,
 						"left": 2147,
 						"bottom": 3353,
@@ -53,7 +53,7 @@ module.exports = {
 				}
 			],
 			"title": "square",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 2000,
 				"left": 2000,
 				"bottom": 3920,
@@ -90,7 +90,7 @@ module.exports = {
 					},
 					"children": [],
 					"title": "Rectangle 1",
-					"shapeBounds": {
+					"visualBounds": {
 						"top": 2811,
 						"left": 3972,
 						"bottom": 3344,
@@ -106,7 +106,7 @@ module.exports = {
 				}
 			],
 			"title": "iPhone",
-			"shapeBounds": {
+			"visualBounds": {
 				"top": 2497,
 				"left": 3658,
 				"bottom": 3659,

@@ -94,16 +94,10 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 1",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 196,
 				"left": 41,
 				"bottom": 405,
-				"right": 250
-			},
-			"shapeBounds": {
-				"top": 200,
-				"left": 50,
-				"bottom": 400,
 				"right": 250
 			},
 			"shape": {
@@ -200,16 +194,10 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 2",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 196,
 				"left": 291,
 				"bottom": 405,
-				"right": 500
-			},
-			"shapeBounds": {
-				"top": 200,
-				"left": 300,
-				"bottom": 400,
 				"right": 500
 			},
 			"shape": {
@@ -306,16 +294,10 @@ module.exports = {
 			},
 			"children": [],
 			"title": "Rectangle 3",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 196,
 				"left": 541,
 				"bottom": 405,
-				"right": 750
-			},
-			"shapeBounds": {
-				"top": 200,
-				"left": 550,
-				"bottom": 400,
 				"right": 750
 			},
 			"shape": {

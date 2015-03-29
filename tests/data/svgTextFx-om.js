@@ -179,7 +179,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "This is a ",
-							"textBounds": {
+							"visualBounds": {
 								"top": 131,
 								"left": 246,
 								"bottom": 154,
@@ -208,7 +208,7 @@ module.exports = {
 							},
 							"children": [],
 							"text": "text",
-							"textBounds": {
+							"visualBounds": {
 								"top": 131,
 								"left": 246,
 								"bottom": 154,
@@ -221,33 +221,15 @@ module.exports = {
 						"y": 154,
 						"unitX": "px",
 						"unitY": "px"
-					},
-					"textBounds": {
-						"top": 131,
-						"left": 246,
-						"bottom": 154,
-						"right": 403
 					}
 				}
 			],
 			"title": "This is a text",
-			"boundsWithFX": {
+			"visualBounds": {
 				"top": 114,
 				"left": 221,
 				"bottom": 172,
 				"right": 413
-			},
-			"shapeBounds": {
-				"top": 131,
-				"left": 246,
-				"bottom": 154,
-				"right": 403
-			},
-			"textBounds": {
-				"top": 131,
-				"left": 246,
-				"bottom": 154,
-				"right": 403
 			},
 			"position": {
 				"x": 245,

@@ -37,7 +37,7 @@ module.exports = {
 					},
 					"children": [],
 					"text": "Plain text",
-					"textBounds": {
+					"visualBounds": {
 						"top": 52,
 						"left": 44,
 						"bottom": 170,
@@ -52,13 +52,7 @@ module.exports = {
 				}
 			],
 			"title": "Plain text.svg",
-			"shapeBounds": {
-				"top": 52,
-				"left": 44,
-				"bottom": 170,
-				"right": 748
-			},
-			"textBounds": {
+			"visualBounds": {
 				"top": 52,
 				"left": 44,
 				"bottom": 170,
