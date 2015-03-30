@@ -275,7 +275,6 @@
         };
 
         this.addGroupStylingData = function (svgNode, layer, writer) {
-            svgNode.visualBounds = layer.bounds;
             this.addStylingData(svgNode, layer, layer.bounds, writer);
         };
 

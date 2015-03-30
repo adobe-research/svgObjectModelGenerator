@@ -45,13 +45,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "iPhone",
-			"visualBounds": {
-				"top": 2497,
-				"left": 3658,
-				"bottom": 3659,
-				"right": 4820
-			}
+			"title": "iPhone"
 		}
 	],
 	"global": {

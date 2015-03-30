@@ -52,13 +52,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "circle",
-			"visualBounds": {
-				"top": 2000,
-				"left": 2000,
-				"bottom": 3024,
-				"right": 3024
-			}
+			"title": "circle"
 		},
 		{
 			"id": "artboard-2",
@@ -105,13 +99,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "square",
-			"visualBounds": {
-				"top": 2000,
-				"left": 3252,
-				"bottom": 3024,
-				"right": 4276
-			}
+			"title": "square"
 		}
 	],
 	"global": {

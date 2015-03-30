@@ -86,6 +86,12 @@
                             omIn.style.stroke.lineWidth || 0,
                 expand = lineWidth / 2;
 
+            // Objects of type "artboard" have the special behavior
+            // that we take the bounds of the artboard and not the children.
+            if (omIn.type == "artboard") {
+                bndsIn = ctx.svgOM.artboards[omIn.id].bounds;
+            }
+
             utils.unionRect(bnds, bndsIn, expand);
         };
 
@@ -242,6 +248,10 @@
 
             if (ctx.config.trimToArtBounds) {
                 recordBounds(ctx, omIn);
+            }
+
+            if (omIn.type == "artboard") {
+                return;
             }
 
             if (children) {

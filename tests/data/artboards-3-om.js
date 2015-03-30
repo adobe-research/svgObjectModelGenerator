@@ -59,13 +59,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Artboard 1",
-			"visualBounds": {
-				"top": 2000,
-				"left": 2000,
-				"bottom": 3024,
-				"right": 3024
-			}
+			"title": "Artboard 1"
 		},
 		{
 			"id": "artboard-2",
@@ -118,13 +112,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Artboard 2",
-			"visualBounds": {
-				"top": 2000,
-				"left": 3336,
-				"bottom": 3024,
-				"right": 5263
-			}
+			"title": "Artboard 2"
 		}
 	],
 	"global": {
