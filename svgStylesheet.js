@@ -73,15 +73,25 @@
     (function (proto) {
 
         proto.addRule = function (prop, value, force) {
+            var def = Tag.getDefault("*", prop),
+                val = Tag.getValue("*", prop, value),
+                isDefault = val + "" == def + "";
             if (!force) {
                 for (var i = 0; i < this.rules.length; i++) {
                     if (this.rules[i].propertyName == prop) {
-                        this.rules[i].value = value;
+                        if (isDefault) {
+                            this.rules.splice(i, 1);
+                        } else {
+                            this.rules[i].value = val;
+                        }
                         return;
                     }
                 }
             }
-            this.rules.push(new CSSStyleRule(prop, value));
+            if (isDefault) {
+                return;
+            }
+            this.rules.push(new CSSStyleRule(prop, val));
         };
 
         proto.removeRule = function (prop, val) {

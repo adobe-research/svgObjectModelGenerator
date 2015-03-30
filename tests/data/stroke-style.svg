@@ -5,7 +5,7 @@
         stroke: #000;
         stroke-linecap: round;
         stroke-width: 3px;
-        stroke-dasharray: 0.001,6;
+        stroke-dasharray: 0.001 6;
         fill: none;
         fill-rule: evenodd;
       }
@@ -15,7 +15,7 @@
         stroke-linecap: round;
         stroke-linejoin: bevel;
         stroke-width: 10px;
-        stroke-dasharray: 50,20,20,50;
+        stroke-dasharray: 50 20 20 50;
         fill: none;
         fill-rule: evenodd;
       }
@@ -24,7 +24,7 @@
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 10px;
-        stroke-dasharray: 40,20;
+        stroke-dasharray: 40 20;
         fill: none;
         fill-rule: evenodd;
       }
@@ -33,7 +33,7 @@
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 3px;
-        stroke-dasharray: 0.001,12,9;
+        stroke-dasharray: 0.001 12 9;
         fill: none;
         fill-rule: evenodd;
       }
@@ -42,7 +42,7 @@
         stroke: url(#linear-gradient-1);
         stroke-linejoin: round;
         stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
+        stroke-dasharray: 0.001 40 30;
         fill: none;
         fill-rule: evenodd;
       }
@@ -52,7 +52,7 @@
         stroke: url(#radial-gradient-2);
         stroke-linejoin: round;
         stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
+        stroke-dasharray: 0.001 40 30;
         fill-rule: evenodd;
       }
 
@@ -60,7 +60,7 @@
         stroke: url(#linear-gradient-2);
         stroke-linecap: round;
         stroke-width: 20px;
-        stroke-dasharray: 0.001,40;
+        stroke-dasharray: 0.001 40;
         fill: none;
         fill-rule: evenodd;
       }

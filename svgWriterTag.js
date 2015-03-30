@@ -107,7 +107,7 @@
             }
         }
     };
-    function parseNumber(value) {
+    function parseNumber(value, isAttr) {
         var digival = parseFloat(value),
             units = (value + "").match(/[a-z%\-]+$/i);
         if (value == +value) {
@@ -116,7 +116,7 @@
             value = 0;
         } else if (isFinite(digival)) {
             value = round1k(digival);
-            if (units && units[0].toLowerCase() != "px") {
+            if (units && (units[0].toLowerCase() != "px" || !isAttr)) {
                 value += units[0];
             }
         }
@@ -125,20 +125,26 @@
     Tag.prototype.getAttribute = function (name) {
         return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
     };
-    Tag.prototype.setAttribute = function (name, value) {
-        var desc = attrsDefs[this.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
+    function getDesc(tagname, attrname) {
+        return attrsDefs[tagname + "/" + attrname] || attrsDefs["*/" + attrname] || attrsDefs.default;
+    }
+    Tag.getDefault = function (tagname, attrname) {
+        return getDesc(tagname, attrname)[0];
+    };
+    Tag.getValue = function (tagname, attrname, value) {
+        var desc = getDesc(tagname, attrname),
             type = desc[1],
             digival = parseFloat(value);
         switch (type) {
         case "number":
-            value = parseNumber(value);
+            value = parseNumber(value, tagname != "*");
             break;
         case "number-sequence":
             if (!Array.isArray(value)) {
                 value = (value + "").split(/[,\s]+/);
             }
             for (var i = 0, ii = value.length; i < ii; i++) {
-                value[i] = parseNumber(value[i]);
+                value[i] = parseNumber(value[i], tagname != "*");
             }
             value = value.join(" ");
             break;
@@ -148,6 +154,10 @@
             }
             break;
         }
+        return value;
+    };
+    Tag.prototype.setAttribute = function (name, value) {
+        value = Tag.getValue(this.name, name, value);
         if (value === "" || value == null) {
             if (name == "id" && root) {
                 delete root.ids[this.attrs.id];
@@ -187,8 +197,7 @@
         };
     Tag.prototype.writeAttribute = function (ctx, name) {
         var tag = this,
-            desc = attrsDefs[tag.name + "/" + name] || attrsDefs["*/" + name] || attrsDefs.default,
-            deft = desc[0],
+            deft = Tag.getDefault(tag.name, name),
             link,
             toWrite = tag.attrs[name] + "" != deft + "";
         // Special case of linked tags
