@@ -41,11 +41,12 @@
 
     (function (proto) {
         proto.write = function (ctx) {
-            writeln(ctx, ctx.currentIndent + this);
+            writeln(ctx, ctx.currentIndent + this.toString(ctx));
         };
 
-        proto.toString = function () {
-            return this.propertyName + ": " + this.value + ";";
+        proto.toString = function (ctx) {
+            ctx = ctx || new SVGWriterContext({});
+            return this.propertyName + ":" + ctx.space + this.value + ";";
         };
     }(CSSStyleRule.prototype));
 
@@ -65,7 +66,7 @@
             if (cls) {
                 return CSSStyleBlock.prototype.clone.call(cls);
             }
-            return new CSSStyleBlock;
+            return new CSSStyleBlock();
         }
     }
 
@@ -130,11 +131,7 @@
         proto.write = proto.toString = function (ctx) {
             ctx = ctx || new SVGWriterContext({});
             var i;
-            if (ctx.minify()) {
-                writeln(ctx, ctx.currentIndent + "." + this.class.join(",.") + "{");
-            } else {
-                writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
-            }
+            writeln(ctx, ctx.currentIndent + "." + this.class.join("," + ctx.space + ".") + ctx.space + "{");
             indent(ctx);
 
             for (i = 0; i < this.rules.length; i++) {

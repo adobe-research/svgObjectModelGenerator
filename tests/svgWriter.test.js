@@ -791,11 +791,11 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        it('Test minification of SVG output', function () {
+        it('Test minification of SVG output with gradient', function () {
             compareResultss('gradient-scale-2');
         });
 
-        it('Test minification of SVG output', function () {
+        it('Test minification of SVG output with filters', function () {
             compareResultss('multi-layer-fx-5');
         });
     });
