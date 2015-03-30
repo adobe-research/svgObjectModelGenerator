@@ -71,27 +71,34 @@
         getRadialGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
             var cx = gradient.cx + (ctx._shiftContentX || 0),
                 cy = gradient.cy + (ctx._shiftContentY || 0),
-                r = gradient.r;
-            if (link) {
-                tag.setAttributes({
+                fx = gradient.fx ? gradient.fx + (ctx._shiftContentX || 0) : cx,
+                fy = gradient.fy ? gradient.fy + (ctx._shiftContentY || 0) : cy,
+                r = gradient.r,
+                attr = {
                     cx: cx,
                     cy: cy,
-                    r: r,
-                    "xlink:href": "#" + link.id
-                });
+                    r: r
+                };
+            if (isFinite(fx) && fx != cx) {
+                attr.fx = fx;
+            }
+            if (isFinite(fy) && fy != cy) {
+                attr.fy = fy;
+            }
+            if (link) {
+                attr["xlink:href"] = "#" + link.id;
+                tag.setAttributes(attr);
             } else {
                 gradientStops[lines] = {
                     id: gradientID,
                     cx: cx,
                     cy: cy,
+                    fx: fx,
+                    fy: fy,
                     r: r
                 };
-                tag.setAttributes({
-                    gradientUnits: "userSpaceOnUse",
-                    cx: cx,
-                    cy: cy,
-                    r: r
-                });
+                attr.gradientUnits = "userSpaceOnUse";
+                tag.setAttributes(attr);
                 tag.children = removeDups(lines);
             }
         },
