@@ -469,6 +469,28 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test presentation attribute export.
+     **/
+    describe("Test export to presentation attribute", function () {
+        it("should export without style blocks", function () {
+            var svgOM = require('./data/stroke-fx-2-om.js'),
+                exptectedOut,
+                svgOut = svgWriter.printSVG(svgOM, {usePresentationAttribute: true});
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/data/stroke-fx-pres-attr.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/stroke-fx-pres-attr.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as stroke-fx-pres-attr.svg');
+                return;
+            }
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return;
+        });
+    });
+
+    /**
      * Test termination of rendering on visible: false.
      **/
     describe("Test termination of rendering on visible: false", function () {
