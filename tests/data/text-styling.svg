@@ -53,20 +53,20 @@
       }
     </style>
   </defs>
-  <text x="57" y="98" class="cls-1"><tspan dy="0" class="cls-2">Text</tspan></text>
-  <text x="64" y="186" class="cls-1"><tspan dy="0" class="cls-3">Text</tspan></text>
-  <text x="64" y="273" class="cls-1"><tspan dy="0" class="cls-4">Text</tspan></text>
-  <text x="64" y="349" class="cls-1"><tspan dy="0" class="cls-5">Text</tspan></text>
-  <text x="57" y="440" class="cls-1"><tspan dy="0" class="cls-6">Text</tspan></text>
-  <text x="62" y="525" class="cls-1"><tspan dy="0" class="cls-7">Text</tspan></text>
-  <text x="331" y="99" class="cls-1"><tspan dy="0" class="cls-8">Text</tspan></text>
-  <text x="332" y="206" class="cls-1"><tspan dy="0" class="cls-9">Text</tspan></text>
+  <text x="57" y="98" class="cls-1"><tspan class="cls-2">Text</tspan></text>
+  <text x="64" y="186" class="cls-1"><tspan class="cls-3">Text</tspan></text>
+  <text x="64" y="273" class="cls-1"><tspan class="cls-4">Text</tspan></text>
+  <text x="64" y="349" class="cls-1"><tspan class="cls-5">Text</tspan></text>
+  <text x="57" y="440" class="cls-1"><tspan class="cls-6">Text</tspan></text>
+  <text x="62" y="525" class="cls-1"><tspan class="cls-7">Text</tspan></text>
+  <text x="331" y="99" class="cls-1"><tspan class="cls-8">Text</tspan></text>
+  <text x="332" y="206" class="cls-1"><tspan class="cls-9">Text</tspan></text>
   <text x="333" y="267" class="cls-1"><tspan dy="0.6em" class="cls-9">Text</tspan></text>
-  <text x="329" y="363" class="cls-1"><tspan dy="0" class="cls-9">Text</tspan></text>
-  <text x="330" y="439" class="cls-1"><tspan dy="0" class="cls-9">Text</tspan></text>
-  <text x="326" y="568" class="cls-1"><tspan dy="0" class="cls-9">Text</tspan></text>
-  <text x="624" y="104" class="cls-1"><tspan dy="0" class="cls-9">Test</tspan></text>
-  <text x="626" y="195" class="cls-1"><tspan dy="0" class="cls-9">Test</tspan></text>
-  <text x="627" y="283" class="cls-1"><tspan dy="0" class="cls-9">Test</tspan></text>
-  <text x="621" y="413" class="cls-1"><tspan dy="0" class="cls-9">Test</tspan></text>
+  <text x="329" y="363" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="330" y="439" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="326" y="568" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="624" y="104" class="cls-1"><tspan class="cls-9">Test</tspan></text>
+  <text x="626" y="195" class="cls-1"><tspan class="cls-9">Test</tspan></text>
+  <text x="627" y="283" class="cls-1"><tspan class="cls-9">Test</tspan></text>
+  <text x="621" y="413" class="cls-1"><tspan class="cls-9">Test</tspan></text>
 </svg>

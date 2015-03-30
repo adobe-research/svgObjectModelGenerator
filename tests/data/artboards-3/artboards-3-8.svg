@@ -8,12 +8,12 @@
     </style>
 
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="-2212" y1="300" x2="3712" y2="300">
-      <stop offset="0" stop-color="#f9e600" stop-opacity="1"/>
-      <stop offset="0.05" stop-color="#f9e600" stop-opacity="1"/>
-      <stop offset="0.35" stop-color="#6f156c" stop-opacity="1"/>
-      <stop offset="0.65" stop-color="#fd7c00" stop-opacity="1"/>
-      <stop offset="0.95" stop-color="#002874" stop-opacity="1"/>
-      <stop offset="1" stop-color="#002874" stop-opacity="1"/>
+      <stop offset="0" stop-color="#f9e600"/>
+      <stop offset="0.05" stop-color="#f9e600"/>
+      <stop offset="0.35" stop-color="#6f156c"/>
+      <stop offset="0.65" stop-color="#fd7c00"/>
+      <stop offset="0.95" stop-color="#002874"/>
+      <stop offset="1" stop-color="#002874"/>
     </linearGradient>
   </defs>
   <path d="M2212,2212h600v600H2212V2212Z" class="cls-1"/>

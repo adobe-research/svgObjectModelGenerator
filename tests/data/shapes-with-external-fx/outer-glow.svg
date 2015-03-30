@@ -12,10 +12,10 @@
       <feGaussianBlur result="blur-1" stdDeviation="19" in="SourceAlpha"/>
       <feComposite result="composite-1"/>
       <feComposite result="composite-2"/>
-      <feComposite result="composite-3" operator="over"/>
+      <feComposite result="composite-3"/>
       <feFlood result="flood-1" flood-color="#dfe70c" flood-opacity="0.75"/>
       <feComposite result="composite-4" operator="in" in2="composite-3"/>
-      <feBlend result="blend-1" mode="normal" in2="SourceGraphic"/>
+      <feBlend result="blend-1" in2="SourceGraphic"/>
       <feBlend result="blend-2" in="SourceGraphic"/>
     </filter>
   </defs>

@@ -8,11 +8,11 @@
     </style>
 
     <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="275" y1="250" x2="275" y2="100">
-      <stop offset="0" stop-color="#e10019" stop-opacity="1"/>
-      <stop offset="1" stop-color="#00601b" stop-opacity="1"/>
+      <stop offset="0" stop-color="#e10019"/>
+      <stop offset="1" stop-color="#00601b"/>
     </linearGradient>
     <filter filterUnits="userSpaceOnUse" id="filter-1">
-      <feFlood result="flood-1" flood-color="red" flood-opacity="1"/>
+      <feFlood result="flood-1" flood-color="red"/>
       <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>

@@ -34,14 +34,14 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400" y2="0">
-      <stop offset="0" stop-color="red" stop-opacity="1"/>
-      <stop offset="0.15" stop-color="#f0f" stop-opacity="1"/>
-      <stop offset="0.33" stop-color="blue" stop-opacity="1"/>
-      <stop offset="0.49" stop-color="aqua" stop-opacity="1"/>
-      <stop offset="0.67" stop-color="lime" stop-opacity="1"/>
-      <stop offset="0.84" stop-color="#ff0" stop-opacity="1"/>
-      <stop offset="1" stop-color="red" stop-opacity="1"/>
+    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="400" y1="600" x2="400">
+      <stop offset="0" stop-color="red"/>
+      <stop offset="0.15" stop-color="#f0f"/>
+      <stop offset="0.33" stop-color="blue"/>
+      <stop offset="0.49" stop-color="aqua"/>
+      <stop offset="0.67" stop-color="lime"/>
+      <stop offset="0.84" stop-color="#ff0"/>
+      <stop offset="1" stop-color="red"/>
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="260.108" x2="539.892" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-3" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-1"/>

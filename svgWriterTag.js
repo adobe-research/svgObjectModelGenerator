@@ -197,7 +197,7 @@
         };
     Tag.prototype.writeAttribute = function (ctx, name) {
         var tag = this,
-            deft = Tag.getDefault(),
+            deft = Tag.getDefault(tag.name, name),
             link,
             toWrite = tag.attrs[name] + "" != deft + "";
         // Special case of linked tags

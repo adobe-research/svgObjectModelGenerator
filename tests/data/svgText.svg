@@ -41,8 +41,8 @@
       }
     </style>
   </defs>
-  <text x="129" y="121" class="cls-1"><tspan dy="0" class="cls-2">This is a text example</tspan></text>
-  <text x="141" y="232" class="cls-1"><tspan dy="0" class="cls-1"><tspan class="cls-3">This is a <tspan class="cls-4">text </tspan>example</tspan></tspan></text>
-  <text x="139" y="341" class="cls-1"><tspan dy="0" class="cls-1"><tspan class="cls-3">Thi<tspan class="cls-4">s i</tspan>s <tspan class="cls-5">a t</tspan>ex<tspan class="cls-6">t e</tspan>xa<tspan class="cls-7">mple</tspan></tspan></tspan></text>
-  <text x="149" y="440" class="cls-1"><tspan dy="0" class="cls-1"><tspan class="cls-8">This i<tspan class="cls-9">s</tspan></tspan></tspan><tspan dy="1.2em" x="149" class="cls-1"><tspan class="cls-10">a te<tspan class="cls-5">x<tspan class="cls-11">t</tspan></tspan></tspan></tspan><tspan dy="1.2em" x="149" class="cls-1"><tspan class="cls-12">exam<tspan class="cls-13">ple</tspan></tspan></tspan></text>
+  <text x="129" y="121" class="cls-1"><tspan class="cls-2">This is a text example</tspan></text>
+  <text x="141" y="232" class="cls-1"><tspan class="cls-1"><tspan class="cls-3">This is a <tspan class="cls-4">text </tspan>example</tspan></tspan></text>
+  <text x="139" y="341" class="cls-1"><tspan class="cls-1"><tspan class="cls-3">Thi<tspan class="cls-4">s i</tspan>s <tspan class="cls-5">a t</tspan>ex<tspan class="cls-6">t e</tspan>xa<tspan class="cls-7">mple</tspan></tspan></tspan></text>
+  <text x="149" y="440" class="cls-1"><tspan class="cls-1"><tspan class="cls-8">This i<tspan class="cls-9">s</tspan></tspan></tspan><tspan dy="1.2em" x="149" class="cls-1"><tspan class="cls-10">a te<tspan class="cls-5">x<tspan class="cls-11">t</tspan></tspan></tspan></tspan><tspan dy="1.2em" x="149" class="cls-1"><tspan class="cls-12">exam<tspan class="cls-13">ple</tspan></tspan></tspan></text>
 </svg>
