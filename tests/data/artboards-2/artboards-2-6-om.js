@@ -45,13 +45,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "square",
-			"visualBounds": {
-				"top": 2000,
-				"left": 3252,
-				"bottom": 3024,
-				"right": 4276
-			}
+			"title": "square"
 		}
 	],
 	"global": {

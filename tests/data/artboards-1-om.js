@@ -52,13 +52,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "square",
-			"visualBounds": {
-				"top": 2000,
-				"left": 2000,
-				"bottom": 3920,
-				"right": 3080
-			}
+			"title": "square"
 		},
 		{
 			"id": "artboard-2",
@@ -105,13 +99,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "iPhone",
-			"visualBounds": {
-				"top": 2497,
-				"left": 3658,
-				"bottom": 3659,
-				"right": 4820
-			}
+			"title": "iPhone"
 		}
 	],
 	"global": {

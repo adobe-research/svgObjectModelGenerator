@@ -56,13 +56,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Group 1",
-			"visualBounds": {
-				"top": 773.71875,
-				"left": 1145.75,
-				"bottom": 1148.59375,
-				"right": 1533.53125
-			}
+			"title": "Group 1"
 		}
 	],
 	"global": {

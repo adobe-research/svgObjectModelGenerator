@@ -189,13 +189,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Group",
-			"visualBounds": {
-				"top": 100,
-				"left": 100,
-				"bottom": 400,
-				"right": 400
-			}
+			"title": "Group"
 		}
 	],
 	"global": {
