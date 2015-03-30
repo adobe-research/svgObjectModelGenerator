@@ -6,12 +6,12 @@
       }
 
       .cls-1 {
-        mask: url(#mask2);
+        mask: url(#mask-1);
         fill: none;
       }
     </style>
 
-    <mask style="mask-type:alpha" id="mask2"/>
+    <mask style="mask-type:alpha" id="mask-1"/>
   </defs>
   <rect width="200" height="200" class="cls-1"/>
 </svg>

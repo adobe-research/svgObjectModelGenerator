@@ -25,6 +25,7 @@
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterMask = require("./svgWriterMask.js"),
+        svgWriterClipPath = require("./svgWriterClipPath.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
         utils = require("./utils.js");
@@ -54,6 +55,7 @@
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
             svgWriterMask.externalizeStyles(ctx);
+            svgWriterClipPath.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
 
@@ -65,7 +67,7 @@
                         return;
                     }
                     // fill, stroke, mask and fx are handled above.
-                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta" || property == "mask") {
+                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta" || property == "mask" || property == "clip-path") {
                         return;
                     }
                     if (property == "font-size") {
@@ -386,6 +388,10 @@
             // since they are not a part of the tree
             Object.keys(global.masks || {}).forEach(function (key) {
                 ctx.currentOMNode = global.masks[key];
+                self.processSVGNode(ctx);
+            });
+            Object.keys(global.clipPaths || {}).forEach(function (key) {
+                ctx.currentOMNode = global.clipPaths[key];
                 self.processSVGNode(ctx);
             });
             ctx.currentOMNode = omSave;

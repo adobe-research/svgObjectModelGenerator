@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Help write the masks  */
+/* Help write the clipping paths  */
 
 (function () {
     "use strict";
@@ -23,24 +23,24 @@
     module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
-                mask,
-                maskID,
+                clipPath,
+                clipPathID,
                 styleBlock,
-                maskTag;
+                clipPathTag;
 
-            if (!omIn.style || !omIn.style.mask) {
+            if (!omIn.style || !omIn.style["clip-path"]) {
                 return;
             }
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
-            mask = omIn.style.mask;
-            if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
-                maskID = ctx.ID.getUnique("mask");
-                styleBlock.addRule("mask", "url(#" + maskID + ")");
-                ctx.currentOMNode = ctx.svgOM.global.masks[mask];
-                maskTag = Tag.make(ctx);
+            clipPath = omIn.style["clip-path"];
+            if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
+                clipPathID = ctx.ID.getUnique("clip-path");
+                styleBlock.addRule("clip-path", "url(#" + clipPathID + ")");
+                ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
+                clipPathTag = Tag.make(ctx);
                 ctx.currentOMNode = omIn;
-                maskTag.setAttribute("id", maskID);
-                ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, maskTag.toString());
+                clipPathTag.setAttribute("id", clipPathID);
+                ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, clipPathTag.toString());
             }
         }
     };

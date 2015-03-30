@@ -161,6 +161,42 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test extraction of masks to SVG
+     **/
+    describe('Test extraction of clipPath to SVG', function () {
+
+        function compareResults (testName) {
+            var svgOM,
+                svgOut,
+                exptectedOut,
+                svgWriterErrors = [],
+                path = 'data/clipPath/' + testName;
+
+            svgOM = JSON.parse(fs.readFileSync('./tests/' + path + '-om.js'));
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        }
+
+        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5"];
+
+        for (var i = 0, end = database.length; i < end; i++) {
+            compareResults(database[i]);
+        }
+    });
+
+    /**
      * Test extraction of all layers to SVG
      **/
     describe('Test extraction of all layers to SVG', function () {
@@ -797,6 +833,10 @@ describe('svgWriter', function (){
 
         it('Test minification of SVG output with filters', function () {
             compareResultss('multi-layer-fx-5');
+        });
+
+        it('Test minification of SVG output with clip-path', function () {
+            compareResultss('clipPath-1');
         });
     });
 
