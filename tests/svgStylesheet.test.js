@@ -80,12 +80,12 @@ describe('svgStylesheet', function () {
             blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
             blocks[1] = sheet.getStyleBlock({className: "clsTest2" });
 
-            blocks[0].addRule("fill", "#f00");
+            blocks[0].addRule("fill", "#0f0");
             blocks[0].addRule("stroke", "#fff");
             blocks[0].addRule("opacity", "0.5");
             blocks[0].addRule("fill-opacity", "0.25");
 
-            blocks[1].addRule("fill", "#f00");
+            blocks[1].addRule("fill", "#0f0");
             blocks[1].addRule("opacity", "0.5");
             blocks[1].addRule("stroke", "#fff");
             blocks[1].addRule("stroke-opacity", "0.25");
@@ -95,7 +95,7 @@ describe('svgStylesheet', function () {
             blocks = blocks.map(function (block) {
                 return block.toString("");
             });
-            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2 {\n  fill: #f00;\n  opacity: 0.5;\n  stroke: #fff;\n}\n.clsTest1 {\n  fill-opacity: 0.25;\n}\n.clsTest2 {\n  stroke-opacity: 0.25;\n}\n");
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2 {\n  fill: #0f0;\n  opacity: 0.5;\n  stroke: #fff;\n}\n.clsTest1 {\n  fill-opacity: 0.25;\n}\n.clsTest2 {\n  stroke-opacity: 0.25;\n}\n");
         });
 
         it("knows how to extract similar rules from 3 blocks", function () {
@@ -107,17 +107,17 @@ describe('svgStylesheet', function () {
             blocks[1] = sheet.getStyleBlock({className: "clsTest2" });
             blocks[2] = sheet.getStyleBlock({className: "clsTest3" });
 
-            blocks[0].addRule("fill", "#f00");
+            blocks[0].addRule("fill", "#0f0");
             blocks[0].addRule("stroke", "#fff");
             blocks[0].addRule("opacity", "0.5");
             blocks[0].addRule("fill-opacity", "0.25");
 
-            blocks[1].addRule("fill", "#f00");
+            blocks[1].addRule("fill", "#0f0");
             blocks[1].addRule("opacity", "0.5");
             blocks[1].addRule("stroke", "#fff");
             blocks[1].addRule("stroke-opacity", "0.25");
 
-            blocks[2].addRule("fill", "#f00");
+            blocks[2].addRule("fill", "#0f0");
             blocks[2].addRule("opacity", "0.25");
             blocks[2].addRule("stroke", "#fff");
             blocks[2].addRule("filter", "url(#filter)");
@@ -128,7 +128,7 @@ describe('svgStylesheet', function () {
             blocks = blocks.map(function (block) {
                 return block.toString("");
             });
-            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3 {\n  fill: #f00;\n  stroke: #fff;\n}\n.clsTest1, .clsTest2 {\n  opacity: 0.5;\n}\n.clsTest2, .clsTest3 {\n  stroke-opacity: 0.25;\n}\n.clsTest1 {\n  fill-opacity: 0.25;\n}\n.clsTest3 {\n  opacity: 0.25;\n  filter: url(#filter);\n}\n");
+            expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3 {\n  fill: #0f0;\n  stroke: #fff;\n}\n.clsTest1, .clsTest2 {\n  opacity: 0.5;\n}\n.clsTest2, .clsTest3 {\n  stroke-opacity: 0.25;\n}\n.clsTest1 {\n  fill-opacity: 0.25;\n}\n.clsTest3 {\n  opacity: 0.25;\n  filter: url(#filter);\n}\n");
         });
 
         it("knows how to extract similar rules from 4 blocks", function () {

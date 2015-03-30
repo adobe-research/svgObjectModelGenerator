@@ -13,5 +13,5 @@
 
     <mask style="mask-type:alpha" id="mask2"/>
   </defs>
-  <rect x="0" y="0" width="200" height="200" class="cls-1"/>
+  <rect width="200" height="200" class="cls-1"/>
 </svg>
