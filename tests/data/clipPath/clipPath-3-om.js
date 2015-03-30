@@ -30,7 +30,7 @@
                         "a": 1
                     }
                 },
-                "clipPath": "clipPath1"
+                "clip-path": "clipPath1"
             },
             "children": [],
             "title": "Rectangle 1",
@@ -85,7 +85,7 @@
                                 "a": 1
                             }
                         },
-                        "clipPath": "clipPath2"
+                        "clip-path": "clipPath2"
                     },
                     "children": [],
                     "title": "Ellipse 1",

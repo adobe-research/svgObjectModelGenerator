@@ -77,7 +77,7 @@
                         "a": 1
                     }
                 },
-                "clipPath": "clipPath1"
+                "clip-path": "clipPath1"
             },
             "children": [],
             "title": "Ellipse 1",
