@@ -559,6 +559,28 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test that groups with styles are preserved.
+     **/
+    describe("Test that groups with styles are preserved", function () {
+        it("group has opacity", function () {
+            var svgOM = require('./data/group-opacity-om.js'),
+                exptectedOut,
+                svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/data/group-opacity.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/group-opacity.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as group-opacity.svg');
+                return;
+            }
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return;
+        });
+    });
+
+    /**
      * Test termination of rendering on visible: false.
      **/
     describe("Test termination of rendering on visible: false", function () {
