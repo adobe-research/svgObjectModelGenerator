@@ -8,18 +8,21 @@ if (process.argv.length < 4) {
 var inFile = process.argv[2];
 var outFile = process.argv[3];
 
-var targetWidth = 612;
-var targetHeight = 792;
+var svgOMString = fs.readFileSync(inFile, {"encoding": "utf8", "flag": "r"});
+var svgOM = JSON.parse(svgOMString);
 
-if (process.argv.length > 4 && parseInt(process.argv[4]) > 0)
+var viewBox = svgOM.global ? svgOM.global.viewBox : null;
+
+var targetWidth = viewBox ? (viewBox.right - viewBox.left) : 612;
+var targetHeight = viewBox ? (viewBox.bottom - viewBox.top) : 792;
+
+if (process.argv.length > 4 && parseFloat(process.argv[4]) > 0)
 	targetWidth = parseInt(process.argv[4]);
-if (process.argv.length > 5 && parseInt(process.argv[5]) > 0)
+if (process.argv.length > 5 && parseFloat(process.argv[5]) > 0)
 	targetHeight = parseInt(process.argv[5]);
 
 var svgWriter = require("./svgWriter.js");
 
-var svgOMString = fs.readFileSync(inFile, {"encoding": "utf8", "flag": "r"});
-var svgOM = JSON.parse(svgOMString);
 var svgWriterErrors = [];
 var svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: false,
