@@ -400,6 +400,11 @@
             }
             return new Tag("mask", attr, ctx);
         },
+        clipPath: function (ctx, node) {
+            return new Tag("clipPath", {
+                    clipPathUnits: node.clipPathUnits
+                }, ctx);
+        },
         rect: function (ctx, node) {
             var tag = new Tag("rect", {
                     x: node.shape.x,

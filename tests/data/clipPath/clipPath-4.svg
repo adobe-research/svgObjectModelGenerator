@@ -1,24 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
   <defs>
     <style>
-      .cls-1 {
-        fill: #ed1c24;
+      .cls-1, .cls-4, .cls-2 {
         stroke: #000;
+      }
+
+      .cls-1, .cls-4 {
+        fill: #ed1c24;
         stroke-opacity: 0.5;
         stroke-width: 50px;
       }
 
+      .cls-1 {
+        clip-path: url(#clip-path-1);
+      }
+
       .cls-2 {
         fill: #0072bc;
-        stroke: #000;
         stroke-width: 14px;
-        mask: url(#mask-1);
+        clip-path: url(#clip-path-2);
       }
     </style>
 
-    <mask style="mask-type:alpha" id="mask-1">
+    <clipPath clipPathUnits="objectBoundingBox" id="clip-path-1">
+      <circle cx="0.25" cy="0.5" r="0.4"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
       <circle cx="309" cy="245" r="94" class="cls-1"/>
-    </mask>
+    </clipPath>
   </defs>
   <rect x="130" y="66" width="179" height="179" class="cls-2"/>
 </svg>

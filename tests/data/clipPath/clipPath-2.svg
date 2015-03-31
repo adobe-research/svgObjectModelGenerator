@@ -12,13 +12,13 @@
         fill: #0072bc;
         stroke: #000;
         stroke-width: 14px;
-        mask: url(#mask-1);
+        clip-path: url(#clip-path-1);
       }
     </style>
 
-    <mask style="mask-type:alpha" id="mask-1">
+    <clipPath id="clip-path-1">
       <circle cx="309" cy="245" r="94" class="cls-1"/>
-    </mask>
+    </clipPath>
   </defs>
   <rect x="130" y="66" width="179" height="179" class="cls-2"/>
 </svg>

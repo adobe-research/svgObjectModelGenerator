@@ -47,9 +47,7 @@
             this.viewBox = svgOM.global.viewBox;
             this.pxToInchRatio = svgOM.global.pxToInchRatio;
         }
-        if (svgOM.meta) {
-            this.globalLight = svgOM.meta.PS.globalLight;
-        }
+
         this.encoding =  'utf-8';
         this.out = [];
         this.sOut = "";
