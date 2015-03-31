@@ -336,7 +336,26 @@
         this.tricked = true;
         return list;
     };
-
+    var imageProcessing = function (ctx, node) {
+        if (!node.bounds) {
+            return;
+        }
+        var top = parseFloat(node.bounds.top),
+            right = parseFloat(node.bounds.right),
+            bottom = parseFloat(node.bounds.bottom),
+            left = parseFloat(node.bounds.left),
+            w = right - left,
+            h = bottom - top,
+            tag = new Tag("image", {
+                "xlink:href": node.pixel,
+                x: left,
+                y: top,
+                width: w,
+                height: h,
+                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+            }, ctx);
+        return tag.useTrick(ctx);
+    };
     var factory = {
         circle: function (ctx, node) {
             var tag = new Tag("circle", {
@@ -447,26 +466,8 @@
             tag.setAttribute("startOffset", offset + "%");
             return tag.useTrick(ctx);
         },
-        generic: function (ctx, node) {
-            if (!node.bounds) {
-                return;
-            }
-            var top = parseFloat(node.bounds.top),
-                right = parseFloat(node.bounds.right),
-                bottom = parseFloat(node.bounds.bottom),
-                left = parseFloat(node.bounds.left),
-                w = right - left,
-                h = bottom - top,
-                tag = new Tag("image", {
-                    "xlink:href": node.pixel,
-                    x: left,
-                    y: top,
-                    width: w,
-                    height: h,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
-            return tag.useTrick(ctx);
-        },
+        image: imageProcessing,
+        generic: imageProcessing,
         group: function (ctx, node) {
             return new Tag("g", {}, ctx).useTrick(ctx);
         },
