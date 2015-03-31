@@ -9,7 +9,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" gradientUnits="userSpaceOnUse" x1="84" y1="166.5" x2="84" y2="1.5">
+    <linearGradient id="linear-gradient-1" x1="84" y1="166.5" x2="84" y2="1.5" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0b01b8"/>
       <stop offset="0.1" stop-color="#0b01b8"/>
       <stop offset="0.5" stop-color="#fdfa03"/>

@@ -21,8 +21,9 @@
         Tag = require("./svgWriterTag.js");
 
     var round10k = svgWriterUtils.round10k,
-        gradientStops = {};
-    var ctxCapture = svgWriterUtils.ctxCapture;
+        gradientStops = {},
+        ctxCapture = svgWriterUtils.ctxCapture,
+        getTransform = svgWriterUtils.getTransform;
 
     function removeDups(lines) {
         var out = [lines[0]];
@@ -41,30 +42,28 @@
             var x1 = gradient.x1 + (ctx._shiftContentX || 0),
                 x2 = gradient.x2 + (ctx._shiftContentX || 0),
                 y1 = gradient.y1 + (ctx._shiftContentY || 0),
-                y2 = gradient.y2 + (ctx._shiftContentY || 0);
-            if (link) {
-                tag.setAttributes({
+                y2 = gradient.y2 + (ctx._shiftContentY || 0),
+                attr = {
                     x1: x1,
                     y1: y1,
                     x2: x2,
                     y2: y2,
-                    "xlink:href": "#" + link.id
-                });
+                    gradientTransform: getTransform(gradient.transform)
+                };
+            if (link) {
+                attr["xlink:href"] = "#" + link.id;
+                tag.setAttributes(attr);
             } else {
                 gradientStops[lines] = {
                     id: gradientID,
                     x1: x1,
                     y1: y1,
                     x2: x2,
-                    y2: y2
+                    y2: y2,
+                    gradientTransform: getTransform(gradient.transform)
                 };
-                tag.setAttributes({
-                    gradientUnits: "userSpaceOnUse",
-                    x1: x1,
-                    y1: y1,
-                    x2: x2,
-                    y2: y2
-                });
+                attr.gradientUnits = "userSpaceOnUse";
+                tag.setAttributes(attr);
                 tag.children = removeDups(lines);
             }
         },
@@ -77,7 +76,8 @@
                 attr = {
                     cx: cx,
                     cy: cy,
-                    r: r
+                    r: r,
+                    gradientTransform: getTransform(gradient.transform)
                 };
             if (isFinite(fx) && fx != cx) {
                 attr.fx = fx;
@@ -95,7 +95,8 @@
                     cy: cy,
                     fx: fx,
                     fy: fy,
-                    r: r
+                    r:  r,
+                    gradientTransform: getTransform(gradient.transform)
                 };
                 attr.gradientUnits = "userSpaceOnUse";
                 tag.setAttributes(attr);
@@ -146,7 +147,10 @@
                     y1: round10k(gradient.y1),
                     x2: round10k(gradient.x2),
                     y2: round10k(gradient.y2),
+                    fx: round10k(gradient.fx),
+                    fy: round10k(gradient.fy),
                     r: round10k(gradient.r),
+                    transform: gradient.transform,
                     stops: stops,
                     gradientSpace: gradientSpace
                 });
