@@ -61,30 +61,26 @@
 
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                styleBlock,
                 fingerprint = "",
-                filterID,
                 filter,
+                filterID,
+                styleBlock,
                 filterTag;
 
             if (!omIn.style || !omIn.style.filter) {
                 return;
             }
-
-            ctxCapture(ctx, function () {
+            filter = omIn.style.filter;
+            if (ctx.svgOM.global && ctx.svgOM.global.filters[filter]) {
                 filterID = ctx.ID.getUnique("filter");
-
-                filter = ctx.svgOM.global.filters[omIn.style.filter];
-                fingerprint = JSON.stringify(filter.children);
-
-                filter.id = filterID;
-                filter.name = "filter";
-                filterTag = writeFilter(ctx, filter);
-
-                filterTag.write(ctx);
-            }.bind(this), function (out) {
-                ctx.omStylesheet.define("filter", omIn.id, filterID, out, fingerprint);
-            }.bind(this));
+                ctx.currentOMNode = ctx.svgOM.global.filters[filter];
+                fingerprint = JSON.stringify(ctx.currentOMNode.children);
+                ctx.currentOMNode.name = "filter";
+                filterTag = writeFilter(ctx, ctx.currentOMNode);
+                ctx.currentOMNode = omIn;
+                filterTag.setAttribute("id", filterID);
+                ctx.omStylesheet.define("filter", omIn.id, filterID, filterTag, fingerprint);
+            }
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             filterID = ctx.omStylesheet.getDefine(omIn.id, "filter").defnId;

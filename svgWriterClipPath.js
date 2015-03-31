@@ -23,6 +23,7 @@
     module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
+                fingerprint = "",
                 clipPath,
                 clipPathID,
                 styleBlock,
@@ -31,17 +32,23 @@
             if (!omIn.style || !omIn.style["clip-path"]) {
                 return;
             }
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             clipPath = omIn.style["clip-path"];
             if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
                 clipPathID = ctx.ID.getUnique("clip-path");
-                styleBlock.addRule("clip-path", "url(#" + clipPathID + ")");
                 ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
+                var copy = JSON.parse(JSON.stringify(ctx.svgOM.global.clipPaths[clipPath]));
+                clipPathTag = Tag.make(ctx);
+                fingerprint = clipPathTag.toString();
+                ctx.currentOMNode = copy;
                 clipPathTag = Tag.make(ctx);
                 ctx.currentOMNode = omIn;
                 clipPathTag.setAttribute("id", clipPathID);
-                ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, clipPathTag.toString());
+                ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, fingerprint);
             }
+
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            clipPathID = ctx.omStylesheet.getDefine(omIn.id, "clip-path").defnId;
+            styleBlock.addRule("clip-path", "url(#" + clipPathID + ")");
         }
     };
 }());

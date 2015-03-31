@@ -23,6 +23,7 @@
     module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
+                fingerprint = "",
                 mask,
                 maskID,
                 styleBlock,
@@ -31,17 +32,23 @@
             if (!omIn.style || !omIn.style.mask) {
                 return;
             }
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             mask = omIn.style.mask;
             if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
                 maskID = ctx.ID.getUnique("mask");
-                styleBlock.addRule("mask", "url(#" + maskID + ")");
                 ctx.currentOMNode = ctx.svgOM.global.masks[mask];
+                var copy = JSON.parse(JSON.stringify(ctx.svgOM.global.masks[mask]));
+                maskTag = Tag.make(ctx);
+                fingerprint = maskTag.toString();
+                ctx.currentOMNode = copy;
                 maskTag = Tag.make(ctx);
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
-                ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, maskTag.toString());
+                ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, fingerprint);
             }
+
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            maskID = ctx.omStylesheet.getDefine(omIn.id, "mask").defnId;
+            styleBlock.addRule("mask", "url(#" + maskID + ")");
         }
     };
 }());
