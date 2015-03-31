@@ -395,7 +395,7 @@
                 delete attr.maskUnits;
             }
             attr.maskContentUnits = node.maskContentUnits;
-            if (node.kind != "luminocity") {
+            if (node.kind == "opacity") {
                 attr.style = "mask-type:alpha";
             }
             return new Tag("mask", attr, ctx);

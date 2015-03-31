@@ -194,7 +194,8 @@
                         "height": 179
                     }
                 }],
-                "type": "mask"
+                "type": "mask",
+                "kind": "opacity"
             }
         },
         "patterns": {},

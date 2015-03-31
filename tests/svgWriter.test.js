@@ -588,7 +588,8 @@ describe('svgWriter', function (){
                                     "height": 179
                                 }
                             }],
-                            "type": "mask"
+                            "type": "mask",
+                            "kind": "opacity"
                         },
                         "mask2": {
                             "children": [{
@@ -622,7 +623,8 @@ describe('svgWriter', function (){
                                     "height": 179
                                 }
                             }],
-                            "type": "mask"
+                            "type": "mask",
+                            "kind": "opacity"
                         }
                     }
                 },
