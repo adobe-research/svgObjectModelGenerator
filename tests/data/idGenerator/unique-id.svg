@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .a668c6a9-96ea-4951-b9bd-02a6e9ea04d9 {
+        fill: url(#80da9b2b-f3fc-44b9-96a3-6b322a1030bd);
+        stroke: url(#23609fab-4504-43b2-83a5-e825ec86a1d8);
+        stroke-width: 10px;
+      }
+    </style>
+
+    <linearGradient id="80da9b2b-f3fc-44b9-96a3-6b322a1030bd" gradientUnits="userSpaceOnUse" x1="100" y1="600" x2="700">
+      <stop offset="0" stop-color="#0a00b2"/>
+      <stop offset="0.5" stop-color="red"/>
+      <stop offset="1" stop-color="#fffc00"/>
+    </linearGradient>
+    <linearGradient id="23609fab-4504-43b2-83a5-e825ec86a1d8" x1="400" x2="400" xlink:href="#80da9b2b-f3fc-44b9-96a3-6b322a1030bd"/>
+  </defs>
+  <rect x="50" y="200" width="200" height="200" class="a668c6a9-96ea-4951-b9bd-02a6e9ea04d9"/>
+</svg>

@@ -41,6 +41,15 @@
         this.terminator = this.minify ? "" : "\n";
         this.idType = this.minify ? "minimal" : "regular";
 
+        if (this.config && this.config.idType) {
+            switch (this.config.idType) {
+            case "regular":
+            case "minimal":
+            case "unique":
+                this.idType = this.config.idType;
+            }
+        }
+
         // svgStylesheed creates new svgWriterContexts without a global object.
         if (svgOM.global) {
             this.docBounds = svgOM.global.bounds;
