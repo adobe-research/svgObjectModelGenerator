@@ -469,6 +469,38 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test radial gradient with focal point
+     **/
+    describe('Test radial gradient with focal point', function () {
+
+        function compareResultss (testName) {
+            var svgOM,
+                exptectedOut,
+                path = 'data/' + testName;
+            
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        }
+
+        it('Test variation of focal points', function () {
+            compareResultss('radial-gradient-focal');
+        });
+    });
+
+    /**
      * Test presentation attribute export.
      **/
     describe("Test export to presentation attribute", function () {

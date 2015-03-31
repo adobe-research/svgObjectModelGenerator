@@ -69,7 +69,7 @@
       <stop offset="1.01" stop-color="#ff0"/>
       <stop offset="1.25" stop-color="red"/>
     </linearGradient>
-    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="150" cy="550" r="100">
+    <radialGradient id="radial-gradient-1" cx="150" cy="550" r="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.075" stop-color="#f0f"/>
       <stop offset="0.165" stop-color="blue"/>
@@ -79,7 +79,7 @@
       <stop offset="0.5" stop-color="red"/>
     </radialGradient>
     <radialGradient id="radial-gradient-2" cx="400" r="50" xlink:href="#radial-gradient-1"/>
-    <radialGradient id="radial-gradient-3" gradientUnits="userSpaceOnUse" cx="650" cy="550" r="100">
+    <radialGradient id="radial-gradient-3" cx="650" cy="550" r="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.225" stop-color="#f0f"/>
       <stop offset="0.495" stop-color="blue"/>

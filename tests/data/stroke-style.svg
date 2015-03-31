@@ -78,7 +78,7 @@
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
-    <radialGradient id="radial-gradient-1" gradientUnits="userSpaceOnUse" cx="650" cy="250" r="100">
+    <radialGradient id="radial-gradient-1" cx="650" cy="250" r="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
