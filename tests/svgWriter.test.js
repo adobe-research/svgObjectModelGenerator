@@ -1074,4 +1074,37 @@ describe('svgWriter', function (){
             compareResultss('unique-id');
         });
     });
+
+    /**
+     * Test options for idGenerator
+     **/
+    describe('Test transform on groups', function () {
+
+        function compareResultss (testName) {
+            var svgOM,
+                svgOut,
+                exptectedOut,
+                path = 'data/' + testName;
+            
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        }
+
+        it('Test transform attribute on group', function () {
+            compareResultss('group-transform');
+        });
+    });
 });
