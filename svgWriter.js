@@ -34,7 +34,10 @@
 
     function superfluousGroups(tag, ctx, parents, num) {
         var mum = parents.pop();
-        if (tag.name == "g" && tag.children.length < 2 && !tag.isArtboard && (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules())) {
+        if (tag.name == "g" && tag.children.length < 2 &&
+            !tag.isArtboard &&
+            (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
+            tag.getAttribute("transform") == "") {
             for (var attr in tag.attrs) {
                 return;
             }

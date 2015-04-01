@@ -494,7 +494,10 @@
         image: imageProcessing,
         generic: imageProcessing,
         group: function (ctx, node) {
-            return new Tag("g", {}, ctx).useTrick(ctx);
+            var tag = new Tag("g", {
+                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+            }, ctx);
+            return tag.useTrick(ctx);
         },
         artboard: function (ctx, node) {
             var artboard = new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);

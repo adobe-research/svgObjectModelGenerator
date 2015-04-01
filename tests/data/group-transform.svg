@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: lime;
+      }
+    </style>
+  </defs>
+  <g transform="matrix(1, 0, 0, -1, 0, 560)">
+    <path d="M0,468H121v92H0Z" class="cls-1"/>
+  </g>
+</svg>
