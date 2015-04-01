@@ -195,11 +195,17 @@
             filter: 1,
             pattern: 1
         };
-    Tag.prototype.writeAttribute = function (ctx, name) {
+    Tag.prototype.writeAttribute = function (ctx, name, value) {
+        value = value == null ? this.attrs[name] : value;
+        if (typeof ctx == "string") {
+            name = ctx;
+            ctx = null;
+        }
         var tag = this,
             deft = Tag.getDefault(tag.name, name),
             link,
-            toWrite = tag.attrs[name] + "" != deft + "";
+            toWrite = value + "" != deft + "",
+            out;
         // Special case of linked tags
         if (tag.name in linkableNames && tag.attrs["xlink:href"]) {
             link = tag;
@@ -207,7 +213,7 @@
                 link = Tag.getByDOMId(link.attrs["xlink:href"]);
                 if (link && link.name == tag.name) {
                     if (name in link.attrs) {
-                        toWrite = link.attrs[name] != tag.attrs[name];
+                        toWrite = link.attrs[name] != value;
                         break;
                     }
                 } else {
@@ -217,14 +223,24 @@
             }
         }
         if (toWrite) {
-            write(ctx, " " + name + '="' + tag.attrs[name] + '"');
+            out = " " + name + '="' + value + '"';
+            if (ctx) {
+                write(ctx, out);
+            } else {
+                return out;
+            }
         }
     };
     Tag.prototype.write = Tag.prototype.toString = function (ctx) {
-        ctx = ctx || new SVGWriterContext({});
         var tag = this,
+            noctx,
             numChildren = tag.children && tag.children.length;
-        tag.setClass(ctx);
+        if (ctx) {
+            tag.setClass(ctx);
+        } else {
+            ctx = ctx || new SVGWriterContext({});
+            noctx = true;
+        }
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
@@ -242,6 +258,15 @@
             for (var name in tag.attrs) {
                 tag.writeAttribute(ctx, name);
             }
+            if (noctx) {
+                var omStyleBlock = tag.styleBlock;
+                if (omStyleBlock) {
+                    for (var i = 0; i < omStyleBlock.rules.length; i++) {
+                        var rule = omStyleBlock.rules[i];
+                        tag.writeAttribute(ctx, rule.propertyName, rule.value);
+                    }
+                }
+            }
             if (!numChildren && tag.name != "script") {
                 write(ctx, "/");
             }
@@ -257,7 +282,7 @@
                 writeDefs(ctx);
             }
         }
-        for (var i = 0; i < numChildren; i++) {
+        for (i = 0; i < numChildren; i++) {
             tag.children[i].write(ctx);
         }
         if (!numChildren || !tag.name) {
