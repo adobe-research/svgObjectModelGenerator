@@ -1041,4 +1041,37 @@ describe('svgWriter', function (){
             expect(svgWriter.printSVG(svgOM)).to.not.equal('');
         });
     });
+
+    /**
+     * Test options for idGenerator
+     **/
+    describe('Test options for idGenerator', function () {
+
+        function compareResultss (testName) {
+            var svgOM,
+                svgOut,
+                exptectedOut,
+                path = 'data/idGenerator/' + testName;
+            
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM, {idType: "unique"});
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return svgOut;
+        }
+
+        it('Test unique ID generation', function () {
+            compareResultss('unique-id');
+        });
+    });
 });

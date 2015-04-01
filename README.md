@@ -79,6 +79,10 @@ The configuration object has the following arguments:
 * **usePresentationAttribute** *boolean* Use presentation attributes instead of CSS styling.
 * **cropRect** *object* A rectangle with the properties `x`, `y`, `width` and `height`. `x` and `y` are optional. Defines a rectangle the SVG document gets cropped to. It may create a padding if the dimension is smaller than the crop rectangle.
 * **minify** Avoids indentations, newlines and whitespaces in the SVG output. Uses minimal IDs.
+* **idType** *string*
+    * **regular** The default way to create IDs. Preferable based on layer/object names in the application.
+    * **minimal** Creates shortest possible IDs independent of user defined layer/object names in the application.
+    * **unique** Create UUIDs based on rfc4122 in the format `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.
 
 ## Setup Generator
 
