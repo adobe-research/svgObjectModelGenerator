@@ -98,11 +98,11 @@ describe('svgWriter', function (){
             }
         }
     });
-    function handleResults(compareLog, testName, exptectedOut, svgOut, pathData, pathCompare) {
+    function handleResults(compareLog, testName, expectedOut, svgOut, pathData, pathCompare) {
         
-        if (svgOut != exptectedOut) {
+        if (svgOut != expectedOut) {
             if (repairMedia) {
-                fs.writeFileSync(pathCompare, exptectedOut, 'utf8');
+                fs.writeFileSync(pathCompare, expectedOut, 'utf8');
                 fs.writeFileSync(pathData, svgOut, 'utf8');
             } else {
                 fs.writeFileSync(pathCompare, svgOut, 'utf8');
@@ -132,7 +132,7 @@ describe('svgWriter', function (){
         function compareResults (testName) {
             var svgOM,
                 svgOut,
-                exptectedOut,
+                expectedOut,
                 svgWriterErrors = [],
                 path = 'data/mask/' + testName;
 
@@ -140,16 +140,16 @@ describe('svgWriter', function (){
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
 
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
 
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
@@ -168,7 +168,7 @@ describe('svgWriter', function (){
         function compareResults (testName) {
             var svgOM,
                 svgOut,
-                exptectedOut,
+                expectedOut,
                 svgWriterErrors = [],
                 path = 'data/clipPath/' + testName;
 
@@ -176,16 +176,16 @@ describe('svgWriter', function (){
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
 
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
 
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
@@ -204,7 +204,7 @@ describe('svgWriter', function (){
         function compareResults (layerId, testName) {
             var svgOM,
                 svgOut,
-                exptectedOut,
+                expectedOut,
                 svgWriterErrors = [],
                 path = 'data/' + testName + '/' + testName + '-' + layerId;
             
@@ -217,16 +217,16 @@ describe('svgWriter', function (){
                     }, svgWriterErrors);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '-' + layerId + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '-' + layerId + '.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '-' + layerId + '.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
@@ -290,7 +290,7 @@ describe('svgWriter', function (){
             var testData,
                 svgOM,
                 svgOut,
-                exptectedOut,
+                expectedOut,
                 svgFilename,
                 omOpt,
                 scale,
@@ -316,16 +316,16 @@ describe('svgWriter', function (){
                 }, svgWriterErrors);
 
                 try {
-                   exptectedOut = fs.readFileSync(svgFilename, 'utf8');
+                   expectedOut = fs.readFileSync(svgFilename, 'utf8');
                 } catch(er) {
                     fs.writeFileSync(svgFilename, svgOut, 'utf8');
                     console.log('No reference SVG document found. New one created as ' + aTestData[i + 1] + '.svg');
                     continue;
                 }
 
-                handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], exptectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
+                handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], expectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
 
-                expect(svgOut).to.equal(exptectedOut);
+                expect(svgOut).to.equal(expectedOut);
             }
             return svgOut;
         }
@@ -372,22 +372,22 @@ describe('svgWriter', function (){
     describe("Test complete OM to SVG extraction", function () {
         function compareResults (testName) {
             var svgOM,
-                exptectedOut;
+                expectedOut;
             
             svgOM = require("./data/" + testName + "-om.js");
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/' + testName + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
@@ -488,18 +488,18 @@ describe('svgWriter', function (){
                     },
                 ]
             },
-            exptectedOut,
+            expectedOut,
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/data/polygon-line.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/data/polygon-line.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/polygon-line.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as polygon-line.svg');
                 return;
             }
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return;
         });
     });
@@ -509,30 +509,30 @@ describe('svgWriter', function (){
      **/
     describe('Test radial gradient with focal point', function () {
 
-        function compareResultss (testName) {
+        function compareResults (testName) {
             var svgOM,
-                exptectedOut,
+                expectedOut,
                 path = 'data/' + testName;
             
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
         it('Test variation of focal points', function () {
-            compareResultss('radial-gradient-focal');
+            compareResults('radial-gradient-focal');
         });
     });
 
@@ -542,18 +542,18 @@ describe('svgWriter', function (){
     describe("Test export to presentation attribute", function () {
         it("should export without style blocks", function () {
             var svgOM = require('./data/stroke-fx-2-om.js'),
-                exptectedOut,
+                expectedOut,
                 svgOut = svgWriter.printSVG(svgOM, {usePresentationAttribute: true});
 
             try {
-                exptectedOut = fs.readFileSync('./tests/data/stroke-fx-pres-attr.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/data/stroke-fx-pres-attr.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/stroke-fx-pres-attr.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as stroke-fx-pres-attr.svg');
                 return;
             }
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return;
         });
     });
@@ -564,18 +564,18 @@ describe('svgWriter', function (){
     describe("Test that groups with styles are preserved", function () {
         it("group has opacity", function () {
             var svgOM = require('./data/group-opacity-om.js'),
-                exptectedOut,
+                expectedOut,
                 svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/data/group-opacity.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/data/group-opacity.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/group-opacity.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as group-opacity.svg');
                 return;
             }
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return;
         });
     });
@@ -765,8 +765,8 @@ describe('svgWriter', function (){
                     },
                 ]
             },
-            exptectedOut1,
-            exptectedOut2,
+            expectedOut1,
+            expectedOut2,
             svgOut1 = svgWriter.printSVG(svgOM1, {
                 trimToArtBounds: true,
                 preserveAspectRatio: "xMidYMid"
@@ -777,24 +777,24 @@ describe('svgWriter', function (){
             });
 
             try {
-                exptectedOut1 = fs.readFileSync('./tests/data/invisible-circle.svg', 'utf8');
+                expectedOut1 = fs.readFileSync('./tests/data/invisible-circle.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/invisible-circle.svg', svgOut1, 'utf8');
                 console.log('No reference SVG document found. New one created as invisible-circle.svg');
                 return;
             }
             
-            expect(svgOut1).to.equal(exptectedOut1);
+            expect(svgOut1).to.equal(expectedOut1);
 
             try {
-                exptectedOut2 = fs.readFileSync('./tests/data/invisible-with-mask.svg', 'utf8');
+                expectedOut2 = fs.readFileSync('./tests/data/invisible-with-mask.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/invisible-with-mask.svg', svgOut2, 'utf8');
                 console.log('No reference SVG document found. New one created as invisible-with-mask.svg');
                 return;
             }
             
-            expect(svgOut2).to.equal(exptectedOut2);
+            expect(svgOut2).to.equal(expectedOut2);
             return;
         });
     });
@@ -838,14 +838,14 @@ describe('svgWriter', function (){
                     }
                 ]
             },
-            exptectedOut1,
+            expectedOut1,
             svgOut1 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
                 trimToArtBounds: true,
                 preserveAspectRatio: "xMidYMid",
                 scale: 2,
                 constrainToDocBounds: true
             }),
-            exptectedOut2,
+            expectedOut2,
             svgOut2 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
                 trimToArtBounds: true,
                 preserveAspectRatio: "xMidYMid",
@@ -858,22 +858,22 @@ describe('svgWriter', function (){
             });
 
             try {
-                exptectedOut1 = fs.readFileSync('./tests/data/scale-1.svg', 'utf8');
+                expectedOut1 = fs.readFileSync('./tests/data/scale-1.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/scale-1.svg', svgOut1, 'utf8');
                 console.log('No reference SVG document found. New one created as scale-1.svg');
                 return;
             }
-            expect(svgOut1).to.equal(exptectedOut1);
+            expect(svgOut1).to.equal(expectedOut1);
 
             try {
-                exptectedOut2 = fs.readFileSync('./tests/data/scale-2.svg', 'utf8');
+                expectedOut2 = fs.readFileSync('./tests/data/scale-2.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/data/scale-2.svg', svgOut2, 'utf8');
                 console.log('No reference SVG document found. New one created as scale-2.svg');
                 return;
             }
-            expect(svgOut2).to.equal(exptectedOut2);
+            expect(svgOut2).to.equal(expectedOut2);
             return;
         });
     });
@@ -883,38 +883,38 @@ describe('svgWriter', function (){
      **/
     describe('Test minification of SVG output', function () {
 
-        function compareResultss (testName) {
+        function compareResults (testName) {
             var svgOM,
-                exptectedOut,
+                expectedOut,
                 path = 'data/' + testName;
             
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM, {minify: true});
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '-minify.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '-minify.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '-minify.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '-minify.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName + '-minify', exptectedOut, svgOut, './tests/' + path + '-minify.svg', './tests/data-compare/' + testName +'-minify.svg');
+            handleResults(_compareLogDoc, testName + '-minify', expectedOut, svgOut, './tests/' + path + '-minify.svg', './tests/data-compare/' + testName +'-minify.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
         it('Test minification of SVG output with gradient', function () {
-            compareResultss('gradient-scale-2');
+            compareResults('gradient-scale-2');
         });
 
         it('Test minification of SVG output with filters', function () {
-            compareResultss('multi-layer-fx-5');
+            compareResults('multi-layer-fx-5');
         });
 
         it('Test minification of SVG output with clip-path', function () {
-            compareResultss('clipPath-1');
+            compareResults('clipPath-1');
         });
     });
 
@@ -923,30 +923,30 @@ describe('svgWriter', function (){
      **/
     describe('Test gradient transform', function () {
 
-        function compareResultss (testName) {
+        function compareResults (testName) {
             var svgOM,
-                exptectedOut,
+                expectedOut,
                 path = 'data/' + testName;
             
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
         it('Objects of type "image" are recognized', function () {
-            compareResultss('gradient-transform');
+            compareResults('gradient-transform');
         });
     });
 
@@ -955,30 +955,30 @@ describe('svgWriter', function (){
      **/
     describe('Test image processing', function () {
 
-        function compareResultss (testName) {
+        function compareResults (testName) {
             var svgOM,
-                exptectedOut,
+                expectedOut,
                 path = 'data/' + testName;
             
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
         it('Objects of type "image" are recognized', function () {
-            compareResultss('image');
+            compareResults('image');
         });
     });
 
@@ -1047,64 +1047,64 @@ describe('svgWriter', function (){
      **/
     describe('Test options for idGenerator', function () {
 
-        function compareResultss (testName) {
+        function compareResults (testName) {
             var svgOM,
                 svgOut,
-                exptectedOut,
+                expectedOut,
                 path = 'data/idGenerator/' + testName;
             
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM, {idType: "unique"});
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
         it.skip('Test unique ID generation', function () {
-            compareResultss('unique-id');
+            compareResults('unique-id');
         });
     });
 
     /**
-     * Test options for idGenerator
+     * Test transform on groups
      **/
     describe('Test transform on groups', function () {
 
-        function compareResultss (testName) {
+        function compareResults (testName) {
             var svgOM,
                 svgOut,
-                exptectedOut,
+                expectedOut,
                 path = 'data/' + testName;
             
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                exptectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
             } catch (e) {
                 fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
             
-            handleResults(_compareLogDoc, testName, exptectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
             
-            expect(svgOut).to.equal(exptectedOut);
+            expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
 
         it('Test transform attribute on group', function () {
-            compareResultss('group-transform');
+            compareResults('group-transform');
         });
     });
 });
