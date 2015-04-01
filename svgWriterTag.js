@@ -238,7 +238,7 @@
         if (ctx) {
             tag.setClass(ctx);
         } else {
-            ctx = ctx || new SVGWriterContext({});
+            ctx = new SVGWriterContext({});
             noctx = true;
         }
         if (tag.name) {
@@ -283,7 +283,7 @@
             }
         }
         for (i = 0; i < numChildren; i++) {
-            tag.children[i].write(ctx);
+            tag.children[i].write(noctx ? null : ctx);
         }
         if (!numChildren || !tag.name) {
             return ctx.sOut;
