@@ -36,11 +36,8 @@
             if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
                 clipPathID = ctx.ID.getUnique("clip-path");
                 ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
-                var copy = JSON.parse(JSON.stringify(ctx.svgOM.global.clipPaths[clipPath]));
                 clipPathTag = Tag.make(ctx);
                 fingerprint = clipPathTag.toString();
-                ctx.currentOMNode = copy;
-                clipPathTag = Tag.make(ctx);
                 ctx.currentOMNode = omIn;
                 clipPathTag.setAttribute("id", clipPathID);
                 ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, fingerprint);

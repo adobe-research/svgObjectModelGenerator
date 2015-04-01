@@ -36,11 +36,8 @@
             if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
                 maskID = ctx.ID.getUnique("mask");
                 ctx.currentOMNode = ctx.svgOM.global.masks[mask];
-                var copy = JSON.parse(JSON.stringify(ctx.svgOM.global.masks[mask]));
                 maskTag = Tag.make(ctx);
                 fingerprint = maskTag.toString();
-                ctx.currentOMNode = copy;
-                maskTag = Tag.make(ctx);
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
                 ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, fingerprint);

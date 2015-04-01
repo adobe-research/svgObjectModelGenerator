@@ -283,7 +283,11 @@
             }
         }
         for (i = 0; i < numChildren; i++) {
-            tag.children[i].write(noctx ? null : ctx);
+            if (noctx) {
+                write(ctx, tag.children[i].toString());
+            } else {
+                tag.children[i].write(ctx);
+            }
         }
         if (!numChildren || !tag.name) {
             return ctx.sOut;
