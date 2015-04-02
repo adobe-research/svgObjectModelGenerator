@@ -301,7 +301,7 @@
                 tag.children[i].write(ctx);
             }
         }
-        if (!numChildren || !tag.name) {
+        if (!numChildren && tag.name != "script" || !tag.name) {
             return ctx.sOut;
         }
         if (tag.name == "text") {
