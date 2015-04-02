@@ -112,8 +112,8 @@
             } else {
                 color = self.rgbToHex(val.r, val.g, val.b);
             }
-            if (colorNames[color]) {
-                color = colorNames[color];
+            if (colorNames[color.toLowerCase()]) {
+                color = colorNames[color.toLowerCase()];
             } else {
                 color = color.replace(/^#(.)\1(.)\2(.)\3$/, "#$1$2$3");
             }
