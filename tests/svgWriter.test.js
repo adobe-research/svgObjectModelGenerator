@@ -586,4 +586,45 @@ describe('svgWriter', function (){
             return;
         });
     });
+
+    /**
+     * Test crop rect on paths
+     **/
+    describe('Test crop rect on paths', function () {
+
+        function compareResults (testName) {
+            var svgOM,
+                svgOut,
+                expectedOut,
+                path = 'data/' + testName;
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM, {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 1,
+                constrainToDocBounds: true,
+                cropRect: {
+                    width: 350,
+                    height: 600
+                }
+            });
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test crop rect on a shape layer', function () {
+            compareResults('drop-shadow');
+        });
+    });
 });
