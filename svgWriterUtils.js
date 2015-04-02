@@ -151,6 +151,7 @@
         self.roundUp = Utils.roundUp;
         self.roundDown = Utils.roundDown;
 
+        // FIXME: Remove once we moved writeTextPath functionality over to Tag.
         self.ctxCapture = function (ctx, fnCapture, fnResult) {
             var origBuffer = ctx.sOut,
                 resultBuffer;
