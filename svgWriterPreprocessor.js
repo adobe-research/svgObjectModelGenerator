@@ -26,7 +26,8 @@
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
-        utils = require("./utils.js");
+        utils = require("./utils.js"),
+        matrix = require("./matrix.js");
 
     var px = svgWriterUtils.px;
 
@@ -224,6 +225,12 @@
                 shape.x += ctx._shiftContentX;
                 shape.y += ctx._shiftContentY;
                 break;
+            case "path":
+                if (ctx._shiftCropRectX || ctx._shiftCropRectY) {
+                    omIn.transform = matrix.createMatrix();
+                    omIn.transformTX = ctx._shiftCropRectX || 0;
+                    omIn.transformTY = ctx._shiftCropRectY || 0;
+                }
             }
         };
 
@@ -332,8 +339,11 @@
             ctx.viewBox.right = cropRect.width;
             ctx.viewBox.bottom = cropRect.height;
 
-            ctx._shiftContentX += (cropRect.width - w) / 2;
-            ctx._shiftContentY += (cropRect.height - h) / 2;
+            ctx._shiftCropRectX = (cropRect.width - w) / 2;
+            ctx._shiftCropRectY = (cropRect.height - h) / 2;
+
+            ctx._shiftContentX += ctx._shiftCropRectX;
+            ctx._shiftContentY += ctx._shiftCropRectY;
         };
 
         this.processSVGNode = function (ctx, nested, sibling) {
