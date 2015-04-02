@@ -28,6 +28,7 @@
         svgWriterClipPath = require("./svgWriterClipPath.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
+        svgWriterTextPath = require("./svgWriterTextPath.js"),
         utils = require("./utils.js");
 
     var px = svgWriterUtils.px;
@@ -362,7 +363,7 @@
             this.externalizeStyles(ctx);
 
             if (omIn.type === "textPath") {
-                svgWriterUtils.writeTextPath(ctx, omIn.pathData);
+                svgWriterTextPath.writeTextPath(ctx, omIn.pathData);
             }
 
             if (children) {
