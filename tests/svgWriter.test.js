@@ -225,7 +225,7 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        var database = ["pattern-1"];
+        var database = ["pattern-1", "pattern-2", "pattern-3", "pattern-4"];
 
         for (var i = 0, end = database.length; i < end; i++) {
             compareResults(database[i]);

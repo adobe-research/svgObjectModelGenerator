@@ -474,12 +474,12 @@
                 attr.height = node.bounds.bottom - node.bounds.top;
             }
             if (node.viewBox) {
-                attr.viewBox = node.bounds.left + " " +
-                    node.bounds.top + " " +
-                    (node.bounds.right - node.bounds.left) + " " +
-                    (node.bounds.bottom - node.bounds.top);
+                attr.viewBox = parseNumber(node.viewBox.left) + " " +
+                    parseNumber(node.viewBox.top) + " " +
+                    parseNumber(node.viewBox.right) + " " +
+                    parseNumber(node.viewBox.bottom);
             }
-            attr.patternTransform = node.transform;
+            attr.patternTransform = getTransform(node.transform);
             attr.patternUnits = node.patternUnits || "userSpaceOnUse";
             if (!node.bounds && !node.patternUnits) {
                 delete attr.patternUnits;
