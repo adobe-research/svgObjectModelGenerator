@@ -153,7 +153,7 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5"];
+        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6"];
 
         for (var i = 0, end = database.length; i < end; i++) {
             compareResults(database[i]);
@@ -189,7 +189,7 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5"];
+        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5", "clipPath-6"];
 
         for (var i = 0, end = database.length; i < end; i++) {
             compareResults(database[i]);
