@@ -197,6 +197,42 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test extraction of patterns to SVG
+     **/
+    describe('Test extraction of patterns to SVG', function () {
+
+        function compareResults (testName) {
+            var svgOM,
+                svgOut,
+                expectedOut,
+                svgWriterErrors = [],
+                path = 'data/pattern/' + testName;
+
+            svgOM = JSON.parse(fs.readFileSync('./tests/' + path + '-om.js'));
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        var database = ["pattern-1"];
+
+        for (var i = 0, end = database.length; i < end; i++) {
+            compareResults(database[i]);
+        }
+    });
+
+    /**
      * Test extraction of all layers to SVG
      **/
     describe('Test extraction of all layers to SVG', function () {
