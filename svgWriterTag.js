@@ -100,6 +100,9 @@
         var args = [].slice.call(arguments);
         for (var i = 0, ii = args.length; i < ii; i++) {
             var child = args[i];
+            if (typeof child == "string") {
+                child = new Tag("#text", child);
+            }
             if (child.name) {
                 this.children.push(child);
             } else {
@@ -123,6 +126,9 @@
         return value;
     }
     Tag.prototype.getAttribute = function (name) {
+        if (name == "#text") {
+            return this.text || "";
+        }
         return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
     };
     function getDesc(tagname, attrname) {
@@ -168,7 +174,11 @@
         if (name == "id" && root) {
             root.ids[value] = this;
         }
-        this.attrs[name] = value;
+        if (name == "#text") {
+            this.text = value;
+        } else {
+            this.attrs[name] = value;
+        }
     };
     function writeDefs(ctx) {
         var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
@@ -196,11 +206,12 @@
             pattern: 1
         };
     Tag.prototype.writeAttribute = function (ctx, name, value) {
-        value = value == null ? this.attrs[name] : value;
         if (typeof ctx == "string") {
+            value = name;
             name = ctx;
             ctx = null;
         }
+        value = value == null ? this.attrs[name] : Tag.getValue(this.name, name, value);
         var tag = this,
             deft = Tag.getDefault(tag.name, name),
             link,
@@ -230,6 +241,7 @@
                 return out;
             }
         }
+        return "";
     };
     Tag.prototype.write = Tag.prototype.toString = function (ctx) {
         var tag = this,
@@ -283,7 +295,11 @@
             }
         }
         for (i = 0; i < numChildren; i++) {
-            tag.children[i].write(noctx ? null : ctx);
+            if (noctx) {
+                write(ctx, tag.children[i].toString());
+            } else {
+                tag.children[i].write(ctx);
+            }
         }
         if (!numChildren || !tag.name) {
             return ctx.sOut;
