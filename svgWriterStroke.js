@@ -37,8 +37,7 @@
         
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                gradientID,
-                styleBlock,
+                styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique),
                 stroke;
             
             if (!hasStroke(ctx)) {
@@ -47,12 +46,8 @@
 
             stroke = omIn.style.stroke;
             // Make a style for this stroke and reference it.
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
             if (stroke.type == "gradient") {
-                gradientID = writeGradient(ctx, ctx.svgOM.global.gradients[stroke.gradient], "-stroke");
-                if (gradientID) {
-                    styleBlock.addRule("stroke", "url(#" + gradientID + ")");
-                }
+                writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[stroke.gradient], "stroke");
             } else {
                 styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
             }

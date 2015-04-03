@@ -66,7 +66,26 @@
             return "#" + self.componentToHex(r) + self.componentToHex(g) + self.componentToHex(b);
         };
 
-        self.px = Utils.px;
+        self.px = function (ctx, length) {
+            if (typeof length === "number")
+                return length;
+            // Consider adding string conversion when needed.
+            if (typeof length !== "object" || !length.units)
+                return 0;
+            switch (length.units) {
+            case "pointsUnit":
+                return self.round1k(length.value * ctx.pxToInchRatio / 72);
+            case "millimetersUnit":
+                return self.round1k(length.value * ctx.pxToInchRatio / 25.4);
+            case "rulerCm":
+                return self.round1k(length.value * ctx.pxToInchRatio / 2.54);
+            case "rulerInches":
+                return self.round1k(length.value * ctx.pxToInchRatio);
+            case "rulerPicas":
+                return self.round1k(length.value * ctx.pxToInchRatio / 6);
+            }
+            return 0;
+        };
 
         var colorNames = {
             "#fa8072": "salmon",
@@ -128,38 +147,11 @@
             return Matrix.writeTransform(Matrix.createMatrix(val), tX, tY);
         };
 
-        self.writeTextPath = function (ctx, pathData) {
-            var omIn = ctx.currentOMNode,
-                textPathID = ctx.ID.getUnique("text-path");
-
-            self.ctxCapture(ctx, function () {
-                var iStop,
-                    stp;
-
-                self.write(ctx, ctx.currentIndent + "<path id=\"" + textPathID + "\" ");
-                self.writeln(ctx, "d=\"" + Utils.optimisePath(pathData) + "\"/>");
-            },
-            function (out) {
-                ctx.omStylesheet.define("text-path", omIn.id, textPathID, out, JSON.stringify({ pathData: pathData }));
-            });
-            return textPathID;
-        };
-
         self.round2 = Utils.round2;
         self.round1k = Utils.round1k;
         self.round10k = Utils.round10k;
         self.roundUp = Utils.roundUp;
         self.roundDown = Utils.roundDown;
-
-        self.ctxCapture = function (ctx, fnCapture, fnResult) {
-            var origBuffer = ctx.sOut,
-                resultBuffer;
-            ctx.sOut = "";
-            fnCapture();
-            resultBuffer = ctx.sOut;
-            ctx.sOut = origBuffer;
-            fnResult(resultBuffer);
-        };
 
         self.indentify = function (indent, buf) {
             var out = indent + buf.replace(/(\n)/g, "\n" + indent);

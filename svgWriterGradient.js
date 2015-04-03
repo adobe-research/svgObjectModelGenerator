@@ -22,7 +22,6 @@
 
     var round10k = svgWriterUtils.round10k,
         gradientStops = {},
-        ctxCapture = svgWriterUtils.ctxCapture,
         getTransform = svgWriterUtils.getTransform;
 
     function removeDups(lines) {
@@ -103,7 +102,7 @@
                 tag.children = removeDups(lines);
             }
         },
-        writeGradient: function (ctx, gradient, flavor) {
+        writeGradient: function (ctx, styleBlock, gradient, flavor) {
             var omIn = ctx.currentOMNode,
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
                 stops = gradient.stops,
@@ -139,28 +138,25 @@
                 self.getRadialGradientInternal(ctx, gradient, tag, link, lines, gradientID);
             }
 
-            ctxCapture(ctx, function () {
-                fingerprint = JSON.stringify({
-                    cx: round10k(gradient.cx),
-                    cy: round10k(gradient.cy),
-                    x1: round10k(gradient.x1),
-                    y1: round10k(gradient.y1),
-                    x2: round10k(gradient.x2),
-                    y2: round10k(gradient.y2),
-                    fx: round10k(gradient.fx),
-                    fy: round10k(gradient.fy),
-                    r: round10k(gradient.r),
-                    transform: gradient.transform,
-                    stops: stops,
-                    gradientSpace: gradientSpace
-                });
+            fingerprint = JSON.stringify({
+                cx: round10k(gradient.cx),
+                cy: round10k(gradient.cy),
+                x1: round10k(gradient.x1),
+                y1: round10k(gradient.y1),
+                x2: round10k(gradient.x2),
+                y2: round10k(gradient.y2),
+                fx: round10k(gradient.fx),
+                fy: round10k(gradient.fy),
+                r: round10k(gradient.r),
+                transform: gradient.transform,
+                stops: stops,
+                gradientSpace: gradientSpace
+            });
 
-                tag.write(ctx);
-            }.bind(this), function (out) {
-                ctx.omStylesheet.define(gradient.type + "-gradient" + flavor, omIn.id, gradientID, out, fingerprint);
-            }.bind(this));
-
-            return ctx.omStylesheet.getDefine(omIn.id, gradient.type + "-gradient" + flavor).defnId;
+            ctx.omStylesheet.define(gradient.type + "-gradient-" + flavor, omIn.id, gradientID, tag, fingerprint);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            gradientID = ctx.omStylesheet.getDefine(omIn.id, gradient.type + "-gradient-" + flavor).defnId;
+            styleBlock.addRule(flavor, "url(#" + gradientID + ")");
         }
     };
 

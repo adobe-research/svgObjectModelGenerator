@@ -26,28 +26,7 @@
 	function Utils() {
         
         var self = this;
-        
-        self.px = function (ctx, length) {
-            if (typeof length === "number")
-                return length;
-            // Consider adding string conversion when needed.
-            if (typeof length !== "object" || !length.units)
-                return 0;
-            switch (length.units) {
-                case "pointsUnit":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 72);
-                case "millimetersUnit":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 25.4);
-                case "rulerCm":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 2.54);
-                case "rulerInches":
-                    return self.round1k(length.value * ctx.pxToInchRatio);
-                case "rulerPicas":
-                    return self.round1k(length.value * ctx.pxToInchRatio / 6);
-            }
-            return 0;
-        };
-        
+
         self.round2 = function (x) {
             return +(+x).toFixed(2);
         };

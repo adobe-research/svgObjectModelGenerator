@@ -24,8 +24,6 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js");
 
-    var ctxCapture = svgWriterUtils.ctxCapture;
-
     function SVGWriterFx() {
 
         var writeFilter = function (ctx, ele, previousEffect) {

@@ -31,18 +31,15 @@
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
-                gradientID,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+
             if (!omIn.style || !omIn.style.fill || omIn.style.fill.type == "none") {
                 return;
             }
             fill = omIn.style.fill;
 
             if (fill.type === "gradient") {
-                gradientID = writeGradient(ctx, ctx.svgOM.global.gradients[fill.gradient], "-fill");
-                if (gradientID) {
-                    styleBlock.addRule("fill", "url(#" + gradientID + ")");
-                }
+                writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[fill.gradient], "fill");
             } else {
                 styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }
