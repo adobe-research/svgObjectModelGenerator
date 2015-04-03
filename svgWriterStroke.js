@@ -22,9 +22,11 @@
     "use strict";
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterGradient = require("./svgWriterGradient.js");
+        svgWriterGradient = require("./svgWriterGradient.js"),
+        svgWriterPattern = require("./svgWriterPattern.js");
     
     var writeGradient = svgWriterGradient.writeGradient,
+        writePattern = svgWriterPattern.writePattern,
         writeColor = svgWriterUtils.writeColor,
         px = svgWriterUtils.px;
     
@@ -48,6 +50,8 @@
             // Make a style for this stroke and reference it.
             if (stroke.type == "gradient") {
                 writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[stroke.gradient], "stroke");
+            } else if (stroke.type == "pattern") {
+                writePattern(ctx, stroke.pattern, "stroke");
             } else {
                 styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
             }

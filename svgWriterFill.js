@@ -22,9 +22,11 @@
     "use strict";
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterGradient = require("./svgWriterGradient.js");
+        svgWriterGradient = require("./svgWriterGradient.js"),
+        svgWriterPattern = require("./svgWriterPattern.js");
 
     var writeGradient = svgWriterGradient.writeGradient,
+        writePattern = svgWriterPattern.writePattern,
         writeColor = svgWriterUtils.writeColor;
 
     module.exports = {
@@ -40,6 +42,8 @@
 
             if (fill.type === "gradient") {
                 writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[fill.gradient], "fill");
+            } else if (fill.type == "pattern") {
+                writePattern(ctx, fill.pattern, "fill");
             } else {
                 styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }

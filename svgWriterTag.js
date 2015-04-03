@@ -465,6 +465,28 @@
                     clipPathUnits: node.clipPathUnits
                 }, ctx);
         },
+        pattern: function (ctx, node) {
+            var attr = {};
+            if (node.bounds) {
+                attr.x = node.bounds.left;
+                attr.y = node.bounds.top;
+                attr.width = node.bounds.right - node.bounds.left;
+                attr.height = node.bounds.bottom - node.bounds.top;
+            }
+            if (node.viewBox) {
+                attr.viewBox = parseNumber(node.viewBox.left) + " " +
+                    parseNumber(node.viewBox.top) + " " +
+                    parseNumber(node.viewBox.right) + " " +
+                    parseNumber(node.viewBox.bottom);
+            }
+            attr.patternTransform = getTransform(node.transform);
+            attr.patternUnits = node.patternUnits || "userSpaceOnUse";
+            if (!node.bounds && !node.patternUnits) {
+                delete attr.patternUnits;
+            }
+            attr.patternContentUnits = node.patternContentUnits;
+            return new Tag("pattern", attr, ctx);
+        },
         rect: function (ctx, node) {
             var tag = new Tag("rect", {
                     x: node.shape.x,

@@ -395,6 +395,10 @@
                 ctx.currentOMNode = global.clipPaths[key];
                 self.processSVGNode(ctx);
             });
+            Object.keys(global.patterns || {}).forEach(function (key) {
+                ctx.currentOMNode = global.patterns[key];
+                self.processSVGNode(ctx);
+            });
             ctx.currentOMNode = omSave;
             this.processSVGNode(ctx);
             ctx.currentOMNode = omSave;
