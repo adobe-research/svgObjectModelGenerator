@@ -26,9 +26,7 @@
         "test": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js",
         "test-debug": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js --reporter nyan --debug-brk",
         "cover": "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R html-cov > svgomg-code-coverage.html",
-        "cover-travis":  "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R travis-cov",
-        "jscs": "./node_modules/jscs/bin/jscs ./*.js --config=./jscs.json",
-        "lint": "node ./node_modules/eslint/bin/eslint.js *.js"
+        "cover-travis":  "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R travis-cov"
     },
     "config": {
         "blanket": {
