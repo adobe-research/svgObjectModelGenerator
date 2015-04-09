@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,32 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help construct the svgOM */
 
 (function () {
     "use strict";
-    
+
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
-        Matrix = require("./matrix.js");
+        round2 = Utils.round2;
 
-    var round2 = Utils.round2;
-    
-	function SVGOMGeneratorShapes() {
-        
+    function SVGOMGeneratorShapes() {
+
         this.pathComponentOrigin = function (layer, fn) {
             if (layer.path && layer.path.pathComponents && layer.path.pathComponents.length === 1 && layer.path.pathComponents[0].origin) {
                 return fn(layer.path, layer.path.pathComponents[0], layer.path.pathComponents[0].origin);
             }
             return false;
         };
-        
-        
-        function _comparePts (ptA, ptB) {
+
+
+        function _comparePts(ptA, ptB) {
             if (round2(ptA[0]) === round2(ptB[0]) &&
                 round2(ptA[1]) === round2(ptB[1])) {
                 return true;
@@ -45,30 +39,21 @@
                 return false;
             }
         }
-        
+
         function _ellipsePt(bnds, i) {
-            return [bnds[i][0] + (bnds[(i + 1) % 4][0] - bnds[i][0])/2.0,
-                    bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1])/2.0];
+            return [bnds[i][0] + (bnds[(i + 1) % 4][0] - bnds[i][0]) / 2,
+                    bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1]) / 2];
         }
-        
+
         this.inferTransformForShape = function (svgNode, layer, points, ellipse) {
-            
-            var rectBounds = [[0, 0],
-                              [layer.bounds.right - layer.bounds.left, 0],
-                              [layer.bounds.right - layer.bounds.left, layer.bounds.bottom - layer.bounds.top],
-                              [0, layer.bounds.bottom - layer.bounds.top]],
-                unshiftedRectBounds = [[layer.bounds.left, layer.bounds.top],
+
+            var unshiftedRectBounds = [[layer.bounds.left, layer.bounds.top],
                                        [layer.bounds.right, layer.bounds.top],
                                        [layer.bounds.right, layer.bounds.bottom],
                                        [layer.bounds.left, layer.bounds.bottom]],
                 txfmBounds = [],
-                mtrxResult,
-                mtrx,
-                decomposed,
-                samePts = true,
-                newBounds = {},
-                txOffset;
-            
+                samePts = true;
+
             // Rounded rectangle case
             if (points.length == 8 && !ellipse) {
                 if (round2(points[0].anchor.y) == round2(layer.bounds.top) &&
@@ -91,7 +76,7 @@
             if (points.length === 4) {
                 points.forEach(function (pt, i) {
                     txfmBounds.push([pt.anchor.x, pt.anchor.y]);
-                    
+
                     if (!ellipse) {
                         if (!_comparePts(txfmBounds[i], unshiftedRectBounds[i])) {
                             samePts = false;
@@ -102,19 +87,19 @@
                         }
                     }
                 });
-                
+
                 return samePts;
             }
             return false;
         };
-        
-        
+
+
         this.addEllipse = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 var newBounds;
                 if (origin.type === "ellipse") {
-                    
-                    if (component.subpathListKey && component.subpathListKey[0] &&  component.subpathListKey[0].points) {
+
+                    if (component.subpathListKey && component.subpathListKey[0] && component.subpathListKey[0].points) {
                         newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, true);
                         if (!newBounds) {
                             //be a path if we can't be an ellipse
@@ -123,7 +108,7 @@
                     }
 
                     svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
-                    
+
                     svgNode.shape = {
                         type: "ellipse",
                         cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
@@ -133,20 +118,20 @@
                     };
 
                     omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
-                    
+
                     return true;
                 }
                 return false;
             }.bind(this));
         };
-        
+
         this.addCircle = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 if (origin.type === "ellipse") {
-                    
-                    var w = parseInt(origin.bounds.right) - parseInt(origin.bounds.left),
-                        h = parseInt(origin.bounds.bottom) - parseInt(origin.bounds.top);
-                    
+
+                    var w = parseInt(origin.bounds.right, 10) - parseInt(origin.bounds.left, 10),
+                        h = parseInt(origin.bounds.bottom, 10) - parseInt(origin.bounds.top, 10);
+
                     if (w == h) {
                         svgNode.visualBounds = origin.boundsWithFX || origin.bounds;
 
@@ -166,9 +151,9 @@
 
         this.addRect = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
-                
+
                 var newBounds;
-                
+
                 if (origin.type === "rect" || origin.type === "roundedRect") {
                     if (origin.radii &&
                         (origin.radii[0] != origin.radii[1] ||
@@ -177,7 +162,7 @@
                         return false;
                     }
 
-                    if (component.subpathListKey && component.subpathListKey[0] &&  component.subpathListKey[0].points) {
+                    if (component.subpathListKey && component.subpathListKey[0] && component.subpathListKey[0].points) {
                         newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, false);
                         if (!newBounds) {
                             //be a path if we can't be a rect
@@ -204,13 +189,13 @@
                 return false;
             }.bind(this));
         };
-        
+
         this.addPath = function (svgNode, layer, writer) {
             var path = layer.path,
                 pathData = layer.path.rawPathData;
-            
+
             if (path && pathData) {
-                
+
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
                 svgNode.shape = {
@@ -219,13 +204,13 @@
                 };
 
                 omgStyles.addStylingData(svgNode, layer, path.bounds, writer);
-                
+
                 return true;
             }
             return false;
         };
-        
-        this.addShapeData = function(svgNode, layer, writer) {
+
+        this.addShapeData = function (svgNode, layer, writer) {
             if (this.addCircle(svgNode, layer, writer) ||
                 this.addEllipse(svgNode, layer, writer) ||
                 this.addRect(svgNode, layer, writer) ||
@@ -235,9 +220,9 @@
             console.log("Error: No shape data added for " + JSON.stringify(layer));
             return false;
         };
-	}
+    }
 
-	module.exports = new SVGOMGeneratorShapes();
-    
+    module.exports = new SVGOMGeneratorShapes();
+
 }());
-     
+

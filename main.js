@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,17 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint node: true, nomen: true, vars:true, white:true */
-
 (function () {
     "use strict";
 
     // node app -f plugins/my-plugin
     // where app is the path to app in generator-core, and plugins/my-plugin is the path to your plugin's folder
 
-    var _G,// Generator 
-        Q = require("q"); 
-    
+    var Q = require("q"),
+        generatorPlus = require("./generatorPlus.js"),
+        _G; // Generator
+
     function stringify(object) {
         try {
             return JSON.stringify(object, null, "    ");
@@ -34,33 +33,32 @@
 
     function printDebug(doc) {
         var psd = stringify(doc);
-        
-        _G.evaluateJSXFile(__dirname+'/jsx/copy.jsx', { clipboard: psd });
+
+        _G.evaluateJSXFile(__dirname + "/jsx/copy.jsx", { clipboard: psd });
     }
-    
+
     function error(err) {
-        console.error('[svgOMG] Error: ', err);
+        console.error("[svgOMG] Error: ", err);
     }
-    
-    var MENU_GENERATOR_DOM = 'GENERATOR-DOM',
-        MENU_GENERATOR_SUBDOM = 'GENERATOR-SUBDOM',
-        generatorPlus = require("./generatorPlus.js"),
+
+    var MENU_GENERATOR_DOM = "GENERATOR-DOM",
+        MENU_GENERATOR_SUBDOM = "GENERATOR-SUBDOM",
         docInfoFlags = {
-            compInfo:             true,
-            imageInfo:            true,
-            layerInfo:            true,
-            expandSmartObjects:   false,
-            getTextStyles:        true,
-            getFullTextStyles:    true,
+            compInfo: true,
+            imageInfo: true,
+            layerInfo: true,
+            expandSmartObjects: false,
+            getTextStyles: true,
+            getFullTextStyles: true,
             getCompLayerSettings: true,
-            selectedLayers:       false,
-            getDefaultLayerFX:    true,
-            getPathData:          true
+            selectedLayers: false,
+            getDefaultLayerFX: true,
+            getPathData: true
         },
         _docInfoCache = {},
         isListeningToGenerator = false;
-    
-    function findLayerIdForIndex (layers, index) {
+
+    function findLayerIdForIndex(layers, index) {
         var i,
             ret;
         for (i = 0; i < layers.length; i++) {
@@ -75,13 +73,13 @@
             }
         }
     }
-    
-    
+
+
     function onGeneratorDOMMenuClick(event) {
-        if (event.generatorMenuChanged.name === MENU_GENERATOR_DOM || 
+        if (event.generatorMenuChanged.name === MENU_GENERATOR_DOM ||
             event.generatorMenuChanged.name === MENU_GENERATOR_SUBDOM) {
-            
-            _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", {}).then(function (origMode) {
+
+            _G.evaluateJSXFile(__dirname + "/jsx/changeColorMode.jsx", {}).then(function (origMode) {
                 if (typeof origMode === "string") {
                     origMode = JSON.parse(origMode);
                 }
@@ -90,51 +88,51 @@
                         var doc = JSON.parse(JSON.stringify(gDoc)),
                             subTree = false,
                             layerId;
-                        
+
                         if (event.generatorMenuChanged.name === MENU_GENERATOR_SUBDOM && doc.selection.length > 0) {
                             //get the selected layer's id and use it to get the sub-tree
                             subTree = true;
-                            layerId = findLayerIdForIndex (doc.layers, doc.selection[0]);
-                            
+                            layerId = findLayerIdForIndex(doc.layers, doc.selection[0]);
+
                             console.log("***** LayerId: " + layerId + " from " + doc.selection[0]);
                         }
-                        
+
                         generatorPlus.patchGenerator(doc, _G, undefined, undefined, subTree, layerId, 1.0).then(function () {
                             printDebug(doc);
                         });
-                    }, 
+                    },
                     error);
-                _G.evaluateJSXFile(__dirname+"/jsx/changeColorMode.jsx", { colorMode: origMode.colorMode });
+                _G.evaluateJSXFile(__dirname + "/jsx/changeColorMode.jsx", { colorMode: origMode.colorMode });
             });
         }
     }
-    
+
     function init(generator) {
         _G = generator;
-        
+
         //TBD: only do this when debug is enabled in config
-        
+
         _G.addMenuItem(MENU_GENERATOR_DOM, "Copy svgOM", true, false);
         _G.addMenuItem(MENU_GENERATOR_SUBDOM, "Copy svgOM for layer", true, false);
         _G.onPhotoshopEvent("generatorMenuChanged", onGeneratorDOMMenuClick);
     }
-    
+
     function invalidateDocInfoCache() {
         _docInfoCache = {};
     }
-    
+
     function getCachedDocInfo(generator, docId) {
         if (!isListeningToGenerator) {
             isListeningToGenerator = true;
             generator.onPhotoshopEvent("imageChanged", invalidateDocInfoCache);
             generator.onPhotoshopEvent("generatorMenuChanged", invalidateDocInfoCache);
         }
-        
+
         _docInfoCache[docId] = _docInfoCache[docId] || {};
-        
+
         var cacheInfo = _docInfoCache[docId],
             docInfoDeferred = Q.defer();
-        
+
         if (cacheInfo._lastDocInfo) {
             return Q.resolve(cacheInfo._lastDocInfo);
         } else {
@@ -142,7 +140,7 @@
                 return cacheInfo._lastDocInfoPromise;
             } else {
                 cacheInfo._lastDocInfoPromise = docInfoDeferred.promise;
-                
+
                 generator.evaluateJSXFile(__dirname + "/jsx/normalizeDoc.jsx", {}).then(function (origMode) {
                     if (typeof origMode === "string") {
                         origMode = JSON.parse(origMode);
@@ -161,11 +159,11 @@
             }
         }
     }
-    
+
     function getGeneratorSVG(generator, params) {
-        var deferedResult = Q.defer(),
-            OMG = require("./svgOMGenerator.js"),
+        var OMG = require("./svgOMGenerator.js"),
             svgWriter = require("./svgWriter.js"),
+            deferedResult = Q.defer(),
             layerSpec,
             layerScale,
             targetWidth,
@@ -174,7 +172,7 @@
             compId,
             constrainToDocBounds,
             cropRect;
-        
+
         compId = params.compId;
         layerSpec = params.layerSpec;
         layerScale = params.layerScale;
@@ -183,7 +181,7 @@
         constrainToDocBounds = params.constrainToDocBounds;
         cropRect = params.cropRect;
         docId = params.documentId;
-        
+
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
             if (docId !== activeDocId) {
                 deferedResult.reject("svgOMG only works on the active document");
@@ -191,7 +189,7 @@
                 getCachedDocInfo(generator, docId).then(
                     function (document) {
                         var doc = JSON.parse(JSON.stringify(document)),
-                            cropToSingleLayer = (typeof layerSpec === "number"),
+                            cropToSingleLayer = typeof layerSpec == "number",
                             svgWriterErrors = [];
                         generatorPlus.patchGenerator(doc, generator, compId, cropToSingleLayer, constrainToDocBounds,
                                                     layerSpec, layerScale, svgWriterErrors).then(function () {
@@ -214,7 +212,7 @@
                                 errors: svgWriterErrors
                             });
                         });
-                    }, 
+                    },
                     function (err) {
                         console.warn("error with SVGOMG: " + err);
                         deferedResult.reject(err);
@@ -223,8 +221,8 @@
         });
         return deferedResult.promise;
     }
-    
+
     module.exports.init = init;
     module.exports.getGeneratorSVG = getGeneratorSVG;
-    
+
 }());

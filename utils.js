@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,19 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
-
 /* Help write the SVG */
 
 (function () {
     "use strict";
 
-    var Buffer = require('buffer').Buffer;
+    var Buffer = require("buffer").Buffer;
 
-	function Utils() {
-        
+    function Utils() {
+
         var self = this;
 
         self.round2 = function (x) {
@@ -47,32 +43,32 @@
             if (!rect2) {
                 return;
             }
-            if (!isFinite(rect1.left) || (rect2.left - expand) < rect1.left) {
-                rect1.left = (rect2.left - expand);
+            if (!isFinite(rect1.left) || rect2.left - expand < rect1.left) {
+                rect1.left = rect2.left - expand;
             }
-            if (!isFinite(rect1.right) || (rect2.right + expand) > rect1.right) {
+            if (!isFinite(rect1.right) || rect2.right + expand > rect1.right) {
                 rect1.right = rect2.right + expand;
             }
-            if (!isFinite(rect1.top) || (rect2.top - expand) < rect1.top) {
+            if (!isFinite(rect1.top) || rect2.top - expand < rect1.top) {
                 rect1.top = rect2.top - expand;
             }
-            if (!isFinite(rect1.bottom) || (rect2.bottom + expand) > rect1.bottom) {
+            if (!isFinite(rect1.bottom) || rect2.bottom + expand > rect1.bottom) {
                 rect1.bottom = rect2.bottom + expand;
             }
         };
-        
+
         /** jQuery-style extend
          *  https://github.com/jquery/jquery/blob/master/src/core.js
          */
         var class2type = {
-              "[object Boolean]": "boolean",
-              "[object Number]": "number",
-              "[object String]": "string",
-              "[object Function]": "function",
-              "[object Array]": "array",
-              "[object Date]": "date",
-              "[object RegExp]": "regexp",
-              "[object Object]": "object"
+                "[object Boolean]": "boolean",
+                "[object Number]": "number",
+                "[object String]": "string",
+                "[object Function]": "function",
+                "[object Array]": "array",
+                "[object Date]": "date",
+                "[object RegExp]": "regexp",
+                "[object Object]": "object"
             },
             jQueryLike = {
                 isFunction: function (obj) {
@@ -93,24 +89,21 @@
                     } catch (e) {
                         return false;
                     }
-                var key;
-                for (key in obj) {}
+                    for (var key in obj) {
+                        if (!obj.hasOwnProperty(key)) {
+                            return false;
+                        }
+                    }
                     return key === undefined || obj.hasOwnProperty(key);
                 }
             };
-        
-        self.extend = function (deep, target, source) {
+
+        self.extend = function (deep) {
             var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {},
                 i = 1,
-                length = arguments.length,
-                deep = false,
-                toString = Object.prototype.toString,
-                hasOwn = Object.prototype.hasOwnProperty,
-                push = Array.prototype.push,
-                slice = Array.prototype.slice,
-                trim = String.prototype.trim,
-                indexOf = Array.prototype.indexOf;
-            
+                length = arguments.length;
+
+            deep = false;
             if (typeof target === "boolean") {
                 deep = target;
                 target = arguments[1] || {};
@@ -119,7 +112,7 @@
             if (typeof target !== "object" && !jQueryLike.isFunction(target)) {
                 target = {};
             }
-            
+
             for (i; i < length; i++) {
                 if ((options = arguments[i]) != null) {
                     for (name in options) {
@@ -128,7 +121,7 @@
                         if (target === copy) {
                             continue;
                         }
-                        
+
                         if (deep && copy && (jQueryLike.isPlainObject(copy) || (copyIsArray = jQueryLike.isArray(copy)))) {
                             if (copyIsArray) {
                                 copyIsArray = false;
@@ -145,7 +138,7 @@
             }
             return target;
         };
-        
+
         self.toBase64 = function (string) {
             var buf = new Buffer(string);
             return buf.toString("base64");
@@ -195,12 +188,16 @@
                     return 0;
                 }
             } else {
-                var	angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
-                if (angle < 0) {
-                    angle += 360;
+                var	ang = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                if (ang < 0) {
+                    ang += 360;
                 }
-                return angle;
+                return ang;
             }
+        }
+        function safeRound(n) {
+            var match = (+n).toFixed(10).match(safeRound.rg);
+            return match ? +match[0] : n;
         }
         function arc3(x1, y1, x2, y2, x3, y3) {
             var out = {};
@@ -209,7 +206,7 @@
                 return out;
             }
             if (x1 == x3 && y1 == y3) {
-                r = len(x1, y1, x2, y2) / 2;
+                var r = len(x1, y1, x2, y2) / 2;
                 out.path = "A" + [r, r, 0, 0, 0, x2, y2] + "A" + [r, r, 0, 0, 0, x1, y1];
                 return out;
             }
@@ -234,7 +231,7 @@
                 }
             }
             if (inter) {
-                var r = len(x1, y1, inter.x, inter.y);
+                r = len(x1, y1, inter.x, inter.y);
                 out.cx = inter.x;
                 out.cy = inter.y;
                 out.a1 = ang_start;
@@ -248,10 +245,6 @@
                 out.path = "L" + [x3, y3];
             }
             return out;
-        }
-        function safeRound(n) {
-            var match = (+n).toFixed(10).match(safeRound.rg);
-            return match ? +match[0] : n;
         }
         safeRound.rg = /^\d*\.[^0]*(?=0|$)/;
         function findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {
@@ -277,17 +270,32 @@
         }
         self.precision = function (arg) {
             return isFinite(arg) ? arg : 3;
-        }
+        };
 
         self.pointsToString = function (points, precision) {
-            var precision = self.precision(precision);
+            precision = self.precision(precision);
             return points.map(function (item) {
                 return item.x.toFixed(precision) + " " + item.y.toFixed(precision);
             }).join();
         };
 
         self.optimisePath = function (path, precision) {
-            var precision = self.precision(precision);
+            precision = self.precision(precision);
+            var res = "",
+                args = {
+                    abs: "",
+                    rel: ""
+                },
+                type,
+                sigma = Math.pow(10, -precision),
+                gamma = Math.pow(10, 1 - precision),
+                x = 0,
+                y = 0,
+                mx,
+                my,
+                num,
+                prev,
+                segs = [];
             function isSmall(num) {
                 return Math.abs(num.toFixed(precision)) <= sigma;
             }
@@ -399,25 +407,11 @@
                     return "unite";
                 }
             }
-            var res = "",
-                args = {
-                    abs: "",
-                    rel: ""
-                },
-                type,
-                sigma = Math.pow(10, -precision),
-                gamma = Math.pow(10, 1 - precision),
-                x = 0,
-                y = 0,
-                mx,
-                my,
-                num,
-                prev,
-                nextAnchor,
-                segs = [];
             path.replace(/([a-df-z])\s*([^a-df-z]+)?/ig, function (all, command, rest) {
                 if (rest) {
-                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/).map(function (x) { return +x; });
+                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/).map(function (x) {
+                        return +x;
+                    });
                     type = command.toLowerCase() == command ? "rel" : "abs";
                     if (command.toUpperCase() == "M") {
                         mx = rest[0];
@@ -481,45 +475,47 @@
             }
 
             for (i = 0; i < segs.length; i++) {
+                type = segs[i].type;
+                x = segs[i].x;
+                y = segs[i].y;
                 var command = segs[i].command,
                     rest = segs[i].rest,
-                    type = segs[i].type,
-                    x = segs[i].x,
-                    y = segs[i].y,
                     mul = type == "abs" ? -1 : 1;
 
                 args.abs = args.rel = "";
                 if (rest) {
-                    for (var j = 0, jj = rest.length; j < jj; j++) if (isFinite(rest[j])) {
-                        num = +rest[j].toFixed(precision);
-                        if (Math.abs(num - ~~num) < sigma) {
-                            num = ~~num;
-                        }
-                        args[type] += num < 0 || !j ? num : "," + num;
-                        switch (command.toUpperCase()) {
-                            case "M":
-                            case "L":
-                            case "C":
-                            case "S":
-                            case "Q":
-                            case "T":
-                            case "H":
-                                num += (j % 2 ? y : x) * mul;
-                                break;
-                            case "V":
-                                num += y * mul;
-                                break;
-                            case "A":
-                                if (j == 5) {
-                                    num += x * mul;
-                                }
-                                if (j == 6) {
+                    for (var j = 0, jj = rest.length; j < jj; j++) {
+                        if (isFinite(rest[j])) {
+                            num = +rest[j].toFixed(precision);
+                            if (Math.abs(num - ~~num) < sigma) {
+                                num = ~~num;
+                            }
+                            args[type] += num < 0 || !j ? num : "," + num;
+                            switch (command.toUpperCase()) {
+                                case "M":
+                                case "L":
+                                case "C":
+                                case "S":
+                                case "Q":
+                                case "T":
+                                case "H":
+                                    num += (j % 2 ? y : x) * mul;
+                                    break;
+                                case "V":
                                     num += y * mul;
-                                }
-                                break;
+                                    break;
+                                case "A":
+                                    if (j == 5) {
+                                        num += x * mul;
+                                    }
+                                    if (j == 6) {
+                                        num += y * mul;
+                                    }
+                                    break;
+                            }
+                            num = +num.toFixed(precision);
+                            args[type == "abs" ? "rel" : "abs"] += num < 0 || !j ? num : "," + num;
                         }
-                        num = +num.toFixed(precision);
-                        args[type == "abs" ? "rel" : "abs"] += num < 0 || !j ? num : "," + num;
                     }
 
                     if (args.abs.length <= args.rel.length) {
@@ -548,6 +544,6 @@
         self.safeRound = safeRound;
     }
 
-	module.exports = new Utils();
+    module.exports = new Utils();
 
 }());

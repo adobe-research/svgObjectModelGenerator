@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,10 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help write the SVG */
 
 (function () {
@@ -23,11 +19,9 @@
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
-        svgWriterPattern = require("./svgWriterPattern.js");
-
-    var writeGradient = svgWriterGradient.writeGradient,
-        writePattern = svgWriterPattern.writePattern,
-        writeColor = svgWriterUtils.writeColor;
+        svgWriterPattern = require("./svgWriterPattern.js"),
+        writeGradient = svgWriterGradient.writeGradient,
+        writePattern = svgWriterPattern.writePattern;
 
     module.exports = {
         externalizeStyles: function (ctx) {

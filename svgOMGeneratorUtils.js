@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,24 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help construct the svgOM from generator data */
 
 (function () {
     "use strict";
-    
+
     function SVGOMGeneratorUtils() {
-        
+
         var self = this;
-        
+
         this.toColor = function (c, a) {
             var red,
                 green,
                 blue;
-            
+
             if (!isFinite(a)) {
                 a = 1.0;
             }
@@ -44,29 +40,29 @@
             }
             return { "r": red || 0, "g": green || 0, "b": blue || 0, "a": a };
         };
-        
-        this.pct2px = function(dim, containerPx) {
+
+        this.pct2px = function (dim, containerPx) {
             return Math.round(containerPx * dim / 100.0);
         };
-        
-        this.pt2px = function(dim, dpi) {
+
+        this.pt2px = function (dim, dpi) {
             return Math.round(dpi * (dim / 72.0));
         };
-        
-        this.in2px = function(dim, dpi) {
+
+        this.in2px = function (dim, dpi) {
             return dim * dpi;
         };
-      
-        this.mm2in = function(dim) {
+
+        this.mm2in = function (dim) {
             return dim * 0.0393700787;
         };
-        
-        this.mm2px = function(dim, dpi) {
+
+        this.mm2px = function (dim, dpi) {
             return this.in2px(this.mm2in(dim), dpi);
         };
-        
+
         this.boundInPx = function (bnd, dpi) {
-            
+
             if (typeof bnd === "number") {
                 return bnd;
             }
@@ -80,7 +76,7 @@
             }
             return parseInt(bnd, 10);
         };
-        
+
         function _addOrEditStop(stops, def, colorDefined) {
             var foundStop;
             stops.forEach(function (stp) {
@@ -88,9 +84,9 @@
                     foundStop = stp;
                 }
             });
-            
+
             if (foundStop) {
-                
+
                 if (colorDefined) {
                     foundStop.color.r = def.color.r;
                     foundStop.color.g = def.color.g;
@@ -106,11 +102,9 @@
         function computeLinearGradientCoordinates(gradient, bounds, angle) {
             var w2 = (bounds.right - bounds.left) / 2,
                 h2 = (bounds.bottom - bounds.top) / 2,
-                coords;
-
-            // SVG wants the angle in cartesian, not polar, coordinates.
-            var rad = (angle % 360) * Math.PI / 180;
-            var x1, x2, y1, y2, xa, ya,
+                // SVG wants the angle in cartesian, not polar, coordinates.
+                rad = angle % 360 * Math.PI / 180,
+                xa, ya,
                 cx = bounds.left + w2,
                 cy = bounds.top + h2;
 
@@ -129,7 +123,7 @@
 
             // FIXME: self is a hack to deal with a mistake above that still needs
             // to be fixed.
-            if (rad < 0 || angle == 180 ) {
+            if (rad < 0 || angle == 180) {
                 ya = -ya;
             } else {
                 xa = -xa;
@@ -144,7 +138,7 @@
         }
 
         this.scanForUnsupportedGradientFeatures = function (gradientRaw, writer) {
-            if (gradientRaw.gradient.gradientForm === 'colorNoise') {
+            if (gradientRaw.gradient.gradientForm === "colorNoise") {
                 writer.errors.push("Gradients with noise are not supported by SVG export.");
             }
         };
@@ -152,15 +146,14 @@
         this.toGradient = function (gradientRaw, layerBounds, docBounds) {
             var gradient,
                 gradientType = gradientRaw.type === "radial" ? "radial" : "linear",
-                scale = gradientRaw.scale ? (gradientRaw.scale.value / 100) : 1,
-                self = this;
+                scale = gradientRaw.scale ? gradientRaw.scale.value / 100 : 1;
 
             if (!gradientRaw || !gradientRaw.gradient ||
-                gradientRaw.gradient.gradientForm === 'colorNoise' ||
-                (gradientRaw.type !== 'linear' &&
-                 gradientRaw.type !== 'radial' &&
-                 gradientRaw.type !== 'reflected')) {
-                return (gradientRaw) ? gradientRaw.gradient : null;
+                gradientRaw.gradient.gradientForm === "colorNoise" ||
+                gradientRaw.type !== "linear" &&
+                gradientRaw.type !== "radial" &&
+                gradientRaw.type !== "reflected") {
+                return gradientRaw ? gradientRaw.gradient : null;
             }
             // CSS uses clock orientation, PSDs use trig orientation
             // both point an arrow in direction gradient extends.
@@ -169,7 +162,7 @@
                 angle += gradientRaw.angle.value;
             }
 
-            var gradientSpace = (gradientRaw.align === undefined || gradientRaw.align) ?
+            var gradientSpace = gradientRaw.align === undefined || gradientRaw.align ?
                 "objectBoundingBox" : "userSpaceOnUse",
                 bounds = gradientSpace === "objectBoundingBox" ? layerBounds : docBounds;
 
@@ -213,9 +206,8 @@
         };
 
         this.toColorStops = function (gradientRaw) {
-            var gradient = { stops: [] };
-
-            var stops = [].concat(gradientRaw.gradient.colors, gradientRaw.gradient.transparency),
+            var gradient = { stops: [] },
+                stops = [].concat(gradientRaw.gradient.colors, gradientRaw.gradient.transparency),
                 length = gradientRaw.gradient.interfaceIconFrameDimmed,
                 reflected = gradientRaw.type && gradientRaw.type === "reflected",
                 reverse = gradientRaw.reverse,
@@ -237,21 +229,21 @@
                         }
                     }
                 });
-                
+
                 if (stopRet) {
                     return stopRet;
                 }
-                
+
                 for (; indexStart >= 0 && indexStart < stops.length; indexStart += direction) {
                     if (stops[indexStart][stopType]) {
                         return stops[indexStart];
                     }
                 }
-                
+
                 if (!bRecurse) {
                     return getNextStop(stopType, direction * -1, startLoc, true);
                 }
-                
+
                 return undefined;
             }
 
@@ -260,42 +252,45 @@
             }
 
             function interpolateStop(prevColorStop, nextColorStop, prevOpacityStop, nextOpacityStop, value, firstLoc, lastLoc) {
-                
+
                 var color = value.color ? value.color : { red: 0, green: 0, blue: 0 },
-                    opacity = value.opacity ? value.opacity : { value: 100, units: 'percentUnit' },
+                    opacity = value.opacity ? value.opacity : { value: 100, units: "percentUnit" },
                     prevDefaultColor,
                     nextDefaultColor,
                     prevDefaultOpacity,
                     nextDefaultOpacity,
                     fraction;
-                
+
                 if (!(prevColorStop || prevOpacityStop || nextColorStop || nextOpacityStop)) {
                     return self.toColor(color.red, color.green, color.blue, opacity.value / 100);
                 }
-                
+
                 if (value.color) {
                     //setting color and interpolating opacity
-                    prevDefaultOpacity = (nextOpacityStop) ? nextOpacityStop.opacity : { value: 100, units: 'percentUnit' } ;
-                    nextDefaultOpacity = (prevOpacityStop) ? prevOpacityStop.opacity : { value: 100, units: 'percentUnit' };
-                    
+                    prevDefaultOpacity = nextOpacityStop ? nextOpacityStop.opacity : { value: 100, units: "percentUnit" };
+                    nextDefaultOpacity = prevOpacityStop ? prevOpacityStop.opacity : { value: 100, units: "percentUnit" };
+
                     prevOpacityStop = prevOpacityStop || { opacity: prevDefaultOpacity, location: firstLoc };
                     nextOpacityStop = nextOpacityStop || { opacity: nextDefaultOpacity, location: lastLoc };
-                    
+
                     if (prevOpacityStop.loction === nextOpacityStop.location) {
                         opacity = prevOpacityStop.opacity;
                     } else {
                         fraction = (value.location - prevOpacityStop.location) / (nextOpacityStop.location - prevOpacityStop.location);
-                        opacity = { value: interpolateValue(fraction, prevOpacityStop.value, nextOpacityStop.value), units: 'percentUnit' };
+                        opacity = {
+                            value: interpolateValue(fraction, prevOpacityStop.value, nextOpacityStop.value),
+                            units: "percentUnit"
+                        };
                     }
-                    
+
                 } else if (value.opacity) {
                     //setting opacity and interpolating color
-                    prevDefaultColor = (nextColorStop) ? nextColorStop.color : { red: 0, green: 255, blue: 0 };
-                    nextDefaultColor = (prevColorStop) ? prevColorStop.color : { red: 0, green: 255, blue: 0 };
-                    
+                    prevDefaultColor = nextColorStop ? nextColorStop.color : { red: 0, green: 255, blue: 0 };
+                    nextDefaultColor = prevColorStop ? prevColorStop.color : { red: 0, green: 255, blue: 0 };
+
                     prevColorStop = prevColorStop || { color: prevDefaultColor, location: firstLoc };
                     nextColorStop = nextColorStop || { color: nextDefaultColor, location: lastLoc };
-                    
+
                     if (prevColorStop.location === nextColorStop.location) {
                         color = {
                             red: prevColorStop.color.red,
@@ -313,8 +308,8 @@
                 } else {
                     console.warn("Unknown value: " + JSON.stringify(value));
                 }
-                    
-                return self.toColor(color, (opacity.value / 100.0));
+
+                return self.toColor(color, opacity.value / 100);
             }
 
             var prevStopColor,
@@ -323,7 +318,6 @@
                 nextStopOpacity,
                 i,
                 color,
-                opacity,
                 distance,
                 firstLoc,
                 lastLoc;
@@ -336,17 +330,17 @@
                     lastLoc = stp.location;
                 }
             });
-            
+
             for (i = 0; i < stops.length; i++) {
 
-                distance = (stops[i].location * 100 / length);
-                
+                distance = stops[i].location * 100 / length;
+
                 prevStopColor = getNextStop("color", -1, stops[i].location);
                 nextStopColor = getNextStop("color", 1, stops[i].location);
-                
+
                 prevStopOpacity = getNextStop("opacity", -1, stops[i].location);
                 nextStopOpacity = getNextStop("opacity", 1, stops[i].location);
-                
+
                 if (stops[i].color) {
                     color = {
                         r: stops[i].color.red,
@@ -356,15 +350,15 @@
                 } else {
                     color = interpolateStop(prevStopColor, nextStopColor, prevStopOpacity, nextStopOpacity, stops[i], firstLoc, lastLoc);
                 }
-                
+
                 _addOrEditStop(gradient.stops, { offset: distance, color: color }, !!stops[i].color);
             }
             gradient.stops.forEach(function (ele) {
                 ele.offset /= 100;
             });
-            var stops = gradient.stops;
+            stops = gradient.stops;
             if (reverse) {
-                for (var i = stops.length - 1; i >= 0; i--) {
+                for (i = stops.length - 1; i >= 0; i--) {
                     stops[i].offset = Math.abs(stops[i].offset - 1);
                 }
                 stops.sort(function (a, b) {
@@ -376,7 +370,7 @@
                 return gradient;
             }
 
-            var stops = gradient.stops;
+            stops = gradient.stops;
             for (i = stops.length - 1; i >= 0; i--) {
                 stops[i].offset = Math.abs(stops[i].offset - 1) * 0.5;
                 gradient.stops.push({ offset: 1 - stops[i].offset, color: stops[i].color });
@@ -391,6 +385,6 @@
 
 
     module.exports = new SVGOMGeneratorUtils();
-    
+
 }());
-     
+

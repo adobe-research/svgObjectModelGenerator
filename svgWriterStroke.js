@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,36 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help write the SVG */
 
 (function () {
     "use strict";
-    
+
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
-        svgWriterPattern = require("./svgWriterPattern.js");
-    
-    var writeGradient = svgWriterGradient.writeGradient,
+        svgWriterPattern = require("./svgWriterPattern.js"),
+        writeGradient = svgWriterGradient.writeGradient,
         writePattern = svgWriterPattern.writePattern,
-        writeColor = svgWriterUtils.writeColor,
         px = svgWriterUtils.px;
-    
+
     function SVGWriterStroke() {
-        
+
         var hasStroke = function (ctx) {
             var omIn = ctx.currentOMNode;
             return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
         };
-        
+
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique),
                 stroke;
-            
+
             if (!hasStroke(ctx)) {
                 return;
             }
@@ -75,21 +69,22 @@
                 styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
             }
             if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
-                var width = px(ctx, omIn.style.stroke.lineWidth) ? px(ctx, omIn.style.stroke.lineWidth) : 0;
-                var dashArray = omIn.style.stroke.dashArray.map(function(element, index) {
-                    if (element && element.hasOwnProperty("value")) {
-                        element = px(element);
-                    }
-                    // This is a work around for a bug in Chrome on [0,2] dash arrays.
-                    if (!index && !element)
-                        return 0.001;
-                    return width * element;
-                }).join();
+                var width = px(ctx, omIn.style.stroke.lineWidth) ? px(ctx, omIn.style.stroke.lineWidth) : 0,
+                    dashArray = omIn.style.stroke.dashArray.map(function (element, index) {
+                        if (element && element.hasOwnProperty("value")) {
+                            element = px(element);
+                        }
+                        // This is a work around for a bug in Chrome on [0,2] dash arrays.
+                        if (!index && !element) {
+                            return 0.001;
+                        }
+                        return width * element;
+                    }).join();
                 styleBlock.addRule("stroke-dasharray", dashArray);
             }
         };
-	}
+    }
 
-	module.exports = new SVGWriterStroke();
-    
+    module.exports = new SVGWriterStroke();
+
 }());

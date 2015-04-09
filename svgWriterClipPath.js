@@ -17,8 +17,7 @@
 (function () {
     "use strict";
 
-    var svgWriterUtils = require("./svgWriterUtils.js"),
-        Tag = require("./svgWriterTag.js");
+    var Tag = require("./svgWriterTag.js");
 
     module.exports = {
         externalizeStyles: function (ctx) {
