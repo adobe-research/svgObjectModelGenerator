@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,27 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
-
 /* Help write the SVG */
 
 (function () {
     "use strict";
 
-    var Buffer = require('buffer').Buffer,
-        Utils = require("./utils.js"),
+    var Utils = require("./utils.js"),
         Matrix = require("./matrix.js");
 
-	function SVGWriterUtils() {
+    function SVGWriterUtils() {
 
         var self = this;
         self.shiftBoundsX = function (bounds, delta) {
             bounds.left += delta;
             bounds.right += delta;
         };
-        
+
         self.shiftBoundsY = function (bounds, delta) {
             bounds.top += delta;
             bounds.bottom += delta;
@@ -67,11 +62,13 @@
         };
 
         self.px = function (ctx, length) {
-            if (typeof length === "number")
+            if (typeof length === "number") {
                 return length;
+            }
             // Consider adding string conversion when needed.
-            if (typeof length !== "object" || !length.units)
+            if (typeof length !== "object" || !length.units) {
                 return 0;
+            }
             switch (length.units) {
             case "pointsUnit":
                 return self.round1k(length.value * ctx.pxToInchRatio / 72);
@@ -163,11 +160,11 @@
         };
 
         self.encodedText = function (txt) {
-            return txt.replace(/&/g, '&amp;')
-                      .replace(/</g, '&lt;')
-                      .replace(/>/g, '&gt;')
-                      .replace(/"/g, '&quot;')
-                      .replace(/'/g, '&apos;');
+            return txt.replace(/&/g, "&amp;")
+                      .replace(/</g, "&lt;")
+                      .replace(/>/g, "&gt;")
+                      .replace(/"/g, "&quot;")
+                      .replace(/'/g, "&apos;");
         };
 
         self.extend = Utils.extend;
@@ -179,5 +176,5 @@
     }
 
     module.exports = new SVGWriterUtils();
-    
+
 }());

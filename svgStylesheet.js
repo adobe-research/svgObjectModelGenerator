@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,9 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, module: true, require: true */
-
 /* Part of the write context, built up during preprocessing */
 
 (function () {
@@ -23,16 +20,13 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         Tag = require("./svgWriterTag.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
-        SVGWriterContext = require("./svgWriterContext.js");
-
-    var write = svgWriterUtils.write,
+        SVGWriterContext = require("./svgWriterContext.js"),
+        write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
-        writeColor = svgWriterUtils.writeColor,
-        indentify = svgWriterUtils.indentify;
-
-    var ONLY_EXTERNALIZE_CONSOLIDATED = false;
+        indentify = svgWriterUtils.indentify,
+        ONLY_EXTERNALIZE_CONSOLIDATED = false;
 
     function CSSStyleRule(prop, val) {
         this.propertyName = prop;
@@ -127,7 +121,7 @@
                     uniq[this.class[i]] = 1;
                 }
             }
-            for (var i = 0, len = block.rules.length; i < len; i++) {
+            for (i = 0; i < block.rules.length; i++) {
                 if (!this.hasProperty(block.rules[i].propertyName)) {
                     this.addRule(block.rules[i].propertyName, block.rules[i].value);
                 }
@@ -174,7 +168,7 @@
 
     }(CSSStyleBlock.prototype));
 
-	function SVGStylesheet() {
+    function SVGStylesheet() {
 
         this.defines = {};
         this.eleDefines = {};
@@ -440,7 +434,7 @@
                 if (this.defines.hasOwnProperty(defnId)) {
                     defn = this.defines[defnId];
 
-                    if (!defn.written && (!ONLY_EXTERNALIZE_CONSOLIDATED || (ONLY_EXTERNALIZE_CONSOLIDATED && defn.consolidated))) {
+                    if (!defn.written && (!ONLY_EXTERNALIZE_CONSOLIDATED || ONLY_EXTERNALIZE_CONSOLIDATED && defn.consolidated)) {
                         if (typeof defn.out == "string") {
                             write(ctx, indentify(ctx.currentIndent, defn.out));
                         } else {
@@ -525,6 +519,6 @@
         };
     }(SVGStylesheet.prototype));
 
-	module.exports = SVGStylesheet;
+    module.exports = SVGStylesheet;
 
 }());

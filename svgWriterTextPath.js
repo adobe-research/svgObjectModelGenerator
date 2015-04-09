@@ -17,8 +17,7 @@
 (function () {
     "use strict";
 
-    var svgWriterUtils = require("./svgWriterUtils.js"),
-        util = require("./utils.js"),
+    var util = require("./utils.js"),
         Tag = require("./svgWriterTag.js");
 
     module.exports = {

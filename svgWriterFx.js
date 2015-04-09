@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,17 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help write the SVG */
 
 (function () {
     "use strict";
-    
-    var svgWriterUtils = require("./svgWriterUtils.js"),
-        Tag = require("./svgWriterTag.js");
+
+    var Tag = require("./svgWriterTag.js");
 
     function SVGWriterFx() {
 
@@ -52,7 +47,7 @@
             cur = new Tag(name, ele);
 
             for (i = 0, ii = children.length; i < ii; ++i) {
-                cur.appendChild(writeFilter(ctx, children[i], i ? children[i - 1].result : ''));
+                cur.appendChild(writeFilter(ctx, children[i], i ? children[i - 1].result : ""));
             }
             return cur;
         };
@@ -84,8 +79,8 @@
             filterID = ctx.omStylesheet.getDefine(omIn.id, "filter").defnId;
             styleBlock.addRule("filter", "url(#" + filterID + ")");
         };
-	}
+    }
 
-	module.exports = new SVGWriterFx();
-    
+    module.exports = new SVGWriterFx();
+
 }());

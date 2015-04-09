@@ -18,9 +18,8 @@
     "use strict";
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        Tag = require("./svgWriterTag.js");
-
-    var round10k = svgWriterUtils.round10k,
+        Tag = require("./svgWriterTag.js"),
+        round10k = svgWriterUtils.round10k,
         gradientStops = {},
         getTransform = svgWriterUtils.getTransform;
 
@@ -94,7 +93,7 @@
                     cy: cy,
                     fx: fx,
                     fy: fy,
-                    r:  r,
+                    r: r,
                     gradientTransform: getTransform(gradient.transform)
                 };
                 attr.gradientUnits = "userSpaceOnUse";
@@ -109,7 +108,6 @@
                 gradientSpace = gradient.gradientSpace,
                 fingerprint = "",
                 stp,
-                stpOpacity,
                 lines = [],
                 link,
                 tag = new Tag(gradient.type + "Gradient", {
@@ -123,7 +121,6 @@
 
             for (var i = 0, ii = stops.length; i < ii; ++i) {
                 stp = stops[i];
-                stpOpacity = "";
                 lines.push(new Tag("stop", {
                     offset: stp.offset,
                     "stop-color": stp.color,

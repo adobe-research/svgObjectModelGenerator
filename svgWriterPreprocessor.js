@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -11,9 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
 
 /* Help construct the svgOM from generator data */
 
@@ -27,11 +24,9 @@
         svgWriterMask = require("./svgWriterMask.js"),
         svgWriterClipPath = require("./svgWriterClipPath.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterText = require("./svgWriterText.js"),
         svgWriterTextPath = require("./svgWriterTextPath.js"),
-        utils = require("./utils.js");
-
-    var px = svgWriterUtils.px;
+        utils = require("./utils.js"),
+        px = svgWriterUtils.px;
 
     function SVGWriterPreprocessor() {
 
@@ -83,248 +78,236 @@
         };
 
         var recordBounds = function (ctx, omIn) {
-            var bnds = ctx.contentBounds,
-                bndsIn = omIn.visualBounds,
-                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
-                            omIn.style.stroke.lineWidth || 0,
-                expand = lineWidth / 2;
+                var bnds = ctx.contentBounds,
+                    bndsIn = omIn.visualBounds,
+                    lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
+                                omIn.style.stroke.lineWidth || 0,
+                    expand = lineWidth / 2;
 
-            // Objects of type "artboard" have the special behavior
-            // that we take the bounds of the artboard and not the children.
-            if (omIn.type == "artboard") {
-                bndsIn = ctx.svgOM.artboards[omIn.id].bounds;
-            }
+                // Objects of type "artboard" have the special behavior
+                // that we take the bounds of the artboard and not the children.
+                if (omIn.type == "artboard") {
+                    bndsIn = ctx.svgOM.artboards[omIn.id].bounds;
+                }
 
-            utils.unionRect(bnds, bndsIn, expand);
-        };
+                utils.unionRect(bnds, bndsIn, expand);
+            },
+            shiftTspanBounds = function (ctx, omIn, nested, sibling) {
+                if (!omIn.style) {
+                    return;
+                }
 
-        var shiftTspanBounds = function (ctx, omIn, nested, sibling) {
-            if (!omIn.style) {
-                return;
-            }
-
-            if (omIn.position && isFinite(omIn.position.x)) {
-                if (sibling && !omIn._hasParentTXFM) {
-                    omIn.position.x += ctx._shiftContentX;
-                } else {
-                    if (omIn._parentIsRoot) {
-                        omIn.position.x = 0;
+                if (omIn.position && isFinite(omIn.position.x)) {
+                    if (sibling && !omIn._hasParentTXFM) {
+                        omIn.position.x += ctx._shiftContentX;
                     } else {
-                        omIn.position.x = undefined;
+                        if (omIn._parentIsRoot) {
+                            omIn.position.x = 0;
+                        } else {
+                            omIn.position.x = undefined;
+                        }
                     }
                 }
-            }
 
-            if (omIn.style["_baseline-script"] === "sub" ||
-                    omIn.style["_baseline-script"] === "super") {
-                if (typeof omIn.style["font-size"] === "number") {
-                    omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
-                } else {
-                    omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
+                if (omIn.style["_baseline-script"] === "sub" ||
+                        omIn.style["_baseline-script"] === "super") {
+                    if (typeof omIn.style["font-size"] === "number") {
+                        omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
+                    } else {
+                        omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
+                    }
                 }
-            }
 
-            if (omIn.style["_baseline-script"] === "super") {
-                omIn.position = omIn.position || {};
-                omIn.position.y = -0.5;
-                omIn.position.unitY = "em";
-            }
-        };
-
-        var shiftTextBounds = function (ctx, omIn, nested) {
-            var pR,
-                pL,
-                newMid,
-                deltaX;
-
-            if (omIn.transform) {
-                omIn.transformTX += ctx._shiftContentX;
-                omIn.transformTY += ctx._shiftContentY;
-
-                if (omIn.children) {
-                    omIn.children.forEach(function (chld) {
-                        chld._hasParentTXFM = true;
-                    });
+                if (omIn.style["_baseline-script"] === "super") {
+                    omIn.position = omIn.position || {};
+                    omIn.position.y = -0.5;
+                    omIn.position.unitY = "em";
                 }
-            } else if (omIn.position) {
-                if (!nested) {
-                    if (omIn.children && omIn.children.length === 1) {
-                        if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
-                            omIn.position.x += ctx._shiftContentX;
+            },
+            shiftTextBounds = function (ctx, omIn, nested) {
+                if (omIn.transform) {
+                    omIn.transformTX += ctx._shiftContentX;
+                    omIn.transformTY += ctx._shiftContentY;
+
+                    if (omIn.children) {
+                        omIn.children.forEach(function (chld) {
+                            chld._hasParentTXFM = true;
+                        });
+                    }
+                } else if (omIn.position) {
+                    if (!nested) {
+                        if (omIn.children && omIn.children.length === 1) {
+                            if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
+                                omIn.position.x += ctx._shiftContentX;
+                            } else {
+                                omIn.position.x = 0;
+                            }
+                            if (omIn.position.unitY === "px") {
+                                omIn.position.y += ctx._shiftContentY;
+                            }
+                            omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
+                            omIn.children[0].position.x = 0;
                         } else {
-                            omIn.position.x = 0;
+                            if (ctx.config.constrainToDocBounds) {
+                                omIn.position.x += ctx._shiftContentX;
+                            } else {
+                                omIn.position.x = 0;
+                            }
+                            omIn.position.y += ctx._shiftContentY;
+
+                            if (Math.abs(omIn.position.y) === 1) {
+                                omIn.position.y = 1;
+                                omIn.position.unitY = "em";
+                            }
+                        }
+                    } else {
+                        if (omIn.position.unitX === "px") {
+                            omIn.position.x += ctx._shiftContentX;
                         }
                         if (omIn.position.unitY === "px") {
                             omIn.position.y += ctx._shiftContentY;
                         }
-                        omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
-                        omIn.children[0].position.x = 0;
-                    } else {
-                        if (ctx.config.constrainToDocBounds) {
-                            omIn.position.x += ctx._shiftContentX;
-                        } else {
-                            omIn.position.x = 0;
-                        }
-                        omIn.position.y += ctx._shiftContentY;
-
-                        if (Math.abs(omIn.position.y) === 1) {
-                            omIn.position.y = 1;
-                            omIn.position.unitY = "em";
-                        }
-                    }
-                } else {
-                    if (omIn.position.unitX === "px") {
-                        omIn.position.x += ctx._shiftContentX;
-                    }
-                    if (omIn.position.unitY === "px") {
-                        omIn.position.y += ctx._shiftContentY;
                     }
                 }
-            }
-        };
+            },
+            shiftShapePosition = function (ctx, omIn) {
+                var shape = omIn.shape,
+                    bnds = omIn.visualBounds;
 
-        var shiftShapePosition = function (ctx, omIn) {
-            var shape = omIn.shape,
-                bnds = omIn.visualBounds;
+                // The bounds shift here is still necessary for gradient overlays.
+                // FIXME: Is there a way to get rid of the bounds shifting?
+                if (bnds) {
+                    svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
+                    svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+                }
 
-            // The bounds shift here is still necessary for gradient overlays.
-            // FIXME: Is there a way to get rid of the bounds shifting?
-            if (bnds) {
-                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
-                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
-            }
+                // PS and Ai propagate all transforms to the leaves.
+                if (omIn.transform) {
+                    omIn.transformTX += ctx._shiftContentX;
+                    omIn.transformTY += ctx._shiftContentY;
+                    return;
+                }
+                switch (shape.type) {
+                case "circle":
+                case "ellipse":
+                    shape.cx += ctx._shiftContentX;
+                    shape.cy += ctx._shiftContentY;
+                    break;
+                case "line":
+                    shape.x1 += ctx._shiftContentX;
+                    shape.y1 += ctx._shiftContentY;
+                    shape.x2 += ctx._shiftContentX;
+                    shape.y2 += ctx._shiftContentY;
+                    break;
+                case "polygon":
+                    shape.points.forEach(function (item) {
+                        item.x += ctx._shiftContentX;
+                        item.y += ctx._shiftContentY;
+                    });
+                    break;
+                case "rect":
+                    shape.x += ctx._shiftContentX;
+                    shape.y += ctx._shiftContentY;
+                    break;
+                }
+            },
+            // Shift the bounds recorded in recordBounds.
+            shiftBounds = function (ctx, omIn, nested, sibling) {
+                if (omIn.type == "text") {
+                    shiftTextBounds(ctx, omIn, nested);
+                } else if (omIn.type == "tspan") {
+                    shiftTspanBounds(ctx, omIn, nested, sibling);
+                } else if (omIn.type == "shape") {
+                    shiftShapePosition(ctx, omIn);
+                }
+            },
+            isVisible = function (ctx, omIn) {
+                return omIn == ctx.svgOM || !omIn.hasOwnProperty("visible") || omIn.visible;
+            },
+            preprocessSVGNode = function (ctx) {
+                var omIn = ctx.currentOMNode,
+                    children = omIn.children;
 
-            // PS and Ai propagate all transforms to the leaves.
-            if (omIn.transform) {
-                omIn.transformTX += ctx._shiftContentX;
-                omIn.transformTY += ctx._shiftContentY;
-                return;
-            }
-            switch (shape.type) {
-            case "circle":
-            case "ellipse":
-                shape.cx += ctx._shiftContentX;
-                shape.cy += ctx._shiftContentY;
-                break;
-            case "line":
-                shape.x1 += ctx._shiftContentX;
-                shape.y1 += ctx._shiftContentY;
-                shape.x2 += ctx._shiftContentX;
-                shape.y2 += ctx._shiftContentY;
-                break;
-            case "polygon":
-                shape.points.forEach(function (item) {
-                    item.x += ctx._shiftContentX;
-                    item.y += ctx._shiftContentY;
-                });
-                break;
-            case "rect":
-                shape.x += ctx._shiftContentX;
-                shape.y += ctx._shiftContentY;
-                break;
-            }
-        };
+                // Do not process style of element if it is not visible.
+                if (!isVisible(ctx, omIn)) {
+                    return;
+                }
 
-        // Shift the bounds recorded in recordBounds.
-        var shiftBounds = function (ctx, omIn, nested, sibling) {
-            if (omIn.type == "text") {
-                shiftTextBounds(ctx, omIn, nested);
-            } else if (omIn.type == "tspan") {
-                shiftTspanBounds(ctx, omIn, nested, sibling);
-            } else if (omIn.type == "shape") {
-                shiftShapePosition(ctx, omIn);
-            }
-        };
+                if (ctx.config.trimToArtBounds) {
+                    recordBounds(ctx, omIn);
+                }
 
-        var isVisible = function (ctx, omIn) {
-            return omIn == ctx.svgOM || !omIn.hasOwnProperty("visible") || omIn.visible;
-        };
+                if (omIn.type == "artboard") {
+                    return;
+                }
 
-        var preprocessSVGNode = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                children = omIn.children;
+                if (children) {
+                    children.forEach(function (childNode) {
+                        ctx.currentOMNode = childNode;
+                        preprocessSVGNode(ctx);
+                    });
+                }
+            },
+            finalizePreprocessing = function (ctx) {
+                var bnds = ctx.contentBounds,
+                    docBounds = ctx.docBounds,
+                    w,
+                    h,
+                    cropRect = ctx.config.cropRect;
 
-            // Do not process style of element if it is not visible.
-            if (!isVisible(ctx, omIn)) {
-                return;
-            }
+                if (!ctx.config.trimToArtBounds || !bnds) {
+                    return;
+                }
 
-            if (ctx.config.trimToArtBounds) {
-                recordBounds(ctx, omIn);
-            }
+                // FIXME: We rounded the document size before. However, this causes visual problems
+                // with small viewports or viewBoxes. Move back to more precise dimensions for now.
+                if (ctx.config.constrainToDocBounds) {
+                    bnds.left = Math.max(0, bnds.left || 0);
+                    bnds.right = Math.min(docBounds.right, bnds.right || 0);
+                    bnds.top = Math.max(0, bnds.top || 0);
+                    bnds.bottom = Math.min(docBounds.bottom, bnds.bottom || 0);
+                } else {
+                    bnds.left = bnds.left || 0;
+                    bnds.right = bnds.right || 0;
+                    bnds.top = bnds.top || 0;
+                    bnds.bottom = bnds.bottom || 0;
+                }
 
-            if (omIn.type == "artboard") {
-                return;
-            }
+                ctx._shiftContentX = -bnds.left;
+                ctx._shiftContentY = -bnds.top;
 
-            if (children) {
-                children.forEach(function (childNode) {
-                    ctx.currentOMNode = childNode;
-                    preprocessSVGNode(ctx);
-                }.bind(this));
-            }
-        };
+                if (!ctx.viewBox) {
+                    console.log("no viewBox");
+                    return;
+                }
 
-        var finalizePreprocessing = function (ctx) {
-            var bnds = ctx.contentBounds,
-                docBounds = ctx.docBounds,
-                w,
-                h,
-                cropRect = ctx.config.cropRect;
+                ctx.viewBox.left = 0;
+                ctx.viewBox.top = 0;
+                ctx.viewBox.right = bnds.right - bnds.left;
+                ctx.viewBox.bottom = bnds.bottom - bnds.top;
 
-            if (!ctx.config.trimToArtBounds || !bnds) {
-                return;
-            }
+                w = ctx.viewBox.right;
+                h = ctx.viewBox.bottom;
 
-            // FIXME: We rounded the document size before. However, this causes visual problems
-            // with small viewports or viewBoxes. Move back to more precise dimensions for now.
-            if (ctx.config.constrainToDocBounds) {
-                bnds.left = Math.max(0, bnds.left || 0);
-                bnds.right = Math.min(docBounds.right, bnds.right || 0);
-                bnds.top = Math.max(0, bnds.top || 0);
-                bnds.bottom = Math.min(docBounds.bottom, bnds.bottom || 0);
-            } else {
-                bnds.left = bnds.left || 0;
-                bnds.right = bnds.right || 0;
-                bnds.top = bnds.top || 0;
-                bnds.bottom = bnds.bottom || 0;
-            }
+                // Clip to crop boundaries.
+                // FIXME: Do we want to allow cropping without trimToArtBounds set?
+                if (!cropRect) {
+                    return;
+                }
+                cropRect.width /= ctx.config.scale || 1;
+                cropRect.height /= ctx.config.scale || 1;
 
-            ctx._shiftContentX = -bnds.left;
-            ctx._shiftContentY = -bnds.top;
+                if (cropRect.width == w &&
+                    cropRect.height == h) {
+                    return;
+                }
 
-            if (!ctx.viewBox) {
-                console.log("no viewBox");
-                return;
-            }
+                ctx.viewBox.right = cropRect.width;
+                ctx.viewBox.bottom = cropRect.height;
 
-            ctx.viewBox.left = 0;
-            ctx.viewBox.top = 0;
-            ctx.viewBox.right = bnds.right - bnds.left;
-            ctx.viewBox.bottom = bnds.bottom - bnds.top;
-
-            w = ctx.viewBox.right;
-            h = ctx.viewBox.bottom;
-
-            // Clip to crop boundaries.
-            // FIXME: Do we want to allow cropping without trimToArtBounds set?
-            if (!cropRect) {
-                return;
-            }
-            cropRect.width /= ctx.config.scale || 1;
-            cropRect.height /= ctx.config.scale || 1;
-
-            if (cropRect.width == w &&
-                cropRect.height == h) {
-                return;
-            }
-
-            ctx.viewBox.right = cropRect.width;
-            ctx.viewBox.bottom = cropRect.height;
-
-            ctx._shiftContentX += (cropRect.width - w) / 2;
-            ctx._shiftContentY += (cropRect.height - h) / 2;
-        };
+                ctx._shiftContentX += (cropRect.width - w) / 2;
+                ctx._shiftContentY += (cropRect.height - h) / 2;
+            };
 
         this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
@@ -369,7 +352,7 @@
             if (children) {
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(ctx, (omIn !== ctx.svgOM), ind);
+                    this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
                 }, this);
             }
         };

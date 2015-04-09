@@ -12,9 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Keep track of SVG data */
 
 (function () {
@@ -22,10 +19,9 @@
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
         svgWriterText = require("./svgWriterText.js"),
-        attrsDefs = require('./attrdefs-database.js'),
-        SVGWriterContext = require("./svgWriterContext.js");
-
-    var write = svgWriterUtils.write,
+        attrsDefs = require("./attrdefs-database.js"),
+        SVGWriterContext = require("./svgWriterContext.js"),
+        write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
@@ -129,7 +125,7 @@
         if (name == "#text") {
             return this.text || "";
         }
-        return (this.styleBlock && this.styleBlock.getPropertyValue(name)) || this.attrs[name] || "";
+        return this.styleBlock && this.styleBlock.getPropertyValue(name) || this.attrs[name] || "";
     };
     function getDesc(tagname, attrname) {
         return attrsDefs[tagname + "/" + attrname] || attrsDefs["*/" + attrname] || attrsDefs.default;
@@ -139,8 +135,7 @@
     };
     Tag.getValue = function (tagname, attrname, value) {
         var desc = getDesc(tagname, attrname),
-            type = desc[1],
-            digival = parseFloat(value);
+            type = desc[1];
         switch (type) {
         case "number":
             value = parseNumber(value, tagname != "*");
@@ -378,210 +373,210 @@
         return list;
     };
     var imageProcessing = function (ctx, node) {
-        if (!node.bounds) {
-            return;
-        }
-        var top = parseFloat(node.bounds.top),
-            right = parseFloat(node.bounds.right),
-            bottom = parseFloat(node.bounds.bottom),
-            left = parseFloat(node.bounds.left),
-            w = right - left,
-            h = bottom - top,
-            tag = new Tag("image", {
-                "xlink:href": node.pixel,
-                x: left,
-                y: top,
-                width: w,
-                height: h,
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
-            }, ctx);
-        return tag.useTrick(ctx);
-    };
-    var factory = {
-        circle: function (ctx, node) {
-            var tag = new Tag("circle", {
-                    cx: node.shape.cx,
-                    cy: node.shape.cy,
-                    r: node.shape.r,
+            if (!node.bounds) {
+                return;
+            }
+            var top = parseFloat(node.bounds.top),
+                right = parseFloat(node.bounds.right),
+                bottom = parseFloat(node.bounds.bottom),
+                left = parseFloat(node.bounds.left),
+                w = right - left,
+                h = bottom - top,
+                tag = new Tag("image", {
+                    "xlink:href": node.pixel,
+                    x: left,
+                    y: top,
+                    width: w,
+                    height: h,
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             return tag.useTrick(ctx);
         },
-        ellipse: function (ctx, node) {
-            var tag = new Tag("ellipse", {
-                    cx: node.shape.cx,
-                    cy: node.shape.cy,
-                    rx: node.shape.rx,
-                    ry: node.shape.ry,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
-            return tag.useTrick(ctx);
-        },
-        line: function (ctx, node) {
-            var tag = new Tag("line", {
-                    x1: node.shape.x1,
-                    y1: node.shape.y1,
-                    x2: node.shape.x2,
-                    y2: node.shape.y2,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
-            return tag.useTrick(ctx);
+        factory = {
+            circle: function (ctx, node) {
+                var tag = new Tag("circle", {
+                        cx: node.shape.cx,
+                        cy: node.shape.cy,
+                        r: node.shape.r,
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
+            ellipse: function (ctx, node) {
+                var tag = new Tag("ellipse", {
+                        cx: node.shape.cx,
+                        cy: node.shape.cy,
+                        rx: node.shape.rx,
+                        ry: node.shape.ry,
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
+            line: function (ctx, node) {
+                var tag = new Tag("line", {
+                        x1: node.shape.x1,
+                        y1: node.shape.y1,
+                        x2: node.shape.x2,
+                        y2: node.shape.y2,
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
 
-        },
-        path: function (ctx, node) {
-            var tag = new Tag("path", {
-                    d: util.optimisePath(node.shape.path),
+            },
+            path: function (ctx, node) {
+                var tag = new Tag("path", {
+                        d: util.optimisePath(node.shape.path),
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
+            polygon: function (ctx, node) {
+                var tag = new Tag("polygon", {
+                        points: util.pointsToString(node.shape.points),
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
+            mask: function (ctx, node) {
+                var attr = {};
+                if (node.bounds) {
+                    attr.x = node.bounds.left;
+                    attr.y = node.bounds.top;
+                    attr.width = node.bounds.right - node.bounds.left;
+                    attr.height = node.bounds.bottom - node.bounds.top;
+                }
+                attr.maskUnits = node.maskUnits || "userSpaceOnUse";
+                if (!node.bounds && !node.maskUnits) {
+                    delete attr.maskUnits;
+                }
+                attr.maskContentUnits = node.maskContentUnits;
+                if (node.kind == "opacity") {
+                    attr.style = "mask-type:alpha";
+                }
+                return new Tag("mask", attr, ctx);
+            },
+            clipPath: function (ctx, node) {
+                return new Tag("clipPath", {
+                        clipPathUnits: node.clipPathUnits
+                    }, ctx);
+            },
+            pattern: function (ctx, node) {
+                var attr = {};
+                if (node.bounds) {
+                    attr.x = node.bounds.left;
+                    attr.y = node.bounds.top;
+                    attr.width = node.bounds.right - node.bounds.left;
+                    attr.height = node.bounds.bottom - node.bounds.top;
+                }
+                if (node.viewBox) {
+                    attr.viewBox = parseNumber(node.viewBox.left) + " " +
+                        parseNumber(node.viewBox.top) + " " +
+                        parseNumber(node.viewBox.right) + " " +
+                        parseNumber(node.viewBox.bottom);
+                }
+                attr.patternTransform = getTransform(node.transform);
+                attr.patternUnits = node.patternUnits || "userSpaceOnUse";
+                if (!node.bounds && !node.patternUnits) {
+                    delete attr.patternUnits;
+                }
+                attr.patternContentUnits = node.patternContentUnits;
+                return new Tag("pattern", attr, ctx);
+            },
+            rect: function (ctx, node) {
+                var tag = new Tag("rect", {
+                        x: node.shape.x,
+                        y: node.shape.y,
+                        width: node.shape.width,
+                        height: node.shape.height,
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                if (node.shapeRadii) {
+                    var r = parseFloat(node.shapeRadii[0]);
+                    tag.setAttributes({
+                        rx: r,
+                        ry: r
+                    });
+                }
+                return tag.useTrick(ctx);
+            },
+            text: function (ctx, node) {
+                var tag = new Tag("text", {
+                    x: node.position.x + (node.position.unitX || ""),
+                    y: node.position.y + (node.position.unitY || ""),
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
-            return tag.useTrick(ctx);
-        },
-        polygon: function (ctx, node) {
-            var tag = new Tag("polygon", {
-                    points: util.pointsToString(node.shape.points),
+                return tag.useTrick(ctx);
+            },
+            textPath: function (ctx, node) {
+                var offset = 0,
+                tag = new Tag("textPath", {}, ctx);
+
+                if (!ctx.hasWritten(node, "text-path-attr")) {
+                    ctx.didWrite(node, "text-path-attr");
+                    var textPathDefn = ctx.omStylesheet.getDefine(node.id, "text-path");
+                    if (textPathDefn) {
+                        tag.setAttribute("xlink:href", "#" + textPathDefn.defnId);
+                    } else {
+                        console.warn("text-path with no def found");
+                    }
+                }
+                offset = {middle: 50, end: 100}[tag.getAttribute("text-anchor")] || 0;
+                tag.setAttribute("startOffset", offset + "%");
+                return tag.useTrick(ctx);
+            },
+            image: imageProcessing,
+            generic: imageProcessing,
+            group: function (ctx, node) {
+                var tag = new Tag("g", {
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
-            return tag.useTrick(ctx);
-        },
-        mask: function (ctx, node) {
-            var attr = {};
-            if (node.bounds) {
-                attr.x = node.bounds.left;
-                attr.y = node.bounds.top;
-                attr.width = node.bounds.right - node.bounds.left;
-                attr.height = node.bounds.bottom - node.bounds.top;
-            }
-            attr.maskUnits = node.maskUnits || "userSpaceOnUse";
-            if (!node.bounds && !node.maskUnits) {
-                delete attr.maskUnits;
-            }
-            attr.maskContentUnits = node.maskContentUnits;
-            if (node.kind == "opacity") {
-                attr.style = "mask-type:alpha";
-            }
-            return new Tag("mask", attr, ctx);
-        },
-        clipPath: function (ctx, node) {
-            return new Tag("clipPath", {
-                    clipPathUnits: node.clipPathUnits
-                }, ctx);
-        },
-        pattern: function (ctx, node) {
-            var attr = {};
-            if (node.bounds) {
-                attr.x = node.bounds.left;
-                attr.y = node.bounds.top;
-                attr.width = node.bounds.right - node.bounds.left;
-                attr.height = node.bounds.bottom - node.bounds.top;
-            }
-            if (node.viewBox) {
-                attr.viewBox = parseNumber(node.viewBox.left) + " " +
-                    parseNumber(node.viewBox.top) + " " +
-                    parseNumber(node.viewBox.right) + " " +
-                    parseNumber(node.viewBox.bottom);
-            }
-            attr.patternTransform = getTransform(node.transform);
-            attr.patternUnits = node.patternUnits || "userSpaceOnUse";
-            if (!node.bounds && !node.patternUnits) {
-                delete attr.patternUnits;
-            }
-            attr.patternContentUnits = node.patternContentUnits;
-            return new Tag("pattern", attr, ctx);
-        },
-        rect: function (ctx, node) {
-            var tag = new Tag("rect", {
-                    x: node.shape.x,
-                    y: node.shape.y,
-                    width: node.shape.width,
-                    height: node.shape.height,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
-            if (node.shapeRadii) {
-                var r = parseFloat(node.shapeRadii[0]);
-                tag.setAttributes({
-                    rx: r,
-                    ry: r
+                return tag.useTrick(ctx);
+            },
+            artboard: function (ctx) {
+                var artboard = new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
+                artboard.isArtboard = true;
+                return artboard;
+            },
+            tspan: function (ctx, node, sibling) {
+                var tag = makeTSpan(Tag, ctx, sibling, node);
+
+                if (node.children.length) {
+                    mergeTSpans2Tag(tag, ctx, sibling, node.children);
+                }
+
+                if (node.text) {
+                    tag.appendChild(new Tag("#text", node.text));
+                }
+
+                if (node.style && node.style["_baseline-script"] === "super") {
+                    ctx._nextTspanAdjustSuper = true;
+                }
+                return tag.useTrick(ctx);
+            },
+            svg: function (ctx) {
+                var preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
+                    scale = ctx.config.scale || 1,
+                    left = round1k(ctx.viewBox.left),
+                    top = round1k(ctx.viewBox.top),
+
+                    width = Math.abs(ctx.viewBox.right - ctx.viewBox.left),
+                    height = Math.abs(ctx.viewBox.bottom - ctx.viewBox.top),
+                    scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
+                    scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
+
+                width = round1k(width);
+                height = round1k(height);
+
+                return new Tag("svg", {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                    preserveAspectRatio: preserveAspectRatio,
+                    width: scaledW,
+                    height: scaledH,
+                    viewBox: [left, top, width, height]
                 });
             }
-            return tag.useTrick(ctx);
-        },
-        text: function (ctx, node) {
-            var tag = new Tag("text", {
-                x: node.position.x + (node.position.unitX || ""),
-                y: node.position.y + (node.position.unitY || ""),
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
-            }, ctx);
-            return tag.useTrick(ctx);
-        },
-        textPath: function (ctx, node) {
-            var offset = 0,
-            tag = new Tag("textPath", {}, ctx);
-
-            if (!ctx.hasWritten(node, "text-path-attr")) {
-                ctx.didWrite(node, "text-path-attr");
-                var textPathDefn = ctx.omStylesheet.getDefine(node.id, "text-path");
-                if (textPathDefn) {
-                    tag.setAttribute("xlink:href", "#" + textPathDefn.defnId);
-                } else {
-                    console.warn("text-path with no def found");
-                }
-            }
-            offset = {middle: 50, end: 100}[tag.getAttribute("text-anchor")] || 0;
-            tag.setAttribute("startOffset", offset + "%");
-            return tag.useTrick(ctx);
-        },
-        image: imageProcessing,
-        generic: imageProcessing,
-        group: function (ctx, node) {
-            var tag = new Tag("g", {
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
-            }, ctx);
-            return tag.useTrick(ctx);
-        },
-        artboard: function (ctx, node) {
-            var artboard = new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
-            artboard.isArtboard = true;
-            return artboard;
-        },
-        tspan: function (ctx, node, sibling) {
-            var tag = makeTSpan(Tag, ctx, sibling, node);
-
-            if (node.children.length) {
-                mergeTSpans2Tag(tag, ctx, sibling, node.children);
-            }
-
-            if (node.text) {
-                tag.appendChild(new Tag("#text", node.text));
-            }
-
-            if (node.style && node.style["_baseline-script"] === "super") {
-                ctx._nextTspanAdjustSuper = true;
-            }
-            return tag.useTrick(ctx);
-        },
-        svg: function (ctx, node) {
-            var preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
-                scale = ctx.config.scale || 1,
-                left = round1k(ctx.viewBox.left),
-                top = round1k(ctx.viewBox.top),
-
-                width = Math.abs(ctx.viewBox.right - ctx.viewBox.left),
-                height = Math.abs(ctx.viewBox.bottom - ctx.viewBox.top),
-                scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
-                scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
-
-            width = round1k(width);
-            height = round1k(height);
-
-            return new Tag("svg", {
-                xmlns: "http://www.w3.org/2000/svg",
-                "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                preserveAspectRatio: preserveAspectRatio,
-                width: scaledW,
-                height: scaledH,
-                viewBox: [left, top, width, height]
-            });
-        },
-    };
+        };
 
     Tag.make = function (ctx, node, sibling) {
         node = node || ctx.currentOMNode;
@@ -626,6 +621,6 @@
         return tag;
     };
 
-	module.exports = Tag;
+    module.exports = Tag;
 
 }());

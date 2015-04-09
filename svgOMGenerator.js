@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -11,10 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
 
 /*
  * Generate an abstract svgOM from the Generator JSON
@@ -28,15 +24,14 @@
         omgShapes = require("./svgOMGeneratorShapes.js"),
         omgText = require("./svgOMGeneratorText.js"),
         omgImage = require("./svgOMGeneratorImage.js"),
-        omgStyles = require("./svgOMGeneratorStyles.js");
-
-    var layerTypeMap = {
-        "backgroundLayer": "background",
-        "shapeLayer": "shape",
-        "textLayer": "text",
-        "layerSection": "group",
-        "layer": "generic"
-    };
+        omgStyles = require("./svgOMGeneratorStyles.js"),
+        layerTypeMap = {
+            backgroundLayer: "background",
+            shapeLayer: "shape",
+            textLayer: "text",
+            layerSection: "group",
+            layer: "generic"
+        };
 
     function getSVGLayerType(layer) {
         if (!layerTypeMap[layer.type]) {
@@ -56,8 +51,8 @@
 
     function layerShouldBeRasterized(layer, aErrors) {
         var layerType = getSVGLayerType(layer),
-            imageType = (layerType === "generic" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0);
-        
+            imageType = layerType === "generic" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0;
+
         if (!imageType) {
             //see if there are special cases to consider...
             if (layer.strokeStyle && layer.strokeStyle.enabled && layer.strokeStyle.strokeStyleContent && layer.strokeStyle.strokeStyleContent.pattern) {
@@ -71,30 +66,28 @@
         return imageType;
     }
 
-    function extractSVGOM (psd, opts) {
+    function extractSVGOM(psd, opts) {
         var layers = psd.layers,
             writer = new SVGOMWriter(opts.errors),
             iL,
             lyr,
             layerSpec = opts.layerSpec,
-            layerSpecFound = !layerSpecActive(layerSpec),
-            dpi = (psd.resolution) ? psd.resolution : 72.0;
+            layerSpecFound = !layerSpecActive(layerSpec);
 
         function extractLayerSVG(layer) {
             var layerType,
                 svgNode,
-                property,
                 i,
                 childLyr,
                 justTraverse = false,
                 specFound = layerSpecFound,
                 layerVisible = true;
-            
+
             if (!layerSpecFound && layerSpecActive(layerSpec)) {
                 if (layerSpecMatches(layer, layerSpec)) {
                     //pretend like it is... we want to render it!
                     layer.visible = true;
-                    
+
                     layerSpecFound = true;
                 } else {
                     justTraverse = true;
@@ -133,9 +126,10 @@
                     if (!justTraverse) {
                         writer.setArtboard(svgNode.id, svgNode.title, layer.artboard.artboardRect);
                     }
+                    // falls through
                 case "group":
                     if (!justTraverse) {
-                        
+
                         omgStyles.addGroupStylingData(svgNode, layer, writer);
                         writer.pushCurrent(svgNode);
                     }
@@ -176,4 +170,4 @@
     module.exports._getSVGLayerType = getSVGLayerType;
     module.exports._layerSpecActive = layerSpecActive;
     module.exports._layerSpecMatches = layerSpecMatches;
-} ());
+}());

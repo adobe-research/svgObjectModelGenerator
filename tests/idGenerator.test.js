@@ -12,15 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/*global require: true, describe: true, beforeEach: true, afterEach: true, it: true */
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
-
-var expect = require('chai').expect,
+var expect = require("chai").expect,
     ID = require("../idGenerator.js"),
-    sinon = require('sinon');
+    sinon = require("sinon");
 
-describe('idGenerator', function (){
+describe("idGenerator", function (){
 
     var sandbox = sinon.sandbox.create();
 
@@ -62,7 +60,7 @@ describe('idGenerator', function (){
         expect(idGen.getUnique()).to.equal("cy");
 
 
-        for (var i = 0; i < 537373; ++i) {
+        for (i = 0; i < 537373; ++i) {
             idGen.getUnique();
         }
 

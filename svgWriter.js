@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,9 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
-
 /* given an svgOM, generate SVG */
 
 (function () {
@@ -24,9 +21,8 @@
         svgWriterPreprocessor = require("./svgWriterPreprocessor.js"),
         Tag = require("./svgWriterTag.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
-        ID = require("./idGenerator.js");
-
-    var toString = svgWriterUtils.toString;
+        ID = require("./idGenerator.js"),
+        toString = svgWriterUtils.toString;
 
     function getFormatContext(svgOM, cfg, errors) {
         return new SVGWriterContext(svgOM, cfg, errors);
@@ -38,7 +34,7 @@
             !tag.isArtboard &&
             (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
             tag.getAttribute("transform") == "") {
-            for (var attr in tag.attrs) {
+            if (Object.keys(tag.attrs).length) {
                 return;
             }
             if (tag.children.length) {

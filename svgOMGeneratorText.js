@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,23 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
-
 /* Help construct the svgOM */
 
 (function () {
     "use strict";
-    
+
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         omgUtils = require("./svgOMGeneratorUtils.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        Matrix = require("./matrix.js");
-
-    var round1k = svgWriterUtils.round1k,
+        Matrix = require("./matrix.js"),
+        round1k = svgWriterUtils.round1k,
         _boundInPx = omgUtils.boundInPx;
 
-	function SVGOMGeneratorText() {
+    function SVGOMGeneratorText() {
 
         var scanForUnsupportedTextFeatures = function (writer) {
             if (!writer._issuedTextWarning && writer.errors) {
@@ -47,15 +43,15 @@
             return false;
         };
 
-        this._computeTextPath = function (listKey, isBoxMode, boxOrientation, bounds, textHeight) {
-            
+        this._computeTextPath = function (listKey, isBoxMode, boxOrientation) {
+
             var points,
                 closedSubpath = !!listKey.closedSubpath,
                 i = 0,
-                pathData = '',
+                pathData = "",
                 controlPoint,
                 lastPoint;
-            
+
 
             // TODO: Generator 1.2.0 added units to path data. Figure out why.
             if (isBoxMode) {
@@ -64,16 +60,16 @@
                 } else {
                     points = [listKey.points[2], listKey.points[0]];
                 }
-                pathData = 'M ' + round1k(points[0].anchor.horizontal.value) + ' ' + round1k(points[0].anchor.vertical.value);
-                pathData += 'L ' + round1k(points[1].anchor.horizontal.value) + ' ' + round1k(points[1].anchor.vertical.value);
+                pathData = "M " + round1k(points[0].anchor.horizontal.value) + " " + round1k(points[0].anchor.vertical.value);
+                pathData += "L " + round1k(points[1].anchor.horizontal.value) + " " + round1k(points[1].anchor.vertical.value);
             } else {
                 points = listKey.points;
-            
+
                 for (; points && i < points.length; ++i) {
                     if (!i) {
-                        pathData = 'M ' + round1k(points[i].anchor.horizontal.value) + ' ' + round1k(points[i].anchor.vertical.value);
+                        pathData = "M " + round1k(points[i].anchor.horizontal.value) + " " + round1k(points[i].anchor.vertical.value);
                     } else {
-                        lastPoint = points[i-1].forward ? points[i-1].forward : points[i-1].anchor;
+                        lastPoint = points[i - 1].forward ? points[i - 1].forward : points[i - 1].anchor;
                         pathData += " C " + round1k(lastPoint.horizontal.value) + " " + round1k(lastPoint.vertical.value) + " ";
                         controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
                         pathData += round1k(controlPoint.horizontal.value) + " " + round1k(controlPoint.vertical.value) + " ";
@@ -84,26 +80,26 @@
                     pathData += " Z";
                 }
             }
-            
+
             return pathData;
         };
-        
+
         this.addTextOnPath = function (svgNode, layer, writer) {
             var self = this;
             return this.textComponentOrigin(layer, function (text) {
-                if ((layer.text.textShape[0].char !== "onACurve" &&
-                     layer.text.textShape[0].char !== "box") ||
+                if (layer.text.textShape[0].char !== "onACurve" &&
+                     layer.text.textShape[0].char !== "box" ||
                     !layer.text.textShape[0].path) {
                     return false;
                 }
 
                 var svgTextPathNode,
-                    isBoxMode = (layer.text.textShape[0].char === "box"),
+                    isBoxMode = layer.text.textShape[0].char === "box",
                     boxOrientation = layer.text.textShape[0].orientation,
                     dpi = writer._dpi(),
                     maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
                 try {
-                
+
                     svgNode.type = "text";
 
                     var textBounds = {
@@ -134,7 +130,7 @@
                     omgStyles.addTextStyle(svgNode, layer);
 
                     omgStyles.addStylingData(svgNode, layer, layer.bounds, writer);
-                
+
                 } catch (exter) {
                     console.warn(exter.stack);
                     return false;
@@ -142,20 +138,20 @@
                 return true;
             });
         };
-        
+
         this.addSimpleText = function (svgNode, layer, writer) {
             var self = this;
-            
+
             return this.textComponentOrigin(layer, function (text) {
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
-                // The latter two won't be supported sufficiently enough initially.
+                // The latter two won’t be supported sufficiently enough initially.
                 svgNode.type = "text";
                 svgNode.title = layer.name;
-                
+
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
-                
+
                 // It seems that textClickPoint is a quite reliable global position for
-                // the initial <text> element. 
+                // the initial <text> element.
                 // Values in percentage, moving to pixels so it is easier to work with te position
                 svgNode.position = {
                     x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.global.bounds.right - writer._root.global.bounds.left),
@@ -163,40 +159,33 @@
                     unitX: "px",
                     unitY: "px"
                 };
-                
+
                 self.addTextTransform(writer, svgNode, text, layer);
-                
+
                 return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, layer.bounds);
             });
         };
-        
+
         this.addTextChunks = function (svgNode, layer, text, writer, position, bounds) {
             var textString = text.textKey,
-                svgParagraphNode,
                 svgTextChunkNode,
                 yEMs = 0,
                 dpi = writer._dpi();
-            
+
             writer.pushCurrent(svgNode);
-            
+
             // A paragraph is a newline added by the user. Each paragraph can
             // have a different text alignment.
-            text.paragraphStyleRange.forEach(function (paragraph, iP) {
+            text.paragraphStyleRange.forEach(function (paragraph) {
                 var from,
                     to,
                     i,
                     indexTextStyleFrom,
                     indexTextStyleTo,
                     textSR = text.textStyleRange,
-                    paragraphId = svgNode.id + "-" + iP,
-                    spanId,
-                    yPosGuess = (iP / text.paragraphStyleRange.length),
-                    pctYPosGuess = Math.round(100.0 * yPosGuess),
                     svgParagraphNode,
-                    currentFrom = paragraph.from,
-                    xPosGuess,
                     textContent;
-                
+
                 // Text can consist of multiple textStyles. A textStyle
                 // may span over multiple paragraphs and describes the text color
                 // and font styling of each text span.
@@ -210,14 +199,14 @@
                         indexTextStyleTo = index;
                     }
                 });
-                
-                if(!isFinite(indexTextStyleFrom) || !isFinite(indexTextStyleTo)) {
-                    console.log('ERROR: Text style range no found for paragraph.');
+
+                if (!isFinite(indexTextStyleFrom) || !isFinite(indexTextStyleTo)) {
+                    console.log("ERROR: Text style range no found for paragraph.");
                     return false;
                 }
-                
+
                 if (indexTextStyleFrom !== indexTextStyleTo) {
-                    
+
                     //then nest a paragraphNode...
                     svgParagraphNode = writer.addSVGNode("tspan", true);
                     svgParagraphNode.position = {
@@ -227,30 +216,27 @@
                         unitY: position.unitY
                     };
                     writer.pushCurrent(svgParagraphNode);
-                    pctYPosGuess = 0;
                 }
-                
+
                 //process each text style, start at paragraph.from and end at paragraph.to
                 //fill in any necessary text style in-between
                 for (i = indexTextStyleFrom; i <= indexTextStyleTo; i++) {
-                    from = (i === indexTextStyleFrom) ? paragraph.from : textSR[i].from;
-                    to = (i === indexTextStyleTo) ? paragraph.to : textSR[i].to;
-                    
-                    textContent = textString.substring(from, to).replace("\r","");
+                    from = i === indexTextStyleFrom ? paragraph.from : textSR[i].from;
+                    to = i === indexTextStyleTo ? paragraph.to : textSR[i].to;
+
+                    textContent = textString.substring(from, to).replace("\r", "");
                     if (!textContent) {
                         //represents a blank line, needs to translate to y-positioning
                         yEMs++;
                         continue;
                     }
-                    spanId = (indexTextStyleTo === indexTextStyleFrom) ? paragraphId : paragraphId + "-" + (i - indexTextStyleFrom);
                     svgTextChunkNode = writer.addSVGNode("tspan", true);
                     svgTextChunkNode.text = textContent;
-                    
+
                     svgTextChunkNode.visualBounds = JSON.parse(JSON.stringify(bounds));
-                    
+
                     //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
-                    xPosGuess = currentFrom / (paragraph.to - paragraph.from);
-                    
+
                     if (indexTextStyleFrom === indexTextStyleTo) {
                         svgTextChunkNode.position = {
                             x: _boundInPx(position.x, dpi),
@@ -263,41 +249,31 @@
                     yEMs = 1;
                     omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i]);
                 }
-                
+
                 if (indexTextStyleFrom !== indexTextStyleTo) {
                     omgStyles.addParagraphStyle(svgParagraphNode, paragraph.paragraphStyle);
                     writer.popCurrent();
                 }
             });
-            
+
             omgStyles.addTextStyle(svgNode, layer);
             omgStyles.addStylingData(svgNode, layer, layer.bounds, writer);
-            
+
             writer.popCurrent();
             return true;
         };
 
-        this.addTextTransform = function (writer, svgNode, text, layer) {
+        this.addTextTransform = function (writer, svgNode, text) {
             if (!text.transform && (!text.textShape || text.textShape.length === 0 || !text.textShape[0].transform)) {
                 return;
             }
             var transform = text.transform || text.textShape[0].transform,
                 dpi = writer._dpi(),
-                // The trnasformation matrix is relative to this boundaries.
-                boundsOrig = layer.bounds,
-                // This covers the actual bounds of the text in pt units and needs
-                // to be transformed to pixel.
-                boundsTransform = {
-                    left:   _boundInPx(text.bounds.left, dpi),
-                    right:  _boundInPx(text.bounds.right, dpi),
-                    top:    _boundInPx(text.bounds.top, dpi),
-                    bottom: _boundInPx(text.bounds.bottom, dpi)
-                },
                 inMatrix,
                 matrix4x4;
-            
+
             svgNode.maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
-            
+
             if (transform) {
                 inMatrix = [
                     [transform.xx, transform.xy, 0, 0],
@@ -305,15 +281,15 @@
                     [0, 0, 1, 0],
                     [transform.tx, transform.ty, 0, 1]
                 ];
-                
+
                 if (!Matrix.containsOnlyTranslate(inMatrix)) {
-                
+
                     matrix4x4 = Matrix.createMatrix(inMatrix);
-                    
+
                     svgNode.transform = matrix4x4;
                     svgNode.transformTX = svgNode.position.x;
                     svgNode.transformTY = svgNode.position.y;
-                    
+
                     svgNode.position = {
                         x: 0,
                         y: 0,
@@ -324,7 +300,7 @@
             }
         };
 
-        this.addTextData = function(svgNode, layer, writer) {
+        this.addTextData = function (svgNode, layer, writer) {
             if (this.addTextOnPath(svgNode, layer, writer) ||
                 this.addSimpleText(svgNode, layer, writer)) {
                 scanForUnsupportedTextFeatures(writer);
@@ -333,9 +309,9 @@
             console.log("Error: No text data added for " + JSON.stringify(layer));
             return false;
         };
-	}
+    }
 
-	module.exports = new SVGOMGeneratorText();
-    
+    module.exports = new SVGOMGeneratorText();
+
 }());
-     
+

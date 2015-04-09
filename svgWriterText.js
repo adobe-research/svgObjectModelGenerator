@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,18 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help write the SVG */
 
 (function () {
     "use strict";
-    
-    var svgWriterUtils = require("./svgWriterUtils.js");
 
-    var round1k = svgWriterUtils.round1k,
+    var svgWriterUtils = require("./svgWriterUtils.js"),
+        round1k = svgWriterUtils.round1k,
         matchAfterDash = /-.*$/,
         matchAllSpaces = /\s/g;
 
@@ -40,10 +35,10 @@
         }
         var eq = 0,
             s2 = {};
-        for (i = 0, ii = st2.rules.length; i < ii; i++) {
+        for (var i = 0, ii = st2.rules.length; i < ii; i++) {
             s2[st2.rules[i].propertyName] = st2.rules[i].value;
         }
-        for (var i = 0, ii = st1.rules.length; i < ii; i++) {
+        for (i = 0, ii = st1.rules.length; i < ii; i++) {
             var prop = st1.rules[i].propertyName;
             if (prop in s2) {
                 eq += iseq(prop, st1.rules[i].value, s2[prop]);
@@ -102,7 +97,7 @@
 
             if (!ctx._nextTspanAdjustSuper) {
                 if (node.position.unitY === "em") {
-                    dy =  node.position.y * lineEM + "em";
+                    dy = node.position.y * lineEM + "em";
                 } else {
                     dy = (sibling ? lineEM : 0) + "em";
                 }
@@ -110,8 +105,8 @@
             }
 
             if (!node.style ||
-                (node.style["text-anchor"] !== "middle" &&
-                 node.style["text-anchor"] !== "end") &&
+                node.style["text-anchor"] !== "middle" &&
+                node.style["text-anchor"] !== "end" &&
                 isFinite(node.position.x)) {
 
                 if (sibling) {
@@ -192,7 +187,7 @@
         return root;
     }
 
-	module.exports = {
+    module.exports = {
         makeTSpan: makeTSpan,
         mergeTSpans2Tag: mergeTSpans2Tag
     };

@@ -173,4 +173,4 @@ module.exports = {
     "*/visibility": ["visible", "string"],
     "*/word-spacing": ["normal", "string"],
     "*/writing-mode": ["lr-tb", "string"]
-}
+};

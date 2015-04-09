@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,35 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true */
-
 /* Help construct the svgOM from generator data */
 
 (function () {
     "use strict";
 
     var omgUtils = require("./svgOMGeneratorUtils.js"),
-        omgSVGFilter = require("./svgOMGeneratorSVGFilter.js");
+        omgSVGFilter = require("./svgOMGeneratorSVGFilter.js"),
+        CONST_COLOR_BLACK = { red: 0, green: 0, blue: 0 };
 
-    var CONST_COLOR_BLACK = { "red": 0, "green": 0, "blue": 0 };
-
-	function SVGOMGeneratorStyles() {
+    function SVGOMGeneratorStyles() {
         var decamelcase = function (string) {
-            return string.replace(/([A-Z])/g, "-$1");
-        };
+                return string.replace(/([A-Z])/g, "-$1");
+            },
+            fetchOpacity = function (layer) {
+                if (layer.blendOptions &&
+                    layer.blendOptions.opacity) {
+                    return layer.blendOptions.opacity.value / 100;
+                }
+                return undefined;
+            },
 
-        var fetchOpacity = function (layer) {
-            if (layer.blendOptions &&
-                layer.blendOptions.opacity) {
-                return layer.blendOptions.opacity.value / 100;
-            }
-            return undefined;
-        };
-
-        var isPathNode = function (svgNode) {
-            return svgNode.type == 'shape' && svgNode.shape.type == 'path';
-        };
+            isPathNode = function (svgNode) {
+                return svgNode.type == "shape" && svgNode.shape.type == "path";
+            };
 
         this.fetchBlendMode = function (layer) {
             var blendMode;
@@ -116,9 +111,9 @@
                 stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
                 stroke.dashArray = strokeStyle.strokeStyleLineDashSet ? strokeStyle.strokeStyleLineDashSet : [];
                 stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? strokeStyle.strokeStyleLineDashOffset.value : "0";
-                stroke.color = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color) ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
+                stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
-                stroke.pattern = (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern) ? "PATTERN-PLACEHOLDER" : undefined;
+                stroke.pattern = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern ? "PATTERN-PLACEHOLDER" : undefined;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
                     omgUtils.scanForUnsupportedGradientFeatures(strokeStyle.strokeStyleContent, writer);
                     stroke.type = "gradient";
@@ -131,14 +126,14 @@
             }
         };
 
-        this.addFillRule = function (svgNode, layer) {
+        this.addFillRule = function (svgNode) {
             if (!isPathNode(svgNode)) {
                 return;
             }
             // evenodd is the default and only fill rule supported in PS.
-            svgNode.style['fill-rule'] = 'evenodd';
+            svgNode.style["fill-rule"] = "evenodd";
         };
-        
+
         this.addFill = function (svgNode, layer, layerBounds, writer) {
             var fill = svgNode.style.fill || {},
                 fillStyle = layer.fill,
@@ -148,7 +143,7 @@
                 return;
             }
 
-            var fillClass = fillStyle["class"];
+            var fillClass = fillStyle.class;
 
             svgNode.style.fill = fill;
 
@@ -220,8 +215,8 @@
             var fx = svgNode.style.meta.PS.fx,
                 filter;
 
-            function prepareEffect (effect, prepareFunction) {
-                var list = effect + 'Multi';
+            function prepareEffect(effect, prepareFunction) {
+                var list = effect + "Multi";
 
                 if (fx[effect]) {
                     // Transform single effects to lists.
@@ -239,12 +234,12 @@
                 }
             }
 
-            function prepareColor (ele) {
+            function prepareColor(ele) {
                 ele.color = omgUtils.toColor(ele.color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
-            function prepareGlow (ele) {
+            function prepareGlow(ele) {
                 if (ele.gradient) {
                     ele.gradient = omgUtils.toColorStops(ele);
                     ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
@@ -253,15 +248,15 @@
                 }
             }
 
-            prepareEffect('dropShadow', prepareColor);
-            prepareEffect('outerGlow', prepareGlow);
-            prepareEffect('gradientFill');
-            prepareEffect('solidFill', prepareColor);
-            prepareEffect('chromeFX', prepareColor);
-            prepareEffect('innerGlow', prepareGlow);
-            prepareEffect('innerShadow', prepareColor);
-            prepareEffect('bevelEmboss');
-            prepareEffect('patternOverlay');
+            prepareEffect("dropShadow", prepareColor);
+            prepareEffect("outerGlow", prepareGlow);
+            prepareEffect("gradientFill");
+            prepareEffect("solidFill", prepareColor);
+            prepareEffect("chromeFX", prepareColor);
+            prepareEffect("innerGlow", prepareGlow);
+            prepareEffect("innerShadow", prepareColor);
+            prepareEffect("bevelEmboss");
+            prepareEffect("patternOverlay");
 
             omgSVGFilter.scanForUnsupportedFilterFeatures(fx, writer);
 
@@ -296,7 +291,7 @@
             var fontFamily;
 
             if (textStyle.textStyle.color) {
-                span.style["fill"] = {
+                span.style.fill = {
                     type: "solid",
                     color: omgUtils.toColor(textStyle.textStyle.color)
                 };
@@ -314,7 +309,7 @@
                 span.style["font-size"] = textStyle.textStyle.size; // Need to take units into account.
             }
             if (textStyle.textStyle.leading) {
-                span.style["_leading"] = textStyle.textStyle.leading;
+                span.style._leading = textStyle.textStyle.leading;
             }
 
             if (textStyle.textStyle.fontStyleName) {
@@ -368,7 +363,7 @@
 
             // For correct paragraph offset, we need to know the max font size.
             if (paragraphNode.children && paragraphNode.children.length) {
-                
+
                 for (i = 0; i < paragraphNode.children.length; ++i) {
                     if (!paragraphNode.children[i].style || !paragraphNode.children[i].style["font-size"]) {
                         continue;
@@ -411,7 +406,7 @@
             };
         };
 
-        var addComputedTextStyle = function (svgNode, layer) {
+        var addComputedTextStyle = function (svgNode) {
             svgNode.style["font-size"] = _computeMaxFontSize(svgNode);
         };
 
@@ -424,8 +419,8 @@
 
             addComputedTextStyle(svgNode, layer);
         };
-	}
+    }
 
-	module.exports = new SVGOMGeneratorStyles();
+    module.exports = new SVGOMGeneratorStyles();
 
 }());

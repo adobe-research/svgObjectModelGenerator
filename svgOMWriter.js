@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,19 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, module: true */
-
 /* Help construct the svgOM */
 
 (function () {
     "use strict";
     var ID = require("./idGenerator.js");
 
-	function SVGOMWriter(errors) {
-        
-		var _root = {
+    function SVGOMWriter(errors) {
+
+        var _root = {
                 children: [],
                 global: {
                     clipPaths: {},
@@ -39,7 +35,7 @@
                 }
             },
             _currentNodeStack = [];
-        
+
         this._root = _root;
 
         this.errors = errors || [];
@@ -47,16 +43,16 @@
         this.ID = new ID();
 
         this._dpi = function () {
-            return (_root && _root.global.pxToInchRatio) ? _root.global.pxToInchRatio : 72.0;
+            return _root && _root.global.pxToInchRatio ? _root.global.pxToInchRatio : 72;
         };
-        
+
         this.peekCurrent = function () {
             if (_currentNodeStack.length > 0) {
                 return _currentNodeStack[_currentNodeStack.length - 1];
             }
             return null;
         };
-        this.pushCurrent = function(oNode) {
+        this.pushCurrent = function (oNode) {
             _currentNodeStack.push(oNode);
         };
         this.popCurrent = function () {
@@ -71,7 +67,7 @@
         this.setDocBounds = function (bounds) {
             _root.global.bounds = bounds;
         };
-        
+
         this.setDocViewBox = function (bounds) {
             _root.global.viewBox = bounds;
         };
@@ -94,37 +90,37 @@
         this.setDocGlobalLight = function (globalLight) {
             _root.meta.PS.globalLight = globalLight;
         };
-        
-		this.addSVGNode = function (nodeType, nodeVisible) {
-			var n = {
-				id: this.ID.getUnique(nodeType),
+
+        this.addSVGNode = function (nodeType, nodeVisible) {
+            var n = {
+                id: this.ID.getUnique(nodeType),
                 type: nodeType,
                 visible: nodeVisible,
-				style: {},
+                style: {},
                 children: []
-			};
+            };
             this.peekCurrent().children.push(n);
-			return n;
-		};
+            return n;
+        };
 
-		this.addFontRule = function() {
-			var r = {
-				"rule-type": "font",
-				"style": {}
-			};
-            
+        this.addFontRule = function () {
+            var r = {
+                "rule-type": "font",
+                "style": {}
+            };
+
             //Undefined... comment out until this is wired in
             //_appendRule(r);
 
-			return r.style;
-		};
-        
-		
-		this.toSVGOM = function() {
-			return _root;
-		};
-	}
+            return r.style;
+        };
 
-	module.exports = SVGOMWriter;
-    
+
+        this.toSVGOM = function () {
+            return _root;
+        };
+    }
+
+    module.exports = SVGOMWriter;
+
 }());

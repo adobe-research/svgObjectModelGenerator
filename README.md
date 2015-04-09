@@ -29,10 +29,16 @@ We :clap: pull requests! If you submit one, please also sign our [Contributor Li
 
 Every pull request must be reviewed by at least one contributor. A patch gets merged on a positive review.
 
-The project follows the default code conventions of the ESLint project. Dependent on the used code editor there may be extensions for automatic checking:
+The project follows the code conventions provided in `package.json` (for ESLint) and in `jscs.json` for JSCS. Dependent on the used code editor there may be extensions for automatic checking:
 
 * **Sublime Text 2/3** Use [SublimeLinter](https://github.com/roadhump/SublimeLinter-eslint) in a combination with a [ESLint](https://github.com/roadhump/SublimeLinter-eslint).
 * **Brackets** Use the extension [brackets-eslint](https://github.com/peol/brackets-eslint).
+
+You encouraged to setup the pre commit hook to ensure that all the code is matching our coding style:
+
+```
+ln -s ../../pre-commit.sh .git/hooks/pre-commit
+```
 
 ## Running svgWriter
 
@@ -88,7 +94,7 @@ The configuration object has the following arguments:
 
 The generator plugin adds Copy Generator DOM to make it easy to get test data for the svgOMGenerator
 
-    cd generator/plugins/  
+    cd generator/plugins/
     ln -s /path/to/svgObjectModelGenerator svgObjectModelGenerator
 
 ## Running the tests
@@ -99,7 +105,7 @@ The tests rely on mocha and chai, so make sure you have run `npm install` in you
 
 The tests can be debugged using `npm run-script test-debug`
 
-## Code Coverage 
+## Code Coverage
 
 Generate the code coverage report "svgomg-code-coverage.html" by running `npm run-script cover`
 
@@ -110,5 +116,5 @@ The test data comes from processing PSDs using the generator plugin defined in m
 Now, create a file with the PSD's name adding "-data.js" to the end, so "file.psd" becomes "file-data.js"  Inside the file define the data so it can be loaded using require
 
     module.exports = DATA;
-    
+
 Please don't check binary PSD files into this repo.
