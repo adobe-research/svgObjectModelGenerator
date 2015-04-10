@@ -8,8 +8,18 @@ if (process.argv.length < 4) {
 var inFile = process.argv[2],
     outFile = process.argv[3],
     svgOMString = fs.readFileSync(inFile, {"encoding": "utf8", "flag": "r"}),
-    svgOM = JSON.parse(svgOMString),
-    viewBox = svgOM.global ? svgOM.global.viewBox : null,
+    svgOM = JSON.parse(svgOMString);
+if ("version" in svgOM) {
+    var opt = [],
+        i = 0,
+        ii = svgOM.layers.length,
+        OMG = require("./svgOMGenerator.js");
+    for (; i < ii; i++) {
+        opt.push(svgOM.layers[i].id, svgOM.layers[i].name, 1);
+    }
+    svgOM = OMG.extractSVGOM(svgOM, opt);
+}
+var viewBox = svgOM.global ? svgOM.global.viewBox : null,
     targetWidth = viewBox ? viewBox.right - viewBox.left : 612,
     targetHeight = viewBox ? viewBox.bottom - viewBox.top : 792;
 
@@ -36,5 +46,5 @@ for (var i = 0; i < svgWriterErrors.length; i++) {
 }
 
 fs.writeFileSync(outFile, svgOut);
-console.log("Done (w/h: " + targetWidth + " x " + targetHeight + ").");
+console.log("Done (" + targetWidth + " × " + targetHeight + ").");
 console.log("Check out the result: " + outFile);
