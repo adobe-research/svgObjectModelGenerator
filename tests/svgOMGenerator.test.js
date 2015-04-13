@@ -92,7 +92,7 @@ describe("svgOMGenerator", function (){
                 svgOM,
                 svgOMGText,
                 svgOMExpected,
-                path = "data/" + testName + "/" + testName + "-" + layerId + "-om.js";
+                path = "data/" + testName + "/" + testName + "-" + layerId + "-om.js",
                 omOpt = { layerSpec: layerId };
 
             svgOM = OMG.extractSVGOM(testData, omOpt);

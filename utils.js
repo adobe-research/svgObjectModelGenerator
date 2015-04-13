@@ -296,8 +296,13 @@
                 num,
                 prev,
                 segs = [];
-            function isSmall(num) {
-                return Math.abs(num.toFixed(precision)) <= sigma;
+            function isSmall(num1, num2) {
+                if (num2 == null) {
+                    return Math.abs(num1.toFixed(precision)) <= sigma;
+                }
+                var avg = (num1 + num2) / 2,
+                    sig = avg / 100;
+                return Math.abs(num1 - num2) < sig;
             }
             function goodEnough(num) {
                 return Math.abs(num.toFixed(precision - 1)) <= gamma;
@@ -347,7 +352,7 @@
                         arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, X, Y);
                     // This number 1e5 should be dependant on the dimensions
                     if (arc && arc.r && arc.r < 1e5) {
-                        if (segp.r && Math.abs(segp.r - arc.r) < .5 && Math.abs(segp.cx - arc.cx) < .5 && Math.abs(segp.cy - arc.cy) < .5) {
+                        if (segp.r && isSmall(segp.r, arc.r) && isSmall(segp.cx, arc.cx) && isSmall(segp.cy, arc.cy)) {
                             segp.command = "A";
                             segp.a += arc.a;
                             if (Math.abs(segp.a) >= 360) {
