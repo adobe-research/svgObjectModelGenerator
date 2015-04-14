@@ -195,6 +195,9 @@
                 return ang;
             }
         }
+        function areCloseEnough(num1, num2) {
+            return Math.abs(num1 - num2) < (num1 + num2) / 2 / 100;
+        }
         function safeRound(n) {
             var match = (+n).toFixed(10).match(safeRound.rg);
             return match ? +match[0] : n;
@@ -261,7 +264,7 @@
             for (var i = 1; i < 10; i++) {
                 if (i != 5) {
                     var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i / 10);
-                    if (Math.abs(len(arc.cx, arc.cy, dot.x, dot.y) - arc.r) > .5) {
+                    if (!areCloseEnough(len(arc.cx, arc.cy, dot.x, dot.y), arc.r)) {
                         return null;
                     }
                 }
@@ -297,12 +300,7 @@
                 prev,
                 segs = [];
             function isSmall(num1, num2) {
-                if (num2 == null) {
-                    return Math.abs(num1.toFixed(precision)) <= sigma;
-                }
-                var avg = (num1 + num2) / 2,
-                    sig = avg / 100;
-                return Math.abs(num1 - num2) < sig;
+                return Math.abs(num1.toFixed(precision)) <= sigma;
             }
             function goodEnough(num) {
                 return Math.abs(num.toFixed(precision - 1)) <= gamma;
@@ -352,7 +350,7 @@
                         arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, X, Y);
                     // This number 1e5 should be dependant on the dimensions
                     if (arc && arc.r && arc.r < 1e5) {
-                        if (segp.r && isSmall(segp.r, arc.r) && isSmall(segp.cx, arc.cx) && isSmall(segp.cy, arc.cy)) {
+                        if (segp.r && areCloseEnough(segp.r, arc.r) && areCloseEnough(segp.cx, arc.cx) && areCloseEnough(segp.cy, arc.cy)) {
                             segp.command = "A";
                             segp.a += arc.a;
                             if (Math.abs(segp.a) >= 360) {
@@ -363,15 +361,17 @@
                                 return;
                             }
                             // Need to calculate it again for better precision
-                            arc = arc3(segp.x, segp.y, seg.x, seg.y, X, Y);
-                            segp.a = arc.a;
-                            segp.rest[0] = arc.r;
-                            segp.rest[1] = arc.r;
-                            segp.rest[3] = +(Math.abs(arc.a) > 180);
-                            segp.rest[4] = +(arc.a > 0);
-                            segp.rest[5] = X;
-                            segp.rest[6] = Y;
-                            return "unite";
+                            var newarc = arc3(segp.x, segp.y, seg.x, seg.y, X, Y);
+                            if (newarc.r && newarc.a) {
+                                segp.a = newarc.a;
+                                segp.rest[0] = newarc.r;
+                                segp.rest[1] = newarc.r;
+                                segp.rest[3] = +(Math.abs(newarc.a) > 180);
+                                segp.rest[4] = +(newarc.a > 0);
+                                segp.rest[5] = X;
+                                segp.rest[6] = Y;
+                                return "unite";
+                            }
                         }
                         seg.command = seg.cmd = "A";
                         seg.rest = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
@@ -412,41 +412,66 @@
                     return "unite";
                 }
             }
+            function splitArray(arr, len) {
+                var out = [];
+                while (arr.length) {
+                    out.push(arr.splice(0, len));
+                }
+                return out;
+            }
+            var argsLen = {
+                M: 2,
+                C: 6,
+                Q: 4,
+                T: 2,
+                S: 4,
+                A: 7,
+                L: 2,
+                H: 1,
+                V: 1,
+                Z: 0
+            };
             path.replace(/([a-df-z])\s*([^a-df-z]+)?/ig, function (all, command, rest) {
                 if (rest) {
-                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/).map(function (x) {
-                        return +x;
-                    });
-                    type = command.toLowerCase() == command ? "rel" : "abs";
-                    if (command.toUpperCase() == "M") {
+                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/).map(Number);
+                    var cmd = command.toUpperCase();
+                    type = cmd == command ? "abs" : "rel";
+                    if (cmd == "M") {
                         mx = rest[0];
                         my = rest[1];
                     }
-                    segs.push({
-                        command: command,
-                        cmd: command.toUpperCase(),
-                        rest: rest,
-                        type: type,
-                        x: x,
-                        y: y
-                    });
-                    switch (command.toUpperCase()) {
-                        case "M":
-                        case "C":
-                        case "Q":
-                        case "T":
-                        case "S":
-                        case "A":
-                        case "L":
-                            x = (x * type == "rel") + rest[rest.length - 2];
-                            y = (y * type == "rel") + rest[rest.length - 1];
-                            break;
-                        case "H":
-                            x = (x * type == "rel") + rest[0];
-                            break;
-                        case "V":
-                            y = (y * type == "rel") + rest[0];
-                            break;
+                    rest = splitArray(rest, argsLen[cmd]);
+                    for (var i = 0; i < rest.length; i++) {
+                        if (i && cmd == "M") {
+                            cmd = "L";
+                            command = type == "abs" ? "L" : "l";
+                        }
+                        segs.push({
+                            command: command,
+                            cmd: cmd,
+                            rest: rest[i],
+                            type: type,
+                            x: x,
+                            y: y
+                        });
+                        switch (cmd) {
+                            case "M":
+                            case "C":
+                            case "Q":
+                            case "T":
+                            case "S":
+                            case "A":
+                            case "L":
+                                x = (x * type == "rel") + rest[i][rest[i].length - 2];
+                                y = (y * type == "rel") + rest[i][rest[i].length - 1];
+                                break;
+                            case "H":
+                                x = (x * type == "rel") + rest[i][0];
+                                break;
+                            case "V":
+                                y = (y * type == "rel") + rest[i][0];
+                                break;
+                        }
                     }
                 } else {
                     segs.push({
