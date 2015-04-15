@@ -102,7 +102,11 @@
                         omIn.position.x += ctx._shiftContentX;
                     } else {
                         if (omIn._parentIsRoot) {
-                            omIn.position.x = 0;
+                            if ((omIn.style["text-anchor"] == "middle" || omIn.style["text-anchor"] == "end") && !omIn._hasParentTXFM) {
+                                omIn.position.x -= omIn.visualBounds.left;
+                            } else {
+                                omIn.position.x = 0;
+                            }
                         } else {
                             omIn.position.x = undefined;
                         }
@@ -112,9 +116,9 @@
                 if (omIn.style["_baseline-script"] === "sub" ||
                         omIn.style["_baseline-script"] === "super") {
                     if (typeof omIn.style["font-size"] === "number") {
-                        omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
+                        omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2);
                     } else {
-                        omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
+                        omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2);
                     }
                 }
 
@@ -145,8 +149,6 @@
                             if (omIn.position.unitY === "px") {
                                 omIn.position.y += ctx._shiftContentY;
                             }
-                            omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
-                            omIn.children[0].position.x = 0;
                         } else {
                             if (ctx.config.constrainToDocBounds) {
                                 omIn.position.x += ctx._shiftContentX;
