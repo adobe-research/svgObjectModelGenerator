@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -130,8 +130,6 @@
                             if (omIn.position.unitY === "px") {
                                 omIn.position.y += ctx._shiftContentY;
                             }
-                            omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
-                            omIn.children[0].position.x = 0;
                         } else {
                             if (ctx.config.constrainToDocBounds) {
                                 omIn.position.x += ctx._shiftContentX;
@@ -161,7 +159,11 @@
                             omIn.position.x += ctx._shiftContentX;
                         } else {
                             if (omIn._parentIsRoot) {
-                                omIn.position.x = 0;
+                                if ((omIn.style["text-anchor"] == "middle" || omIn.style["text-anchor"] == "end") && !omIn._hasParentTXFM) {
+                                    omIn.position.x -= omIn.textBounds.left;
+                                } else {
+                                    omIn.position.x = 0;
+                                }
                             } else {
                                 omIn.position.x = undefined;
                             }
