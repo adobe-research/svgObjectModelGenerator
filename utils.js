@@ -348,8 +348,7 @@
                         X = seg.type == "abs" ? rest[4] : rest[4] + x,
                         Y = seg.type == "abs" ? rest[5] : rest[5] + y,
                         arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, X, Y);
-                    // This number 1e5 should be dependant on the dimensions
-                    if (arc && arc.r && arc.r < 1e5) {
+                    if (arc && arc.r && arc.r < len(x, y, X, Y) * 10) {
                         if (segp.r && areCloseEnough(segp.r, arc.r) && areCloseEnough(segp.cx, arc.cx) && areCloseEnough(segp.cy, arc.cy)) {
                             segp.command = "A";
                             segp.a += arc.a;
@@ -548,22 +547,21 @@
                         }
                     }
 
+                    var arg;
                     if (args.abs.length <= args.rel.length) {
                         command = command.toUpperCase();
+                        arg = args.abs;
                     } else {
                         command = command.toLowerCase();
+                        arg = args.rel;
                     }
                     if (prev != command && (prev != "M" || command != "L")) {
                         res += command;
                     } else {
-                        res += +rest[0].toFixed(precision) < 0 ? "" : ",";
+                        res += arg.charAt() == "-" ? "" : ",";
                     }
                     prev = command;
-                    if (args.abs.length <= args.rel.length) {
-                        res += args.abs;
-                    } else {
-                        res += args.rel;
-                    }
+                    res += arg;
                 } else {
                     res += "Z";
                     prev = "Z";
