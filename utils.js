@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -26,9 +26,9 @@
         svgWriterIDs = require("./svgWriterIDs.js");
 
 	function Utils() {
-        
+
         var self = this;
-        
+
         self.px = function (ctx, length) {
             if (typeof length === "number")
                 return length;
@@ -49,7 +49,7 @@
             }
             return 0;
         };
-        
+
         self.round2 = function (x) {
             return +(+x).toFixed(2);
         };
@@ -83,7 +83,7 @@
                 rect1.bottom = rect2.bottom + expand;
             }
         };
-        
+
         /** jQuery-style extend
          *  https://github.com/jquery/jquery/blob/master/src/core.js
          */
@@ -121,7 +121,7 @@
                     return key === undefined || obj.hasOwnProperty(key);
                 }
             };
-        
+
         self.extend = function (deep, target, source) {
             var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {},
                 i = 1,
@@ -133,7 +133,7 @@
                 slice = Array.prototype.slice,
                 trim = String.prototype.trim,
                 indexOf = Array.prototype.indexOf;
-            
+
             if (typeof target === "boolean") {
                 deep = target;
                 target = arguments[1] || {};
@@ -142,7 +142,7 @@
             if (typeof target !== "object" && !jQueryLike.isFunction(target)) {
                 target = {};
             }
-            
+
             for (i; i < length; i++) {
                 if ((options = arguments[i]) != null) {
                     for (name in options) {
@@ -151,7 +151,7 @@
                         if (target === copy) {
                             continue;
                         }
-                        
+
                         if (deep && copy && (jQueryLike.isPlainObject(copy) || (copyIsArray = jQueryLike.isArray(copy)))) {
                             if (copyIsArray) {
                                 copyIsArray = false;
@@ -168,7 +168,7 @@
             }
             return target;
         };
-        
+
         self.toBase64 = function (string) {
             var buf = new Buffer(string);
             return buf.toString("base64");
@@ -310,6 +310,7 @@
         };
 
         self.optimisePath = function (path, precision) {
+            return path;
             var precision = self.precision(precision);
             function isSmall(num) {
                 return Math.abs(num.toFixed(precision)) <= sigma;
