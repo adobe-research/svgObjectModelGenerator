@@ -27,17 +27,31 @@ All code is offered under the [Apache License Version 2.0](http://www.apache.org
 
 We :clap: pull requests! If you submit one, please also sign our [Contributor License Agreement](https://adobe.echosign.com/public/esignWidget?wid=9SNA9H6XX64Q5C).
 
-Every pull request must be reviewed by at least one contributor. A patch gets merged on a positive review.
+Every pull request must be reviewed by at least one contributor. A patch gets merged on a positive review, typically LGTM comment on the PR.
 
 The project follows the code conventions provided in `package.json` (for ESLint) and in `jscs.json` for JSCS. Dependent on the used code editor there may be extensions for automatic checking:
 
 * **Sublime Text 2/3** Use [SublimeLinter](https://github.com/roadhump/SublimeLinter-eslint) in a combination with a [ESLint](https://github.com/roadhump/SublimeLinter-eslint).
 * **Brackets** Use the extension [brackets-eslint](https://github.com/peol/brackets-eslint).
 
-You encouraged to setup the pre commit hook to ensure that all the code is matching our coding style:
+You are encouraged to setup the pre commit hook to ensure that all the code is matching our coding style:
 
 ```
 ln -s ../../pre-commit.sh .git/hooks/pre-commit
+```
+
+## Getting SVG out of Generator JSON file
+
+We created an utility script, convertOMtoSVG that can be used for this purpose:
+```
+node convertOMtoSVG.js <generator_json_file> [optional_parameters_file] <svg_output_file>
+```
+
+## Getting SVG out of OMG JSON file
+
+Use the utility script, convertOMtoSVG for this purpose:
+```
+node convertOMtoSVG.js <omg_json_file> <svg_output_file>
 ```
 
 ## Running svgWriter
@@ -118,3 +132,7 @@ Now, create a file with the PSD's name adding "-data.js" to the end, so "file.ps
     module.exports = DATA;
 
 Please don't check binary PSD files into this repo.
+
+## Reporting bugs
+
+Found bugs should be reported as issues in this project, specifying the release branch if needed. We highly encourage contributors to provide the json files that reproduce the issue using only this library and we created the utility file convertOMtoSVG.js especially for this purpose. Reported issues that have such json files associated will be looked upon first.
