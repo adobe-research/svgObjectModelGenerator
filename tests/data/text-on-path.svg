@@ -25,18 +25,18 @@
       }
     </style>
 
-    <path id="text-path-1" d="M46,75H209"/>
-    <path id="text-path-2" d="M55,303l26-47,37,37,29-29"/>
-    <path id="text-path-3" d="M41,400c64.813-73.469,67.234-72.414,113,2"/>
-    <path id="text-path-4" d="M37,447H173"/>
-    <path id="text-path-5" d="M714,66c-148.773,148.773,0,107.852,0,314"/>
-    <path id="text-path-6" d="M282,78H470"/>
-    <path id="text-path-7" d="M296,220H467"/>
-    <path id="text-path-8" d="M310,366c100.875-77.375,134.211-79.789,214,0"/>
-    <path id="text-path-9" d="M312,449H496"/>
-    <path id="text-path-10" d="M273,133H466"/>
-    <path id="text-path-11" d="M191,127H46"/>
-    <path id="text-path-12" d="M52,189H187"/>
+    <path id="text-path-1" d="M 46 75 C 46 75 209 75 209 75"/>
+    <path id="text-path-2" d="M 55 303 C 55 303 81 256 81 256 C 81 256 118 293 118 293 C 118 293 147 264 147 264"/>
+    <path id="text-path-3" d="M 41 400 C 105.813 326.531 108.234 327.586 154 402"/>
+    <path id="text-path-4" d="M 37 447 C 37 447 66 447 66 447 C 66 447 88 447 88 447 C 88 447 114 447 114 447 C 114 447 143 447 143 447 C 143 447 173 447 173 447"/>
+    <path id="text-path-5" d="M 714 66 C 565.227 214.773 714 173.852 714 380"/>
+    <path id="text-path-6" d="M 282 78 C 282 78 470 78 470 78"/>
+    <path id="text-path-7" d="M 296 220 C 296 220 467 220 467 220"/>
+    <path id="text-path-8" d="M 310 366 C 410.875 288.625 444.211 286.211 524 366"/>
+    <path id="text-path-9" d="M 312 449 C 312 449 496 449 496 449"/>
+    <path id="text-path-10" d="M 273 133 C 273 133 466 133 466 133"/>
+    <path id="text-path-11" d="M 191 127 C 191 127 46 127 46 127"/>
+    <path id="text-path-12" d="M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"/>
   </defs>
   <text class="cls-1"><textPath xlink:href="#text-path-1" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
   <text class="cls-1"><textPath xlink:href="#text-path-2" class="cls-1"><tspan class="cls-2">Text path</tspan></textPath></text>
