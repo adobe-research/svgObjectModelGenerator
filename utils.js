@@ -202,6 +202,7 @@
             var match = (+n).toFixed(10).match(safeRound.rg);
             return match ? +match[0] : n;
         }
+        safeRound.rg = /^\d*\.[^0]*(?=0|$)/;
         function arc3(x1, y1, x2, y2, x3, y3) {
             var out = {};
             if (x1 == x2 && y1 == y2 || x3 == x2 && y3 == y2) {
@@ -211,6 +212,13 @@
             if (x1 == x3 && y1 == y3) {
                 var r = len(x1, y1, x2, y2) / 2;
                 out.path = "A" + [r, r, 0, 0, 0, x2, y2] + "A" + [r, r, 0, 0, 0, x1, y1];
+                out.a1 = 0;
+                out.a2 = 360;
+                out.r = r;
+                out.a = 360;
+                out.f1 = 0;
+                out.f2 = 0;
+                out.r = r;
                 return out;
             }
             var bp1 = calc_bisect_perp(x1, y1, x2, y2),
@@ -249,7 +257,6 @@
             }
             return out;
         }
-        safeRound.rg = /^\d*\.[^0]*(?=0|$)/;
         function findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {
             var t1 = 1 - t,
                 pow = Math.pow;
@@ -264,7 +271,7 @@
             for (var i = 1; i < 10; i++) {
                 if (i != 5) {
                     var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i / 10);
-                    if (!areCloseEnough(len(arc.cx, arc.cy, dot.x, dot.y), arc.r)) {
+                    if (Math.abs(len(arc.cx, arc.cy, dot.x, dot.y) - arc.r) > .1) {
                         return null;
                     }
                 }
@@ -272,14 +279,165 @@
             return arc;
         }
         self.precision = function (arg) {
-            return isFinite(arg) ? arg : 3;
+            return isFinite(arg) && arg >= 0 ? arg : 3;
         };
 
         self.pointsToString = function (points, precision) {
             precision = self.precision(precision);
             return points.map(function (item) {
-                return item.x.toFixed(precision) + " " + item.y.toFixed(precision);
+                return +item.x.toFixed(precision) + " " + +item.y.toFixed(precision);
             }).join();
+        };
+
+        var pathCommand = /([a-z])[\s,]*((-?\d*\.?\d*(?:e[\-+]?\d+)?[\s]*,?[\s]*)+)/ig,
+            tCommand = /([rstm])[\s,]*((-?\d*\.?\d*(?:e[\-+]?\d+)?[\s]*,?[\s]*)+)/ig,
+            pathValues = /(-?\d*\.?\d*(?:e[\-+]?\\d+)?)[\s]*,?[\s]*/ig,
+            paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, q: 4, s: 4, t: 2, v: 1, z: 0};
+        self.parsePath = function(pathString) {
+            var data = [],
+                x = 0,
+                y = 0,
+                mx = 0,
+                my = 0;
+            String(pathString).replace(pathCommand, function (a, b, c) {
+                var params = [],
+                    rel = [],
+                    abs = [],
+                    args,
+                    sx = x,
+                    sy = y,
+                    name = b.toLowerCase(),
+                    isAbs = name != b;
+                c.replace(pathValues, function (a, b) {
+                    b && params.push(+b);
+                });
+                if (name == "m") {
+                    if (isAbs) {
+                        mx = params[0];
+                        my = params[1];
+                    } else {
+                        mx = params[0] + x;
+                        my = params[1] + y;
+                    }
+                }
+                if (name == "m" && params.length > 2) {
+                    if (isAbs) {
+                        rel = [params[0] - x, params[1] - y];
+                        x = params[0];
+                        y = params[1];
+                        abs = params.splice(0, 2);
+                    } else {
+                        abs = [params[0] + x, params[1] + y];
+                        x += params[0];
+                        y += params[1];
+                        rel = params.splice(0, 2);
+                    }
+                    data.push({
+                        cmd: name,
+                        rel: rel,
+                        abs: abs,
+                        x: sx,
+                        y: sy,
+                        isabs: +isAbs
+                    });
+                    name = "l";
+                    b = isAbs ? "L" : "l";
+                }
+                while (params.length >= paramCounts[name]) {
+                    sx = x;
+                    sy = y;
+                    args = params.splice(0, paramCounts[name]);
+                    if (isAbs) {
+                        switch (name) {
+                            case "a":
+                            case "m":
+                            case "l":
+                                rel = args.slice(0);
+                                rel[rel.length - 2] -= x;
+                                rel[rel.length - 1] -= y;
+                                abs = args.slice(0);
+                                x = abs[abs.length - 2];
+                                y = abs[abs.length - 1];
+                                break;
+                            case "c":
+                            case "s":
+                            case "t":
+                            case "q":
+                                rel = args.slice(0);
+                                rel = rel.map(function (a, i) {
+                                    return a - (i % 2 ? y : x);
+                                });
+                                abs = args.slice(0);
+                                x = abs[abs.length - 2];
+                                y = abs[abs.length - 1];
+                                break;
+                            case "h":
+                                rel = [args[0] - x];
+                                abs = args.slice(0);
+                                x = abs[0];
+                                break;
+                            case "v":
+                                rel = [args[0] - y];
+                                abs = args.slice(0);
+                                y = abs[0];
+                                break;
+                            case "z":
+                                x = mx;
+                                y = my;
+                                break;
+                        }
+                    } else {
+                        switch (name) {
+                            case "a":
+                            case "m":
+                            case "l":
+                                abs = args.slice(0);
+                                x = abs[abs.length - 2] += x;
+                                y = abs[abs.length - 1] += y;
+                                rel = args.slice(0);
+                                break;
+                            case "c":
+                            case "s":
+                            case "t":
+                            case "q":
+                                abs = args.slice(0);
+                                abs = abs.map(function (a, i) {
+                                    return a + (i % 2 ? y : x);
+                                });
+                                rel = args.slice(0);
+                                x = abs[abs.length - 2];
+                                y = abs[abs.length - 1];
+                                break;
+                            case "h":
+                                abs = [args[0] + x];
+                                rel = args.slice(0);
+                                x = abs[0];
+                                break;
+                            case "v":
+                                abs = [args[0] + y];
+                                rel = args.slice(0);
+                                y = abs[0];
+                                break;
+                            case "z":
+                                x = mx;
+                                y = my;
+                                break;
+                        }
+                    }
+                    data.push({
+                        cmd: name,
+                        abs: abs,
+                        rel: rel,
+                        x: sx,
+                        y: sy,
+                        isabs: +isAbs
+                    });
+                    if (!paramCounts[name]) {
+                        break;
+                    }
+                }
+            });
+            return data;
         };
 
         self.optimisePath = function (path, precision) {
@@ -292,88 +450,115 @@
                 type,
                 sigma = Math.pow(10, -precision),
                 gamma = Math.pow(10, 1 - precision),
-                x = 0,
-                y = 0,
-                mx,
-                my,
                 num,
                 prev,
                 segs = [];
-            function isSmall(num1, num2) {
-                return Math.abs(num1.toFixed(precision)) <= sigma;
+            function number(num) {
+                var rough1 = String(+num.toFixed(precision - 1)),
+                    rough2 = String(+num.toFixed(precision - 2)),
+                    rough0 = String(+num.toFixed(precision)),
+                    res;
+                if (rough0.length - rough2.length >= 3) {
+                    res = rough2;
+                } else if (rough0.length - rough1.length >= 2) {
+                    res = rough1;
+                } else {
+                    res = rough0;
+                }
+                return res.replace(/^(-?)0\./, "$1.");
+            }
+            function isSmall(num) {
+                return Math.abs(num.toFixed(precision)) <= sigma;
             }
             function goodEnough(num) {
                 return Math.abs(num.toFixed(precision - 1)) <= gamma;
             }
+            function isCL(seg) {
+                var xs = [seg.x],
+                    ys = [seg.y];
+                seg.abs.forEach(function (a, i) {
+                    if (i % 2) {
+                        ys.push(a);
+                    } else {
+                        xs.push(a);
+                    }
+                });
+                var i = xs.length - 1,
+                    a = ys[i] - ys[0],
+                    b = xs[i] - xs[0],
+                    c = xs[i] * ys[0] - xs[0] * ys[i],
+                    d = Math.sqrt(a * a + b * b);
+                if (!isFinite(d)) {
+                    return false;
+                }
+                while (--i) {
+                    if (Math.abs(a * xs[i] - b * ys[i] + c) / d > sigma) {
+                        return false;
+                    }
+                }
+                return true;
+            }
             function c2l(seg) {
-                if (seg.cmd == "C") {
-                    if (seg.command == "C" && isSmall(seg.rest[0] - seg.x) && isSmall(seg.rest[1] - seg.y) && isSmall(seg.rest[2] - seg.rest[4]) && isSmall(seg.rest[3] - seg.rest[5])) {
-                        seg.command = seg.cmd = "L";
-                        seg.rest = [seg.rest[4], seg.rest[5]];
-                    }
-                    if (seg.command == "c" && seg.rest[0] == 0 && seg.rest[1] == 0 && isSmall(seg.rest[2] - seg.rest[4]) && isSmall(seg.rest[3] - seg.rest[5])) {
-                        seg.command = "l";
-                        seg.cmd = "L";
-                        seg.rest = [seg.rest[4], seg.rest[5]];
-                    }
+                if (seg.cmd == "c" && isCL(seg)) {
+                    seg.cmd = "l";
+                    seg.rel = [seg.abs[4] - seg.x, seg.abs[5] - seg.y];
+                    seg.abs = [seg.abs[4], seg.abs[5]];
                 }
             }
             function l2h(seg) {
-                if (seg.command == "L" && isSmall(+seg.rest[1] - seg.y)) {
-                    seg.command = seg.cmd = "H";
-                    seg.rest.pop();
-                }
-                if (seg.command == "l" && isSmall(+seg.rest[1])) {
-                    seg.command = "h";
-                    seg.cmd = "H";
-                    seg.rest.pop();
+                if (seg.cmd == "l" && isSmall(seg.rel[1])) {
+                    seg.cmd = "h";
+                    seg.abs.pop();
+                    seg.rel.pop();
                 }
             }
             function l2v(seg) {
-                if (seg.command == "L" && isSmall(+seg.rest[0] - seg.x)) {
-                    seg.command = seg.cmd = "V";
-                    seg.rest.shift();
-                }
-                if (seg.command == "l" && isSmall(+seg.rest[0])) {
-                    seg.command = "v";
-                    seg.cmd = "V";
-                    seg.rest.shift();
+                if (seg.cmd == "l" && isSmall(seg.rel[0])) {
+                    seg.cmd = "v";
+                    seg.abs.shift();
+                    seg.rel.shift();
                 }
             }
             function c2a(segp, seg) {
-                if (seg.cmd == "C") {
-                    var rest = seg.rest,
+                if (seg.cmd == "c") {
+                    var rest = seg.abs,
                         x = seg.x,
                         y = seg.y,
-                        X = seg.type == "abs" ? rest[4] : rest[4] + x,
-                        Y = seg.type == "abs" ? rest[5] : rest[5] + y,
-                        arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, X, Y);
+                        X = rest[4],
+                        Y = rest[5],
+                        arc = asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y);
                     if (arc && arc.r && arc.r < len(x, y, X, Y) * 10) {
                         if (segp.r && areCloseEnough(segp.r, arc.r) && areCloseEnough(segp.cx, arc.cx) && areCloseEnough(segp.cy, arc.cy)) {
-                            segp.command = "A";
                             segp.a += arc.a;
-                            if (Math.abs(segp.a) >= 360) {
-                                segp.rest[5] = segp.cx * 2 - segp.x;
-                                segp.rest[6] = segp.cy * 2 - segp.y;
-                                seg.command = seg.cmd = "A";
-                                seg.rest = [segp.r, segp.r, 0, 0, arc.f2, X, Y];
+                            if (number(Math.abs(X - segp.x)) == "0" && number(Math.abs(Y - segp.y)) == "0") {
+                                seg.cmd = "a";
+                                seg.abs = [segp.r, segp.r, 0, arc.f1, arc.f2, segp.x, segp.y];
+                                seg.rel = seg.abs.slice(0);
+                                seg.rel[5] -= x;
+                                seg.rel[6] -= y;
                                 return;
                             }
                             // Need to calculate it again for better precision
                             var newarc = arc3(segp.x, segp.y, seg.x, seg.y, X, Y);
                             if (newarc.r && newarc.a) {
                                 segp.a = newarc.a;
-                                segp.rest[0] = newarc.r;
-                                segp.rest[1] = newarc.r;
-                                segp.rest[3] = +(Math.abs(newarc.a) > 180);
-                                segp.rest[4] = +(newarc.a > 0);
-                                segp.rest[5] = X;
-                                segp.rest[6] = Y;
+                                segp.abs[0] = newarc.r;
+                                segp.abs[1] = newarc.r;
+                                segp.abs[3] = +(Math.abs(newarc.a) > 180);
+                                segp.abs[4] = +(newarc.a > 0);
+                                segp.abs[5] = X;
+                                segp.abs[6] = Y;
+                                segp.rel = segp.abs.slice(0);
+                                segp.rel[5] -= segp.x;
+                                segp.rel[6] -= segp.y;
                                 return "unite";
                             }
                         }
-                        seg.command = seg.cmd = "A";
-                        seg.rest = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
+                        seg.cmd = "a";
+                        seg.abs = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
+                        seg.rel = seg.abs.slice(0);
+                        seg.rel[5] -= x;
+                        seg.rel[6] -= y;
                         seg.r = arc.r;
                         seg.cx = arc.cx;
                         seg.cy = arc.cy;
@@ -382,32 +567,36 @@
                 }
             }
             function c2s(segp, seg) {
-                if (segp && seg.cmd == "C" && (segp.cmd == "C" || segp.cmd == "S")) {
+                if (seg.cmd != "c") {
+                    return;
+                }
+                if ((!segp || segp.cmd != "c" && segp.cmd != "s")) {
+                    if (!+number(seg.rel[0]) && !+number(seg.rel[1])) {
+                        seg.abs.splice(0, 2);
+                        seg.rel.splice(0, 2);
+                        seg.cmd = "s";
+                    }
+                } else {
                     var prevAnchor = {
-                            x: segp.rest[segp.rest.length - 4] + (segp.type == "rel" ? segp.x : 0),
-                            y: segp.rest[segp.rest.length - 3] + (segp.type == "rel" ? segp.y : 0)
+                            x: segp.abs[segp.abs.length - 4],
+                            y: segp.abs[segp.abs.length - 3]
                         },
                         anchor = {
                             x: 2 * seg.x - prevAnchor.x,
                             y: 2 * seg.y - prevAnchor.y
                         };
-                    if (goodEnough(seg.rest[0] - anchor.x) && goodEnough(seg.rest[1] - anchor.y)) {
-                        seg.rest.splice(0, 2);
-                        seg.cmd = "S";
-                        seg.command = seg.command == "C" ? "S" : "s";
+                    if (goodEnough(seg.abs[0] - anchor.x) && goodEnough(seg.abs[1] - anchor.y)) {
+                        seg.abs.splice(0, 2);
+                        seg.rel.splice(0, 2);
+                        seg.cmd = "s";
                     }
                 }
             }
             function h2hv2v(segp, seg) {
-                var pcmd = segp && segp.cmd.toLowerCase();
-                if (segp && pcmd == seg.cmd.toLowerCase() && (pcmd == "h" || pcmd == "v")) {
-                    if (seg.type == "rel") {
-                        segp.rest[0] += seg.rest[0];
-                    } else if (segp.type == "rel") {
-                        segp.rest[0] += seg.rest[0] - (pcmd == "h" ? seg.x : seg.y);
-                    } else {
-                        segp.rest[0] = seg.rest[0];
-                    }
+                var pcmd = segp && segp.cmd;
+                if (segp && pcmd == seg.cmd && (pcmd == "h" || pcmd == "v")) {
+                    segp.abs[0] = seg.abs[0];
+                    segp.rel[0] += seg.rel[0];
                     return "unite";
                 }
             }
@@ -418,70 +607,26 @@
                 }
                 return out;
             }
-            var argsLen = {
-                M: 2,
-                C: 6,
-                Q: 4,
-                T: 2,
-                S: 4,
-                A: 7,
-                L: 2,
-                H: 1,
-                V: 1,
-                Z: 0
-            };
-            path.replace(/([a-df-z])\s*([^a-df-z]+)?/ig, function (all, command, rest) {
-                if (rest) {
-                    rest = rest.split(/(?:\s*,\s*|(?=-)|\s+\b)/).map(Number);
-                    var cmd = command.toUpperCase();
-                    type = cmd == command ? "abs" : "rel";
-                    if (cmd == "M") {
-                        mx = rest[0];
-                        my = rest[1];
+            segs = self.parsePath(path);
+
+            for (var i = 1; i < segs.length; i++) {
+                var seg = segs[i],
+                    pseg = segs[i - 1],
+                    dx, dy;
+                if (seg.cmd == "s") {
+                    if (pseg.cmd == "c") {
+                        dx = seg.x - pseg.abs[2];
+                        dy = seg.y - pseg.abs[3];
+                        seg.abs.unshift(seg.x + dx, seg.y + dy);
+                        seg.rel.unshift(dx, dy);
+                    } else {
+                        seg.abs.unshift(seg.x, seg.y);
+                        seg.rel.unshift(0, 0);
                     }
-                    rest = splitArray(rest, argsLen[cmd]);
-                    for (var i = 0; i < rest.length; i++) {
-                        if (i && cmd == "M") {
-                            cmd = "L";
-                            command = type == "abs" ? "L" : "l";
-                        }
-                        segs.push({
-                            command: command,
-                            cmd: cmd,
-                            rest: rest[i],
-                            type: type,
-                            x: x,
-                            y: y
-                        });
-                        switch (cmd) {
-                            case "M":
-                            case "C":
-                            case "Q":
-                            case "T":
-                            case "S":
-                            case "A":
-                            case "L":
-                                x = (x * type == "rel") + rest[i][rest[i].length - 2];
-                                y = (y * type == "rel") + rest[i][rest[i].length - 1];
-                                break;
-                            case "H":
-                                x = (x * type == "rel") + rest[i][0];
-                                break;
-                            case "V":
-                                y = (y * type == "rel") + rest[i][0];
-                                break;
-                        }
-                    }
-                } else {
-                    segs.push({
-                        command: command,
-                        cmd: command.toUpperCase()
-                    });
-                    x = mx;
-                    y = my;
+                    seg.cmd = "c";
                 }
-            });
-            for (var i = 0; i < segs.length; i++) {
+            }
+            for (i = 0; i < segs.length; i++) {
 
                 // Special case for "C" instead of "L"
                 c2l(segs[i]);
@@ -504,46 +649,21 @@
             }
 
             for (i = 0; i < segs.length; i++) {
-                type = segs[i].type;
-                x = segs[i].x;
-                y = segs[i].y;
-                var command = segs[i].command,
-                    rest = segs[i].rest,
-                    mul = type == "abs" ? -1 : 1;
+                var command = segs[i].cmd,
+                    abs = segs[i].abs,
+                    rel = segs[i].rel;
 
                 args.abs = args.rel = "";
-                if (rest) {
-                    for (var j = 0, jj = rest.length; j < jj; j++) {
-                        if (isFinite(rest[j])) {
-                            num = +rest[j].toFixed(precision);
-                            if (Math.abs(num - ~~num) < sigma) {
-                                num = ~~num;
-                            }
-                            args[type] += num < 0 || !j ? num : "," + num;
-                            switch (command.toUpperCase()) {
-                                case "M":
-                                case "L":
-                                case "C":
-                                case "S":
-                                case "Q":
-                                case "T":
-                                case "H":
-                                    num += (j % 2 ? y : x) * mul;
-                                    break;
-                                case "V":
-                                    num += y * mul;
-                                    break;
-                                case "A":
-                                    if (j == 5) {
-                                        num += x * mul;
-                                    }
-                                    if (j == 6) {
-                                        num += y * mul;
-                                    }
-                                    break;
-                            }
-                            num = +num.toFixed(precision);
-                            args[type == "abs" ? "rel" : "abs"] += num < 0 || !j ? num : "," + num;
+                if (abs) {
+                    var prevAbsNum, prevRelNum;
+                    for (var j = 0, jj = abs.length; j < jj; j++) {
+                        if (isFinite(abs[j])) {
+                            num = number(abs[j]);
+                            args.abs += num.charAt() == "." && !prevAbsNum || num.charAt() == "-" || !j ? num : "," + num;
+                            prevAbsNum = num == ~~num;
+                            num = number(rel[j]);
+                            args.rel += num.charAt() == "." && !prevRelNum || num.charAt() == "-" || !j ? num : "," + num;
+                            prevRelNum = num == ~~num;
                         }
                     }
 
@@ -552,10 +672,10 @@
                         command = command.toUpperCase();
                         arg = args.abs;
                     } else {
-                        command = command.toLowerCase();
                         arg = args.rel;
                     }
-                    if (prev != command && (prev != "M" || command != "L")) {
+                    if (prev != command && (prev != "m" || command != "l")) {
+                        // M>l?
                         res += command;
                     } else {
                         res += arg.charAt() == "-" ? "" : ",";
