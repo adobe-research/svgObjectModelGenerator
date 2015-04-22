@@ -79,6 +79,9 @@
         try {
             svgWriterPreprocessor.processSVGOM(ctx);
             var svg = Tag.make(ctx, svgOM);
+            if (ctx.artboardClipPath) {
+                svg.setAttribute("clip-path", "url(#" + ctx.artboardClipPath + ")");
+            }
             ctx.omStylesheet.consolidateStyleBlocks();
             processStyle(ctx.omStylesheet.blocks);
             preProcess(svg, ctx);
