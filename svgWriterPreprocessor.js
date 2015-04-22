@@ -292,8 +292,8 @@
                 h,
                 cropRect = ctx.config.cropRect,
                 artboardRect = ctx.config.artboardBounds,
-                artboadShiftX = 0,
-                artboadShiftY = 0;
+                artboardShiftX = 0,
+                artboardShiftY = 0;
 
             if (!ctx.config.trimToArtBounds || !bnds) {
                 return;
@@ -336,8 +336,8 @@
             // generator-assets. We need to find a better way, probably by adding
             // the artboard to OMG directly.
             if (ctx.config.clipToArtboardBounds && artboardRect) {
-                artboadShiftX = Math.min(bnds.left - artboardRect.left, 0);
-                artboadShiftY = Math.min(bnds.top - artboardRect.top, 0);
+                artboardShiftX = Math.min(bnds.left - artboardRect.left, 0);
+                artboardShiftY = Math.min(bnds.top - artboardRect.top, 0);
                 bnds.left = Math.max(bnds.left, artboardRect.left);
                 bnds.right = Math.min(bnds.right, artboardRect.right);
                 bnds.top = Math.max(bnds.top, artboardRect.top);
@@ -350,8 +350,8 @@
                 return;
             }
 
-            ctx.viewBox.left = Math.abs(artboadShiftX);
-            ctx.viewBox.top = Math.abs(artboadShiftY);
+            ctx.viewBox.left = Math.abs(artboardShiftX);
+            ctx.viewBox.top = Math.abs(artboardShiftY);
             ctx.viewBox.right = bnds.right - bnds.left;
             ctx.viewBox.bottom = bnds.bottom - bnds.top;
 
