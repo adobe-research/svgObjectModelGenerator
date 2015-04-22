@@ -2451,11 +2451,11 @@
                 }
                 process("svg");
                 process("svgo");
-                document.getElementsByTagName("textarea")[0].value = JSON.stringify({
-                    originals: orig,
-                    optimised: opti,
-                    parsed: pars
-                });
+//                document.getElementsByTagName("textarea")[0].value = JSON.stringify({
+//                    originals: orig,
+//                    optimised: opti,
+//                    parsed: pars
+//                });
                 document.onclick = function () {
                     if (document.body.id == "green") {
                         document.body.id = "white";
