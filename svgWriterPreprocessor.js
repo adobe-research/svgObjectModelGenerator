@@ -415,13 +415,37 @@
         };
 
         this.processSVGOM = function (ctx) {
-            var omSave = ctx.currentOMNode;
+            var omSave = ctx.currentOMNode,
+                docBounds = ctx.docBounds,
+                w,
+                h,
+                cropRect = ctx.config.cropRect;
             ctx.omStylesheet = new SVGStylesheet();
 
             if (ctx.config.trimToArtBounds) {
                 preprocessSVGNode(ctx, ctx.currentOMNode);
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
+            } else {
+                ctx.viewBox.left = 0;
+                ctx.viewBox.top = 0;
+                ctx.viewBox.right = docBounds.right - docBounds.left;
+                ctx.viewBox.bottom = docBounds.bottom - docBounds.top;
+
+                w = ctx.viewBox.right;
+                h = ctx.viewBox.bottom;
+
+                // Clip to crop boundaries.
+                if (cropRect && (cropRect.width != w || cropRect.height != h)) {
+                    cropRect.width /= ctx.config.scale || 1;
+                    cropRect.height /= ctx.config.scale || 1;
+
+                    ctx.viewBox.right = cropRect.width;
+                    ctx.viewBox.bottom = cropRect.height;
+
+                    ctx.viewBox.left = -(cropRect.width - w) / 2;
+                    ctx.viewBox.top = -(cropRect.height - h) / 2;
+                }
             }
             this.processSVGNode(ctx, false, false);
             ctx.currentOMNode = omSave;

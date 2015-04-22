@@ -249,8 +249,8 @@ describe('SVGWriterPreprocessor', function (){
         expect(ctx3.viewBox.left).to.equal(0);
         expect(ctx3.viewBox.right).to.equal(200);
         expect(ctx3.viewBox.bottom).to.equal(200);
-        expect(ctx3.svgOM.children[0].shape.x).to.equal(0);
-        expect(ctx3.svgOM.children[0].shape.y).to.equal(0);
+        expect(ctx3.svgOM.children[0].shape.x).to.equal(50);
+        expect(ctx3.svgOM.children[0].shape.y).to.equal(50);
     
         /*
         //if we don't shift bounds...
