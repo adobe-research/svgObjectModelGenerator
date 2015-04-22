@@ -197,8 +197,9 @@
         };
 
         var shiftShapePosition = function (ctx, omIn) {
-            var shape = omIn.shape;
-
+            var shape = omIn.shape,
+                offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
+                offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
             // PS and Ai propagate all transforms to the leaves.
             if (omIn.transform) {
                 omIn.transformTX += ctx._shiftContentX;
@@ -208,24 +209,24 @@
             switch (shape.type) {
             case "circle":
             case "ellipse":
-                shape.cx += ctx._shiftContentX;
-                shape.cy += ctx._shiftContentY;
+                shape.cx += offsetX;
+                shape.cy += offsetY;
                 break;
             case "line":
-                shape.x1 += ctx._shiftContentX;
-                shape.y1 += ctx._shiftContentY;
-                shape.x2 += ctx._shiftContentX;
-                shape.y2 += ctx._shiftContentY;
+                shape.x1 += offsetX;
+                shape.y1 += offsetY;
+                shape.x2 += offsetX;
+                shape.y2 += offsetY;
                 break;
             case "polygon":
                 shape.points.forEach(function (item) {
-                    item.x += ctx._shiftContentX;
-                    item.y += ctx._shiftContentY;
+                    item.x += offsetX;
+                    item.y += offsetY;
                 });
                 break;
             case "rect":
-                shape.x += ctx._shiftContentX;
-                shape.y += ctx._shiftContentY;
+                shape.x += offsetX;
+                shape.y += offsetY;
                 break;
             case "path":
                 if (ctx._shiftCropRectX || ctx._shiftCropRectY) {
@@ -289,10 +290,28 @@
                 docBounds = ctx.docBounds,
                 w,
                 h,
-                cropRect = ctx.config.cropRect;
+                cropRect = ctx.config.cropRect,
+                artboardRect = ctx.config.artboardBounds,
+                artboardShiftX = 0,
+                artboardShiftY = 0;
 
             if (!ctx.config.trimToArtBounds || !bnds) {
                 return;
+            }
+
+            // FIXME: This resets the visual bounds with the artboard bounds
+            // if we export an artboard. Artboard clipping for all other layers is
+            // done based on the visual bounds. This is a hack mostly around PSs
+            // behavior to shift paths and us not detecting when we need to something
+            // different. We should probably teach PS not to shift paths around
+            // on single layer export.
+            if (ctx.config.isArtboard && artboardRect) {
+                bnds = {
+                    left: artboardRect.left,
+                    right: artboardRect.right,
+                    bottom: artboardRect.bottom,
+                    top: artboardRect.top
+                };
             }
 
             // FIXME: We rounded the document size before. However, this causes visual problems
@@ -312,13 +331,27 @@
             ctx._shiftContentX = -bnds.left;
             ctx._shiftContentY = -bnds.top;
 
+            // FIXME: If we export a layer, svgOMG does not preserve the artboard
+            // the layer is bound to. We rely on the artboard size provided by
+            // generator-assets. We need to find a better way, probably by adding
+            // the artboard to OMG directly.
+            if (ctx.config.clipToArtboardBounds && artboardRect) {
+                artboardShiftX = Math.min(bnds.left - artboardRect.left, 0);
+                artboardShiftY = Math.min(bnds.top - artboardRect.top, 0);
+                bnds.left = Math.max(bnds.left, artboardRect.left);
+                bnds.right = Math.min(bnds.right, artboardRect.right);
+                bnds.top = Math.max(bnds.top, artboardRect.top);
+                bnds.bottom = Math.min(bnds.bottom, artboardRect.bottom);
+            }
+
+
             if (!ctx.viewBox) {
                 console.log("no viewBox");
                 return;
             }
 
-            ctx.viewBox.left = 0;
-            ctx.viewBox.top = 0;
+            ctx.viewBox.left = Math.abs(artboardShiftX);
+            ctx.viewBox.top = Math.abs(artboardShiftY);
             ctx.viewBox.right = bnds.right - bnds.left;
             ctx.viewBox.bottom = bnds.bottom - bnds.top;
 
@@ -343,9 +376,6 @@
 
             ctx._shiftCropRectX = (cropRect.width - w) / 2;
             ctx._shiftCropRectY = (cropRect.height - h) / 2;
-
-            ctx._shiftContentX += ctx._shiftCropRectX;
-            ctx._shiftContentY += ctx._shiftCropRectY;
         };
 
         this.processSVGNode = function (ctx, nested, sibling) {
