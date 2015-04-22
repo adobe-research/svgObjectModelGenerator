@@ -197,8 +197,9 @@
         };
 
         var shiftShapePosition = function (ctx, omIn) {
-            var shape = omIn.shape;
-
+            var shape = omIn.shape,
+                offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
+                offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
             // PS and Ai propagate all transforms to the leaves.
             if (omIn.transform) {
                 omIn.transformTX += ctx._shiftContentX;
@@ -208,24 +209,24 @@
             switch (shape.type) {
             case "circle":
             case "ellipse":
-                shape.cx += ctx._shiftContentX;
-                shape.cy += ctx._shiftContentY;
+                shape.cx += offsetX;
+                shape.cy += offsetY;
                 break;
             case "line":
-                shape.x1 += ctx._shiftContentX;
-                shape.y1 += ctx._shiftContentY;
-                shape.x2 += ctx._shiftContentX;
-                shape.y2 += ctx._shiftContentY;
+                shape.x1 += offsetX;
+                shape.y1 += offsetY;
+                shape.x2 += offsetX;
+                shape.y2 += offsetY;
                 break;
             case "polygon":
                 shape.points.forEach(function (item) {
-                    item.x += ctx._shiftContentX;
-                    item.y += ctx._shiftContentY;
+                    item.x += offsetX;
+                    item.y += offsetY;
                 });
                 break;
             case "rect":
-                shape.x += ctx._shiftContentX;
-                shape.y += ctx._shiftContentY;
+                shape.x += offsetX;
+                shape.y += offsetY;
                 break;
             case "path":
                 if (ctx._shiftCropRectX || ctx._shiftCropRectY) {
