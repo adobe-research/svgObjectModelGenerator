@@ -15,8 +15,8 @@
       }
     </style>
 
-    <path id="text-path-1" d="M145.08,123.12c31.613,0,57.24,17.568,57.24,39.24s-25.627,39.24-57.24,39.24,-57.24-17.568-57.24-39.24Z"/>
-    <path id="text-path-2" d="M360.72,269.76c30.221,0,54.72,15.043,54.72,33.6s-24.499,33.6-54.72,33.6S306,321.917,306,303.36Z"/>
+    <path id="text-path-1" d="M145.08,123.12c31.613,0,57.24,17.568,57.24,39.24s-25.627,39.24-57.24,39.24S87.84,184,87.84,162.36Z"/>
+    <path id="text-path-2" d="M360.72,269.76c30.221,0,54.72,15,54.72,33.6s-24.5,33.6-54.72,33.6-54.72-15-54.72-33.6Z"/>
   </defs>
   <text class="cls-1"><textPath xlink:href="#text-path-1" startOffset="100%" class="cls-2"><tspan x="0" class="cls-3">Text on Path</tspan></textPath></text>
   <text x="744" y="169" class="cls-1"><tspan x="744" class="cls-3">Plain text</tspan></text>
