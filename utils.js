@@ -290,7 +290,6 @@
         };
 
         var pathCommand = /([a-z])[\s,]*((-?\d*\.?\d*(?:e[\-+]?\d+)?[\s]*,?[\s]*)+)/ig,
-            tCommand = /([rstm])[\s,]*((-?\d*\.?\d*(?:e[\-+]?\d+)?[\s]*,?[\s]*)+)/ig,
             pathValues = /(-?\d*\.?\d*(?:e[\-+]?\\d+)?)[\s]*,?[\s]*/ig,
             paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, q: 4, s: 4, t: 2, v: 1, z: 0};
         self.parsePath = function (pathString) {
@@ -447,7 +446,6 @@
                     abs: "",
                     rel: ""
                 },
-                type,
                 sigma = Math.pow(10, -precision),
                 gamma = Math.pow(10, 1 - precision),
                 num,
@@ -570,7 +568,7 @@
                 if (seg.cmd != "c") {
                     return;
                 }
-                if ((!segp || segp.cmd != "c" && segp.cmd != "s")) {
+                if (!segp || segp.cmd != "c" && segp.cmd != "s") {
                     if (!+number(seg.rel[0]) && !+number(seg.rel[1])) {
                         seg.abs.splice(0, 2);
                         seg.rel.splice(0, 2);
@@ -599,13 +597,6 @@
                     segp.rel[0] += seg.rel[0];
                     return "unite";
                 }
-            }
-            function splitArray(arr, len) {
-                var out = [];
-                while (arr.length) {
-                    out.push(arr.splice(0, len));
-                }
-                return out;
             }
             segs = self.parsePath(path);
 
