@@ -18,9 +18,9 @@ var svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
         preserveAspectRatio: "xMidYMid",
         scale: 1,
         constrainToDocBounds: false
-    }
+    },
     svgOM = JSON.parse(svgOMString);
-if ("version" in svgOM) {
+if ("layers" in svgOM) {
     var opt = [],
         i = 0,
         ii = svgOM.layers.length,
@@ -35,7 +35,7 @@ var svgWriter = require("./svgWriter.js"),
     svgWriterErrors = [],
     svgOut = svgWriter.printSVG(svgOM, options, svgWriterErrors);
 
-for (var i = 0; i < svgWriterErrors.length; i++) {
+for (i = 0; i < svgWriterErrors.length; i++) {
     console.error(svgWriterErrors[i]);
 }
 
