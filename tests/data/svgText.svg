@@ -1,43 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-      .cls-1, .cls-2, .cls-3, .cls-8, .cls-10, .cls-13 {
+      .cls-1, .cls-10, .cls-13, .cls-2, .cls-3, .cls-8 {
         font-size: 63.635px;
       }
 
-      .cls-2, .cls-3, .cls-6, .cls-9, .cls-10 {
+      .cls-10, .cls-2, .cls-3, .cls-6, .cls-9 {
         fill: #030303;
-      }
-
-      .cls-2, .cls-3, .cls-10 {
-        fill: #030303;
-        font-size: 63.635px;
-      }
-
-      .cls-5, .cls-8, .cls-13 {
-        fill: #ff032d;
-      }
-
-      .cls-7, .cls-8, .cls-10, .cls-12 {
-        font-family: "Minion Pro";
       }
 
       .cls-2, .cls-3 {
         font-family: "Myriad Pro";
       }
 
-      .cls-11, .cls-12 {
-        fill: #02ffa2;
-        font-size: 20px;
-      }
-
       .cls-4 {
         fill: #39ff02;
+      }
+
+      .cls-13, .cls-5, .cls-8 {
+        fill: #ff032d;
       }
 
       .cls-6 {
         font-family: "MyriadPro-BoldCond";
         font-weight: bold;
+      }
+
+      .cls-10, .cls-12, .cls-7, .cls-8 {
+        font-family: "Minion Pro";
+      }
+
+      .cls-11, .cls-12 {
+        fill: #02ffa2;
+        font-size: 20px;
       }
     </style>
   </defs>

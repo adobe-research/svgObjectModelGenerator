@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
   <defs>
     <style>
-      .cls-1, .cls-2, .cls-3 {
-        stroke: #000;
-      }
-
       .cls-1, .cls-2 {
         fill: #ed1c24;
         stroke-opacity: 0.5;
         stroke-width: 50px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
       }
 
       .cls-2 {
