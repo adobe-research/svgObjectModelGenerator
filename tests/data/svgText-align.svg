@@ -7,7 +7,6 @@
 
       .cls-2, .cls-3, .cls-4 {
         fill: #030303;
-        font-size: 63.635px;
         font-family: "Minion Pro";
       }
 

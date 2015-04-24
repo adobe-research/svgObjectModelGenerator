@@ -7,15 +7,6 @@
 
       .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
         text-anchor: middle;
-        font-size: 111px;
-      }
-
-      .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16 {
-        font-size: 72px;
-      }
-
-      .cls-7, .cls-12 {
-        font-style: italic;
       }
 
       .cls-2 {
@@ -43,8 +34,16 @@
         font-family: "SourceSansPro-BlackIt";
       }
 
+      .cls-12, .cls-7 {
+        font-style: italic;
+      }
+
       .cls-8 {
         font-family: "SourceSansPro-ExtraLight";
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-9 {
+        font-size: 72px;
       }
 
       .cls-10 {

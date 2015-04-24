@@ -3,14 +3,16 @@
     <style>
       .cls-1 {
         fill: #ed1c24;
-        stroke: #000;
         stroke-opacity: 0.5;
         stroke-width: 50px;
       }
 
+      .cls-1, .cls-2 {
+        stroke: #000;
+      }
+
       .cls-2 {
         fill: #0072bc;
-        stroke: #000;
         stroke-width: 14px;
         clip-path: url(#clip-path-1);
       }

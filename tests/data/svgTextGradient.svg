@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-      .cls-1, .cls-2 {
-        font-size: 63.635px;
-      }
-
       .cls-1 {
         filter: url(#filter-1);
+      }
+
+      .cls-1, .cls-2 {
+        font-size: 63.635px;
       }
 
       .cls-2 {

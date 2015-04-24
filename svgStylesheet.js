@@ -446,77 +446,44 @@
             }
         };
 
-        var extract = proto.extract = function (blocks) {
-            var out,
-                oldout = [];
-            out = extract.finder(blocks);
-            while (out.join() != oldout.join()) {
-                out = extract.finder(out);
-                oldout = out = extract.consolidate(out);
+        proto.extract = function (blocks) {
+            var byRule = {},
+                byClass = {},
+                block,
+                cls,
+                rule,
+                name,
+                i,
+                j;
+            for (i = 0; i < blocks.length; i++) {
+                cls = blocks[i].class;
+                for (j = 0; j < blocks[i].rules.length; j++) {
+                    rule = blocks[i].rules[j];
+                    name = rule.propertyName + ":" + rule.value;
+                    byRule[name] = byRule[name] || {
+                        name: rule.propertyName,
+                        value: rule.value,
+                        classes: []
+                    };
+                    byRule[name].classes = byRule[name].classes.concat(cls);
+                }
             }
-            if (blocks.join().length > out.join().length) {
-                return out;
+            blocks = [];
+            for (name in byRule) {
+                rule = byRule[name];
+                var classes = rule.classes.sort();
+                if (byClass[classes]) {
+                    byClass[classes].addRule(rule.name, rule.value);
+                } else {
+                    block = new CSSStyleBlock(classes);
+                    block.addRule(rule.name, rule.value);
+                    blocks.push(block);
+                    byClass[classes] = block;
+                }
             }
             return blocks;
         };
 
-        extract.union = function (a, b, ba, bb) {
-            var bab = new CSSStyleBlock([].concat(a.class, b.class)),
-                rules = {},
-                name,
-                val;
-
-            for (var i = 0, len = a.rules.length; i < len; i++) {
-                rules[a.rules[i].propertyName] = a.rules[i].value;
-            }
-            for (i = 0, len = b.rules.length; i < len; i++) {
-                name = b.rules[i].propertyName;
-                val = b.rules[i].value;
-                if (rules[name] == val) {
-                    bab.addRule(name, val);
-                    ba.removeRule(name, val);
-                    bb.removeRule(name, val);
-                }
-            }
-            return bab;
-        };
-        extract.finder = function (blocks) {
-            var blocksnew = [],
-                blocksadd = [];
-            for (var i = 0, len = blocks.length; i < len; i++) {
-                !i && (blocksnew[i] = blocks[i].clone());
-                for (var j = i + 1; j < len; j++) {
-                    !i && (blocksnew[j] = blocks[j].clone());
-                    var u = extract.union(blocks[i], blocks[j], blocksnew[i], blocksnew[j]);
-                    if (u) {
-                        blocksadd.push(u);
-                    }
-                }
-            }
-            return blocksadd.concat(blocksnew);
-        };
-        extract.consolidate = function (blocks) {
-            var dup = {},
-                out = [],
-                fprint;
-            for (var i = 0, len = blocks.length; i < len; i++) {
-                fprint = blocks[i].rules;
-                if (fprint.length) {
-                    dup[fprint] = dup[fprint] || [];
-                    dup[fprint].push(blocks[i]);
-                }
-            }
-            for (var key in dup) {
-                if (dup.hasOwnProperty(key)) {
-                    var first = dup[key][0];
-                    for (i = 1, len = dup[key].length; i < len; i++) {
-                        first.add(dup[key][i]);
-                    }
-                    out.push(first);
-                }
-            }
-            return out;
-        };
     }(SVGStylesheet.prototype));
 
     module.exports = SVGStylesheet;
