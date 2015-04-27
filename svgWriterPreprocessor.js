@@ -26,6 +26,9 @@
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
+        svgWriterIDs = require("./svgWriterIDs.js"),
+        Tag = require("./svgWriterTag.js"),
+        matrix = require("./matrix.js"),
         utils = require("./utils.js"),
         matrix = require("./matrix.js");
 
@@ -83,6 +86,35 @@
                     }
                 });
             }
+        };
+
+        var writeClipPath = function (ctx, bounds, offsetX, offsetY) {
+            var clipPathTag,
+                clipPathID = svgWriterIDs.getUnique("clip-path"),
+                rects = [];
+
+            if (!bounds || !bounds.length) {
+                return;
+            }
+            clipPathTag = new Tag("clipPath", {
+                id: clipPathID
+            });
+
+            for (var i = 0; i < bounds.length; ++i) {
+                rects.push(new Tag("rect", {
+                    x: bounds[i].left + (ctx._shiftContentX || 0) + offsetX,
+                    y: bounds[i].top + (ctx._shiftContentY || 0) + offsetY,
+                    width: bounds[i].right - bounds[i].left,
+                    height: bounds[i].bottom - bounds[i].top
+                }));
+            }
+            clipPathTag.children = rects;
+
+            ctx.omStylesheet.define("clip-path", "svg-root", clipPathID, clipPathTag.toString(), JSON.stringify({
+                bounds: bounds
+            }));
+
+            ctx.artboardClipPath = clipPathID;
         };
 
         var recordBounds = function (ctx, omIn) {
@@ -376,6 +408,10 @@
 
             ctx._shiftCropRectX = (cropRect.width - w) / 2;
             ctx._shiftCropRectY = (cropRect.height - h) / 2;
+
+            if (ctx.config.clipToArtboardBounds && artboardRect) {
+                writeClipPath(ctx, [artboardRect], ctx._shiftCropRectX, ctx._shiftCropRectX);
+            }
         };
 
         this.processSVGNode = function (ctx, nested, sibling) {
