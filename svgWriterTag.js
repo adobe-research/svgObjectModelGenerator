@@ -482,6 +482,7 @@
     Tag.make = function (ctx, node, sibling) {
         node = node || ctx.currentOMNode;
         var tag,
+            rootArtboardClipPath,
             f;
         if (node.type == "background") {
             return;
@@ -493,6 +494,12 @@
             root = tag;
             root.artboards = 1;
             root.ids = {};
+            if (ctx.artboardClipPath) {
+                rootArtboardClipPath = tag;
+                tag = new Tag("g");
+                rootArtboardClipPath.appendChild(tag);
+                tag.setAttribute("clip-path", "url(#" + ctx.artboardClipPath + ")");
+            }
         } else {
             if (node.hasOwnProperty("visible") && !node.visible) {
                 return;
@@ -527,7 +534,7 @@
                 }
             }
         }
-        return tag;
+        return rootArtboardClipPath || tag;
     };
 
 	module.exports = Tag;
