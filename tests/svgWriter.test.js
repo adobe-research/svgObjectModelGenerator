@@ -633,4 +633,86 @@ describe('svgWriter', function (){
             compareResults('drop-shadow');
         });
     });
+
+
+    /**
+     * Test clip-to-artboard.
+     **/
+    describe("Test clip-to-artboard.", function () {
+        it("should clip to artboard", function () {
+            var svgOM1 = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    }
+                },
+                artboards: {
+                    "artboard-1": {
+                        title: "Artboard 1",
+                        bounds: {
+                            top: 100,
+                            left: 100,
+                            bottom: 200,
+                            right: 200
+                        }
+                    }
+                },
+                children: [
+                    {
+                        type: "artboard",
+                        id: "artboard-1",
+                        children: [
+                            {
+                                type: "shape",
+                                shape: {
+                                    type: "rect",
+                                    x: 0,
+                                    y: 0,
+                                    width: 200,
+                                    height: 200
+                                },
+                                shapeBounds: {
+                                    top: 0,
+                                    left: 0,
+                                    bottom: 200,
+                                    right: 200
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            exptectedOut1,
+            svgOut1 = svgWriter.printSVG(svgOM1, {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                cropRect: {
+                    width: 300,
+                    height: 300
+                },
+                artboardBounds: {
+                    top: 100,
+                    left: 100,
+                    bottom: 200,
+                    right: 200
+                },
+                clipToArtboardBounds: true
+            });
+
+            try {
+                exptectedOut1 = fs.readFileSync('./tests/data/artboard-clipping.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/artboard-clipping.svg', svgOut1, 'utf8');
+                console.log('No reference SVG document found. New one created as artboard-clipping.svg');
+                return;
+            }
+            
+            expect(svgOut1).to.equal(exptectedOut1);
+            return;
+        });
+    });
+
 });

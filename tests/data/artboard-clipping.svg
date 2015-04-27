@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="300" height="300" viewBox="100 100 300 300">
+  <defs>
+    <style>
+    </style>
+    <clipPath id="clip-path-1">
+      <rect x="200" y="200" width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-path-1)">
+    <g id="artboard-1">
+      <rect x="100" y="100" width="200" height="200"/>
+    </g>
+  </g>
+</svg>
