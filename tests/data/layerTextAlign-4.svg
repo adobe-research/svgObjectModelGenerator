@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="68" height="380" viewBox="0 0 68 380">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 36px;
+      }
+
+      .cls-2 {
+        fill: #22376b;
+        text-anchor: end;
+        font-family: "Optima-ExtraBlack";
+      }
+    </style>
+  </defs>
+  <text x="-88" y="-349" class="cls-1"><tspan x="-88" class="cls-2">right aligned</tspan></text>
+</svg>
