@@ -458,8 +458,8 @@ describe('svgWriter', function (){
     /**
      * Test polygon and line shapes.
      **/
-    describe("Test polygon and line shapes", function () {
-        it("polygons and lines should be transformed to SVG", function () {
+    describe("Test polygon, polyline and line shapes", function () {
+        it("polygons, polylines and lines should be transformed to SVG", function () {
             var svgOM = {
                 global: {
                     viewBox: {
@@ -485,6 +485,41 @@ describe('svgWriter', function (){
                                 {
                                     x: 100,
                                     y: 200
+                                },
+                                {
+                                    x: 150,
+                                    y: 100
+                                },
+                                {
+                                    x: 200,
+                                    y: 100
+                                },
+                                {
+                                    x: 200,
+                                    y: 200
+                                },
+                                {
+                                    x: 100,
+                                    y: 200
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        type: "shape",
+                        visible: true,
+                        visualBounds: {
+                            left: 100,
+                            right: 200,
+                            top: 100,
+                            bottom: 200
+                        },
+                        shape: {
+                            type: "polyline",
+                            points: [
+                                {
+                                    x: 100,
+                                    y: 150
                                 },
                                 {
                                     x: 150,

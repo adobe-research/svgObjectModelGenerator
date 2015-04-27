@@ -437,6 +437,13 @@
                     }, ctx);
                 return tag.useTrick(ctx);
             },
+            polyline: function (ctx, node) {
+                var tag = new Tag("polyline", {
+                        points: util.pointsToString(node.shape.points),
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
             mask: function (ctx, node) {
                 var attr = {};
                 if (node.bounds) {

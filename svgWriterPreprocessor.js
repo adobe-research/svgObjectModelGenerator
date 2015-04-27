@@ -200,6 +200,8 @@
                     shape.y2 += ctx._shiftContentY;
                     break;
                 case "polygon":
+                    // Fall through
+                case "polyline":
                     shape.points.forEach(function (item) {
                         item.x += ctx._shiftContentX;
                         item.y += ctx._shiftContentY;
