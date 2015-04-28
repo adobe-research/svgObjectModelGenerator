@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="400" height="500" viewBox="0 0 400 500">
   <polygon points="100 200 150 100 200 100 200 200 100 200"/>
+  <polyline points="100 150 150 100 200 100 200 200 100 200"/>
   <line x1="100" y1="400" x2="200" y2="300"/>
 </svg>
