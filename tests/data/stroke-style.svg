@@ -1,75 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-1 {
+      .cls-1, .cls-2, .cls-3, .cls-4 {
         stroke: #000;
+      }
+
+      .cls-1, .cls-2, .cls-7 {
         stroke-linecap: round;
+      }
+
+      .cls-1, .cls-4 {
         stroke-width: 3px;
+      }
+
+      .cls-1 {
         stroke-dasharray: 0.001,6;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-7, .cls-8 {
         fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
         fill-rule: evenodd;
       }
 
       .cls-2 {
-        stroke: #000;
-        stroke-linecap: round;
         stroke-linejoin: bevel;
-        stroke-width: 10px;
         stroke-dasharray: 50,20,20,50;
-        fill: none;
-        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3, .cls-5, .cls-6 {
+        stroke-width: 10px;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-linejoin: round;
       }
 
       .cls-3 {
-        stroke: #000;
-        stroke-linejoin: round;
-        stroke-width: 10px;
         stroke-dasharray: 40,20;
-        fill: none;
-        fill-rule: evenodd;
       }
 
       .cls-4 {
-        stroke: #000;
-        stroke-linejoin: round;
-        stroke-width: 3px;
         stroke-dasharray: 0.001,12,9;
-        fill: none;
-        fill-rule: evenodd;
       }
 
       .cls-5 {
         stroke: url(#linear-gradient-1);
-        stroke-linejoin: round;
-        stroke-width: 10px;
+      }
+
+      .cls-5, .cls-6 {
         stroke-dasharray: 0.001,40,30;
-        fill: none;
-        fill-rule: evenodd;
       }
 
       .cls-6 {
         fill: url(#radial-gradient-1);
         stroke: url(#radial-gradient-2);
-        stroke-linejoin: round;
-        stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
-        fill-rule: evenodd;
       }
 
       .cls-7 {
         stroke: url(#linear-gradient-2);
-        stroke-linecap: round;
-        stroke-width: 20px;
         stroke-dasharray: 0.001,40;
-        fill: none;
-        fill-rule: evenodd;
+      }
+
+      .cls-7, .cls-8 {
+        stroke-width: 20px;
       }
 
       .cls-8 {
         stroke: url(#linear-gradient-3);
-        stroke-width: 20px;
-        fill: none;
-        fill-rule: evenodd;
       }
     </style>
 

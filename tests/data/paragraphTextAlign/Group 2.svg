@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="377" height="231" viewBox="0 0 377 231">
   <defs>
     <style>
-      .cls-3, .cls-4 {
-        font-size: 36px;
-      }
-
       .cls-1 {
         fill: #c4df9b;
         stroke: #000;
@@ -14,6 +10,10 @@
       .cls-2 {
         fill: #00a651;
         fill-rule: evenodd;
+      }
+
+      .cls-3, .cls-4 {
+        font-size: 36px;
       }
 
       .cls-4 {

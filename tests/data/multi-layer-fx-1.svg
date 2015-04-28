@@ -1,17 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
   <defs>
     <style>
-      .cls-1, .cls-2, .cls-3, .cls-6, .cls-7, .cls-4, .cls-5 {
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
         fill: #fff200;
-      }
-
-      .cls-1, .cls-2, .cls-4, .cls-5 {
-        fill: #fff200;
-        fill-rule: evenodd;
       }
 
       .cls-1 {
         filter: url(#drop-shadow-1);
+      }
+
+      .cls-1, .cls-2, .cls-4, .cls-5 {
+        fill-rule: evenodd;
       }
 
       .cls-2 {

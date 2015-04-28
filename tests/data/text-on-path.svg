@@ -7,8 +7,12 @@
 
       .cls-2, .cls-5, .cls-7 {
         fill: #000300;
-        font-size: 30px;
         font-family: "Arial";
+      }
+
+      .cls-3 {
+        writing-mode: tb;
+        glyph-orientation-vertical: 0;
       }
 
       .cls-4, .cls-5 {
@@ -17,11 +21,6 @@
 
       .cls-6, .cls-7 {
         text-anchor: middle;
-      }
-
-      .cls-3 {
-        writing-mode: tb;
-        glyph-orientation-vertical: 0;
       }
     </style>
 

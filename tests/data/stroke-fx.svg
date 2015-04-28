@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-opacity: 0.5;
+      }
+
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
         stroke-linejoin: round;
         stroke-width: 10px;
         fill: none;
-      }
-
-      .cls-1 {
-        stroke: #000;
-        stroke-opacity: 0.5;
       }
 
       .cls-2 {

@@ -7,33 +7,30 @@
 
       .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
         fill: #030303;
-        font-size: 60px;
-      }
-
-      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial";
-      }
-
-      .cls-2, .cls-4 {
-        font-style: italic;
-      }
-
-      .cls-3, .cls-4 {
-        font-weight: bold;
       }
 
       .cls-2 {
         font-family: "Arial-ItalicMT";
       }
 
+      .cls-2, .cls-4 {
+        font-style: italic;
+      }
+
       .cls-3 {
         font-family: "Arial-BoldMT";
       }
 
+      .cls-3, .cls-4 {
+        font-weight: bold;
+      }
+
       .cls-4 {
         font-family: "Arial-BoldItalicMT";
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        font-family: "Arial";
       }
 
       .cls-5 {
