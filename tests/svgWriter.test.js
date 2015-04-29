@@ -1178,4 +1178,78 @@ describe('svgWriter', function (){
             compareResults('group-transform');
         });
     });
+
+
+    /**
+     * Test artboard cropping
+     **/
+    describe('Test artboard cropping', function () {
+
+        var tests = [
+            "ellipse-1",
+            "ellipse-2",
+            "ellipse-3",
+            "ellipse-4",
+            "artboard"
+            ];
+
+        function compareResults (testName, isArtboard) {
+            var svgOM,
+                svgOut,
+                expectedOut,
+                path = 'data/artboard-cropping/' + testName;
+            
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(
+                svgOM,
+                {
+                    artboardBounds: {
+                        "top": 900,
+                        "left": 900,
+                        "bottom": 1300,
+                        "right": 1300
+                    },
+                    cropRect: {
+                        width: 300,
+                        height: 300
+                    },
+                    trimToArtBounds: true,
+                    preserveAspectRatio: "xMidYMid",
+                    scale: 1,
+                    constrainToDocBounds: true,
+                    clipToArtboardBounds: true,
+                    isArtboard: isArtboard
+                }
+            );
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test extracting ellipse-1 from artboard', function () {
+            compareResults("ellipse-1");
+        });
+        it('Test extracting ellipse-2 from artboard', function () {
+            compareResults("ellipse-2");
+        });
+        it('Test extracting ellipse-3 from artboard', function () {
+            compareResults("ellipse-3");
+        });
+        it('Test extracting ellipse-4 from artboard', function () {
+            compareResults("ellipse-4");
+        });
+        it('Test extracting artboard', function () {
+            compareResults("artboard", true);
+        });
+    });
 });
