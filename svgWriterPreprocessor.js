@@ -350,6 +350,10 @@
 
                 ctx._shiftCropRectX = (cropRect.width - w) / 2;
                 ctx._shiftCropRectY = (cropRect.height - h) / 2;
+
+                if (ctx.config.clipToArtboardBounds && artboardRect) {
+                    svgWriterClipPath.writeClipPath(ctx, [artboardRect], ctx._shiftCropRectX, ctx._shiftCropRectX);
+                }
             };
 
         this.processSVGNode = function (ctx, nested, sibling) {
