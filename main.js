@@ -171,7 +171,10 @@
             docId,
             compId,
             constrainToDocBounds,
-            cropRect;
+            cropRect,
+            clipToArtboardBounds,
+            artboardBounds,
+            isArtboard;
 
         compId = params.compId;
         layerSpec = params.layerSpec;
@@ -181,6 +184,10 @@
         constrainToDocBounds = params.constrainToDocBounds;
         cropRect = params.cropRect;
         docId = params.documentId;
+        clipToArtboardBounds = params.clipToArtboardBounds;
+        artboardBounds = params.artboardBounds;
+
+        isArtboard = params.isArtboard;
 
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
             if (docId !== activeDocId) {
@@ -204,7 +211,10 @@
                                     targetWidth: targetWidth,
                                     targetHeight: targetHeight,
                                     constrainToDocBounds: constrainToDocBounds,
-                                    cropRect: cropRect
+                                    cropRect: cropRect,
+                                    clipToArtboardBounds: clipToArtboardBounds,
+                                    artboardBounds: artboardBounds,
+                                    isArtboard: isArtboard
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({

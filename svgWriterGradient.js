@@ -23,6 +23,9 @@
         gradientStops = {},
         getTransform = svgWriterUtils.getTransform;
 
+    var offsetX = 0,
+        offsetY = 0;
+
     function removeDups(lines) {
         var out = [lines[0]];
         for (var i = 1; i < lines.length; i++) {
@@ -37,10 +40,10 @@
             gradientStops = {};
         },
         getLinearGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
-            var x1 = gradient.x1 + (ctx._shiftContentX || 0),
-                x2 = gradient.x2 + (ctx._shiftContentX || 0),
-                y1 = gradient.y1 + (ctx._shiftContentY || 0),
-                y2 = gradient.y2 + (ctx._shiftContentY || 0),
+            var x1 = gradient.x1 + offsetX,
+                x2 = gradient.x2 + offsetX,
+                y1 = gradient.y1 + offsetY,
+                y2 = gradient.y2 + offsetY,
                 attr = {
                     x1: x1,
                     y1: y1,
@@ -66,10 +69,10 @@
             }
         },
         getRadialGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
-            var cx = gradient.cx + (ctx._shiftContentX || 0),
-                cy = gradient.cy + (ctx._shiftContentY || 0),
-                fx = gradient.fx ? gradient.fx + (ctx._shiftContentX || 0) : cx,
-                fy = gradient.fy ? gradient.fy + (ctx._shiftContentY || 0) : cy,
+            var cx = gradient.cx + offsetX,
+                cy = gradient.cy + offsetY,
+                fx = gradient.fx ? gradient.fx + offsetX : cx,
+                fy = gradient.fy ? gradient.fy + offsetY : cy,
                 r = gradient.r,
                 attr = {
                     cx: cx,
@@ -113,6 +116,9 @@
                 tag = new Tag(gradient.type + "Gradient", {
                     id: gradientID
                 });
+
+            offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0);
+            offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
 
             if (!stops) {
                 console.warn("encountered gradient with no stops");

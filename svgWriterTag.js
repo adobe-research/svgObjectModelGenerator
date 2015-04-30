@@ -566,8 +566,8 @@
                     left = round1k(ctx.viewBox.left),
                     top = round1k(ctx.viewBox.top),
 
-                    width = Math.abs(ctx.viewBox.right - ctx.viewBox.left),
-                    height = Math.abs(ctx.viewBox.bottom - ctx.viewBox.top),
+                    width = Math.abs(ctx.viewBox.right),
+                    height = Math.abs(ctx.viewBox.bottom),
                     scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
                     scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
 
