@@ -268,15 +268,18 @@
         function asArc(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y) {
             var m = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, .5),
                 arc = arc3(p1x, p1y, m.x, m.y, p2x, p2y);
-            for (var i = 1; i < 10; i++) {
-                if (i != 5) {
-                    var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i / 10);
-                    if (Math.abs(len(arc.cx, arc.cy, dot.x, dot.y) - arc.r) > .1) {
-                        return null;
+            if (arc && arc.r) {
+                var sigma = Math.min(.1, arc.r / 100 * 5); // 5% of radius or 0.1
+                for (var i = 1; i < 10; i++) {
+                    if (i != 5) {
+                        var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i / 10);
+                        if (Math.abs(len(arc.cx, arc.cy, dot.x, dot.y) - arc.r) > sigma) {
+                            return null;
+                        }
                     }
                 }
+                return arc;
             }
-            return arc;
         }
         self.precision = function (arg) {
             return isFinite(arg) && arg >= 0 ? arg : 3;
@@ -453,12 +456,9 @@
                 segs = [];
             function number(num) {
                 var rough1 = String(+num.toFixed(precision - 1)),
-                    rough2 = String(+num.toFixed(precision - 2)),
                     rough0 = String(+num.toFixed(precision)),
                     res;
-                if (rough0.length - rough2.length >= 3) {
-                    res = rough2;
-                } else if (rough0.length - rough1.length >= 2) {
+                if (rough0.length - rough1.length >= 3) {
                     res = rough1;
                 } else {
                     res = rough0;
@@ -501,6 +501,30 @@
                     seg.cmd = "l";
                     seg.rel = [seg.abs[4] - seg.x, seg.abs[5] - seg.y];
                     seg.abs = [seg.abs[4], seg.abs[5]];
+                }
+            }
+            function c2q(seg) {
+                if (seg.cmd == "c") {
+                    var _32 = 3 / 2,
+                        x1 = seg.x,
+                        y1 = seg.y,
+                        x2 = seg.abs[0],
+                        y2 = seg.abs[1],
+                        x3 = seg.abs[2],
+                        y3 = seg.abs[3],
+                        x4 = seg.abs[4],
+                        y4 = seg.abs[5],
+                        abs = Math.abs,
+                        cx1 = (x2 - x1) * _32 + x1,
+                        cy1 = (y2 - y1) * _32 + y1,
+                        cx2 = (x3 - x4) * _32 + x4,
+                        cy2 = (y3 - y4) * _32 + y4,
+                        sigma = (abs(x2 - x1) + abs(y2 - y1) + abs(x3 - x4) + abs(y3 - y4)) / 400 / 2;
+                    if (abs(cx2 - cx1) <= sigma && abs(cy2 - cy1) <= sigma) {
+                        seg.cmd = "q";
+                        seg.abs = [cx1, cy1, x4, y4];
+                        seg.rel = [cx1 - x1, cy1 - y1, x4 - x1, y4 - y1];
+                    }
                 }
             }
             function l2h(seg) {
@@ -590,6 +614,33 @@
                     }
                 }
             }
+            function q2t(segp, seg) {
+                if (seg.cmd != "q") {
+                    return;
+                }
+                if (!segp || segp.cmd != "q" && segp.cmd != "t") {
+                    if (!+number(seg.rel[0]) && !+number(seg.rel[1])) {
+                        seg.abs.splice(0, 2);
+                        seg.rel.splice(0, 2);
+                        seg.cmd = "t";
+                    }
+                } else {
+                    var prevAnchor = {
+                            x: seg.q ? seg.q.x : segp.abs[0],
+                            y: seg.q ? seg.q.y : segp.abs[1]
+                        },
+                        anchor = {
+                            x: 2 * seg.x - prevAnchor.x,
+                            y: 2 * seg.y - prevAnchor.y
+                        };
+                    if (goodEnough(seg.abs[0] - anchor.x) && goodEnough(seg.abs[1] - anchor.y)) {
+                        seg.q = anchor;
+                        seg.abs.splice(0, 2);
+                        seg.rel.splice(0, 2);
+                        seg.cmd = "t";
+                    }
+                }
+            }
             function h2hv2v(segp, seg) {
                 var pcmd = segp && segp.cmd;
                 if (segp && pcmd == seg.cmd && (pcmd == "h" || pcmd == "v")) {
@@ -600,6 +651,7 @@
             }
             segs = self.parsePath(path);
 
+            // Convert all S to C and T to Q prior to processing
             for (var i = 1; i < segs.length; i++) {
                 var seg = segs[i],
                     pseg = segs[i - 1],
@@ -615,6 +667,18 @@
                         seg.rel.unshift(0, 0);
                     }
                     seg.cmd = "c";
+                }
+                if (seg.cmd == "t") {
+                    if (pseg.cmd == "q") {
+                        dx = seg.x - pseg.abs[0];
+                        dy = seg.y - pseg.abs[1];
+                        seg.abs.unshift(seg.x + dx, seg.y + dy);
+                        seg.rel.unshift(dx, dy);
+                    } else {
+                        seg.abs.unshift(seg.x, seg.y);
+                        seg.rel.unshift(0, 0);
+                    }
+                    seg.cmd = "q";
                 }
             }
             for (i = 0; i < segs.length; i++) {
@@ -632,7 +696,11 @@
                 }
                 // Special case if "C" instead of "S"
                 c2s(segs[i - 1], segs[i], goodEnough);
-                // Special case if "C" instead of "A"
+                // Special case if "C" instead of "Q"
+                c2q(segs[i]);
+                // Special case if "Q" instead of "T"
+                q2t(segs[i - 1], segs[i], goodEnough);
+                // Special case when H followed by H or V followed by V
                 if (h2hv2v(segs[i - 1], segs[i]) == "unite") {
                     segs.splice(i, 1);
                     i--;
