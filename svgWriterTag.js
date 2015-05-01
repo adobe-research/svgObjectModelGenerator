@@ -588,6 +588,7 @@
     Tag.make = function (ctx, node, sibling) {
         node = node || ctx.currentOMNode;
         var tag,
+            rootArtboardClipPath,
             f;
         if (node.type == "background") {
             return;
@@ -595,6 +596,12 @@
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
+            if (ctx.artboardClipPath) {
+                rootArtboardClipPath = tag;
+                tag = new Tag("g");
+                rootArtboardClipPath.appendChild(tag);
+                tag.setAttribute("clip-path", "url(#" + ctx.artboardClipPath + ")");
+            }
         } else {
             if (node.hasOwnProperty("visible") && !node.visible) {
                 return;
@@ -625,7 +632,7 @@
                 }
             }
         }
-        return tag;
+        return rootArtboardClipPath || tag;
     };
 
     module.exports = Tag;
