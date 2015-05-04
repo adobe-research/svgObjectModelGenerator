@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="297" height="127" viewBox="177 9 297 127">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: red;
+        stroke-miterlimit: 0;
+        stroke-width: 14.47px;
+      }
+    </style>
+  </defs>
+  <ellipse cx="237" cy="68" rx="57" ry="56" class="cls-1"/>
+</svg>
