@@ -1117,7 +1117,7 @@ describe('svgWriter', function (){
      * Test fill: none.
      **/
     describe("Test fill: none", function () {
-        it("printSVG should not throw on empty groups", function () {
+        it("If fill was set to 'none', it should not fallback to black.", function () {
             var svgOM = {
                 "title": "generatedAsset",
                 "version": "0.1.0",
