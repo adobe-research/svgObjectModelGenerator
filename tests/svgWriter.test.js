@@ -1114,6 +1114,69 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test fill: none.
+     **/
+    describe("Test fill: none", function () {
+        it("If fill was set to 'none', it should not fallback to black.", function () {
+            var svgOM = {
+                "title": "generatedAsset",
+                "version": "0.1.0",
+                "global": {
+                    "bounds": {
+                        "top": 9.00,
+                        "left": 177.00,
+                        "bottom": 127.00,
+                        "right": 297.00
+                    },
+                    "viewBox": {
+                        "top": 9.00,
+                        "left": 177.00,
+                        "bottom": 127.00,
+                        "right": 297.00
+                    }
+                },
+                "children": [
+                    {
+                        "type": "shape",
+                        "shape": {
+                            "type": "ellipse",
+                            "cx": 237.00,
+                            "cy": 68.00,
+                            "ry": 56.00,
+                            "rx": 57.00
+                        },
+                        "style": {
+                            "fill": {
+                                "type": "none"
+                            },
+                            "stroke": {
+                                "lineWidth": 14.47,
+                                "type": "solid",
+                                "color": {
+                                    "r": 255.00,
+                                    "g": 0.00,
+                                    "b": 0.00
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            expectedOut,
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                expectedOut = fs.readFileSync('./tests/data/fill-none.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/fill-none.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as fill-none.svg');
+                return;
+            }
+            expect(svgOut).to.equal(expectedOut);
+        });
+    });
+
+    /**
      * Test options for idGenerator
      **/
     describe('Test options for idGenerator', function () {

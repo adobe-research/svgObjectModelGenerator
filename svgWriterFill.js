@@ -29,7 +29,7 @@
                 fill,
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
 
-            if (!omIn.style || !omIn.style.fill || omIn.style.fill.type == "none") {
+            if (!omIn.style || !omIn.style.fill) {
                 return;
             }
             fill = omIn.style.fill;
@@ -38,6 +38,8 @@
                 writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[fill.gradient], "fill");
             } else if (fill.type == "pattern") {
                 writePattern(ctx, fill.pattern, "fill");
+            } else if (fill.type == "none") {
+                styleBlock.addRule("fill", "none");
             } else {
                 styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
             }
