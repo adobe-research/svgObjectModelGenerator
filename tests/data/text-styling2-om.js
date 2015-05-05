@@ -38,7 +38,7 @@ module.exports = {
 						"right": 109
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -53,8 +53,8 @@ module.exports = {
 				"right": 109
 			},
 			"position": {
-				"x": 87,
-				"y": 286,
+				"x": 86.777344,
+				"y": 285.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -90,7 +90,7 @@ module.exports = {
 						"right": 109
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -105,8 +105,8 @@ module.exports = {
 				"right": 109
 			},
 			"position": {
-				"x": 87,
-				"y": 414,
+				"x": 86.777344,
+				"y": 413.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -142,7 +142,7 @@ module.exports = {
 						"right": 113
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -157,8 +157,8 @@ module.exports = {
 				"right": 113
 			},
 			"position": {
-				"x": 87,
-				"y": 539,
+				"x": 86.777344,
+				"y": 538.7031244799999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -195,7 +195,7 @@ module.exports = {
 						"right": 111
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -210,8 +210,8 @@ module.exports = {
 				"right": 111
 			},
 			"position": {
-				"x": 87,
-				"y": 670,
+				"x": 86.777344,
+				"y": 669.7031270399999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -247,7 +247,7 @@ module.exports = {
 						"right": 112
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -262,8 +262,8 @@ module.exports = {
 				"right": 112
 			},
 			"position": {
-				"x": 87,
-				"y": 795,
+				"x": 86.777344,
+				"y": 794.7031244799999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -300,7 +300,7 @@ module.exports = {
 						"right": 119
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -315,8 +315,8 @@ module.exports = {
 				"right": 119
 			},
 			"position": {
-				"x": 87,
-				"y": 920,
+				"x": 86.777344,
+				"y": 919.70312192,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -352,7 +352,7 @@ module.exports = {
 						"right": 97
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -367,8 +367,8 @@ module.exports = {
 				"right": 97
 			},
 			"position": {
-				"x": 87,
-				"y": 150,
+				"x": 86.777344,
+				"y": 149.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -403,7 +403,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -427,7 +427,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -452,7 +452,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -476,7 +476,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -500,7 +500,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -524,7 +524,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -548,7 +548,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -563,8 +563,8 @@ module.exports = {
 				"right": 784
 			},
 			"position": {
-				"x": 370,
-				"y": 128,
+				"x": 369.77734656,
+				"y": 127.70312192,
 				"unitX": "px",
 				"unitY": "px"
 			},

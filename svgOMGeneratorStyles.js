@@ -109,8 +109,9 @@
                 stroke.lineJoin = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
                 stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
                 stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
-                stroke.dashArray = strokeStyle.strokeStyleLineDashSet ? strokeStyle.strokeStyleLineDashSet : [];
-                stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? strokeStyle.strokeStyleLineDashOffset.value : "0";
+                stroke.dashArray = strokeStyle.strokeStyleLineDashSet ?
+                    strokeStyle.strokeStyleLineDashSet.map(function (ele) { return omgUtils.boundInPx(ele, dpi); }) : [];
+                stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
                 stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 stroke.pattern = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern ? "PATTERN-PLACEHOLDER" : undefined;
@@ -287,7 +288,7 @@
             this.addFx(svgNode, layer, layerBounds, writer);
         };
 
-        this.addTextChunkStyle = function (span, textStyle) {
+        this.addTextChunkStyle = function (span, textStyle, dpi) {
             var fontFamily;
 
             if (textStyle.textStyle.color) {
@@ -306,7 +307,7 @@
             }
 
             if (textStyle.textStyle.size) {
-                span.style["font-size"] = textStyle.textStyle.size; // Need to take units into account.
+                span.style["font-size"] = omgUtils.boundInPx(textStyle.textStyle.size, dpi);
             }
             if (textStyle.textStyle.leading) {
                 span.style._leading = textStyle.textStyle.leading;

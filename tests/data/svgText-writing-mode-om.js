@@ -15,10 +15,7 @@ module.exports = {
 			"style": {
 				"writing-mode": "tb",
 				"glyph-orientation-vertical": "0",
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 63.6352,
 				"stroke": {
 					"type": "none"
 				}
@@ -29,10 +26,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 31.8176,
-							"units": "pointsUnit"
-						},
+						"font-size": 63.6352,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -53,7 +47,7 @@ module.exports = {
 						"right": 357
 					},
 					"position": {
-						"x": 338,
+						"x": 338.33593856,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -68,12 +62,12 @@ module.exports = {
 				"right": 357
 			},
 			"position": {
-				"x": 338,
-				"y": 232,
+				"x": 338.33593856,
+				"y": 231.55468288,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 64
+			"maxTextSize": 63.6352
 		}
 	],
 	"global": {

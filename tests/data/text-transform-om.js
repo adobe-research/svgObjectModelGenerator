@@ -13,10 +13,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -27,10 +24,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 30,
 						"font-family": "\"Arial\""
 					},
 					"children": [],
@@ -89,8 +83,8 @@ module.exports = {
 					1
 				]
 			},
-			"transformTX": 247,
-			"transformTY": 366
+			"transformTX": 246.896664,
+			"transformTY": 366.186822
 		},
 		{
 			"id": "shape-1",

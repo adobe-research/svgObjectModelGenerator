@@ -13,10 +13,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -27,10 +24,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -38,10 +32,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -76,8 +67,8 @@ module.exports = {
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
-				"left": 1,
-				"right": 120
+				"left": 1.009064,
+				"right": 120.060745
 			},
 			"position": {
 				"x": 0,
@@ -90,10 +81,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -104,10 +92,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -115,10 +100,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -151,10 +133,10 @@ module.exports = {
 			],
 			"title": "Text path",
 			"visualBounds": {
-				"top": -12,
-				"bottom": 36,
-				"left": -15,
-				"right": 78
+				"top": -11.840942,
+				"bottom": 35.680756,
+				"left": -14.847122,
+				"right": 77.570663
 			},
 			"position": {
 				"x": 0,
@@ -167,10 +149,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -181,10 +160,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -192,10 +168,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -228,10 +201,10 @@ module.exports = {
 			],
 			"title": "Text path",
 			"visualBounds": {
-				"top": -16,
-				"bottom": 39,
-				"left": -7,
-				"right": 109
+				"top": -15.915802,
+				"bottom": 39.18768299999999,
+				"left": -6.852493000000001,
+				"right": 109.250168
 			},
 			"position": {
 				"x": 0,
@@ -244,10 +217,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -258,10 +228,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -269,10 +236,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -307,8 +271,8 @@ module.exports = {
 			"visualBounds": {
 				"top": -22,
 				"bottom": 0,
-				"left": 66,
-				"right": 120
+				"left": 66.054947,
+				"right": 119.738785
 			},
 			"position": {
 				"x": 0,
@@ -323,10 +287,7 @@ module.exports = {
 			"style": {
 				"writing-mode": "tb",
 				"glyph-orientation-vertical": "0",
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -337,10 +298,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -348,10 +306,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -384,10 +339,10 @@ module.exports = {
 			],
 			"title": "Text on path",
 			"visualBounds": {
-				"top": 10,
-				"bottom": 294,
-				"left": -3,
-				"right": 72
+				"top": 9.578139999999998,
+				"bottom": 293.951904,
+				"left": -3.489502,
+				"right": 72.108093
 			},
 			"position": {
 				"x": 0,
@@ -400,10 +355,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -415,10 +367,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"text-anchor": "end",
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -427,10 +376,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"text-anchor": "end",
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -465,8 +411,8 @@ module.exports = {
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
-				"left": 67,
-				"right": 186
+				"left": 67.254761,
+				"right": 186.30645800000002
 			},
 			"position": {
 				"x": 0,
@@ -481,10 +427,7 @@ module.exports = {
 			"style": {
 				"writing-mode": "tb",
 				"glyph-orientation-vertical": "0",
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -495,10 +438,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -506,10 +446,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -542,10 +479,10 @@ module.exports = {
 			],
 			"title": "Text path",
 			"visualBounds": {
-				"top": -9,
-				"bottom": 8,
-				"left": 19,
-				"right": 131
+				"top": -8.837402,
+				"bottom": 8.162598,
+				"left": 19.167725,
+				"right": 131.190338
 			},
 			"position": {
 				"x": 0,
@@ -558,10 +495,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -572,10 +506,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -583,10 +514,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -619,10 +547,10 @@ module.exports = {
 			],
 			"title": "Text path",
 			"visualBounds": {
-				"top": -21,
-				"bottom": 46,
-				"left": -1,
-				"right": 117
+				"top": -21.067017,
+				"bottom": 46.151703,
+				"left": -1.225311,
+				"right": 117.055603
 			},
 			"position": {
 				"x": 0,
@@ -637,10 +565,7 @@ module.exports = {
 			"style": {
 				"writing-mode": "tb",
 				"glyph-orientation-vertical": "0",
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -652,10 +577,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"text-anchor": "end",
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -664,10 +586,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"text-anchor": "end",
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -700,10 +619,10 @@ module.exports = {
 			],
 			"title": "Text path",
 			"visualBounds": {
-				"top": -9,
-				"bottom": 8,
-				"left": 68,
-				"right": 180
+				"top": -8.837402,
+				"bottom": 8.162598,
+				"left": 67.744385,
+				"right": 179.745209
 			},
 			"position": {
 				"x": 0,
@@ -716,10 +635,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -731,10 +647,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"text-anchor": "middle",
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -743,10 +656,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"text-anchor": "middle",
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -781,8 +691,8 @@ module.exports = {
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
-				"left": 46,
-				"right": 166
+				"left": 46.466156,
+				"right": 165.542023
 			},
 			"position": {
 				"x": 0,
@@ -795,10 +705,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -809,10 +716,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -820,10 +724,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -858,8 +759,8 @@ module.exports = {
 			"visualBounds": {
 				"top": -6,
 				"bottom": 22,
-				"left": 25,
-				"right": 144
+				"left": 24.93924,
+				"right": 144.00975
 			},
 			"position": {
 				"x": 0,
@@ -872,10 +773,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 30,
 				"stroke": {
 					"type": "none"
 				}
@@ -886,10 +784,7 @@ module.exports = {
 					"type": "textPath",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 30
-						}
+						"font-size": 30
 					},
 					"children": [
 						{
@@ -897,10 +792,7 @@ module.exports = {
 							"type": "tspan",
 							"visible": true,
 							"style": {
-								"font-size": {
-									"value": 30,
-									"units": "pointsUnit"
-								},
+								"font-size": 30,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -935,8 +827,8 @@ module.exports = {
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
-				"left": 4,
-				"right": 123
+				"left": 4.047623,
+				"right": 123.090256
 			},
 			"position": {
 				"x": 0,

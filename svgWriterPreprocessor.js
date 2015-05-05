@@ -68,7 +68,7 @@
                         return;
                     }
                     if (property == "font-size") {
-                        styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
+                        styleBlock.addRule(property, omIn.style[property] + "px");
                         return;
                     }
                     if (property.indexOf("_") !== 0) {

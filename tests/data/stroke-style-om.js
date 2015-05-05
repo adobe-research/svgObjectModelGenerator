@@ -139,10 +139,7 @@ module.exports = {
 					"lineWidth": 3,
 					"miterLimit": 100,
 					"dashArray": [
-						{
-							"value": 0,
-							"units": "pointsUnit"
-						},
+						0,
 						4,
 						3
 					],
@@ -182,10 +179,7 @@ module.exports = {
 					"lineWidth": 10,
 					"miterLimit": 100,
 					"dashArray": [
-						{
-							"value": 0,
-							"units": "pointsUnit"
-						},
+						0,
 						4,
 						3
 					],
@@ -225,10 +219,7 @@ module.exports = {
 					"lineWidth": 10,
 					"miterLimit": 100,
 					"dashArray": [
-						{
-							"value": 0,
-							"units": "pointsUnit"
-						},
+						0,
 						4,
 						3
 					],
