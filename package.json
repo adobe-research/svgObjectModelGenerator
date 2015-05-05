@@ -13,25 +13,35 @@
         "tmp": "~0.0.24"
     },
     "devDependencies": {
-        "mocha": "^1.20.1",
-        "chai": "^1.9.1",
-        "sinon": "^1.10.2",
-        "q": "~1.0",
         "blanket": "*",
-        "travis-cov": "^0.2.5",
+        "chai": "^1.9.1",
+        "eslint": "*",
+        "grunt": "^0.4.5",
+        "grunt-exec": "~0.4.2",
+        "grunt-phantomcss": "git://github.com/anselmh/grunt-phantomcss.git",
         "jscs": "*",
-        "eslint": "*"
+        "mocha": "^1.20.1",
+        "q": "~1.0",
+        "sinon": "^1.10.2",
+        "travis-cov": "^0.2.5"
     },
     "scripts": {
         "test": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js",
         "test-debug": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js --reporter nyan --debug-brk",
         "cover": "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R html-cov > svgomg-code-coverage.html",
-        "cover-travis":  "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R travis-cov"
+        "cover-travis": "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R travis-cov"
     },
     "config": {
         "blanket": {
-            "pattern": [""],
-            "data-cover-never": ["node_modules", "tests/config", "tests/data", "tests"]
+            "pattern": [
+                ""
+            ],
+            "data-cover-never": [
+                "node_modules",
+                "tests/config",
+                "tests/data",
+                "tests"
+            ]
         },
         "travis-cov": {
             "threshold": "85"
@@ -65,7 +75,11 @@
             "new-cap": 0,
             "no-unused-expressions": 0,
             "no-mixed-requires": 0,
-            "quotes": [1, "double", "avoid-escape"]
+            "quotes": [
+                1,
+                "double",
+                "avoid-escape"
+            ]
         }
     }
 }
