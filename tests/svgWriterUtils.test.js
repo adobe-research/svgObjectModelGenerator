@@ -31,45 +31,6 @@ describe('SVGWriterUtils', function (){
         sandbox.restore();
     });
 
-    it("knows how to write px", function (){
-        
-        var testCTX = {
-                pxToInchRatio: 72
-            },
-            testLength1 = {
-                value: 33,
-                units: "millimetersUnit"
-            },
-            testLength2 = {
-                value: 33,
-                units: "rulerCm"
-            },
-            testLength3 = {
-                value: 33,
-                units: "rulerInches"
-            },
-            testLength4 = {
-                value: 33,
-                units: "rulerPicas"
-            },
-            testLengthUnknown = {
-                value: 33,
-                units: "kepitars"
-            };
-        
-        //string conversion is not supported
-        expect(svgWriterUtils.px(testCTX, "33")).to.equal(0);
-        
-        expect(svgWriterUtils.px(testCTX, 33)).to.equal(33);
-        
-        expect(svgWriterUtils.px(testCTX, testLength1)).to.equal(93.543);
-        expect(svgWriterUtils.px(testCTX, testLength2)).to.equal(935.433);
-        expect(svgWriterUtils.px(testCTX, testLength3)).to.equal(2376);
-        expect(svgWriterUtils.px(testCTX, testLength4)).to.equal(396);
-        expect(svgWriterUtils.px(testCTX, testLengthUnknown)).to.equal(0);
-        
-    });
-
     it("test transformation matrix without translation values", function () {
         var val = {
                 "0": [

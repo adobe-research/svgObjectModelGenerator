@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1, .cls-2, .cls-3, .cls-4 {
-        font-size: 63.635px;
+        font-size: 63.6352px;
       }
 
       .cls-2, .cls-3, .cls-4 {
@@ -19,5 +19,5 @@
       }
     </style>
   </defs>
-  <text x="460" y="270" class="cls-1"><tspan class="cls-2">Left aligned</tspan><tspan dy="1.2em" x="460" class="cls-3">center</tspan><tspan dy="1.2em" x="460" class="cls-4">right aligned</tspan></text>
+  <text x="460.414" y="269.688" class="cls-1"><tspan class="cls-2">Left aligned</tspan><tspan dy="1.2em" x="460.414" class="cls-3">center</tspan><tspan dy="1.2em" x="460.414" class="cls-4">right aligned</tspan></text>
 </svg>

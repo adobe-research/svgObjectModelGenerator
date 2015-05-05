@@ -13,10 +13,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 31.8176,
 				"stroke": {
 					"type": "none"
 				},
@@ -151,10 +148,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 31.8176
-						}
+						"font-size": 31.8176
 					},
 					"children": [
 						{
@@ -172,10 +166,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 31.8176
 							},
 							"children": [],
 							"text": "This is a ",
@@ -201,10 +192,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 31.8176
 							},
 							"children": [],
 							"text": "text",
@@ -217,8 +205,8 @@ module.exports = {
 						}
 					],
 					"position": {
-						"x": 245,
-						"y": 154,
+						"x": 244.921872,
+						"y": 153.820314,
 						"unitX": "px",
 						"unitY": "px"
 					}
@@ -232,12 +220,12 @@ module.exports = {
 				"right": 413
 			},
 			"position": {
-				"x": 245,
-				"y": 154,
+				"x": 244.921872,
+				"y": 153.820314,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 32
+			"maxTextSize": 31.8176
 		}
 	],
 	"global": {

@@ -42,11 +42,11 @@
         };
 
         this.pct2px = function (dim, containerPx) {
-            return Math.round(containerPx * dim / 100.0);
+            return containerPx * dim / 100.0;
         };
 
         this.pt2px = function (dim, dpi) {
-            return Math.round(dpi * (dim / 72.0));
+            return dpi * (dim / 72.0);
         };
 
         this.in2px = function (dim, dpi) {

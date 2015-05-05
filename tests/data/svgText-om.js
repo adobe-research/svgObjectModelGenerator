@@ -13,10 +13,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 63.6352,
 				"stroke": {
 					"type": "none"
 				}
@@ -27,10 +24,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 31.8176,
-							"units": "pointsUnit"
-						},
+						"font-size": 63.6352,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -51,7 +45,7 @@ module.exports = {
 						"right": 690
 					},
 					"position": {
-						"x": 129,
+						"x": 128.70312959999998,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -66,22 +60,19 @@ module.exports = {
 				"right": 690
 			},
 			"position": {
-				"x": 129,
-				"y": 121,
+				"x": 128.70312959999998,
+				"y": 121.29687552,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 64
+			"maxTextSize": 63.6352
 		},
 		{
 			"id": "text-2",
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 63.6352,
 				"stroke": {
 					"type": "none"
 				}
@@ -92,10 +83,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 31.8176
-						}
+						"font-size": 63.6352
 					},
 					"children": [
 						{
@@ -113,10 +101,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "This is a ",
@@ -142,10 +127,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "text ",
@@ -171,10 +153,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "example",
@@ -187,8 +166,8 @@ module.exports = {
 						}
 					],
 					"position": {
-						"x": 141,
-						"y": 232,
+						"x": 140.6249984,
+						"y": 232.0937472,
 						"unitX": "px",
 						"unitY": "px"
 					}
@@ -202,22 +181,19 @@ module.exports = {
 				"right": 702
 			},
 			"position": {
-				"x": 141,
-				"y": 232,
+				"x": 140.6249984,
+				"y": 232.0937472,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 64
+			"maxTextSize": 63.6352
 		},
 		{
 			"id": "text-3",
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 63.6352,
 				"stroke": {
 					"type": "none"
 				}
@@ -228,10 +204,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 31.8176
-						}
+						"font-size": 63.6352
 					},
 					"children": [
 						{
@@ -249,10 +222,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "Thi",
@@ -278,10 +248,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "s i",
@@ -307,10 +274,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "s ",
@@ -336,10 +300,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "a t",
@@ -365,10 +326,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "ex",
@@ -394,10 +352,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"MyriadPro-BoldCond\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								},
+								"font-size": 63.6352,
 								"font-weight": "bold"
 							},
 							"children": [],
@@ -424,10 +379,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "xa",
@@ -453,10 +405,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "mple",
@@ -469,8 +418,8 @@ module.exports = {
 						}
 					],
 					"position": {
-						"x": 139,
-						"y": 341,
+						"x": 139.05468416,
+						"y": 341.41406208,
 						"unitX": "px",
 						"unitY": "px"
 					}
@@ -484,22 +433,19 @@ module.exports = {
 				"right": 681
 			},
 			"position": {
-				"x": 139,
-				"y": 341,
+				"x": 139.05468416,
+				"y": 341.41406208,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 64
+			"maxTextSize": 63.6352
 		},
 		{
 			"id": "text-4",
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 63.6352,
 				"stroke": {
 					"type": "none"
 				}
@@ -510,10 +456,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 31.8176
-						}
+						"font-size": 63.6352
 					},
 					"children": [
 						{
@@ -531,10 +474,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "This i",
@@ -560,10 +500,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "s",
@@ -576,8 +513,8 @@ module.exports = {
 						}
 					],
 					"position": {
-						"x": 149,
-						"y": 440,
+						"x": 148.64843776,
+						"y": 439.89843968,
 						"unitX": "px",
 						"unitY": "px"
 					}
@@ -587,10 +524,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 31.8176
-						}
+						"font-size": 63.6352
 					},
 					"children": [
 						{
@@ -608,10 +542,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "a te",
@@ -637,10 +568,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "x",
@@ -666,10 +594,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 10,
-									"units": "pointsUnit"
-								}
+								"font-size": 20
 							},
 							"children": [],
 							"text": "t",
@@ -682,8 +607,8 @@ module.exports = {
 						}
 					],
 					"position": {
-						"x": 149,
-						"y": 440,
+						"x": 148.64843776,
+						"y": 439.89843968,
 						"unitX": "px",
 						"unitY": "px"
 					}
@@ -693,10 +618,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 31.8176
-						}
+						"font-size": 63.6352
 					},
 					"children": [
 						{
@@ -714,10 +636,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 10,
-									"units": "pointsUnit"
-								}
+								"font-size": 20
 							},
 							"children": [],
 							"text": "exam",
@@ -743,10 +662,7 @@ module.exports = {
 									}
 								},
 								"font-family": "\"Minion Pro\"",
-								"font-size": {
-									"value": 31.8176,
-									"units": "pointsUnit"
-								}
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "ple",
@@ -759,8 +675,8 @@ module.exports = {
 						}
 					],
 					"position": {
-						"x": 149,
-						"y": 440,
+						"x": 148.64843776,
+						"y": 439.89843968,
 						"unitX": "px",
 						"unitY": "px"
 					}
@@ -774,12 +690,12 @@ module.exports = {
 				"right": 310
 			},
 			"position": {
-				"x": 149,
-				"y": 440,
+				"x": 148.64843776,
+				"y": 439.89843968,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 64
+			"maxTextSize": 63.6352
 		}
 	],
 	"global": {

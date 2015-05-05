@@ -5,10 +5,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 36
-				},
+				"font-size": 150,
 				"stroke": {
 					"type": "none"
 				}
@@ -20,10 +17,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"text-anchor": "end",
-						"font-size": {
-							"value": 36,
-							"units": "pointsUnit"
-						},
+						"font-size": 150,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -44,7 +38,7 @@ module.exports = {
 						"right": 748
 					},
 					"position": {
-						"x": 744,
+						"x": 744.175782,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -59,8 +53,8 @@ module.exports = {
 				"right": 748
 			},
 			"position": {
-				"x": 744,
-				"y": 169,
+				"x": 744.175782,
+				"y": 168.574215,
 				"unitX": "px",
 				"unitY": "px"
 			},

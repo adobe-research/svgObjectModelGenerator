@@ -247,7 +247,7 @@
                         omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
                     }
                     yEMs = 1;
-                    omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i]);
+                    omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i], dpi);
                 }
 
                 if (indexTextStyleFrom !== indexTextStyleTo) {

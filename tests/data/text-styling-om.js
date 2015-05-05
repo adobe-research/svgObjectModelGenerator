@@ -13,10 +13,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -27,10 +24,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -52,7 +46,7 @@ module.exports = {
 						"right": 171
 					},
 					"position": {
-						"x": 57,
+						"x": 56.75,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -67,8 +61,8 @@ module.exports = {
 				"right": 171
 			},
 			"position": {
-				"x": 57,
-				"y": 98,
+				"x": 56.75,
+				"y": 98.335938,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -79,10 +73,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -93,10 +84,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -118,7 +106,7 @@ module.exports = {
 						"right": 183
 					},
 					"position": {
-						"x": 64,
+						"x": 64.359376,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -133,8 +121,8 @@ module.exports = {
 				"right": 183
 			},
 			"position": {
-				"x": 64,
-				"y": 186,
+				"x": 64.359376,
+				"y": 185.90625,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -145,10 +133,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -159,10 +144,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -185,7 +167,7 @@ module.exports = {
 						"right": 190
 					},
 					"position": {
-						"x": 64,
+						"x": 64.437504,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -200,8 +182,8 @@ module.exports = {
 				"right": 190
 			},
 			"position": {
-				"x": 64,
-				"y": 273,
+				"x": 64.437504,
+				"y": 273.28125,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -212,10 +194,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -226,10 +205,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -251,7 +227,7 @@ module.exports = {
 						"right": 175
 					},
 					"position": {
-						"x": 64,
+						"x": 64.328128,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -266,8 +242,8 @@ module.exports = {
 				"right": 175
 			},
 			"position": {
-				"x": 64,
-				"y": 349,
+				"x": 64.328128,
+				"y": 349.35156,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -278,10 +254,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -292,10 +265,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -317,7 +287,7 @@ module.exports = {
 						"right": 167
 					},
 					"position": {
-						"x": 57,
+						"x": 56.617183999999995,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -332,8 +302,8 @@ module.exports = {
 				"right": 167
 			},
 			"position": {
-				"x": 57,
-				"y": 440,
+				"x": 56.617183999999995,
+				"y": 440.335938,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -344,10 +314,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -358,10 +325,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -383,7 +347,7 @@ module.exports = {
 						"right": 180
 					},
 					"position": {
-						"x": 62,
+						"x": 62.195312,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -398,8 +362,8 @@ module.exports = {
 				"right": 180
 			},
 			"position": {
-				"x": 62,
-				"y": 525,
+				"x": 62.195312,
+				"y": 525.273438,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -410,10 +374,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -424,10 +385,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -449,7 +407,7 @@ module.exports = {
 						"right": 484
 					},
 					"position": {
-						"x": 331,
+						"x": 331.062496,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -464,8 +422,8 @@ module.exports = {
 				"right": 484
 			},
 			"position": {
-				"x": 331,
-				"y": 99,
+				"x": 331.062496,
+				"y": 98.921874,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -476,10 +434,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -490,10 +445,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -515,7 +467,7 @@ module.exports = {
 						"right": 396
 					},
 					"position": {
-						"x": 332,
+						"x": 331.695312,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -530,8 +482,8 @@ module.exports = {
 				"right": 396
 			},
 			"position": {
-				"x": 332,
-				"y": 206,
+				"x": 331.695312,
+				"y": 206.171874,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -542,10 +494,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -556,10 +505,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -581,7 +527,7 @@ module.exports = {
 						"right": 398
 					},
 					"position": {
-						"x": 333,
+						"x": 333.445312,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -596,8 +542,8 @@ module.exports = {
 				"right": 398
 			},
 			"position": {
-				"x": 333,
-				"y": 267,
+				"x": 333.445312,
+				"y": 266.765628,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -608,10 +554,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -622,10 +565,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -646,7 +586,7 @@ module.exports = {
 						"right": 445
 					},
 					"position": {
-						"x": 329,
+						"x": 329.078128,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -661,8 +601,8 @@ module.exports = {
 				"right": 445
 			},
 			"position": {
-				"x": 329,
-				"y": 363,
+				"x": 329.078128,
+				"y": 363.45312600000005,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -673,10 +613,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -687,10 +624,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -711,7 +645,7 @@ module.exports = {
 						"right": 550
 					},
 					"position": {
-						"x": 330,
+						"x": 329.960936,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -726,8 +660,8 @@ module.exports = {
 				"right": 550
 			},
 			"position": {
-				"x": 330,
-				"y": 439,
+				"x": 329.960936,
+				"y": 438.9375,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -738,10 +672,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -752,10 +683,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -776,7 +704,7 @@ module.exports = {
 						"right": 546
 					},
 					"position": {
-						"x": 326,
+						"x": 326.195312,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -791,8 +719,8 @@ module.exports = {
 				"right": 546
 			},
 			"position": {
-				"x": 326,
-				"y": 568,
+				"x": 326.195312,
+				"y": 568.195314,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -803,10 +731,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -817,10 +742,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -841,7 +763,7 @@ module.exports = {
 						"right": 734
 					},
 					"position": {
-						"x": 624,
+						"x": 623.656248,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -856,8 +778,8 @@ module.exports = {
 				"right": 734
 			},
 			"position": {
-				"x": 624,
-				"y": 104,
+				"x": 623.656248,
+				"y": 103.90624799999999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -868,10 +790,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -882,10 +801,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -906,7 +822,7 @@ module.exports = {
 						"right": 772
 					},
 					"position": {
-						"x": 626,
+						"x": 625.914064,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -921,8 +837,8 @@ module.exports = {
 				"right": 772
 			},
 			"position": {
-				"x": 626,
-				"y": 195,
+				"x": 625.914064,
+				"y": 194.66405999999998,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -933,10 +849,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -947,10 +860,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -971,7 +881,7 @@ module.exports = {
 						"right": 719
 					},
 					"position": {
-						"x": 627,
+						"x": 626.64844,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -986,8 +896,8 @@ module.exports = {
 				"right": 719
 			},
 			"position": {
-				"x": 627,
-				"y": 283,
+				"x": 626.64844,
+				"y": 283.289064,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -998,10 +908,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 30
-				},
+				"font-size": 60,
 				"stroke": {
 					"type": "none"
 				}
@@ -1012,10 +919,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 30,
-							"units": "pointsUnit"
-						},
+						"font-size": 60,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -1036,7 +940,7 @@ module.exports = {
 						"right": 738
 					},
 					"position": {
-						"x": 621,
+						"x": 620.625,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -1051,8 +955,8 @@ module.exports = {
 				"right": 738
 			},
 			"position": {
-				"x": 621,
-				"y": 413,
+				"x": 620.625,
+				"y": 413.335938,
 				"unitX": "px",
 				"unitY": "px"
 			},

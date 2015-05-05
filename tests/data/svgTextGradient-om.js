@@ -13,10 +13,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 31.8176
-				},
+				"font-size": 63.6352,
 				"stroke": {
 					"type": "none"
 				},
@@ -121,10 +118,7 @@ module.exports = {
 					"type": "tspan",
 					"visible": true,
 					"style": {
-						"font-size": {
-							"value": 31.8176,
-							"units": "pointsUnit"
-						},
+						"font-size": 63.6352,
 						"fill": {
 							"type": "solid",
 							"color": {
@@ -145,7 +139,7 @@ module.exports = {
 						"right": 623
 					},
 					"position": {
-						"x": 303,
+						"x": 302.81249792,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -160,12 +154,12 @@ module.exports = {
 				"right": 623
 			},
 			"position": {
-				"x": 303,
-				"y": 206,
+				"x": 302.81249792,
+				"y": 205.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
-			"maxTextSize": 64
+			"maxTextSize": 63.6352
 		}
 	],
 	"global": {
