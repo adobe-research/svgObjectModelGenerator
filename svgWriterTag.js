@@ -383,7 +383,7 @@
                 w = right - left,
                 h = bottom - top,
                 tag = new Tag("image", {
-                    "xlink:href": node.pixel,
+                    "xlink:href": node.href,
                     x: left,
                     y: top,
                     width: w,

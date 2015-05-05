@@ -1042,7 +1042,7 @@ describe('svgWriter', function (){
     });
 
     /**
-     * Test image processing
+     * Test gradient transform
      **/
     describe('Test gradient transform', function () {
 
