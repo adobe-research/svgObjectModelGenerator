@@ -141,6 +141,7 @@ module.exports = {
     "*/filter": ["none", "string"],
     "*/flood-color": ["#000", "color"],
     "*/flood-opacity": [1, "number"],
+    "*/font-size": [0, "number"], // font-size could be string in CSS but OMG doesn't accept strings.
     "*/font-style": ["normal", "string"],
     "*/font-variant": ["normal", "string"],
     "*/font-weight": ["400", "string"],

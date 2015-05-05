@@ -110,7 +110,7 @@
                 stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
                 stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
                 stroke.dashArray = strokeStyle.strokeStyleLineDashSet ?
-                    strokeStyle.strokeStyleLineDashSet.map(function (ele, dpi) { return omgUtils.boundInPx(ele, dpi); }) : [];
+                    strokeStyle.strokeStyleLineDashSet.map(function (ele) { return omgUtils.boundInPx(ele, dpi); }) : [];
                 stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
                 stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
