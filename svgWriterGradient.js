@@ -79,13 +79,31 @@
                     cy: cy,
                     r: r,
                     gradientTransform: getTransform(gradient.transform)
-                };
+                },
+                deltaX,
+                deltaY,
+                angle,
+                rMax = 0.99 * r;
             if (isFinite(fx) && fx != cx) {
                 attr.fx = fx;
             }
             if (isFinite(fy) && fy != cy) {
                 attr.fy = fy;
             }
+
+            // Spec of SVG 1.1: If (fx, fy) lies outside the circle defined by (cx, cy) and r, set 
+            // (fx, fy) to the point of intersection of the line through (fx, fy) and the circle. 
+            // A value of 0.99 matches the behavior of Firefox and Illustrator.
+            deltaX = attr.fx - attr.cx;
+            deltaY = attr.fy - attr.fy;
+            if (Math.sqrt(deltaX * deltaX + deltaY * deltaY) > rMax) {
+                angle = Math.atan(deltaY, deltaX);
+                deltaX = Math.cos(angle) * rMax;
+                deltaY = Math.sin(angle) * rMax;
+                attr.fx = deltaX + attr.cx;
+                attr.fy = deltaY + attr.cy;
+            }
+
             if (link) {
                 attr["xlink:href"] = "#" + link.id;
                 tag.setAttributes(attr);
@@ -94,8 +112,8 @@
                     id: gradientID,
                     cx: cx,
                     cy: cy,
-                    fx: fx,
-                    fy: fy,
+                    fx: attr.fx,
+                    fy: attr.fy,
                     r: r,
                     gradientTransform: getTransform(gradient.transform)
                 };
