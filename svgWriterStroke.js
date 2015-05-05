@@ -69,16 +69,12 @@
                 styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
             }
             if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
-                var width = omIn.style.stroke.lineWidth || 0,
-                    dashArray = omIn.style.stroke.dashArray.map(function (element, index) {
-                        if (element && element.hasOwnProperty("value")) {
-                            element = px(element);
-                        }
+                var dashArray = omIn.style.stroke.dashArray.map(function (element, index) {
                         // This is a work around for a bug in Chrome on [0,2] dash arrays.
                         if (!index && !element) {
                             return 0.001;
                         }
-                        return width * element;
+                        return element;
                     }).join();
                 styleBlock.addRule("stroke-dasharray", dashArray);
             }
