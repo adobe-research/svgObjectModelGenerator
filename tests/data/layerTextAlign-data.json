@@ -1,0 +1,351 @@
+{
+    "version": "1.3.0",
+    "timeStamp": 1430106860.478,
+    "count": 2,
+    "id": 35,
+    "file": "/Users/baranovs/Desktop/text-alignment2.psd",
+    "bounds": {
+        "top": 0,
+        "left": 0,
+        "bottom": 368,
+        "right": 512
+    },
+    "selection": [
+        1
+    ],
+    "resolution": 72,
+    "globalLight": {
+        "angle": 90,
+        "altitude": 30
+    },
+    "generatorSettings": false,
+    "layers": [
+        {
+            "id": 4,
+            "index": 3,
+            "type": "textLayer",
+            "name": "right aligned",
+            "bounds": {
+                "top": 251,
+                "left": 141,
+                "bottom": 288,
+                "right": 369
+            },
+            "visible": true,
+            "clipped": false,
+            "generatorSettings": false,
+            "text": {
+                "textKey": "right aligned",
+                "textClickPoint": {
+                    "horizontal": {
+                        "value": 72.3862,
+                        "units": "percentUnit"
+                    },
+                    "vertical": {
+                        "value": 75.7452,
+                        "units": "percentUnit"
+                    }
+                },
+                "boundingBox": {
+                    "left": -229.019,
+                    "top": -28,
+                    "right": -1.84338,
+                    "bottom": 9
+                },
+                "bounds": {
+                    "left": -230.612,
+                    "top": -30.8875,
+                    "right": 0.0000610352,
+                    "bottom": 9.43176
+                },
+                "textShape": [
+                    {
+                        "char": "paint",
+                        "orientation": "horizontal",
+                        "transform": {
+                            "xx": 1,
+                            "xy": 0,
+                            "yx": 0,
+                            "yy": 1,
+                            "tx": 0,
+                            "ty": 0
+                        },
+                        "rowCount": 1,
+                        "columnCount": 1,
+                        "rowMajorOrder": true,
+                        "rowGutter": 0,
+                        "columnGutter": 0,
+                        "spacing": 0,
+                        "frameBaselineAlignment": "alignByAscent",
+                        "firstBaselineMinimum": 0,
+                        "base": {
+                            "horizontal": 0,
+                            "vertical": 0
+                        }
+                    }
+                ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
+                "textStyleRange": [
+                    {
+                        "from": 0,
+                        "to": 14,
+                        "textStyle": {
+                            "fontName": "Optima",
+                            "fontStyleName": "ExtraBlack",
+                            "size": 36,
+                            "fontPostScriptName": "Optima-ExtraBlack",
+                            "baselineDirection": "withStream",
+                            "japaneseAlternate": "defaultForm",
+                            "contextualLigatures": true,
+                            "digitSet": "arabicDigits",
+                            "markYDistFromBaseline": 0,
+                            "color": {
+                                "red": 34.4122,
+                                "green": 54.9117,
+                                "blue": 106.995
+                            },
+                            "fontTechnology": 1
+                        }
+                    }
+                ],
+                "paragraphStyleRange": [
+                    {
+                        "from": 0,
+                        "to": 14,
+                        "paragraphStyle": {
+                            "align": "right"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "index": 2,
+            "type": "textLayer",
+            "name": "center aligned",
+            "bounds": {
+                "top": 166,
+                "left": 128,
+                "bottom": 203,
+                "right": 383
+            },
+            "visible": true,
+            "clipped": false,
+            "generatorSettings": false,
+            "text": {
+                "textKey": "center aligned",
+                "textClickPoint": {
+                    "horizontal": {
+                        "value": 50.0092,
+                        "units": "percentUnit"
+                    },
+                    "vertical": {
+                        "value": 52.6707,
+                        "units": "percentUnit"
+                    }
+                },
+                "boundingBox": {
+                    "left": -127.597,
+                    "top": -28,
+                    "right": 126.801,
+                    "bottom": 9
+                },
+                "bounds": {
+                    "left": -128.644,
+                    "top": -30.8875,
+                    "right": 128.644,
+                    "bottom": 9.43176
+                },
+                "textShape": [
+                    {
+                        "char": "paint",
+                        "orientation": "horizontal",
+                        "transform": {
+                            "xx": 1,
+                            "xy": 0,
+                            "yx": 0,
+                            "yy": 1,
+                            "tx": 0,
+                            "ty": 0
+                        },
+                        "rowCount": 1,
+                        "columnCount": 1,
+                        "rowMajorOrder": true,
+                        "rowGutter": 0,
+                        "columnGutter": 0,
+                        "spacing": 0,
+                        "frameBaselineAlignment": "alignByAscent",
+                        "firstBaselineMinimum": 0,
+                        "base": {
+                            "horizontal": 0,
+                            "vertical": 0
+                        }
+                    }
+                ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
+                "textStyleRange": [
+                    {
+                        "from": 0,
+                        "to": 15,
+                        "textStyle": {
+                            "fontName": "Optima",
+                            "fontStyleName": "ExtraBlack",
+                            "size": 36,
+                            "fontPostScriptName": "Optima-ExtraBlack",
+                            "baselineDirection": "withStream",
+                            "japaneseAlternate": "defaultForm",
+                            "contextualLigatures": true,
+                            "digitSet": "arabicDigits",
+                            "markYDistFromBaseline": 0,
+                            "color": {
+                                "red": 34.4122,
+                                "green": 54.9117,
+                                "blue": 106.995
+                            },
+                            "fontTechnology": 1
+                        }
+                    }
+                ],
+                "paragraphStyleRange": [
+                    {
+                        "from": 0,
+                        "to": 15,
+                        "paragraphStyle": {
+                            "align": "center"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "index": 1,
+            "type": "textLayer",
+            "name": "left aligned",
+            "bounds": {
+                "top": 81,
+                "left": 155,
+                "bottom": 118,
+                "right": 356
+            },
+            "visible": true,
+            "clipped": false,
+            "generatorSettings": false,
+            "text": {
+                "textKey": "left aligned",
+                "textClickPoint": {
+                    "horizontal": {
+                        "value": 30.098,
+                        "units": "percentUnit"
+                    },
+                    "vertical": {
+                        "value": 29.507,
+                        "units": "percentUnit"
+                    }
+                },
+                "boundingBox": {
+                    "left": 1.90625,
+                    "top": -28,
+                    "right": 200.941,
+                    "bottom": 9
+                },
+                "bounds": {
+                    "left": 0,
+                    "top": -30.8875,
+                    "right": 202.784,
+                    "bottom": 9.43176
+                },
+                "textShape": [
+                    {
+                        "char": "paint",
+                        "orientation": "horizontal",
+                        "transform": {
+                            "xx": 1,
+                            "xy": 0,
+                            "yx": 0,
+                            "yy": 1,
+                            "tx": 0,
+                            "ty": 0
+                        },
+                        "rowCount": 1,
+                        "columnCount": 1,
+                        "rowMajorOrder": true,
+                        "rowGutter": 0,
+                        "columnGutter": 0,
+                        "spacing": 0,
+                        "frameBaselineAlignment": "alignByAscent",
+                        "firstBaselineMinimum": 0,
+                        "base": {
+                            "horizontal": 0,
+                            "vertical": 0
+                        }
+                    }
+                ],
+                "antiAlias": "antiAliasSharp",
+                "textGridding": "none",
+                "textStyleRange": [
+                    {
+                        "from": 0,
+                        "to": 13,
+                        "textStyle": {
+                            "fontName": "Optima",
+                            "fontStyleName": "ExtraBlack",
+                            "size": 36,
+                            "fontPostScriptName": "Optima-ExtraBlack",
+                            "baselineDirection": "withStream",
+                            "japaneseAlternate": "defaultForm",
+                            "contextualLigatures": true,
+                            "digitSet": "arabicDigits",
+                            "markYDistFromBaseline": 0,
+                            "color": {
+                                "red": 34.4122,
+                                "green": 54.9117,
+                                "blue": 106.995
+                            },
+                            "fontTechnology": 1
+                        }
+                    }
+                ],
+                "paragraphStyleRange": [
+                    {
+                        "from": 0,
+                        "to": 13,
+                        "paragraphStyle": {
+                            "align": "left",
+                            "hyphenationPreference": 0.5,
+                            "impliedFirstLineIndent": 0,
+                            "impliedStartIndent": 0,
+                            "impliedEndIndent": 0,
+                            "impliedSpaceBefore": 0,
+                            "impliedSpaceAfter": 0,
+                            "kashidaWidthType": "kashidaWidthMedium"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "index": 0,
+            "type": "backgroundLayer",
+            "name": "Background",
+            "protection": {
+                "transparency": true,
+                "position": true
+            },
+            "bounds": {
+                "top": 0,
+                "left": 0,
+                "bottom": 368,
+                "right": 512
+            },
+            "visible": true,
+            "clipped": false,
+            "pixels": true,
+            "generatorSettings": false
+        }
+    ]
+}
