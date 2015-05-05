@@ -21,7 +21,7 @@ module.exports = {
 					"miterLimit": 100,
 					"dashArray": [
 						0,
-						2
+						6
 					],
 					"dashOffset": 0,
 					"color": {
@@ -59,10 +59,10 @@ module.exports = {
 					"lineWidth": 10,
 					"miterLimit": 100,
 					"dashArray": [
-						5,
-						2,
-						2,
-						5
+						50,
+						20,
+						20,
+						50
 					],
 					"dashOffset": 0,
 					"color": {
@@ -100,8 +100,8 @@ module.exports = {
 					"lineWidth": 10,
 					"miterLimit": 100,
 					"dashArray": [
-						4,
-						2
+						40,
+						20
 					],
 					"dashOffset": 0,
 					"color": {
@@ -140,8 +140,8 @@ module.exports = {
 					"miterLimit": 100,
 					"dashArray": [
 						0,
-						4,
-						3
+						12,
+						9
 					],
 					"dashOffset": 0,
 					"color": {
@@ -180,8 +180,8 @@ module.exports = {
 					"miterLimit": 100,
 					"dashArray": [
 						0,
-						4,
-						3
+						40,
+						30
 					],
 					"dashOffset": 0,
 					"color": {
@@ -220,8 +220,8 @@ module.exports = {
 					"miterLimit": 100,
 					"dashArray": [
 						0,
-						4,
-						3
+						40,
+						30
 					],
 					"dashOffset": 0,
 					"color": {
@@ -264,7 +264,7 @@ module.exports = {
 					"miterLimit": 100,
 					"dashArray": [
 						0,
-						2
+						40
 					],
 					"dashOffset": 0,
 					"color": {
