@@ -21,11 +21,9 @@
         Tag = require("./svgWriterTag.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
-        write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
-        indentify = svgWriterUtils.indentify,
         ONLY_EXTERNALIZE_CONSOLIDATED = false;
 
     function CSSStyleRule(prop, val) {
@@ -232,6 +230,36 @@
             this.consolidateDefines();
         };
 
+        proto.getDefsTag = function () {
+
+            var defnId,
+                defn,
+                sheet = this,
+                defs = new Tag("defs");
+
+            defs.children.push(this.getStyleTag());
+            svgWriterGradient.gradientStopsReset();
+            for (defnId in this.defines) {
+                if (this.defines.hasOwnProperty(defnId)) {
+                    defn = this.defines[defnId];
+
+                    if (!ONLY_EXTERNALIZE_CONSOLIDATED || ONLY_EXTERNALIZE_CONSOLIDATED && defn.consolidated) {
+                        defs.children.push(defn.out);
+                    }
+                }
+            }
+            var write = defs.write;
+            defs.write = defs.toString = function (ctx) {
+                var hasRules = !ctx.usePresentationAttribute && sheet.hasRules(),
+                    hasDefines = sheet.hasDefines();
+                if (hasRules || hasDefines) {
+                    return write.call(this, ctx);
+                }
+                return "";
+            };
+            return defs;
+        };
+
         proto.removeElementDefn = function (elId, defnId) {
             var aDef = this.eleDefines[elId],
                 i;
@@ -396,54 +424,47 @@
             }
         };
 
+        proto.getStyleTag = function () {
+            var style = new Tag("style");
+            style.write = style.toString = this.writeSheet.bind(this);
+            return style;
+        };
+
         proto.writeSheet = function (ctx) {
+            if (ctx.usePresentationAttribute) {
+                return "";
+            }
             var blockClass,
                 blocks = [];
+
+            for (blockClass in this.blocks) {
+                if (this.blocks.hasOwnProperty(blockClass) && this.blocks[blockClass].hasRules()) {
+                    blocks.push(this.blocks[blockClass]);
+                }
+            }
+
+            var i = 0,
+                len = blocks.length;
+
+            if (!len) {
+                return "";
+            }
 
             writeln(ctx, ctx.currentIndent + "<style>");
             indent(ctx);
 
-            for (blockClass in this.blocks) {
-                if (this.blocks.hasOwnProperty(blockClass)) {
-                    if (this.blocks[blockClass].hasRules()) {
-                        blocks.push(this.blocks[blockClass]);
-                    }
-                }
-            }
-
             // extract all common rules into comma
             blocks = this.extract(blocks);
 
-            for (var i = 0, len = blocks.length; i < len; i++) {
-                i && writeln(ctx, ""); // new line before blocks
+            len = blocks.length;
+            for (; i < len; i++) {
+                i && writeln(ctx); // new line before blocks
                 blocks[i].write(ctx);
             }
 
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
-
-        };
-
-        proto.writeDefines = function (ctx) {
-
-            var defnId,
-                defn;
-
-            svgWriterGradient.gradientStopsReset();
-            for (defnId in this.defines) {
-                if (this.defines.hasOwnProperty(defnId)) {
-                    defn = this.defines[defnId];
-
-                    if (!defn.written && (!ONLY_EXTERNALIZE_CONSOLIDATED || ONLY_EXTERNALIZE_CONSOLIDATED && defn.consolidated)) {
-                        if (typeof defn.out == "string") {
-                            write(ctx, indentify(ctx.currentIndent, defn.out));
-                        } else {
-                            defn.out.write(ctx);
-                        }
-                        defn.written = true;
-                    }
-                }
-            }
+            this.hasDefines() && writeln(ctx);
         };
 
         proto.extract = function (blocks) {

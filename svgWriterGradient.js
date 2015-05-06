@@ -21,9 +21,8 @@
         Tag = require("./svgWriterTag.js"),
         round10k = svgWriterUtils.round10k,
         gradientStops = {},
-        getTransform = svgWriterUtils.getTransform;
-
-    var offsetX = 0,
+        getTransform = svgWriterUtils.getTransform,
+        offsetX = 0,
         offsetY = 0;
 
     function removeDups(lines) {
@@ -91,8 +90,8 @@
                 attr.fy = fy;
             }
 
-            // Spec of SVG 1.1: If (fx, fy) lies outside the circle defined by (cx, cy) and r, set 
-            // (fx, fy) to the point of intersection of the line through (fx, fy) and the circle. 
+            // Spec of SVG 1.1: If (fx, fy) lies outside the circle defined by (cx, cy) and r, set
+            // (fx, fy) to the point of intersection of the line through (fx, fy) and the circle.
             // A value of 0.99 matches the behavior of Firefox and Illustrator.
             deltaX = attr.fx - attr.cx;
             deltaY = attr.fy - attr.fy;
