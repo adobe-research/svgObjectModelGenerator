@@ -21,11 +21,9 @@
         Tag = require("./svgWriterTag.js"),
         svgWriterGradient = require("./svgWriterGradient.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
-        write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
-        indentify = svgWriterUtils.indentify,
         ONLY_EXTERNALIZE_CONSOLIDATED = false;
 
     function CSSStyleRule(prop, val) {
