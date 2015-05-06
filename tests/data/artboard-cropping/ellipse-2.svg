@@ -7,7 +7,7 @@
     </style>
 
     <clipPath id="clip-path-1">
-    <rect x="-200" y="200" width="400" height="400"/>
+      <rect x="-200" y="200" width="400" height="400"/>
     </clipPath>
     <radialGradient id="radial-gradient-1" cx="200" cy="200" r="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>

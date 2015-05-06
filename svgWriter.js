@@ -80,6 +80,9 @@
             var svg = Tag.make(ctx, svgOM);
             ctx.omStylesheet.consolidateStyleBlocks();
             processStyle(ctx, ctx.omStylesheet.blocks);
+            var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
+                hasDefines = ctx.omStylesheet.hasDefines();
+            (hasRules || hasDefines) && svg.children.unshift(ctx.omStylesheet.getDefsTag());
             preProcess(svg, ctx);
             svg.write(ctx);
         } catch (ex) {

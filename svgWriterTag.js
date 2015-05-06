@@ -175,25 +175,6 @@
             this.attrs[name] = value;
         }
     };
-    function writeDefs(ctx) {
-        var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
-            hasDefines = ctx.omStylesheet.hasDefines();
-
-        if (hasRules || hasDefines) {
-            writeln(ctx, ctx.currentIndent + "<defs>");
-            indent(ctx);
-
-            !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
-
-            if (hasRules && hasDefines) {
-                writeln(ctx);
-            }
-            ctx.omStylesheet.writeDefines(ctx);
-
-            undent(ctx);
-            writeln(ctx, ctx.currentIndent + "</defs>");
-        }
-    }
     var linkableNames = {
             linearGradient: 1,
             radialGradient: 1,
@@ -284,9 +265,6 @@
                 if (numChildren) {
                     indent(ctx);
                 }
-            }
-            if (tag.iamroot) {
-                writeDefs(ctx);
             }
         }
         for (i = 0; i < numChildren; i++) {

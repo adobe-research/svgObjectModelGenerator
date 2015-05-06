@@ -70,7 +70,7 @@
             }
             clipPathTag.children = rects;
 
-            ctx.omStylesheet.define("clip-path", "svg-root", clipPathID, clipPathTag.toString(), JSON.stringify({
+            ctx.omStylesheet.define("clip-path", "svg-root", clipPathID, clipPathTag, JSON.stringify({
                 bounds: bounds
             }));
 
