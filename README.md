@@ -40,6 +40,27 @@ You are encouraged to setup the pre commit hook to ensure that all the code is m
 ln -s ../../pre-commit.sh .git/hooks/pre-commit
 ```
 
+### Build
+
+svgObjectModelGenerator uses [Grunt](http://gruntjs.com/) to build.
+
+* Install its command line interface (CLI) globally:
+```
+npm install -g grunt-cli
+```
+_*You might need to use `sudo npm`, depending on your configuration._
+
+* Install dependencies with npm:
+```
+npm install
+```
+_*svgObjectModelGenerator uses Grunt 0.4.0. You might want to [read](http://gruntjs.com/getting-started) more on their website if you haven’t upgraded since a lot has changed._
+
+* Type `grunt` in the command line to test JavaScript coding style the files.
+* Type `grunt test` to run tests. The same as `npm test`.
+* Type `grunt pixel` to generate and run visual comparison tests.
+* Type `grunt all` to run coding style, generic and visual tests. Good idea to do it before the final commit for pull request.
+
 ## Getting SVG out of Generator JSON file
 
 We created an utility script, convertOMtoSVG that can be used for this purpose:
@@ -113,7 +134,7 @@ The generator plugin adds Copy Generator DOM to make it easy to get test data fo
 
 ## Running the tests
 
-The tests rely on mocha and chai, so make sure you have run `npm install` in your repository. Then, to run the tests, all you have to do is run `npm test`.
+The tests rely on mocha and chai, so make sure you have run `npm install` in your repository. Then, to run the tests, all you have to do is run `grunt test`.
 
 ## Debugging the tests
 
@@ -127,11 +148,11 @@ Generate the code coverage report "svgomg-code-coverage.html" by running `npm ru
 
 The test data comes from processing PSDs using the generator plugin defined in main.js.  With the plugin running and your PSD open in Photoshop use File > Generate > Copy Generator DOM.  This copies the generator JSON to your clipboard.
 
-Now, create a file with the PSD's name adding "-data.js" to the end, so "file.psd" becomes "file-data.js"  Inside the file define the data so it can be loaded using require
+Now, create a file with the PSD’s name adding "-data.js" to the end, so "file.psd" becomes "file-data.js"  Inside the file define the data so it can be loaded using require
 
     module.exports = DATA;
 
-Please don't check binary PSD files into this repo.
+Please don’t check binary PSD files into this repo.
 
 ## Reporting bugs
 
