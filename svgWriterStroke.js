@@ -21,8 +21,7 @@
         svgWriterGradient = require("./svgWriterGradient.js"),
         svgWriterPattern = require("./svgWriterPattern.js"),
         writeGradient = svgWriterGradient.writeGradient,
-        writePattern = svgWriterPattern.writePattern,
-        px = svgWriterUtils.px;
+        writePattern = svgWriterPattern.writePattern;
 
     function SVGWriterStroke() {
 

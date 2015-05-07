@@ -44,7 +44,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Optima-ExtraBlack\""
+								"font-family": "Optima",
+								"font-weight": 900
 							},
 							"children": [],
 							"text": "Text on Path",
@@ -105,7 +106,8 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Optima-ExtraBlack\""
+						"font-family": "Optima",
+						"font-weight": 900
 					},
 					"children": [],
 					"text": "Plain text",
@@ -174,7 +176,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Optima-ExtraBlack\""
+								"font-family": "Optima",
+								"font-weight": 900
 							},
 							"children": [],
 							"text": "more path text ",

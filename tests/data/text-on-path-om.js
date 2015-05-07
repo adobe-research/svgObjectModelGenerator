@@ -42,7 +42,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -110,7 +110,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -178,7 +178,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -246,7 +246,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text",
@@ -316,7 +316,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text on path",
@@ -386,7 +386,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -456,7 +456,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -524,7 +524,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -596,7 +596,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -666,7 +666,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -734,7 +734,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",
@@ -802,7 +802,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "Arial"
 							},
 							"children": [],
 							"text": "Text path",

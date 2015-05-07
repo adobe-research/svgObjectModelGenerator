@@ -110,7 +110,9 @@
                 stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
                 stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
                 stroke.dashArray = strokeStyle.strokeStyleLineDashSet ?
-                    strokeStyle.strokeStyleLineDashSet.map(function (ele) { return omgUtils.boundInPx(ele, dpi) * (stroke.lineWidth || 0); }) : [];
+                    strokeStyle.strokeStyleLineDashSet.map(function (ele) {
+                    return omgUtils.boundInPx(ele, dpi) * (stroke.lineWidth || 0);
+                }) : [];
                 stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
                 stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
@@ -288,8 +290,46 @@
             this.addFx(svgNode, layer, layerBounds, writer);
         };
 
+        var weightMap = {
+                hairline: 100,
+                "ultra-light": 100,
+                ultralight: 100,
+                "ultra-thin": 100,
+                ultrathin: 100,
+                "extra-light": 200,
+                extralight: 200,
+                thin: 200,
+                light: 300,
+                demi: 300,
+                normal: 400,
+                regular: 400,
+                book: 400,
+                roman: 400,
+                plain: 400,
+                medium: 500,
+                semibold: 600,
+                demibold: 600,
+                "demi-bold": 600,
+                bold: 700,
+                black: 800,
+                heavy: 800,
+                "extra-bold": 800,
+                extrabold: 800,
+                "extra-black": 900,
+                extrablack: 900,
+                fat: 900,
+                poster: 900,
+                "ultra-black": 900,
+                ultrablack: 900
+            },
+            italicMap = {
+                italic: 1,
+                oblique: 1,
+                slanted: 1
+            };
         this.addTextChunkStyle = function (span, textStyle, dpi) {
-            var fontFamily;
+            var fontFamily,
+                PSName;
 
             if (textStyle.textStyle.color) {
                 span.style.fill = {
@@ -300,10 +340,11 @@
 
             if (textStyle.textStyle.fontName) {
                 fontFamily = textStyle.textStyle.fontName;
-                if (textStyle.textStyle.fontPostScriptName && textStyle.textStyle.fontStyleName !== "Regular") {
-                    fontFamily = textStyle.textStyle.fontPostScriptName;
+                PSName = textStyle.textStyle.fontPostScriptName;
+                if (~fontFamily.indexOf(" ")) {
+                    fontFamily = '"' + fontFamily + '"';
                 }
-                span.style["font-family"] = '"' + fontFamily + '"';
+                span.style["font-family"] = fontFamily;
             }
 
             if (textStyle.textStyle.size) {
@@ -314,12 +355,24 @@
             }
 
             if (textStyle.textStyle.fontStyleName) {
-                if (textStyle.textStyle.fontStyleName.indexOf("Bold") >= 0) {
-                    span.style["font-weight"] = "bold";
-                }
-                if (textStyle.textStyle.fontStyleName.indexOf("Italic") >= 0) {
-                    span.style["font-style"] = "italic";
-                }
+                var styles = textStyle.textStyle.fontStyleName.toLowerCase().split(" ");
+                styles.forEach(function (style) {
+                    if (weightMap[style]) {
+                        if (weightMap[style] != 400) { // default
+                            span.style["font-weight"] = weightMap[style];
+                        }
+                    } else if (italicMap[style]) {
+                        span.style["font-style"] = "italic";
+                    } else {
+                        if (PSName) {
+                            if (~PSName.indexOf(" ")) {
+                                PSName = '"' + PSName + '"';
+                            }
+                            fontFamily = PSName + ', ' + fontFamily;
+                        }
+                        span.style["font-family"] = fontFamily;
+                    }
+                });
             }
 
             if (textStyle.textStyle.strikethrough && textStyle.textStyle.strikethrough.indexOf("StrikethroughOn") >= 0) {

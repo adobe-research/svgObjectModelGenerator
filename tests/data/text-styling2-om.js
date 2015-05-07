@@ -26,8 +26,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Light\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 300
 					},
 					"children": [],
 					"text": "2",
@@ -130,8 +131,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Semibold\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 600
 					},
 					"children": [],
 					"text": "4",
@@ -182,9 +184,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Bold\"",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
-						"font-weight": "bold"
+						"font-weight": 700
 					},
 					"children": [],
 					"text": "5",
@@ -235,8 +237,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Black\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 800
 					},
 					"children": [],
 					"text": "6",
@@ -287,8 +290,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-BlackIt\"",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
+						"font-weight": 800,
 						"font-style": "italic"
 					},
 					"children": [],
@@ -340,8 +344,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-ExtraLight\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 200
 					},
 					"children": [],
 					"text": "1",
@@ -391,8 +396,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-Thin\"",
-						"_leading": 111
+						"font-family": "\"Helvetica Neue\"",
+						"_leading": 111,
+						"font-weight": 200
 					},
 					"children": [],
 					"text": "thin",
@@ -415,8 +421,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-UltraLight\"",
-						"_leading": 111
+						"font-family": "\"Helvetica Neue\"",
+						"_leading": 111,
+						"font-weight": 100
 					},
 					"children": [],
 					"text": "ultrathin",
@@ -439,8 +446,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-ThinItalic\"",
+						"font-family": "\"Helvetica Neue\"",
 						"_leading": 111,
+						"font-weight": 200,
 						"font-style": "italic"
 					},
 					"children": [],
@@ -464,8 +472,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-Medium\"",
-						"_leading": 111
+						"font-family": "\"Helvetica Neue\"",
+						"_leading": 111,
+						"font-weight": 500
 					},
 					"children": [],
 					"text": "medium",
@@ -488,8 +497,10 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica-LightOblique\"",
-						"_leading": 111
+						"font-family": "Helvetica",
+						"_leading": 111,
+						"font-weight": 300,
+						"font-style": "italic"
 					},
 					"children": [],
 					"text": "light oblique",
@@ -512,7 +523,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"BodoniSvtyTwoITCTT-Book\"",
+						"font-family": "\"Bodoni 72\"",
 						"_leading": 111
 					},
 					"children": [],
@@ -536,8 +547,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"LetterGothicStd-Slanted\"",
-						"_leading": 111
+						"font-family": "\"Letter Gothic Std\"",
+						"_leading": 111,
+						"font-style": "italic"
 					},
 					"children": [],
 					"text": "slanted",

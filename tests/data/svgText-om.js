@@ -351,9 +351,9 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"MyriadPro-BoldCond\"",
+								"font-family": "MyriadPro-BoldCond, \"Myriad Pro\"",
 								"font-size": 63.6352,
-								"font-weight": "bold"
+								"font-weight": 700
 							},
 							"children": [],
 							"text": "t e",

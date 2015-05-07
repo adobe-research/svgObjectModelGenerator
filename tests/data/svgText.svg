@@ -22,8 +22,8 @@
       }
 
       .cls-6 {
-        font-family: "MyriadPro-BoldCond";
-        font-weight: bold;
+        font-family: MyriadPro-BoldCond, "Myriad Pro";
+        font-weight: 700;
       }
 
       .cls-10, .cls-12, .cls-7, .cls-8 {
