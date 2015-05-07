@@ -25,8 +25,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 30,
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Text",

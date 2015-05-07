@@ -11,7 +11,7 @@
 
       .cls-3 {
         fill: #226b26;
-        font-family: "Optima", "Optima-ExtraBlack";
+        font-family: "Optima";
         font-weight: 900;
       }
     </style>

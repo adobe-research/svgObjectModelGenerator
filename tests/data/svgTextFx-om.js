@@ -165,9 +165,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 31.8176,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 31.8176
 							},
 							"children": [],
 							"text": "This is a ",
@@ -192,9 +191,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 31.8176,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 31.8176
 							},
 							"children": [],
 							"text": "text",

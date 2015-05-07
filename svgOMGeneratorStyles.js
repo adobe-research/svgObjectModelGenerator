@@ -328,7 +328,8 @@
                 slanted: 1
             };
         this.addTextChunkStyle = function (span, textStyle, dpi) {
-            var fontFamily;
+            var fontFamily,
+                PSName;
 
             if (textStyle.textStyle.color) {
                 span.style.fill = {
@@ -338,9 +339,10 @@
             }
 
             if (textStyle.textStyle.fontName) {
-                fontFamily = '"' + textStyle.textStyle.fontName + '"';
-                if (textStyle.textStyle.fontPostScriptName) {
-                    fontFamily += ', "' + textStyle.textStyle.fontPostScriptName + '"';
+                fontFamily = textStyle.textStyle.fontName;
+                PSName = textStyle.textStyle.fontPostScriptName;
+                if (!~fontFamily.indexOf(" ")) {
+                    fontFamily = '"' + fontFamily + '"';
                 }
                 span.style["font-family"] = fontFamily;
             }
@@ -356,11 +358,19 @@
                 var styles = textStyle.textStyle.fontStyleName.toLowerCase().split(" ");
                 styles.forEach(function (style) {
                     if (weightMap[style]) {
-                        span.style["font-weight"] = weightMap[style];
+                        if (weightMap[style] != 400) { // default
+                            span.style["font-weight"] = weightMap[style];
+                        }
                     } else if (italicMap[style]) {
                         span.style["font-style"] = "italic";
                     } else {
-                        console.log("Warning: Unrecognised font style: “" + style + "”.");
+                        if (PSName) {
+                            if (!~PSName.indexOf(" ")) {
+                                PSName = '"' + PSName + '"';
+                            }
+                            fontFamily = PSName + ', ' + fontFamily;
+                        }
+                        span.style["font-family"] = fontFamily;
                     }
                 });
             }

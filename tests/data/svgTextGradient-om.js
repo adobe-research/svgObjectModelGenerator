@@ -128,8 +128,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Myriad Pro\"",
-						"font-weight": 400
+						"font-family": "Myriad Pro"
 					},
 					"children": [],
 					"text": "This is a text",

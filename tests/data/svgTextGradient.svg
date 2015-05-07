@@ -11,7 +11,7 @@
 
       .cls-2 {
         fill: #696969;
-        font-family: "Myriad Pro";
+        font-family: Myriad Pro;
       }
     </style>
 

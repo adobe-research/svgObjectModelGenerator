@@ -19,7 +19,7 @@
       .cls-4 {
         fill: #226b26;
         text-anchor: end;
-        font-family: "Optima", "Optima-ExtraBlack";
+        font-family: "Optima";
         font-weight: 900;
       }
     </style>

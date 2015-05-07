@@ -26,7 +26,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-Light\"",
+						"font-family": "Source Sans Pro",
 						"_leading": 111,
 						"font-weight": 300
 					},
@@ -79,9 +79,8 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-Regular\"",
-						"_leading": 111,
-						"font-weight": 400
+						"font-family": "Source Sans Pro",
+						"_leading": 111
 					},
 					"children": [],
 					"text": "3",
@@ -132,7 +131,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-Semibold\"",
+						"font-family": "Source Sans Pro",
 						"_leading": 111,
 						"font-weight": 600
 					},
@@ -185,7 +184,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-Bold\"",
+						"font-family": "Source Sans Pro",
 						"_leading": 111,
 						"font-weight": 700
 					},
@@ -238,7 +237,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-Black\"",
+						"font-family": "Source Sans Pro",
 						"_leading": 111,
 						"font-weight": 800
 					},
@@ -291,7 +290,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-BlackIt\"",
+						"font-family": "Source Sans Pro",
 						"_leading": 111,
 						"font-weight": 800,
 						"font-style": "italic"
@@ -345,7 +344,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"Source Sans Pro\", \"SourceSansPro-ExtraLight\"",
+						"font-family": "Source Sans Pro",
 						"_leading": 111,
 						"font-weight": 200
 					},
@@ -397,7 +396,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica Neue\", \"HelveticaNeue-Thin\"",
+						"font-family": "Helvetica Neue",
 						"_leading": 111,
 						"font-weight": 200
 					},
@@ -422,7 +421,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica Neue\", \"HelveticaNeue-UltraLight\"",
+						"font-family": "Helvetica Neue",
 						"_leading": 111,
 						"font-weight": 100
 					},
@@ -447,7 +446,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica Neue\", \"HelveticaNeue-ThinItalic\"",
+						"font-family": "Helvetica Neue",
 						"_leading": 111,
 						"font-weight": 200,
 						"font-style": "italic"
@@ -473,7 +472,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica Neue\", \"HelveticaNeue-Medium\"",
+						"font-family": "Helvetica Neue",
 						"_leading": 111,
 						"font-weight": 500
 					},
@@ -498,7 +497,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica\", \"Helvetica-LightOblique\"",
+						"font-family": "\"Helvetica\"",
 						"_leading": 111,
 						"font-weight": 300,
 						"font-style": "italic"
@@ -524,9 +523,8 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Bodoni 72\", \"BodoniSvtyTwoITCTT-Book\"",
-						"_leading": 111,
-						"font-weight": 400
+						"font-family": "Bodoni 72",
+						"_leading": 111
 					},
 					"children": [],
 					"text": "book",
@@ -549,7 +547,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Letter Gothic Std\", \"LetterGothicStd-Slanted\"",
+						"font-family": "Letter Gothic Std",
 						"_leading": 111,
 						"font-style": "italic"
 					},

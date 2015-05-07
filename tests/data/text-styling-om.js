@@ -34,7 +34,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"Arial-ItalicMT\"",
+						"font-family": "\"Arial\"",
 						"font-style": "italic"
 					},
 					"children": [],
@@ -94,7 +94,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"Arial-BoldMT\"",
+						"font-family": "\"Arial\"",
 						"font-weight": 700
 					},
 					"children": [],
@@ -154,7 +154,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"Arial-BoldItalicMT\"",
+						"font-family": "\"Arial\"",
 						"font-weight": 700,
 						"font-style": "italic"
 					},
@@ -215,8 +215,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400,
+						"font-family": "\"Arial\"",
 						"text-decoration": "underline"
 					},
 					"children": [],
@@ -276,8 +275,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400,
+						"font-family": "\"Arial\"",
 						"text-decoration": "line-through"
 					},
 					"children": [],
@@ -337,8 +335,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400,
+						"font-family": "\"Arial\"",
 						"font-variant": "small-caps"
 					},
 					"children": [],
@@ -398,8 +395,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400,
+						"font-family": "\"Arial\"",
 						"text-transform": "uppercase"
 					},
 					"children": [],
@@ -459,8 +455,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400,
+						"font-family": "\"Arial\"",
 						"_baseline-script": "super"
 					},
 					"children": [],
@@ -520,8 +515,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400,
+						"font-family": "\"Arial\"",
 						"_baseline-script": "sub"
 					},
 					"children": [],
@@ -581,8 +575,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Text",
@@ -641,8 +634,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Text",
@@ -701,8 +693,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Text",
@@ -761,8 +752,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Test",
@@ -821,8 +811,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Test",
@@ -881,8 +870,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Test",
@@ -941,8 +929,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Arial\", \"ArialMT\"",
-						"font-weight": 400
+						"font-family": "\"Arial\""
 					},
 					"children": [],
 					"text": "Test",

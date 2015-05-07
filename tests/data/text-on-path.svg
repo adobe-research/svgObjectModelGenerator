@@ -7,7 +7,7 @@
 
       .cls-2, .cls-5, .cls-7 {
         fill: #000300;
-        font-family: "Arial", "ArialMT";
+        font-family: "Arial";
       }
 
       .cls-3 {

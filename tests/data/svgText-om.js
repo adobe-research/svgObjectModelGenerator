@@ -34,8 +34,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Myriad Pro\"",
-						"font-weight": 400
+						"font-family": "Myriad Pro"
 					},
 					"children": [],
 					"text": "This is a text example",
@@ -101,9 +100,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "This is a ",
@@ -128,9 +126,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "text ",
@@ -155,9 +152,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "example",
@@ -225,9 +221,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "Thi",
@@ -252,9 +247,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "s i",
@@ -279,9 +273,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "s ",
@@ -306,9 +299,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "a t",
@@ -333,9 +325,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "ex",
@@ -360,7 +351,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"MyriadPro-BoldCond\"",
+								"font-family": "\"MyriadPro-BoldCond\", Myriad Pro",
 								"font-size": 63.6352,
 								"font-weight": 700
 							},
@@ -387,9 +378,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Myriad Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "xa",
@@ -414,9 +404,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "mple",
@@ -484,9 +473,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "This i",
@@ -511,9 +499,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "s",
@@ -554,9 +541,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "a te",
@@ -581,9 +567,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "x",
@@ -608,9 +593,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 20,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 20
 							},
 							"children": [],
 							"text": "t",
@@ -651,9 +635,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 20,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 20
 							},
 							"children": [],
 							"text": "exam",
@@ -678,9 +661,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
-								"font-size": 63.6352,
-								"font-weight": 400
+								"font-family": "Minion Pro",
+								"font-size": 63.6352
 							},
 							"children": [],
 							"text": "ple",

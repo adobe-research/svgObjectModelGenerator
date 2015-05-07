@@ -11,7 +11,7 @@
 
       .cls-3 {
         fill: #030303;
-        font-family: "Minion Pro", "MinionPro-Regular";
+        font-family: Minion Pro;
       }
 
       .cls-4 {
