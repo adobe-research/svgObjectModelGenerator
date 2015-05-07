@@ -34,7 +34,8 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Minion Pro\""
+						"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
+						"font-weight": 400
 					},
 					"children": [],
 					"text": "Left aligned",
@@ -67,7 +68,8 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Minion Pro\""
+						"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
+						"font-weight": 400
 					},
 					"children": [],
 					"text": "center",
@@ -100,7 +102,8 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Minion Pro\""
+						"font-family": "\"Minion Pro\", \"MinionPro-Regular\"",
+						"font-weight": 400
 					},
 					"children": [],
 					"text": "right aligned",

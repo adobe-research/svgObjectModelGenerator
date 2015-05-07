@@ -10,7 +10,7 @@
       }
 
       .cls-2, .cls-3 {
-        font-family: "Myriad Pro";
+        font-family: "Myriad Pro", "undefined";
       }
 
       .cls-4 {
@@ -22,12 +22,12 @@
       }
 
       .cls-6 {
-        font-family: "MyriadPro-BoldCond";
-        font-weight: bold;
+        font-family: "Myriad Pro", "MyriadPro-BoldCond";
+        font-weight: 700;
       }
 
       .cls-10, .cls-12, .cls-7, .cls-8 {
-        font-family: "Minion Pro";
+        font-family: "Minion Pro", "MinionPro-Regular";
       }
 
       .cls-11, .cls-12 {

@@ -36,7 +36,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Optima-ExtraBlack\""
+								"font-family": "\"Optima\", \"Optima-ExtraBlack\"",
+								"font-weight": 900
 							},
 							"children": [],
 							"text": "more path text ",

@@ -12,7 +12,7 @@
 
       .cls-2 {
         fill: #030303;
-        font-family: "Minion Pro";
+        font-family: "Minion Pro", "undefined";
       }
     </style>
   </defs>

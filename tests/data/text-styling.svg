@@ -10,7 +10,7 @@
       }
 
       .cls-2 {
-        font-family: "Arial-ItalicMT";
+        font-family: "Arial", "Arial-ItalicMT";
       }
 
       .cls-2, .cls-4 {
@@ -18,19 +18,19 @@
       }
 
       .cls-3 {
-        font-family: "Arial-BoldMT";
+        font-family: "Arial", "Arial-BoldMT";
       }
 
       .cls-3, .cls-4 {
-        font-weight: bold;
+        font-weight: 700;
       }
 
       .cls-4 {
-        font-family: "Arial-BoldItalicMT";
+        font-family: "Arial", "Arial-BoldItalicMT";
       }
 
       .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
-        font-family: "Arial";
+        font-family: "Arial", "ArialMT";
       }
 
       .cls-5 {

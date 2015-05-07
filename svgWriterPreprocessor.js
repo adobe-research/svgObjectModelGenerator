@@ -26,8 +26,7 @@
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterTextPath = require("./svgWriterTextPath.js"),
         matrix = require("./matrix.js"),
-        utils = require("./utils.js"),
-        px = svgWriterUtils.px;
+        utils = require("./utils.js");
 
     function SVGWriterPreprocessor() {
 

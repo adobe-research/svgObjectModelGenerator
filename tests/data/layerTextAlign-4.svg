@@ -8,7 +8,8 @@
       .cls-2 {
         fill: #22376b;
         text-anchor: end;
-        font-family: "Optima-ExtraBlack";
+        font-family: "Optima", "Optima-ExtraBlack";
+        font-weight: 900;
       }
     </style>
   </defs>

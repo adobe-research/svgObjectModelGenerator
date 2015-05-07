@@ -42,7 +42,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -110,7 +111,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -178,7 +180,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -246,7 +249,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text",
@@ -316,7 +320,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text on path",
@@ -386,7 +391,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -456,7 +462,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -524,7 +531,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -596,7 +604,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -666,7 +675,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -734,7 +744,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
@@ -802,7 +813,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Arial\""
+								"font-family": "\"Arial\", \"ArialMT\"",
+								"font-weight": 400
 							},
 							"children": [],
 							"text": "Text path",
