@@ -538,6 +538,24 @@
                 }
                 return tag.useTrick(ctx);
             },
+            reference: function (ctx, node) {
+                return new Tag("use", {
+                    "xlink:href": "#" + ctx.omStylesheet.getDefine(node.shape.ref, "symbol").defnId,
+                    x: node.shape.offset && node.shape.offset.x || 0,
+                    y: node.shape.offset && node.shape.offset.y || 0,
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                }, ctx);
+            },
+            symbol: function (ctx, node) {
+                var attr = {};
+                if (node.viewBox) {
+                    attr.viewBox = parseNumber(node.viewBox.left) + " " +
+                        parseNumber(node.viewBox.top) + " " +
+                        parseNumber(node.viewBox.right) + " " +
+                        parseNumber(node.viewBox.bottom);
+                }
+                return new Tag("symbol", attr, ctx);
+            },
             svg: function (ctx) {
                 var preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
                     scale = ctx.config.scale || 1,
