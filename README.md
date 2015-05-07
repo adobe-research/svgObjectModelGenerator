@@ -58,7 +58,7 @@ _*svgObjectModelGenerator uses Grunt 0.4.0. You might want to [read](http://grun
 
 * Type `grunt` in the command line to test JavaScript coding style the files.
 * Type `grunt test` to run tests. The same as `npm test`.
-* Type `grunt pixel` to generate and run visual comparison tests. To update screenshots, siply go to `./tests/visual/screenshots` and delete files that are wrong.
+* Type `grunt pixel` to generate and run visual comparison tests. To update screenshots, simply go to `./tests/visual/screenshots` and delete files that are wrong.
 * Type `grunt all` to run coding style, generic and visual tests. Good idea to do it before the final commit for pull request.
 
 ## Getting SVG out of Generator JSON file
