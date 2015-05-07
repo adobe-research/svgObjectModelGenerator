@@ -26,7 +26,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
 						"font-weight": 300
 					},
@@ -79,7 +79,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111
 					},
 					"children": [],
@@ -131,7 +131,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
 						"font-weight": 600
 					},
@@ -184,7 +184,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
 						"font-weight": 700
 					},
@@ -237,7 +237,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
 						"font-weight": 800
 					},
@@ -290,7 +290,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
 						"font-weight": 800,
 						"font-style": "italic"
@@ -344,7 +344,7 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "Source Sans Pro",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
 						"font-weight": 200
 					},
@@ -396,7 +396,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "Helvetica Neue",
+						"font-family": "\"Helvetica Neue\"",
 						"_leading": 111,
 						"font-weight": 200
 					},
@@ -421,7 +421,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "Helvetica Neue",
+						"font-family": "\"Helvetica Neue\"",
 						"_leading": 111,
 						"font-weight": 100
 					},
@@ -446,7 +446,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "Helvetica Neue",
+						"font-family": "\"Helvetica Neue\"",
 						"_leading": 111,
 						"font-weight": 200,
 						"font-style": "italic"
@@ -472,7 +472,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "Helvetica Neue",
+						"font-family": "\"Helvetica Neue\"",
 						"_leading": 111,
 						"font-weight": 500
 					},
@@ -497,7 +497,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica\"",
+						"font-family": "Helvetica",
 						"_leading": 111,
 						"font-weight": 300,
 						"font-style": "italic"
@@ -523,7 +523,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "Bodoni 72",
+						"font-family": "\"Bodoni 72\"",
 						"_leading": 111
 					},
 					"children": [],
@@ -547,7 +547,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "Letter Gothic Std",
+						"font-family": "\"Letter Gothic Std\"",
 						"_leading": 111,
 						"font-style": "italic"
 					},

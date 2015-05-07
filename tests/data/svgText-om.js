@@ -34,7 +34,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "Myriad Pro"
+						"font-family": "\"Myriad Pro\""
 					},
 					"children": [],
 					"text": "This is a text example",
@@ -100,7 +100,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -126,7 +126,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -152,7 +152,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -221,7 +221,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -247,7 +247,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -273,7 +273,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -299,7 +299,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -325,7 +325,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -351,7 +351,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"MyriadPro-BoldCond\", Myriad Pro",
+								"font-family": "MyriadPro-BoldCond, \"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 700
 							},
@@ -378,7 +378,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Myriad Pro",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -404,7 +404,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -473,7 +473,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -499,7 +499,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -541,7 +541,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -567,7 +567,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],
@@ -593,7 +593,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 20
 							},
 							"children": [],
@@ -635,7 +635,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 20
 							},
 							"children": [],
@@ -661,7 +661,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "Minion Pro",
+								"font-family": "\"Minion Pro\"",
 								"font-size": 63.6352
 							},
 							"children": [],

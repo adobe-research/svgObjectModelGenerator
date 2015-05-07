@@ -341,7 +341,7 @@
             if (textStyle.textStyle.fontName) {
                 fontFamily = textStyle.textStyle.fontName;
                 PSName = textStyle.textStyle.fontPostScriptName;
-                if (!~fontFamily.indexOf(" ")) {
+                if (~fontFamily.indexOf(" ")) {
                     fontFamily = '"' + fontFamily + '"';
                 }
                 span.style["font-family"] = fontFamily;
@@ -365,7 +365,7 @@
                         span.style["font-style"] = "italic";
                     } else {
                         if (PSName) {
-                            if (!~PSName.indexOf(" ")) {
+                            if (~PSName.indexOf(" ")) {
                                 PSName = '"' + PSName + '"';
                             }
                             fontFamily = PSName + ', ' + fontFamily;

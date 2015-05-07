@@ -36,7 +36,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "Minion Pro"
+						"font-family": "\"Minion Pro\""
 					},
 					"children": [],
 					"text": "This is a text",

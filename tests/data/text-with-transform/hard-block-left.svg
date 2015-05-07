@@ -7,7 +7,7 @@
 
       .cls-2 {
         fill: #226b26;
-        font-family: "Optima";
+        font-family: Optima;
         font-weight: 900;
       }
     </style>

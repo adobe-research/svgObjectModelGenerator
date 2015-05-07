@@ -34,7 +34,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "Minion Pro"
+						"font-family": "\"Minion Pro\""
 					},
 					"children": [],
 					"text": "Left aligned",
@@ -67,7 +67,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "Minion Pro"
+						"font-family": "\"Minion Pro\""
 					},
 					"children": [],
 					"text": "center",
@@ -100,7 +100,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "Minion Pro"
+						"font-family": "\"Minion Pro\""
 					},
 					"children": [],
 					"text": "right aligned",

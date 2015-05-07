@@ -44,7 +44,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Optima\"",
+								"font-family": "Optima",
 								"font-weight": 900
 							},
 							"children": [],
@@ -106,7 +106,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Optima\"",
+						"font-family": "Optima",
 						"font-weight": 900
 					},
 					"children": [],
@@ -176,7 +176,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Optima\"",
+								"font-family": "Optima",
 								"font-weight": 900
 							},
 							"children": [],
