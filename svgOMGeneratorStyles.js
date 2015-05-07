@@ -338,8 +338,11 @@
             }
 
             if (textStyle.textStyle.fontName) {
-                fontFamily = textStyle.textStyle.fontName;
-                span.style["font-family"] = '"' + fontFamily + '", "' + textStyle.textStyle.fontPostScriptName + '"';
+                fontFamily = '"' + textStyle.textStyle.fontName + '"';
+                if (textStyle.textStyle.fontPostScriptName) {
+                    fontFamily += ', "' + textStyle.textStyle.fontPostScriptName + '"';
+                }
+                span.style["font-family"] = fontFamily;
             }
 
             if (textStyle.textStyle.size) {

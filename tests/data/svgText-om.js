@@ -34,7 +34,7 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"font-family": "\"Myriad Pro\", \"undefined\"",
+						"font-family": "\"Myriad Pro\"",
 						"font-weight": 400
 					},
 					"children": [],
@@ -101,7 +101,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -128,7 +128,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -155,7 +155,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -225,7 +225,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -252,7 +252,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -279,7 +279,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -306,7 +306,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -333,7 +333,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
@@ -387,7 +387,7 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Myriad Pro\", \"undefined\"",
+								"font-family": "\"Myriad Pro\"",
 								"font-size": 63.6352,
 								"font-weight": 400
 							},
