@@ -132,7 +132,8 @@ module.exports = {
 						}
 					}
 				],
-				"type": "symbol"
+				"type": "symbol",
+				"title": "<A damn cool circle>"
 			},
 			"symbol3": {
 				"children": [
