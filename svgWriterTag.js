@@ -350,6 +350,13 @@
         this.tricked = true;
         return list;
     };
+    function roundRectPath(x, y, width, height, r) {
+        return util.optimisePath("M" + [x + r[0], y] +
+            "h" + (width - r[0] - r[1]) + "a" + [r[1], r[1], 0, 0, 1, r[1], r[1]] +
+            "v" + (height - r[1] - r[2]) + "a" + [r[2], r[2], 0, 0, 1, -r[2], r[2]] +
+            "h" + -(width - r[2] - r[3]) + "a" + [r[3], r[3], 0, 0, 1, -r[3], -r[3]] +
+            "v" + -(height - r[0] - r[3]) + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z");
+    }
     var imageProcessing = function (ctx, node) {
             if (!node.bounds) {
                 return;
@@ -468,20 +475,33 @@
                 return new Tag("pattern", attr, ctx);
             },
             rect: function (ctx, node) {
-                var tag = new Tag("rect", {
-                        x: node.shape.x,
-                        y: node.shape.y,
-                        width: node.shape.width,
-                        height: node.shape.height,
-                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                    }, ctx);
-                if (node.shapeRadii) {
-                    var r = parseFloat(node.shapeRadii[0]);
-                    tag.setAttributes({
-                        rx: r,
-                        ry: r
+                var r = node.shape.r,
+                    tag;
+                if (r) {
+                    r = r.map(function (item) {
+                        return Math.abs(parseFloat(item));
                     });
+                    if (r[0] != r[1] || r[1] != r[2] || r[2] != r[3]) {
+                        tag = new Tag("path", {
+                            d: roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r),
+                            transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                        }, ctx);
+                        return tag.useTrick(ctx);
+                    } else {
+                        r = r[0];
+                    }
                 }
+                tag = new Tag("rect", {
+                    x: node.shape.x,
+                    y: node.shape.y,
+                    width: node.shape.width,
+                    height: node.shape.height,
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                }, ctx);
+                r && tag.setAttributes({
+                    rx: r,
+                    ry: r
+                });
                 return tag.useTrick(ctx);
             },
             text: function (ctx, node) {
