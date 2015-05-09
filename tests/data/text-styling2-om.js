@@ -26,8 +26,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Light\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 300
 					},
 					"children": [],
 					"text": "2",
@@ -38,7 +39,7 @@ module.exports = {
 						"right": 109
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -53,8 +54,8 @@ module.exports = {
 				"right": 109
 			},
 			"position": {
-				"x": 87,
-				"y": 286,
+				"x": 86.777344,
+				"y": 285.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -90,7 +91,7 @@ module.exports = {
 						"right": 109
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -105,8 +106,8 @@ module.exports = {
 				"right": 109
 			},
 			"position": {
-				"x": 87,
-				"y": 414,
+				"x": 86.777344,
+				"y": 413.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -130,8 +131,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Semibold\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 600
 					},
 					"children": [],
 					"text": "4",
@@ -142,7 +144,7 @@ module.exports = {
 						"right": 113
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -157,8 +159,8 @@ module.exports = {
 				"right": 113
 			},
 			"position": {
-				"x": 87,
-				"y": 539,
+				"x": 86.777344,
+				"y": 538.7031244799999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -182,9 +184,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Bold\"",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
-						"font-weight": "bold"
+						"font-weight": 700
 					},
 					"children": [],
 					"text": "5",
@@ -195,7 +197,7 @@ module.exports = {
 						"right": 111
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -210,8 +212,8 @@ module.exports = {
 				"right": 111
 			},
 			"position": {
-				"x": 87,
-				"y": 670,
+				"x": 86.777344,
+				"y": 669.7031270399999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -235,8 +237,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-Black\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 800
 					},
 					"children": [],
 					"text": "6",
@@ -247,7 +250,7 @@ module.exports = {
 						"right": 112
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -262,8 +265,8 @@ module.exports = {
 				"right": 112
 			},
 			"position": {
-				"x": 87,
-				"y": 795,
+				"x": 86.777344,
+				"y": 794.7031244799999,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -287,8 +290,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-BlackIt\"",
+						"font-family": "\"Source Sans Pro\"",
 						"_leading": 111,
+						"font-weight": 800,
 						"font-style": "italic"
 					},
 					"children": [],
@@ -300,7 +304,7 @@ module.exports = {
 						"right": 119
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -315,8 +319,8 @@ module.exports = {
 				"right": 119
 			},
 			"position": {
-				"x": 87,
-				"y": 920,
+				"x": 86.777344,
+				"y": 919.70312192,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -340,8 +344,9 @@ module.exports = {
 					"style": {
 						"text-anchor": "middle",
 						"font-size": 111,
-						"font-family": "\"SourceSansPro-ExtraLight\"",
-						"_leading": 111
+						"font-family": "\"Source Sans Pro\"",
+						"_leading": 111,
+						"font-weight": 200
 					},
 					"children": [],
 					"text": "1",
@@ -352,7 +357,7 @@ module.exports = {
 						"right": 97
 					},
 					"position": {
-						"x": 87,
+						"x": 86.777344,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -367,8 +372,8 @@ module.exports = {
 				"right": 97
 			},
 			"position": {
-				"x": 87,
-				"y": 150,
+				"x": 86.777344,
+				"y": 149.70312704,
 				"unitX": "px",
 				"unitY": "px"
 			},
@@ -391,8 +396,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-Thin\"",
-						"_leading": 111
+						"font-family": "\"Helvetica Neue\"",
+						"_leading": 111,
+						"font-weight": 200
 					},
 					"children": [],
 					"text": "thin",
@@ -403,7 +409,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 0,
 						"unitX": "px",
 						"unitY": "em"
@@ -415,8 +421,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-UltraLight\"",
-						"_leading": 111
+						"font-family": "\"Helvetica Neue\"",
+						"_leading": 111,
+						"font-weight": 100
 					},
 					"children": [],
 					"text": "ultrathin",
@@ -427,7 +434,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -439,8 +446,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-ThinItalic\"",
+						"font-family": "\"Helvetica Neue\"",
 						"_leading": 111,
+						"font-weight": 200,
 						"font-style": "italic"
 					},
 					"children": [],
@@ -452,7 +460,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -464,8 +472,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"HelveticaNeue-Medium\"",
-						"_leading": 111
+						"font-family": "\"Helvetica Neue\"",
+						"_leading": 111,
+						"font-weight": 500
 					},
 					"children": [],
 					"text": "medium",
@@ -476,7 +485,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -488,8 +497,10 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"Helvetica-LightOblique\"",
-						"_leading": 111
+						"font-family": "Helvetica",
+						"_leading": 111,
+						"font-weight": 300,
+						"font-style": "italic"
 					},
 					"children": [],
 					"text": "light oblique",
@@ -500,7 +511,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -512,7 +523,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"BodoniSvtyTwoITCTT-Book\"",
+						"font-family": "\"Bodoni 72\"",
 						"_leading": 111
 					},
 					"children": [],
@@ -524,7 +535,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -536,8 +547,9 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"font-size": 72,
-						"font-family": "\"LetterGothicStd-Slanted\"",
-						"_leading": 111
+						"font-family": "\"Letter Gothic Std\"",
+						"_leading": 111,
+						"font-style": "italic"
 					},
 					"children": [],
 					"text": "slanted",
@@ -548,7 +560,7 @@ module.exports = {
 						"right": 784
 					},
 					"position": {
-						"x": 370,
+						"x": 369.77734656,
 						"y": 1,
 						"unitX": "px",
 						"unitY": "em"
@@ -563,8 +575,8 @@ module.exports = {
 				"right": 784
 			},
 			"position": {
-				"x": 370,
-				"y": 128,
+				"x": 369.77734656,
+				"y": 127.70312192,
 				"unitX": "px",
 				"unitY": "px"
 			},

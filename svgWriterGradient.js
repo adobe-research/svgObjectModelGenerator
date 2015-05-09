@@ -21,7 +21,9 @@
         Tag = require("./svgWriterTag.js"),
         round10k = svgWriterUtils.round10k,
         gradientStops = {},
-        getTransform = svgWriterUtils.getTransform;
+        getTransform = svgWriterUtils.getTransform,
+        offsetX = 0,
+        offsetY = 0;
 
     function removeDups(lines) {
         var out = [lines[0]];
@@ -37,10 +39,10 @@
             gradientStops = {};
         },
         getLinearGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
-            var x1 = gradient.x1 + (ctx._shiftContentX || 0),
-                x2 = gradient.x2 + (ctx._shiftContentX || 0),
-                y1 = gradient.y1 + (ctx._shiftContentY || 0),
-                y2 = gradient.y2 + (ctx._shiftContentY || 0),
+            var x1 = gradient.x1 + offsetX,
+                x2 = gradient.x2 + offsetX,
+                y1 = gradient.y1 + offsetY,
+                y2 = gradient.y2 + offsetY,
                 attr = {
                     x1: x1,
                     y1: y1,
@@ -66,23 +68,41 @@
             }
         },
         getRadialGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
-            var cx = gradient.cx + (ctx._shiftContentX || 0),
-                cy = gradient.cy + (ctx._shiftContentY || 0),
-                fx = gradient.fx ? gradient.fx + (ctx._shiftContentX || 0) : cx,
-                fy = gradient.fy ? gradient.fy + (ctx._shiftContentY || 0) : cy,
+            var cx = gradient.cx + offsetX,
+                cy = gradient.cy + offsetY,
+                fx = gradient.fx ? gradient.fx + offsetX : cx,
+                fy = gradient.fy ? gradient.fy + offsetY : cy,
                 r = gradient.r,
                 attr = {
                     cx: cx,
                     cy: cy,
                     r: r,
                     gradientTransform: getTransform(gradient.transform)
-                };
+                },
+                deltaX,
+                deltaY,
+                angle,
+                rMax = 0.99 * r;
             if (isFinite(fx) && fx != cx) {
                 attr.fx = fx;
             }
             if (isFinite(fy) && fy != cy) {
                 attr.fy = fy;
             }
+
+            // Spec of SVG 1.1: If (fx, fy) lies outside the circle defined by (cx, cy) and r, set
+            // (fx, fy) to the point of intersection of the line through (fx, fy) and the circle.
+            // A value of 0.99 matches the behavior of Firefox and Illustrator.
+            deltaX = attr.fx - attr.cx;
+            deltaY = attr.fy - attr.fy;
+            if (Math.sqrt(deltaX * deltaX + deltaY * deltaY) > rMax) {
+                angle = Math.atan(deltaY, deltaX);
+                deltaX = Math.cos(angle) * rMax;
+                deltaY = Math.sin(angle) * rMax;
+                attr.fx = deltaX + attr.cx;
+                attr.fy = deltaY + attr.cy;
+            }
+
             if (link) {
                 attr["xlink:href"] = "#" + link.id;
                 tag.setAttributes(attr);
@@ -91,8 +111,8 @@
                     id: gradientID,
                     cx: cx,
                     cy: cy,
-                    fx: fx,
-                    fy: fy,
+                    fx: attr.fx,
+                    fy: attr.fy,
                     r: r,
                     gradientTransform: getTransform(gradient.transform)
                 };
@@ -113,6 +133,9 @@
                 tag = new Tag(gradient.type + "Gradient", {
                     id: gradientID
                 });
+
+            offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0);
+            offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
 
             if (!stops) {
                 console.warn("encountered gradient with no stops");

@@ -5,10 +5,7 @@ module.exports = {
 			"type": "text",
 			"visible": true,
 			"style": {
-				"font-size": {
-					"units": "pointsUnit",
-					"value": 36
-				},
+				"font-size": 150,
 				"stroke": {
 					"type": "none"
 				}
@@ -20,10 +17,7 @@ module.exports = {
 					"visible": true,
 					"style": {
 						"text-anchor": "end",
-						"font-size": {
-							"units": "pointsUnit",
-							"value": 36
-						}
+						"font-size": 150
 					},
 					"children": [
 						{
@@ -32,10 +26,7 @@ module.exports = {
 							"visible": true,
 							"style": {
 								"text-anchor": "end",
-								"font-size": {
-									"value": 36,
-									"units": "pointsUnit"
-								},
+								"font-size": 150,
 								"fill": {
 									"type": "solid",
 									"color": {
@@ -45,7 +36,8 @@ module.exports = {
 										"a": 1
 									}
 								},
-								"font-family": "\"Optima-ExtraBlack\""
+								"font-family": "Optima",
+								"font-weight": 900
 							},
 							"children": [],
 							"text": "Text on Path",
@@ -68,10 +60,10 @@ module.exports = {
 			],
 			"title": "Text on Path.svg",
 			"visualBounds": {
-				"top": -99,
-				"bottom": 435,
-				"left": -109,
-				"right": 584
+				"top": -99.15332083333334,
+				"bottom": 435.12915,
+				"left": -109.3308125,
+				"right": 583.885375
 			},
 			"position": {
 				"x": 0,

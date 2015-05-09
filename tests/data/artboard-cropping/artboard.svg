@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-1);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient-4);
+      }
+    </style>
+
+    <clipPath id="clip-path-1">
+      <rect x="-50" y="-50" width="400" height="400"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-1" cx="-50" cy="-50" r="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a00b2"/>
+      <stop offset="0.5" stop-color="red"/>
+      <stop offset="1" stop-color="#fffc00"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="350" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-3" cy="350" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-4" cx="350" cy="350" xlink:href="#radial-gradient-1"/>
+  </defs>
+  <g clip-path="url(#clip-path-1)">
+    <g id="artboard-1">
+      <circle cx="-50" cy="-50" r="100" class="cls-1"/>
+      <circle cx="350" cy="-50" r="100" class="cls-2"/>
+      <circle cx="-50" cy="350" r="100" class="cls-3"/>
+      <circle cx="350" cy="350" r="100" class="cls-4"/>
+    </g>
+  </g>
+</svg>

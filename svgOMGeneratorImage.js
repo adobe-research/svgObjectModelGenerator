@@ -30,7 +30,7 @@
 
         this.addImage = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (pixel) {
-                svgNode.pixel = pixel;
+                svgNode.href = pixel;
                 svgNode.bounds = layer.bounds;
 
                 if (layer.boundsWithFX) {

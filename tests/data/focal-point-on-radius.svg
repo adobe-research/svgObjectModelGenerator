@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-path-1);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-1);
+      }
+    </style>
+
+    <clipPath id="clip-path-1">
+      <path d="M7,31.6C7,14.916,39.82,1.241,81.483,0H93.854c41.663,1.241,74.482,14.916,74.482,31.6,0,17.5-36.116,31.693-80.668,31.693S7,49.107,7,31.6"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-1" cx="0" cy="0" r="1" gradientTransform="matrix(61.2855, 0, 0, -61.2855, 87.668, 31.6022)" fx="0.99" fy="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="blue"/>
+      <stop offset="0.131" stop-color="blue"/>
+      <stop offset="0.471" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ff931d"/>
+    </radialGradient>
+  </defs>
+  <g transform="matrix(1, 0, 0, -1, 0, 560)">
+    <g class="cls-1">
+      <path d="M7,63.3H168.336V0H7Z" class="cls-2"/>
+    </g>
+  </g>
+</svg>

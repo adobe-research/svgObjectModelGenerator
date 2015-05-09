@@ -7,80 +7,68 @@
 
       .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
         text-anchor: middle;
-      }
-
-      .cls-2 {
-        font-family: "SourceSansPro-Light";
-      }
-
-      .cls-3 {
         font-family: "Source Sans Pro";
       }
 
+      .cls-14, .cls-2 {
+        font-weight: 300;
+      }
+
       .cls-4 {
-        font-family: "SourceSansPro-Semibold";
+        font-weight: 600;
       }
 
       .cls-5 {
-        font-family: "SourceSansPro-Bold";
-        font-weight: bold;
+        font-weight: 700;
       }
 
-      .cls-6 {
-        font-family: "SourceSansPro-Black";
+      .cls-6, .cls-7 {
+        font-weight: 800;
       }
 
-      .cls-7 {
-        font-family: "SourceSansPro-BlackIt";
-      }
-
-      .cls-12, .cls-7 {
+      .cls-12, .cls-14, .cls-16, .cls-7 {
         font-style: italic;
       }
 
-      .cls-8 {
-        font-family: "SourceSansPro-ExtraLight";
+      .cls-10, .cls-12, .cls-8 {
+        font-weight: 200;
       }
 
       .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-9 {
         font-size: 72px;
       }
 
-      .cls-10 {
-        font-family: "HelveticaNeue-Thin";
+      .cls-10, .cls-11, .cls-12, .cls-13 {
+        font-family: "Helvetica Neue";
       }
 
       .cls-11 {
-        font-family: "HelveticaNeue-UltraLight";
-      }
-
-      .cls-12 {
-        font-family: "HelveticaNeue-ThinItalic";
+        font-weight: 100;
       }
 
       .cls-13 {
-        font-family: "HelveticaNeue-Medium";
+        font-weight: 500;
       }
 
       .cls-14 {
-        font-family: "Helvetica-LightOblique";
+        font-family: Helvetica;
       }
 
       .cls-15 {
-        font-family: "BodoniSvtyTwoITCTT-Book";
+        font-family: "Bodoni 72";
       }
 
       .cls-16 {
-        font-family: "LetterGothicStd-Slanted";
+        font-family: "Letter Gothic Std";
       }
     </style>
   </defs>
-  <text x="87" y="286" class="cls-1"><tspan x="87" class="cls-2">2</tspan></text>
-  <text x="87" y="414" class="cls-1"><tspan x="87" class="cls-3">3</tspan></text>
-  <text x="87" y="539" class="cls-1"><tspan x="87" class="cls-4">4</tspan></text>
-  <text x="87" y="670" class="cls-1"><tspan x="87" class="cls-5">5</tspan></text>
-  <text x="87" y="795" class="cls-1"><tspan x="87" class="cls-6">6</tspan></text>
-  <text x="87" y="920" class="cls-1"><tspan x="87" class="cls-7">7</tspan></text>
-  <text x="87" y="150" class="cls-1"><tspan x="87" class="cls-8">1</tspan></text>
-  <text x="370" y="128" class="cls-9"><tspan class="cls-10">thin</tspan><tspan dy="1.542em" x="370" class="cls-11">ultrathin</tspan><tspan dy="1.542em" x="370" class="cls-12">thin italic</tspan><tspan dy="1.542em" x="370" class="cls-13">medium</tspan><tspan dy="1.542em" x="370" class="cls-14">light oblique</tspan><tspan dy="1.542em" x="370" class="cls-15">book</tspan><tspan dy="1.542em" x="370" class="cls-16">slanted</tspan></text>
+  <text x="86.777" y="285.703" class="cls-1"><tspan x="86.777" class="cls-2">2</tspan></text>
+  <text x="86.777" y="413.703" class="cls-1"><tspan x="86.777" class="cls-3">3</tspan></text>
+  <text x="86.777" y="538.703" class="cls-1"><tspan x="86.777" class="cls-4">4</tspan></text>
+  <text x="86.777" y="669.703" class="cls-1"><tspan x="86.777" class="cls-5">5</tspan></text>
+  <text x="86.777" y="794.703" class="cls-1"><tspan x="86.777" class="cls-6">6</tspan></text>
+  <text x="86.777" y="919.703" class="cls-1"><tspan x="86.777" class="cls-7">7</tspan></text>
+  <text x="86.777" y="149.703" class="cls-1"><tspan x="86.777" class="cls-8">1</tspan></text>
+  <text x="369.777" y="127.703" class="cls-9"><tspan class="cls-10">thin</tspan><tspan dy="1.542em" x="369.777" class="cls-11">ultrathin</tspan><tspan dy="1.542em" x="369.777" class="cls-12">thin italic</tspan><tspan dy="1.542em" x="369.777" class="cls-13">medium</tspan><tspan dy="1.542em" x="369.777" class="cls-14">light oblique</tspan><tspan dy="1.542em" x="369.777" class="cls-15">book</tspan><tspan dy="1.542em" x="369.777" class="cls-16">slanted</tspan></text>
 </svg>

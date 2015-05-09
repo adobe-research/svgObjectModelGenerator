@@ -175,25 +175,6 @@
             this.attrs[name] = value;
         }
     };
-    function writeDefs(ctx) {
-        var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
-            hasDefines = ctx.omStylesheet.hasDefines();
-
-        if (hasRules || hasDefines) {
-            writeln(ctx, ctx.currentIndent + "<defs>");
-            indent(ctx);
-
-            !ctx.usePresentationAttribute && ctx.omStylesheet.writeSheet(ctx);
-
-            if (hasRules && hasDefines) {
-                writeln(ctx);
-            }
-            ctx.omStylesheet.writeDefines(ctx);
-
-            undent(ctx);
-            writeln(ctx, ctx.currentIndent + "</defs>");
-        }
-    }
     var linkableNames = {
             linearGradient: 1,
             radialGradient: 1,
@@ -284,9 +265,6 @@
                 if (numChildren) {
                     indent(ctx);
                 }
-            }
-            if (tag.iamroot) {
-                writeDefs(ctx);
             }
         }
         for (i = 0; i < numChildren; i++) {
@@ -383,7 +361,7 @@
                 w = right - left,
                 h = bottom - top,
                 tag = new Tag("image", {
-                    "xlink:href": node.pixel,
+                    "xlink:href": node.href,
                     x: left,
                     y: top,
                     width: w,
@@ -432,6 +410,13 @@
             },
             polygon: function (ctx, node) {
                 var tag = new Tag("polygon", {
+                        points: util.pointsToString(node.shape.points),
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
+            polyline: function (ctx, node) {
+                var tag = new Tag("polyline", {
                         points: util.pointsToString(node.shape.points),
                         transform: getTransform(node.transform, node.transformTX, node.transformTY)
                     }, ctx);
@@ -559,8 +544,8 @@
                     left = round1k(ctx.viewBox.left),
                     top = round1k(ctx.viewBox.top),
 
-                    width = Math.abs(ctx.viewBox.right - ctx.viewBox.left),
-                    height = Math.abs(ctx.viewBox.bottom - ctx.viewBox.top),
+                    width = Math.abs(ctx.viewBox.right),
+                    height = Math.abs(ctx.viewBox.bottom),
                     scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
                     scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
 
@@ -581,6 +566,7 @@
     Tag.make = function (ctx, node, sibling) {
         node = node || ctx.currentOMNode;
         var tag,
+            rootArtboardClipPath,
             f;
         if (node.type == "background") {
             return;
@@ -588,6 +574,12 @@
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
+            if (ctx.artboardClipPath) {
+                rootArtboardClipPath = tag;
+                tag = new Tag("g");
+                rootArtboardClipPath.appendChild(tag);
+                tag.setAttribute("clip-path", "url(#" + ctx.artboardClipPath + ")");
+            }
         } else {
             if (node.hasOwnProperty("visible") && !node.visible) {
                 return;
@@ -618,7 +610,7 @@
                 }
             }
         }
-        return tag;
+        return rootArtboardClipPath || tag;
     };
 
     module.exports = Tag;

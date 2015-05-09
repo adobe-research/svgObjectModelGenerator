@@ -8,9 +8,10 @@
       .cls-2 {
         fill: #226b26;
         text-anchor: end;
-        font-family: "Optima-ExtraBlack";
+        font-family: Optima;
+        font-weight: 900;
       }
     </style>
   </defs>
-  <text x="700" y="117" class="cls-1"><tspan x="0" class="cls-2">Plain text</tspan></text>
+  <text x="700.176" y="116.574" class="cls-1"><tspan x="700.176" class="cls-2">Plain text</tspan></text>
 </svg>

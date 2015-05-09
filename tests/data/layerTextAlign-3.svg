@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="73" height="129" viewBox="0 0 73 129">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 36px;
+      }
+
+      .cls-2 {
+        fill: #22376b;
+        text-anchor: middle;
+        font-family: Optima;
+        font-weight: 900;
+      }
+    </style>
+  </defs>
+  <text x="-27.482" y="-146.512" class="cls-1"><tspan x="-27.482" class="cls-2">center aligned</tspan></text>
+</svg>

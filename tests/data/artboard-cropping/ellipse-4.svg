@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-1);
+      }
+    </style>
+
+    <clipPath id="clip-path-1">
+      <rect x="-200" y="-200" width="400" height="400"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-1" cx="200" cy="200" r="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a00b2"/>
+      <stop offset="0.5" stop-color="red"/>
+      <stop offset="1" stop-color="#fffc00"/>
+    </radialGradient>
+  </defs>
+  <g clip-path="url(#clip-path-1)">
+    <circle cx="200" cy="200" r="100" class="cls-1"/>
+  </g>
+</svg>

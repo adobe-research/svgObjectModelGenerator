@@ -19,7 +19,7 @@ module.exports = {
 							"type": "none",
 							"lineCap": "butt",
 							"lineJoin": "miter",
-							"lineWidth": 13,
+							"lineWidth": 12.5,
 							"miterLimit": 100,
 							"dashArray": [],
 							"dashOffset": 0,

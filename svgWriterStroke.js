@@ -21,8 +21,7 @@
         svgWriterGradient = require("./svgWriterGradient.js"),
         svgWriterPattern = require("./svgWriterPattern.js"),
         writeGradient = svgWriterGradient.writeGradient,
-        writePattern = svgWriterPattern.writePattern,
-        px = svgWriterUtils.px;
+        writePattern = svgWriterPattern.writePattern;
 
     function SVGWriterStroke() {
 
@@ -55,30 +54,26 @@
             if (omIn.style.stroke.lineJoin) {
                 styleBlock.addRule("stroke-linejoin", omIn.style.stroke.lineJoin);
             }
-            if (px(ctx, omIn.style.stroke.miterLimit) !== 100) {
-                styleBlock.addRule("stroke-miterlimit", px(ctx, omIn.style.stroke.miterLimit) + "px");
+            if (omIn.style.stroke.miterLimit !== 100) {
+                styleBlock.addRule("stroke-miterlimit", (omIn.style.stroke.miterLimit || 0) + "px");
             }
             if (omIn.style.stroke.dashOffset) {
-                styleBlock.addRule("stroke-dashoffset", px(ctx, omIn.style.stroke.dashOffset) + "px");
+                styleBlock.addRule("stroke-dashoffset", (omIn.style.stroke.dashOffset || 0) + "px");
             }
             if (isFinite(omIn.style.stroke.opacity)) {
                 styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
             }
             if (isFinite(omIn.style.stroke.lineWidth)) {
-                ctx._lastStrokeWidth = px(ctx, omIn.style.stroke.lineWidth);
+                ctx._lastStrokeWidth = omIn.style.stroke.lineWidth;
                 styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
             }
             if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
-                var width = px(ctx, omIn.style.stroke.lineWidth) ? px(ctx, omIn.style.stroke.lineWidth) : 0,
-                    dashArray = omIn.style.stroke.dashArray.map(function (element, index) {
-                        if (element && element.hasOwnProperty("value")) {
-                            element = px(element);
-                        }
+                var dashArray = omIn.style.stroke.dashArray.map(function (element, index) {
                         // This is a work around for a bug in Chrome on [0,2] dash arrays.
                         if (!index && !element) {
                             return 0.001;
                         }
-                        return width * element;
+                        return element;
                     }).join();
                 styleBlock.addRule("stroke-dasharray", dashArray);
             }

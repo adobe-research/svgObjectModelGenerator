@@ -25,8 +25,8 @@
         svgWriterClipPath = require("./svgWriterClipPath.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterTextPath = require("./svgWriterTextPath.js"),
-        utils = require("./utils.js"),
-        px = svgWriterUtils.px;
+        matrix = require("./matrix.js"),
+        utils = require("./utils.js");
 
     function SVGWriterPreprocessor() {
 
@@ -67,7 +67,7 @@
                         return;
                     }
                     if (property == "font-size") {
-                        styleBlock.addRule(property, px(ctx, omIn.style[property]) + "px");
+                        styleBlock.addRule(property, omIn.style[property] + "px");
                         return;
                     }
                     if (property.indexOf("_") !== 0) {
@@ -102,7 +102,11 @@
                         omIn.position.x += ctx._shiftContentX;
                     } else {
                         if (omIn._parentIsRoot) {
-                            omIn.position.x = 0;
+                            if ((omIn.style["text-anchor"] == "middle" || omIn.style["text-anchor"] == "end") && !omIn._hasParentTXFM) {
+                                omIn.position.x -= omIn.visualBounds.left;
+                            } else {
+                                omIn.position.x = 0;
+                            }
                         } else {
                             omIn.position.x = undefined;
                         }
@@ -112,9 +116,9 @@
                 if (omIn.style["_baseline-script"] === "sub" ||
                         omIn.style["_baseline-script"] === "super") {
                     if (typeof omIn.style["font-size"] === "number") {
-                        omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
+                        omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2);
                     } else {
-                        omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
+                        omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2);
                     }
                 }
 
@@ -145,8 +149,6 @@
                             if (omIn.position.unitY === "px") {
                                 omIn.position.y += ctx._shiftContentY;
                             }
-                            omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
-                            omIn.children[0].position.x = 0;
                         } else {
                             if (ctx.config.constrainToDocBounds) {
                                 omIn.position.x += ctx._shiftContentX;
@@ -172,13 +174,15 @@
             },
             shiftShapePosition = function (ctx, omIn) {
                 var shape = omIn.shape,
-                    bnds = omIn.visualBounds;
+                    bnds = omIn.visualBounds,
+                    offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
+                    offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
 
                 // The bounds shift here is still necessary for gradient overlays.
                 // FIXME: Is there a way to get rid of the bounds shifting?
                 if (bnds) {
-                    svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
-                    svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+                    svgWriterUtils.shiftBoundsX(bnds, offsetX);
+                    svgWriterUtils.shiftBoundsY(bnds, offsetY);
                 }
 
                 // PS and Ai propagate all transforms to the leaves.
@@ -190,24 +194,33 @@
                 switch (shape.type) {
                 case "circle":
                 case "ellipse":
-                    shape.cx += ctx._shiftContentX;
-                    shape.cy += ctx._shiftContentY;
+                    shape.cx += offsetX;
+                    shape.cy += offsetY;
                     break;
                 case "line":
-                    shape.x1 += ctx._shiftContentX;
-                    shape.y1 += ctx._shiftContentY;
-                    shape.x2 += ctx._shiftContentX;
-                    shape.y2 += ctx._shiftContentY;
+                    shape.x1 += offsetX;
+                    shape.y1 += offsetY;
+                    shape.x2 += offsetX;
+                    shape.y2 += offsetY;
+                    break;
+                case "path":
+                    if (ctx._shiftCropRectX || ctx._shiftCropRectY) {
+                        omIn.transform = matrix.createMatrix();
+                        omIn.transformTX = ctx._shiftCropRectX || 0;
+                        omIn.transformTY = ctx._shiftCropRectY || 0;
+                    }
                     break;
                 case "polygon":
+                    // Fall through
+                case "polyline":
                     shape.points.forEach(function (item) {
-                        item.x += ctx._shiftContentX;
-                        item.y += ctx._shiftContentY;
+                        item.x += offsetX;
+                        item.y += offsetY;
                     });
                     break;
                 case "rect":
-                    shape.x += ctx._shiftContentX;
-                    shape.y += ctx._shiftContentY;
+                    shape.x += offsetX;
+                    shape.y += offsetY;
                     break;
                 }
             },
@@ -253,10 +266,28 @@
                     docBounds = ctx.docBounds,
                     w,
                     h,
-                    cropRect = ctx.config.cropRect;
+                    cropRect = ctx.config.cropRect,
+                    artboardRect = ctx.config.artboardBounds,
+                    artboardShiftX = 0,
+                    artboardShiftY = 0;
 
                 if (!ctx.config.trimToArtBounds || !bnds) {
                     return;
+                }
+
+                // FIXME: This resets the visual bounds with the artboard bounds
+                // if we export an artboard. Artboard clipping for all other layers is
+                // done based on the visual bounds. This is a hack mostly around PSs
+                // behavior to shift paths and us not detecting when we need to something
+                // different. We should probably teach PS not to shift paths around
+                // on single layer export.
+                if (ctx.config.isArtboard && artboardRect) {
+                    bnds = {
+                        left: artboardRect.left,
+                        right: artboardRect.right,
+                        bottom: artboardRect.bottom,
+                        top: artboardRect.top
+                    };
                 }
 
                 // FIXME: We rounded the document size before. However, this causes visual problems
@@ -276,13 +307,26 @@
                 ctx._shiftContentX = -bnds.left;
                 ctx._shiftContentY = -bnds.top;
 
+                // FIXME: If we export a layer, svgOMG does not preserve the artboard
+                // the layer is bound to. We rely on the artboard size provided by
+                // generator-assets. We need to find a better way, probably by adding
+                // the artboard to OMG directly.
+                if (ctx.config.clipToArtboardBounds && artboardRect) {
+                    artboardShiftX = Math.min(bnds.left - artboardRect.left, 0);
+                    artboardShiftY = Math.min(bnds.top - artboardRect.top, 0);
+                    bnds.left = Math.max(bnds.left, artboardRect.left);
+                    bnds.right = Math.min(bnds.right, artboardRect.right);
+                    bnds.top = Math.max(bnds.top, artboardRect.top);
+                    bnds.bottom = Math.min(bnds.bottom, artboardRect.bottom);
+                }
+
                 if (!ctx.viewBox) {
                     console.log("no viewBox");
                     return;
                 }
 
-                ctx.viewBox.left = 0;
-                ctx.viewBox.top = 0;
+                ctx.viewBox.left = Math.abs(artboardShiftX);
+                ctx.viewBox.top = Math.abs(artboardShiftY);
                 ctx.viewBox.right = bnds.right - bnds.left;
                 ctx.viewBox.bottom = bnds.bottom - bnds.top;
 
@@ -305,8 +349,12 @@
                 ctx.viewBox.right = cropRect.width;
                 ctx.viewBox.bottom = cropRect.height;
 
-                ctx._shiftContentX += (cropRect.width - w) / 2;
-                ctx._shiftContentY += (cropRect.height - h) / 2;
+                ctx._shiftCropRectX = (cropRect.width - w) / 2;
+                ctx._shiftCropRectY = (cropRect.height - h) / 2;
+
+                if (ctx.config.clipToArtboardBounds && artboardRect) {
+                    svgWriterClipPath.writeClipPath(ctx, [artboardRect], ctx._shiftCropRectX, ctx._shiftCropRectX);
+                }
             };
 
         this.processSVGNode = function (ctx, nested, sibling) {

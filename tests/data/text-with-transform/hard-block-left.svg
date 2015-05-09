@@ -7,9 +7,10 @@
 
       .cls-2 {
         fill: #226b26;
-        font-family: "Optima-ExtraBlack";
+        font-family: Optima;
+        font-weight: 900;
       }
     </style>
   </defs>
-  <text transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 421, 599)" class="cls-1"><tspan class="cls-2">here is</tspan><tspan dy="1.2em" x="0" class="cls-2">some hard</tspan><tspan dy="1.2em" x="0" class="cls-2">return point text</tspan></text>
+  <text transform="matrix(-1.5466, -1.385, 0.584, -2.1788, 420.8616, 598.9884)" class="cls-1"><tspan class="cls-2">here is</tspan><tspan dy="1.2em" x="0" class="cls-2">some hard</tspan><tspan dy="1.2em" x="0" class="cls-2">return point text</tspan></text>
 </svg>
