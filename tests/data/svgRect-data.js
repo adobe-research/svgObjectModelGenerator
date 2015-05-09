@@ -21,6 +21,108 @@ module.exports = {
     "generatorSettings": false,
     "layers": [
         {
+            "id": 5,
+            "index": 5,
+            "type": "shapeLayer",
+            "name": "Rectangle 4",
+            "bounds": {
+                "top": 300,
+                "left": 380,
+                "bottom": 450,
+                "right": 680
+            },
+            "visible": true,
+            "clipped": false,
+            "fill": {
+                "color": {
+                    "red": 62.809338,
+                    "green": 144.252921,
+                    "blue": 182.000004
+                },
+                "class": "solidColorLayer"
+            },
+            "generatorSettings": false,
+            "path": {
+                "pathComponents": [
+                    {
+                        "origin": {
+                            "type": "roundedRect",
+                            "radii": [
+                                10,
+                                200,
+                                150,
+                                20
+                            ],
+                            "bounds": {
+                                "top": 300,
+                                "left": 380,
+                                "bottom": 450,
+                                "right": 680
+                            }
+                        }
+                    }
+                ],
+                "bounds": {
+                    "top": 300,
+                    "left": 380,
+                    "bottom": 450,
+                    "right": 680
+                },
+                "defaultFill": false
+            }
+        },
+        {
+            "id": 4,
+            "index": 4,
+            "type": "shapeLayer",
+            "name": "Rectangle 3",
+            "bounds": {
+                "top": 300,
+                "left": 70,
+                "bottom": 450,
+                "right": 370
+            },
+            "visible": true,
+            "clipped": false,
+            "fill": {
+                "color": {
+                    "red": 62.809338,
+                    "green": 144.252921,
+                    "blue": 182.000004
+                },
+                "class": "solidColorLayer"
+            },
+            "generatorSettings": false,
+            "path": {
+                "pathComponents": [
+                    {
+                        "origin": {
+                            "type": "roundedRect",
+                            "radii": [
+                                10,
+                                20,
+                                30,
+                                40
+                            ],
+                            "bounds": {
+                                "top": 300,
+                                "left": 70,
+                                "bottom": 450,
+                                "right": 370
+                            }
+                        }
+                    }
+                ],
+                "bounds": {
+                    "top": 300,
+                    "left": 70,
+                    "bottom": 450,
+                    "right": 370
+                },
+                "defaultFill": false
+            }
+        },
+        {
             "id": 3,
             "index": 3,
             "type": "shapeLayer",

@@ -351,11 +351,35 @@
         return list;
     };
     function roundRectPath(x, y, width, height, r) {
-        return util.optimisePath("M" + [x + r[0], y] +
-            "h" + (width - r[0] - r[1]) + "a" + [r[1], r[1], 0, 0, 1, r[1], r[1]] +
-            "v" + (height - r[1] - r[2]) + "a" + [r[2], r[2], 0, 0, 1, -r[2], r[2]] +
-            "h" + -(width - r[2] - r[3]) + "a" + [r[3], r[3], 0, 0, 1, -r[3], -r[3]] +
-            "v" + -(height - r[0] - r[3]) + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z");
+        var top, bottom, left, right, ok,
+            small = {len: Infinity};
+        function check(total, i, j) {
+            var len = total - r[i] - r[j];
+            if (small.len > len) {
+                small.len = len;
+                small.fraq = total / (r[i] + r[j]);
+            }
+            return len;
+        }
+        while (!ok) {
+            top = check(width, 0, 1);
+            right = check(height, 1, 2);
+            bottom = check(width, 2, 3);
+            left = check(height, 0, 3);
+            if (small.len + .01 < 0) {
+                r = r.map(function (item) {
+                    return item * small.fraq;
+                });
+                small = {len: 0};
+            } else {
+                ok = true;
+            }
+        }
+        var path = "M" + [x + r[0], y] + "h" + top + "a" + [r[1], r[1], 0, 0, 1, r[1], r[1]] +
+            "v" + right + "a" + [r[2], r[2], 0, 0, 1, -r[2], r[2]] +
+            "h" + -bottom + "a" + [r[3], r[3], 0, 0, 1, -r[3], -r[3]] +
+            "v" + -left + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z";
+        return util.optimisePath(path);
     }
     var imageProcessing = function (ctx, node) {
             if (!node.bounds) {

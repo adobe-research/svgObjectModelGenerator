@@ -87,6 +87,98 @@ module.exports = {
 					30
 				]
 			}
+		},
+		{
+			"id": "shape-3",
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"r": 62.809338,
+						"g": 144.252921,
+						"b": 182.000004,
+						"a": 1
+					}
+				}
+			},
+			"children": [],
+			"title": "Rectangle 3",
+			"visualBounds": {
+				"top": 300,
+				"left": 70,
+				"bottom": 450,
+				"right": 370
+			},
+			"shapeRadii": [
+				40,
+				10,
+				20,
+				30
+			],
+			"shape": {
+				"type": "rect",
+				"x": 70,
+				"y": 300,
+				"width": 300,
+				"height": 150,
+				"r": [
+					40,
+					10,
+					20,
+					30
+				]
+			}
+		},
+		{
+			"id": "shape-4",
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"r": 62.809338,
+						"g": 144.252921,
+						"b": 182.000004,
+						"a": 1
+					}
+				}
+			},
+			"children": [],
+			"title": "Rectangle 4",
+			"visualBounds": {
+				"top": 300,
+				"left": 380,
+				"bottom": 450,
+				"right": 680
+			},
+			"shapeRadii": [
+				20,
+				10,
+				200,
+				150
+			],
+			"shape": {
+				"type": "rect",
+				"x": 380,
+				"y": 300,
+				"width": 300,
+				"height": 150,
+				"r": [
+					20,
+					10,
+					200,
+					150
+				]
+			}
 		}
 	],
 	"global": {

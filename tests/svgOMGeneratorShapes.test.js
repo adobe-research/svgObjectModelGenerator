@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -21,31 +21,30 @@ var expect = require('chai').expect,
     sinon = require('sinon');
 
 describe('svgOMGeneratorShapes', function () {
-    
+
     var sandbox = sinon.sandbox.create();
-    
+
     beforeEach(function () {
     });
-    
+
     afterEach(function () {
         sandbox.restore();
     });
-    
-    
+
+
     it("can survive sparse data", function () {
         var svgOMGenStyles = require("../svgOMGeneratorStyles.js");
-        
+
         sandbox.stub(svgOMGenStyles, "addStylingData");
-        
+
         expect(svgOMGS.addRect({}, { path: { pathComponents: [{ origin: { type: "ronnie" } }] } })).to.equal(false);
-        expect(svgOMGS.addRect({}, { path: { pathComponents: [{ origin: { type: "rect", radii: [1, 2, 3, 4] } }] } })).to.equal(false);
-        
+
         expect(svgOMGS.addPath({}, { path: {} })).to.equal(false);
-        
+
         sandbox.stub(console, "log");
         expect(svgOMGS.addShapeData({}, { path: {} }, 72)).to.equal(false);
         expect(console.log.calledOnce).to.equal(true);
-        
+
     });
 
 });
