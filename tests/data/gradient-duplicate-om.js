@@ -15,12 +15,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -57,12 +57,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -99,12 +99,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,

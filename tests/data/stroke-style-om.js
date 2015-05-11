@@ -15,15 +15,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "round",
-					"lineJoin": "miter",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "miter",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						6
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -54,17 +54,17 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "round",
-					"lineJoin": "bevel",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "bevel",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						50,
 						20,
 						20,
 						50
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -95,15 +95,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						40,
 						20
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -134,16 +134,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						12,
 						9
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -174,16 +174,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40,
 						30
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -214,16 +214,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40,
 						30
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -258,15 +258,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "round",
-					"lineJoin": "miter",
-					"lineWidth": 20,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "miter",
+					"width": 20,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -297,12 +297,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 20,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 20,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,

@@ -15,7 +15,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -23,9 +23,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.5,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame"
 				},
 				"meta": {
@@ -74,7 +74,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -82,9 +82,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.8,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-1"
 				},
@@ -211,7 +211,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -219,9 +219,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-2"
 				},
@@ -348,7 +348,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -356,9 +356,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-3"
 				},
@@ -525,7 +525,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -533,9 +533,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-4"
 				},
@@ -702,7 +702,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -710,9 +710,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "radial-gradient-1"
 				},
