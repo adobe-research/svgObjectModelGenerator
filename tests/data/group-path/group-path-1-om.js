@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		}
 	],
 	"global": {
@@ -38,5 +38,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-3"
+	"name": "Untitled-3"
 }

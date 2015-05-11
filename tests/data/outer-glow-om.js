@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -114,7 +114,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 104,
 				"left": 150,
@@ -333,5 +333,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "outer-glow.psd"
+	"name": "outer-glow.psd"
 }

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -253,7 +253,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 219,
 				"left": 218,
@@ -362,5 +362,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "multiple-layer-fix-3.psd"
+	"name": "multiple-layer-fix-3.psd"
 }

@@ -33,7 +33,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Shape 1",
+			"name": "Shape 1",
 			"visualBounds": {
 				"top": 773.71875,
 				"left": 1145.75,
@@ -75,5 +75,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-3"
+	"name": "Untitled-3"
 }

@@ -29,7 +29,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Ellipse 1",
+					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2125,
 						"left": 2125,
@@ -44,7 +44,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "circle"
+			"name": "circle"
 		}
 	],
 	"global": {
@@ -69,7 +69,7 @@ module.exports = {
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "circle",
+			"name": "circle",
 			"bounds": {
 				"top": 2000,
 				"left": 2000,
@@ -86,5 +86,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "artboards-2.psd"
+	"name": "artboards-2.psd"
 }

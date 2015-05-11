@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -118,7 +118,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Left aligned center right aligned",
+			"name": "Left aligned center right aligned",
 			"visualBounds": {
 				"top": 224,
 				"left": 138,
@@ -163,5 +163,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgText-align.psd"
+	"name": "svgText-align.psd"
 }

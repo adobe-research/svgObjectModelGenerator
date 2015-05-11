@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "generic-1",
@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "green",
+			"name": "green",
 			"href": "data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwAAAADe5c7RAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC",
 			"bounds": {
 				"top": 0,
@@ -53,5 +53,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "pixelImage-linked.psd"
+	"name": "pixelImage-linked.psd"
 }

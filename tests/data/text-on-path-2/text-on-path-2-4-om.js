@@ -46,7 +46,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Plain text.svg",
+			"name": "Plain text.svg",
 			"visualBounds": {
 				"top": 52,
 				"left": 44,
@@ -91,5 +91,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "text-on-path-2.psd"
+	"name": "text-on-path-2.psd"
 }

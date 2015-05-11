@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -52,7 +52,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "This is a text example",
+			"name": "This is a text example",
 			"visualBounds": {
 				"top": 76,
 				"left": 129,
@@ -173,7 +173,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "This is a text example",
+			"name": "This is a text example",
 			"visualBounds": {
 				"top": 187,
 				"left": 141,
@@ -425,7 +425,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "This is a text example",
+			"name": "This is a text example",
 			"visualBounds": {
 				"top": 295,
 				"left": 139,
@@ -682,7 +682,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "This is a text example",
+			"name": "This is a text example",
 			"visualBounds": {
 				"top": 395,
 				"left": 149,
@@ -727,5 +727,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgText.psd"
+	"name": "svgText.psd"
 }

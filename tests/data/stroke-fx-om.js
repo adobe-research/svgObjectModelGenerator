@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -52,7 +52,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 88,
 				"left": 88,
@@ -189,7 +189,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 88,
 				"left": 288,
@@ -326,7 +326,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 88,
 				"left": 488,
@@ -503,7 +503,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 288,
 				"left": 88,
@@ -680,7 +680,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 288,
 				"left": 288,
@@ -857,7 +857,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 288,
 				"left": 488,
@@ -1178,5 +1178,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "stroke-fx.psd"
+	"name": "stroke-fx.psd"
 }
