@@ -81,9 +81,9 @@
         var recordBounds = function (ctx, omIn) {
                 var bnds = ctx.contentBounds,
                     bndsIn = omIn.visualBounds,
-                    lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
-                                omIn.style.stroke.lineWidth || 0,
-                    expand = lineWidth / 2;
+                    width = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
+                                omIn.style.stroke.width || 0,
+                    expand = width / 2;
 
                 // Objects of type "artboard" have the special behavior
                 // that we take the bounds of the artboard and not the children.

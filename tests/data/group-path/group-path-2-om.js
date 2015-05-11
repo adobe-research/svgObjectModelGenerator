@@ -7,12 +7,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,

@@ -1234,7 +1234,7 @@ describe('svgWriter', function (){
                                 "type": "none"
                             },
                             "stroke": {
-                                "lineWidth": 14.47,
+                                "width": 14.47,
                                 "type": "solid",
                                 "color": {
                                     "r": 255.00,

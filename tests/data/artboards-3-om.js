@@ -25,12 +25,12 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 13.583333333333332,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 13.583333333333332,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 0,
 								"g": 0,
@@ -78,12 +78,12 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 13.583333333333332,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 13.583333333333332,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 0,
 								"g": 0,

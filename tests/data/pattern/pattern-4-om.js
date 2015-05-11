@@ -8,7 +8,7 @@
                 "stroke": {
                     "type": "pattern",
                     "pattern": "pattern2",
-                    "lineWidth": 20
+                    "width": 20
                 },
                 "fill": {
                     "type": "pattern",

@@ -48,34 +48,34 @@
             } else {
                 styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
             }
-            if (omIn.style.stroke.lineCap) {
-                styleBlock.addRule("stroke-linecap", omIn.style.stroke.lineCap);
+            if (omIn.style.stroke.cap) {
+                styleBlock.addRule("stroke-linecap", omIn.style.stroke.cap);
             }
-            if (omIn.style.stroke.lineJoin) {
-                styleBlock.addRule("stroke-linejoin", omIn.style.stroke.lineJoin);
+            if (omIn.style.stroke.join) {
+                styleBlock.addRule("stroke-linejoin", omIn.style.stroke.join);
             }
-            if (omIn.style.stroke.miterLimit !== 100) {
-                styleBlock.addRule("stroke-miterlimit", (omIn.style.stroke.miterLimit || 0) + "px");
+            if (omIn.style.stroke["miter-limit"] !== 100) {
+                styleBlock.addRule("stroke-miterlimit", (omIn.style.stroke["miter-limit"] || 0) + "px");
             }
-            if (omIn.style.stroke.dashOffset) {
-                styleBlock.addRule("stroke-dashoffset", (omIn.style.stroke.dashOffset || 0) + "px");
+            if (omIn.style.stroke["dash-offset"]) {
+                styleBlock.addRule("stroke-dashoffset", (omIn.style.stroke["dash-offset"] || 0) + "px");
             }
             if (isFinite(omIn.style.stroke.opacity)) {
                 styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
             }
-            if (isFinite(omIn.style.stroke.lineWidth)) {
-                ctx._lastStrokeWidth = omIn.style.stroke.lineWidth;
+            if (isFinite(omIn.style.stroke.width)) {
+                ctx._lastStrokeWidth = omIn.style.stroke.width;
                 styleBlock.addRule("stroke-width", ctx._lastStrokeWidth + "px");
             }
-            if (omIn.style.stroke.dashArray && omIn.style.stroke.dashArray.length) {
-                var dashArray = omIn.style.stroke.dashArray.map(function (element, index) {
+            if (omIn.style.stroke.dash && omIn.style.stroke.dash.length) {
+                var dash = omIn.style.stroke.dash.map(function (element, index) {
                         // This is a work around for a bug in Chrome on [0,2] dash arrays.
                         if (!index && !element) {
                             return 0.001;
                         }
                         return element;
                     }).join();
-                styleBlock.addRule("stroke-dasharray", dashArray);
+                styleBlock.addRule("stroke-dasharray", dash);
             }
         };
     }
