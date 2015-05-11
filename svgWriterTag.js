@@ -540,9 +540,9 @@
             },
             reference: function (ctx, node) {
                 return new Tag("use", {
-                    "xlink:href": "#" + ctx.omStylesheet.getDefine(node.shape.ref, "symbol").defnId,
-                    x: node.shape.offset && node.shape.offset.x || 0,
-                    y: node.shape.offset && node.shape.offset.y || 0,
+                    "xlink:href": "#" + ctx.omStylesheet.getDefine(node.ref, "symbol").defnId,
+                    x: node.offset && node.offset.x || 0,
+                    y: node.offset && node.offset.y || 0,
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 }, ctx);
             },

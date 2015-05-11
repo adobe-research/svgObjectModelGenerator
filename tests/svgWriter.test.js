@@ -555,6 +555,17 @@ describe('svgWriter', function (){
                                     y: 200
                                 }
                             ]
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                     {
@@ -590,6 +601,17 @@ describe('svgWriter', function (){
                                     y: 200
                                 }
                             ]
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                     {
@@ -607,6 +629,17 @@ describe('svgWriter', function (){
                             y1: 400,
                             x2: 200,
                             y2: 300
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                 ]
@@ -758,6 +791,17 @@ describe('svgWriter', function (){
                             width: 200,
                             height: 200
                         },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
+                        }
                     },
                 ]
             },
@@ -883,7 +927,16 @@ describe('svgWriter', function (){
                             height: 200
                         },
                         style: {
-                            mask: "mask2"
+                            mask: "mask2",
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                 ]
@@ -957,6 +1010,17 @@ describe('svgWriter', function (){
                             y: 100,
                             width: 200,
                             height: 100
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     }
                 ]
