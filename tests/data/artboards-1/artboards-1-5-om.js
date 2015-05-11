@@ -29,7 +29,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Rectangle 1",
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2811,
 						"left": 3972,
@@ -45,7 +45,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "iPhone"
+			"name": "iPhone"
 		}
 	],
 	"global": {
@@ -70,7 +70,7 @@ module.exports = {
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "iPhone",
+			"name": "iPhone",
 			"bounds": {
 				"top": 2497,
 				"left": 3658,
@@ -87,5 +87,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "artboards-1.psd"
+	"name": "artboards-1.psd"
 }

@@ -14,7 +14,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,
@@ -127,5 +127,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "radial-gradient-angle-global.psd"
+	"name": "radial-gradient-angle-global.psd"
 }

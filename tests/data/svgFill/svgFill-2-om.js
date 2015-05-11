@@ -124,7 +124,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Ellipse.svg",
+			"name": "Ellipse.svg",
 			"visualBounds": {
 				"top": 62,
 				"left": 49,
@@ -286,5 +286,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgFill.psd"
+	"name": "svgFill.psd"
 }

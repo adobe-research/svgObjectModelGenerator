@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -43,7 +43,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text.svg",
+			"name": "Text.svg",
 			"visualBounds": {
 				"top": 314,
 				"left": 232,
@@ -109,7 +109,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 275,
 				"left": 208,
@@ -154,5 +154,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "text-transform.psd"
+	"name": "text-transform.psd"
 }

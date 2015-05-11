@@ -72,17 +72,17 @@
             _root.global.viewBox = bounds;
         };
 
-        this.setDocTitle = function (title) {
-            _root.title = title;
+        this.setDocTitle = function (name) {
+            _root.name = name;
         };
 
         this.setDocPxToInchRatio = function (pxToInchRatio) {
             _root.global.pxToInchRatio = pxToInchRatio;
         };
 
-        this.setArtboard = function (id, title, bounds) {
+        this.setArtboard = function (id, name, bounds) {
             _root.artboards[id] = {
-                title: title,
+                name: name,
                 bounds: bounds
             };
         };

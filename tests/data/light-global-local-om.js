@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -64,7 +64,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 64,
 				"left": 11,
@@ -135,7 +135,7 @@ module.exports = {
 				"filter": "filter-2"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
 				"left": 415,
@@ -205,7 +205,7 @@ module.exports = {
 				"filter": "filter-3"
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 350,
 				"left": 50,
@@ -275,7 +275,7 @@ module.exports = {
 				"filter": "filter-4"
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 350,
 				"left": 450,
@@ -545,5 +545,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "light-global-local.psd"
+	"name": "light-global-local.psd"
 }

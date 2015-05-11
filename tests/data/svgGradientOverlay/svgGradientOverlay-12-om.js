@@ -103,7 +103,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 11",
+			"name": "Rectangle 11",
 			"visualBounds": {
 				"top": 500,
 				"left": 300,
@@ -183,5 +183,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgGradientOverlay.psd"
+	"name": "svgGradientOverlay.psd"
 }

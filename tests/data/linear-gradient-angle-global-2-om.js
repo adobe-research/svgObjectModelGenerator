@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -22,7 +22,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 50,
 				"left": 200,
@@ -51,7 +51,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 200,
 				"left": 350,
@@ -80,7 +80,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 350,
 				"left": 350,
@@ -330,5 +330,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "linear-gradient-angle-global-2.psd"
+	"name": "linear-gradient-angle-global-2.psd"
 }

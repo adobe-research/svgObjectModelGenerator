@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -22,7 +22,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 50,
 				"left": 50,
@@ -51,7 +51,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
 				"left": 300,
@@ -80,7 +80,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 50,
 				"left": 550,
@@ -109,7 +109,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 10",
+			"name": "Rectangle 10",
 			"visualBounds": {
 				"top": 200,
 				"left": 50,
@@ -138,7 +138,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 11",
+			"name": "Rectangle 11",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,
@@ -167,7 +167,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 12",
+			"name": "Rectangle 12",
 			"visualBounds": {
 				"top": 200,
 				"left": 552,
@@ -735,5 +735,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "gradient-reverse.psd"
+	"name": "gradient-reverse.psd"
 }

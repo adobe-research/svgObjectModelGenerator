@@ -146,7 +146,7 @@
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won’t be supported sufficiently enough initially.
                 svgNode.type = "text";
-                svgNode.title = layer.name;
+                svgNode.name = layer.name;
 
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -35,7 +35,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 48.5,
 				"left": 48.5,
@@ -76,7 +76,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 45,
 				"left": 295,
@@ -115,7 +115,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 45,
 				"left": 545,
@@ -155,7 +155,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 198.5,
 				"left": 48.5,
@@ -195,7 +195,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 195,
 				"left": 295,
@@ -239,7 +239,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 195,
 				"left": 545,
@@ -278,7 +278,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 7",
+			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 340,
 				"left": 40,
@@ -314,7 +314,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 8",
+			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 340,
 				"left": 290,
@@ -721,5 +721,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
+	"name": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
 }

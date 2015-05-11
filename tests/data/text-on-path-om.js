@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -63,7 +63,7 @@ module.exports = {
 					"pathData": "M 46 75 C 46 75 209 75 209 75"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -131,7 +131,7 @@ module.exports = {
 					"pathData": "M 55 303 C 55 303 81 256 81 256 C 81 256 118 293 118 293 C 118 293 147 264 147 264"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -11.840942,
 				"bottom": 35.680756,
@@ -199,7 +199,7 @@ module.exports = {
 					"pathData": "M 41 400 C 105.813 326.531 108.234 327.586 154 402"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -15.915802,
 				"bottom": 39.18768299999999,
@@ -267,7 +267,7 @@ module.exports = {
 					"pathData": "M 37 447 C 37 447 66 447 66 447 C 66 447 88 447 88 447 C 88 447 114 447 114 447 C 114 447 143 447 143 447 C 143 447 173 447 173 447"
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 0,
@@ -337,7 +337,7 @@ module.exports = {
 					"pathData": "M 714 66 C 565.227 214.773 714 173.852 714 380"
 				}
 			],
-			"title": "Text on path",
+			"name": "Text on path",
 			"visualBounds": {
 				"top": 9.578139999999998,
 				"bottom": 293.951904,
@@ -407,7 +407,7 @@ module.exports = {
 					"pathData": "M 282 78 C 282 78 470 78 470 78"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -477,7 +477,7 @@ module.exports = {
 					"pathData": "M 296 220 C 296 220 467 220 467 220"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -8.837402,
 				"bottom": 8.162598,
@@ -545,7 +545,7 @@ module.exports = {
 					"pathData": "M 310 366 C 410.875 288.625 444.211 286.211 524 366"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -21.067017,
 				"bottom": 46.151703,
@@ -617,7 +617,7 @@ module.exports = {
 					"pathData": "M 312 449 C 312 449 496 449 496 449"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -8.837402,
 				"bottom": 8.162598,
@@ -687,7 +687,7 @@ module.exports = {
 					"pathData": "M 273 133 C 273 133 466 133 466 133"
 				}
 			],
-			"title": "Text path",
+			"name": "Text path",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -755,7 +755,7 @@ module.exports = {
 					"pathData": "M 191 127 C 191 127 46 127 46 127"
 				}
 			],
-			"title": "Text path ",
+			"name": "Text path ",
 			"visualBounds": {
 				"top": -6,
 				"bottom": 22,
@@ -823,7 +823,7 @@ module.exports = {
 					"pathData": "M 52 189 C 52 189 72 189 72 189 C 72 189 92 189 92 189 C 92 189 119 189 119 189 C 119 189 143 189 143 189 C 143 189 168 189 168 189 C 168 189 187 189 187 189"
 				}
 			],
-			"title": "Text path ",
+			"name": "Text path ",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -866,5 +866,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "text-on-path.psd"
+	"name": "text-on-path.psd"
 }

@@ -28,7 +28,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 2212,
 				"left": 4000,
@@ -131,5 +131,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-1"
+	"name": "Untitled-1"
 }
