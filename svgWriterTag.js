@@ -289,9 +289,6 @@
     };
     Tag.prototype.setStyleBlock = function (ctx, node) {
         node = node || ctx.currentOMNode;
-        if (!ctx.omStylesheet.hasStyleBlock(node)) {
-            return;
-        }
         var omStyleBlock = ctx.omStylesheet.getStyleBlock(node, ctx.ID.getUnique);
         if (!omStyleBlock) {
             return;
@@ -301,7 +298,7 @@
     };
     Tag.prototype.setClass = function (ctx) {
         var omStyleBlock = this.styleBlock;
-        if (!omStyleBlock) {
+        if (!omStyleBlock || !omStyleBlock.hasRules()) {
             return;
         }
         if (!ctx.usePresentationAttribute) {

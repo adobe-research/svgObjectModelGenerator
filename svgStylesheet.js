@@ -386,6 +386,10 @@
 
             for (className in this.blocks) {
                 if (this.blocks.hasOwnProperty(className)) {
+                    if (!this.blocks[className].rules.length) {
+                        delete this.blocks[className];
+                        continue;
+                    }
                     defn = this.blocks[className];
                     fingerprint = JSON.stringify(defn.rules);
                     defn.fingerprint = fingerprint;
