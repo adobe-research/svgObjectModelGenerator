@@ -132,7 +132,8 @@ module.exports = {
 						}
 					}
 				],
-				"type": "symbol"
+				"type": "symbol",
+				"name": "<A damn cool circle>"
 			},
 			"symbol3": {
 				"children": [
@@ -189,5 +190,5 @@ module.exports = {
 		"pxToInchRatio": 72
 	},
 	"artboards": {},
-	"title": "svgFill.psd"
+	"name": "svgFill.psd"
 }

@@ -27,8 +27,8 @@
                 symbolTag;
 
             if (ctx.svgOM.global && ctx.svgOM.global.symbols[symbol]) {
-                symbolID = ctx.ID.getUnique("symbol");
                 ctx.currentOMNode = ctx.svgOM.global.symbols[symbol];
+                symbolID = ctx.ID.getUnique("symbol", ctx.currentOMNode.name);
                 symbolTag = Tag.make(ctx);
                 fingerprint = symbolTag.toString();
                 ctx.currentOMNode = omIn;

@@ -11,12 +11,12 @@
     <symbol viewBox="0 0 200 200" id="symbol-1">
       <rect width="200" height="200" class="cls-1"/>
     </symbol>
-    <symbol id="symbol-3">
+    <symbol id="a_damn_cool_circle_-1">
       <circle cx="100" cy="100" r="100" class="cls-1"/>
     </symbol>
   </defs>
   <use xlink:href="#symbol-1"/>
   <use xlink:href="#symbol-1" x="200"/>
-  <use xlink:href="#symbol-3" y="200"/>
-  <use xlink:href="#symbol-3" x="200" y="200"/>
+  <use xlink:href="#a_damn_cool_circle_-1" y="200"/>
+  <use xlink:href="#a_damn_cool_circle_-1" x="200" y="200"/>
 </svg>
