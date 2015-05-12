@@ -134,7 +134,7 @@
                 return;
             }
             // evenodd is the default and only fill rule supported in PS.
-            svgNode.style["fill-rule"] = "evenodd";
+            svgNode.shape.winding = "evenodd";
         };
 
         this.addFill = function (svgNode, layer, layerBounds, writer) {
