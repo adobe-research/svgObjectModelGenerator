@@ -47,7 +47,6 @@
                                        [layer.bounds.right, layer.bounds.bottom],
                                        [layer.bounds.left, layer.bounds.bottom]],
                 txfmBounds = [],
-                ellipse = type == "ellipse",
                 samePts = true;
 
             // Rounded rectangle case
@@ -74,7 +73,7 @@
                 points.forEach(function (pt, i) {
                     txfmBounds.push([pt.anchor.x, pt.anchor.y]);
 
-                    if (!ellipse) {
+                    if (type != "ellipse") {
                         if (!_comparePts(txfmBounds[i], unshiftedRectBounds[i])) {
                             samePts = false;
                         }
