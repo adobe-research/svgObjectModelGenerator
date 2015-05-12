@@ -56,7 +56,7 @@
                     // FIXME: We may want to preserve case sensitivity. That requires another map
                     // with the lower case version as value and the case sensitive version as key.
                     // FIXME: Avoid cases where we get "_-".
-                    s = name.replace(/^[^a-zA-Z]+/,"").replace(/[^a-zA-Z0-9\-\_\:\.]+/g,"_").toLowerCase();
+                    s = name.replace(/^[^a-zA-Z]+/, "").replace(/[^a-zA-Z0-9\-\_\:\.]+/g, "_").toLowerCase();
                     s = s.length ? s : type;
                 }
                 docIDs[s] = docIDs[s] || 1;

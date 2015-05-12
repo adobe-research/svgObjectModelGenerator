@@ -46,7 +46,7 @@
         }
     }
 
-    function clipRule(tag, ctx, parents, num) {
+    function clipRule(tag, ctx, parents) {
         var fillRule = tag.styleBlock && tag.styleBlock.getPropertyValue("fill-rule");
         if (!fillRule) {
             return;
