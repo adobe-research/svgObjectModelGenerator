@@ -3,9 +3,9 @@ module.exports = {
 		{
 			"type": "reference",
 			"ref": "symbol1",
-			"offset": {
-				"x": 0,
-				"y": 0
+			"bounds": {
+				"top": 0,
+				"left": 0
 			},
 			"visualBounds": {
 				"left": 0,
@@ -17,9 +17,10 @@ module.exports = {
 		{
 			"type": "reference",
 			"ref": "symbol1",
-			"offset": {
-				"x": 200,
-				"y": 0
+			"bounds": {
+				"top": 0,
+				"left": 200,
+				"right": 400
 			},
 			"visualBounds": {
 				"left": 200,
@@ -31,23 +32,25 @@ module.exports = {
 		{
 			"type": "reference",
 			"ref": "symbol2",
-			"offset": {
-				"x": 0,
-				"y": 200
+			"bounds": {
+				"top": 200,
+				"left": 0,
+				"right": 200,
+				"bottom": 400,
 			},
 			"visualBounds": {
 				"left": 0,
 				"top": 200,
-				"right": 0,
+				"right": 200,
 				"bottom": 400
 			}
 		},
 		{
 			"type": "reference",
 			"ref": "symbol3",
-			"offset": {
-				"x": 200,
-				"y": 200
+			"bounds": {
+				"top": 200,
+				"left": 200
 			},
 			"visualBounds": {
 				"left": 200,

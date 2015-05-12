@@ -583,12 +583,18 @@
                 return tag.useTrick(ctx);
             },
             reference: function (ctx, node) {
-                return new Tag("use", {
+                var attr = {
                     "xlink:href": "#" + ctx.omStylesheet.getDefine(node.ref, "symbol").defnId,
-                    x: node.offset && node.offset.x || 0,
-                    y: node.offset && node.offset.y || 0,
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
+                };
+                if (node.bounds) {
+                    attr.x = node.bounds.left;
+                    attr.y = node.bounds.top;
+                    // If right and bottom were not specified, don't writer width or height. 
+                    attr.width = (node.bounds.right || node.bounds.left) - node.bounds.left;
+                    attr.height = (node.bounds.bottom || node.bounds.top) - node.bounds.top;
+                }
+                return new Tag("use", attr, ctx);
             },
             symbol: function (ctx, node) {
                 var attr = {};
