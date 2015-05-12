@@ -350,6 +350,37 @@
         this.tricked = true;
         return list;
     };
+    function roundRectPath(x, y, width, height, r) {
+        var top, bottom, left, right, ok,
+            small = {len: Infinity};
+        function check(total, i, j) {
+            var len = total - r[i] - r[j];
+            if (small.len > len) {
+                small.len = len;
+                small.fraq = total / (r[i] + r[j]);
+            }
+            return len;
+        }
+        while (!ok) {
+            top = check(width, 0, 1);
+            right = check(height, 1, 2);
+            bottom = check(width, 2, 3);
+            left = check(height, 0, 3);
+            if (small.len + .01 < 0) {
+                r = r.map(function (item) {
+                    return item * small.fraq;
+                });
+                small = {len: 0};
+            } else {
+                ok = true;
+            }
+        }
+        var path = "M" + [x + r[0], y] + "h" + top + "a" + [r[1], r[1], 0, 0, 1, r[1], r[1]] +
+            "v" + right + "a" + [r[2], r[2], 0, 0, 1, -r[2], r[2]] +
+            "h" + -bottom + "a" + [r[3], r[3], 0, 0, 1, -r[3], -r[3]] +
+            "v" + -left + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z";
+        return util.optimisePath(path);
+    }
     var imageProcessing = function (ctx, node) {
             if (!node.bounds) {
                 return;
@@ -468,20 +499,33 @@
                 return new Tag("pattern", attr, ctx);
             },
             rect: function (ctx, node) {
-                var tag = new Tag("rect", {
-                        x: node.shape.x,
-                        y: node.shape.y,
-                        width: node.shape.width,
-                        height: node.shape.height,
-                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                    }, ctx);
-                if (node.shapeRadii) {
-                    var r = parseFloat(node.shapeRadii[0]);
-                    tag.setAttributes({
-                        rx: r,
-                        ry: r
+                var r = node.shape.r,
+                    tag;
+                if (r) {
+                    r = r.map(function (item) {
+                        return Math.abs(parseFloat(item));
                     });
+                    if (r[0] != r[1] || r[1] != r[2] || r[2] != r[3]) {
+                        tag = new Tag("path", {
+                            d: roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r),
+                            transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                        }, ctx);
+                        return tag.useTrick(ctx);
+                    } else {
+                        r = r[0];
+                    }
                 }
+                tag = new Tag("rect", {
+                    x: node.shape.x,
+                    y: node.shape.y,
+                    width: node.shape.width,
+                    height: node.shape.height,
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                }, ctx);
+                r && tag.setAttributes({
+                    rx: r,
+                    ry: r
+                });
                 return tag.useTrick(ctx);
             },
             text: function (ctx, node) {

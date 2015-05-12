@@ -368,7 +368,7 @@
                             if (~PSName.indexOf(" ")) {
                                 PSName = '"' + PSName + '"';
                             }
-                            fontFamily = PSName + ', ' + fontFamily;
+                            fontFamily = PSName + ", " + fontFamily;
                         }
                         span.style["font-family"] = fontFamily;
                     }
