@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,7 +15,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -23,9 +23,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.5,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame"
 				},
 				"meta": {
@@ -52,7 +52,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 88,
 				"left": 88,
@@ -74,7 +74,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -82,9 +82,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.8,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-1"
 				},
@@ -189,7 +189,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 88,
 				"left": 288,
@@ -211,7 +211,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -219,9 +219,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-2"
 				},
@@ -326,7 +326,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 88,
 				"left": 488,
@@ -348,7 +348,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -356,9 +356,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-3"
 				},
@@ -503,7 +503,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 288,
 				"left": 88,
@@ -525,7 +525,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -533,9 +533,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "linear-gradient-4"
 				},
@@ -680,7 +680,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 288,
 				"left": 288,
@@ -702,7 +702,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineWidth": 10,
+					"width": 10,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -710,9 +710,9 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"miterLimit": 100,
+					"cap": "butt",
+					"join": "round",
+					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": "radial-gradient-1"
 				},
@@ -857,7 +857,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 288,
 				"left": 488,
@@ -1178,5 +1178,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "stroke-fx.psd"
+	"name": "stroke-fx.psd"
 }

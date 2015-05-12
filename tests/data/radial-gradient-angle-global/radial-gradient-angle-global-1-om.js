@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		}
 	],
 	"global": {
@@ -38,5 +38,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "radial-gradient-angle-global.psd"
+	"name": "radial-gradient-angle-global.psd"
 }

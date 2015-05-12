@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -43,7 +43,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text.svg",
+			"name": "Text.svg",
 			"visualBounds": {
 				"top": 314,
 				"left": 232,
@@ -93,12 +93,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 241.881842,
 						"g": 101.179413,
@@ -109,7 +109,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 275,
 				"left": 208,
@@ -154,5 +154,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "text-transform.psd"
+	"name": "text-transform.psd"
 }

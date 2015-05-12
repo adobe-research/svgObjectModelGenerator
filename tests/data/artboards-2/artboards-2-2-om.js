@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Layer 1"
+			"name": "Layer 1"
 		}
 	],
 	"global": {
@@ -38,5 +38,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "artboards-2.psd"
+	"name": "artboards-2.psd"
 }

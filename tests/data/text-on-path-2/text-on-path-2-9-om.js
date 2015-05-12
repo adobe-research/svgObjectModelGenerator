@@ -58,7 +58,7 @@ module.exports = {
 					"pathData": "M 360.72 269.76 C 390.941 269.76 415.44 284.803 415.44 303.36 C 415.44 321.917 390.941 336.96 360.72 336.96 C 330.499 336.96 306 321.917 306 303.36 Z"
 				}
 			],
-			"title": "more path text.svg",
+			"name": "more path text.svg",
 			"visualBounds": {
 				"top": -80.8879375,
 				"bottom": 395.11535833333335,
@@ -101,5 +101,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "text-on-path-2.psd"
+	"name": "text-on-path-2.psd"
 }

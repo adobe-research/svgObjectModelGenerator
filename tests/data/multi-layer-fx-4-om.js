@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,12 +15,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -136,7 +136,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 132,
 				"left": 142,
@@ -158,12 +158,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -279,7 +279,7 @@ module.exports = {
 				"filter": "filter-2"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 132,
 				"left": 800,
@@ -671,5 +671,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "multi-layer-fx-4.psd"
+	"name": "multi-layer-fx-4.psd"
 }

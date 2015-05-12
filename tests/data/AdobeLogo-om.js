@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -28,7 +28,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Shape 1",
+			"name": "Shape 1",
 			"visualBounds": {
 				"top": 0,
 				"left": 0,
@@ -70,5 +70,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "AdobeLogo.psd"
+	"name": "AdobeLogo.psd"
 }

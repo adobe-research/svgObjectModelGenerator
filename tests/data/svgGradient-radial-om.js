@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -22,7 +22,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 100,
 				"left": 300,
@@ -51,7 +51,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 350,
 				"left": 50,
@@ -151,5 +151,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgGradient-radial.psd"
+	"name": "svgGradient-radial.psd"
 }

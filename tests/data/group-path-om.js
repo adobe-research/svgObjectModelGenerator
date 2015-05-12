@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "group-1",
@@ -25,12 +25,12 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 12.5,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 12.5,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 0,
 								"g": 0,
@@ -51,7 +51,7 @@ module.exports = {
 						"fill-rule": "evenodd"
 					},
 					"children": [],
-					"title": "Shape 1",
+					"name": "Shape 1",
 					"visualBounds": {
 						"top": 773.71875,
 						"left": 1145.75,
@@ -64,7 +64,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Group 1"
+			"name": "Group 1"
 		}
 	],
 	"global": {
@@ -96,5 +96,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-3"
+	"name": "Untitled-3"
 }

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,12 +15,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -35,7 +35,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 200,
 				"left": 50,
@@ -57,12 +57,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -77,7 +77,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,
@@ -99,12 +99,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -119,7 +119,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 200,
 				"left": 550,
@@ -381,5 +381,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "gradient-duplicate.psd"
+	"name": "gradient-duplicate.psd"
 }

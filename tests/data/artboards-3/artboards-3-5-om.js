@@ -17,12 +17,12 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 13.583333333333332,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 13.583333333333332,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 0,
 								"g": 0,
@@ -38,7 +38,7 @@ module.exports = {
 						"fill-rule": "evenodd"
 					},
 					"children": [],
-					"title": "Rectangle 1",
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2212,
 						"left": 4000,
@@ -51,7 +51,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Artboard 2"
+			"name": "Artboard 2"
 		}
 	],
 	"global": {
@@ -137,7 +137,7 @@ module.exports = {
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "Artboard 2",
+			"name": "Artboard 2",
 			"bounds": {
 				"top": 2000,
 				"left": 3336,
@@ -154,5 +154,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-1"
+	"name": "Untitled-1"
 }

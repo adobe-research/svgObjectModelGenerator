@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -54,7 +54,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "This is a text",
+			"name": "This is a text",
 			"visualBounds": {
 				"top": 241,
 				"left": 321,
@@ -99,5 +99,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgText-writing-mode"
+	"name": "svgText-writing-mode"
 }

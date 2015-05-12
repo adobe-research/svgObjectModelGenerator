@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,15 +15,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "round",
-					"lineJoin": "miter",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "miter",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						6
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -35,7 +35,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 48.5,
 				"left": 48.5,
@@ -54,17 +54,17 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "round",
-					"lineJoin": "bevel",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "bevel",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						50,
 						20,
 						20,
 						50
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -76,7 +76,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 45,
 				"left": 295,
@@ -95,15 +95,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						40,
 						20
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -115,7 +115,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 45,
 				"left": 545,
@@ -134,16 +134,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						12,
 						9
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -155,7 +155,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 198.5,
 				"left": 48.5,
@@ -174,16 +174,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40,
 						30
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -195,7 +195,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 195,
 				"left": 295,
@@ -214,16 +214,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40,
 						30
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -239,7 +239,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 195,
 				"left": 545,
@@ -258,15 +258,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "round",
-					"lineJoin": "miter",
-					"lineWidth": 20,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "miter",
+					"width": 20,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -278,7 +278,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 7",
+			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 340,
 				"left": 40,
@@ -297,12 +297,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 20,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 20,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -314,7 +314,7 @@ module.exports = {
 				"fill-rule": "evenodd"
 			},
 			"children": [],
-			"title": "Rectangle 8",
+			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 340,
 				"left": 290,
@@ -721,5 +721,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
+	"name": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
 }
