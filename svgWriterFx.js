@@ -66,7 +66,7 @@
             filter = omIn.style.filter;
             if (ctx.svgOM.global && ctx.svgOM.global.filters[filter]) {
                 ctx.currentOMNode = ctx.svgOM.global.filters[filter];
-                filterID = ctx.ID.getUnique("filter", ctx.currentOMNode.title);
+                filterID = ctx.ID.getUnique("filter", ctx.currentOMNode.name);
                 fingerprint = JSON.stringify(ctx.currentOMNode.children);
                 ctx.currentOMNode.name = "filter";
                 filterTag = writeFilter(ctx, ctx.currentOMNode);

@@ -34,7 +34,7 @@
             mask = omIn.style.mask;
             if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
                 ctx.currentOMNode = ctx.svgOM.global.masks[mask];
-                maskID = ctx.ID.getUnique("mask", ctx.currentOMNode.title);
+                maskID = ctx.ID.getUnique("mask", ctx.currentOMNode.name);
                 maskTag = Tag.make(ctx);
                 fingerprint = maskTag.toString();
                 ctx.currentOMNode = omIn;

@@ -34,7 +34,7 @@
             clipPath = omIn.style["clip-path"];
             if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
                 ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
-                clipPathID = ctx.ID.getUnique("clip-path", ctx.currentOMNode.title);
+                clipPathID = ctx.ID.getUnique("clip-path", ctx.currentOMNode.name);
                 clipPathTag = Tag.make(ctx);
                 fingerprint = clipPathTag.toString();
                 ctx.currentOMNode = omIn;
