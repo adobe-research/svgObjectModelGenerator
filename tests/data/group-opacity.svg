@@ -10,10 +10,10 @@
       }
 
       .cls-3 {
+        fill: none;
         stroke: lime;
         stroke-miterlimit: 4px;
         stroke-width: 7px;
-        fill: none;
       }
     </style>
   </defs>

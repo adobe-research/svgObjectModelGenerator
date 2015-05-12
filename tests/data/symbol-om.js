@@ -1,14 +1,11 @@
 module.exports = {
 	"children": [
 		{
-			"type": "shape",
-			"shape": {
-				"type": "reference",
-				"ref": "symbol1",
-				"offset": {
-					"x": 0,
-					"y": 0
-				}
+			"type": "reference",
+			"ref": "symbol1",
+			"offset": {
+				"x": 0,
+				"y": 0
 			},
 			"visualBounds": {
 				"left": 0,
@@ -18,14 +15,11 @@ module.exports = {
 			}
 		},
 		{
-			"type": "shape",
-			"shape": {
-				"type": "reference",
-				"ref": "symbol1",
-				"offset": {
-					"x": 200,
-					"y": 0
-				}
+			"type": "reference",
+			"ref": "symbol1",
+			"offset": {
+				"x": 200,
+				"y": 0
 			},
 			"visualBounds": {
 				"left": 200,
@@ -35,14 +29,11 @@ module.exports = {
 			}
 		},
 		{
-			"type": "shape",
-			"shape": {
-				"type": "reference",
-				"ref": "symbol2",
-				"offset": {
-					"x": 0,
-					"y": 200
-				}
+			"type": "reference",
+			"ref": "symbol2",
+			"offset": {
+				"x": 0,
+				"y": 200
 			},
 			"visualBounds": {
 				"left": 0,
@@ -52,14 +43,11 @@ module.exports = {
 			}
 		},
 		{
-			"type": "shape",
-			"shape": {
-				"type": "reference",
-				"ref": "symbol3",
-				"offset": {
-					"x": 200,
-					"y": 200
-				}
+			"type": "reference",
+			"ref": "symbol3",
+			"offset": {
+				"x": 200,
+				"y": 200
 			},
 			"visualBounds": {
 				"left": 200,

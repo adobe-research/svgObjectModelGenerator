@@ -371,8 +371,8 @@
                 return;
             }
 
-            if (omIn.type == "shape" && omIn.shape.type == "reference") {
-                svgWriterSymbol.writeSymbol(ctx, omIn.shape.ref);
+            if (omIn.type == "reference") {
+                svgWriterSymbol.writeSymbol(ctx, omIn.ref);
             }
 
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
