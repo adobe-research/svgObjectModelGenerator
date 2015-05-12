@@ -58,6 +58,10 @@
 
             this.provideBackupDefaults(omIn, styleBlock);
 
+            if (omIn.shape && omIn.shape.winding) {
+                styleBlock.addRule("fill-rule", omIn.shape.winding);
+            }
+
             if (omIn.style) {
                 Object.keys(omIn.style).forEach(function (property) {
                     if (omIn.style[property] === undefined) {
