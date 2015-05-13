@@ -29,7 +29,7 @@
     }
 
     function superfluousGroups(tag, ctx, parents, num) {
-        var mum = parents.pop();
+        var mum = parents[parents.length - 1];
         if (tag.name == "g" && tag.children.length < 2 &&
             !tag.isArtboard &&
             (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
@@ -46,18 +46,36 @@
         }
     }
 
+    function clipRule(tag, ctx, parents) {
+        var fillRule = tag.styleBlock && tag.styleBlock.getPropertyValue("fill-rule");
+        if (!fillRule) {
+            return;
+        }
+        var isClipPathParent;
+        for (var i = 0, len = parents.length; i < len; i++) {
+            if (parents[i].name == "clipPath") {
+                isClipPathParent = true;
+                break;
+            }
+        }
+        if (!isClipPathParent) {
+            return;
+        }
+        tag.styleBlock.addRule("clip-rule", fillRule);
+    }
+
     function process(tag, ctx, parents, num) {
         superfluousGroups(tag, ctx, parents, num);
+        clipRule(tag, ctx, parents, num);
     }
 
     function preProcess(tag, ctx, parents, num) {
         parents = parents || [];
         parents.push(tag);
-        if (!tag.children) {
-            return;
-        }
-        for (var i = 0; i < tag.children.length; i++) {
-            preProcess(tag.children[i], ctx, parents.slice(0), i);
+        if (tag.children) {
+            for (var i = 0; i < tag.children.length; i++) {
+                preProcess(tag.children[i], ctx, parents.slice(0), i);
+            }
         }
         parents.pop();
         process(tag, ctx, parents.slice(0), num);
@@ -66,7 +84,7 @@
     function processStyle(ctx, blocks) {
         var id = new ID(ctx.idType);
         for (var i in blocks) {
-            if (blocks[i].tags) {
+            if (blocks[i].tags && blocks[i].rules.length) {
                 blocks[i].class[0] = id.getUnique("cls");
             }
         }
@@ -77,15 +95,15 @@
         try {
             Tag.resetRoot();
             svgWriterPreprocessor.processSVGOM(ctx);
-            var svg = Tag.make(ctx, svgOM);
-            ctx.omStylesheet.consolidateStyleBlocks();
-            processStyle(ctx, ctx.omStylesheet.blocks);
-            var hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
+            var svg = Tag.make(ctx, svgOM),
+                hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
                 hasDefines = ctx.omStylesheet.hasDefines();
             if (hasRules || hasDefines) {
                 svg.children.unshift(ctx.omStylesheet.getDefsTag());
             }
             preProcess(svg, ctx);
+            ctx.omStylesheet.consolidateStyleBlocks();
+            processStyle(ctx, ctx.omStylesheet.blocks);
             svg.write(ctx);
         } catch (ex) {
             console.error("Ex: " + ex);
