@@ -3,7 +3,6 @@
     <style>
       .cls-1, .cls-2 {
         fill: none;
-        fill-rule: evenodd;
         clip-rule: evenodd;
       }
 

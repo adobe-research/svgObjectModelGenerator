@@ -62,6 +62,7 @@
             return;
         }
         tag.styleBlock.addRule("clip-rule", fillRule);
+        tag.styleBlock.removeRule("fill-rule");
     }
 
     function process(tag, ctx, parents, num) {
