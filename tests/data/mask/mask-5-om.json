@@ -7,12 +7,12 @@
             "style": {
                 "stroke": {
                     "type": "solid",
-                    "lineCap": "butt",
-                    "lineJoin": "miter",
-                    "lineWidth": 14,
-                    "miterLimit": 100,
-                    "dashArray": [],
-                    "dashOffset": 0,
+                    "cap": "butt",
+                    "join": "miter",
+                    "width": 14,
+                    "miter-limit": 100,
+                    "dash": [],
+                    "dash-offset": 0,
                     "color": {
                         "r": 0,
                         "g": 0.091882,
@@ -54,12 +54,12 @@
             "style": {
                 "stroke": {
                     "type": "none",
-                    "lineCap": "butt",
-                    "lineJoin": "miter",
-                    "lineWidth": 3,
-                    "miterLimit": 100,
-                    "dashArray": [],
-                    "dashOffset": 0,
+                    "cap": "butt",
+                    "join": "miter",
+                    "width": 3,
+                    "miter-limit": 100,
+                    "dash": [],
+                    "dash-offset": 0,
                     "color": {
                         "r": 0,
                         "g": 0.091882,
@@ -108,12 +108,12 @@
                     "style": {
                         "stroke": {
                             "type": "solid",
-                            "lineCap": "butt",
-                            "lineJoin": "miter",
-                            "lineWidth": 14,
-                            "miterLimit": 100,
-                            "dashArray": [],
-                            "dashOffset": 0,
+                            "cap": "butt",
+                            "join": "miter",
+                            "width": 14,
+                            "miter-limit": 100,
+                            "dash": [],
+                            "dash-offset": 0,
                             "color": {
                                 "r": 0,
                                 "g": 0.091882,
@@ -154,12 +154,12 @@
                     "style": {
                         "stroke": {
                             "type": "solid",
-                            "lineCap": "butt",
-                            "lineJoin": "miter",
-                            "lineWidth": 14,
-                            "miterLimit": 100,
-                            "dashArray": [],
-                            "dashOffset": 0,
+                            "cap": "butt",
+                            "join": "miter",
+                            "width": 14,
+                            "miter-limit": 100,
+                            "dash": [],
+                            "dash-offset": 0,
                             "color": {
                                 "r": 0,
                                 "g": 0.091882,

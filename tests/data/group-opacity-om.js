@@ -78,10 +78,10 @@ module.exports = {
 																"g" : 255,
 																"r" : 0
 															},
-															"lineCap" : "butt",
-															"lineJoin" : "miter",
-															"lineWidth" : 7,
-															"miterLimit" : 4,
+															"cap" : "butt",
+															"join" : "miter",
+															"width" : 7,
+															"miter-limit" : 4,
 															"type" : "solid"
 														}
 													},

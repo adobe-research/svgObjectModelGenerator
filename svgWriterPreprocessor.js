@@ -23,6 +23,7 @@
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterMask = require("./svgWriterMask.js"),
         svgWriterClipPath = require("./svgWriterClipPath.js"),
+        svgWriterSymbol = require("./svgWriterSymbol.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterTextPath = require("./svgWriterTextPath.js"),
         matrix = require("./matrix.js"),
@@ -57,6 +58,10 @@
 
             this.provideBackupDefaults(omIn, styleBlock);
 
+            if (omIn.shape && omIn.shape.winding) {
+                styleBlock.addRule("fill-rule", omIn.shape.winding);
+            }
+
             if (omIn.style) {
                 Object.keys(omIn.style).forEach(function (property) {
                     if (omIn.style[property] === undefined) {
@@ -80,9 +85,9 @@
         var recordBounds = function (ctx, omIn) {
                 var bnds = ctx.contentBounds,
                     bndsIn = omIn.visualBounds,
-                    lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
-                                omIn.style.stroke.lineWidth || 0,
-                    expand = lineWidth / 2;
+                    width = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
+                                omIn.style.stroke.width || 0,
+                    expand = width / 2;
 
                 // Objects of type "artboard" have the special behavior
                 // that we take the bounds of the artboard and not the children.
@@ -370,6 +375,10 @@
                 return;
             }
 
+            if (omIn.type == "reference") {
+                svgWriterSymbol.writeSymbol(ctx, omIn.ref);
+            }
+
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {
@@ -428,6 +437,10 @@
             });
             Object.keys(global.patterns || {}).forEach(function (key) {
                 ctx.currentOMNode = global.patterns[key];
+                self.processSVGNode(ctx);
+            });
+            Object.keys(global.symbols || {}).forEach(function (key) {
+                ctx.currentOMNode = global.symbols[key];
                 self.processSVGNode(ctx);
             });
             ctx.currentOMNode = omSave;

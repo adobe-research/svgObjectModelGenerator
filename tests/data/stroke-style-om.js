@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,15 +15,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "round",
-					"lineJoin": "miter",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "miter",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						6
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -31,11 +31,10 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 48.5,
 				"left": 48.5,
@@ -44,7 +43,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M50.000,50.000 C50.000,50.000 250.000,50.000 250.000,50.000 C250.000,50.000 250.000,150.000 250.000,150.000 C250.000,150.000 50.000,150.000 50.000,150.000 C50.000,150.000 50.000,50.000 50.000,50.000 Z"
+				"path": "M50.000,50.000 C50.000,50.000 250.000,50.000 250.000,50.000 C250.000,50.000 250.000,150.000 250.000,150.000 C250.000,150.000 50.000,150.000 50.000,150.000 C50.000,150.000 50.000,50.000 50.000,50.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -54,17 +54,17 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "round",
-					"lineJoin": "bevel",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "bevel",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						50,
 						20,
 						20,
 						50
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -72,11 +72,10 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 45,
 				"left": 295,
@@ -85,7 +84,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M300.000,50.000 C300.000,50.000 500.000,50.000 500.000,50.000 C500.000,50.000 500.000,150.000 500.000,150.000 C500.000,150.000 300.000,150.000 300.000,150.000 C300.000,150.000 300.000,50.000 300.000,50.000 Z"
+				"path": "M300.000,50.000 C300.000,50.000 500.000,50.000 500.000,50.000 C500.000,50.000 500.000,150.000 500.000,150.000 C500.000,150.000 300.000,150.000 300.000,150.000 C300.000,150.000 300.000,50.000 300.000,50.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -95,15 +95,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						40,
 						20
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -111,11 +111,10 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 45,
 				"left": 545,
@@ -124,7 +123,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M550.000,50.000 C550.000,50.000 750.000,50.000 750.000,50.000 C750.000,50.000 750.000,150.000 750.000,150.000 C750.000,150.000 550.000,150.000 550.000,150.000 C550.000,150.000 550.000,50.000 550.000,50.000 Z"
+				"path": "M550.000,50.000 C550.000,50.000 750.000,50.000 750.000,50.000 C750.000,50.000 750.000,150.000 750.000,150.000 C750.000,150.000 550.000,150.000 550.000,150.000 C550.000,150.000 550.000,50.000 550.000,50.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -134,16 +134,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						12,
 						9
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -151,11 +151,10 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 198.5,
 				"left": 48.5,
@@ -164,7 +163,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M50.000,200.000 C50.000,200.000 250.000,200.000 250.000,200.000 C250.000,200.000 250.000,300.000 250.000,300.000 C250.000,300.000 50.000,300.000 50.000,300.000 C50.000,300.000 50.000,200.000 50.000,200.000 Z"
+				"path": "M50.000,200.000 C50.000,200.000 250.000,200.000 250.000,200.000 C250.000,200.000 250.000,300.000 250.000,300.000 C250.000,300.000 50.000,300.000 50.000,300.000 C50.000,300.000 50.000,200.000 50.000,200.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -174,16 +174,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40,
 						30
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -191,11 +191,10 @@ module.exports = {
 					},
 					"opacity": 1,
 					"gradient": "linear-gradient-1"
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 195,
 				"left": 295,
@@ -204,7 +203,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M300.000,200.000 C300.000,200.000 500.000,200.000 500.000,200.000 C500.000,200.000 500.000,300.000 500.000,300.000 C500.000,300.000 300.000,300.000 300.000,300.000 C300.000,300.000 300.000,200.000 300.000,200.000 Z"
+				"path": "M300.000,200.000 C300.000,200.000 500.000,200.000 500.000,200.000 C500.000,200.000 500.000,300.000 500.000,300.000 C500.000,300.000 300.000,300.000 300.000,300.000 C300.000,300.000 300.000,200.000 300.000,200.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -214,16 +214,16 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "round",
-					"lineWidth": 10,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "butt",
+					"join": "round",
+					"width": 10,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40,
 						30
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -235,11 +235,10 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": "radial-gradient-2"
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 195,
 				"left": 545,
@@ -248,7 +247,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M550.000,200.000 C550.000,200.000 750.000,200.000 750.000,200.000 C750.000,200.000 750.000,300.000 750.000,300.000 C750.000,300.000 550.000,300.000 550.000,300.000 C550.000,300.000 550.000,200.000 550.000,200.000 Z"
+				"path": "M550.000,200.000 C550.000,200.000 750.000,200.000 750.000,200.000 C750.000,200.000 750.000,300.000 750.000,300.000 C750.000,300.000 550.000,300.000 550.000,300.000 C550.000,300.000 550.000,200.000 550.000,200.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -258,15 +258,15 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "round",
-					"lineJoin": "miter",
-					"lineWidth": 20,
-					"miterLimit": 100,
-					"dashArray": [
+					"cap": "round",
+					"join": "miter",
+					"width": 20,
+					"miter-limit": 100,
+					"dash": [
 						0,
 						40
 					],
-					"dashOffset": 0,
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -274,11 +274,10 @@ module.exports = {
 					},
 					"opacity": 1,
 					"gradient": "linear-gradient-2"
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 7",
+			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 340,
 				"left": 40,
@@ -287,7 +286,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M50.000,350.000 C50.000,350.000 250.000,350.000 250.000,350.000 C250.000,350.000 250.000,450.000 250.000,450.000 C250.000,450.000 50.000,450.000 50.000,450.000 C50.000,450.000 50.000,350.000 50.000,350.000 Z"
+				"path": "M50.000,350.000 C50.000,350.000 250.000,350.000 250.000,350.000 C250.000,350.000 250.000,450.000 250.000,450.000 C250.000,450.000 50.000,450.000 50.000,450.000 C50.000,450.000 50.000,350.000 50.000,350.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -297,12 +297,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 20,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 20,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"red": 0,
 						"green": 0,
@@ -310,11 +310,10 @@ module.exports = {
 					},
 					"opacity": 1,
 					"gradient": "linear-gradient-3"
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 8",
+			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 340,
 				"left": 290,
@@ -323,7 +322,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M300.000,350.000 C300.000,350.000 500.000,350.000 500.000,350.000 C500.000,350.000 500.000,450.000 500.000,450.000 C500.000,450.000 300.000,450.000 300.000,450.000 C300.000,450.000 300.000,350.000 300.000,350.000 Z"
+				"path": "M300.000,350.000 C300.000,350.000 500.000,350.000 500.000,350.000 C500.000,350.000 500.000,450.000 500.000,450.000 C500.000,450.000 300.000,450.000 300.000,450.000 C300.000,450.000 300.000,350.000 300.000,350.000 Z",
+				"winding": "evenodd"
 			}
 		}
 	],
@@ -721,5 +721,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
+	"name": "/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd"
 }

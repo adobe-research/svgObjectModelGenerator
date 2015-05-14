@@ -49,6 +49,18 @@
                         var r = Math.random() * 16 | 0, v = c == "x" ? r : r & 3 | 8;
                         return v.toString(16);
                     });
+            },
+            namedId = function (type, name) {
+                var s = type;
+                if (typeof name == "string") {
+                    // FIXME: We may want to preserve case sensitivity. That requires another map
+                    // with the lower case version as value and the case sensitive version as key.
+                    // FIXME: Avoid cases where we get "_-".
+                    s = name.replace(/^[^a-zA-Z]+/, "").replace(/[^a-zA-Z0-9\-\_\:\.]+/g, "_").toLowerCase();
+                    s = s.length ? s : type;
+                }
+                docIDs[s] = docIDs[s] || 1;
+                return s + "-" + docIDs[s]++;
             };
 
         this.reset = function () {
@@ -58,7 +70,7 @@
             }
         };
 
-        this.getUnique = function (kind) {
+        this.getUnique = function (kind, name) {
             switch (type) {
             case "unique":
                 return uniqueId();
@@ -67,8 +79,7 @@
             case "regular":
                 // falls through
             default:
-                docIDs[kind] = docIDs[kind] || 1;
-                return kind + "-" + docIDs[kind]++;
+                return namedId(kind, name);
             }
         };
     }

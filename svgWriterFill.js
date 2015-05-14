@@ -30,6 +30,9 @@
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
 
             if (!omIn.style || !omIn.style.fill) {
+                if (omIn.type == "shape") {
+                    styleBlock.addRule("fill", "none");
+                }
                 return;
             }
             fill = omIn.style.fill;

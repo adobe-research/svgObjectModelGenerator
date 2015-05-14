@@ -88,7 +88,7 @@
 
         proto.removeRule = function (prop, val) {
             for (var i = 0, len = this.rules.length; i < len; i++) {
-                if (this.rules[i].propertyName == prop && this.rules[i].value == val) {
+                if (this.rules[i].propertyName == prop && (val == null || this.rules[i].value == val)) {
                     this.rules.splice(i, 1);
                     break;
                 }
@@ -386,6 +386,10 @@
 
             for (className in this.blocks) {
                 if (this.blocks.hasOwnProperty(className)) {
+                    if (!this.blocks[className].rules.length) {
+                        delete this.blocks[className];
+                        continue;
+                    }
                     defn = this.blocks[className];
                     fingerprint = JSON.stringify(defn.rules);
                     defn.fingerprint = fingerprint;

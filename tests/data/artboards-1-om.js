@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Layer 1"
+			"name": "Layer 1"
 		},
 		{
 			"id": "artboard-1",
@@ -37,7 +37,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Ellipse 1",
+					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2567,
 						"left": 2147,
@@ -52,7 +52,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "square"
+			"name": "square"
 		},
 		{
 			"id": "artboard-2",
@@ -83,7 +83,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Rectangle 1",
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2811,
 						"left": 3972,
@@ -99,7 +99,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "iPhone"
+			"name": "iPhone"
 		}
 	],
 	"global": {
@@ -124,7 +124,7 @@ module.exports = {
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "square",
+			"name": "square",
 			"bounds": {
 				"top": 2000,
 				"left": 2000,
@@ -133,7 +133,7 @@ module.exports = {
 			}
 		},
 		"artboard-2": {
-			"title": "iPhone",
+			"name": "iPhone",
 			"bounds": {
 				"top": 2497,
 				"left": 3658,
@@ -150,5 +150,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "artboards-1.psd"
+	"name": "artboards-1.psd"
 }

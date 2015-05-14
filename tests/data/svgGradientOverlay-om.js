@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -111,7 +111,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 50,
 				"left": 50,
@@ -229,7 +229,7 @@ module.exports = {
 				"filter": "filter-2"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
 				"left": 300,
@@ -347,7 +347,7 @@ module.exports = {
 				"filter": "filter-3"
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 50,
 				"left": 550,
@@ -465,7 +465,7 @@ module.exports = {
 				"filter": "filter-4"
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 200,
 				"left": 50,
@@ -583,7 +583,7 @@ module.exports = {
 				"filter": "filter-5"
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,
@@ -701,7 +701,7 @@ module.exports = {
 				"filter": "filter-6"
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 200,
 				"left": 550,
@@ -819,7 +819,7 @@ module.exports = {
 				"filter": "filter-7"
 			},
 			"children": [],
-			"title": "Rectangle 7",
+			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 350,
 				"left": 50,
@@ -937,7 +937,7 @@ module.exports = {
 				"filter": "filter-8"
 			},
 			"children": [],
-			"title": "Rectangle 8",
+			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 350,
 				"left": 300,
@@ -1055,7 +1055,7 @@ module.exports = {
 				"filter": "filter-9"
 			},
 			"children": [],
-			"title": "Rectangle 9",
+			"name": "Rectangle 9",
 			"visualBounds": {
 				"top": 350,
 				"left": 550,
@@ -1173,7 +1173,7 @@ module.exports = {
 				"filter": "filter-10"
 			},
 			"children": [],
-			"title": "Rectangle 10",
+			"name": "Rectangle 10",
 			"visualBounds": {
 				"top": 500,
 				"left": 50,
@@ -1291,7 +1291,7 @@ module.exports = {
 				"filter": "filter-11"
 			},
 			"children": [],
-			"title": "Rectangle 11",
+			"name": "Rectangle 11",
 			"visualBounds": {
 				"top": 500,
 				"left": 300,
@@ -1409,7 +1409,7 @@ module.exports = {
 				"filter": "filter-12"
 			},
 			"children": [],
-			"title": "Rectangle 12",
+			"name": "Rectangle 12",
 			"visualBounds": {
 				"top": 500,
 				"left": 550,
@@ -1863,5 +1863,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgGradientOverlay.psd"
+	"name": "svgGradientOverlay.psd"
 }

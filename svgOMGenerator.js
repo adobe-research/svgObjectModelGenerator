@@ -101,7 +101,7 @@
             layerType = getSVGLayerType(layer);
             if (!justTraverse) {
                 svgNode = writer.addSVGNode(layerType, layerVisible);
-                svgNode.title = layer.name;
+                svgNode.name = layer.name;
             }
 
             switch (layerType) {
@@ -124,7 +124,7 @@
                     break;
                 case "artboard":
                     if (!justTraverse) {
-                        writer.setArtboard(svgNode.id, svgNode.title, layer.artboard.artboardRect);
+                        writer.setArtboard(svgNode.id, svgNode.name, layer.artboard.artboardRect);
                     }
                     // falls through
                 case "group":

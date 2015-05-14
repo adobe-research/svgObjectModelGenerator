@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -94,7 +94,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "shadow",
+			"name": "shadow",
 			"visualBounds": {
 				"top": 80,
 				"left": 100,
@@ -259,5 +259,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgFx-shadow.psd"
+	"name": "svgFx-shadow.psd"
 }

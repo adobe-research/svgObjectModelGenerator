@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -124,7 +124,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1.svg",
+			"name": "Rectangle 1.svg",
 			"visualBounds": {
 				"top": 100,
 				"left": 100,
@@ -178,7 +178,7 @@ module.exports = {
 				"filter": "filter-2"
 			},
 			"children": [],
-			"title": "Rectangle 2.svg",
+			"name": "Rectangle 2.svg",
 			"visualBounds": {
 				"top": 100,
 				"left": 550,
@@ -323,5 +323,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "gradient-color-overlay.psd"
+	"name": "gradient-color-overlay.psd"
 }

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "group-1",
@@ -25,12 +25,12 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 12.5,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 12.5,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 0,
 								"g": 0,
@@ -47,11 +47,10 @@ module.exports = {
 								"b": 0,
 								"a": 1
 							}
-						},
-						"fill-rule": "evenodd"
+						}
 					},
 					"children": [],
-					"title": "Shape 1",
+					"name": "Shape 1",
 					"visualBounds": {
 						"top": 773.71875,
 						"left": 1145.75,
@@ -60,11 +59,12 @@ module.exports = {
 					},
 					"shape": {
 						"type": "path",
+						"winding": "evenodd",
 						"path": "M1351.000,777.000 C1210.539,808.937 1071.609,983.375 1191.000,1050.000 C1310.391,1116.625 1474.102,1215.289 1520.000,1084.000 C1565.898,952.711 1491.461,745.062 1351.000,777.000 Z"
 					}
 				}
 			],
-			"title": "Group 1"
+			"name": "Group 1"
 		}
 	],
 	"global": {
@@ -96,5 +96,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-3"
+	"name": "Untitled-3"
 }

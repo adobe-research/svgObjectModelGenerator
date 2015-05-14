@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #007f00;
+        stroke: #007f00;
+        stroke-miterlimit: 0;
+      }
+    </style>
+
+    <symbol viewBox="0 0 200 200" id="symbol-1">
+      <rect width="200" height="200" class="cls-1"/>
+    </symbol>
+    <symbol id="a_damn_cool_circle_-1">
+      <circle cx="100" cy="100" r="100" class="cls-1"/>
+    </symbol>
+  </defs>
+  <use xlink:href="#symbol-1"/>
+  <use xlink:href="#symbol-1" x="200"/>
+  <use xlink:href="#a_damn_cool_circle_-1" y="200"/>
+  <use xlink:href="#a_damn_cool_circle_-1" x="200" y="200"/>
+</svg>

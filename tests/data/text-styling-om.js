@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -53,7 +53,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 55,
 				"left": 64,
@@ -113,7 +113,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 143,
 				"left": 65,
@@ -174,7 +174,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 230,
 				"left": 71,
@@ -234,7 +234,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 306,
 				"left": 64,
@@ -294,7 +294,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 397,
 				"left": 56,
@@ -354,7 +354,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 482,
 				"left": 63,
@@ -414,7 +414,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 56,
 				"left": 332,
@@ -474,7 +474,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 161,
 				"left": 332,
@@ -534,7 +534,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 262,
 				"left": 333,
@@ -593,7 +593,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 320,
 				"left": 330,
@@ -652,7 +652,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 396,
 				"left": 332,
@@ -711,7 +711,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Text",
+			"name": "Text",
 			"visualBounds": {
 				"top": 482,
 				"left": 328,
@@ -770,7 +770,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Test",
+			"name": "Test",
 			"visualBounds": {
 				"top": 41,
 				"left": 625,
@@ -829,7 +829,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Test",
+			"name": "Test",
 			"visualBounds": {
 				"top": 152,
 				"left": 627,
@@ -888,7 +888,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Test",
+			"name": "Test",
 			"visualBounds": {
 				"top": 240,
 				"left": 628,
@@ -947,7 +947,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Test",
+			"name": "Test",
 			"visualBounds": {
 				"top": 370,
 				"left": 622,
@@ -992,5 +992,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "text-styling.psd"
+	"name": "text-styling.psd"
 }

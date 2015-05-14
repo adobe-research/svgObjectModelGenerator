@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,12 +15,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -253,7 +253,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 219,
 				"left": 218,
@@ -362,5 +362,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "multiple-layer-fix-3.psd"
+	"name": "multiple-layer-fix-3.psd"
 }

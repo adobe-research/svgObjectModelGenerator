@@ -32,12 +32,7 @@
 
 
         function _comparePts(ptA, ptB) {
-            if (round2(ptA[0]) === round2(ptB[0]) &&
-                round2(ptA[1]) === round2(ptB[1])) {
-                return true;
-            } else {
-                return false;
-            }
+            return round2(ptA[0]) == round2(ptB[0]) && round2(ptA[1]) == round2(ptB[1]);
         }
 
         function _ellipsePt(bnds, i) {
@@ -45,7 +40,7 @@
                     bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1]) / 2];
         }
 
-        this.inferTransformForShape = function (svgNode, layer, points, ellipse) {
+        this.inferTransformForShape = function (svgNode, layer, points, type) {
 
             var unshiftedRectBounds = [[layer.bounds.left, layer.bounds.top],
                                        [layer.bounds.right, layer.bounds.top],
@@ -55,29 +50,30 @@
                 samePts = true;
 
             // Rounded rectangle case
-            if (points.length == 8 && !ellipse) {
-                if (round2(points[0].anchor.y) == round2(layer.bounds.top) &&
-                    round2(points[1].anchor.y) == round2(layer.bounds.top) &&
-                    round2(points[2].anchor.x) == round2(layer.bounds.right) &&
-                    round2(points[3].anchor.x) == round2(layer.bounds.right) &&
-                    round2(points[4].anchor.y) == round2(layer.bounds.bottom) &&
-                    round2(points[5].anchor.y) == round2(layer.bounds.bottom) &&
-                    round2(points[6].anchor.x) == round2(layer.bounds.left) &&
-                    round2(points[7].anchor.x) == round2(layer.bounds.left) &&
-                    round2(points[0].anchor.x) == round2(points[5].anchor.x) &&
-                    round2(points[1].anchor.x) == round2(points[4].anchor.x) &&
-                    round2(points[7].anchor.y) == round2(points[2].anchor.y) &&
-                    round2(points[6].anchor.y) == round2(points[3].anchor.y)
-                   ) {
+            if (type == "roundedRect") {
+                var top = round2(layer.bounds.top),
+                    bottom = round2(layer.bounds.bottom),
+                    left = round2(layer.bounds.left),
+                    right = round2(layer.bounds.right),
+                    allAligned = true;
+                for (var i = 0, ii = points.length; i < ii; i++) {
+                    var x = round2(points[i].anchor.x),
+                        y = round2(points[i].anchor.y);
+                    allAligned = allAligned && (x == left || x == right || y == top || y == bottom);
+                    if (!allAligned) {
+                        break;
+                    }
+                }
+                if (allAligned) {
                     return true;
                 }
             }
 
-            if (points.length === 4) {
+            if (points.length == 4) {
                 points.forEach(function (pt, i) {
                     txfmBounds.push([pt.anchor.x, pt.anchor.y]);
 
-                    if (!ellipse) {
+                    if (type != "ellipse") {
                         if (!_comparePts(txfmBounds[i], unshiftedRectBounds[i])) {
                             samePts = false;
                         }
@@ -100,7 +96,7 @@
                 if (origin.type === "ellipse") {
 
                     if (component.subpathListKey && component.subpathListKey[0] && component.subpathListKey[0].points) {
-                        newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, true);
+                        newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, origin.type);
                         if (!newBounds) {
                             //be a path if we can't be an ellipse
                             return false;
@@ -155,15 +151,9 @@
                 var newBounds;
 
                 if (origin.type === "rect" || origin.type === "roundedRect") {
-                    if (origin.radii &&
-                        (origin.radii[0] != origin.radii[1] ||
-                         origin.radii[0] != origin.radii[2] ||
-                         origin.radii[0] != origin.radii[3])) {
-                        return false;
-                    }
 
                     if (component.subpathListKey && component.subpathListKey[0] && component.subpathListKey[0].points) {
-                        newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, false);
+                        newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, origin.type);
                         if (!newBounds) {
                             //be a path if we can't be a rect
                             return false;
@@ -172,6 +162,10 @@
 
                     svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
                     svgNode.shapeRadii = origin.radii;
+                    if (svgNode.shapeRadii) {
+                        svgNode.shapeRadii = svgNode.shapeRadii.slice();
+                        svgNode.shapeRadii.unshift(svgNode.shapeRadii.pop());
+                    }
 
                     svgNode.shape = {
                         type: "rect",
@@ -179,7 +173,7 @@
                         y: origin.bounds.top,
                         width: origin.bounds.right - origin.bounds.left,
                         height: origin.bounds.bottom - origin.bounds.top,
-                        r: origin.radii
+                        r: svgNode.shapeRadii
                     };
 
                     omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);

@@ -62,7 +62,7 @@ describe('SVGWriterPreprocessor', function (){
                         style: {
                             stroke: {
                                 strokeEnabled: true,
-                                lineWidth: 3
+                                width: 3
                             }
                         }
                     },

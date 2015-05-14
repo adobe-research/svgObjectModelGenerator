@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -46,7 +46,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "2",
+			"name": "2",
 			"visualBounds": {
 				"top": 211,
 				"left": 79,
@@ -98,7 +98,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "3",
+			"name": "3",
 			"visualBounds": {
 				"top": 339,
 				"left": 77,
@@ -151,7 +151,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "4",
+			"name": "4",
 			"visualBounds": {
 				"top": 466,
 				"left": 77,
@@ -204,7 +204,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "5",
+			"name": "5",
 			"visualBounds": {
 				"top": 597,
 				"left": 76,
@@ -257,7 +257,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "6",
+			"name": "6",
 			"visualBounds": {
 				"top": 721,
 				"left": 76,
@@ -311,7 +311,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "7",
+			"name": "7",
 			"visualBounds": {
 				"top": 846,
 				"left": 84,
@@ -364,7 +364,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "1 copy",
+			"name": "1 copy",
 			"visualBounds": {
 				"top": 76,
 				"left": 84,
@@ -567,7 +567,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "thin ultrathin thin italic medium light oblique book slanted",
+			"name": "thin ultrathin thin italic medium light oblique book slanted",
 			"visualBounds": {
 				"top": 76,
 				"left": 381,
@@ -612,5 +612,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "/Users/baranovs/Desktop/texts.psd"
+	"name": "/Users/baranovs/Desktop/texts.psd"
 }

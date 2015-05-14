@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -15,12 +15,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -38,7 +38,6 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fill-rule": "evenodd",
 				"meta": {
 					"PS": {
 						"fx": {
@@ -110,7 +109,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 455,
 				"left": 418,
@@ -119,7 +118,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M950.000,197.000 C950.000,197.000 1150.000,197.000 1150.000,197.000 C1150.000,197.000 1150.000,397.000 1150.000,397.000 C1150.000,397.000 950.000,397.000 950.000,397.000 C950.000,397.000 950.000,197.000 950.000,197.000 Z"
+				"path": "M950.000,197.000 C950.000,197.000 1150.000,197.000 1150.000,197.000 C1150.000,197.000 1150.000,397.000 1150.000,397.000 C1150.000,397.000 950.000,397.000 950.000,397.000 C950.000,397.000 950.000,197.000 950.000,197.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -129,12 +129,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -152,7 +152,6 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fill-rule": "evenodd",
 				"meta": {
 					"PS": {
 						"fx": {
@@ -238,7 +237,7 @@ module.exports = {
 				"filter": "filter-2"
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 881,
 				"left": 210,
@@ -247,7 +246,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M260.000,650.000 C260.000,650.000 460.000,650.000 460.000,650.000 C460.000,650.000 460.000,850.000 460.000,850.000 C460.000,850.000 260.000,850.000 260.000,850.000 C260.000,850.000 260.000,650.000 260.000,650.000 Z"
+				"path": "M260.000,650.000 C260.000,650.000 460.000,650.000 460.000,650.000 C460.000,650.000 460.000,850.000 460.000,850.000 C460.000,850.000 260.000,850.000 260.000,850.000 C260.000,850.000 260.000,650.000 260.000,650.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -257,12 +257,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -381,7 +381,7 @@ module.exports = {
 				"filter": "filter-3"
 			},
 			"children": [],
-			"title": "Rectangle 7",
+			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 1103,
 				"left": 110,
@@ -403,12 +403,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -426,7 +426,6 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fill-rule": "evenodd",
 				"meta": {
 					"PS": {
 						"fx": {
@@ -542,7 +541,7 @@ module.exports = {
 				"filter": "filter-4"
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 881,
 				"left": 850,
@@ -551,7 +550,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M950.000,650.000 C950.000,650.000 1150.000,650.000 1150.000,650.000 C1150.000,650.000 1150.000,850.000 1150.000,850.000 C1150.000,850.000 950.000,850.000 950.000,850.000 C950.000,850.000 950.000,650.000 950.000,650.000 Z"
+				"path": "M950.000,650.000 C950.000,650.000 1150.000,650.000 1150.000,650.000 C1150.000,650.000 1150.000,850.000 1150.000,850.000 C1150.000,850.000 950.000,850.000 950.000,850.000 C950.000,850.000 950.000,650.000 950.000,650.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -561,12 +561,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -584,7 +584,6 @@ module.exports = {
 						"a": 1
 					}
 				},
-				"fill-rule": "evenodd",
 				"meta": {
 					"PS": {
 						"fx": {
@@ -730,7 +729,7 @@ module.exports = {
 				"filter": "filter-5"
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 881,
 				"left": 1490,
@@ -739,7 +738,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M1640.000,650.000 C1640.000,650.000 1840.000,650.000 1840.000,650.000 C1840.000,650.000 1840.000,850.000 1840.000,850.000 C1840.000,850.000 1640.000,850.000 1640.000,850.000 C1640.000,850.000 1640.000,650.000 1640.000,650.000 Z"
+				"path": "M1640.000,650.000 C1640.000,650.000 1840.000,650.000 1840.000,650.000 C1840.000,650.000 1840.000,850.000 1840.000,850.000 C1840.000,850.000 1640.000,850.000 1640.000,850.000 C1640.000,850.000 1640.000,650.000 1640.000,650.000 Z",
+				"winding": "evenodd"
 			}
 		},
 		{
@@ -749,12 +749,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -824,7 +824,7 @@ module.exports = {
 				"filter": "filter-6"
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 197,
 				"left": 210,
@@ -846,12 +846,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 12.5,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 12.5,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -970,7 +970,7 @@ module.exports = {
 				"filter": "filter-7"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 197,
 				"left": 1490,
@@ -1938,5 +1938,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "multi-layer-fx-1.psd"
+	"name": "multi-layer-fx-1.psd"
 }

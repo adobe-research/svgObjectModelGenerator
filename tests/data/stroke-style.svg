@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-7, .cls-8 {
+        fill: none;
+      }
+
       .cls-1, .cls-2, .cls-3, .cls-4 {
         stroke: #000;
       }
@@ -15,10 +19,6 @@
 
       .cls-1 {
         stroke-dasharray: 0.001 6;
-      }
-
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-7, .cls-8 {
-        fill: none;
       }
 
       .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {

@@ -7,7 +7,6 @@
 
       .cls-1 {
         mask: url(#mask-1);
-        fill: none;
       }
     </style>
 

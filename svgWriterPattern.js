@@ -28,8 +28,8 @@
                 patternTag;
 
             if (ctx.svgOM.global && ctx.svgOM.global.patterns[pattern]) {
-                patternID = ctx.ID.getUnique("pattern");
                 ctx.currentOMNode = ctx.svgOM.global.patterns[pattern];
+                patternID = ctx.ID.getUnique("pattern", ctx.currentOMNode.name);
                 patternTag = Tag.make(ctx);
                 fingerprint = patternTag.toString();
                 ctx.currentOMNode = omIn;

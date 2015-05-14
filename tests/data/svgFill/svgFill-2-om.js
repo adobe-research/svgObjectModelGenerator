@@ -7,12 +7,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 3,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 3,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -124,7 +124,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Ellipse.svg",
+			"name": "Ellipse.svg",
 			"visualBounds": {
 				"top": 62,
 				"left": 49,
@@ -286,5 +286,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgFill.psd"
+	"name": "svgFill.psd"
 }

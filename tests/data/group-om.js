@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "group-1",
@@ -64,12 +64,12 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "solid",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 3,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 3,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 241.881842,
 								"g": 101.179413,
@@ -89,7 +89,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Rectangle 1",
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 100,
 						"left": 100,
@@ -112,12 +112,12 @@ module.exports = {
 						"opacity": 0.75,
 						"stroke": {
 							"type": "solid",
-							"lineCap": "butt",
-							"lineJoin": "miter",
-							"lineWidth": 3,
-							"miterLimit": 100,
-							"dashArray": [],
-							"dashOffset": 0,
+							"cap": "butt",
+							"join": "miter",
+							"width": 3,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
 							"color": {
 								"r": 241.881842,
 								"g": 101.179413,
@@ -173,7 +173,7 @@ module.exports = {
 						"filter": "filter-2"
 					},
 					"children": [],
-					"title": "Rectangle 2",
+					"name": "Rectangle 2",
 					"visualBounds": {
 						"top": 200,
 						"left": 200,
@@ -189,7 +189,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "Group"
+			"name": "Group"
 		}
 	],
 	"global": {
@@ -334,5 +334,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "group.psd"
+	"name": "group.psd"
 }

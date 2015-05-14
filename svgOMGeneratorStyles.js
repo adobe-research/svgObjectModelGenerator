@@ -105,15 +105,15 @@
 
             if (strokeStyle) {
                 stroke.type = !strokeStyle.strokeEnabled ? "none" : "solid";
-                stroke.lineCap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
-                stroke.lineJoin = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
-                stroke.lineWidth = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
-                stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
-                stroke.dashArray = strokeStyle.strokeStyleLineDashSet ?
+                stroke.cap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
+                stroke.join = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
+                stroke.width = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
+                stroke["miter-limit"] = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
+                stroke.dash = strokeStyle.strokeStyleLineDashSet ?
                     strokeStyle.strokeStyleLineDashSet.map(function (ele) {
-                    return omgUtils.boundInPx(ele, dpi) * (stroke.lineWidth || 0);
+                    return omgUtils.boundInPx(ele, dpi) * (stroke.width || 0);
                 }) : [];
-                stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
+                stroke["dash-offset"] = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
                 stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 stroke.pattern = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern ? "PATTERN-PLACEHOLDER" : undefined;
@@ -134,7 +134,7 @@
                 return;
             }
             // evenodd is the default and only fill rule supported in PS.
-            svgNode.style["fill-rule"] = "evenodd";
+            svgNode.shape.winding = "evenodd";
         };
 
         this.addFill = function (svgNode, layer, layerBounds, writer) {
@@ -189,12 +189,12 @@
 
             if (strokeStyle) {
                 stroke.type = !strokeStyle.enabled ? "none" : "solid";
-                stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
+                stroke.width = strokeStyle.size ? strokeStyle.size : 1;
                 stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
-                stroke.lineCap = "butt";
-                stroke.lineJoin = "round";
-                stroke.miterLimit = 100;
+                stroke.cap = "butt";
+                stroke.join = "round";
+                stroke["miter-limit"] = 100;
                 stroke.sourceStyle = strokeStyle.style;
                 if (strokeStyle.gradient) {
                     stroke.type = "gradient";
@@ -368,7 +368,7 @@
                             if (~PSName.indexOf(" ")) {
                                 PSName = '"' + PSName + '"';
                             }
-                            fontFamily = PSName + ', ' + fontFamily;
+                            fontFamily = PSName + ", " + fontFamily;
                         }
                         span.style["font-family"] = fontFamily;
                     }

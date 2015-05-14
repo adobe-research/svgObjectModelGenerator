@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Layer 1"
+			"name": "Layer 1"
 		},
 		{
 			"id": "artboard-1",
@@ -37,7 +37,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Ellipse 1",
+					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2125,
 						"left": 2125,
@@ -52,7 +52,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "circle"
+			"name": "circle"
 		},
 		{
 			"id": "artboard-2",
@@ -83,7 +83,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Rectangle 1",
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2138,
 						"left": 3390,
@@ -99,7 +99,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "square"
+			"name": "square"
 		}
 	],
 	"global": {
@@ -124,7 +124,7 @@ module.exports = {
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "circle",
+			"name": "circle",
 			"bounds": {
 				"top": 2000,
 				"left": 2000,
@@ -133,7 +133,7 @@ module.exports = {
 			}
 		},
 		"artboard-2": {
-			"title": "square",
+			"name": "square",
 			"bounds": {
 				"top": 2000,
 				"left": 3252,
@@ -150,5 +150,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "artboards-2.psd"
+	"name": "artboards-2.psd"
 }

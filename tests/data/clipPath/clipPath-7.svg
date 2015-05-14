@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        clip-rule: evenodd;
+      }
+
+      .cls-1 {
+        clip-path: url(#clip-path-1);
+      }
+
+      .cls-3 {
+        fill: #007f00;
+        clip-path: url(#clip-path-2);
+      }
+    </style>
+
+    <clipPath id="clip-path-1">
+      <path d="M100,100H200V200H100Z" class="cls-2"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path d="M50,50H250V250H50Z" class="cls-1"/>
+    </clipPath>
+  </defs>
+  <rect width="300" height="300" class="cls-3"/>
+</svg>

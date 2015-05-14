@@ -7,12 +7,12 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "none",
-					"lineCap": "butt",
-					"lineJoin": "miter",
-					"lineWidth": 13.583333333333332,
-					"miterLimit": 100,
-					"dashArray": [],
-					"dashOffset": 0,
+					"cap": "butt",
+					"join": "miter",
+					"width": 13.583333333333332,
+					"miter-limit": 100,
+					"dash": [],
+					"dash-offset": 0,
 					"color": {
 						"r": 0,
 						"g": 0,
@@ -24,11 +24,10 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": "linear-gradient-1"
-				},
-				"fill-rule": "evenodd"
+				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 2212,
 				"left": 4000,
@@ -37,7 +36,8 @@ module.exports = {
 			},
 			"shape": {
 				"type": "path",
-				"path": "M4000.000,2212.000 C4000.000,2212.000 4600.000,2212.000 4600.000,2212.000 C4600.000,2212.000 4600.000,2812.000 4600.000,2812.000 C4600.000,2812.000 4000.000,2812.000 4000.000,2812.000 C4000.000,2812.000 4000.000,2212.000 4000.000,2212.000 Z"
+				"path": "M4000.000,2212.000 C4000.000,2212.000 4600.000,2212.000 4600.000,2212.000 C4600.000,2212.000 4600.000,2812.000 4600.000,2812.000 C4600.000,2812.000 4000.000,2812.000 4000.000,2812.000 C4000.000,2812.000 4000.000,2212.000 4000.000,2212.000 Z",
+				"winding": "evenodd"
 			}
 		}
 	],
@@ -131,5 +131,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "Untitled-1"
+	"name": "Untitled-1"
 }

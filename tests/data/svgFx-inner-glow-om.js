@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -123,7 +123,7 @@ module.exports = {
 				"filter": "filter-1"
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 200,
 				"left": 150,
@@ -197,7 +197,7 @@ module.exports = {
 				"filter": "filter-2"
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 200,
 				"left": 450,
@@ -444,5 +444,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgFx-inner-glow.psd"
+	"name": "svgFx-inner-glow.psd"
 }

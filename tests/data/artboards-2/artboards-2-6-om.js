@@ -29,7 +29,7 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"title": "Rectangle 1",
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2138,
 						"left": 3390,
@@ -45,7 +45,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "square"
+			"name": "square"
 		}
 	],
 	"global": {
@@ -70,7 +70,7 @@ module.exports = {
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "square",
+			"name": "square",
 			"bounds": {
 				"top": 2000,
 				"left": 3252,
@@ -87,5 +87,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "artboards-2.psd"
+	"name": "artboards-2.psd"
 }

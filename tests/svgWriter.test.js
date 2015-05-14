@@ -189,7 +189,7 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5", "clipPath-6"];
+        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5", "clipPath-6", "clipPath-7"];
 
         for (var i = 0, end = database.length; i < end; i++) {
             compareResults(database[i]);
@@ -555,6 +555,17 @@ describe('svgWriter', function (){
                                     y: 200
                                 }
                             ]
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                     {
@@ -590,6 +601,17 @@ describe('svgWriter', function (){
                                     y: 200
                                 }
                             ]
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                     {
@@ -607,6 +629,17 @@ describe('svgWriter', function (){
                             y1: 400,
                             x2: 200,
                             y2: 300
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                 ]
@@ -758,6 +791,17 @@ describe('svgWriter', function (){
                             width: 200,
                             height: 200
                         },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
+                        }
                     },
                 ]
             },
@@ -883,7 +927,16 @@ describe('svgWriter', function (){
                             height: 200
                         },
                         style: {
-                            mask: "mask2"
+                            mask: "mask2",
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     },
                 ]
@@ -957,6 +1010,17 @@ describe('svgWriter', function (){
                             y: 100,
                             width: 200,
                             height: 100
+                        },
+                        style: {
+                            fill: {
+                                type: "solid",
+                                color: {
+                                    r: 0,
+                                    g: 0,
+                                    b: 0,
+                                    a: 1
+                                }
+                            }
                         }
                     }
                 ]
@@ -1234,7 +1298,7 @@ describe('svgWriter', function (){
                                 "type": "none"
                             },
                             "stroke": {
-                                "lineWidth": 14.47,
+                                "width": 14.47,
                                 "type": "solid",
                                 "color": {
                                     "r": 255.00,
@@ -1323,6 +1387,39 @@ describe('svgWriter', function (){
 
         it('Test transform attribute on group', function () {
             compareResults('group-transform');
+        });
+    });
+
+    /**
+     * Test symbols
+     **/
+    describe('Test symbols', function () {
+
+        function compareResults (testName) {
+            var svgOM,
+                svgOut,
+                expectedOut,
+                path = 'data/' + testName;
+
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test references with symbol', function () {
+            compareResults('symbol');
         });
     });
 

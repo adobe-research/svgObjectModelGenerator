@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "text-1",
@@ -146,7 +146,7 @@ module.exports = {
 					}
 				}
 			],
-			"title": "This is a text.svg",
+			"name": "This is a text.svg",
 			"visualBounds": {
 				"top": 161,
 				"left": 303,
@@ -226,5 +226,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "svgTextGradient.psd"
+	"name": "svgTextGradient.psd"
 }
