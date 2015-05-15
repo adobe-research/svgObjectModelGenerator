@@ -14,7 +14,7 @@ module.exports = {
 			"visible": true,
 			"style": {
 				"opacity": 0.35,
-				"mix-blend-mode": "multiply",
+				"blend-mode": "multiply",
 				"stroke": {
 					"type": "none"
 				},
