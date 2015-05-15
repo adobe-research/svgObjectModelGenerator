@@ -10,7 +10,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-1"
+					"gradient": {
+						"id": "radial-gradient-1",
+						"gradientSpace": "objectBoundingBox",
+						"r": 100,
+						"cx": 900,
+						"cy": 900
+					}
 				}
 			},
 			"children": [],
@@ -62,11 +68,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 900,
-				"cy": 900
+				"type": "radial"
 			}
 		},
 		"masks": {},

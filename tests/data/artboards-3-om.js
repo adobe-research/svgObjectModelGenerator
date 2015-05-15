@@ -41,7 +41,14 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "linear-gradient-1"
+							"gradient": {
+								"gradientSpace": "userSpaceOnUse",
+								"x1": 0,
+								"y1": 2512,
+								"x2": 5924,
+								"y2": 2512,
+								"id": "linear-gradient-1"
+							}
 						}
 					},
 					"children": [],
@@ -94,7 +101,14 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "linear-gradient-2"
+							"gradient": {
+								"gradientSpace": "userSpaceOnUse",
+								"x1": 0,
+								"y1": 2512,
+								"x2": 5924,
+								"y2": 2512,
+								"id": "linear-gradient-2"
+							}
 						}
 					},
 					"children": [],
@@ -107,8 +121,8 @@ module.exports = {
 					},
 					"shape": {
 						"type": "path",
-						"winding": "evenodd",
-						"path": "M4000.000,2212.000 C4000.000,2212.000 4600.000,2212.000 4600.000,2212.000 C4600.000,2212.000 4600.000,2812.000 4600.000,2812.000 C4600.000,2812.000 4000.000,2812.000 4000.000,2812.000 C4000.000,2812.000 4000.000,2212.000 4000.000,2212.000 Z"
+						"path": "M4000.000,2212.000 C4000.000,2212.000 4600.000,2212.000 4600.000,2212.000 C4600.000,2212.000 4600.000,2812.000 4600.000,2812.000 C4600.000,2812.000 4000.000,2812.000 4000.000,2812.000 C4000.000,2812.000 4000.000,2212.000 4000.000,2212.000 Z",
+						"winding": "evenodd"
 					}
 				}
 			],
@@ -172,12 +186,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 2512,
-				"x2": 5924,
-				"y2": 2512
+				"type": "linear"
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -232,12 +241,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 2512,
-				"x2": 5924,
-				"y2": 2512
+				"type": "linear"
 			}
 		},
 		"masks": {},

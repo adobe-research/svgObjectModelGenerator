@@ -89,7 +89,7 @@
             var dpi = writer._dpi(),
                 stroke = svgNode.style.stroke || {},
                 strokeStyle = layer.strokeStyle,
-                gradient,
+                gradientPair,
                 toStrokeLinecap = {
                     "strokeStyleRoundCap": "round",
                     "strokeStyleButtCap": "butt",
@@ -117,12 +117,13 @@
                 stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 stroke.pattern = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern ? "PATTERN-PLACEHOLDER" : undefined;
-                if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient) {
-                    omgUtils.scanForUnsupportedGradientFeatures(strokeStyle.strokeStyleContent, writer);
+                if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient &&
+                    omgUtils.scanForUnsupportedGradientFeatures(strokeStyle.strokeStyleContent, writer)) {
                     stroke.type = "gradient";
-                    gradient = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
-                    stroke.gradient = writer.ID.getUnique(gradient.type + "-gradient");
-                    writer.global().gradients[stroke.gradient] = gradient;
+                    gradientPair = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
+                    stroke.gradient = gradientPair.reference;
+                    stroke.gradient.id = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
+                    writer.global().gradients[stroke.gradient.id] = gradientPair.gradient;
                 }
             } else {
                 stroke.type = "none";
@@ -140,7 +141,7 @@
         this.addFill = function (svgNode, layer, layerBounds, writer) {
             var fill = svgNode.style.fill || {},
                 fillStyle = layer.fill,
-                gradient,
+                gradientPair,
                 strokeStyle = layer.strokeStyle;
             if (!fillStyle || strokeStyle && strokeStyle.fillEnabled === false) {
                 return;
@@ -154,14 +155,13 @@
                 fill.type = "solid";
                 fill.color = omgUtils.toColor(fillStyle.color);
             } else if (fillClass == "gradientLayer") {
-                fill.type = "gradient";
-                if (fillStyle.gradient) {
-                    omgUtils.scanForUnsupportedGradientFeatures(fillStyle, writer);
-                    gradient = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
-                    fill.gradient = writer.ID.getUnique(gradient.type + "-gradient");
-                    writer.global().gradients[fill.gradient] = gradient;
-                } else {
-                    console.log("WARNING: Unhandled gradient type = " + JSON.stringify(fill));
+                if (fillStyle.gradient &&
+                    omgUtils.scanForUnsupportedGradientFeatures(fillStyle, writer)) {
+                    fill.type = "gradient";
+                    gradientPair = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
+                    fill.gradient = gradientPair.reference;
+                    fill.gradient.id = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
+                    writer.global().gradients[fill.gradient.id] = gradientPair.gradient;
                 }
             } else if (fillClass === "patternLayer") {
                 fill.type = "pattern";
@@ -179,7 +179,7 @@
 
         var applyStrokeFilter = function (svgNode, strokeStyle, layer, layerBounds, writer) {
             var stroke = {},
-                gradient;
+                gradientPair;
 
             if (!strokeStyle) {
                 return;
@@ -198,9 +198,10 @@
                 stroke.sourceStyle = strokeStyle.style;
                 if (strokeStyle.gradient) {
                     stroke.type = "gradient";
-                    gradient = omgUtils.toGradient(strokeStyle, layerBounds, writer._root.global.bounds);
-                    stroke.gradient = writer.ID.getUnique(gradient.type + "-gradient");
-                    writer.global().gradients[stroke.gradient] = gradient;
+                    gradientPair = omgUtils.toGradient(strokeStyle, layerBounds, writer._root.global.bounds);
+                    stroke.gradient = gradientPair.reference;
+                    stroke.gradient.id = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
+                    writer.global().gradients[stroke.gradient.id] = gradientPair.gradient;
                 }
             } else {
                 stroke.type = "none";

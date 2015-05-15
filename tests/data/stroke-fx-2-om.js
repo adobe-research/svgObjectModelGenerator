@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"title": "Background"
+			"name": "Background"
 		},
 		{
 			"id": "shape-1",
@@ -52,7 +52,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 88,
 				"left": 88,
@@ -86,7 +86,14 @@ module.exports = {
 					"join": "round",
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 300,
+						"y1": 150,
+						"x2": 400,
+						"y2": 150,
+						"id": "linear-gradient-1"
+					}
 				},
 				"meta": {
 					"PS": {
@@ -189,7 +196,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 88,
 				"left": 288,
@@ -223,7 +230,14 @@ module.exports = {
 					"join": "round",
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-2"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 500,
+						"y1": 150,
+						"x2": 600,
+						"y2": 150,
+						"id": "linear-gradient-2"
+					}
 				},
 				"meta": {
 					"PS": {
@@ -326,7 +340,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 88,
 				"left": 488,
@@ -360,7 +374,14 @@ module.exports = {
 					"join": "round",
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-3"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 100,
+						"y1": 400,
+						"x2": 200,
+						"y2": 300,
+						"id": "linear-gradient-3"
+					}
 				},
 				"meta": {
 					"PS": {
@@ -503,7 +524,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 288,
 				"left": 88,
@@ -537,7 +558,14 @@ module.exports = {
 					"join": "round",
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "linear-gradient-4"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 99.99999999999994,
+						"y1": 600,
+						"x2": 700,
+						"y2": 0,
+						"id": "linear-gradient-4"
+					}
 				},
 				"meta": {
 					"PS": {
@@ -680,7 +708,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 5",
+			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 288,
 				"left": 288,
@@ -714,7 +742,13 @@ module.exports = {
 					"join": "round",
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
-					"gradient": "radial-gradient-1"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"r": 424.2640687119285,
+						"cx": 400,
+						"cy": 300,
+						"id": "radial-gradient-1"
+					}
 				},
 				"meta": {
 					"PS": {
@@ -857,7 +891,7 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"title": "Rectangle 6",
+			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 288,
 				"left": 488,
@@ -906,12 +940,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 300,
-				"y1": 150,
-				"x2": 400,
-				"y2": 150
+				"type": "linear"
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -942,12 +971,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 500,
-				"y1": 150,
-				"x2": 600,
-				"y2": 150
+				"type": "linear"
 			},
 			"linear-gradient-3": {
 				"stops": [
@@ -1010,12 +1034,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 100,
-				"y1": 400,
-				"x2": 200,
-				"y2": 300
+				"type": "linear"
 			},
 			"linear-gradient-4": {
 				"stops": [
@@ -1078,12 +1097,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 99.99999999999994,
-				"y1": 600,
-				"x2": 700,
-				"y2": 0
+				"type": "linear"
 			},
 			"radial-gradient-1": {
 				"stops": [
@@ -1146,11 +1160,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 424.2640687119285,
-				"cx": 400,
-				"cy": 300
+				"type": "radial"
 			}
 		},
 		"masks": {},
@@ -1178,5 +1188,5 @@ module.exports = {
 			}
 		}
 	},
-	"title": "stroke-fx.psd"
+	"name": "stroke-fx.psd"
 }

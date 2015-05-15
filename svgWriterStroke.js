@@ -42,7 +42,7 @@
             stroke = omIn.style.stroke;
             // Make a style for this stroke and reference it.
             if (stroke.type == "gradient") {
-                writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[stroke.gradient], "stroke");
+                writeGradient(ctx, styleBlock, stroke.gradient, "stroke");
             } else if (stroke.type == "pattern") {
                 writePattern(ctx, stroke.pattern, "stroke");
             } else {

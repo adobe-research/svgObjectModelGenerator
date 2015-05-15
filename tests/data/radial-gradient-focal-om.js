@@ -9,7 +9,15 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-1"
+					"gradient": {
+						"id": "radial-gradient-1",
+						"gradientSpace": "userSpaceOnUse",
+						"r": 75,
+						"cx": 150,
+						"cy": 100,
+						"fx": 150,
+						"fy": 100
+					}
 				}
 			},
 			"children": [],
@@ -37,7 +45,15 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-2"
+					"gradient": {
+						"id": "radial-gradient-2",
+						"gradientSpace": "userSpaceOnUse",
+						"r": 75,
+						"cx": 400,
+						"cy": 100,
+						"fx": 425,
+						"fy": 125
+					}
 				}
 			},
 			"children": [],
@@ -65,7 +81,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-3"
+					"gradient": {
+						"id": "radial-gradient-3",
+						"gradientSpace": "userSpaceOnUse",
+						"r": 75,
+						"cx": 150,
+						"cy": 250,
+						"fx": 100
+					}
 				}
 			},
 			"children": [],
@@ -93,7 +116,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-4"
+					"gradient": {
+						"id": "radial-gradient-4",
+						"gradientSpace": "userSpaceOnUse",
+						"r": 75,
+						"cx": 400,
+						"cy": 250,
+						"fy": 200
+					}
 				}
 			},
 			"children": [],
@@ -138,13 +168,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 75,
-				"cx": 150,
-				"cy": 100,
-				"fx": 150,
-				"fy": 100
+				"type": "radial"
 			},
 			"radial-gradient-2": {
 				"stops": [
@@ -167,13 +191,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 75,
-				"cx": 400,
-				"cy": 100,
-				"fx": 425,
-				"fy": 125
+				"type": "radial"
 			},
 			"radial-gradient-3": {
 				"stops": [
@@ -196,12 +214,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 75,
-				"cx": 150,
-				"cy": 250,
-				"fx": 100
+				"type": "radial"
 			},
 			"radial-gradient-4": {
 				"stops": [
@@ -224,12 +237,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 75,
-				"cx": 400,
-				"cy": 250,
-				"fy": 200
+				"type": "radial"
 			}
 		},
 		"masks": {},

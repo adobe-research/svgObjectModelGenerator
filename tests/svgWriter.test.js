@@ -1132,7 +1132,7 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        it('Objects of type "image" are recognized', function () {
+        it('Test transform on gradient', function () {
             compareResults('gradient-transform');
         });
     });

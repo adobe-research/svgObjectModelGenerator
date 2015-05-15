@@ -18,7 +18,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 50,
+						"y1": 100,
+						"x2": 250,
+						"y2": 100,
+						"id": "linear-gradient-1"
+					}
 				}
 			},
 			"children": [],
@@ -47,7 +54,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-2"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 400,
+						"y1": 150,
+						"x2": 400,
+						"y2": 50,
+						"id": "linear-gradient-2"
+					}
 				}
 			},
 			"children": [],
@@ -76,7 +90,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-3"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 550,
+						"y1": 100,
+						"x2": 750,
+						"y2": 100,
+						"id": "linear-gradient-3"
+					}
 				}
 			},
 			"children": [],
@@ -105,7 +126,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"r": 100,
+						"cx": 150,
+						"cy": 550,
+						"id": "radial-gradient-1"
+					}
 				}
 			},
 			"children": [],
@@ -134,7 +161,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-2"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"r": 50,
+						"cx": 400,
+						"cy": 550,
+						"id": "radial-gradient-2"
+					}
 				}
 			},
 			"children": [],
@@ -163,7 +196,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-3"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"r": 100,
+						"cx": 650,
+						"cy": 550,
+						"id": "radial-gradient-3"
+					}
 				}
 			},
 			"children": [],
@@ -192,7 +231,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-4"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"r": 400,
+						"cx": 400,
+						"cy": 300,
+						"id": "radial-gradient-4"
+					}
 				}
 			},
 			"children": [],
@@ -221,7 +266,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-5"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"r": 300,
+						"cx": 400,
+						"cy": 300,
+						"id": "radial-gradient-5"
+					}
 				}
 			},
 			"children": [],
@@ -250,7 +301,13 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-6"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"r": 400,
+						"cx": 400,
+						"cy": 300,
+						"id": "radial-gradient-6"
+					}
 				}
 			},
 			"children": [],
@@ -279,7 +336,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-4"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 0,
+						"y1": 300,
+						"x2": 800,
+						"y2": 300,
+						"id": "linear-gradient-4"
+					}
 				}
 			},
 			"children": [],
@@ -308,7 +372,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-5"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 400,
+						"y1": 600,
+						"x2": 400,
+						"y2": 0,
+						"id": "linear-gradient-5"
+					}
 				}
 			},
 			"children": [],
@@ -337,7 +408,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-6"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 0,
+						"y1": 300,
+						"x2": 800,
+						"y2": 300,
+						"id": "linear-gradient-6"
+					}
 				}
 			},
 			"children": [],
@@ -422,12 +500,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 50,
-				"y1": 100,
-				"x2": 250,
-				"y2": 100
+				"type": "linear"
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -490,12 +563,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 400,
-				"y1": 150,
-				"x2": 400,
-				"y2": 50
+				"type": "linear"
 			},
 			"linear-gradient-3": {
 				"stops": [
@@ -558,12 +626,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 550,
-				"y1": 100,
-				"x2": 750,
-				"y2": 100
+				"type": "linear"
 			},
 			"radial-gradient-1": {
 				"stops": [
@@ -626,11 +689,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 150,
-				"cy": 550
+				"type": "radial"
 			},
 			"radial-gradient-2": {
 				"stops": [
@@ -693,11 +752,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 50,
-				"cx": 400,
-				"cy": 550
+				"type": "radial"
 			},
 			"radial-gradient-3": {
 				"stops": [
@@ -760,11 +815,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 650,
-				"cy": 550
+				"type": "radial"
 			},
 			"radial-gradient-4": {
 				"stops": [
@@ -827,11 +878,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 400,
-				"cx": 400,
-				"cy": 300
+				"type": "radial"
 			},
 			"radial-gradient-5": {
 				"stops": [
@@ -894,11 +941,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 300,
-				"cx": 400,
-				"cy": 300
+				"type": "radial"
 			},
 			"radial-gradient-6": {
 				"stops": [
@@ -961,11 +1004,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 400,
-				"cx": 400,
-				"cy": 300
+				"type": "radial"
 			},
 			"linear-gradient-4": {
 				"stops": [
@@ -1028,12 +1067,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 300,
-				"x2": 800,
-				"y2": 300
+				"type": "linear"
 			},
 			"linear-gradient-5": {
 				"stops": [
@@ -1096,12 +1130,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 400,
-				"y1": 600,
-				"x2": 400,
-				"y2": 0
+				"type": "linear"
 			},
 			"linear-gradient-6": {
 				"stops": [
@@ -1164,12 +1193,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 300,
-				"x2": 800,
-				"y2": 300
+				"type": "linear"
 			}
 		},
 		"masks": {},

@@ -23,7 +23,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 0,
+						"y1": 2512,
+						"x2": 5924,
+						"y2": 2512,
+						"id": "linear-gradient-1"
+					}
 				}
 			},
 			"children": [],
@@ -98,12 +105,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 2512,
-				"x2": 5924,
-				"y2": 2512
+				"type": "linear"
 			}
 		},
 		"masks": {},

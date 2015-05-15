@@ -18,7 +18,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 342.8888994943414,
+						"y1": 250,
+						"x2": 557.1111005056587,
+						"y2": 100,
+						"id": "linear-gradient-1"
+					}
 				}
 			},
 			"children": [],
@@ -47,7 +54,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-2"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 0,
+						"y1": 725.1037691048548,
+						"x2": 1000,
+						"y2": 24.896230895145152,
+						"id": "linear-gradient-2"
+					}
 				}
 			},
 			"children": [],
@@ -110,12 +124,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 342.8888994943414,
-				"y1": 250,
-				"x2": 557.1111005056587,
-				"y2": 100
+				"type": "linear"
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -156,12 +165,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 725.1037691048548,
-				"x2": 1000,
-				"y2": 24.896230895145152
+				"type": "linear"
 			}
 		},
 		"masks": {},

@@ -20,7 +20,13 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "radial-gradient-1"
+							"gradient": {
+								"id": "radial-gradient-1",
+								"gradientSpace": "objectBoundingBox",
+								"r": 100,
+								"cx": 900,
+								"cy": 900
+							}
 						}
 					},
 					"children": [],
@@ -48,7 +54,13 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "radial-gradient-2"
+							"gradient": {
+								"id": "radial-gradient-2",
+								"gradientSpace": "objectBoundingBox",
+								"r": 100,
+								"cx": 1300,
+								"cy": 900
+							}
 						}
 					},
 					"children": [],
@@ -76,7 +88,13 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "radial-gradient-3"
+							"gradient": {
+								"id": "radial-gradient-3",
+								"gradientSpace": "objectBoundingBox",
+								"r": 100,
+								"cx": 900,
+								"cy": 1300
+							}
 						}
 					},
 					"children": [],
@@ -104,7 +122,13 @@ module.exports = {
 						},
 						"fill": {
 							"type": "gradient",
-							"gradient": "radial-gradient-4"
+							"gradient": {
+								"id": "radial-gradient-4",
+								"gradientSpace": "objectBoundingBox",
+								"r": 100,
+								"cx": 1300,
+								"cy": 1300
+							}
 						}
 					},
 					"children": [],
@@ -159,11 +183,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 900,
-				"cy": 900
+				"type": "radial"
 			},
 			"radial-gradient-2": {
 				"stops": [
@@ -194,11 +214,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 1300,
-				"cy": 900
+				"type": "radial"
 			},
 			"radial-gradient-3": {
 				"stops": [
@@ -229,11 +245,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 900,
-				"cy": 1300
+				"type": "radial"
 			},
 			"radial-gradient-4": {
 				"stops": [
@@ -264,11 +276,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 1300,
-				"cy": 1300
+				"type": "radial"
 			}
 		},
 		"masks": {},

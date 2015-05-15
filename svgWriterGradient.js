@@ -38,17 +38,17 @@
         gradientStopsReset: function () {
             gradientStops = {};
         },
-        getLinearGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
-            var x1 = gradient.x1 + offsetX,
-                x2 = gradient.x2 + offsetX,
-                y1 = gradient.y1 + offsetY,
-                y2 = gradient.y2 + offsetY,
+        getLinearGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
+            var x1 = gradientRef.x1 + offsetX,
+                x2 = gradientRef.x2 + offsetX,
+                y1 = gradientRef.y1 + offsetY,
+                y2 = gradientRef.y2 + offsetY,
                 attr = {
                     x1: x1,
                     y1: y1,
                     x2: x2,
                     y2: y2,
-                    gradientTransform: getTransform(gradient.transform)
+                    gradientTransform: getTransform(gradientRef.transform)
                 };
             if (link) {
                 attr["xlink:href"] = "#" + link.id;
@@ -60,24 +60,24 @@
                     y1: y1,
                     x2: x2,
                     y2: y2,
-                    gradientTransform: getTransform(gradient.transform)
+                    gradientTransform: getTransform(gradientRef.transform)
                 };
                 attr.gradientUnits = "userSpaceOnUse";
                 tag.setAttributes(attr);
                 tag.children = removeDups(lines);
             }
         },
-        getRadialGradientInternal: function (ctx, gradient, tag, link, lines, gradientID) {
-            var cx = gradient.cx + offsetX,
-                cy = gradient.cy + offsetY,
-                fx = gradient.fx ? gradient.fx + offsetX : cx,
-                fy = gradient.fy ? gradient.fy + offsetY : cy,
-                r = gradient.r,
+        getRadialGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
+            var cx = gradientRef.cx + offsetX,
+                cy = gradientRef.cy + offsetY,
+                fx = gradientRef.fx ? gradientRef.fx + offsetX : cx,
+                fy = gradientRef.fy ? gradientRef.fy + offsetY : cy,
+                r = gradientRef.r,
                 attr = {
                     cx: cx,
                     cy: cy,
                     r: r,
-                    gradientTransform: getTransform(gradient.transform)
+                    gradientTransform: getTransform(gradientRef.transform)
                 },
                 deltaX,
                 deltaY,
@@ -114,18 +114,19 @@
                     fx: attr.fx,
                     fy: attr.fy,
                     r: r,
-                    gradientTransform: getTransform(gradient.transform)
+                    gradientTransform: getTransform(gradientRef.transform)
                 };
                 attr.gradientUnits = "userSpaceOnUse";
                 tag.setAttributes(attr);
                 tag.children = removeDups(lines);
             }
         },
-        writeGradient: function (ctx, styleBlock, gradient, flavor) {
+        writeGradient: function (ctx, styleBlock, gradientRef, flavor) {
             var omIn = ctx.currentOMNode,
+                gradient = ctx.svgOM.global.gradients[gradientRef.id],
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
                 stops = gradient.stops,
-                gradientSpace = gradient.gradientSpace,
+                gradientSpace = gradientRef.gradientSpace,
                 fingerprint = "",
                 stp,
                 lines = [],
@@ -153,22 +154,22 @@
 
             link = gradientStops[lines];
             if (gradient.type == "linear") {
-                self.getLinearGradientInternal(ctx, gradient, tag, link, lines, gradientID);
+                self.getLinearGradientInternal(ctx, gradient, gradientRef, tag, link, lines, gradientID);
             } else {
-                self.getRadialGradientInternal(ctx, gradient, tag, link, lines, gradientID);
+                self.getRadialGradientInternal(ctx, gradient, gradientRef, tag, link, lines, gradientID);
             }
 
             fingerprint = JSON.stringify({
-                cx: round10k(gradient.cx),
-                cy: round10k(gradient.cy),
-                x1: round10k(gradient.x1),
-                y1: round10k(gradient.y1),
-                x2: round10k(gradient.x2),
-                y2: round10k(gradient.y2),
-                fx: round10k(gradient.fx),
-                fy: round10k(gradient.fy),
-                r: round10k(gradient.r),
-                transform: gradient.transform,
+                cx: round10k(gradientRef.cx),
+                cy: round10k(gradientRef.cy),
+                x1: round10k(gradientRef.x1),
+                y1: round10k(gradientRef.y1),
+                x2: round10k(gradientRef.x2),
+                y2: round10k(gradientRef.y2),
+                fx: round10k(gradientRef.fx),
+                fy: round10k(gradientRef.fy),
+                r: round10k(gradientRef.r),
+                transform: gradientRef.transform,
                 stops: stops,
                 gradientSpace: gradientSpace
             });
