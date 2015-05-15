@@ -588,11 +588,15 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
                 };
                 if (node.bounds) {
-                    attr.x = node.bounds.left;
-                    attr.y = node.bounds.top;
-                    // If right and bottom were not specified, don't writer width or height. 
-                    attr.width = (node.bounds.right || node.bounds.left) - node.bounds.left;
-                    attr.height = (node.bounds.bottom || node.bounds.top) - node.bounds.top;
+                    attr.x = node.bounds.left || 0;
+                    attr.y = node.bounds.top || 0;
+                    // If right and bottom were not specified, don't writer width or height.
+                    if (isFinite(node.bounds.right)) {
+                        attr.width = node.bounds.right - node.bounds.left;
+                    }
+                    if (isFinite(node.bounds.bottom)) {
+                        attr.height = node.bounds.bottom - node.bounds.top;
+                    }
                 }
                 return new Tag("use", attr, ctx);
             },
