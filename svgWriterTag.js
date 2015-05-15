@@ -590,7 +590,7 @@
                 if (node.bounds) {
                     attr.x = node.bounds.left || 0;
                     attr.y = node.bounds.top || 0;
-                    // If right and bottom were not specified, don't writer width or height.
+                    // If right and bottom were not specified, don't write width or height.
                     if (isFinite(node.bounds.right)) {
                         attr.width = node.bounds.right - node.bounds.left;
                     }
