@@ -580,12 +580,22 @@
                 return tag.useTrick(ctx);
             },
             reference: function (ctx, node) {
-                return new Tag("use", {
+                var attr = {
                     "xlink:href": "#" + ctx.omStylesheet.getDefine(node.ref, "symbol").defnId,
-                    x: node.offset && node.offset.x || 0,
-                    y: node.offset && node.offset.y || 0,
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
+                };
+                if (node.bounds) {
+                    attr.x = node.bounds.left || 0;
+                    attr.y = node.bounds.top || 0;
+                    // If right and bottom were not specified, don't write width or height.
+                    if (isFinite(node.bounds.right)) {
+                        attr.width = node.bounds.right - node.bounds.left;
+                    }
+                    if (isFinite(node.bounds.bottom)) {
+                        attr.height = node.bounds.bottom - node.bounds.top;
+                    }
+                }
+                return new Tag("use", attr, ctx);
             },
             symbol: function (ctx, node) {
                 var attr = {};

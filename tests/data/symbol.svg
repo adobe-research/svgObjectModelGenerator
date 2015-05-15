@@ -16,7 +16,7 @@
     </symbol>
   </defs>
   <use xlink:href="#symbol-1"/>
-  <use xlink:href="#symbol-1" x="200"/>
-  <use xlink:href="#a_damn_cool_circle_-1" y="200"/>
+  <use xlink:href="#symbol-1" x="200" width="200"/>
+  <use xlink:href="#a_damn_cool_circle_-1" y="200" width="200" height="200"/>
   <use xlink:href="#a_damn_cool_circle_-1" x="200" y="200"/>
 </svg>
