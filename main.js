@@ -160,7 +160,7 @@
         }
     }
 
-    function getGeneratorSVG(generator, params) {
+    function getGeneratorSVG(generator, params, logger) {
         var OMG = require("./svgOMGenerator.js"),
             svgWriter = require("./svgWriter.js"),
             deferedResult = Q.defer(),
@@ -203,6 +203,8 @@
                             if (layerSpec === "all") {
                                 layerSpec = null;
                             }
+                            logger && logger.info("SVGOMG Document: " + JSON.stringify(doc));
+                            logger && logger.info("SVGOMG Params: " + JSON.stringify(params));
                             var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec, errors: svgWriterErrors }),
                                 svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: cropToSingleLayer,
@@ -216,7 +218,7 @@
                                     artboardBounds: artboardBounds,
                                     isArtboard: isArtboard
                                 }, svgWriterErrors);
-
+                            logger && logger.info("SVGOMG Out: " + svgOut);
                             deferedResult.resolve({
                                 svgText: svgOut,
                                 errors: svgWriterErrors
