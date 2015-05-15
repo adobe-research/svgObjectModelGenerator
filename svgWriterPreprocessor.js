@@ -31,14 +31,6 @@
 
     function SVGWriterPreprocessor() {
 
-        this.provideBackupDefaults = function (omIn, styleBlock) {
-            if (omIn.style && styleBlock.hasRules() &&
-                    omIn.type === "shape" && !omIn.style.fill) {
-                omIn.style.fill = "none";
-                styleBlock.addRule("fill", "none");
-            }
-        };
-
         /**
          * Externalize styles identifies styles that can be detached from artwork.
          **/
@@ -55,8 +47,6 @@
             svgWriterClipPath.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
-
-            this.provideBackupDefaults(omIn, styleBlock);
 
             if (omIn.shape && omIn.shape.winding) {
                 styleBlock.addRule("fill-rule", omIn.shape.winding);
@@ -75,6 +65,11 @@
                         styleBlock.addRule(property, omIn.style[property] + "px");
                         return;
                     }
+                    if (property == "blend-mode") {
+                        styleBlock.addRule("mix-blend-mode", omIn.style[property]);
+                        return;
+                    }
+
                     if (property.indexOf("_") !== 0) {
                         styleBlock.addRule(property, omIn.style[property]);
                     }

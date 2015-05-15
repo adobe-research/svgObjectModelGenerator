@@ -73,7 +73,7 @@
         this.addGlobalStyle = function (svgNode, layer) {
             var propertyFetchers = { // Properties we fetch for all layers
                     "opacity": fetchOpacity,
-                    "mix-blend-mode": this.fetchBlendMode
+                    "blend-mode": this.fetchBlendMode
                 },
                 property;
 
