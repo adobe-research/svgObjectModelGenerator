@@ -770,8 +770,8 @@ describe('svgWriter', function (){
                             stroke: {
                                 type: "solid",
                                 color: {r:255,g:0,b:0,a:1},
-                                lineWidht: 10,
-                                "stroke-opacity": 1,
+                                width: 10,
+                                "stroke-opacity": 1
                             }
                         }
                     },
@@ -800,6 +800,13 @@ describe('svgWriter', function (){
                                     b: 0,
                                     a: 1
                                 }
+                            },
+                            stroke: {
+                                type: "solid",
+                                color: {r:0,g:0,b:0,a:1},
+                                width: 10,
+                                dash: [0,4],
+                                "dash-offset": 10
                             }
                         }
                     },
@@ -905,7 +912,7 @@ describe('svgWriter', function (){
                             stroke: {
                                 type: "solid",
                                 color: {r:255,g:0,b:0,a:1},
-                                lineWidht: 10,
+                                width: 10,
                                 "stroke-opacity": 1,
                             },
                             mask: "mask1"
