@@ -173,6 +173,7 @@
             constrainToDocBounds,
             cropRect,
             clipToArtboardBounds,
+            isResponsive,
             artboardBounds,
             isArtboard;
 
@@ -185,6 +186,7 @@
         cropRect = params.cropRect;
         docId = params.documentId;
         clipToArtboardBounds = params.clipToArtboardBounds;
+        isResponsive = params.isResponsive;
         artboardBounds = params.artboardBounds;
 
         isArtboard = params.isArtboard;
@@ -215,6 +217,7 @@
                                     constrainToDocBounds: constrainToDocBounds,
                                     cropRect: cropRect,
                                     clipToArtboardBounds: clipToArtboardBounds,
+                                    isResponsive: isResponsive,
                                     artboardBounds: artboardBounds,
                                     isArtboard: isArtboard
                                 }, svgWriterErrors);

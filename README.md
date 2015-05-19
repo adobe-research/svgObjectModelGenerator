@@ -112,11 +112,10 @@ svgWriter.printSVG(OMG, config, errors)
 The configuration object has the following arguments:
 
 * **trimToArtBounds** *boolean* The SVG will cover the art bounds independent of the dimension of the OMG document.
-* **constrainToDocBounds** *boolean*
-* **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute).
-* **scale** *number* A scale factor.
-* **targetWidth** *number* The width the SVG document needs to fit into.
-* **targetHeight** *number* The height the SVG document needs to fit into.
+* **constrainToDocBounds** *boolean* Clip the visible content to the document bounds.
+* **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute). Setting *preserveAspectRatio* overrides the computed value of svgWriter. Therefore, it is recommended to not set this value.
+* **targetWidth** *number* The width the SVG document needs to fit into. *targetWidth* is independent from *cropRect*.
+* **targetHeight** *number* The height the SVG document needs to fit into. *targetHeight* is independent from *cropRect*.
 * **usePresentationAttribute** *boolean* Use presentation attributes instead of CSS styling.
 * **cropRect** *object* A rectangle with the properties `x`, `y`, `width` and `height`. `x` and `y` are optional. Defines a rectangle the SVG document gets cropped to. It may create a padding if the dimension is smaller than the crop rectangle.
 * **minify** Avoids indentations, newlines and whitespaces in the SVG output. Uses minimal IDs.
@@ -124,6 +123,8 @@ The configuration object has the following arguments:
     * **regular** The default way to create IDs. Preferable based on layer/object names in the application.
     * **minimal** Creates shortest possible IDs independent of user defined layer/object names in the application.
     * **unique** Create UUIDs based on rfc4122 in the format `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.
+* **precision** *number* The number of digits after floating point. Number must be in the range of 0 .. 10 and is trimmed otherwise. Default is `3`.
+* **isResponsive** *boolean* If set to `true` makes the SVG document fill the viewport/image area. (No `width` and `height` attribtues set on SVG root.)
 
 ## Setup Generator
 

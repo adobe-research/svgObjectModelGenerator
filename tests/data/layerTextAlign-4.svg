@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="68" height="380" viewBox="0 0 68 380">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="228" height="37" viewBox="0 0 228 37">
   <defs>
     <style>
       .cls-1, .cls-2 {
@@ -13,5 +13,5 @@
       }
     </style>
   </defs>
-  <text x="-88.158" y="-348.711" class="cls-1"><tspan x="-88.158" class="cls-2">right aligned</tspan></text>
+  <text x="229.617" y="27.742" class="cls-1"><tspan x="229.617" class="cls-2">right aligned</tspan></text>
 </svg>

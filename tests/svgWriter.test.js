@@ -514,7 +514,7 @@ describe('svgWriter', function (){
         it("polygons, polylines and lines should be transformed to SVG", function () {
             var svgOM = {
                 global: {
-                    viewBox: {
+                    bounds: {
                         left: 0,
                         right: 400,
                         top: 0,

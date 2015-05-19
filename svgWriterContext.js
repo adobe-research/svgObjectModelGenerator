@@ -53,14 +53,19 @@
         // svgStylesheed creates new svgWriterContexts without a global object.
         if (svgOM.global) {
             this.docBounds = svgOM.global.bounds;
-            this.viewBox = svgOM.global.viewBox;
             this.pxToInchRatio = svgOM.global.pxToInchRatio;
         }
+
 
         this.encoding = "utf-8";
         this.out = [];
         this.sOut = "";
         this.contentBounds = {};
+
+        // Document sizing parameters.
+        this.width = 0;
+        this.height = 0;
+        this.viewBox = [];
 
         //an array for reporting errors
         this.errors = errors || [];

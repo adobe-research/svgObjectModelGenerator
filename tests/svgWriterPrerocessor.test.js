@@ -35,7 +35,7 @@ describe('SVGWriterPreprocessor', function (){
         
         var svgOM = {
                 global: {
-                    viewBox: {
+                    bounds: {
                         left: 0,
                         right: 50,
                         top: 0,
@@ -95,7 +95,7 @@ describe('SVGWriterPreprocessor', function (){
             },
             svgOM2 = {
                 global: {
-                    viewBox: {
+                    bounds: {
                         left: 0,
                         right: 50,
                         top: 0,
@@ -151,7 +151,7 @@ describe('SVGWriterPreprocessor', function (){
             },
             svgOM3 = {
                 global: {
-                    viewBox: {
+                    bounds: {
                         left: 0,
                         right: 400,
                         top: 0,
@@ -183,12 +183,6 @@ describe('SVGWriterPreprocessor', function (){
                 ID: new ID(),
                 currentOMNode: svgOM,
                 contentBounds: {},
-                viewBox: {
-                    left: 0,
-                    right: 50,
-                    top: 0,
-                    bottom: 100
-                },
                 config: {
                     trimToArtBounds: true
                 }
@@ -198,12 +192,6 @@ describe('SVGWriterPreprocessor', function (){
                 ID: new ID(),
                 currentOMNode: svgOM2,
                 contentBounds: {},
-                viewBox: {
-                    left: 0,
-                    right: 300,
-                    top: 0,
-                    bottom: 300
-                },
                 config: {
                     trimToArtBounds: true
                 }
@@ -213,12 +201,6 @@ describe('SVGWriterPreprocessor', function (){
                 ID: new ID(),
                 currentOMNode: svgOM3,
                 contentBounds: {},
-                viewBox: {
-                    left: 0,
-                    right: 400,
-                    top: 0,
-                    bottom: 400
-                },
                 config: {
                     cropRect: {
                         width: 200,
@@ -230,10 +212,10 @@ describe('SVGWriterPreprocessor', function (){
         
         svgWriterPreprocessor.processSVGOM(ctx);
         
-        expect(ctx.viewBox.top).to.equal(0);
-        expect(ctx.viewBox.left).to.equal(0);
-        expect(ctx.viewBox.right).to.equal(33);
-        expect(ctx.viewBox.bottom).to.equal(93);
+        expect(ctx.viewBox[0]).to.equal(0);
+        expect(ctx.viewBox[1]).to.equal(0);
+        expect(ctx.viewBox[2]).to.equal(33);
+        expect(ctx.viewBox[3]).to.equal(93);
         
         expect(svgOM.children[0].visualBounds.top).to.equal(1.5);
         expect(svgOM.children[0].visualBounds.left).to.equal(1.5);
@@ -242,33 +224,19 @@ describe('SVGWriterPreprocessor', function (){
 
         svgWriterPreprocessor.processSVGOM(ctx2);
 
-        expect(ctx2.viewBox.top).to.equal(0);
-        expect(ctx2.viewBox.left).to.equal(0);
-        expect(ctx2.viewBox.right).to.equal(141.42000000000002);
-        expect(ctx2.viewBox.bottom).to.equal(141.42000000000002);
+        expect(ctx2.viewBox[0]).to.equal(0);
+        expect(ctx2.viewBox[1]).to.equal(0);
+        expect(ctx2.viewBox[2]).to.equal(141.42000000000002);
+        expect(ctx2.viewBox[3]).to.equal(141.42000000000002);
 
         svgWriterPreprocessor.processSVGOM(ctx3);
 
-        expect(ctx3.viewBox.top).to.equal(0);
-        expect(ctx3.viewBox.left).to.equal(0);
-        expect(ctx3.viewBox.right).to.equal(200);
-        expect(ctx3.viewBox.bottom).to.equal(200);
+        expect(ctx3.viewBox[0]).to.equal(0);
+        expect(ctx3.viewBox[1]).to.equal(0);
+        expect(ctx3.viewBox[2]).to.equal(200);
+        expect(ctx3.viewBox[3]).to.equal(200);
         expect(ctx3.svgOM.children[0].shape.x).to.equal(50);
         expect(ctx3.svgOM.children[0].shape.y).to.equal(50);
-    
-        /*
-        //if we don't shift bounds...
-        
-        expect(svgOM.viewBox.top).to.equal(8.5);
-        expect(svgOM.viewBox.left).to.equal(18.5);
-        expect(svgOM.viewBox.right).to.equal(51.5);
-        expect(svgOM.viewBox.bottom).to.equal(101.5);
-        
-        expect(svgOM.children[0].visualBounds.top).to.equal(10);
-        expect(svgOM.children[0].visualBounds.left).to.equal(20);
-        expect(svgOM.children[0].visualBounds.right).to.equal(50);
-        expect(svgOM.children[0].visualBounds.bottom).to.equal(100);
-        */
     });
     
 });
