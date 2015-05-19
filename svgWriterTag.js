@@ -106,15 +106,19 @@
             }
         }
     };
-    function parseNumber(value, isAttr) {
+    function parseNumber(value, isAttr, precision) {
+        precision = util.precision(precision);
+        function round(x) {
+            return +(+x).toFixed(precision);
+        }
         var digival = parseFloat(value),
             units = (value + "").match(/[a-z%\-]+$/i);
         if (value == +value) {
-            value = round1k(value);
+            value = round(value);
         } else if (digival === 0) {
             value = 0;
         } else if (isFinite(digival)) {
-            value = round1k(digival);
+            value = round(digival);
             if (units && (units[0].toLowerCase() != "px" || !isAttr)) {
                 value += units[0];
             }
@@ -133,19 +137,20 @@
     Tag.getDefault = function (tagname, attrname) {
         return getDesc(tagname, attrname)[0];
     };
-    Tag.getValue = function (tagname, attrname, value) {
+    Tag.getValue = function (tagname, attrname, value, ctx) {
         var desc = getDesc(tagname, attrname),
+            prec = util.precision(ctx && ctx.precision),
             type = desc[1];
         switch (type) {
         case "number":
-            value = parseNumber(value, tagname != "*");
+            value = parseNumber(value, tagname != "*", prec);
             break;
         case "number-sequence":
             if (!Array.isArray(value)) {
                 value = (value + "").split(/[,\s]+/);
             }
             for (var i = 0, ii = value.length; i < ii; i++) {
-                value[i] = parseNumber(value[i], tagname != "*");
+                value[i] = parseNumber(value[i], tagname != "*", prec);
             }
             value = value.join(" ");
             break;
@@ -158,7 +163,6 @@
         return value;
     };
     Tag.prototype.setAttribute = function (name, value) {
-        value = Tag.getValue(this.name, name, value);
         if (value === "" || value == null) {
             if (name == "id" && root) {
                 delete root.ids[this.attrs.id];
@@ -187,7 +191,8 @@
             name = ctx;
             ctx = null;
         }
-        value = value == null ? this.attrs[name] : Tag.getValue(this.name, name, value);
+        value = value == null ? this.attrs[name] : value;
+        value = Tag.getValue(this.name, name, value, ctx);
         var tag = this,
             deft = Tag.getDefault(tag.name, name),
             link,
@@ -376,7 +381,7 @@
             "v" + right + "a" + [r[2], r[2], 0, 0, 1, -r[2], r[2]] +
             "h" + -bottom + "a" + [r[3], r[3], 0, 0, 1, -r[3], -r[3]] +
             "v" + -left + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z";
-        return util.optimisePath(path);
+        return path;
     }
     var imageProcessing = function (ctx, node) {
             if (!node.bounds) {
@@ -431,7 +436,7 @@
             },
             path: function (ctx, node) {
                 var tag = new Tag("path", {
-                        d: util.optimisePath(node.shape.path),
+                        d: util.optimisePath(node.shape.path, ctx.precision),
                         transform: getTransform(node.transform, node.transformTX, node.transformTY)
                     }, ctx);
                 return tag.useTrick(ctx);
@@ -482,10 +487,7 @@
                     attr.height = node.bounds.bottom - node.bounds.top;
                 }
                 if (node.viewBox) {
-                    attr.viewBox = parseNumber(node.viewBox.left) + " " +
-                        parseNumber(node.viewBox.top) + " " +
-                        parseNumber(node.viewBox.right) + " " +
-                        parseNumber(node.viewBox.bottom);
+                    attr.viewBox = [node.viewBox.left, node.viewBox.top, node.viewBox.right, node.viewBox.bottom];
                 }
                 attr.patternTransform = getTransform(node.transform);
                 attr.patternUnits = node.patternUnits || "userSpaceOnUse";
@@ -504,7 +506,7 @@
                     });
                     if (r[0] != r[1] || r[1] != r[2] || r[2] != r[3]) {
                         tag = new Tag("path", {
-                            d: roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r),
+                            d: util.optimisePath(roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r), ctx.precision),
                             transform: getTransform(node.transform, node.transformTX, node.transformTY)
                         }, ctx);
                         return tag.useTrick(ctx);
@@ -600,10 +602,7 @@
             symbol: function (ctx, node) {
                 var attr = {};
                 if (node.viewBox) {
-                    attr.viewBox = parseNumber(node.viewBox.left) + " " +
-                        parseNumber(node.viewBox.top) + " " +
-                        parseNumber(node.viewBox.right) + " " +
-                        parseNumber(node.viewBox.bottom);
+                    attr.viewBox = [node.viewBox.left, node.viewBox.top, node.viewBox.right, node.viewBox.bottom];
                 }
                 return new Tag("symbol", attr, ctx);
             },

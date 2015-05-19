@@ -38,7 +38,8 @@
 
         proto.toString = function (ctx) {
             ctx = ctx || new SVGWriterContext({});
-            return this.propertyName + ":" + ctx.space + this.value + ";";
+            var value = Tag.getValue("*", this.propertyName, this.value, ctx);
+            return this.propertyName + ":" + ctx.space + value + ";";
         };
     }(CSSStyleRule.prototype));
 
@@ -66,7 +67,7 @@
 
         proto.addRule = function (prop, value, force) {
             var def = Tag.getDefault("*", prop),
-                val = Tag.getValue("*", prop, value),
+                val = Tag.getValue("*", prop, value, {precision: 3}),
                 isDefault = val + "" == def + "";
             if (!force) {
                 for (var i = 0; i < this.rules.length; i++) {
@@ -74,7 +75,7 @@
                         if (isDefault) {
                             this.rules.splice(i, 1);
                         } else {
-                            this.rules[i].value = val;
+                            this.rules[i].value = value;
                         }
                         return;
                     }
@@ -83,7 +84,7 @@
             if (isDefault) {
                 return;
             }
-            this.rules.push(new CSSStyleRule(prop, val));
+            this.rules.push(new CSSStyleRule(prop, value));
         };
 
         proto.removeRule = function (prop, val) {

@@ -29,6 +29,10 @@
         if (this.config) {
             this.minify = !!this.config.minify;
             this.usePresentationAttribute = !!config.usePresentationAttribute;
+            this.precision = Math.round(this.config.precision);
+            if (!isFinite(this.precision)) {
+                this.precision = 3;
+            }
         }
 
         this.indent = this.minify ? "" : "  ";

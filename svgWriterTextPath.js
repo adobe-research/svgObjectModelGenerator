@@ -26,7 +26,7 @@
                 textPathID = ctx.ID.getUnique("text-path"),
                 textPath = new Tag("path", {
                     id: textPathID,
-                    d: util.optimisePath(pathData)
+                    d: util.optimisePath(pathData, ctx.precision)
                 });
 
             ctx.omStylesheet.define("text-path", omIn.id, textPathID, textPath, pathData);

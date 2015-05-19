@@ -1178,7 +1178,7 @@ describe('svgWriter', function (){
             var svgOM,
                 expectedOut,
                 path = 'data/' + testName;
-            
+
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(svgOM);
 
@@ -1189,9 +1189,9 @@ describe('svgWriter', function (){
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
-            
+
             handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-            
+
             expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
@@ -1325,6 +1325,50 @@ describe('svgWriter', function (){
     });
 
     /**
+     * Test precision parameter
+     **/
+    describe("Test precision parameter", function () {
+
+        function test(precision) {
+            var svgOM,
+                svgOut,
+                expectedOut;
+
+            svgOM = require("./data/precision-om.json");
+            svgOut = svgWriter.printSVG(svgOM, {precision: precision});
+
+            try {
+                expectedOut = fs.readFileSync("./tests/data/precision-" + precision + ".svg", "utf8");
+            } catch (e) {
+                fs.writeFileSync("./tests/data/precision-" + precision + ".svg", svgOut, "utf8");
+                console.log("No reference SVG document found. New one created as precision-" + precision + ".svg");
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, "precision-" + precision, expectedOut, svgOut, "./tests/data/precision-" + precision + ".svg", "./tests/data-compare/precision-" + precision + ".svg");
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it("Test with precision 3", function () {
+            test(3);
+        });
+        it("Test with precision 0", function () {
+            test(0);
+        });
+        it("Test with precision 5", function () {
+            test(5);
+        });
+        it("Test with precision 1", function () {
+            test(1);
+        });
+        it("Test with undefined precision", function () {
+            test();
+        });
+    });
+
+    /**
      * Test options for idGenerator
      **/
     describe('Test options for idGenerator', function () {
@@ -1442,7 +1486,7 @@ describe('svgWriter', function (){
                 svgOut,
                 expectedOut,
                 path = 'data/artboard-cropping/' + testName;
-            
+
             svgOM = require('./' + path + '-om.js');
             svgOut = svgWriter.printSVG(
                 svgOM,
@@ -1473,9 +1517,9 @@ describe('svgWriter', function (){
                 console.log('No reference SVG document found. New one created as ' + testName + '.svg');
                 return svgOut;
             }
-            
+
             handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-            
+
             expect(svgOut).to.equal(expectedOut);
             return svgOut;
         }
