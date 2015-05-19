@@ -12,7 +12,6 @@
       .cls-3 {
         fill: url(#pattern-1);
         stroke: url(#pattern-2);
-        stroke-miterlimit: 0;
         stroke-width: 20px;
       }
     </style>

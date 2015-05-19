@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="200" height="200" viewBox="0 0 200 200">
-  <rect width="200" height="200"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="210" height="210" viewBox="0 0 210 210">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-dashoffset: 10px;
+        stroke-width: 10px;
+        stroke-dasharray: 0.001 4;
+      }
+    </style>
+  </defs>
+  <rect x="5" y="5" width="200" height="200" class="cls-1"/>
 </svg>
