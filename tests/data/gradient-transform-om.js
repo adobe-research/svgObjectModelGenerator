@@ -9,7 +9,41 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-1"
+					"gradient": {
+						"id": "radial-gradient-1",
+						"gradientSpace": "userSpaceOnUse",
+						"r": 75,
+						"cx": 150,
+						"cy": 100,
+						"fx": 150,
+						"fy": 100,
+						"transform": {
+							"0": [
+								0.707107,
+								-0.707107,
+								0,
+								0
+							],
+							"1": [
+								0.707107,
+								0.707107,
+								0,
+								0
+							],
+							"2": [
+								0,
+								0,
+								1,
+								0
+							],
+							"3": [
+								0,
+								0,
+								0,
+								1
+							]
+						}
+					}
 				}
 			},
 			"children": [],
@@ -37,7 +71,40 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"id": "linear-gradient-1",
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 300,
+						"y1": 50,
+						"x2": 500,
+						"y2": 50,
+						"transform": {
+							"0": [
+								0.707107,
+								-0.707107,
+								0,
+								0
+							],
+							"1": [
+								0.707107,
+								0.707107,
+								0,
+								0
+							],
+							"2": [
+								0,
+								0,
+								1,
+								0
+							],
+							"3": [
+								0,
+								0,
+								0,
+								1
+							]
+						}
+					}
 				}
 			},
 			"children": [],
@@ -82,39 +149,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "userSpaceOnUse",
-				"r": 75,
-				"cx": 150,
-				"cy": 100,
-				"fx": 150,
-				"fy": 100,
-				"transform": {
-					"0": [
-						0.707107,
-						-0.707107,
-						0,
-						0
-					],
-					"1": [
-						0.707107,
-						0.707107,
-						0,
-						0
-					],
-					"2": [
-						0,
-						0,
-						1,
-						0
-					],
-					"3": [
-						0,
-						0,
-						0,
-						1
-					]
-				},
+				"type": "radial"
 			},
 			"linear-gradient-1": {
 				"stops": [
@@ -137,38 +172,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 300,
-				"y1": 50,
-				"x2": 500,
-				"y2": 50,
-				"transform": {
-					"0": [
-						0.707107,
-						-0.707107,
-						0,
-						0
-					],
-					"1": [
-						0.707107,
-						0.707107,
-						0,
-						0
-					],
-					"2": [
-						0,
-						0,
-						1,
-						0
-					],
-					"3": [
-						0,
-						0,
-						0,
-						1
-					]
-				},
+				"type": "linear"
 			}
 		},
 		"masks": {},

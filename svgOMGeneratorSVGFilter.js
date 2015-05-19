@@ -243,7 +243,7 @@
                 // 3. Fill the rectangle with the gradientFill.
                 // 4. Trim SVG document to layer size.
                 // 5. Create string from SVG document. Encode it to base64 and embed it in feImage.
-                var gradient = omgUtils.toGradient(gradientFill, layerBounds, docBounds),
+                var gradientPair = omgUtils.toGradient(gradientFill, layerBounds, docBounds),
                     x = layerBounds.left,
                     y = layerBounds.top,
                     w = layerBounds.right - layerBounds.left,
@@ -264,7 +264,7 @@
                         style: {
                             fill: {
                                 type: "gradient",
-                                gradient: "gradient-1"
+                                gradient: gradientPair.reference
                             },
                             opacity: gradientFill.opacity ? gradientFill.opacity.value / 100 : 1
                         },
@@ -275,12 +275,13 @@
                     feImage = getId("image"),
                     feComposite = getId("composite");
 
+                rect.style.fill.gradient.id = "gradient-1";
                 omWriter.peekCurrent().children.push(rect);
                 omWriter.setDocViewBox(docBounds);
                 omWriter.setDocBounds(docBounds);
                 omWriter.setDocPxToInchRatio(dpi);
                 omWriter.setDocGlobalLight(globalLight);
-                omWriter._root.global.gradients["gradient-1"] = gradient;
+                omWriter._root.global.gradients["gradient-1"] = gradientPair.gradient;
 
                 base64 = svgWriterUtils.toBase64(svgWriter.printSVG(omWriter._root, {
                     trimToArtBounds: true,

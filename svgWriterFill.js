@@ -38,7 +38,7 @@
             fill = omIn.style.fill;
 
             if (fill.type === "gradient") {
-                writeGradient(ctx, styleBlock, ctx.svgOM.global.gradients[fill.gradient], "fill");
+                writeGradient(ctx, styleBlock, fill.gradient, "fill");
             } else if (fill.type == "pattern") {
                 writePattern(ctx, fill.pattern, "fill");
             } else if (fill.type == "none") {

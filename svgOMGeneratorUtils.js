@@ -140,21 +140,23 @@
         this.scanForUnsupportedGradientFeatures = function (gradientRaw, writer) {
             if (gradientRaw.gradient.gradientForm === "colorNoise") {
                 writer.errors.push("Gradients with noise are not supported by SVG export.");
+                return false;
             }
+            if (gradientRaw.type && (gradientRaw.type !== "linear" &&
+                gradientRaw.type !== "radial" &&
+                gradientRaw.type !== "reflected")) {
+                writer.errors.push("Only linear, radial or reflected gradients supported.");
+                return false;
+            }
+            return true;
         };
 
         this.toGradient = function (gradientRaw, layerBounds, docBounds) {
-            var gradient,
+            var gradient = {},
+                gradientRef = {},
                 gradientType = gradientRaw.type === "radial" ? "radial" : "linear",
                 scale = gradientRaw.scale ? gradientRaw.scale.value / 100 : 1;
 
-            if (!gradientRaw || !gradientRaw.gradient ||
-                gradientRaw.gradient.gradientForm === "colorNoise" ||
-                gradientRaw.type !== "linear" &&
-                gradientRaw.type !== "radial" &&
-                gradientRaw.type !== "reflected") {
-                return gradientRaw ? gradientRaw.gradient : null;
-            }
             // CSS uses clock orientation, PSDs use trig orientation
             // both point an arrow in direction gradient extends.
             var angle = 0;
@@ -175,14 +177,7 @@
                     ele.offset = (ele.offset - 0.5) * scale + 0.5;
                 }
             });
-            gradient.gradientSpace = gradientSpace;
-
-            // FIXME: This must be removed when overlay gradients were
-            // transformed to the new format.
-            if (!layerBounds || !docBounds) {
-                gradient.angle = angle;
-                return gradient;
-            }
+            gradientRef.gradientSpace = gradientSpace;
 
             if (gradient.type == "radial") {
                 angle = Math.abs(angle - 90 % 180) * Math.PI / 180;
@@ -191,18 +186,18 @@
                     h2 = (bounds.bottom - bounds.top) / 2,
                     hl = Math.abs(h2 / Math.cos(angle)),
                     hw = Math.abs(w2 / Math.sin(angle));
-                gradient.r = hw < hl ? hw : hl;
-                gradient.cx = bounds.left + w2;
-                gradient.cy = bounds.top + h2;
+                gradientRef.r = hw < hl ? hw : hl;
+                gradientRef.cx = bounds.left + w2;
+                gradientRef.cy = bounds.top + h2;
             } else {
                 var coords = computeLinearGradientCoordinates(gradient, bounds, angle);
-                gradient.x1 = coords.xa + coords.cx;
-                gradient.y1 = coords.ya + coords.cy;
-                gradient.x2 = coords.cx - coords.xa;
-                gradient.y2 = coords.cy - coords.ya;
+                gradientRef.x1 = coords.xa + coords.cx;
+                gradientRef.y1 = coords.ya + coords.cy;
+                gradientRef.x2 = coords.cx - coords.xa;
+                gradientRef.y2 = coords.cy - coords.ya;
             }
 
-            return gradient;
+            return {gradient: gradient, reference: gradientRef};
         };
 
         this.toColorStops = function (gradientRaw) {

@@ -18,7 +18,14 @@ module.exports = {
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 275,
+						"y1": 250,
+						"x2": 275,
+						"y2": 100,
+						"id": "linear-gradient-1"
+					}
 				},
 				"meta": {
 					"PS": {
@@ -119,12 +126,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 275,
-				"y1": 250,
-				"x2": 275,
-				"y2": 100
+				"type": "linear"
 			}
 		},
 		"masks": {},

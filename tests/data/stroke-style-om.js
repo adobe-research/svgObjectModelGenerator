@@ -190,7 +190,14 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 328.59259966289426,
+						"y1": 300,
+						"x2": 471.40740033710574,
+						"y2": 200,
+						"id": "linear-gradient-1"
+					}
 				}
 			},
 			"children": [],
@@ -230,11 +237,23 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "radial-gradient-1"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"r": 50,
+						"cx": 650,
+						"cy": 250,
+						"id": "radial-gradient-1"
+					}
 				},
 				"fill": {
 					"type": "gradient",
-					"gradient": "radial-gradient-2"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"r": 100,
+						"cx": 650,
+						"cy": 250,
+						"id": "radial-gradient-2"
+					}
 				}
 			},
 			"children": [],
@@ -273,7 +292,14 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-2"
+					"gradient": {
+						"gradientSpace": "objectBoundingBox",
+						"x1": 150,
+						"y1": 450,
+						"x2": 150,
+						"y2": 350,
+						"id": "linear-gradient-2"
+					}
 				}
 			},
 			"children": [],
@@ -309,7 +335,14 @@ module.exports = {
 						"blue": 0
 					},
 					"opacity": 1,
-					"gradient": "linear-gradient-3"
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 0,
+						"y1": 580.0830152838839,
+						"x2": 800,
+						"y2": 19.916984716116133,
+						"id": "linear-gradient-3"
+					}
 				}
 			},
 			"children": [],
@@ -360,12 +393,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 328.59259966289426,
-				"y1": 300,
-				"x2": 471.40740033710574,
-				"y2": 200
+				"type": "linear"
 			},
 			"radial-gradient-1": {
 				"stops": [
@@ -428,11 +456,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 50,
-				"cx": 650,
-				"cy": 250
+				"type": "radial"
 			},
 			"radial-gradient-2": {
 				"stops": [
@@ -495,11 +519,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "radial",
-				"gradientSpace": "objectBoundingBox",
-				"r": 100,
-				"cx": 650,
-				"cy": 250
+				"type": "radial"
 			},
 			"linear-gradient-2": {
 				"stops": [
@@ -620,12 +640,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "objectBoundingBox",
-				"x1": 150,
-				"y1": 450,
-				"x2": 150,
-				"y2": 350
+				"type": "linear"
 			},
 			"linear-gradient-3": {
 				"stops": [
@@ -688,12 +703,7 @@ module.exports = {
 						}
 					}
 				],
-				"type": "linear",
-				"gradientSpace": "userSpaceOnUse",
-				"x1": 0,
-				"y1": 580.0830152838839,
-				"x2": 800,
-				"y2": 19.916984716116133
+				"type": "linear"
 			}
 		},
 		"masks": {},
