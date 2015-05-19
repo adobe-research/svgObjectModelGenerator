@@ -55,10 +55,10 @@
                 styleBlock.addRule("stroke-linejoin", omIn.style.stroke.join);
             }
             if (omIn.style.stroke["miter-limit"] !== 100) {
-                styleBlock.addRule("stroke-miterlimit", (omIn.style.stroke["miter-limit"] || 0) + "px");
+                styleBlock.addRule("stroke-miterlimit", omIn.style.stroke["miter-limit"] || 4);
             }
             if (omIn.style.stroke["dash-offset"]) {
-                styleBlock.addRule("stroke-dashoffset", (omIn.style.stroke["dash-offset"] || 0) + "px");
+                styleBlock.addRule("stroke-dashoffset", omIn.style.stroke["dash-offset"] + "px");
             }
             if (isFinite(omIn.style.stroke.opacity)) {
                 styleBlock.addRule("stroke-opacity", omIn.style.stroke.opacity);
