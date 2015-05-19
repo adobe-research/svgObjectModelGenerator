@@ -1,0 +1,101 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "id": "path",
+                    "shape": {
+                        "cx": 253.0795555,
+                        "cy": 266.0795555,
+                        "r": 197.9215555,
+                        "type": "circle"
+                    },
+                    "style": {
+                        "fill": {
+                            "color": {
+                                "b": 60,
+                                "g": 60,
+                                "r": 221
+                            },
+                            "type": "solid"
+                        },
+                        "stroke": {
+                            "color": {
+                                "b": 15,
+                                "g": 242,
+                                "r": 32
+                            },
+                            "cap": "butt",
+                            "join": "miter",
+                            "width": 5.5555555,
+                            "miter-limit": 10.55555555,
+                            "type": "solid"
+                        }
+                    },
+                    "title": "<Path>",
+                    "type": "shape",
+                    "visible": true,
+                    "visualBounds": {
+                        "bottom": -466.55555,
+                        "left": 52.6579555,
+                        "right": 453.55555,
+                        "top": -65.65795555
+                    }
+                },
+                {
+                    "id": "shape-1",
+                    "type": "shape",
+                    "visible": true,
+                    "style": {
+                        "stroke": {
+                            "type": "none"
+                        },
+                        "fill": {
+                            "type": "solid",
+                            "color": {
+                                "r": 237.000275,
+                                "g": 27.999573,
+                                "b": 35.999451,
+                                "a": 1
+                            }
+                        }
+                    },
+                    "children": [],
+                    "name": "Shape 1",
+                    "visualBounds": {
+                        "top": 0,
+                        "left": 0,
+                        "bottom": 286,
+                        "right": 300.555555555
+                    },
+                    "shape": {
+                        "type": "path",
+                        "path": "M200.555555555,200.555555555L300.333333333,10.222222222V500.111111111",
+                        "winding": "evenodd"
+                    }
+                }
+            ],
+            "id": "layer-1",
+            "title": "Layer 1",
+            "type": "group",
+            "visible": true
+        }
+    ],
+    "desc": "Created by Adobe Illustrator",
+    "global": {
+        "bounds": {
+            "bottom": 400.842555,
+            "left": 52.6579,
+            "right": 400.842555,
+            "top": -65.6579
+        },
+        "viewBox": {
+            "bottom": 560.555555,
+            "left": 0,
+            "right": 960.5555555,
+            "top": 0
+        }
+    },
+    "title": "pattern-fill-ellipse",
+    "version": "0.1.0"
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960.6" height="560.6" viewBox="0 0 960.6 560.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dd3c3c;
+        stroke: #20f20f;
+        stroke-miterlimit: 10.6px;
+        stroke-width: 5.6px;
+      }
+
+      .cls-2 {
+        fill: #ed1c24;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g>
+    <circle cx="253.1" cy="266.1" r="197.9" class="cls-1"/>
+    <path d="M200.6,200.6L300.3,10.2V500.1" class="cls-2"/>
+  </g>
+</svg>

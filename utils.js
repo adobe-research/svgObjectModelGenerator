@@ -455,7 +455,7 @@
                 prev,
                 segs = [];
             function number(num) {
-                var rough1 = String(+num.toFixed(precision - 1)),
+                var rough1 = String(+num.toFixed(Math.max(precision - 1, 0))),
                     rough0 = String(+num.toFixed(precision)),
                     res;
                 if (rough0.length - rough1.length >= 3) {
@@ -469,7 +469,7 @@
                 return Math.abs(num.toFixed(precision)) <= sigma;
             }
             function goodEnough(num) {
-                return Math.abs(num.toFixed(precision - 1)) <= gamma;
+                return Math.abs(num.toFixed(Math.max(precision - 1, 0))) <= gamma;
             }
             function isCL(seg) {
                 var xs = [seg.x],
