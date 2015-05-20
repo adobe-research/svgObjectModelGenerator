@@ -607,27 +607,19 @@
                 return new Tag("symbol", attr, ctx);
             },
             svg: function (ctx) {
-                var preserveAspectRatio = ctx.config.preserveAspectRatio || "none",
-                    scale = ctx.config.scale || 1,
-                    left = round1k(ctx.viewBox.left),
-                    top = round1k(ctx.viewBox.top),
+                var attr = {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                        preserveAspectRatio: ctx.config.preserveAspectRatio || "none",
+                    };
 
-                    width = Math.abs(ctx.viewBox.right),
-                    height = Math.abs(ctx.viewBox.bottom),
-                    scaledW = isFinite(ctx.config.targetWidth) ? round1k(scale * ctx.config.targetWidth) : round1k(scale * width),
-                    scaledH = isFinite(ctx.config.targetHeight) ? round1k(scale * ctx.config.targetHeight) : round1k(scale * height);
+                if (!ctx.config.isResponsive) {
+                    attr.width = ctx.width;
+                    attr.height = ctx.height;
+                }
+                attr.viewBox = ctx.viewBox;
 
-                width = round1k(width);
-                height = round1k(height);
-
-                return new Tag("svg", {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    preserveAspectRatio: preserveAspectRatio,
-                    width: scaledW,
-                    height: scaledH,
-                    viewBox: [left, top, width, height]
-                });
+                return new Tag("svg", attr);
             }
         };
 

@@ -271,10 +271,6 @@
                     artboardShiftX = 0,
                     artboardShiftY = 0;
 
-                if (!ctx.config.trimToArtBounds || !bnds) {
-                    return;
-                }
-
                 // FIXME: This resets the visual bounds with the artboard bounds
                 // if we export an artboard. Artboard clipping for all other layers is
                 // done based on the visual bounds. This is a hack mostly around PSs
@@ -290,8 +286,6 @@
                     };
                 }
 
-                // FIXME: We rounded the document size before. However, this causes visual problems
-                // with small viewports or viewBoxes. Move back to more precise dimensions for now.
                 if (ctx.config.constrainToDocBounds) {
                     bnds.left = Math.max(0, bnds.left || 0);
                     bnds.right = Math.min(docBounds.right, bnds.right || 0);
@@ -320,18 +314,15 @@
                     bnds.bottom = Math.min(bnds.bottom, artboardRect.bottom);
                 }
 
-                if (!ctx.viewBox) {
-                    console.log("no viewBox");
-                    return;
-                }
+                ctx._docDimension = {
+                    left: Math.abs(artboardShiftX),
+                    top: Math.abs(artboardShiftY),
+                    right: bnds.right - bnds.left,
+                    bottom: bnds.bottom - bnds.top
+                };
 
-                ctx.viewBox.left = Math.abs(artboardShiftX);
-                ctx.viewBox.top = Math.abs(artboardShiftY);
-                ctx.viewBox.right = bnds.right - bnds.left;
-                ctx.viewBox.bottom = bnds.bottom - bnds.top;
-
-                w = ctx.viewBox.right;
-                h = ctx.viewBox.bottom;
+                w = ctx._docDimension.right;
+                h = ctx._docDimension.bottom;
 
                 // Clip to crop boundaries.
                 // FIXME: Do we want to allow cropping without trimToArtBounds set?
@@ -346,8 +337,8 @@
                     return;
                 }
 
-                ctx.viewBox.right = cropRect.width;
-                ctx.viewBox.bottom = cropRect.height;
+                ctx._docDimension.right = cropRect.width;
+                ctx._docDimension.bottom = cropRect.height;
 
                 ctx._shiftCropRectX = (cropRect.width - w) / 2;
                 ctx._shiftCropRectY = (cropRect.height - h) / 2;
@@ -412,14 +403,35 @@
         this.processSVGOM = function (ctx) {
             var omSave = ctx.currentOMNode,
                 self = this,
-                global = ctx.svgOM.global;
+                global = ctx.svgOM.global,
+                scale = ctx.config.scale || 1;
+
             ctx.omStylesheet = new SVGStylesheet;
 
             if (ctx.config.trimToArtBounds) {
                 preprocessSVGNode(ctx, ctx.currentOMNode);
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
+            } else {
+                ctx._docDimension = {
+                    left: ctx.docBounds.left,
+                    top: ctx.docBounds.top,
+                    right: ctx.docBounds.right - ctx.docBounds.left,
+                    bottom: ctx.docBounds.bottom - ctx.docBounds.top
+                }
             }
+
+            ctx.width = Math.abs(ctx._docDimension.right);
+            ctx.height = Math.abs(ctx._docDimension.bottom);
+            ctx.viewBox = [
+                ctx._docDimension.left,
+                ctx._docDimension.top,
+                ctx.width,
+                ctx.height
+            ];
+            ctx.width *= scale;
+            ctx.height *= scale;
+
             // Preprocess the content of the resources,
             // since they are not a part of the tree
             Object.keys(global.masks || {}).forEach(function (key) {
