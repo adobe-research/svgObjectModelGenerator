@@ -1547,4 +1547,81 @@ describe('svgWriter', function (){
             compareResults("artboard", true);
         });
     });
+
+    /**
+     * Test isResponsive
+     **/
+    describe('Test isResponsive', function () {
+
+        function compareResults (testName, isArtboard) {
+            var svgOut,
+                expectedOut,
+                path = 'data/responsive/' + testName,
+                svgOM = {
+                    "title": "generatedAsset",
+                    "version": "0.1.0",
+                    "global": {
+                        "bounds": {
+                            "top": 0,
+                            "left": 0,
+                            "bottom": 400,
+                            "right": 400
+                        }
+                    },
+                    "children": [
+                        {
+                            "type": "shape",
+                            "shape": {
+                                "type": "ellipse",
+                                "cx": 105,
+                                "cy": 155,
+                                "ry": 150,
+                                "rx": 100
+                            },
+                            "style": {
+                                "stroke": {
+                                    "width": 10,
+                                    "type": "solid",
+                                    "color": {
+                                        "r": 0,
+                                        "g": 127,
+                                        "b": 0
+                                    }
+                                }
+                            },
+                            "visualBounds": {
+                                "left": 5,
+                                "right": 305,
+                                "top": 5,
+                                "bottom": 205
+                            }
+                        }
+                    ]
+                };
+            svgOut = svgWriter.printSVG(
+                svgOM,
+                {
+                    trimToArtBounds: true,
+                    isResponsive: true
+                }
+            );
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test isResponsive on trimmed-to-artbounds art.', function () {
+            compareResults("responsive");
+        });
+    });
 });
