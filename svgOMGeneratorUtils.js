@@ -164,9 +164,7 @@
                 angle += gradientRaw.angle.value;
             }
 
-            var gradientSpace = gradientRaw.align === undefined || gradientRaw.align ?
-                "objectBoundingBox" : "userSpaceOnUse",
-                bounds = gradientSpace === "objectBoundingBox" ? layerBounds : docBounds;
+            var bounds = gradientRaw.align === undefined || gradientRaw.align ? layerBounds : docBounds;
 
             gradient = this.toColorStops(gradientRaw);
             gradient.type = gradientType;
@@ -177,7 +175,7 @@
                     ele.offset = (ele.offset - 0.5) * scale + 0.5;
                 }
             });
-            gradientRef.gradientSpace = gradientSpace;
+            gradientRef.gradientSpace = "userSpaceOnUse";
 
             if (gradient.type == "radial") {
                 angle = Math.abs(angle - 90 % 180) * Math.PI / 180;
