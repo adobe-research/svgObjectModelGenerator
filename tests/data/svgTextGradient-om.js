@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -114,7 +112,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-1",
 					"type": "tspan",
 					"visible": true,
 					"style": {

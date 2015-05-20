@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "group-1",
 			"type": "group",
 			"visible": true,
 			"style": {
@@ -19,7 +17,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -59,8 +56,8 @@ module.exports = {
 					},
 					"shape": {
 						"type": "path",
-						"winding": "evenodd",
-						"path": "M1351.000,777.000 C1210.539,808.937 1071.609,983.375 1191.000,1050.000 C1310.391,1116.625 1474.102,1215.289 1520.000,1084.000 C1565.898,952.711 1491.461,745.062 1351.000,777.000 Z"
+						"path": "M1351.000,777.000 C1210.539,808.937 1071.609,983.375 1191.000,1050.000 C1310.391,1116.625 1474.102,1215.289 1520.000,1084.000 C1565.898,952.711 1491.461,745.062 1351.000,777.000 Z",
+						"winding": "evenodd"
 					}
 				}
 			],

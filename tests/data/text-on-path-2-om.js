@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -20,7 +18,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-1",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -29,7 +26,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-1",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -80,7 +76,6 @@ module.exports = {
 			"maxTextSize": 150
 		},
 		{
-			"id": "text-2",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -91,7 +86,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-2",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -141,7 +135,6 @@ module.exports = {
 			"maxTextSize": 150
 		},
 		{
-			"id": "text-3",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -152,7 +145,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-2",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -161,7 +153,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-3",
 							"type": "tspan",
 							"visible": true,
 							"style": {

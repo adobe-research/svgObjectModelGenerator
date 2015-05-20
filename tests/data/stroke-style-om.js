@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "shape-1",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -48,7 +46,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-2",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -89,7 +86,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-3",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -128,7 +124,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-4",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -168,7 +163,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-5",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -215,7 +209,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-6",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -271,7 +264,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-7",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -317,7 +309,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-8",
 			"type": "shape",
 			"visible": true,
 			"style": {

@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -11,7 +10,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -45,7 +43,8 @@ module.exports = {
 					}
 				}
 			],
-			"name": "iPhone"
+			"name": "iPhone",
+			"id": "artboard-1"
 		}
 	],
 	"global": {

@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "generic-1",
 			"type": "generic",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Layer 1"
 		},
 		{
-			"id": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -19,7 +17,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -66,10 +63,10 @@ module.exports = {
 					}
 				}
 			],
-			"name": "Artboard 1"
+			"name": "Artboard 1",
+			"id": "artboard-1"
 		},
 		{
-			"id": "artboard-2",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -79,7 +76,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "shape-2",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -126,7 +122,8 @@ module.exports = {
 					}
 				}
 			],
-			"name": "Artboard 2"
+			"name": "Artboard 2",
+			"id": "artboard-2"
 		}
 	],
 	"global": {
