@@ -57,6 +57,30 @@
             }
         };
 
+        self.intersectRects = function (rect1, rect2) {
+            if (!rect1) {
+                return {};
+            }
+            if (!rect2) {
+                return rect1;
+            }
+            return {
+                left: Math.max(rect1.left, rect2.left),
+                top: Math.max(rect1.top, rect2.top),
+                right: Math.min(rect1.right, rect2.right),
+                bottom: Math.min(rect1.bottom, rect2.bottom)
+            };
+        };
+
+        // Does rect1 contain rect 2?
+        self.containsRect = function (rect1, rect2) {
+            if (!isFinite(rect2.left) || !isFinite(rect2.top) || !isFinite(rect2.right) || !isFinite(rect2.bottom)) {
+                return true;
+            }
+            return rect1.top <= rect2.top && rect1.left <= rect2.left &&
+                rect1.bottom >= rect2.bottom && rect1.right >= rect2.right;
+        };
+
         /** jQuery-style extend
          *  https://github.com/jquery/jquery/blob/master/src/core.js
          */

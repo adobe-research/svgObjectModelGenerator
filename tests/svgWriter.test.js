@@ -1474,19 +1474,57 @@ describe('svgWriter', function (){
         });
     });
 
+    /**
+     * Test cropping
+     **/
+    describe('Test cropping', function () {
+
+        function compareResults (testName, isArtboard) {
+            var svgOM,
+                svgOut,
+                expectedOut,
+                path = 'data/cropping/' + testName;
+
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(
+                svgOM,
+                {
+                    cropRect: {
+                        width: 300,
+                        height: 300
+                    },
+                    trimToArtBounds: true,
+                    constrainToDocBounds: true
+                }
+            );
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test cropping on ellipse exceeding document bounds 1', function () {
+            compareResults("ellipse-past-doc-1");
+        });
+
+        it('Test cropping on ellipse exceeding document bounds 2', function () {
+            compareResults("ellipse-past-doc-2");
+        });
+    });
 
     /**
      * Test artboard cropping
      **/
     describe('Test artboard cropping', function () {
-
-        var tests = [
-            "ellipse-1",
-            "ellipse-2",
-            "ellipse-3",
-            "ellipse-4",
-            "artboard"
-            ];
 
         function compareResults (testName, isArtboard) {
             var svgOM,

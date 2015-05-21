@@ -634,11 +634,11 @@
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
-            if (ctx.artboardClipPath) {
+            if (ctx._needsClipping) {
                 rootArtboardClipPath = tag;
                 tag = new Tag("g");
                 rootArtboardClipPath.appendChild(tag);
-                tag.setAttribute("clip-path", "url(#" + ctx.artboardClipPath + ")");
+                tag.setAttribute("clip-path", "url(#" + ctx._contentClipPathID + ")");
             }
         } else {
             if (node.hasOwnProperty("visible") && !node.visible) {
