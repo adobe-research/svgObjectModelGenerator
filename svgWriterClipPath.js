@@ -59,7 +59,6 @@
             clipPathTag = new Tag("clipPath", {
                 id: clipPathID
             });
-
             for (var i = 0; i < bounds.length; ++i) {
                 rects.push(new Tag("rect", {
                     x: bounds[i].left + (ctx._shiftContentX || 0) + offsetX,
@@ -74,7 +73,7 @@
                 bounds: bounds
             }));
 
-            ctx.artboardClipPath = clipPathID;
+            ctx._contentClippingID = clipPathID;
         }
     };
 }());
