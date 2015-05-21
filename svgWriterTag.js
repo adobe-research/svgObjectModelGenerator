@@ -638,7 +638,7 @@
                 rootArtboardClipPath = tag;
                 tag = new Tag("g");
                 rootArtboardClipPath.appendChild(tag);
-                tag.setAttribute("clip-path", "url(#" + ctx._contentClippingID + ")");
+                tag.setAttribute("clip-path", "url(#" + ctx._contentClipPathID + ")");
             }
         } else {
             if (node.hasOwnProperty("visible") && !node.visible) {

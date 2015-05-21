@@ -57,7 +57,10 @@
             }
         };
 
-        self.intersectionRect = function (rect1, rect2) {
+        self.intersectRects = function (rect1, rect2) {
+            if (!rect1) {
+                return {};
+            }
             if (!rect2) {
                 return rect1;
             }
@@ -69,8 +72,8 @@
             };
         };
 
-        // Does rect1 inlcude rect 2?
-        self.includesRect = function (rect1, rect2) {
+        // Does rect1 contain rect 2?
+        self.containsRect = function (rect1, rect2) {
             if (!isFinite(rect2.left) || !isFinite(rect2.top) || !isFinite(rect2.right) || !isFinite(rect2.bottom)) {
                 return true;
             }

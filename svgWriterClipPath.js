@@ -73,7 +73,7 @@
                 bounds: bounds
             }));
 
-            ctx._contentClippingID = clipPathID;
+            ctx._contentClipPathID = clipPathID;
         }
     };
 }());

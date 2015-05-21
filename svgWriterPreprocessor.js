@@ -262,7 +262,7 @@
                 }
             },
             finalizePreprocessing = function (ctx) {
-                var actBounds = ctx.contentBounds,
+                var actualBounds = ctx.contentBounds,
                     docBounds = ctx.docBounds,
                     w,
                     h,
@@ -273,7 +273,7 @@
 
                 // Determine if the actual art fits into the artboard.
                 ctx._needsClipping = ctx.config.clipToArtboardBounds && artboardBounds ?
-                    !utils.includesRect(artboardBounds, actBounds) : false;
+                    !utils.containsRect(artboardBounds, actualBounds) : false;
 
                 // FIXME: This resets the visual bounds with the artboard bounds
                 // if we export an artboard. Artboard clipping for all other layers is
@@ -282,7 +282,7 @@
                 // different. We should probably teach PS not to shift paths around
                 // on single layer export.
                 if (ctx.config.isArtboard && artboardBounds) {
-                    actBounds = {
+                    actualBounds = {
                         left: artboardBounds.left,
                         right: artboardBounds.right,
                         bottom: artboardBounds.bottom,
@@ -292,44 +292,44 @@
 
 
                 if (ctx.config.constrainToDocBounds) {
-                    ctx._needsClipping = ctx._needsClipping || !utils.includesRect(docBounds, actBounds);
-                    actBounds.left = Math.max(0, actBounds.left || 0);
-                    actBounds.right = Math.min(docBounds.right, actBounds.right || 0);
-                    actBounds.top = Math.max(0, actBounds.top || 0);
-                    actBounds.bottom = Math.min(docBounds.bottom, actBounds.bottom || 0);
+                    ctx._needsClipping = ctx._needsClipping || !utils.containsRect(docBounds, actualBounds);
+                    actualBounds.left = Math.max(0, actualBounds.left || 0);
+                    actualBounds.right = Math.min(docBounds.right, actualBounds.right || 0);
+                    actualBounds.top = Math.max(0, actualBounds.top || 0);
+                    actualBounds.bottom = Math.min(docBounds.bottom, actualBounds.bottom || 0);
                 } else {
-                    ctx._needsClipping = ctx._needsClipping || actBounds.left < 0 || actBounds.top < 0;
-                    actBounds.left = actBounds.left || 0;
-                    actBounds.right = actBounds.right || 0;
-                    actBounds.top = actBounds.top || 0;
-                    actBounds.bottom = actBounds.bottom || 0;
+                    ctx._needsClipping = ctx._needsClipping || actualBounds.left < 0 || actualBounds.top < 0;
+                    actualBounds.left = actualBounds.left || 0;
+                    actualBounds.right = actualBounds.right || 0;
+                    actualBounds.top = actualBounds.top || 0;
+                    actualBounds.bottom = actualBounds.bottom || 0;
                 }
 
-                // We just need clipping if we have a cropRect. Otherwise the content exceeds the
-                // SVG boundaries anyway.
+                // We need clipping if we have a cropRect. Otherwise the content exceeds the
+                // SVG boundaries.
                 ctx._needsClipping = ctx._needsClipping && !!cropRect;
 
-                ctx._shiftContentX = -actBounds.left;
-                ctx._shiftContentY = -actBounds.top;
+                ctx._shiftContentX = -actualBounds.left;
+                ctx._shiftContentY = -actualBounds.top;
 
                 // FIXME: If we export a layer, svgOMG does not preserve the artboard
                 // the layer is bound to. We rely on the artboard size provided by
                 // generator-assets. We need to find a better way, probably by adding
                 // the artboard to OMG directly.
                 if (ctx.config.clipToArtboardBounds && artboardBounds) {
-                    artboardShiftX = Math.min(actBounds.left - artboardBounds.left, 0);
-                    artboardShiftY = Math.min(actBounds.top - artboardBounds.top, 0);
-                    actBounds.left = Math.max(actBounds.left, artboardBounds.left);
-                    actBounds.right = Math.min(actBounds.right, artboardBounds.right);
-                    actBounds.top = Math.max(actBounds.top, artboardBounds.top);
-                    actBounds.bottom = Math.min(actBounds.bottom, artboardBounds.bottom);
+                    artboardShiftX = Math.min(actualBounds.left - artboardBounds.left, 0);
+                    artboardShiftY = Math.min(actualBounds.top - artboardBounds.top, 0);
+                    actualBounds.left = Math.max(actualBounds.left, artboardBounds.left);
+                    actualBounds.right = Math.min(actualBounds.right, artboardBounds.right);
+                    actualBounds.top = Math.max(actualBounds.top, artboardBounds.top);
+                    actualBounds.bottom = Math.min(actualBounds.bottom, artboardBounds.bottom);
                 }
 
                 ctx._docDimension = {
                     left: Math.abs(artboardShiftX),
                     top: Math.abs(artboardShiftY),
-                    right: actBounds.right - actBounds.left,
-                    bottom: actBounds.bottom - actBounds.top
+                    right: actualBounds.right - actualBounds.left,
+                    bottom: actualBounds.bottom - actualBounds.top
                 };
 
                 w = ctx._docDimension.right;
@@ -356,7 +356,7 @@
                 ctx._shiftCropRectY = (cropRect.height - h) / 2;
 
                 if (ctx._needsClipping) {
-                    svgWriterClipPath.writeClipPath(ctx, [utils.intersectionRect(docBounds, artboardBounds)], ctx._shiftCropRectX, ctx._shiftCropRectY);
+                    svgWriterClipPath.writeClipPath(ctx, [utils.intersectRects(docBounds, artboardBounds)], ctx._shiftCropRectX, ctx._shiftCropRectY);
                 }
             };
 
