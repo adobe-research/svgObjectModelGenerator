@@ -10,7 +10,9 @@
                 },
                 "fill": {
                     "type": "pattern",
-                    "pattern": "pattern1"
+                    "pattern": {
+                        "ref": "pattern1"
+                    }
                 }
             },
             "children": [],
