@@ -353,7 +353,7 @@
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
 
-            // Give every element a inque id for processing.
+            // Give every element a unique id for processing.
             omIn.id = new ID("unique").getUnique();
 
             // Do not process style of element if it is not visible.
