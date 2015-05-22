@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "group-1",
 			"type": "group",
 			"visible": true,
 			"style": {
@@ -11,7 +10,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "shape-1",
 					"type": "shape",
 					"visible": true,
 					"style": {

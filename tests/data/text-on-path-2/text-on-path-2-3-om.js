@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -12,7 +11,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-1",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -21,7 +19,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-1",
 							"type": "tspan",
 							"visible": true,
 							"style": {

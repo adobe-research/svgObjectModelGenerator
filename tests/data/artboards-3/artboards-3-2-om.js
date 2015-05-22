@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "generic-1",
 			"type": "generic",
 			"visible": true,
 			"style": {},

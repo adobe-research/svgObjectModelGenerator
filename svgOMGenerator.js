@@ -124,6 +124,7 @@
                     break;
                 case "artboard":
                     if (!justTraverse) {
+                        svgNode.id = writer.ID.getUnique("artboard");
                         writer.setArtboard(svgNode.id, svgNode.name, layer.artboard.artboardRect);
                     }
                     // falls through

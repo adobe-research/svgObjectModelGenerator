@@ -27,7 +27,8 @@
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterTextPath = require("./svgWriterTextPath.js"),
         matrix = require("./matrix.js"),
-        utils = require("./utils.js");
+        utils = require("./utils.js"),
+        ID = require("./idGenerator.js");
 
     function SVGWriterPreprocessor() {
 
@@ -363,6 +364,9 @@
         this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
+
+            // Give every element a unique id for processing.
+            omIn.id = new ID("unique").getUnique();
 
             // Do not process style of element if it is not visible.
             if (!isVisible(ctx, omIn)) {

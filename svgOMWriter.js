@@ -93,7 +93,6 @@
 
         this.addSVGNode = function (nodeType, nodeVisible) {
             var n = {
-                id: this.ID.getUnique(nodeType),
                 type: nodeType,
                 visible: nodeVisible,
                 style: {},

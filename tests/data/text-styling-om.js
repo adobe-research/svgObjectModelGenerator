@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -20,7 +18,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-1",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -69,7 +66,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-2",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -80,7 +76,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-2",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -129,7 +124,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-3",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -140,7 +134,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-3",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -190,7 +183,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-4",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -201,7 +193,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-4",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -250,7 +241,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-5",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -261,7 +251,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-5",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -310,7 +299,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-6",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -321,7 +309,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-6",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -370,7 +357,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-7",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -381,7 +367,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-7",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -430,7 +415,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-8",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -441,7 +425,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-8",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -490,7 +473,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-9",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -501,7 +483,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-9",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -550,7 +531,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-10",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -561,7 +541,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-10",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -609,7 +588,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-11",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -620,7 +598,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-11",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -668,7 +645,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-12",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -679,7 +655,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-12",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -727,7 +702,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-13",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -738,7 +712,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-13",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -786,7 +759,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-14",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -797,7 +769,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-14",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -845,7 +816,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-15",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -856,7 +826,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-15",
 					"type": "tspan",
 					"visible": true,
 					"style": {
@@ -904,7 +873,6 @@ module.exports = {
 			"maxTextSize": 60
 		},
 		{
-			"id": "text-16",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -915,7 +883,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "tspan-16",
 					"type": "tspan",
 					"visible": true,
 					"style": {

@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "text-1",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -20,7 +18,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-1",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -28,7 +25,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-1",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -77,7 +73,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-2",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -88,7 +83,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-2",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -96,7 +90,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-2",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -145,7 +138,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-3",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -156,7 +148,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-3",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -164,7 +155,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-3",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -213,7 +203,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-4",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -224,7 +213,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-4",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -232,7 +220,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-4",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -281,7 +268,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-5",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -294,7 +280,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-5",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -302,7 +287,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-5",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -351,7 +335,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-6",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -362,7 +345,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-6",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -371,7 +353,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-6",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -421,7 +402,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-7",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -434,7 +414,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-7",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -442,7 +421,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-7",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -491,7 +469,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-8",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -502,7 +479,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-8",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -510,7 +486,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-8",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -559,7 +534,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-9",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -572,7 +546,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-9",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -581,7 +554,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-9",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -631,7 +603,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-10",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -642,7 +613,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-10",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -651,7 +621,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-10",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -701,7 +670,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-11",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -712,7 +680,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-11",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -720,7 +687,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-11",
 							"type": "tspan",
 							"visible": true,
 							"style": {
@@ -769,7 +735,6 @@ module.exports = {
 			"maxTextSize": 30
 		},
 		{
-			"id": "text-12",
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -780,7 +745,6 @@ module.exports = {
 			},
 			"children": [
 				{
-					"id": "textPath-12",
 					"type": "textPath",
 					"visible": true,
 					"style": {
@@ -788,7 +752,6 @@ module.exports = {
 					},
 					"children": [
 						{
-							"id": "tspan-12",
 							"type": "tspan",
 							"visible": true,
 							"style": {

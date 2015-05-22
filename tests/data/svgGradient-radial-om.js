@@ -1,7 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"id": "background-1",
 			"type": "background",
 			"visible": true,
 			"style": {},
@@ -9,7 +8,6 @@ module.exports = {
 			"name": "Background"
 		},
 		{
-			"id": "shape-1",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -44,7 +42,6 @@ module.exports = {
 			}
 		},
 		{
-			"id": "shape-2",
 			"type": "shape",
 			"visible": true,
 			"style": {
