@@ -7,7 +7,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="-2000" y1="512" x2="3924" y2="512" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient-1" x1="-50" y1="2462" x2="5874" y2="2462" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f9e600"/>
       <stop offset="0.05" stop-color="#f9e600"/>
       <stop offset="0.35" stop-color="#6f156c"/>
@@ -17,6 +17,6 @@
     </linearGradient>
   </defs>
   <g id="artboard-1">
-    <path d="M2212,2212h600v600H2212V2212Z" class="cls-1"/>
+    <path d="M2212,2212h600v600H2212V2212Z" transform="translate(-2000 -2000)" class="cls-1"/>
   </g>
 </svg>

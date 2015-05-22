@@ -52,17 +52,22 @@
 
             for (; points && i < points.length; ++i) {
                 if (!i) {
-                    pathData = "M " + (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
+                    pathData = "M" + (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
                 } else {
                     lastPoint = points[i - 1].forward ? points[i - 1].forward : points[i - 1].anchor;
-                    pathData += " C " + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
+                    pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
                     controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
                     pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
                     pathData += (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
                 }
             }
-            if (closedSubpath) {
-                pathData += " Z";
+            if (closedSubpath && points.length) {
+                lastPoint = points[points.length-1].forward ? points[points.length-1].forward : points[points.length-1].anchor;
+                pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
+                controlPoint = points[0].backward ? points[0].backward : points[0].anchor;
+                pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
+                pathData += (points[0].anchor.x + offsetX) + " " + (points[0].anchor.y + offsetY);
+                pathData += "Z";
             }
             return pathData;
         }
@@ -237,10 +242,12 @@
 
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
-                console.log(JSON.stringify(writer.currentArtboardRect));
                 if (writer.currentArtboardRect) {
                     offsetX = writer.currentArtboardRect.left;
                     offsetY = writer.currentArtboardRect.top;
+                } else {
+                    offsetX = 0;
+                    offsetY = 0;
                 }
 
                 svgNode.shape = {

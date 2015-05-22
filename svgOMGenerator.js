@@ -129,7 +129,10 @@
                     }
                     // Either all layers are descendants of artboards or there are
                     // no artboards. Use this for path shapes.
-                    writer.currentArtboardRect = layer.artboard.artboardRect;
+                    // If there are artbaords elements seem to be relative to the first artboard.
+                    if (!writer.currentArtboardRect) {
+                        writer.currentArtboardRect = layer.artboard.artboardRect;
+                    }
                     // falls through
                 case "group":
                     if (!justTraverse) {
@@ -158,6 +161,8 @@
         writer.setDocBounds(psd.bounds);
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);
+
+        console.log(JSON.stringify(psd, null, "\t"));
 
         if (layers) {
             for (iL = layers.length - 1; iL >= 0; iL--) {
