@@ -19,7 +19,9 @@
 
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
-        round2 = Utils.round2;
+        round2 = Utils.round2,
+        offsetX = 0,
+        offsetY = 0;
 
     function SVGOMGeneratorShapes() {
 
@@ -38,6 +40,57 @@
         function _ellipsePt(bnds, i) {
             return [bnds[i][0] + (bnds[(i + 1) % 4][0] - bnds[i][0]) / 2,
                     bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1]) / 2];
+        }
+
+        function writeCurveToPath (previousPoint, currentPoint) {
+            var controlPoint,
+                lastPoint,
+                pathData = "";
+
+            lastPoint = previousPoint.forward ? previousPoint.forward : previousPoint.anchor;
+            pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
+            controlPoint = currentPoint.backward ? currentPoint.backward : currentPoint.anchor;
+            pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
+            pathData += (currentPoint.anchor.x + offsetX) + " " + (currentPoint.anchor.y + offsetY);
+            return pathData;
+        }
+
+        function generateSVGSubPathStream (subComponent) {
+            var points = subComponent.points,
+                closedSubpath = !!subComponent.closedSubpath,
+                pathData = "",
+                i = 0;
+
+            for (; points && i < points.length; ++i) {
+                if (!i) {
+                    pathData = "M" + (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
+                } else {
+                    pathData += writeCurveToPath(points[i - 1], points[i]);
+                }
+            }
+            if (closedSubpath && points.length) {
+                pathData += writeCurveToPath(points[points.length - 1], points[0]);
+                pathData += "Z";
+            }
+            return pathData;
+        }
+
+        function generateSVGPathStream (path) {
+            var pathData = "";
+
+            for (var i = 0; i < path.pathComponents.length; ++i) {
+                if (!path.pathComponents[i].subpathListKey) {
+                    // FIXME: Generator versions before 1.3.0 do not provide path data. Some
+                    // tests were not transformed to the new format. Either fix those
+                    // JSON files or replace them. Return the rawPathData stream for now.
+                    return path.rawPathData;
+                }
+                for (var j = 0; j < path.pathComponents[i].subpathListKey.length; ++j) {
+                    pathData += generateSVGSubPathStream(path.pathComponents[i].subpathListKey[j]);
+                }
+            }
+
+            return pathData;
         }
 
         this.inferTransformForShape = function (svgNode, layer, points, type) {
@@ -192,9 +245,19 @@
 
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
+                // If the path is on an artboard, it is relative to it and we
+                // need to apply the offset of the artboard.
+                if (writer.currentArtboardRect) {
+                    offsetX = writer.currentArtboardRect.left;
+                    offsetY = writer.currentArtboardRect.top;
+                } else {
+                    offsetX = 0;
+                    offsetY = 0;
+                }
+
                 svgNode.shape = {
                     type: "path",
-                    path: pathData
+                    path: generateSVGPathStream(path)
                 };
 
                 omgStyles.addStylingData(svgNode, layer, path.bounds, writer);

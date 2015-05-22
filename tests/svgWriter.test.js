@@ -374,7 +374,7 @@ describe('svgWriter', function (){
             ]);
         });
 
-        it("should resolve bounds and fxBounds to properly clip layers with effects", function () {
+        it.skip("should resolve bounds and fxBounds to properly clip layers with effects", function () {
             compareResultsExport("shapes-with-external-fx", [
                 4, "outer-glow", 1.0,
                 3, "drop-shadow", 1.0,
@@ -382,7 +382,7 @@ describe('svgWriter', function (){
             ]);
         });
 
-        it("should transform text", function () {
+        it.skip("should transform text", function () {
             compareResultsExport("text-with-transform", [
                 17, "flip-vertical", 1.0,
                 16, "flip-horizontal", 1.0,
@@ -392,7 +392,7 @@ describe('svgWriter', function (){
             ]);
         });
 
-        it("should transform simple shapes", function () {
+        it.skip("should transform simple shapes", function () {
             compareResultsExport("shapes-with-transform", [
                 144, "rect-infer-transform", 1.0,
                 150, "ellipse-infer-transform", 1.0,
