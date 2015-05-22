@@ -42,31 +42,34 @@
                     bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1]) / 2];
         }
 
+        function writeCurveToPath (previousPoint, currentPoint) {
+            var controlPoint,
+                lastPoint,
+                pathData = "";
+
+            lastPoint = previousPoint.forward ? previousPoint.forward : previousPoint.anchor;
+            pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
+            controlPoint = currentPoint.backward ? currentPoint.backward : currentPoint.anchor;
+            pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
+            pathData += (currentPoint.anchor.x + offsetX) + " " + (currentPoint.anchor.y + offsetY);
+            return pathData;
+        }
+
         function generateSVGSubPathStream (subComponent) {
             var points = subComponent.points,
                 closedSubpath = !!subComponent.closedSubpath,
                 pathData = "",
-                controlPoint = 0,
-                lastPoint = 0,
                 i = 0;
 
             for (; points && i < points.length; ++i) {
                 if (!i) {
                     pathData = "M" + (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
                 } else {
-                    lastPoint = points[i - 1].forward ? points[i - 1].forward : points[i - 1].anchor;
-                    pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
-                    controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
-                    pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
-                    pathData += (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
+                    pathData += writeCurveToPath(points[i - 1], points[i]);
                 }
             }
             if (closedSubpath && points.length) {
-                lastPoint = points[points.length-1].forward ? points[points.length-1].forward : points[points.length-1].anchor;
-                pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
-                controlPoint = points[0].backward ? points[0].backward : points[0].anchor;
-                pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
-                pathData += (points[0].anchor.x + offsetX) + " " + (points[0].anchor.y + offsetY);
+                pathData += writeCurveToPath(points[points.length - 1], points[0]);
                 pathData += "Z";
             }
             return pathData;
@@ -242,6 +245,8 @@
 
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
+                // If the path is on an artboard, it is relative to it and we
+                // need to apply the offset of the artboard.
                 if (writer.currentArtboardRect) {
                     offsetX = writer.currentArtboardRect.left;
                     offsetY = writer.currentArtboardRect.top;

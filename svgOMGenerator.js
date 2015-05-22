@@ -129,7 +129,7 @@
                     }
                     // Either all layers are descendants of artboards or there are
                     // no artboards. Use this for path shapes.
-                    // If there are artbaords elements seem to be relative to the first artboard.
+                    // If there are artboards, elements seem to be relative to the first artboard.
                     if (!writer.currentArtboardRect) {
                         writer.currentArtboardRect = layer.artboard.artboardRect;
                     }
