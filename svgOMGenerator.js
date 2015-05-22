@@ -162,8 +162,6 @@
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);
 
-        console.log(JSON.stringify(psd, null, "\t"));
-
         if (layers) {
             for (iL = layers.length - 1; iL >= 0; iL--) {
                 lyr = layers[iL];
