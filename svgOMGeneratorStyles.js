@@ -122,8 +122,8 @@
                     stroke.type = "gradient";
                     gradientPair = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
                     stroke.gradient = gradientPair.reference;
-                    stroke.gradient.id = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
-                    writer.global().gradients[stroke.gradient.id] = gradientPair.gradient;
+                    stroke.gradient.ref = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
+                    writer.global().gradients[stroke.gradient.ref] = gradientPair.gradient;
                 }
             } else {
                 stroke.type = "none";
@@ -160,8 +160,8 @@
                     fill.type = "gradient";
                     gradientPair = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
                     fill.gradient = gradientPair.reference;
-                    fill.gradient.id = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
-                    writer.global().gradients[fill.gradient.id] = gradientPair.gradient;
+                    fill.gradient.ref = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
+                    writer.global().gradients[fill.gradient.ref] = gradientPair.gradient;
                 }
             } else if (fillClass === "patternLayer") {
                 fill.type = "pattern";
@@ -200,8 +200,8 @@
                     stroke.type = "gradient";
                     gradientPair = omgUtils.toGradient(strokeStyle, layerBounds, writer._root.global.bounds);
                     stroke.gradient = gradientPair.reference;
-                    stroke.gradient.id = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
-                    writer.global().gradients[stroke.gradient.id] = gradientPair.gradient;
+                    stroke.gradient.ref = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
+                    writer.global().gradients[stroke.gradient.ref] = gradientPair.gradient;
                 }
             } else {
                 stroke.type = "none";

@@ -24,7 +24,7 @@ module.exports = {
 						"y1": 250,
 						"x2": 275,
 						"y2": 100,
-						"id": "linear-gradient-1"
+						"ref": "linear-gradient-1"
 					}
 				},
 				"meta": {

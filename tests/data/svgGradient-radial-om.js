@@ -23,7 +23,7 @@ module.exports = {
 						"r": 150,
 						"cx": 450,
 						"cy": 175,
-						"id": "radial-gradient-1"
+						"ref": "radial-gradient-1"
 					}
 				}
 			},
@@ -58,7 +58,7 @@ module.exports = {
 						"r": 500,
 						"cx": 500,
 						"cy": 375,
-						"id": "radial-gradient-2"
+						"ref": "radial-gradient-2"
 					}
 				}
 			},

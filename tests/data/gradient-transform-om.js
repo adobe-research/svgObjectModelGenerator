@@ -10,7 +10,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"id": "radial-gradient-1",
+						"ref": "radial-gradient-1",
 						"gradientSpace": "userSpaceOnUse",
 						"r": 75,
 						"cx": 150,
@@ -72,7 +72,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"id": "linear-gradient-1",
+						"ref": "linear-gradient-1",
 						"gradientSpace": "userSpaceOnUse",
 						"x1": 300,
 						"y1": 50,

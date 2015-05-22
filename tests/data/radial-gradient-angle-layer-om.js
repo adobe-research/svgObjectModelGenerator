@@ -23,7 +23,7 @@ module.exports = {
 						"r": 50,
 						"cx": 150,
 						"cy": 100,
-						"id": "radial-gradient-1"
+						"ref": "radial-gradient-1"
 					}
 				}
 			},
@@ -58,7 +58,7 @@ module.exports = {
 						"r": 70.71067811865474,
 						"cx": 400,
 						"cy": 100,
-						"id": "radial-gradient-2"
+						"ref": "radial-gradient-2"
 					}
 				}
 			},
@@ -93,7 +93,7 @@ module.exports = {
 						"r": 100,
 						"cx": 650,
 						"cy": 100,
-						"id": "radial-gradient-3"
+						"ref": "radial-gradient-3"
 					}
 				}
 			},
@@ -128,7 +128,7 @@ module.exports = {
 						"r": 70.71067811865476,
 						"cx": 150,
 						"cy": 250,
-						"id": "radial-gradient-4"
+						"ref": "radial-gradient-4"
 					}
 				}
 			},
@@ -163,7 +163,7 @@ module.exports = {
 						"r": 50,
 						"cx": 400,
 						"cy": 250,
-						"id": "radial-gradient-5"
+						"ref": "radial-gradient-5"
 					}
 				}
 			},
@@ -198,7 +198,7 @@ module.exports = {
 						"r": 70.71067811865474,
 						"cx": 650,
 						"cy": 250,
-						"id": "radial-gradient-6"
+						"ref": "radial-gradient-6"
 					}
 				}
 			},
@@ -233,7 +233,7 @@ module.exports = {
 						"r": 100,
 						"cx": 150,
 						"cy": 400,
-						"id": "radial-gradient-7"
+						"ref": "radial-gradient-7"
 					}
 				}
 			},
@@ -268,7 +268,7 @@ module.exports = {
 						"r": 70.71067811865474,
 						"cx": 400,
 						"cy": 400,
-						"id": "radial-gradient-8"
+						"ref": "radial-gradient-8"
 					}
 				}
 			},
@@ -303,7 +303,7 @@ module.exports = {
 						"r": 97,
 						"cx": 653,
 						"cy": 402,
-						"id": "radial-gradient-9"
+						"ref": "radial-gradient-9"
 					}
 				}
 			},
@@ -338,7 +338,7 @@ module.exports = {
 						"r": 50,
 						"cx": 150,
 						"cy": 550,
-						"id": "radial-gradient-10"
+						"ref": "radial-gradient-10"
 					}
 				}
 			},
@@ -373,7 +373,7 @@ module.exports = {
 						"r": 100,
 						"cx": 400,
 						"cy": 550,
-						"id": "radial-gradient-11"
+						"ref": "radial-gradient-11"
 					}
 				}
 			},
@@ -408,7 +408,7 @@ module.exports = {
 						"r": 50,
 						"cx": 650,
 						"cy": 550,
-						"id": "radial-gradient-12"
+						"ref": "radial-gradient-12"
 					}
 				}
 			},

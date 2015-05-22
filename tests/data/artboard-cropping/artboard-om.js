@@ -21,7 +21,7 @@ module.exports = {
 						"fill": {
 							"type": "gradient",
 							"gradient": {
-								"id": "radial-gradient-1",
+								"ref": "radial-gradient-1",
 								"gradientSpace": "objectBoundingBox",
 								"r": 100,
 								"cx": 900,
@@ -55,7 +55,7 @@ module.exports = {
 						"fill": {
 							"type": "gradient",
 							"gradient": {
-								"id": "radial-gradient-2",
+								"ref": "radial-gradient-2",
 								"gradientSpace": "objectBoundingBox",
 								"r": 100,
 								"cx": 1300,
@@ -89,7 +89,7 @@ module.exports = {
 						"fill": {
 							"type": "gradient",
 							"gradient": {
-								"id": "radial-gradient-3",
+								"ref": "radial-gradient-3",
 								"gradientSpace": "objectBoundingBox",
 								"r": 100,
 								"cx": 900,
@@ -123,7 +123,7 @@ module.exports = {
 						"fill": {
 							"type": "gradient",
 							"gradient": {
-								"id": "radial-gradient-4",
+								"ref": "radial-gradient-4",
 								"gradientSpace": "objectBoundingBox",
 								"r": 100,
 								"cx": 1300,

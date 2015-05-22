@@ -24,7 +24,7 @@ module.exports = {
 						"y1": 150,
 						"x2": 450,
 						"y2": 50,
-						"id": "linear-gradient-1"
+						"ref": "linear-gradient-1"
 					}
 				}
 			},
@@ -60,7 +60,7 @@ module.exports = {
 						"y1": 300,
 						"x2": 450,
 						"y2": 200,
-						"id": "linear-gradient-2"
+						"ref": "linear-gradient-2"
 					}
 				}
 			},
@@ -96,7 +96,7 @@ module.exports = {
 						"y1": 525,
 						"x2": 450,
 						"y2": 425,
-						"id": "linear-gradient-3"
+						"ref": "linear-gradient-3"
 					}
 				}
 			},

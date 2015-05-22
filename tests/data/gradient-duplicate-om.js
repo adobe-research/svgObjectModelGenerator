@@ -33,7 +33,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 400,
 						"y2": 0,
-						"id": "linear-gradient-1"
+						"ref": "linear-gradient-1"
 					}
 				},
 				"fill": {
@@ -44,7 +44,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 700,
 						"y2": 0,
-						"id": "linear-gradient-2"
+						"ref": "linear-gradient-2"
 					}
 				}
 			},
@@ -89,7 +89,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 400,
 						"y2": 0,
-						"id": "linear-gradient-3"
+						"ref": "linear-gradient-3"
 					}
 				},
 				"fill": {
@@ -100,7 +100,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 700,
 						"y2": 0,
-						"id": "linear-gradient-4"
+						"ref": "linear-gradient-4"
 					}
 				}
 			},
@@ -145,7 +145,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 400,
 						"y2": 0,
-						"id": "linear-gradient-5"
+						"ref": "linear-gradient-5"
 					}
 				},
 				"fill": {
@@ -156,7 +156,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 700,
 						"y2": 0,
-						"id": "linear-gradient-6"
+						"ref": "linear-gradient-6"
 					}
 				}
 			},
