@@ -205,11 +205,9 @@
                     shape.y2 += offsetY;
                     break;
                 case "path":
-                    if (ctx._shiftCropRectX || ctx._shiftCropRectY) {
-                        omIn.transform = matrix.createMatrix();
-                        omIn.transformTX = ctx._shiftCropRectX || 0;
-                        omIn.transformTY = ctx._shiftCropRectY || 0;
-                    }
+                    omIn.transform = matrix.createMatrix();
+                    omIn.transformTX = offsetX;
+                    omIn.transformTY = offsetY;
                     break;
                 case "polygon":
                     // Fall through

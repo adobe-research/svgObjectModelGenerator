@@ -19,7 +19,9 @@
 
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
-        round2 = Utils.round2;
+        round2 = Utils.round2,
+        offsetX = 0,
+        offsetY = 0;
 
     function SVGOMGeneratorShapes() {
 
@@ -38,6 +40,49 @@
         function _ellipsePt(bnds, i) {
             return [bnds[i][0] + (bnds[(i + 1) % 4][0] - bnds[i][0]) / 2,
                     bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1]) / 2];
+        }
+
+        function generateSVGSubPathStream (subComponent) {
+            var points = subComponent.points,
+                closedSubpath = !!subComponent.closedSubpath,
+                pathData = "",
+                controlPoint = 0,
+                lastPoint = 0,
+                i = 0;
+
+            for (; points && i < points.length; ++i) {
+                if (!i) {
+                    pathData = "M " + (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
+                } else {
+                    lastPoint = points[i - 1].forward ? points[i - 1].forward : points[i - 1].anchor;
+                    pathData += " C " + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
+                    controlPoint = points[i].backward ? points[i].backward : points[i].anchor;
+                    pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
+                    pathData += (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
+                }
+            }
+            if (closedSubpath) {
+                pathData += " Z";
+            }
+            return pathData;
+        }
+
+        function generateSVGPathStream (path) {
+            var pathData = "";
+
+            for (var i = 0; i < path.pathComponents.length; ++i) {
+                if (!path.pathComponents[i].subpathListKey) {
+                    // FIXME: Generator versions before 1.3.0 do not provide path data. Some
+                    // tests were not transformed to the new format. Either fix those
+                    // JSON files or replace them. Return the rawPathData stream for now.
+                    return path.rawPathData;
+                }
+                for (var j = 0; j < path.pathComponents[i].subpathListKey.length; ++j) {
+                    pathData += generateSVGSubPathStream(path.pathComponents[i].subpathListKey[j]);
+                }
+            }
+
+            return pathData;
         }
 
         this.inferTransformForShape = function (svgNode, layer, points, type) {
@@ -192,9 +237,15 @@
 
                 svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
 
+                console.log(JSON.stringify(writer.currentArtboardRect));
+                if (writer.currentArtboardRect) {
+                    offsetX = writer.currentArtboardRect.left;
+                    offsetY = writer.currentArtboardRect.top;
+                }
+
                 svgNode.shape = {
                     type: "path",
-                    path: pathData
+                    path: generateSVGPathStream(path)
                 };
 
                 omgStyles.addStylingData(svgNode, layer, path.bounds, writer);

@@ -135,8 +135,12 @@
                     id: gradientID
                 });
 
-            offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0);
-            offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
+            // FIXME: This check is because we do not shift points of paths
+            // but translate the whole path including paint servers.
+            if (omIn.type == "shape" && omIn.shape.type != "path") {
+                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0);
+                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
+            }
 
             if (!stops) {
                 console.warn("encountered gradient with no stops");

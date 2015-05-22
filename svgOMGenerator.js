@@ -127,6 +127,9 @@
                         svgNode.id = writer.ID.getUnique("artboard");
                         writer.setArtboard(svgNode.id, svgNode.name, layer.artboard.artboardRect);
                     }
+                    // Either all layers are descendants of artboards or there are
+                    // no artboards. Use this for path shapes.
+                    writer.currentArtboardRect = layer.artboard.artboardRect;
                     // falls through
                 case "group":
                     if (!justTraverse) {
