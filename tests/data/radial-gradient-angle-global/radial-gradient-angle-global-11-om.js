@@ -14,7 +14,7 @@ module.exports = {
 						"r": 300,
 						"cx": 400,
 						"cy": 300,
-						"id": "radial-gradient-1"
+						"ref": "radial-gradient-1"
 					}
 				}
 			},

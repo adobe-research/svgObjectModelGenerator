@@ -22,7 +22,7 @@ module.exports = {
 						"y1": 100,
 						"x2": 250,
 						"y2": 100,
-						"id": "linear-gradient-1"
+						"ref": "linear-gradient-1"
 					}
 				}
 			},
@@ -57,7 +57,7 @@ module.exports = {
 						"y1": 150,
 						"x2": 400,
 						"y2": 50,
-						"id": "linear-gradient-2"
+						"ref": "linear-gradient-2"
 					}
 				}
 			},
@@ -92,7 +92,7 @@ module.exports = {
 						"y1": 100,
 						"x2": 750,
 						"y2": 100,
-						"id": "linear-gradient-3"
+						"ref": "linear-gradient-3"
 					}
 				}
 			},
@@ -126,7 +126,7 @@ module.exports = {
 						"r": 100,
 						"cx": 150,
 						"cy": 550,
-						"id": "radial-gradient-1"
+						"ref": "radial-gradient-1"
 					}
 				}
 			},
@@ -160,7 +160,7 @@ module.exports = {
 						"r": 50,
 						"cx": 400,
 						"cy": 550,
-						"id": "radial-gradient-2"
+						"ref": "radial-gradient-2"
 					}
 				}
 			},
@@ -194,7 +194,7 @@ module.exports = {
 						"r": 100,
 						"cx": 650,
 						"cy": 550,
-						"id": "radial-gradient-3"
+						"ref": "radial-gradient-3"
 					}
 				}
 			},
@@ -228,7 +228,7 @@ module.exports = {
 						"r": 400,
 						"cx": 400,
 						"cy": 300,
-						"id": "radial-gradient-4"
+						"ref": "radial-gradient-4"
 					}
 				}
 			},
@@ -262,7 +262,7 @@ module.exports = {
 						"r": 300,
 						"cx": 400,
 						"cy": 300,
-						"id": "radial-gradient-5"
+						"ref": "radial-gradient-5"
 					}
 				}
 			},
@@ -296,7 +296,7 @@ module.exports = {
 						"r": 400,
 						"cx": 400,
 						"cy": 300,
-						"id": "radial-gradient-6"
+						"ref": "radial-gradient-6"
 					}
 				}
 			},
@@ -331,7 +331,7 @@ module.exports = {
 						"y1": 300,
 						"x2": 800,
 						"y2": 300,
-						"id": "linear-gradient-4"
+						"ref": "linear-gradient-4"
 					}
 				}
 			},
@@ -366,7 +366,7 @@ module.exports = {
 						"y1": 600,
 						"x2": 400,
 						"y2": 0,
-						"id": "linear-gradient-5"
+						"ref": "linear-gradient-5"
 					}
 				}
 			},
@@ -401,7 +401,7 @@ module.exports = {
 						"y1": 300,
 						"x2": 800,
 						"y2": 300,
-						"id": "linear-gradient-6"
+						"ref": "linear-gradient-6"
 					}
 				}
 			},

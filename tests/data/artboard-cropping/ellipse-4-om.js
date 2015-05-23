@@ -11,7 +11,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"id": "radial-gradient-1",
+						"ref": "radial-gradient-1",
 						"gradientSpace": "objectBoundingBox",
 						"r": 100,
 						"cx": 1300,

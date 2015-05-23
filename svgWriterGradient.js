@@ -123,7 +123,7 @@
         },
         writeGradient: function (ctx, styleBlock, gradientRef, flavor) {
             var omIn = ctx.currentOMNode,
-                gradient = ctx.svgOM.global.gradients[gradientRef.id],
+                gradient = ctx.svgOM.global.gradients[gradientRef.ref],
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
                 stops = gradient.stops,
                 gradientSpace = gradientRef.gradientSpace,

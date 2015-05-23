@@ -26,7 +26,7 @@ module.exports = {
 								"fill" : 
 								{
 									"gradient" : {
-										"id": "grad_1",
+										"ref": "grad_1",
 										"cx" : 0,
 										"cy" : 0,
 										"fx" : -1,
