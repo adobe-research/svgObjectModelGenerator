@@ -14,6 +14,10 @@
         stroke: url(#pattern-2);
         stroke-width: 20px;
       }
+
+      .cls-4 {
+        fill: url(#pattern-3);
+      }
     </style>
 
     <pattern width="55" height="55" patternUnits="userSpaceOnUse" id="pattern-1">
@@ -22,6 +26,10 @@
     <pattern width="55" height="55" patternUnits="userSpaceOnUse" id="pattern-2">
       <rect width="50" height="50" class="cls-2"/>
     </pattern>
+    <pattern width="55" height="55" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse" id="pattern-3">
+      <rect width="50" height="50" class="cls-1"/>
+    </pattern>
   </defs>
   <rect x="100" y="100" width="300" height="300" class="cls-3"/>
+  <rect x="450" y="450" width="300" height="300" class="cls-4"/>
 </svg>

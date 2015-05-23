@@ -7,12 +7,16 @@
             "style": {
                 "stroke": {
                     "type": "pattern",
-                    "pattern": "pattern2",
+                    "pattern": {
+                        "ref": "pattern2"
+                    },
                     "width": 20
                 },
                 "fill": {
                     "type": "pattern",
-                    "pattern": "pattern1"
+                    "pattern": {
+                        "ref": "pattern1"
+                    }
                 }
             },
             "children": [],
@@ -27,6 +31,60 @@
                 "type": "rect",
                 "x": 100,
                 "y": 100,
+                "width": 300,
+                "height": 300
+            }
+        },
+        {
+            "id": "shape-2",
+            "type": "shape",
+            "visible": true,
+            "style": {
+                "fill": {
+                    "type": "pattern",
+                    "pattern": {
+                        "ref": "pattern1",
+                        "transform": {
+                            "0": [
+                                0.707107,
+                                -0.707107,
+                                0,
+                                0
+                            ],
+                            "1": [
+                                0.707107,
+                                0.707107,
+                                0,
+                                0
+                            ],
+                            "2": [
+                                0,
+                                0,
+                                1,
+                                0
+                            ],
+                            "3": [
+                                0,
+                                0,
+                                0,
+                                1
+                            ]
+                        }
+                    }
+                }
+            },
+            "children": [],
+            "title": "Rectangle 2",
+            "visualBounds": {
+                "top": 450,
+                "left": 450,
+                "bottom": 750,
+                "right": 750
+            },
+            "shape": {
+                "type": "rect",
+                "x": 450,
+                "y": 450,
                 "width": 300,
                 "height": 300
             }

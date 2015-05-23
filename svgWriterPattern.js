@@ -20,18 +20,20 @@
     var Tag = require("./svgWriterTag.js");
 
     module.exports = {
-        writePattern: function (ctx, pattern, flavor) {
+        writePattern: function (ctx, patternRef, flavor) {
             var omIn = ctx.currentOMNode,
                 fingerprint = "",
                 patternID,
                 styleBlock,
                 patternTag;
 
-            if (ctx.svgOM.global && ctx.svgOM.global.patterns[pattern]) {
-                ctx.currentOMNode = ctx.svgOM.global.patterns[pattern];
+            if (ctx.svgOM.global && ctx.svgOM.global.patterns[patternRef.ref]) {
+                ctx.currentOMNode = ctx.svgOM.global.patterns[patternRef.ref];
+                ctx.currentOMNode.transform = patternRef.transform;
                 patternID = ctx.ID.getUnique("pattern", ctx.currentOMNode.name);
                 patternTag = Tag.make(ctx);
                 fingerprint = patternTag.toString();
+                delete ctx.currentOMNode.transform;
                 ctx.currentOMNode = omIn;
                 patternTag.setAttribute("id", patternID);
                 ctx.omStylesheet.define("pattern-" + flavor, omIn.id, patternID, patternTag, fingerprint);
