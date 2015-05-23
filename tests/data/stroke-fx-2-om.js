@@ -87,7 +87,7 @@ module.exports = {
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 300,
 						"y1": 150,
 						"x2": 400,
@@ -231,7 +231,7 @@ module.exports = {
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 500,
 						"y1": 150,
 						"x2": 600,
@@ -375,7 +375,7 @@ module.exports = {
 					"miter-limit": 100,
 					"sourceStyle": "outsetFrame",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 100,
 						"y1": 400,
 						"x2": 200,

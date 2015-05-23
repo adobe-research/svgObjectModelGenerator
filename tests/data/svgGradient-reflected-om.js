@@ -17,7 +17,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 342.8888994943414,
 						"y1": 250,
 						"x2": 557.1111005056587,

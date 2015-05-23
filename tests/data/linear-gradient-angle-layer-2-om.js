@@ -17,7 +17,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 350,
 						"y1": 150,
 						"x2": 450,
@@ -52,7 +52,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 350,
 						"y1": 300,
 						"x2": 450,
@@ -87,7 +87,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 350,
 						"y1": 525,
 						"x2": 450,

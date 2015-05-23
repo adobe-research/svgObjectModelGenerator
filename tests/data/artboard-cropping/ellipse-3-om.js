@@ -12,7 +12,7 @@ module.exports = {
 					"type": "gradient",
 					"gradient": {
 						"ref": "radial-gradient-1",
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"r": 100,
 						"cx": 900,
 						"cy": 1300

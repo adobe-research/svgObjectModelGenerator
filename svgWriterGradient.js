@@ -43,6 +43,7 @@
                 x2 = gradientRef.x2 + offsetX,
                 y1 = gradientRef.y1 + offsetY,
                 y2 = gradientRef.y2 + offsetY,
+                gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 attr = {
                     x1: x1,
                     y1: y1,
@@ -62,7 +63,7 @@
                     y2: y2,
                     gradientTransform: getTransform(gradientRef.transform)
                 };
-                attr.gradientUnits = "userSpaceOnUse";
+                attr.gradientUnits = gradientSpace;
                 tag.setAttributes(attr);
                 tag.children = removeDups(lines);
             }
@@ -73,6 +74,7 @@
                 fx = gradientRef.fx ? gradientRef.fx + offsetX : cx,
                 fy = gradientRef.fy ? gradientRef.fy + offsetY : cy,
                 r = gradientRef.r,
+                gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 attr = {
                     cx: cx,
                     cy: cy,
@@ -116,7 +118,7 @@
                     r: r,
                     gradientTransform: getTransform(gradientRef.transform)
                 };
-                attr.gradientUnits = "userSpaceOnUse";
+                attr.gradientUnits = gradientSpace;
                 tag.setAttributes(attr);
                 tag.children = removeDups(lines);
             }
@@ -126,7 +128,7 @@
                 gradient = ctx.svgOM.global.gradients[gradientRef.ref],
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
                 stops = gradient.stops,
-                gradientSpace = gradientRef.gradientSpace,
+                gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 fingerprint = "",
                 stp,
                 lines = [],
@@ -139,7 +141,10 @@
             // but translate the whole path including paint servers.
             // In the future we may shift the points and remove this special
             // case.
-            if (omIn.type == "shape" && omIn.shape.type != "path") {
+            offsetX = 0;
+            offsetY = 0;
+            if (omIn.type == "shape" && omIn.shape.type != "path" &&
+                gradientSpace == "userSpaceOnUse") {
                 offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0);
                 offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
             }

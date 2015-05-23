@@ -185,7 +185,7 @@ module.exports = {
 					},
 					"opacity": 1,
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 328.59259966289426,
 						"y1": 300,
 						"x2": 471.40740033710574,
@@ -231,7 +231,7 @@ module.exports = {
 					},
 					"opacity": 1,
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"r": 50,
 						"cx": 650,
 						"cy": 250,
@@ -241,7 +241,7 @@ module.exports = {
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"r": 100,
 						"cx": 650,
 						"cy": 250,
@@ -285,7 +285,7 @@ module.exports = {
 					},
 					"opacity": 1,
 					"gradient": {
-						"gradientSpace": "objectBoundingBox",
+						"gradientSpace": "userSpaceOnUse",
 						"x1": 150,
 						"y1": 450,
 						"x2": 150,
