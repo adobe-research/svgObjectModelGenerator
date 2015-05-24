@@ -326,15 +326,11 @@
                 ctx._shiftContentX += artboardShiftX;
                 ctx._shiftContentY += artboardShiftY;
 
-                ctx._docDimension = {
-                    left: 0,
-                    top: 0,
-                    right: actualBounds.right - actualBounds.left,
-                    bottom: actualBounds.bottom - actualBounds.top
-                };
-
                 w = ctx._docDimension.right;
                 h = ctx._docDimension.bottom;
+
+                ctx._width = w;
+                ctx._height = h;
 
                 // Clip to crop boundaries.
                 // FIXME: Do we want to allow cropping without trimToArtBounds set?
@@ -350,8 +346,8 @@
                     return;
                 }
 
-                ctx._docDimension.right = cropRect.width;
-                ctx._docDimension.bottom = cropRect.height;
+                ctx._width = cropRect.width;
+                ctx._height = cropRect.height;
 
                 ctx._shiftCropRectX = (cropRect.width - w) / 2;
                 ctx._shiftCropRectY = (cropRect.height - h) / 2;
@@ -430,24 +426,20 @@
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
             } else {
-                ctx._docDimension = {
-                    left: ctx.docBounds.left,
-                    top: ctx.docBounds.top,
-                    right: ctx.docBounds.right - ctx.docBounds.left,
-                    bottom: ctx.docBounds.bottom - ctx.docBounds.top
-                };
+                ctx._x = ctx.docBounds.left;
+                ctx._y = ctx.docBounds.top;
+                ctx._width = ctx.docBounds.right - ctx.docBounds.left;
+                ctx._height = ctx.docBounds.bottom - ctx.docBounds.top;
             }
 
-            ctx.width = Math.abs(ctx._docDimension.right);
-            ctx.height = Math.abs(ctx._docDimension.bottom);
-            ctx.viewBox = [
-                ctx._docDimension.left,
-                ctx._docDimension.top,
-                ctx.width,
-                ctx.height
+            ctx._viewBox = [
+                ctx._x,
+                ctx._y,
+                ctx._width,
+                ctx._height
             ];
-            ctx.width *= scaleX;
-            ctx.height *= scaleY;
+            ctx._width *= scaleX;
+            ctx._height *= scaleY;
 
             // Preprocess the content of the resources,
             // since they are not a part of the tree

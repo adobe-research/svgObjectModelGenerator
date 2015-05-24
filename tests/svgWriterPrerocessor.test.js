@@ -212,10 +212,10 @@ describe('SVGWriterPreprocessor', function (){
         
         svgWriterPreprocessor.processSVGOM(ctx);
         
-        expect(ctx.viewBox[0]).to.equal(0);
-        expect(ctx.viewBox[1]).to.equal(0);
-        expect(ctx.viewBox[2]).to.equal(33);
-        expect(ctx.viewBox[3]).to.equal(93);
+        expect(ctx._viewBox[0]).to.equal(0);
+        expect(ctx._viewBox[1]).to.equal(0);
+        expect(ctx._viewBox[2]).to.equal(33);
+        expect(ctx._viewBox[3]).to.equal(93);
         
         expect(svgOM.children[0].visualBounds.top).to.equal(1.5);
         expect(svgOM.children[0].visualBounds.left).to.equal(1.5);
@@ -224,17 +224,17 @@ describe('SVGWriterPreprocessor', function (){
 
         svgWriterPreprocessor.processSVGOM(ctx2);
 
-        expect(ctx2.viewBox[0]).to.equal(0);
-        expect(ctx2.viewBox[1]).to.equal(0);
-        expect(ctx2.viewBox[2]).to.equal(141.42000000000002);
-        expect(ctx2.viewBox[3]).to.equal(141.42000000000002);
+        expect(ctx2._viewBox[0]).to.equal(0);
+        expect(ctx2._viewBox[1]).to.equal(0);
+        expect(ctx2._viewBox[2]).to.equal(141.42000000000002);
+        expect(ctx2._viewBox[3]).to.equal(141.42000000000002);
 
         svgWriterPreprocessor.processSVGOM(ctx3);
 
-        expect(ctx3.viewBox[0]).to.equal(0);
-        expect(ctx3.viewBox[1]).to.equal(0);
-        expect(ctx3.viewBox[2]).to.equal(200);
-        expect(ctx3.viewBox[3]).to.equal(200);
+        expect(ctx3._viewBox[0]).to.equal(0);
+        expect(ctx3._viewBox[1]).to.equal(0);
+        expect(ctx3._viewBox[2]).to.equal(200);
+        expect(ctx3._viewBox[3]).to.equal(200);
         expect(ctx3.svgOM.children[0].shape.x).to.equal(50);
         expect(ctx3.svgOM.children[0].shape.y).to.equal(50);
     });

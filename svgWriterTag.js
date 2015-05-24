@@ -614,10 +614,10 @@
                     };
 
                 if (!ctx.config.isResponsive) {
-                    attr.width = ctx.width;
-                    attr.height = ctx.height;
+                    attr.width = ctx._width;
+                    attr.height = ctx._height;
                 }
-                attr.viewBox = ctx.viewBox;
+                attr.viewBox = ctx._viewBox;
 
                 return new Tag("svg", attr);
             }
