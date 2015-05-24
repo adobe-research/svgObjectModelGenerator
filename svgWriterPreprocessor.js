@@ -289,7 +289,6 @@
                     };
                 }
 
-
                 if (ctx.config.constrainToDocBounds) {
                     ctx._needsClipping = ctx._needsClipping || !utils.containsRect(docBounds, actualBounds);
                     actualBounds.left = Math.max(0, actualBounds.left || 0);
@@ -421,7 +420,8 @@
             var omSave = ctx.currentOMNode,
                 self = this,
                 global = ctx.svgOM.global,
-                scale = ctx.config.scale || 1;
+                scaleX = ctx.config.scaleX || ctx.config.scale || 1,
+                scaleY = ctx.config.scaleY || ctx.config.scale || 1;
 
             ctx.omStylesheet = new SVGStylesheet;
 
@@ -435,7 +435,7 @@
                     top: ctx.docBounds.top,
                     right: ctx.docBounds.right - ctx.docBounds.left,
                     bottom: ctx.docBounds.bottom - ctx.docBounds.top
-                }
+                };
             }
 
             ctx.width = Math.abs(ctx._docDimension.right);
@@ -446,8 +446,8 @@
                 ctx.width,
                 ctx.height
             ];
-            ctx.width *= scale;
-            ctx.height *= scale;
+            ctx.width *= scaleX;
+            ctx.height *= scaleY;
 
             // Preprocess the content of the resources,
             // since they are not a part of the tree
