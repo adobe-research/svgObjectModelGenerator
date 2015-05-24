@@ -158,5 +158,19 @@ describe("Matrix", function (){
         expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("rotate(45)");
     });
 
+    it("knows how to create a matrix from a object with properties a-f", function () {
+        var matrix4x4 = Matrix.createMatrix({
+                a: 0.707107,
+                b: -0.707107,
+                c: 0.707107,
+                d: 0.707107,
+                e: 20,
+                f: 40
+            }),
+            decomposed;
 
+        decomposed = Matrix.decomposeTransform(matrix4x4);
+
+        expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("translate(20 40) rotate(-45)");
+    });
 });

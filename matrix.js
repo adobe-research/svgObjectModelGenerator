@@ -92,22 +92,6 @@
 
             function Matrix4x4(other) {
                 var i, j;
-                if (other) {
-                    for (i = 0; i < 4; i += 1) {
-                        this[i] = new Array(4);
-                        for (j = 0; j < 4; j += 1) {
-                            this[i][j] = other[i][j];
-                        }
-                    }
-                } else {
-                    for (i = 0; i < 4; i += 1) {
-                        this[i] = new Array(4);
-                        for (j = 0; j < 4; j += 1) {
-                            this[i][j] = 0;
-                        }
-                        this[i][i] = 1;
-                    }
-                }
 
                 this.identity = function () {
                     var i,
@@ -121,6 +105,36 @@
                     }
                     return this;
                 };
+
+                if (other) {
+                    if (typeof other == "object" &&
+                        typeof other.a == "number" &&
+                        typeof other.b == "number" &&
+                        typeof other.c == "number" &&
+                        typeof other.d == "number" &&
+                        typeof other.e == "number" &&
+                        typeof other.f == "number") {
+                        this.identity();
+                        this[0][0] = other.a;
+                        this[0][1] = other.b;
+                        this[1][0] = other.c;
+                        this[1][1] = other.d;
+                        this[3][0] = other.e;
+                        this[3][1] = other.f;
+                    } else {
+                        // FIXME: We do not check if `other` is
+                        // a 4x4 matrix yet.
+                        for (i = 0; i < 4; i += 1) {
+                            this[i] = new Array(4);
+                            for (j = 0; j < 4; j += 1) {
+                                this[i][j] = other[i][j];
+                            }
+                        }
+                    }
+                } else {
+                    this.identity();
+                }
+
 
                 this.determinant = function () {
                     // This could be faster - we need to factor out some of the
