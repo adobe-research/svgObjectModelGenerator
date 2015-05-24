@@ -324,9 +324,12 @@
                     actualBounds.bottom = Math.min(actualBounds.bottom, artboardBounds.bottom);
                 }
 
+                ctx._shiftContentX += artboardShiftX;
+                ctx._shiftContentY += artboardShiftY;
+
                 ctx._docDimension = {
-                    left: Math.abs(artboardShiftX),
-                    top: Math.abs(artboardShiftY),
+                    left: 0,
+                    top: 0,
                     right: actualBounds.right - actualBounds.left,
                     bottom: actualBounds.bottom - actualBounds.top
                 };
