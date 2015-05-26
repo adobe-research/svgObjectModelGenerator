@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/bounds",
+    "title": "bounds",
+    "description": "The boundaries object",
+    "type": "object",
+    "properties": {
+        "bottom": {
+            "description": "The most bottom position",
+            "type": "number"
+        },
+        "left": {
+            "description": "The most left position",
+            "type": "number"
+        },
+        "right": {
+            "description": "The most right position",
+            "type": "number"
+        },
+        "top": {
+            "description": "The most top position",
+            "type": "number"
+        }
+    },
+    "required": [ "bottom", "left", "right", "top" ]
+}

@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/transform2d",
+    "title": "transform2d",
+    "description": "The 2D transform object",
+    "type": "object",
+    "properties": {
+        "a": {
+            "type": "number"
+        },
+        "b": {
+            "type": "number"
+        },
+        "c": {
+            "type": "number"
+        },
+        "d": {
+            "type": "number"
+        },
+        "e": {
+            "type": "number"
+        },
+        "f": {
+            "type": "number"
+        }
+    },
+    "required": [ "a", "b", "c", "d", "e", "f" ]
+}

@@ -166,7 +166,7 @@ module.exports = {
 			"right" : 960,
 			"top" : 0
 		},
-		"colorMode" : "rgb",
+		"colorMode" : "sRGB",
 		"gradients" : {},
 		"masks" : {},
 		"patterns" : {},

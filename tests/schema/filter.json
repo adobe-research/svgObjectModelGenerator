@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/filter",
+    "title": "filter",
+    "description": "The filter object",
+    "type": "object",
+    "patternProperties": {
+    	"^[//W//w]+": {
+    		"type": "object"
+    	}
+    }
+}

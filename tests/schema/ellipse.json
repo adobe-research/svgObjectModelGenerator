@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/ellipse",
+    "title": "ellipse",
+    "description": "A ellipse shape graphics object",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "shape" ]
+        },
+        "name": {
+            "description": "The user specified name of the graphics object",
+            "type": "string"
+        },
+        "shape": {
+            "type": "object",
+            "description": "A representation of a ellipse",
+            "properties": {
+                "cx": {
+                    "description": "The horizontal coordinate of the ellipse",
+                    "type": "number"
+                },
+                "cy": {
+                    "description": "The vertical coordinate of the ellipse",
+                    "type": "number"
+                },
+                "rx": {
+                    "description": "The horizontal radius of the ellipse",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "ry": {
+                    "description": "The vertical radius of the ellipse",
+                    "type": "number",
+                    "minimum": 0
+                },
+                "type": {
+                    "description": "The type of shape",
+                    "enum": [ "ellipse" ]
+                }
+            },
+            "required": [ "cx", "cy", "rx", "ry", "type" ]
+        },
+        "style": { "$ref": "/style" },
+        "transform": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "/transform2d" },
+                { "$ref": "/transform3d" }
+            ]
+        },
+        "visible": {
+            "description": "Whether the graphics object is visible or not",
+            "type": "boolean"
+        },
+        "visualBounds": { "$ref": "/bounds" }
+    },
+    "required": [ "shape", "type" ]
+}
