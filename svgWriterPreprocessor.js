@@ -289,7 +289,6 @@
                     };
                 }
 
-
                 if (ctx.config.constrainToDocBounds) {
                     ctx._needsClipping = ctx._needsClipping || !utils.containsRect(docBounds, actualBounds);
                     actualBounds.left = Math.max(0, actualBounds.left || 0);
@@ -324,15 +323,16 @@
                     actualBounds.bottom = Math.min(actualBounds.bottom, artboardBounds.bottom);
                 }
 
-                ctx._docDimension = {
-                    left: Math.abs(artboardShiftX),
-                    top: Math.abs(artboardShiftY),
-                    right: actualBounds.right - actualBounds.left,
-                    bottom: actualBounds.bottom - actualBounds.top
-                };
+                ctx._shiftContentX += artboardShiftX;
+                ctx._shiftContentY += artboardShiftY;
 
-                w = ctx._docDimension.right;
-                h = ctx._docDimension.bottom;
+                w = actualBounds.right - actualBounds.left;
+                h = actualBounds.bottom - actualBounds.top;
+
+                ctx._x = 0;
+                ctx._y = 0;
+                ctx._width = w;
+                ctx._height = h;
 
                 // Clip to crop boundaries.
                 // FIXME: Do we want to allow cropping without trimToArtBounds set?
@@ -348,8 +348,8 @@
                     return;
                 }
 
-                ctx._docDimension.right = cropRect.width;
-                ctx._docDimension.bottom = cropRect.height;
+                ctx._width = cropRect.width;
+                ctx._height = cropRect.height;
 
                 ctx._shiftCropRectX = (cropRect.width - w) / 2;
                 ctx._shiftCropRectY = (cropRect.height - h) / 2;
@@ -418,6 +418,9 @@
             var omSave = ctx.currentOMNode,
                 self = this,
                 global = ctx.svgOM.global,
+                cropRect = ctx.config.cropRect,
+                w,
+                h,
                 scale = ctx.config.scale || 1;
 
             ctx.omStylesheet = new SVGStylesheet;
@@ -427,24 +430,33 @@
                 finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
             } else {
-                ctx._docDimension = {
-                    left: ctx.docBounds.left,
-                    top: ctx.docBounds.top,
-                    right: ctx.docBounds.right - ctx.docBounds.left,
-                    bottom: ctx.docBounds.bottom - ctx.docBounds.top
+                ctx._x = ctx.docBounds.left;
+                ctx._y = ctx.docBounds.top;
+                ctx._width = ctx.docBounds.right - ctx.docBounds.left;
+                ctx._height = ctx.docBounds.bottom - ctx.docBounds.top;
+
+                if (cropRect) {
+                    w = ctx._width;
+                    h = ctx._height;
+
+                    cropRect.width /= scale;
+                    cropRect.height /= scale;
+
+                    ctx._width = cropRect.width;
+                    ctx._height = cropRect.height;
+                    ctx._x -= (cropRect.width - w) / 2;
+                    ctx._y -= (cropRect.height - h) / 2;
                 }
             }
 
-            ctx.width = Math.abs(ctx._docDimension.right);
-            ctx.height = Math.abs(ctx._docDimension.bottom);
-            ctx.viewBox = [
-                ctx._docDimension.left,
-                ctx._docDimension.top,
-                ctx.width,
-                ctx.height
+            ctx._viewBox = [
+                ctx._x,
+                ctx._y,
+                ctx._width,
+                ctx._height
             ];
-            ctx.width *= scale;
-            ctx.height *= scale;
+            ctx._width *= scale;
+            ctx._height *= scale;
 
             // Preprocess the content of the resources,
             // since they are not a part of the tree

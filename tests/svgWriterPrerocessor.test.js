@@ -31,7 +31,7 @@ describe('SVGWriterPreprocessor', function (){
         sandbox.restore();
     });
     
-    it("knows how to trim to artwork", function () {
+    it("knows how to trim to artwork 1", function () {
         
         var svgOM = {
                 global: {
@@ -93,7 +93,31 @@ describe('SVGWriterPreprocessor', function (){
                     }
                 ]
             },
-            svgOM2 = {
+            ctx = {
+                svgOM: svgOM,
+                ID: new ID(),
+                currentOMNode: svgOM,
+                contentBounds: {},
+                config: {
+                    trimToArtBounds: true
+                }
+            };
+        
+        svgWriterPreprocessor.processSVGOM(ctx);
+        
+        expect(ctx._viewBox[0]).to.equal(0);
+        expect(ctx._viewBox[1]).to.equal(0);
+        expect(ctx._viewBox[2]).to.equal(33);
+        expect(ctx._viewBox[3]).to.equal(93);
+        
+        expect(svgOM.children[0].visualBounds.top).to.equal(1.5);
+        expect(svgOM.children[0].visualBounds.left).to.equal(1.5);
+        expect(svgOM.children[0].visualBounds.right).to.equal(31.5);
+        expect(svgOM.children[0].visualBounds.bottom).to.equal(91.5);
+    });
+
+    it("knows how to trim to artwork 2", function () {
+        var svgOM = {
                 global: {
                     bounds: {
                         left: 0,
@@ -149,7 +173,26 @@ describe('SVGWriterPreprocessor', function (){
                     }
                 ]
             },
-            svgOM3 = {
+            ctx = {
+                svgOM: svgOM,
+                ID: new ID(),
+                currentOMNode: svgOM,
+                contentBounds: {},
+                config: {
+                    trimToArtBounds: true
+                }
+            };
+
+        svgWriterPreprocessor.processSVGOM(ctx);
+
+        expect(ctx._viewBox[0]).to.equal(0);
+        expect(ctx._viewBox[1]).to.equal(0);
+        expect(ctx._viewBox[2]).to.equal(141.42000000000002);
+        expect(ctx._viewBox[3]).to.equal(141.42000000000002);
+    });
+
+    it("knows how to trim to artwork 3", function () {
+        var svgOM = {
                 global: {
                     bounds: {
                         left: 0,
@@ -184,24 +227,6 @@ describe('SVGWriterPreprocessor', function (){
                 currentOMNode: svgOM,
                 contentBounds: {},
                 config: {
-                    trimToArtBounds: true
-                }
-            },
-            ctx2 = {
-                svgOM: svgOM2,
-                ID: new ID(),
-                currentOMNode: svgOM2,
-                contentBounds: {},
-                config: {
-                    trimToArtBounds: true
-                }
-            },
-            ctx3 = {
-                svgOM: svgOM3,
-                ID: new ID(),
-                currentOMNode: svgOM3,
-                contentBounds: {},
-                config: {
                     cropRect: {
                         width: 200,
                         height: 200
@@ -209,34 +234,76 @@ describe('SVGWriterPreprocessor', function (){
                     trimToArtBounds: true
                 }
             };
-        
+
         svgWriterPreprocessor.processSVGOM(ctx);
-        
-        expect(ctx.viewBox[0]).to.equal(0);
-        expect(ctx.viewBox[1]).to.equal(0);
-        expect(ctx.viewBox[2]).to.equal(33);
-        expect(ctx.viewBox[3]).to.equal(93);
-        
-        expect(svgOM.children[0].visualBounds.top).to.equal(1.5);
-        expect(svgOM.children[0].visualBounds.left).to.equal(1.5);
-        expect(svgOM.children[0].visualBounds.right).to.equal(31.5);
-        expect(svgOM.children[0].visualBounds.bottom).to.equal(91.5);
 
-        svgWriterPreprocessor.processSVGOM(ctx2);
-
-        expect(ctx2.viewBox[0]).to.equal(0);
-        expect(ctx2.viewBox[1]).to.equal(0);
-        expect(ctx2.viewBox[2]).to.equal(141.42000000000002);
-        expect(ctx2.viewBox[3]).to.equal(141.42000000000002);
-
-        svgWriterPreprocessor.processSVGOM(ctx3);
-
-        expect(ctx3.viewBox[0]).to.equal(0);
-        expect(ctx3.viewBox[1]).to.equal(0);
-        expect(ctx3.viewBox[2]).to.equal(200);
-        expect(ctx3.viewBox[3]).to.equal(200);
-        expect(ctx3.svgOM.children[0].shape.x).to.equal(50);
-        expect(ctx3.svgOM.children[0].shape.y).to.equal(50);
+        expect(ctx._viewBox[0]).to.equal(0);
+        expect(ctx._viewBox[1]).to.equal(0);
+        expect(ctx._viewBox[2]).to.equal(200);
+        expect(ctx._viewBox[3]).to.equal(200);
+        expect(ctx.svgOM.children[0].shape.x).to.equal(50);
+        expect(ctx.svgOM.children[0].shape.y).to.equal(50);
     });
-    
+
+    it("knows how to crop and scale on document export", function () {
+        var svgOM = {
+                global: {
+                    bounds: {
+                        left: 100,
+                        right: 300,
+                        top: 100,
+                        bottom: 300
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        visible: true,
+                        visualBounds: {
+                            left: 100,
+                            right: 300,
+                            top: 100,
+                            bottom: 300
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 200,
+                            height: 200
+                        }
+                    }
+                ]
+            },
+            ctx = {
+                svgOM: svgOM,
+                ID: new ID(),
+                currentOMNode: svgOM,
+                contentBounds: {},
+                docBounds: {
+                    left: 100,
+                    right: 300,
+                    top: 100,
+                    bottom: 300
+                },
+                config: {
+                    cropRect: {
+                        width: 400,
+                        height: 400
+                    },
+                    scale: 0.5
+                }
+            };
+
+        svgWriterPreprocessor.processSVGOM(ctx);
+
+        expect(ctx._x).to.equal(-200);
+        expect(ctx._y).to.equal(-200);
+        expect(ctx._width).to.equal(400);
+        expect(ctx._height).to.equal(400);
+        expect(ctx._viewBox[0]).to.equal(-200);
+        expect(ctx._viewBox[1]).to.equal(-200);
+        expect(ctx._viewBox[2]).to.equal(800);
+        expect(ctx._viewBox[3]).to.equal(800);
+    });
 });

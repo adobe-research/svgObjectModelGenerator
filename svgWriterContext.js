@@ -63,9 +63,11 @@
         this.contentBounds = {};
 
         // Document sizing parameters.
-        this.width = 0;
-        this.height = 0;
-        this.viewBox = [];
+        this._x = 0;
+        this._y = 0;
+        this._width = 0;
+        this._height = 0;
+        this._viewBox = [];
 
         //an array for reporting errors
         this.errors = errors || [];
