@@ -30,7 +30,7 @@
             shapeLayer: "shape",
             textLayer: "text",
             layerSection: "group",
-            layer: "generic"
+            layer: "image"
         };
 
     function getSVGLayerType(layer) {
@@ -51,7 +51,7 @@
 
     function layerShouldBeRasterized(layer, aErrors) {
         var layerType = getSVGLayerType(layer),
-            imageType = layerType === "generic" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0;
+            imageType = layerType === "image" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0;
 
         if (!imageType) {
             //see if there are special cases to consider...
@@ -99,7 +99,7 @@
             }
 
             layerType = getSVGLayerType(layer);
-            if (!justTraverse) {
+            if (!justTraverse && layerType != "background") {
                 svgNode = writer.addSVGNode(layerType, layerVisible);
                 svgNode.name = layer.name;
             }
@@ -115,7 +115,7 @@
                         omgText.addTextData(svgNode, layer, writer);
                     }
                     break;
-                case "generic":
+                case "image":
                     if (!justTraverse) {
                         // FIXME: Could also be an empty layer or a gradient layer.
                         // Treat all of them as image for now.

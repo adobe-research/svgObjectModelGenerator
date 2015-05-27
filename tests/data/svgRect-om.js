@@ -1,13 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"type": "background",
-			"visible": true,
-			"style": {},
-			"children": [],
-			"name": "Background"
-		},
-		{
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -65,12 +58,6 @@ module.exports = {
 				"bottom": 250,
 				"right": 800
 			},
-			"shapeRadii": [
-				30,
-				30,
-				30,
-				30
-			],
 			"shape": {
 				"type": "rect",
 				"x": 500,
@@ -110,12 +97,6 @@ module.exports = {
 				"bottom": 450,
 				"right": 370
 			},
-			"shapeRadii": [
-				40,
-				10,
-				20,
-				30
-			],
 			"shape": {
 				"type": "rect",
 				"x": 70,
@@ -155,12 +136,6 @@ module.exports = {
 				"bottom": 450,
 				"right": 680
 			},
-			"shapeRadii": [
-				20,
-				10,
-				200,
-				150
-			],
 			"shape": {
 				"type": "rect",
 				"x": 380,
@@ -205,5 +180,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "rect.psd"
 }

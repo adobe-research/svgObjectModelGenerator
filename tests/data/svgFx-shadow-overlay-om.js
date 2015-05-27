@@ -1,13 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"type": "background",
-			"visible": true,
-			"style": {},
-			"children": [],
-			"name": "Background"
-		},
-		{
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -112,12 +105,6 @@ module.exports = {
 				"bottom": 271,
 				"right": 445
 			},
-			"shapeRadii": [
-				10,
-				10,
-				10,
-				10
-			],
 			"shape": {
 				"type": "rect",
 				"x": 100,
@@ -300,5 +287,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "svgFx-shadow-overlay.psd"
 }

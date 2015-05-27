@@ -1,13 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"type": "background",
-			"visible": true,
-			"style": {},
-			"children": [],
-			"name": "Background"
-		},
-		{
 			"type": "text",
 			"visible": true,
 			"style": {
@@ -223,5 +216,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "svgTextGradient.psd"
 }

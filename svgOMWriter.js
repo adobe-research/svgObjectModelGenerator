@@ -32,7 +32,8 @@
                 artboards: {},
                 meta: {
                     PS: {}
-                }
+                },
+                version: "0.1.0"
             },
             _currentNodeStack = [];
 

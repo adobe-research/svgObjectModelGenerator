@@ -74,5 +74,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "Untitled-3"
 }

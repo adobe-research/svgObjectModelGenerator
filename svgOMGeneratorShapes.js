@@ -201,7 +201,8 @@
         this.addRect = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
 
-                var newBounds;
+                var newBounds,
+                    shapeRadii;
 
                 if (origin.type === "rect" || origin.type === "roundedRect") {
 
@@ -214,10 +215,10 @@
                     }
 
                     svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
-                    svgNode.shapeRadii = origin.radii;
-                    if (svgNode.shapeRadii) {
-                        svgNode.shapeRadii = svgNode.shapeRadii.slice();
-                        svgNode.shapeRadii.unshift(svgNode.shapeRadii.pop());
+                    shapeRadii = origin.radii;
+                    if (shapeRadii) {
+                        shapeRadii = shapeRadii.slice();
+                        shapeRadii.unshift(shapeRadii.pop());
                     }
 
                     svgNode.shape = {
@@ -226,7 +227,7 @@
                         y: origin.bounds.top,
                         width: origin.bounds.right - origin.bounds.left,
                         height: origin.bounds.bottom - origin.bounds.top,
-                        r: svgNode.shapeRadii
+                        r: shapeRadii
                     };
 
                     omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);

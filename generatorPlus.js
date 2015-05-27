@@ -191,7 +191,7 @@
 
                         if (svgOMGenerator.layerShouldBeRasterized(layer, aErrors)) {
 
-                            //force it to generic now since we are going to treat it as image
+                            //force it to image now since we are going to treat it as image
                             layer.type = "layer";
 
                             rasterDeferred = Q.defer();

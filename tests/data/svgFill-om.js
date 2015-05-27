@@ -1,13 +1,6 @@
 module.exports = {
 	"children": [
 		{
-			"type": "background",
-			"visible": true,
-			"style": {},
-			"children": [],
-			"name": "Background"
-		},
-		{
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -294,5 +287,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "svgFill.psd"
 }
