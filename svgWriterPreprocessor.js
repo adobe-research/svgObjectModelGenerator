@@ -446,6 +446,11 @@
                     ctx._height = cropRect.height;
                     ctx._x -= (cropRect.width - w) / 2;
                     ctx._y -= (cropRect.height - h) / 2;
+
+                    if (cropRect.width > w || cropRect.height > h) {
+                        ctx._needsClipping = true;
+                        svgWriterClipPath.writeClipPath(ctx, [ctx.docBounds], 0, 0);
+                    }
                 }
             }
 

@@ -1522,24 +1522,14 @@ describe('svgWriter', function (){
      **/
     describe('Test cropping', function () {
 
-        function compareResults (testName, isArtboard) {
+        function compareResults (testName, config) {
             var svgOM,
                 svgOut,
                 expectedOut,
                 path = 'data/cropping/' + testName;
 
             svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(
-                svgOM,
-                {
-                    cropRect: {
-                        width: 300,
-                        height: 300
-                    },
-                    trimToArtBounds: true,
-                    constrainToDocBounds: true
-                }
-            );
+            svgOut = svgWriter.printSVG(svgOM, config);
 
             try {
                 expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
@@ -1555,12 +1545,32 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
+        var config1 = {
+                cropRect: {
+                    width: 300,
+                    height: 300
+                },
+                trimToArtBounds: true,
+                constrainToDocBounds: true
+            },
+            config2 = {
+                cropRect: {
+                    width: 200,
+                    height: 200
+                },
+                scale: 0.5
+            };
+
         it('Test cropping on ellipse exceeding document bounds 1', function () {
-            compareResults("ellipse-past-doc-1");
+            compareResults("ellipse-past-doc-1", config1);
         });
 
         it('Test cropping on ellipse exceeding document bounds 2', function () {
-            compareResults("ellipse-past-doc-2");
+            compareResults("ellipse-past-doc-2", config1);
+        });
+
+        it('Test cropping on ellipse exceeding document bounds 3', function () {
+            compareResults("ellipse-past-doc-3", config2);
         });
     });
 
