@@ -59,7 +59,10 @@
                         return;
                     }
                     // fill, stroke, mask and fx are handled above.
-                    if (property == "fill" || property == "stroke" || property == "filter" || property == "meta" || property == "mask" || property == "clip-path") {
+                    if (property == "fill" || property == "stroke" ||
+                        property == "filter" || property == "meta" ||
+                        property == "mask" || property == "clip-path" ||
+                        property == "name") {
                         return;
                     }
                     if (property == "font-size") {
