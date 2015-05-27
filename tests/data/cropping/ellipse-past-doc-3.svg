@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="200" height="200" viewBox="-100 -100 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #007f00;
+      }
+    </style>
+
+    <clipPath id="clip-path-1">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-path-1)">
+    <ellipse cx="90" cy="100" rx="125" ry="125" class="cls-1"/>
+  </g>
+</svg>
