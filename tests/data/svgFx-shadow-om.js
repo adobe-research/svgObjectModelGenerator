@@ -84,7 +84,6 @@ module.exports = {
 				},
 				"filter": "filter-1"
 			},
-			"children": [],
 			"name": "shadow",
 			"visualBounds": {
 				"top": 80,
@@ -221,12 +220,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

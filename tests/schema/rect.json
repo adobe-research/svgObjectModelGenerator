@@ -5,9 +5,8 @@
     "description": "A rectangle shape graphics object",
     "type": "object",
     "properties": {
-        "type": {
-            "description": "The type of the graphics object",
-            "enum": [ "shape" ]
+        "meta": {
+            "type": "object"
         },
         "name": {
             "description": "The user specified name of the graphics object",
@@ -17,23 +16,13 @@
             "type": "object",
             "description": "A representation of a rectangle",
             "properties": {
-                "x": {
-                    "description": "The horizontal offset of the rectangle",
-                    "type": "number"
-                },
-                "y": {
-                    "description": "The vertical offset of the rectangle",
-                    "type": "number"
-                },
-                "width": {
-                    "description": "The horizontal dimension of the rectangle",
-                    "type": "number",
-                    "minimum": "0"
-                },
                 "height": {
                     "description": " The vertical dimension of the rectangle",
                     "type": "number",
                     "minimum": "0"
+                },
+                "meta": {
+                    "type": "object"
                 },
                 "r": {
                     "description": "Rounded corners",
@@ -47,18 +36,34 @@
                 "type": {
                     "description": "The type of shape",
                     "enum": [ "rect" ]
+                },
+                "width": {
+                    "description": "The horizontal dimension of the rectangle",
+                    "type": "number",
+                    "minimum": "0"
+                },
+                "x": {
+                    "description": "The horizontal offset of the rectangle",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The vertical offset of the rectangle",
+                    "type": "number"
                 }
-
             },
+            "additionalProperties": false,
             "required": [ "x", "y", "width", "height", "type" ]
         },
         "style": { "$ref": "/style" },
         "transform": {
-            "type": "object",
             "oneOf": [
                 { "$ref": "/transform2d" },
                 { "$ref": "/transform3d" }
             ]
+        },
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "shape" ]
         },
         "visible": {
             "description": "Whether the graphics object is visible or not",
@@ -66,5 +71,6 @@
         },
         "visualBounds": { "$ref": "/bounds" }
     },
+    "additionalProperties": false,
     "required": [ "shape", "type" ]
 }

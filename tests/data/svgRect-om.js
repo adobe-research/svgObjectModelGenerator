@@ -17,7 +17,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 100,
@@ -50,7 +49,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 100,
@@ -89,7 +87,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 300,
@@ -128,7 +125,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 300,
@@ -157,12 +153,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

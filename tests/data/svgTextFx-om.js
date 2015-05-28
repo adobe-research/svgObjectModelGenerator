@@ -133,12 +133,32 @@ module.exports = {
 				},
 				"filter": "filter-1"
 			},
+			"name": "This is a text",
+			"visualBounds": {
+				"top": 114,
+				"left": 221,
+				"bottom": 172,
+				"right": 413
+			},
+			"position": {
+				"x": 244.921872,
+				"y": 153.820314,
+				"unitX": "px",
+				"unitY": "px"
+			},
+			"maxTextSize": 31.8176,
 			"children": [
 				{
 					"type": "tspan",
 					"visible": true,
 					"style": {
 						"font-size": 31.8176
+					},
+					"position": {
+						"x": 244.921872,
+						"y": 153.820314,
+						"unitX": "px",
+						"unitY": "px"
 					},
 					"children": [
 						{
@@ -157,7 +177,6 @@ module.exports = {
 								"font-family": "\"Minion Pro\"",
 								"font-size": 31.8176
 							},
-							"children": [],
 							"text": "This is a ",
 							"visualBounds": {
 								"top": 131,
@@ -182,7 +201,6 @@ module.exports = {
 								"font-family": "\"Minion Pro\"",
 								"font-size": 31.8176
 							},
-							"children": [],
 							"text": "text",
 							"visualBounds": {
 								"top": 131,
@@ -191,29 +209,9 @@ module.exports = {
 								"right": 403
 							}
 						}
-					],
-					"position": {
-						"x": 244.921872,
-						"y": 153.820314,
-						"unitX": "px",
-						"unitY": "px"
-					}
+					]
 				}
-			],
-			"name": "This is a text",
-			"visualBounds": {
-				"top": 114,
-				"left": 221,
-				"bottom": 172,
-				"right": 413
-			},
-			"position": {
-				"x": 244.921872,
-				"y": 153.820314,
-				"unitX": "px",
-				"unitY": "px"
-			},
-			"maxTextSize": 31.8176
+			]
 		}
 	],
 	"global": {
@@ -303,12 +301,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

@@ -103,6 +103,20 @@ module.exports = {
 				},
 				"filter": "filter-1"
 			},
+			"name": "This is a text.svg",
+			"visualBounds": {
+				"top": 161,
+				"left": 303,
+				"bottom": 207,
+				"right": 623
+			},
+			"position": {
+				"x": 302.81249792,
+				"y": 205.70312704,
+				"unitX": "px",
+				"unitY": "px"
+			},
+			"maxTextSize": 63.6352,
 			"children": [
 				{
 					"type": "tspan",
@@ -120,7 +134,6 @@ module.exports = {
 						},
 						"font-family": "\"Myriad Pro\""
 					},
-					"children": [],
 					"text": "This is a text",
 					"visualBounds": {
 						"top": 161,
@@ -135,21 +148,7 @@ module.exports = {
 						"unitY": "em"
 					}
 				}
-			],
-			"name": "This is a text.svg",
-			"visualBounds": {
-				"top": 161,
-				"left": 303,
-				"bottom": 207,
-				"right": 623
-			},
-			"position": {
-				"x": 302.81249792,
-				"y": 205.70312704,
-				"unitX": "px",
-				"unitY": "px"
-			},
-			"maxTextSize": 63.6352
+			]
 		}
 	],
 	"global": {
@@ -193,12 +192,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

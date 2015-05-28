@@ -17,14 +17,6 @@ module.exports = {
 											"children" : 
 											[
 												{
-													"bounds" : 
-													{
-														"bottom" : 532.551025390625,
-														"left" : 76.878997802734375,
-														"right" : 358.39199829101562,
-														"top" : 256
-													},
-													"id" : "id_1_1_1_1_1_1",
 													"shape" : 
 													{
 														"path" : "M228.000000,256.000000 L175.571991,339.723999 L76.878998,344.000000 L140.304001,419.733978 L113.873001,514.917969 L205.500000,478.000000 L287.856995,532.550964 L281.060974,434.000000 L358.391998,372.530975 L262.563995,348.540985 z",
@@ -54,14 +46,6 @@ module.exports = {
 													}
 												},
 												{
-													"bounds" : 
-													{
-														"bottom" : 540.3851318359375,
-														"left" : 68.642410278320312,
-														"right" : 367.1214599609375,
-														"top" : 247.13188171386719
-													},
-													"id" : "id_1_1_1_1_1_2",
 													"shape" : 
 													{
 														"path" : "M228.000000,256.000000 L175.571991,339.723999 L76.878998,344.000000 L140.304001,419.733978 L113.873001,514.917969 L205.500000,478.000000 L287.856995,532.550964 L281.060974,434.000000 L358.391998,372.530975 L262.563995,348.540985 L228.000000,256.000000 z",
@@ -95,7 +79,6 @@ module.exports = {
 													}
 												}
 											],
-											"id" : "id_1_1_1_1_1",
 											"style" : {},
 											"type" : "group",
 											"visualBounds" : 
@@ -107,7 +90,6 @@ module.exports = {
 											}
 										}
 									],
-									"id" : "id_1_1_1_1",
 									"style" : 
 									{
 										"opacity" : 0.53999298810958862
@@ -122,7 +104,6 @@ module.exports = {
 									}
 								}
 							],
-							"id" : "id_1_1_1",
 							"style" : {},
 							"type" : "group",
 							"visualBounds" : 
@@ -134,7 +115,6 @@ module.exports = {
 							}
 						}
 					],
-					"id" : "id_1_1",
 					"style" : {},
 					"type" : "group",
 					"visualBounds" : 
@@ -146,7 +126,6 @@ module.exports = {
 					}
 				}
 			],
-			"id" : "id_1",
 			"type" : "group",
 			"visualBounds" : 
 			{
@@ -172,14 +151,7 @@ module.exports = {
 		"patterns" : {},
 		"pxToInchRatio" : 72,
 		"styles" : {},
-		"viewBox" : 
-		{
-			"bottom" : 560,
-			"left" : 0,
-			"right" : 960,
-			"top" : 0
-		}
 	},
-	"title" : "/Users/cabanier/temp/cabanier.github.io/rect.ai",
+	"name" : "/Users/cabanier/temp/cabanier.github.io/rect.ai",
 	"version" : "1.0"
 }

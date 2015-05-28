@@ -19,7 +19,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 100,
@@ -54,7 +53,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 350,
@@ -124,12 +122,6 @@ module.exports = {
 		},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 750,
-			"right": 1000
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

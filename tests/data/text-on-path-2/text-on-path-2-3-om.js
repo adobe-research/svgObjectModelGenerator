@@ -9,6 +9,17 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "Text on Path.svg",
+			"visualBounds": {
+				"top": -99.15332083333334,
+				"bottom": 435.12915,
+				"left": -109.3308125,
+				"right": 583.885375
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
 			"children": [
 				{
 					"type": "textPath",
@@ -17,6 +28,7 @@ module.exports = {
 						"text-anchor": "end",
 						"font-size": 150
 					},
+					"pathData": "M 145.08 123.12 C 176.693 123.12 202.32 140.688 202.32 162.36 C 202.32 184.032 176.693 201.6 145.08 201.6 C 113.467 201.6 87.84 184.032 87.84 162.36 Z",
 					"children": [
 						{
 							"type": "tspan",
@@ -36,7 +48,6 @@ module.exports = {
 								"font-family": "Optima",
 								"font-weight": 900
 							},
-							"children": [],
 							"text": "Text on Path",
 							"visualBounds": {
 								"top": 414,
@@ -51,21 +62,9 @@ module.exports = {
 								"unitY": "em"
 							}
 						}
-					],
-					"pathData": "M 145.08 123.12 C 176.693 123.12 202.32 140.688 202.32 162.36 C 202.32 184.032 176.693 201.6 145.08 201.6 C 113.467 201.6 87.84 184.032 87.84 162.36 Z"
+					]
 				}
 			],
-			"name": "Text on Path.svg",
-			"visualBounds": {
-				"top": -99.15332083333334,
-				"bottom": 435.12915,
-				"left": -109.3308125,
-				"right": 583.885375
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
 			"maxTextSize": 150
 		}
 	],
@@ -75,12 +74,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

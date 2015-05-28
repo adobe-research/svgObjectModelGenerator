@@ -129,7 +129,6 @@ module.exports = {
 				},
 				"filter": "filter-1"
 			},
-			"children": [],
 			"name": "Ellipse.svg",
 			"visualBounds": {
 				"top": 62,
@@ -264,12 +263,6 @@ module.exports = {
 		},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 288,
-			"right": 288
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

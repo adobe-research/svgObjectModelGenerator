@@ -5,6 +5,9 @@
     "description": "The position object",
     "type": "object",
     "properties": {
+        "meta": {
+            "type": "object"
+        },
         "x": {
             "description": "The horizontal offset",
             "type": "number"
@@ -14,5 +17,6 @@
             "type": "number"
         }
     },
+    "additionalProperties": false,
     "required": [ "x", "y" ]
 }

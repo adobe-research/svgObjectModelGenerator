@@ -24,7 +24,6 @@ module.exports = {
 					"opacity": 1
 				}
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 48.5,
@@ -64,7 +63,6 @@ module.exports = {
 					"opacity": 1
 				}
 			},
-			"children": [],
 			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 45,
@@ -102,7 +100,6 @@ module.exports = {
 					"opacity": 1
 				}
 			},
-			"children": [],
 			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 45,
@@ -141,7 +138,6 @@ module.exports = {
 					"opacity": 1
 				}
 			},
-			"children": [],
 			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 198.5,
@@ -187,7 +183,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 195,
@@ -242,7 +237,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 195,
@@ -287,7 +281,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 340,
@@ -329,7 +322,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 340,
@@ -692,12 +684,6 @@ module.exports = {
 		},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

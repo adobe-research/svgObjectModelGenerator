@@ -69,10 +69,6 @@
             _root.global.bounds = bounds;
         };
 
-        this.setDocViewBox = function (bounds) {
-            _root.global.viewBox = bounds;
-        };
-
         this.setDocTitle = function (name) {
             _root.name = name;
         };
@@ -96,9 +92,11 @@
             var n = {
                 type: nodeType,
                 visible: nodeVisible,
-                style: {},
-                children: []
+                style: {}
             };
+            if (!this.peekCurrent().children) {
+                this.peekCurrent().children = [];
+            }
             this.peekCurrent().children.push(n);
             return n;
         };

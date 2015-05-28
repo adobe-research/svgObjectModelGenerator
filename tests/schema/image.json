@@ -9,25 +9,27 @@
             "$ref": "/bounds",
             "description": "The boundaries of the image in local coordinates."
         },
-        "type": {
-            "description": "The type of the graphics object",
-            "enum": [ "image" ]
+        "href": {
+            "type": "string",
+            "description": "A base64 encoded image or a reference to an external image. The reference may be managed by a DCX manifest file."
+        },
+        "meta": {
+            "type": "object"
         },
         "name": {
             "description": "The user specified name of the graphics object",
             "type": "string"
         },
-        "href": {
-            "type": "string",
-            "description": "A base64 encoded image or a reference to an external image. The reference may be managed by a DCX manifest file."
-        },
         "style": { "$ref": "/style" },
         "transform": {
-            "type": "object",
             "oneOf": [
                 { "$ref": "/transform2d" },
                 { "$ref": "/transform3d" }
             ]
+        },
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "image" ]
         },
         "visible": {
             "description": "Whether the graphics object is visible or not",
@@ -35,5 +37,6 @@
         },
         "visualBounds": { "$ref": "/bounds" }
     },
+    "additionalProperties": false,
     "required": [ "bounds", "href", "type" ]
 }

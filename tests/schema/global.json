@@ -12,6 +12,9 @@
         "colorMode": {
             "enum": [ "sRGB" ]
         },
+        "meta": {
+            "type": "object"
+        },
         "pxToInchRatio": {
             "description": "The ratio between document pixels to an inch. In Photoshop this is `72` by default.",
             "type": "number",
@@ -89,9 +92,13 @@
 
         }
     },
+    "additionalProperties": false,
     "definitions": {
         "colorStop": {
             "description": "A gradient color stop",
+            "meta": {
+                "type": "object"
+            },
             "type": "object",
             "properties": {
                 "color": { "$ref": "/color" },
@@ -106,6 +113,7 @@
                     "maximum": 1
                 }
             },
+            "additionalProperties": false,
             "required": [ "color", "offset" ]
         },
         "gradient": {
@@ -114,6 +122,9 @@
             "properties": {
                 "interpolation": {
                     "enum": [ "lienar", "euclidean", "spline" ]
+                },
+                "meta": {
+                    "type": "object"
                 },
                 "name": {
                     "description": "The specified name of the gradient",
@@ -129,6 +140,7 @@
                     "enum": [ "linear", "radial" ]
                 }
             },
+            "additionalProperties": false,
             "required": [ "type", "stops" ]
         },
         "pattern": {
@@ -156,6 +168,9 @@
                         ]
                     }
                 },
+                "meta": {
+                    "type": "object"
+                },
                 "name": {
                     "description": "A name of the object within the application. A name doesn't need to be unique",
                     "type": "string"
@@ -177,6 +192,7 @@
                     "$ref": "/bounds"
                 }
             },
+            "additionalProperties": false,
             "required": [ "bounds", "children", "type" ]
         },
         "clipPath": {
@@ -200,6 +216,9 @@
                         ]
                     }
                 },
+                "meta": {
+                    "type": "object"
+                },
                 "name": {
                     "description": "A name of the object within the application. A name doesn't need to be unique",
                     "type": "string"
@@ -208,6 +227,7 @@
                     "enum": [ "pattern" ] 
                 }
             },
+            "additionalProperties": false,
             "required": [ "children", "type" ]
         },
         "mask": {
@@ -246,10 +266,6 @@
                 "kind": {
                     "enum": [ "luminosity", "opacity" ]
                 },
-                "name": {
-                    "description": "A name of the object within the application. A name doesn't need to be unique",
-                    "type": "string"
-                },
                 "maskUnits": {
                     "description": "Global or object coordinate space for the boundaries of the mask",
                     "enum": [ "objectBoundingBox", "userSpaceOnUse" ]
@@ -258,10 +274,18 @@
                     "description": "Global or object coordinate space for the children of the mask",
                     "enum": [ "objectBoundingBox", "userSpaceOnUse" ]
                 },
+                "meta": {
+                    "type": "object"
+                },
+                "name": {
+                    "description": "A name of the object within the application. A name doesn't need to be unique",
+                    "type": "string"
+                },
                 "type": {
                     "enum": [ "mask" ] 
                 }
             },
+            "additionalProperties": false,
             "required": [ "children", "type" ]
         },
         "symbol": {
@@ -285,6 +309,9 @@
                         ]
                     }
                 },
+                "meta": {
+                    "type": "object"
+                },
                 "name": {
                     "description": "A name of the object within the application. A name doesn't need to be unique",
                     "type": "string"
@@ -298,6 +325,7 @@
                     "$ref": "/bounds"
                 }
             },
+            "additionalProperties": false,
             "required": [ "children", "type" ]
         }
     }

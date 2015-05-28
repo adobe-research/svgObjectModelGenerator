@@ -124,8 +124,8 @@
                     break;
                 case "artboard":
                     if (!justTraverse) {
-                        svgNode.id = writer.ID.getUnique("artboard");
-                        writer.setArtboard(svgNode.id, svgNode.name, layer.artboard.artboardRect);
+                        svgNode.ref = writer.ID.getUnique("artboard");
+                        writer.setArtboard(svgNode.ref, svgNode.name, layer.artboard.artboardRect);
                     }
                     // Either all layers are descendants of artboards or there are
                     // no artboards. Use this for path shapes.
@@ -157,7 +157,6 @@
         }
 
         writer.setDocTitle(psd.file);
-        writer.setDocViewBox(psd.bounds);
         writer.setDocBounds(psd.bounds);
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);

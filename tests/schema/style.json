@@ -204,7 +204,9 @@
     			},
     			"dash": {
     				"type": "array",
-    				"items": "number"
+    				"items": {
+                        "type": "number"
+                    }
     			},
     			"join": {
     				"enum": [ "bevel", "round", "miter" ]

@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"id": "artboard-1",
+			"ref": "artboard-1",
 			"type": "artboard",
 			"visible": true,
 			"style": {

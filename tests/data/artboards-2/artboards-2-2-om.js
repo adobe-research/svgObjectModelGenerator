@@ -4,7 +4,6 @@ module.exports = {
 			"type": "image",
 			"visible": true,
 			"style": {},
-			"children": [],
 			"name": "Layer 1"
 		}
 	],
@@ -14,12 +13,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5024,
-			"right": 5024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

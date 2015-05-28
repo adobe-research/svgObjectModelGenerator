@@ -72,12 +72,13 @@ describe('OMG validation', function (){
 
     it("Invalid simple OMG", function () {
         var OMG = {
-                "children": []
+                "children": [],
             },
             result = v.validate(OMG, schema);
         
-        expect(result.errors.length).to.equal(1);
+        expect(result.errors.length).to.equal(2);
         expect(result.errors[0].message).to.equal("requires property \"global\"");
+        expect(result.errors[1].message).to.equal("requires property \"version\"");
     });
 
     it("Group opacity OMG test", function () {

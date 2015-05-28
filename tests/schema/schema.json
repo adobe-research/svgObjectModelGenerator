@@ -26,22 +26,6 @@
             "type": "array",
             "items": {
                 "oneOf": [
-                    { 
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "enum": [ "generic" ]
-                            }
-                        }
-                    },
-                    { 
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "enum": [ "background" ]
-                            }
-                        }
-                    },
                     { "$ref": "/rect" },
                     { "$ref": "/circle" },
                     { "$ref": "/ellipse" },
@@ -62,6 +46,9 @@
             "type": "string"
         },
         "global": { "$ref": "/global" },
+        "meta": {
+            "type": "object"
+        },
         "name": {
             "description": "The user specified name of the document",
             "type": "string"
@@ -71,5 +58,6 @@
             "type": "string"
         }
     },
-    "required": [ "children", "global" ]
+    "additionalProperties": false,
+    "required": [ "children", "global", "version" ]
 }

@@ -17,7 +17,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Shape 1",
 			"visualBounds": {
 				"top": 0,
@@ -38,12 +37,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 286,
-			"right": 250
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

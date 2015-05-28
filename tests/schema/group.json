@@ -5,31 +5,11 @@
     "description": "A group graphics object",
     "type": "object",
     "properties": {
-        "name": {
-            "description": "The user specified name of the graphics object",
-            "type": "string"
-        },
         "children": {
             "description": "A list of graphics object nested in the current group",
             "type": "array",
             "items": {
                 "oneOf": [
-                    { 
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "enum": [ "generic" ]
-                            }
-                        }
-                    },
-                    { 
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "enum": [ "background" ]
-                            }
-                        }
-                    },
                     { "$ref": "/rect" },
                     { "$ref": "/circle" },
                     { "$ref": "/ellipse" },
@@ -44,9 +24,15 @@
                 ]
             }
         },
+        "meta": {
+            "type": "object"
+        },
+        "name": {
+            "description": "The user specified name of the graphics object",
+            "type": "string"
+        },
         "style": { "$ref": "/style" },
         "transform": {
-            "type": "object",
             "oneOf": [
                 { "$ref": "/transform2d" },
                 { "$ref": "/transform3d" }
@@ -62,5 +48,6 @@
         },
         "visualBounds": { "$ref": "/bounds" }
     },
+    "additionalProperties": false,
     "required": [ "children", "type" ]
 }

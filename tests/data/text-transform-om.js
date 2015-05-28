@@ -9,30 +9,6 @@ module.exports = {
 					"type": "none"
 				}
 			},
-			"children": [
-				{
-					"type": "tspan",
-					"visible": true,
-					"style": {
-						"font-size": 30,
-						"font-family": "Arial"
-					},
-					"children": [],
-					"text": "Text",
-					"visualBounds": {
-						"top": 314,
-						"left": 232,
-						"bottom": 361,
-						"right": 286
-					},
-					"position": {
-						"x": 0,
-						"y": 0,
-						"unitX": "px",
-						"unitY": "em"
-					}
-				}
-			],
 			"name": "Text.svg",
 			"visualBounds": {
 				"top": 314,
@@ -74,7 +50,30 @@ module.exports = {
 				]
 			},
 			"transformTX": 246.896664,
-			"transformTY": 366.186822
+			"transformTY": 366.186822,
+			"children": [
+				{
+					"type": "tspan",
+					"visible": true,
+					"style": {
+						"font-size": 30,
+						"font-family": "Arial"
+					},
+					"text": "Text",
+					"visualBounds": {
+						"top": 314,
+						"left": 232,
+						"bottom": 361,
+						"right": 286
+					},
+					"position": {
+						"x": 0,
+						"y": 0,
+						"unitX": "px",
+						"unitY": "em"
+					}
+				}
+			]
 		},
 		{
 			"type": "shape",
@@ -97,7 +96,6 @@ module.exports = {
 					"opacity": 1
 				}
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 275,
@@ -120,12 +118,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,
