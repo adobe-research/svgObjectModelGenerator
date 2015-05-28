@@ -23,7 +23,8 @@
         "mocha": "^1.20.1",
         "q": "~1.0",
         "sinon": "^1.10.2",
-        "travis-cov": "^0.2.5"
+        "travis-cov": "^0.2.5",
+        "jsonschema": "^1.0.1"
     },
     "scripts": {
         "test": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js",

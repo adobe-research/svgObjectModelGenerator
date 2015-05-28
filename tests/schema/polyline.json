@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/polyline",
+    "title": "polyline",
+    "description": "A polyline shape graphics object",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "shape" ]
+        },
+        "name": {
+            "description": "The user specified name of the graphics object",
+            "type": "string"
+        },
+        "shape": {
+            "type": "object",
+            "description": "A representation of a polyline",
+            "properties": {
+                "points": {
+                    "description": "An array of position objects",
+                    "type": "array",
+                    "items": { "$ref": "/position" },
+                    "minItems": 1
+                },
+                "winding": {
+                    "description": "The vertical coordinate of the first position",
+                    "enum": [ "evenodd", "nonzero" ]
+                },
+                "type": {
+                    "description": "The type of shape",
+                    "enum": [ "polyline" ]
+                }
+            },
+            "required": [ "points", "type" ]
+        },
+        "style": { "$ref": "/style" },
+        "transform": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "/transform2d" },
+                { "$ref": "/transform3d" }
+            ]
+        },
+        "visible": {
+            "description": "Whether the graphics object is visible or not",
+            "type": "boolean"
+        },
+        "visualBounds": { "$ref": "/bounds" }
+    },
+    "required": [ "shape", "type" ]
+}

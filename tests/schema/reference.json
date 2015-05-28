@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/reference",
+    "title": "reference",
+    "description": "A reference graphics object",
+    "type": "object",
+    "properties": {
+        "bounds": { "$ref": "/bounds" },
+        "name": {
+            "description": "The user specified name of the graphics object",
+            "type": "string"
+        },
+        "ref": {
+            "type": "string",
+            "description": "The unique id of the symbol in the global `symbols` object."
+        },
+        "style": { "$ref": "/style" },
+        "transform": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "/transform2d" },
+                { "$ref": "/transform3d" }
+            ]
+        },
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "reference" ]
+        },
+        "visible": {
+            "description": "Whether the graphics object is visible or not",
+            "type": "boolean"
+        },
+        "visualBounds": { "$ref": "/bounds" }
+    },
+    "required": [ "bounds", "ref", "type" ]
+}

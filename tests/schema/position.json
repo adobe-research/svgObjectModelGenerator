@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/position",
+    "title": "position",
+    "description": "The position object",
+    "type": "object",
+    "properties": {
+        "x": {
+            "description": "The horizontal offset",
+            "type": "number"
+        },
+        "y": {
+            "description": "The vertical offset",
+            "type": "number"
+        }
+    },
+    "required": [ "x", "y" ]
+}

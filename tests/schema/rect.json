@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/rect",
+    "title": "rect",
+    "description": "A rectangle shape graphics object",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "shape" ]
+        },
+        "name": {
+            "description": "The user specified name of the graphics object",
+            "type": "string"
+        },
+        "shape": {
+            "type": "object",
+            "description": "A representation of a rectangle",
+            "properties": {
+                "x": {
+                    "description": "The horizontal offset of the rectangle",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The vertical offset of the rectangle",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "The horizontal dimension of the rectangle",
+                    "type": "number",
+                    "minimum": "0"
+                },
+                "height": {
+                    "description": " The vertical dimension of the rectangle",
+                    "type": "number",
+                    "minimum": "0"
+                },
+                "r": {
+                    "description": "Rounded corners",
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                },
+                "type": {
+                    "description": "The type of shape",
+                    "enum": [ "rect" ]
+                }
+
+            },
+            "required": [ "x", "y", "width", "height", "type" ]
+        },
+        "style": { "$ref": "/style" },
+        "transform": {
+            "type": "object",
+            "oneOf": [
+                { "$ref": "/transform2d" },
+                { "$ref": "/transform3d" }
+            ]
+        },
+        "visible": {
+            "description": "Whether the graphics object is visible or not",
+            "type": "boolean"
+        },
+        "visualBounds": { "$ref": "/bounds" }
+    },
+    "required": [ "shape", "type" ]
+}

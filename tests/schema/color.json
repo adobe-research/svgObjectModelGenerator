@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "/color",
+    "title": "color",
+    "description": "The color object",
+    "type": "object",
+    "properties": {
+    	"r": {
+    		"type": "number",
+    		"minumum": 0,
+    		"maximum": 255
+    	},
+    	"g": {
+    		"type": "number",
+    		"minumum": 0,
+    		"maximum": 255
+    	},
+    	"b": {
+    		"type": "number",
+    		"minumum": 0,
+    		"maximum": 255
+    	},
+    	"a": {
+    		"type": "number",
+    		"minumum": 0,
+    		"maximum": 255
+    	}
+	},
+	"required": [ "r", "g", "b" ]
+}
