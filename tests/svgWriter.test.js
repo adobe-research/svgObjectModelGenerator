@@ -1715,4 +1715,68 @@ describe('svgWriter', function (){
             compareResults("responsive");
         });
     });
+
+    /**
+     * Test that name is not part of a style
+     **/
+    describe('Test that name is not part of a style', function () {
+
+        function compareResults (testName) {
+            var svgOut,
+                expectedOut,
+                path = 'data/custom/' + testName,
+                svgOM = {
+                    "version": "0.1.0",
+                    "global": {
+                        "bounds": {
+                            "top": 0,
+                            "left": 0,
+                            "bottom": 200,
+                            "right": 200
+                        }
+                    },
+                    "children": [
+                        {
+                            "type": "shape",
+                            "shape": {
+                                "type": "circle",
+                                "cx": 100,
+                                "cy": 100,
+                                "r": 100
+                            },
+                            "style": {
+                                "name": "Shouldn't show up",
+                                "stroke": {
+                                    "width": 10,
+                                    "type": "solid",
+                                    "color": {
+                                        "r": 0,
+                                        "g": 127,
+                                        "b": 0
+                                    }
+                                }
+                            },
+                        }
+                    ]
+                };
+            svgOut = svgWriter.printSVG(svgOM, {});
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test that name is not part of a style sheet.', function () {
+            compareResults("style-name");
+        });
+    });
 });
