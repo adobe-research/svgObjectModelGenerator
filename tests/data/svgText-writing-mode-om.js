@@ -11,6 +11,20 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "This is a text",
+			"visualBounds": {
+				"top": 241,
+				"left": 321,
+				"bottom": 965,
+				"right": 357
+			},
+			"position": {
+				"x": 338.33593856,
+				"y": 231.55468288,
+				"unitX": "px",
+				"unitY": "px"
+			},
+			"maxTextSize": 63.6352,
 			"children": [
 				{
 					"type": "tspan",
@@ -28,7 +42,6 @@ module.exports = {
 						},
 						"font-family": "\"Minion Pro\""
 					},
-					"children": [],
 					"text": "This is a text",
 					"visualBounds": {
 						"top": 241,
@@ -43,21 +56,7 @@ module.exports = {
 						"unitY": "em"
 					}
 				}
-			],
-			"name": "This is a text",
-			"visualBounds": {
-				"top": 241,
-				"left": 321,
-				"bottom": 965,
-				"right": 357
-			},
-			"position": {
-				"x": 338.33593856,
-				"y": 231.55468288,
-				"unitX": "px",
-				"unitY": "px"
-			},
-			"maxTextSize": 63.6352
+			]
 		}
 	],
 	"global": {
@@ -66,12 +65,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

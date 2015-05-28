@@ -566,7 +566,7 @@
             tspan: function (ctx, node, sibling) {
                 var tag = makeTSpan(Tag, ctx, sibling, node);
 
-                if (node.children.length) {
+                if (node.children && node.children.length) {
                     mergeTSpans2Tag(tag, ctx, sibling, node.children);
                 }
 

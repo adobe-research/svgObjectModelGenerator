@@ -276,8 +276,7 @@
                     feComposite = getId("composite");
 
                 rect.style.fill.gradient.ref = "gradient-1";
-                omWriter.peekCurrent().children.push(rect);
-                omWriter.setDocViewBox(docBounds);
+                omWriter.peekCurrent().children = [rect];
                 omWriter.setDocBounds(docBounds);
                 omWriter.setDocPxToInchRatio(dpi);
                 omWriter.setDocGlobalLight(globalLight);

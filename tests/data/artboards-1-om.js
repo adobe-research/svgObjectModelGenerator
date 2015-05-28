@@ -4,7 +4,6 @@ module.exports = {
 			"type": "image",
 			"visible": true,
 			"style": {},
-			"children": [],
 			"name": "Layer 1"
 		},
 		{
@@ -15,6 +14,8 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "square",
+			"ref": "artboard-1",
 			"children": [
 				{
 					"type": "shape",
@@ -33,7 +34,6 @@ module.exports = {
 							}
 						}
 					},
-					"children": [],
 					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2567,
@@ -48,9 +48,7 @@ module.exports = {
 						"r": 393
 					}
 				}
-			],
-			"name": "square",
-			"id": "artboard-1"
+			]
 		},
 		{
 			"type": "artboard",
@@ -60,6 +58,8 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "iPhone",
+			"ref": "artboard-2",
 			"children": [
 				{
 					"type": "shape",
@@ -78,7 +78,6 @@ module.exports = {
 							}
 						}
 					},
-					"children": [],
 					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2811,
@@ -94,9 +93,7 @@ module.exports = {
 						"height": 533
 					}
 				}
-			],
-			"name": "iPhone",
-			"id": "artboard-2"
+			]
 		}
 	],
 	"global": {
@@ -105,12 +102,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5920,
-			"right": 5080
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

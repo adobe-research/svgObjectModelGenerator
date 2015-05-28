@@ -9,6 +9,20 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "Plain text.svg",
+			"visualBounds": {
+				"top": 52,
+				"left": 44,
+				"bottom": 170,
+				"right": 748
+			},
+			"position": {
+				"x": 744.175782,
+				"y": 168.574215,
+				"unitX": "px",
+				"unitY": "px"
+			},
+			"maxTextSize": 150,
 			"children": [
 				{
 					"type": "tspan",
@@ -28,7 +42,6 @@ module.exports = {
 						"font-family": "Optima",
 						"font-weight": 900
 					},
-					"children": [],
 					"text": "Plain text",
 					"visualBounds": {
 						"top": 52,
@@ -43,21 +56,7 @@ module.exports = {
 						"unitY": "em"
 					}
 				}
-			],
-			"name": "Plain text.svg",
-			"visualBounds": {
-				"top": 52,
-				"left": 44,
-				"bottom": 170,
-				"right": 748
-			},
-			"position": {
-				"x": 744.175782,
-				"y": 168.574215,
-				"unitX": "px",
-				"unitY": "px"
-			},
-			"maxTextSize": 150
+			]
 		}
 	],
 	"global": {
@@ -66,12 +65,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

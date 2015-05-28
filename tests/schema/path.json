@@ -5,9 +5,8 @@
     "description": "A path shape graphics object",
     "type": "object",
     "properties": {
-        "type": {
-            "description": "The type of the graphics object",
-            "enum": [ "shape" ]
+        "meta": {
+            "type": "object"
         },
         "name": {
             "description": "The user specified name of the graphics object",
@@ -17,6 +16,9 @@
             "type": "object",
             "description": "A representation of a path",
             "properties": {
+                "meta": {
+                    "type": "object"
+                },
                 "path": {
                     "description": "The SVG path data. (Example: `M235.521,29.696 C227.438,29.696 220.900,23.234 220.900,15.088z`)",
                     "type": "string"
@@ -30,15 +32,19 @@
                     "enum": [ "path" ]
                 }
             },
+            "additionalProperties": false,
             "required": [ "path", "type" ]
         },
         "style": { "$ref": "/style" },
         "transform": {
-            "type": "object",
             "oneOf": [
                 { "$ref": "/transform2d" },
                 { "$ref": "/transform3d" }
             ]
+        },
+        "type": {
+            "description": "The type of the graphics object",
+            "enum": [ "shape" ]
         },
         "visible": {
             "description": "Whether the graphics object is visible or not",
@@ -46,5 +52,6 @@
         },
         "visualBounds": { "$ref": "/bounds" }
     },
+    "additionalProperties": false,
     "required": [ "shape", "type" ]
 }

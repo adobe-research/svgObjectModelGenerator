@@ -4,7 +4,6 @@ module.exports = {
 			"type": "image",
 			"visible": true,
 			"style": {},
-			"children": [],
 			"name": "Layer 1"
 		},
 		{
@@ -15,6 +14,8 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "Artboard 1",
+			"ref": "artboard-1",
 			"children": [
 				{
 					"type": "shape",
@@ -48,7 +49,6 @@ module.exports = {
 							}
 						}
 					},
-					"children": [],
 					"name": "Rectangle 2",
 					"visualBounds": {
 						"top": 2212,
@@ -62,9 +62,7 @@ module.exports = {
 						"winding": "evenodd"
 					}
 				}
-			],
-			"name": "Artboard 1",
-			"id": "artboard-1"
+			]
 		},
 		{
 			"type": "artboard",
@@ -74,6 +72,8 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "Artboard 2",
+			"ref": "artboard-2",
 			"children": [
 				{
 					"type": "shape",
@@ -107,7 +107,6 @@ module.exports = {
 							}
 						}
 					},
-					"children": [],
 					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2212,
@@ -121,9 +120,7 @@ module.exports = {
 						"winding": "evenodd"
 					}
 				}
-			],
-			"name": "Artboard 2",
-			"id": "artboard-2"
+			]
 		}
 	],
 	"global": {
@@ -243,12 +240,6 @@ module.exports = {
 		},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5024,
-			"right": 5924
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

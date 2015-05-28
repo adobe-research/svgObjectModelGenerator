@@ -6,6 +6,9 @@
     "type": "object",
     "properties": {
         "bounds": { "$ref": "/bounds" },
+        "meta": {
+            "type": "object"
+        },
         "name": {
             "description": "The user specified name of the graphics object",
             "type": "string"
@@ -16,7 +19,6 @@
         },
         "style": { "$ref": "/style" },
         "transform": {
-            "type": "object",
             "oneOf": [
                 { "$ref": "/transform2d" },
                 { "$ref": "/transform3d" }

@@ -13,6 +13,9 @@
             "description": "The most left position",
             "type": "number"
         },
+        "meta": {
+            "type": "object"
+        },
         "right": {
             "description": "The most right position",
             "type": "number"
@@ -22,5 +25,6 @@
             "type": "number"
         }
     },
+    "additionalProperties": false,
     "required": [ "bottom", "left", "right", "top" ]
 }

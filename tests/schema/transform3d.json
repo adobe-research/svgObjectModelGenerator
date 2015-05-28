@@ -36,7 +36,11 @@
             },
             "minItems": 4,
             "maxItems": 4
+        },
+        "meta": {
+            "type": "object"
         }
     },
+    "additionalProperties": false,
     "required": [ "0", "1", "2", "3" ]
 }

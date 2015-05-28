@@ -9,6 +9,17 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "more path text.svg",
+			"visualBounds": {
+				"top": -80.8879375,
+				"bottom": 395.11535833333335,
+				"left": -82.19421249999999,
+				"right": 516.4104
+			},
+			"position": {
+				"x": 0,
+				"y": 0
+			},
 			"children": [
 				{
 					"type": "textPath",
@@ -17,6 +28,7 @@ module.exports = {
 						"text-anchor": "end",
 						"font-size": 150
 					},
+					"pathData": "M 360.72 269.76 C 390.941 269.76 415.44 284.803 415.44 303.36 C 415.44 321.917 390.941 336.96 360.72 336.96 C 330.499 336.96 306 321.917 306 303.36 Z",
 					"children": [
 						{
 							"type": "tspan",
@@ -36,7 +48,6 @@ module.exports = {
 								"font-family": "Optima",
 								"font-weight": 900
 							},
-							"children": [],
 							"text": "more path text ",
 							"visualBounds": {
 								"top": 1042,
@@ -51,21 +62,9 @@ module.exports = {
 								"unitY": "em"
 							}
 						}
-					],
-					"pathData": "M 360.72 269.76 C 390.941 269.76 415.44 284.803 415.44 303.36 C 415.44 321.917 390.941 336.96 360.72 336.96 C 330.499 336.96 306 321.917 306 303.36 Z"
+					]
 				}
 			],
-			"name": "more path text.svg",
-			"visualBounds": {
-				"top": -80.8879375,
-				"bottom": 395.11535833333335,
-				"left": -82.19421249999999,
-				"right": 516.4104
-			},
-			"position": {
-				"x": 0,
-				"y": 0
-			},
 			"maxTextSize": 150
 		}
 	],
@@ -75,12 +74,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

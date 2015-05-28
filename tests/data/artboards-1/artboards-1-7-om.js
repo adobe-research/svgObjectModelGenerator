@@ -17,7 +17,6 @@ module.exports = {
 					}
 				}
 			},
-			"children": [],
 			"name": "Ellipse 1",
 			"visualBounds": {
 				"top": 2567,
@@ -39,12 +38,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5920,
-			"right": 5080
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

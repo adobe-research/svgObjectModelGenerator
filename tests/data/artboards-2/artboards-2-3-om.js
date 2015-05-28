@@ -8,6 +8,8 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "circle",
+			"ref": "artboard-1",
 			"children": [
 				{
 					"type": "shape",
@@ -26,7 +28,6 @@ module.exports = {
 							}
 						}
 					},
-					"children": [],
 					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2125,
@@ -41,9 +42,7 @@ module.exports = {
 						"r": 387
 					}
 				}
-			],
-			"name": "circle",
-			"id": "artboard-1"
+			]
 		}
 	],
 	"global": {
@@ -52,12 +51,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5024,
-			"right": 5024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

@@ -88,7 +88,7 @@
                 // Objects of type "artboard" have the special behavior
                 // that we take the bounds of the artboard and not the children.
                 if (omIn.type == "artboard") {
-                    bndsIn = ctx.svgOM.artboards[omIn.id].bounds;
+                    bndsIn = ctx.svgOM.artboards[omIn.ref].bounds;
                 }
 
                 utils.unionRect(bnds, bndsIn, expand);

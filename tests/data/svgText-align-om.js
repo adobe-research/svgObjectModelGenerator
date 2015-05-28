@@ -9,6 +9,20 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "Left aligned center right aligned",
+			"visualBounds": {
+				"top": 224,
+				"left": 138,
+				"bottom": 438,
+				"right": 760
+			},
+			"position": {
+				"x": 460.41406464,
+				"y": 269.6875008,
+				"unitX": "px",
+				"unitY": "px"
+			},
+			"maxTextSize": 63.6352,
 			"children": [
 				{
 					"type": "tspan",
@@ -26,7 +40,6 @@ module.exports = {
 						},
 						"font-family": "\"Minion Pro\""
 					},
-					"children": [],
 					"text": "Left aligned",
 					"visualBounds": {
 						"top": 224,
@@ -58,7 +71,6 @@ module.exports = {
 						},
 						"font-family": "\"Minion Pro\""
 					},
-					"children": [],
 					"text": "center",
 					"visualBounds": {
 						"top": 224,
@@ -90,7 +102,6 @@ module.exports = {
 						},
 						"font-family": "\"Minion Pro\""
 					},
-					"children": [],
 					"text": "right aligned",
 					"visualBounds": {
 						"top": 224,
@@ -105,21 +116,7 @@ module.exports = {
 						"unitY": "em"
 					}
 				}
-			],
-			"name": "Left aligned center right aligned",
-			"visualBounds": {
-				"top": 224,
-				"left": 138,
-				"bottom": 438,
-				"right": 760
-			},
-			"position": {
-				"x": 460.41406464,
-				"y": 269.6875008,
-				"unitX": "px",
-				"unitY": "px"
-			},
-			"maxTextSize": 63.6352
+			]
 		}
 	],
 	"global": {
@@ -128,12 +125,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

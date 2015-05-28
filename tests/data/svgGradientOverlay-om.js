@@ -101,7 +101,6 @@ module.exports = {
 				},
 				"filter": "filter-1"
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 50,
@@ -218,7 +217,6 @@ module.exports = {
 				},
 				"filter": "filter-2"
 			},
-			"children": [],
 			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
@@ -335,7 +333,6 @@ module.exports = {
 				},
 				"filter": "filter-3"
 			},
-			"children": [],
 			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 50,
@@ -452,7 +449,6 @@ module.exports = {
 				},
 				"filter": "filter-4"
 			},
-			"children": [],
 			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 200,
@@ -569,7 +565,6 @@ module.exports = {
 				},
 				"filter": "filter-5"
 			},
-			"children": [],
 			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 200,
@@ -686,7 +681,6 @@ module.exports = {
 				},
 				"filter": "filter-6"
 			},
-			"children": [],
 			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 200,
@@ -803,7 +797,6 @@ module.exports = {
 				},
 				"filter": "filter-7"
 			},
-			"children": [],
 			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 350,
@@ -920,7 +913,6 @@ module.exports = {
 				},
 				"filter": "filter-8"
 			},
-			"children": [],
 			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 350,
@@ -1037,7 +1029,6 @@ module.exports = {
 				},
 				"filter": "filter-9"
 			},
-			"children": [],
 			"name": "Rectangle 9",
 			"visualBounds": {
 				"top": 350,
@@ -1154,7 +1145,6 @@ module.exports = {
 				},
 				"filter": "filter-10"
 			},
-			"children": [],
 			"name": "Rectangle 10",
 			"visualBounds": {
 				"top": 500,
@@ -1271,7 +1261,6 @@ module.exports = {
 				},
 				"filter": "filter-11"
 			},
-			"children": [],
 			"name": "Rectangle 11",
 			"visualBounds": {
 				"top": 500,
@@ -1388,7 +1377,6 @@ module.exports = {
 				},
 				"filter": "filter-12"
 			},
-			"children": [],
 			"name": "Rectangle 12",
 			"visualBounds": {
 				"top": 500,
@@ -1820,12 +1808,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,

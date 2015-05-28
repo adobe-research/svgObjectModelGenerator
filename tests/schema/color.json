@@ -24,7 +24,11 @@
     		"type": "number",
     		"minumum": 0,
     		"maximum": 255
-    	}
+    	},
+        "meta": {
+            "type": "object"
+        }
 	},
+    "additionalProperties": false,
 	"required": [ "r", "g", "b" ]
 }

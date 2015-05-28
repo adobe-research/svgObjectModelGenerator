@@ -83,7 +83,6 @@ module.exports = {
 				},
 				"filter": "filter-1"
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 196,
@@ -182,7 +181,6 @@ module.exports = {
 				},
 				"filter": "filter-2"
 			},
-			"children": [],
 			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 196,
@@ -281,7 +279,6 @@ module.exports = {
 				},
 				"filter": "filter-3"
 			},
-			"children": [],
 			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 196,
@@ -626,12 +623,6 @@ module.exports = {
 		"gradients": {},
 		"masks": {},
 		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
 		"bounds": {
 			"top": 0,
 			"left": 0,
