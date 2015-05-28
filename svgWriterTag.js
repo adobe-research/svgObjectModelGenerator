@@ -383,27 +383,7 @@
             "v" + -left + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z";
         return path;
     }
-    var imageProcessing = function (ctx, node) {
-            if (!node.bounds) {
-                return;
-            }
-            var top = parseFloat(node.bounds.top),
-                right = parseFloat(node.bounds.right),
-                bottom = parseFloat(node.bounds.bottom),
-                left = parseFloat(node.bounds.left),
-                w = right - left,
-                h = bottom - top,
-                tag = new Tag("image", {
-                    "xlink:href": node.href,
-                    x: left,
-                    y: top,
-                    width: w,
-                    height: h,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
-                }, ctx);
-            return tag.useTrick(ctx);
-        },
-        factory = {
+    var factory = {
             circle: function (ctx, node) {
                 var tag = new Tag("circle", {
                         cx: node.shape.cx,
@@ -552,8 +532,26 @@
                 tag.setAttribute("startOffset", offset + "%");
                 return tag.useTrick(ctx);
             },
-            image: imageProcessing,
-            generic: imageProcessing,
+            image: function (ctx, node) {
+                if (!node.bounds) {
+                    return;
+                }
+                var top = parseFloat(node.bounds.top),
+                    right = parseFloat(node.bounds.right),
+                    bottom = parseFloat(node.bounds.bottom),
+                    left = parseFloat(node.bounds.left),
+                    w = right - left,
+                    h = bottom - top,
+                    tag = new Tag("image", {
+                        "xlink:href": node.href,
+                        x: left,
+                        y: top,
+                        width: w,
+                        height: h,
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    }, ctx);
+                return tag.useTrick(ctx);
+            },
             group: function (ctx, node) {
                 var tag = new Tag("g", {
                     transform: getTransform(node.transform, node.transformTX, node.transformTY)
@@ -628,9 +626,6 @@
         var tag,
             rootArtboardClipPath,
             f;
-        if (node.type == "background") {
-            return;
-        }
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;

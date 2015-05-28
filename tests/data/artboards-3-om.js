@@ -1,7 +1,7 @@
 module.exports = {
 	"children": [
 		{
-			"type": "generic",
+			"type": "image",
 			"visible": true,
 			"style": {},
 			"children": [],
@@ -285,5 +285,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "Untitled-1"
 }

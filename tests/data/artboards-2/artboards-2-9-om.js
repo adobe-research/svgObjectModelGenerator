@@ -62,5 +62,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "artboards-2.psd"
 }

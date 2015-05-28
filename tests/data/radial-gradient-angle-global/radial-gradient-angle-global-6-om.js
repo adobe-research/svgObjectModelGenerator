@@ -128,5 +128,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "radial-gradient-angle-global.psd"
 }

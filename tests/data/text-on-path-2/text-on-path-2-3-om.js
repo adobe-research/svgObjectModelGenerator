@@ -98,5 +98,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "text-on-path-2.psd"
 }

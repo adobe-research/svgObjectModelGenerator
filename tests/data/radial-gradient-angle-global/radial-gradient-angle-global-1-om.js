@@ -1,13 +1,5 @@
 module.exports = {
-	"children": [
-		{
-			"type": "background",
-			"visible": true,
-			"style": {},
-			"children": [],
-			"name": "Background"
-		}
-	],
+	"children": [],
 	"global": {
 		"clipPaths": {},
 		"filters": {},
@@ -37,5 +29,6 @@ module.exports = {
 			}
 		}
 	},
+	"version": "0.1.0",
 	"name": "radial-gradient-angle-global.psd"
 }

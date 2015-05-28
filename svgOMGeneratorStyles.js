@@ -281,7 +281,7 @@
 
             this.addGlobalStyle(svgNode, layer);
 
-            if (svgNode.type == "generic") {
+            if (svgNode.type == "image") {
                 return;
             }
 
