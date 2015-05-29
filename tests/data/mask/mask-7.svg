@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #0072bc;
+        stroke: #000;
+        stroke-width: 14px;
+      }
+
+      .cls-1 {
+        filter: url(#invert-1);
+      }
+
+      .cls-3 {
+        fill: #ed1c24;
+        mask: url(#mask-1);
+      }
+    </style>
+
+    <filter x="-50%" y="-50%" width="200%" height="200%" id="invert-1">
+      <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0" color-interpolation-filters="sRGB"/>
+    </filter>
+    <mask id="mask-1">
+      <rect x="130" y="67" width="179" height="179" class="cls-1"/>
+    </mask>
+  </defs>
+  <rect x="130" y="66" width="179" height="179" class="cls-2"/>
+  <circle cx="309" cy="245" r="94" class="cls-3"/>
+</svg>
