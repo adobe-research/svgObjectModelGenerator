@@ -61,5 +61,16 @@ describe('SVGWriterUtils', function (){
 
         expect(svgWriterUtils.getTransform(val, undefined, undefined)).to.equal("rotate(-45)");
     });
+
+    it("test color values with alpha channel not 1", function () {
+        var c = {
+            r: 0,
+            g: 127,
+            b: 0,
+            a: 0.5
+        };
+
+        expect(svgWriterUtils.writeColor(c)).to.equal("rgba(0,127,0,0.5)");
+    });
     
 });
