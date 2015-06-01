@@ -6,6 +6,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
+					"align": "inside",
 					"cap": "butt",
 					"join": "miter",
 					"width": 3,

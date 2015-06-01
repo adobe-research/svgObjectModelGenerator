@@ -6,6 +6,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
+					"align": "center",
 					"cap": "round",
 					"join": "miter",
 					"width": 3,
@@ -43,6 +44,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
+					"align": "center",
 					"cap": "round",
 					"join": "bevel",
 					"width": 10,
@@ -82,6 +84,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
+					"align": "center",
 					"cap": "butt",
 					"join": "round",
 					"width": 10,
@@ -119,6 +122,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "solid",
+					"align": "center",
 					"cap": "butt",
 					"join": "round",
 					"width": 3,
@@ -157,6 +161,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "center",
 					"cap": "butt",
 					"join": "round",
 					"width": 10,
@@ -202,6 +207,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "center",
 					"cap": "butt",
 					"join": "round",
 					"width": 10,
@@ -256,6 +262,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "center",
 					"cap": "round",
 					"join": "miter",
 					"width": 20,
@@ -300,6 +307,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "center",
 					"cap": "butt",
 					"join": "miter",
 					"width": 20,

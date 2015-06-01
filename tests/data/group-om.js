@@ -55,6 +55,7 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "solid",
+							"align": "inside",
 							"cap": "butt",
 							"join": "miter",
 							"width": 3,
@@ -101,6 +102,7 @@ module.exports = {
 						"opacity": 0.75,
 						"stroke": {
 							"type": "solid",
+							"align": "inside",
 							"cap": "butt",
 							"join": "miter",
 							"width": 3,
