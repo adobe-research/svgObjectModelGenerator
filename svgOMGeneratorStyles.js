@@ -99,12 +99,18 @@
                     "strokeStyleBevelJoin": "bevel",
                     "strokeStyleRoundJoin": "round",
                     "strokeStyleMiterJoin": "miter"
+                },
+                toStrokeAlign = {
+                    "strokeStyleAlignInside": "inside",
+                    "strokeStyleAlignOutside": "outside",
+                    "strokeStyleAlignCenter": "center"
                 };
 
             svgNode.style.stroke = stroke;
 
             if (strokeStyle) {
                 stroke.type = !strokeStyle.strokeEnabled ? "none" : "solid";
+                stroke.align = strokeStyle.strokeStyleLineAlignment ? toStrokeAlign[strokeStyle.strokeStyleLineAlignment] : "center";
                 stroke.cap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
                 stroke.join = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
                 stroke.width = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;

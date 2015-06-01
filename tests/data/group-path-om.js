@@ -8,6 +8,7 @@ module.exports = {
 					"type": "none"
 				}
 			},
+			"name": "Group 1",
 			"children": [
 				{
 					"type": "shape",
@@ -15,6 +16,7 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
+							"align": "inside",
 							"cap": "butt",
 							"join": "miter",
 							"width": 12.5,
@@ -52,8 +54,7 @@ module.exports = {
 						"winding": "evenodd"
 					}
 				}
-			],
-			"name": "Group 1"
+			]
 		}
 	],
 	"global": {

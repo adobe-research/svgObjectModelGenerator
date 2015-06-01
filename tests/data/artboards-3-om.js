@@ -23,6 +23,7 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
+							"align": "inside",
 							"cap": "butt",
 							"join": "miter",
 							"width": 13.583333333333332,
@@ -81,6 +82,7 @@ module.exports = {
 					"style": {
 						"stroke": {
 							"type": "none",
+							"align": "inside",
 							"cap": "butt",
 							"join": "miter",
 							"width": 13.583333333333332,

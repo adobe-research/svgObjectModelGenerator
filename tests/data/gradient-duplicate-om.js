@@ -6,6 +6,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "inside",
 					"cap": "butt",
 					"join": "miter",
 					"width": 10,
@@ -60,6 +61,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "inside",
 					"cap": "butt",
 					"join": "miter",
 					"width": 10,
@@ -114,6 +116,7 @@ module.exports = {
 			"style": {
 				"stroke": {
 					"type": "gradient",
+					"align": "inside",
 					"cap": "butt",
 					"join": "miter",
 					"width": 10,
