@@ -176,7 +176,7 @@
                     }
                 }
             },
-            shiftShapePosition = function (ctx, omIn) {
+            shiftShapeOrGroupPosition = function (ctx, omIn) {
                 var shape = omIn.shape,
                     bnds = omIn.visualBounds,
                     offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
@@ -190,11 +190,19 @@
                 }
 
                 // PS and Ai propagate all transforms to the leaves.
-                if (omIn.transform) {
-                    omIn.transformTX += ctx._shiftContentX;
-                    omIn.transformTY += ctx._shiftContentY;
+                // FIXME: We probably should rather check if the transformation
+                // is a translation and propagate the translation to leaves.
+                if (omIn.transform && !matrix.createMatrix(omIn.transform).isIdentity()) {
+                    omIn.transformTX = ctx._shiftContentX;
+                    omIn.transformTY = ctx._shiftContentY;
+                    // Do not apply further translation to children.
+                    ctx._transformOnNode = true;
                     return;
                 }
+                if (!shape) {
+                    return;
+                }
+
                 switch (shape.type) {
                 case "circle":
                 case "ellipse":
@@ -228,12 +236,15 @@
             },
             // Shift the bounds recorded in recordBounds.
             shiftBounds = function (ctx, omIn, nested, sibling) {
+                if (ctx._transformOnNode) {
+                    return;
+                }
                 if (omIn.type == "text") {
                     shiftTextBounds(ctx, omIn, nested);
                 } else if (omIn.type == "tspan") {
                     shiftTspanBounds(ctx, omIn, nested, sibling);
-                } else if (omIn.type == "shape") {
-                    shiftShapePosition(ctx, omIn);
+                } else if (omIn.type == "shape" || omIn.type == "group") {
+                    shiftShapeOrGroupPosition(ctx, omIn);
                 }
             },
             isVisible = function (ctx, omIn) {
@@ -364,7 +375,8 @@
 
         this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
-                children = omIn.children;
+                children = omIn.children,
+                state = ctx._transformOnNode;
 
             // Give every element a unique id for processing.
             omIn.id = new ID("unique").getUnique();
@@ -414,6 +426,9 @@
                     ctx.currentOMNode = childNode;
                     this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
                 }, this);
+            }
+            if (state != ctx._transformOnNode) {
+                ctx._transformOnNode = false;
             }
         };
 
