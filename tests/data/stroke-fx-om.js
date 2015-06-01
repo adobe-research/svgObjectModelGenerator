@@ -14,6 +14,7 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.5,
+					"align": "outside",
 					"cap": "butt",
 					"join": "round",
 					"miter-limit": 100,
@@ -71,6 +72,7 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.8,
+					"align": "outside",
 					"cap": "butt",
 					"join": "round",
 					"miter-limit": 100,
@@ -213,6 +215,7 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 0.1,
+					"align": "outside",
 					"cap": "butt",
 					"join": "round",
 					"miter-limit": 100,
@@ -355,6 +358,7 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
+					"align": "outside",
 					"cap": "butt",
 					"join": "round",
 					"miter-limit": 100,
@@ -537,6 +541,7 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
+					"align": "outside",
 					"cap": "butt",
 					"join": "round",
 					"miter-limit": 100,
@@ -719,6 +724,7 @@ module.exports = {
 						"a": 1
 					},
 					"opacity": 1,
+					"align": "outside",
 					"cap": "butt",
 					"join": "round",
 					"miter-limit": 100,

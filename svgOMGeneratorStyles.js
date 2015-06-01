@@ -110,7 +110,7 @@
 
             if (strokeStyle) {
                 stroke.type = !strokeStyle.strokeEnabled ? "none" : "solid";
-                stroke.align = strokeStyle.strokeStyleLineAlignment ? toStrokeAlign[strokeStyle.strokeStyleLineAlignment] : "center";
+                stroke.align = strokeStyle.strokeStyleLineAlignment ? toStrokeAlign[strokeStyle.strokeStyleLineAlignment] : "inside";
                 stroke.cap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
                 stroke.join = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
                 stroke.width = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
@@ -185,7 +185,12 @@
 
         var applyStrokeFilter = function (svgNode, strokeStyle, layer, layerBounds, writer) {
             var stroke = {},
-                gradientPair;
+                gradientPair,
+                toStrokeFXAlign = {
+                    "outsetFrame": "outside",
+                    "insetFrame": "inside",
+                    "centeredFrame": "center"
+                };
 
             if (!strokeStyle) {
                 return;
@@ -193,11 +198,13 @@
 
             svgNode.style.stroke = stroke;
 
+
             if (strokeStyle) {
                 stroke.type = !strokeStyle.enabled ? "none" : "solid";
                 stroke.width = strokeStyle.size ? strokeStyle.size : 1;
                 stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
+                stroke.align = strokeStyle.style ? toStrokeFXAlign[strokeStyle.style] : "inside";
                 stroke.cap = "butt";
                 stroke.join = "round";
                 stroke["miter-limit"] = 100;
