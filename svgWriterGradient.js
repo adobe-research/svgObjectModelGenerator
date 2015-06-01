@@ -135,7 +135,8 @@
                 link,
                 tag = new Tag(gradient.type + "Gradient", {
                     id: gradientID
-                });
+                }),
+                alpha = 0;
 
             // FIXME: This check is because we do not shift points of paths
             // but translate the whole path including paint servers.
@@ -156,10 +157,12 @@
 
             for (var i = 0, ii = stops.length; i < ii; ++i) {
                 stp = stops[i];
+                alpha = isFinite(stp.color.a) ? stp.color.a : 1;
+                stp.color.a = 1;
                 lines.push(new Tag("stop", {
                     offset: stp.offset,
                     "stop-color": stp.color,
-                    "stop-opacity": isFinite(stp.color.a) ? stp.color.a : 1
+                    "stop-opacity": alpha
                 }));
             }
 

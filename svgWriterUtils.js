@@ -102,6 +102,8 @@
             val = val || "transparent";
             if (typeof val == "string") {
                 color = val;
+            } else if (typeof val == "object" && val.hasOwnProperty("a") && val.a != 1) {
+                return "rgba(" + Utils.roundUp(val.r) + "," + Utils.roundUp(val.g) + "," + Utils.roundUp(val.b)+ "," + Utils.round2(val.a) + ")";
             } else {
                 color = self.rgbToHex(val.r, val.g, val.b);
             }
