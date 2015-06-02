@@ -136,7 +136,7 @@
                 }
 
                 this.isIdentity = function () {
-                    return this[0][0] &&
+                    return this[0][0] == 1 &&
                             !this[0][1] &&
                             !this[0][2] &&
                             !this[0][3] &&
