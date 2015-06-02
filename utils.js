@@ -17,8 +17,6 @@
 (function () {
     "use strict";
 
-    var Buffer = require("buffer").Buffer;
-
     function Utils() {
 
         var self = this;
@@ -163,10 +161,6 @@
             return target;
         };
 
-        self.toBase64 = function (string) {
-            var buf = new Buffer(string);
-            return buf.toString("base64");
-        };
         function intersect(x1, y1, x2, y2, x3, y3, x4, y4) {
             var nx = (x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4),
                 ny = (x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4),

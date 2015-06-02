@@ -17,6 +17,8 @@
 (function () {
     "use strict";
 
+    var Buffer = require("buffer").Buffer;
+
     function SVGOMGeneratorUtils() {
 
         var self = this;
@@ -149,6 +151,11 @@
                 return false;
             }
             return true;
+        };
+
+        this.toBase64 = function (string) {
+            var buf = new Buffer(string);
+            return buf.toString("base64");
         };
 
         this.toGradient = function (gradientRaw, layerBounds, docBounds) {

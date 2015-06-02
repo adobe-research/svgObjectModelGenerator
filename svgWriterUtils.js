@@ -147,7 +147,6 @@
         };
 
         self.extend = Utils.extend;
-        self.toBase64 = Utils.toBase64;
 
         self.hasFx = function (ctx) {
             return ctx.currentOMNode.style && ctx.currentOMNode.style.filter;
