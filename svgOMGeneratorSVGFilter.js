@@ -22,7 +22,6 @@
         ID = require("./idGenerator.js"),
         GradientMap = require("./svgOMGeneratorGradientMap.js"),
         svgWriter = require("./svgWriter.js"),
-        svgWriterUtils = require("./svgWriterUtils.js"),
         Utils = require("./utils.js"),
         getId,
         round1k = Utils.round1k;
@@ -282,7 +281,7 @@
                 omWriter.setDocGlobalLight(globalLight);
                 omWriter._root.global.gradients["gradient-1"] = gradientPair.gradient;
 
-                base64 = svgWriterUtils.toBase64(svgWriter.printSVG(omWriter._root, {
+                base64 = omgUtils.toBase64(svgWriter.printSVG(omWriter._root, {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
                     scale: 1
