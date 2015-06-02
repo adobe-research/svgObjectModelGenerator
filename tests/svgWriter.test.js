@@ -1779,4 +1779,37 @@ describe('svgWriter', function (){
             compareResults("style-name");
         });
     });
+
+    /**
+     * Test shifting of groups with transform applied
+     **/
+    describe('Test shifting of groups with transform applied', function () {
+
+        function compareResults (testName) {
+            var svgOut,
+                expectedOut,
+                path = 'data/custom/' + testName,
+                svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM, {
+                trimToArtBounds: true
+            });
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test that group is translated instead of leaves if it has transform.', function () {
+            compareResults("group-transform");
+        });
+    });
 });

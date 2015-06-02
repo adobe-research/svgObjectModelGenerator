@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="390.116" height="283.136" viewBox="0 0 390.116 283.136">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #02ff00;
+      }
+
+      .cls-2 {
+        fill: #0d00ff;
+        stroke: #95989a;
+        stroke-width: 1px;
+      }
+    </style>
+  </defs>
+  <g transform="translate(-121.62 141.92) rotate(-45)">
+    <rect width="152" height="151" transform="translate(86 86)" class="cls-1"/>
+    <rect width="200" height="199" transform="translate(162 162)" class="cls-2"/>
+  </g>
+</svg>
