@@ -153,7 +153,7 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6", "mask-7", "mask-8", "mask-9"];
+        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6", "mask-7", "mask-8", "mask-9", "mask-10", "mask-11", "mask-12"];
 
         for (var i = 0, end = database.length; i < end; i++) {
             compareResults(database[i]);

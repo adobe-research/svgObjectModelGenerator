@@ -1,9 +1,7 @@
 {
     "children": [
         {
-            "id": "shape-1",
             "type": "shape",
-            "visible": true,
             "style": {
                 "stroke": {
                     "type": "solid",
@@ -32,7 +30,6 @@
                 }
             },
             "children": [],
-            "title": "Rectangle 1",
             "shapeBounds": {
                 "top": 66,
                 "left": 130,
@@ -48,9 +45,7 @@
             }
         },
         {
-            "id": "shape-2",
             "type": "shape",
-            "visible": true,
             "style": {
                 "stroke": {
                     "type": "none",
@@ -80,13 +75,6 @@
                 "mask": "mask1"
             },
             "children": [],
-            "title": "Ellipse 1",
-            "shapeBounds": {
-                "top": 151,
-                "left": 215,
-                "bottom": 339,
-                "right": 403
-            },
             "shape": {
                 "type": "circle",
                 "cx": 309,
@@ -102,9 +90,7 @@
         "masks": {
             "mask1": {
                 "children": [{
-                    "id": "shape-3",
                     "type": "shape",
-                    "visible": true,
                     "style": {
                         "stroke": {
                             "type": "solid",
@@ -133,13 +119,6 @@
                         }
                     },
                     "children": [],
-                    "title": "Rectangle 1",
-                    "shapeBounds": {
-                        "top": 67,
-                        "left": 130,
-                        "bottom": 245,
-                        "right": 309
-                    },
                     "shape": {
                         "type": "rect",
                         "x": 130,
@@ -153,12 +132,6 @@
             }
         },
         "patterns": {},
-        "viewBox": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
         "bounds": {
             "top": 0,
             "left": 0,
@@ -176,5 +149,5 @@
             }
         }
     },
-    "title": "Untitled-1"
+    "name": "Untitled-1"
 }

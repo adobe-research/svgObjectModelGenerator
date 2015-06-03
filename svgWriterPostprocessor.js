@@ -56,42 +56,25 @@
                 tag.styleBlock.addRule("clip-rule", fillRule);
                 tag.styleBlock.removeRule("fill-rule");
             },
-            function invertedMask(tag, ctx) {
-                if (tag.name == "mask" && tag.invert) {
+            function filter4mask(tag, ctx) {
+                if (tag.name == "mask" && tag.filter) {
+                    // This is to fix Safari bug with filters
+                    if (tag.clip) {
+                        tag.children.unshift(new Tag("rect", {
+                            width: "100%",
+                            height: "100%",
+                            opacity: 0,
+                        }));
+                    }
                     if (tag.children.length == 1) {
-                        tag.children[0].styleBlock.addRule("filter", "url(#" + tag.invert + ")");
+                        tag.children[0].styleBlock.addRule("filter", "url(#" + tag.filter + ")");
                     } else {
                         var g = new Tag("g");
                         g.setStyleBlock(ctx, {});
-                        g.styleBlock.addRule("filter", "url(#" + tag.invert + ")");
+                        g.styleBlock.addRule("filter", "url(#" + tag.filter + ")");
                         g.children = tag.children;
                         tag.children = [g];
                     }
-                }
-            },
-            function clippedMask(tag, ctx) {
-                if (tag.name == "mask" && tag.clip) {
-                    var attr;
-                    if ("x" in tag.attrs) {
-                        attr = {
-                            x: tag.attrs.x,
-                            y: tag.attrs.y,
-                            width: tag.attrs.width,
-                            height: tag.attrs.height
-                        };
-                    } else {
-                        var bounds = ctx._viewBox;
-                        attr = {
-                            x: bounds[0],
-                            y: bounds[1],
-                            width: bounds[2],
-                            height: bounds[3]
-                        };
-                    }
-                    var rect = new Tag("rect", attr);
-                    rect.setStyleBlock(ctx, {});
-                    rect.styleBlock.addRule("fill", "#fff");
-                    tag.children.unshift(rect);
                 }
             }
         ];

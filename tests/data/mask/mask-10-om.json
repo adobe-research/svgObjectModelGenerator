@@ -128,7 +128,9 @@
                     }
                 }],
                 "type": "mask",
-                "invert": true
+                "kind": "opacity",
+                "invert": true,
+                "clip": false
             }
         },
         "patterns": {},

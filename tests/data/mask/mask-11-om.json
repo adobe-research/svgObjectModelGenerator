@@ -128,7 +128,8 @@
                     }
                 }],
                 "type": "mask",
-                "invert": true
+                "clip": false,
+                "kind": "opacity"
             }
         },
         "patterns": {},

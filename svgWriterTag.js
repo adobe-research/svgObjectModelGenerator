@@ -395,33 +395,92 @@
             "v" + -left + "a" + [r[0], r[0], 0, 0, 1, r[0], -r[0]] + "z";
         return path;
     }
-    function getInvertFilter(ctx) {
-        var invert;
-
-        if (root.invert) {
-            invert = Tag.getById(root.invert);
-        }
-        if (!invert) {
-            invert = new Tag("filter", {
-                x: "-50%",
-                y: "-50%",
-                width: "200%",
-                height: "200%"
-            });
-            invert.children.push(new Tag("feColorMatrix", {
-                type: "matrix",
-                values: [-1, 0, 0, 0, 1,
-                         0, -1, 0, 0, 1,
-                         0, 0, -1, 0, 1,
-                         0, 0, 0, 1, 0],
-                "color-interpolation-filters": "sRGB"
+    var maskFilters = {
+        "opacity-invert": function (filter) {
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -8, 1],
+                result: "only0"
             }));
-            var filterID = ctx.ID.getUnique("filter", "invert"),
-                fingerprint = invert.toString();
-            invert.setAttribute("id", filterID);
-            ctx.omStylesheet.define("filter", null, filterID, invert, fingerprint);
+            filter.appendChild(new Tag("feComposite", {
+                in: "SourceGraphic",
+                in2: "only0",
+                operator: "over"
+            }));
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 1]
+            }));
+        },
+        "opacity-noclip": function (filter) {
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -8, 1],
+                result: "only0"
+            }));
+            filter.appendChild(new Tag("feComposite", {
+                in: "SourceGraphic",
+                in2: "only0",
+                operator: "over"
+            }));
+        },
+        "opacity-invert-noclip": function (filter) {
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 1]
+            }));
+        },
+        "luminosity-invert": function (filter) {
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, 1, 0]
+            }));
+        },
+        "luminosity-noclip": function (filter) {
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, -8, 1],
+                result: "invertonly0"
+            }));
+            filter.appendChild(new Tag("feComposite", {
+                in: "SourceGraphic",
+                in2: "invertonly0",
+                operator: "over"
+            }));
+        },
+        "luminosity-invert-noclip": function (filter) {
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -8, 1],
+                result: "only0"
+            }));
+            filter.appendChild(new Tag("feComposite", {
+                in: "SourceGraphic",
+                in2: "only0",
+                operator: "over"
+            }));
+            filter.appendChild(new Tag("feColorMatrix", {
+                values: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, 1, 0]
+            }));
         }
-        return invert.attrs.id;
+    };
+
+    function getFilter4Mask(ctx, opacity, invert, clip) {
+        if (!invert && !clip) {
+            return null;
+        }
+        var filter,
+            name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (clip ? "-noclip" : ""),
+            filter;
+        if (root[name]) {
+            return root[name].attrs.id;
+        }
+
+        var filterID = ctx.ID.getUnique("filter", name);
+        root[name] = filter = new Tag("filter", {
+            id: filterID,
+            x: 0,
+            y: 0,
+            width: "100%",
+            height: "100%",
+            filterUnits: "userSpaceOnUse"
+        });
+        maskFilters[name](filter);
+        ctx.omStylesheet.define("filter", null, filterID, filter, filter.toString());
+        return filterID;
     }
     var factory = {
         circle: function (ctx, node) {
@@ -488,15 +547,16 @@
                 delete attr.maskUnits;
             }
             attr.maskContentUnits = node.maskContentUnits;
-            if (node.kind == "opacity") {
-                attr.style = "mask-type:alpha";
-            }
             var mask = new Tag("mask", attr, ctx);
-            if (node.invert) {
-                mask.setStyleBlock(ctx, {});
-                mask.invert = getInvertFilter(ctx);
+            if (node.kind == "opacity") {
+                mask.setAttribute("style", "mask-type:alpha");
+                mask.opacity = true;
             }
             mask.clip = "clip" in node && !node.clip;
+            mask.filter = getFilter4Mask(ctx, node.kind == "opacity", node.invert, mask.clip);
+            if (node.invert) {
+                mask.setStyleBlock(ctx, {});
+            }
             return mask;
         },
         clipPath: function (ctx, node) {

@@ -13,16 +13,15 @@
       }
 
       .cls-3 {
-        filter: url(#luminosity-invert-noclip-1);
+        filter: url(#opacity-noclip-1);
       }
     </style>
 
-    <filter id="luminosity-invert-noclip-1" width="100%" height="100%" filterUnits="userSpaceOnUse">
+    <filter id="opacity-noclip-1" width="100%" height="100%" filterUnits="userSpaceOnUse">
       <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -8 1" result="only0"/>
       <feComposite in="SourceGraphic" in2="only0"/>
-      <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
     </filter>
-    <mask id="mask-1">
+    <mask style="mask-type:alpha" id="mask-1">
       <g class="cls-3">
         <rect width="100%" height="100%" opacity="0"/>
         <rect x="130" y="67" width="179" height="179" class="cls-1"/>
