@@ -53,6 +53,10 @@
                 };
             if (link) {
                 attr["xlink:href"] = "#" + link.id;
+                // Override transforms of referenced gradients.
+                if (link.gradientTransform && !attr.gradientTransform) {
+                    attr.gradientTransform = "matrix(1, 0, 0, 1, 0, 0)";
+                }
                 tag.setAttributes(attr);
             } else {
                 gradientStops[lines] = {
@@ -107,6 +111,10 @@
 
             if (link) {
                 attr["xlink:href"] = "#" + link.id;
+                // Override transforms of referenced gradients.
+                if (link.gradientTransform && !attr.gradientTransform) {
+                    attr.gradientTransform = "matrix(1, 0, 0, 1, 0, 0)";
+                }
                 tag.setAttributes(attr);
             } else {
                 gradientStops[lines] = {
