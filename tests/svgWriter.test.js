@@ -1808,8 +1808,11 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        it('Test that group is translated instead of leaves if it has transform.', function () {
+        it("Test that group is translated instead of leaves if it has transform.", function () {
             compareResults("group-transform");
+        });
+        it("Test that two elements sharing pattern wouldn’t cause style issues.", function () {
+            compareResults("double-pattern");
         });
     });
 

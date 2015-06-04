@@ -319,7 +319,6 @@
                 if (dupTable.hasOwnProperty(fingerprint)) {
                     aDups = dupTable[fingerprint];
                     if (aDups && aDups.length > 1) {
-
                         for (i = 1; i < aDups.length; i++) {
                             dup = aDups[i];
                             dupElId = dup.elements[0];
@@ -353,7 +352,7 @@
 
             //TBD: factor in IDs
 
-            omNode.styleBlock = CSSStyleBlock(omNode.styleBlock || new CSSStyleBlock(omNode.className));
+            omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
 
             this.blocks[omNode.className] = omNode.styleBlock;
             // We create an styleBlock for each element initially.
