@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-1);
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: url(#new_pattern_3-1);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient-2);
+      }
+    </style>
+
+    <radialGradient id="radial-gradient-1" cx="39.515" cy="-16899.8" r="40.363" gradientTransform="matrix(1, 0, 0, -1, 0, -16942)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.085" stop-color="#ffedd8"/>
+      <stop offset="0.208" stop-color="#ffd5a7"/>
+      <stop offset="0.335" stop-color="#ffc17d"/>
+      <stop offset="0.462" stop-color="#ffb05b"/>
+      <stop offset="0.591" stop-color="#ffa340"/>
+      <stop offset="0.722" stop-color="#ff9a2d"/>
+      <stop offset="0.857" stop-color="#ff9522"/>
+      <stop offset="1" stop-color="#ff931e"/>
+    </radialGradient>
+    <pattern width="79.03" height="84.333" viewBox="0 -84.333 79.03 84.333" patternUnits="userSpaceOnUse" id="new_pattern_3-1">
+      <g>
+        <rect y="-84.333" width="79.03" height="84.333" class="cls-1"/>
+        <rect x="0.5" y="-83.833" width="78.03" height="83.333" class="cls-2"/>
+      </g>
+    </pattern>
+    <radialGradient id="radial-gradient-2" cx="108.742" cy="87.879" r="40.363" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-1"/>
+  </defs>
+  <g>
+    <rect x="360.636" y="207.576" width="259.848" height="259.848" class="cls-3"/>
+    <rect x="69.727" y="46.212" width="78.03" height="83.333" class="cls-4"/>
+  </g>
+</svg>
