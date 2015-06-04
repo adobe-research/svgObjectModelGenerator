@@ -39,17 +39,18 @@
             gradientStops = {};
         },
         getLinearGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
-            var x1 = gradientRef.x1 + offsetX,
-                x2 = gradientRef.x2 + offsetX,
-                y1 = gradientRef.y1 + offsetY,
-                y2 = gradientRef.y2 + offsetY,
+            var t = getTransform(gradientRef.transform, offsetX, offsetY),
+            x1 = gradientRef.x1 + (t ? 0 : offsetX),
+                x2 = gradientRef.x2 + (t ? 0 : offsetX),
+                y1 = gradientRef.y1 + (t ? 0 : offsetY),
+                y2 = gradientRef.y2 + (t ? 0 : offsetY),
                 gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 attr = {
                     x1: x1,
                     y1: y1,
                     x2: x2,
                     y2: y2,
-                    gradientTransform: getTransform(gradientRef.transform)
+                    gradientTransform: t
                 };
             if (link) {
                 attr["xlink:href"] = "#" + link.id;
@@ -65,7 +66,7 @@
                     y1: y1,
                     x2: x2,
                     y2: y2,
-                    gradientTransform: getTransform(gradientRef.transform)
+                    gradientTransform: t
                 };
                 attr.gradientUnits = gradientSpace;
                 tag.setAttributes(attr);
@@ -73,17 +74,18 @@
             }
         },
         getRadialGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
-            var cx = gradientRef.cx + offsetX,
-                cy = gradientRef.cy + offsetY,
-                fx = gradientRef.fx ? gradientRef.fx + offsetX : cx,
-                fy = gradientRef.fy ? gradientRef.fy + offsetY : cy,
+            var t = getTransform(gradientRef.transform, offsetX, offsetY),
+                cx = gradientRef.cx + (t ? 0 : offsetX),
+                cy = gradientRef.cy + (t ? 0 : offsetY),
+                fx = gradientRef.fx ? gradientRef.fx + (t ? 0 : offsetX) : cx,
+                fy = gradientRef.fy ? gradientRef.fy + (t ? 0 : offsetY) : cy,
                 r = gradientRef.r,
                 gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 attr = {
                     cx: cx,
                     cy: cy,
                     r: r,
-                    gradientTransform: getTransform(gradientRef.transform)
+                    gradientTransform: t
                 },
                 deltaX,
                 deltaY,
@@ -124,7 +126,7 @@
                     fx: attr.fx,
                     fy: attr.fy,
                     r: r,
-                    gradientTransform: getTransform(gradientRef.transform)
+                    gradientTransform: t
                 };
                 attr.gradientUnits = gradientSpace;
                 tag.setAttributes(attr);
