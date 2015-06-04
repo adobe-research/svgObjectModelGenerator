@@ -1814,9 +1814,9 @@ describe('svgWriter', function (){
     });
 
     /**
-     * Test that gradientTransform gets overridden by referencing gradient
+     * Test that attributes of referencing gradient get overridden
      **/
-    describe('Test that gradientTransform gets overridden by referencing gradient', function () {
+    describe('Test that attributes of referencing gradient get overridden', function () {
 
         function compareResults (testName) {
             var svgOut,
@@ -1839,8 +1839,16 @@ describe('svgWriter', function (){
             return svgOut;
         }
 
-        it('Test that group is translated instead of leaves if it has transform.', function () {
+        it('Test that gradientTransform overrides trasnform on referencing gradient', function () {
             compareResults("pattern-gradient");
+        });
+
+        it('Test that x1-y1 overridde x1-y1 on referencing gradient', function () {
+            compareResults("gradient-1");
+        });
+
+        it('Test that cx,cy,r overridde cx,cy,r on referencing gradient', function () {
+            compareResults("gradient-2");
         });
     });
 });
