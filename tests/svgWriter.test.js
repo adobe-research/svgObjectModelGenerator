@@ -1823,9 +1823,7 @@ describe('svgWriter', function (){
                 expectedOut,
                 path = 'data/custom/' + testName,
                 svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, {
-                trimToArtBounds: true
-            });
+            svgOut = svgWriter.printSVG(svgOM, {});
 
             try {
                 expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
