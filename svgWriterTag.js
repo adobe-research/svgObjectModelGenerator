@@ -311,7 +311,7 @@
             return;
         }
         this.styleBlock = omStyleBlock;
-        omStyleBlock.tags = [this.id];
+        omStyleBlock.tags = omStyleBlock.tags ? omStyleBlock.tags.concat(this.id) : [this.id];
     };
     Tag.prototype.setClass = function (ctx) {
         var omStyleBlock = this.styleBlock;
