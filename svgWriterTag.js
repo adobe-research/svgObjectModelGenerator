@@ -31,6 +31,7 @@
         hasFx = svgWriterUtils.hasFx,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
+        matrix = require("./matrix.js"),
         root,
         tagid = 0;
 
@@ -529,7 +530,7 @@
         path: function (ctx, node) {
             var tag = new Tag("path", {
                 d: util.optimisePath(node.shape.path, ctx.precision),
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform || matrix.createMatrix(), node.transformTX, node.transformTY)
             }, ctx);
             return tag.useTrick(ctx);
         },

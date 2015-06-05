@@ -216,7 +216,6 @@
                     shape.y2 += offsetY;
                     break;
                 case "path":
-                    omIn.transform = matrix.createMatrix();
                     omIn.transformTX = offsetX;
                     omIn.transformTY = offsetY;
                     break;
