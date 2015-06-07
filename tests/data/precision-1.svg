@@ -14,8 +14,6 @@
       }
     </style>
   </defs>
-  <g>
-    <circle cx="253.1" cy="266.1" r="197.9" class="cls-1"/>
-    <path d="M200.6,200.6L300.3,10.2V500.1" class="cls-2"/>
-  </g>
+  <circle cx="253.1" cy="266.1" r="197.9" class="cls-1"/>
+  <path d="M200.6,200.6L300.3,10.2V500.1" class="cls-2"/>
 </svg>

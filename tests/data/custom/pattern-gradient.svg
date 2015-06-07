@@ -35,15 +35,11 @@
       <stop offset="1" stop-color="#ff931e"/>
     </radialGradient>
     <pattern width="79.03" height="84.333" viewBox="0 -84.333 79.03 84.333" patternUnits="userSpaceOnUse" id="new_pattern_3-1">
-      <g>
-        <rect y="-84.333" width="79.03" height="84.333" class="cls-1"/>
-        <rect x="0.5" y="-83.833" width="78.03" height="83.333" class="cls-2"/>
-      </g>
+      <rect y="-84.333" width="79.03" height="84.333" class="cls-1"/>
+      <rect x="0.5" y="-83.833" width="78.03" height="83.333" class="cls-2"/>
     </pattern>
     <radialGradient id="radial-gradient-2" cx="108.742" cy="87.879" r="40.363" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-1"/>
   </defs>
-  <g>
-    <rect x="360.636" y="207.576" width="259.848" height="259.848" class="cls-3"/>
-    <rect x="69.727" y="46.212" width="78.03" height="83.333" class="cls-4"/>
-  </g>
+  <rect x="360.636" y="207.576" width="259.848" height="259.848" class="cls-3"/>
+  <rect x="69.727" y="46.212" width="78.03" height="83.333" class="cls-4"/>
 </svg>
