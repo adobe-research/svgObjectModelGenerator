@@ -11,6 +11,12 @@ module.exports = {
 				"left": 0,
 				"bottom": 100,
 				"right": 100
+			},
+			"visualBounds": {
+				"top": 0,
+				"left": 0,
+				"bottom": 100,
+				"right": 100
 			}
 		}
 	],
