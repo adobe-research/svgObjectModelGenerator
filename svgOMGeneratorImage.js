@@ -37,6 +37,8 @@
                     svgNode.bounds = layer.boundsWithFX;
                 }
 
+                svgNode.visualBounds = svgNode.bounds;
+
                 omgStyles.addStylingData(svgNode, layer, svgNode.bounds, writer);
 
                 return true;

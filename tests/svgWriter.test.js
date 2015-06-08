@@ -1814,6 +1814,9 @@ describe('svgWriter', function (){
         it("Test that two elements sharing pattern wouldn’t cause style issues.", function () {
             compareResults("double-pattern");
         });
+        it("Test that images get shifted.", function () {
+            compareResults("image");
+        });
     });
 
     /**

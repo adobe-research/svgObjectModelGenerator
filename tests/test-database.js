@@ -81,7 +81,8 @@ var database = [
 },
 {
 	test: "pixelImage",
-	desc: "should show embedded data"
+	desc: "should show embedded data",
+	layerTest: true
 },
 {
 	test: "pixelImage-linked",

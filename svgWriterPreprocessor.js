@@ -234,17 +234,32 @@
                     break;
                 }
             },
+            shiftImageOrReferenceBounds = function (ctx, omIn) {
+                var offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
+                    offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
+
+                if (omIn.bounds) {
+                    omIn.bounds.left += offsetX;
+                    omIn.bounds.top += offsetY;
+                    omIn.bounds.right += offsetX;
+                    omIn.bounds.bottom += offsetY;
+                }
+            },
             // Shift the bounds recorded in recordBounds.
             shiftBounds = function (ctx, omIn, nested, sibling) {
                 if (ctx._transformOnNode) {
                     return;
                 }
+                // FIXME: OMG defines text as a shape. Change svgOMG
+                // to follow the spec.
                 if (omIn.type == "text") {
                     shiftTextBounds(ctx, omIn, nested);
                 } else if (omIn.type == "tspan") {
                     shiftTspanBounds(ctx, omIn, nested, sibling);
                 } else if (omIn.type == "shape" || omIn.type == "group") {
                     shiftShapeOrGroupPosition(ctx, omIn);
+                } else if (omIn.type == "image" || omIn.type == "reference") {
+                    shiftImageOrReferenceBounds(ctx, omIn);
                 }
             },
             isVisible = function (ctx, omIn) {
