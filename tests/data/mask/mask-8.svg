@@ -1,33 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
   <defs>
     <style>
-      .cls-1 {
+      .cls-1, .cls-2 {
         fill: #0072bc;
         stroke: #000;
         stroke-width: 14px;
       }
 
-      .cls-2 {
-        fill: #ed1c24;
-        mask: url(#mask-1);
+      .cls-1 {
+        filter: url(#luminosity-noclip-1);
       }
 
       .cls-3 {
-        filter: url(#luminosity-noclip-1);
+        fill: #ed1c24;
+        mask: url(#mask-1);
       }
     </style>
 
-    <filter id="luminosity-noclip-1" width="100%" height="100%" filterUnits="userSpaceOnUse">
-      <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 -8 1" result="invertonly0"/>
-      <feComposite in="SourceGraphic" in2="invertonly0"/>
+    <filter id="luminosity-noclip-1" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
     </filter>
     <mask id="mask-1">
-      <g class="cls-3">
-        <rect width="100%" height="100%" opacity="0"/>
-        <rect x="130" y="67" width="179" height="179" class="cls-1"/>
-      </g>
+      <rect x="130" y="67" width="179" height="179" class="cls-1"/>
     </mask>
   </defs>
-  <rect x="130" y="66" width="179" height="179" class="cls-1"/>
-  <circle cx="309" cy="245" r="94" class="cls-2"/>
+  <rect x="130" y="66" width="179" height="179" class="cls-2"/>
+  <circle cx="309" cy="245" r="94" class="cls-3"/>
 </svg>

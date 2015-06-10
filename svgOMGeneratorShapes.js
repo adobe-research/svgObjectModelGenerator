@@ -42,7 +42,7 @@
                     bnds[i][1] + (bnds[(i + 1) % 4][1] - bnds[i][1]) / 2];
         }
 
-        function writeCurveToPath (previousPoint, currentPoint) {
+        function writeCurveToPath(previousPoint, currentPoint) {
             var controlPoint,
                 lastPoint,
                 pathData = "";
@@ -50,12 +50,12 @@
             lastPoint = previousPoint.forward ? previousPoint.forward : previousPoint.anchor;
             pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
             controlPoint = currentPoint.backward ? currentPoint.backward : currentPoint.anchor;
-            pathData += (controlPoint.x + offsetX) + " " + (controlPoint.y + offsetY) + " ";
-            pathData += (currentPoint.anchor.x + offsetX) + " " + (currentPoint.anchor.y + offsetY);
+            pathData += controlPoint.x + offsetX + " " + (controlPoint.y + offsetY) + " ";
+            pathData += currentPoint.anchor.x + offsetX + " " + (currentPoint.anchor.y + offsetY);
             return pathData;
         }
 
-        function generateSVGSubPathStream (subComponent) {
+        function generateSVGSubPathStream(subComponent) {
             var points = subComponent.points,
                 closedSubpath = !!subComponent.closedSubpath,
                 pathData = "",
@@ -75,7 +75,7 @@
             return pathData;
         }
 
-        function generateSVGPathStream (path) {
+        function generateSVGPathStream(path) {
             var pathData = "";
 
             for (var i = 0; i < path.pathComponents.length; ++i) {
