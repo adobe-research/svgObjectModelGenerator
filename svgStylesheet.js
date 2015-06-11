@@ -347,6 +347,9 @@
         };
 
         proto.getStyleBlock = function (omNode, getUnique) {
+            if (omNode.styleBlock) {
+                return omNode.styleBlock;
+            }
 
             omNode.className = omNode.className || getUnique("cls");
 
