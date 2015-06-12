@@ -58,13 +58,14 @@
             },
             function filter4mask(tag, ctx) {
                 if (tag.name == "mask" && tag.filter) {
-                    // This is to fix Safari bug with filters
-                    if (tag.clip) {
-                        tag.children.unshift(new Tag("rect", {
-                            width: "100%",
-                            height: "100%",
-                            opacity: 0,
-                        }));
+                    tag.setAttribute("style", "");
+                    if (tag.noclip) {
+                        tag.setAttributes({
+                            x: 0,
+                            y: 0,
+                            width: 0,
+                            height: 0
+                        });
                     }
                     if (tag.children.length == 1) {
                         tag.children[0].styleBlock.addRule("filter", "url(#" + tag.filter + ")");

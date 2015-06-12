@@ -53,6 +53,14 @@
         }
         if (ctx) {
             node = node || ctx.currentOMNode;
+            if (node.visualBounds) {
+                this.bbox = {
+                    x: node.visualBounds.left,
+                    y: node.visualBounds.top,
+                    width: node.visualBounds.right - node.visualBounds.left,
+                    height: node.visualBounds.bottom - node.visualBounds.top
+                };
+            }
             this.setStyleBlock(ctx, node);
         }
     }
@@ -397,6 +405,7 @@
     }
     var maskFilters = {
         "opacity-invert": function (filter) {
+            // This one is has antialiasing issues
             filter.appendChild(new Tag("feColorMatrix", {
                 values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -8, 1],
                 result: "only0"
@@ -411,19 +420,24 @@
             }));
         },
         "opacity-noclip": function (filter) {
-            filter.appendChild(new Tag("feColorMatrix", {
-                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -8, 1],
-                result: "only0"
+            filter.appendChild(new Tag("feFlood", {
+                "flood-color": "#fff",
+                result: "bg"
             }));
-            filter.appendChild(new Tag("feComposite", {
-                in: "SourceGraphic",
-                in2: "only0",
-                operator: "over"
+            filter.appendChild(new Tag("feBlend", {
+                in: "SourceAlpha",
+                in2: "bg"
             }));
         },
         "opacity-invert-noclip": function (filter) {
-            filter.appendChild(new Tag("feColorMatrix", {
-                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -1, 1]
+            filter.appendChild(new Tag("feFlood", {
+                "flood-color": "#fff",
+                result: "bg"
+            }));
+            filter.appendChild(new Tag("feComposite", {
+                in: "SourceAlpha",
+                in2: "bg",
+                operator: "atop"
             }));
         },
         "luminosity-invert": function (filter) {
@@ -432,28 +446,27 @@
             }));
         },
         "luminosity-noclip": function (filter) {
-            filter.appendChild(new Tag("feColorMatrix", {
-                values: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, -8, 1],
-                result: "invertonly0"
+            filter.appendChild(new Tag("feFlood", {
+                "flood-color": "#fff",
+                result: "bg"
             }));
-            filter.appendChild(new Tag("feComposite", {
+            filter.appendChild(new Tag("feBlend", {
                 in: "SourceGraphic",
-                in2: "invertonly0",
-                operator: "over"
+                in2: "bg"
             }));
         },
         "luminosity-invert-noclip": function (filter) {
             filter.appendChild(new Tag("feColorMatrix", {
-                values: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -8, 1],
-                result: "only0"
+                values: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, 1, 0],
+                result: "invert"
             }));
-            filter.appendChild(new Tag("feComposite", {
-                in: "SourceGraphic",
-                in2: "only0",
-                operator: "over"
+            filter.appendChild(new Tag("feFlood", {
+                "flood-color": "#fff",
+                result: "bg"
             }));
-            filter.appendChild(new Tag("feColorMatrix", {
-                values: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, 1, 0]
+            filter.appendChild(new Tag("feBlend", {
+                in: "invert",
+                in2: "bg"
             }));
         }
     };
@@ -462,21 +475,21 @@
         if (!invert && !clip) {
             return null;
         }
-        var filter,
-            name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (clip ? "-noclip" : ""),
-            filter;
+        var name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (clip ? "-noclip" : "");
         if (root[name]) {
             return root[name].attrs.id;
         }
 
-        var filterID = ctx.ID.getUnique("filter", name);
+        var filter,
+            filterID = ctx.ID.getUnique("filter", name);
         root[name] = filter = new Tag("filter", {
             id: filterID,
             x: 0,
             y: 0,
             width: "100%",
             height: "100%",
-            filterUnits: "userSpaceOnUse"
+            filterUnits: "userSpaceOnUse",
+            "color-interpolation-filters": "sRGB"
         });
         maskFilters[name](filter);
         ctx.omStylesheet.define("filter", null, filterID, filter, filter.toString());
@@ -552,8 +565,8 @@
                 mask.setAttribute("style", "mask-type:alpha");
                 mask.opacity = true;
             }
-            mask.clip = "clip" in node && !node.clip;
-            mask.filter = getFilter4Mask(ctx, node.kind == "opacity", node.invert, mask.clip);
+            mask.noclip = "clip" in node && !node.clip;
+            mask.filter = getFilter4Mask(ctx, node.kind == "opacity", node.invert, mask.noclip);
             if (node.invert) {
                 mask.setStyleBlock(ctx, {});
             }

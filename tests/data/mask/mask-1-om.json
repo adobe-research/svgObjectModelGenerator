@@ -33,7 +33,7 @@
             },
             "children": [],
             "title": "Rectangle 1",
-            "shapeBounds": {
+            "visualBounds": {
                 "top": 66,
                 "left": 130,
                 "bottom": 245,
@@ -81,7 +81,7 @@
             },
             "children": [],
             "title": "Ellipse 1",
-            "shapeBounds": {
+            "visualBounds": {
                 "top": 151,
                 "left": 215,
                 "bottom": 339,
