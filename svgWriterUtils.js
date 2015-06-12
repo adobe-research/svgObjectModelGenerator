@@ -115,6 +115,32 @@
 
             return color;
         };
+        self.escapeCSS = function (className) {
+            className += "";
+            var len = className.length,
+                i = 0,
+                isDash = className.charAt() == "-",
+                out = "";
+            for (; i < len; i++) {
+                var code = className.charCodeAt(i),
+                    char = className.charAt(i),
+                    isNum = char == +char;
+                if (code >= 1 && code <= 31 || code == 127 || !i && isNum || i == 1 && isDash && isNum) {
+                    out += "\\" + code.toString(16) + " ";
+                } else {
+                    if (code > 127 || char == "-" || char == "_" || isNum || /[a-z]/i.test(char)) {
+                        if (char == " ") {
+                            out += "-";
+                        } else {
+                            out += char;
+                        }
+                    } else {
+                        out += "\\" + char;
+                    }
+                }
+            }
+            return out;
+        };
 
         self.getTransform = function (val, tX, tY) {
             if (!val) {

@@ -134,7 +134,7 @@
         proto.write = proto.toString = function (ctx) {
             ctx = ctx || new SVGWriterContext({});
             var i;
-            writeln(ctx, ctx.currentIndent + "." + this.class.join("," + ctx.space + ".") + ctx.space + "{");
+            writeln(ctx, ctx.currentIndent + "." + this.class.map(svgWriterUtils.escapeCSS).join("," + ctx.space + ".") + ctx.space + "{");
             indent(ctx);
 
             for (i = 0; i < this.rules.length; i++) {

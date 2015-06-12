@@ -48,7 +48,7 @@ module.exports = {
                         "type": "circle"
                     },
                     "style": {
-                        "ref": "bobby",
+                        "ref": "9½ weeks",
                         "stroke": {
                             "color": {
                                 "b": 0,
@@ -407,7 +407,7 @@ module.exports = {
                     "type": "solid"
                 }
             },
-            "bobby": {
+            "9½ weeks": {
                 "fill": {
                     "color": {
                         "b": 33,
