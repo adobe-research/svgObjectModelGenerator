@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .bobby, .cls-1 {
+        fill: #d9e021;
+        stroke-width: 6px;
+      }
+
+      .bobby {
+        stroke: #c69c6d;
+      }
+
+      .bobby, .cls-1, .cls-2, .dots {
+        stroke-miterlimit: 10;
+      }
+
+      .bobby, .cls-1, .cls-2 {
+        opacity: 0.5;
+      }
+
+      .cls-1 {
+        stroke: red;
+      }
+
+      .brown {
+        fill: #754c24;
+      }
+
+      .cls-2, .dots {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-width: 14px;
+        stroke-dasharray: 0.001 20.363;
+      }
+    </style>
+  </defs>
+  <g>
+    <circle cx="113.5" cy="228.5" r="87.5" class="bobby"/>
+    <circle cx="304.5" cy="228.5" r="87.5" class="cls-1"/>
+    <circle cx="495.5" cy="228.5" r="87.5" class="bobby"/>
+    <circle cx="686.5" cy="228.5" r="87.5" class="bobby"/>
+    <g>
+      <circle cx="113.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="113.5" cy="371.5" r="87.5" class="dots"/>
+    </g>
+    <g>
+      <circle cx="304.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="304.5" cy="371.5" r="87.5" class="cls-2"/>
+    </g>
+    <g>
+      <circle cx="495.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="495.5" cy="371.5" r="87.5" class="dots"/>
+    </g>
+    <g>
+      <circle cx="686.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="686.5" cy="371.5" r="87.5" class="dots"/>
+    </g>
+  </g>
+</svg>

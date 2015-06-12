@@ -33,6 +33,33 @@
 
     function SVGWriterPreprocessor() {
 
+        function clone(o) {
+            if (Object(o) !== o) {
+                return o;
+            }
+            var out = {};
+            for (var key in o) {
+                if (Object(o[key]) === o[key]) {
+                    out[key] = clone(o[key]);
+                } else {
+                    out[key] = o[key];
+                }
+            }
+            return out;
+        }
+        function merge(o1, o2) {
+            var out = clone(o1);
+            for (var key in o2) {
+                if (!(key in out)) {
+                    out[key] = o2[key];
+                } else {
+                    if (Object(out[key]) === out[key] && Object(o2[key]) === o2[key]) {
+                        out[key] = merge(out[key], o2[key]);
+                    }
+                }
+            }
+            return out;
+        }
         /**
          * Externalize styles identifies styles that can be detached from artwork.
          **/
@@ -44,10 +71,9 @@
                 styleBlock;
 
             if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
-                var globalStyle = global.styles[omIn.style.ref];
-                for (var name in globalStyle) {
-                    omIn.style[name] = globalStyle[name];
-                }
+                omIn.style = merge(omIn.style, global.styles[omIn.style.ref]);
+            }
+            if (omIn.style) {
                 delete omIn.style.ref;
             }
 
@@ -60,6 +86,7 @@
                     omIn.className = ref;
                     var fakeNode = {
                         style: style,
+                        type: omIn.type,
                         shape: omIn.shape,
                         className: ref
                     };
