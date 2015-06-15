@@ -14,7 +14,7 @@ if (optFile) {
 }
 var svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
     options = optFile ? JSON.parse(fs.readFileSync(optFile, {encoding: "utf8", flag: "r"})) : {
-        trimToArtBounds: false,
+        trimToArtBounds: true,
         preserveAspectRatio: "xMidYMid",
         scale: 1,
         constrainToDocBounds: false

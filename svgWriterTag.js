@@ -31,6 +31,7 @@
         hasFx = svgWriterUtils.hasFx,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
+        matrix = require("./matrix.js"),
         root,
         tagid = 0;
 
@@ -529,7 +530,7 @@
         path: function (ctx, node) {
             var tag = new Tag("path", {
                 d: util.optimisePath(node.shape.path, ctx.precision),
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform || matrix.createMatrix(), node.transformTX, node.transformTY)
             }, ctx);
             return tag.useTrick(ctx);
         },
@@ -548,10 +549,13 @@
             return tag.useTrick(ctx);
         },
         mask: function (ctx, node) {
-            var attr = {};
+            // FIXME: We might need special casing for objectBoundingBox.
+            var attr = {},
+                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
+                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
             if (node.bounds) {
-                attr.x = node.bounds.left;
-                attr.y = node.bounds.top;
+                attr.x = node.bounds.left + offsetX;
+                attr.y = node.bounds.top + offsetY;
                 attr.width = node.bounds.right - node.bounds.left;
                 attr.height = node.bounds.bottom - node.bounds.top;
             }
@@ -578,17 +582,21 @@
             }, ctx);
         },
         pattern: function (ctx, node) {
-            var attr = {};
+            // FIXME: We might need special casing for objectBoundingBox.
+            var attr = {},
+                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
+                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0),
+                t = getTransform(node.transform, offsetX, offsetY);
             if (node.bounds) {
-                attr.x = node.bounds.left;
-                attr.y = node.bounds.top;
+                attr.x = node.bounds.left + (t ? 0 : offsetX);
+                attr.y = node.bounds.top + (t ? 0 : offsetY);
                 attr.width = node.bounds.right - node.bounds.left;
                 attr.height = node.bounds.bottom - node.bounds.top;
             }
             if (node.viewBox) {
-                attr.viewBox = [node.viewBox.left, node.viewBox.top, node.viewBox.right, node.viewBox.bottom];
+                attr.viewBox = [node.viewBox.left + (t ? 0 : offsetX), node.viewBox.top + (t ? 0 : offsetY), node.viewBox.right, node.viewBox.bottom];
             }
-            attr.patternTransform = getTransform(node.transform);
+            attr.patternTransform = t;
             attr.patternUnits = node.patternUnits || "userSpaceOnUse";
             if (!node.bounds && !node.patternUnits) {
                 delete attr.patternUnits;

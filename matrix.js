@@ -760,8 +760,8 @@
                     return this.writeRawMatrix(txfm4x4, tX, tY);
                 } else {
 
-                    decomposed.translation[0] += tX || 0;
-                    decomposed.translation[1] += tY || 0;
+                    decomposed.translation[0] += tX;
+                    decomposed.translation[1] += tY;
 
                     return this.writeDecomposedTransform(decomposed);
                 }
@@ -775,8 +775,8 @@
                 txfmOut.push(round10k(txfm4x4[0][1]) + ", ");
                 txfmOut.push(round10k(txfm4x4[1][0]) + ", ");
                 txfmOut.push(round10k(txfm4x4[1][1]) + ", ");
-                txfmOut.push(round10k(txfm4x4[3][0] + (tX || 0)) + ", ");
-                txfmOut.push(round10k(txfm4x4[3][1] + (tY || 0)) + ")");
+                txfmOut.push(round10k(txfm4x4[3][0] + tX) + ", ");
+                txfmOut.push(round10k(txfm4x4[3][1] + tY) + ")");
 
                 return txfmOut.join("");
             };
