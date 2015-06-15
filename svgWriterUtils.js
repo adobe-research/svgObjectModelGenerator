@@ -139,7 +139,7 @@
                     }
                 }
             }
-            return out;
+            return self.encodedText(out);
         };
 
         self.getTransform = function (val, tX, tY) {

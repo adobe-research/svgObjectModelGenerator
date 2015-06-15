@@ -22,7 +22,7 @@
         stroke: red;
       }
 
-      .brown {
+      .brown\;\|\/\?\.\,\@\#\$\%\&amp;\*\(\)\~\&lt;\&gt; {
         fill: #754c24;
       }
 
@@ -41,19 +41,19 @@
     <circle cx="495.5" cy="228.5" r="87.5" class="9½ weeks"/>
     <circle cx="686.5" cy="228.5" r="87.5" class="9½ weeks"/>
     <g>
-      <circle cx="113.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="113.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
       <circle cx="113.5" cy="371.5" r="87.5" class="dots"/>
     </g>
     <g>
-      <circle cx="304.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="304.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
       <circle cx="304.5" cy="371.5" r="87.5" class="cls-2"/>
     </g>
     <g>
-      <circle cx="495.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="495.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
       <circle cx="495.5" cy="371.5" r="87.5" class="dots"/>
     </g>
     <g>
-      <circle cx="686.5" cy="371.5" r="87.5" class="brown"/>
+      <circle cx="686.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
       <circle cx="686.5" cy="371.5" r="87.5" class="dots"/>
     </g>
   </g>

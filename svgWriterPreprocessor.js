@@ -68,7 +68,9 @@
                 global = ctx.svgOM.global,
                 fingerprint,
                 ref,
-                styleBlock;
+                styleBlock,
+                style,
+                fakeNode;
 
             if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
                 omIn.style = merge(omIn.style, global.styles[omIn.style.ref]);
@@ -81,10 +83,10 @@
 
             if (globalStyles[fingerprint]) {
                 ref = globalStyles[fingerprint];
-                var style = global.styles[ref];
+                style = global.styles[ref];
                 if (style) {
                     omIn.className = ref;
-                    var fakeNode = {
+                    fakeNode = {
                         style: style,
                         type: omIn.type,
                         shape: omIn.shape,

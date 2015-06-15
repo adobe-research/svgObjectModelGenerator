@@ -319,7 +319,7 @@ module.exports = {
                                 "type": "circle"
                             },
                             "style": {
-                                "ref": "brown"
+                                "ref": "brown;|\/?.,@#$%&*()~<>"
                             },
                             "type": "shape",
                             "visualBounds": {
@@ -397,7 +397,7 @@ module.exports = {
                     "width": 14
                 }
             },
-            "brown": {
+            "brown;|\/?.,@#$%&*()~<>": {
                 "fill": {
                     "color": {
                         "b": 36,

@@ -319,7 +319,7 @@
             return;
         }
         if (!ctx.usePresentationAttribute) {
-            this.setAttribute("class", omStyleBlock.class);
+            this.setAttribute("class", svgWriterUtils.encodedText(omStyleBlock.class + ""));
             return;
         }
         for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
