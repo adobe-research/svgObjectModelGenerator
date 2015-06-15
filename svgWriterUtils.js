@@ -120,7 +120,10 @@
             if (!val) {
                 return "";
             }
-            return Matrix.writeTransform(Matrix.createMatrix(val), tX, tY);
+            return Matrix.writeTransform(
+                Matrix.createMatrix(val),
+                isFinite(tX) ? tX : 0,
+                isFinite(tY) ? tY : 0);
         };
 
         self.round2 = Utils.round2;
