@@ -354,8 +354,9 @@
                 ctx._shiftContentX += artboardShiftX;
                 ctx._shiftContentY += artboardShiftY;
 
-                w = actualBounds.right - actualBounds.left;
-                h = actualBounds.bottom - actualBounds.top;
+                // Art might be off the document.
+                w = Math.abs(actualBounds.right - actualBounds.left);
+                h = Math.abs(actualBounds.bottom - actualBounds.top);
 
                 ctx._x = 0;
                 ctx._y = 0;
