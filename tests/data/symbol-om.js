@@ -1,4 +1,4 @@
-module.exports = {
+{
 	"children": [
 		{
 			"type": "reference",
@@ -36,7 +36,7 @@ module.exports = {
 				"top": 200,
 				"left": 0,
 				"right": 200,
-				"bottom": 400,
+				"bottom": 400
 			},
 			"visualBounds": {
 				"left": 0,

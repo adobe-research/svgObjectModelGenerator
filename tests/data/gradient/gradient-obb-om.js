@@ -1,4 +1,4 @@
-module.exports = {
+{
 	"children": [
 		{
 			"type": "shape",
@@ -67,5 +67,5 @@ module.exports = {
 		},
 		"pxToInchRatio": 72
 	},
-	"artboards": {},
+	"artboards": {}
 }

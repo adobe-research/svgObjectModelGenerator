@@ -1,4 +1,4 @@
-module.exports = {
+{
     "title": "generatedAsset",
     "version": "0.1.0",
     "global": {

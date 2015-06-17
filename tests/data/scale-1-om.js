@@ -1,4 +1,4 @@
-module.exports = {
+{
 	"global": {
 		"viewBox": {
 			"left": 0,

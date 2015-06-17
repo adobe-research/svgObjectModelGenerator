@@ -1,4 +1,4 @@
-module.exports = {
+{
     "global": {
         "bounds": {
             "top": 0,
@@ -35,4 +35,4 @@ module.exports = {
             }
         }
     ]
-};
+}

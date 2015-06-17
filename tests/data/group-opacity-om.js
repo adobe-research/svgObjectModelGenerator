@@ -1,4 +1,4 @@
-module.exports = {
+{
 	"children" : 
 	[
 		{
@@ -150,7 +150,7 @@ module.exports = {
 		"masks" : {},
 		"patterns" : {},
 		"pxToInchRatio" : 72,
-		"styles" : {},
+		"styles" : {}
 	},
 	"name" : "/Users/cabanier/temp/cabanier.github.io/rect.ai",
 	"version" : "1.0"

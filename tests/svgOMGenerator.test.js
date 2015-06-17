@@ -42,9 +42,9 @@ describe("svgOMGenerator", function (){
                 testData = require("./data/" + testName + "-data.js"),
                 svgOMGText = JSON.stringify(OMG.extractSVGOM(testData, { }), null, "\t");
             try {
-                expectedModule = require("./data/" + testName + "-om.js");
+                expectedModule = JSON.parse(fs.readFileSync("./tests/data/" +testName+ "-om.js"));
             } catch (e) {
-                fs.writeFileSync("./tests/data/" + testName + "-om.js", "module.exports = " + svgOMGText, "utf8");
+                fs.writeFileSync("./tests/data/" + testName + "-om.js", svgOMGText, "utf8");
                 console.log("No reference OM document found. New one created as " + testName + "-om.js");
                 return svgOMGText;
             }
@@ -100,9 +100,9 @@ describe("svgOMGenerator", function (){
             svgOMGText = JSON.stringify(svgOM, null, "\t");
 
             try {
-                expectedModule = require("./" + path);
+                expectedModule = JSON.parse(fs.readFileSync("./tests/" + path));
             } catch (e) {
-                fs.writeFileSync("./tests/" + path, "module.exports = " + svgOMGText, "utf8");
+                fs.writeFileSync("./tests/" + path, svgOMGText, "utf8");
                 console.log("No reference OM document found. New one created as " + testName + "-" + layerId + "-om.js");
                 return svgOMGText;
             }

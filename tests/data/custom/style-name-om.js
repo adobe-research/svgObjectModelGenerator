@@ -1,4 +1,4 @@
-module.exports = {
+{
     "version": "0.1.0",
     "global": {
         "bounds": {
@@ -28,7 +28,7 @@ module.exports = {
                         "b": 0
                     }
                 }
-            },
+            }
         }
     ]
 }

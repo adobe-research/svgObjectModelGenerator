@@ -1,4 +1,4 @@
-module.exports = {
+{
 	"children": [
 		{
 			"id": "background-1",

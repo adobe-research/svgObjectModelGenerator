@@ -1,4 +1,4 @@
-module.exports = {
+{
     "global": {
         "bounds": {
             "left": 0,

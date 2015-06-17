@@ -1,4 +1,4 @@
-module.exports = {
+{
 	"children": [
 		{
 			"ref": "artboard-1",
