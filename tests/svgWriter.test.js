@@ -15,15 +15,15 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
 /*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
 
-var expect = require('chai').expect,
+var expect = require("chai").expect,
     OMG = require("../svgOMGenerator.js"),
     svgWriter = require("../svgWriter.js"),
-    sinon = require('sinon'),
-    database = require('./test-database.js'),
-    fs = require('fs');
+    sinon = require("sinon"),
+    database = require("./test-database.js"),
+    fs = require("fs");
 
 
-describe('svgWriter', function (){
+describe("svgWriter", function (){
 
     //report the differences in an easy-to-review format
 
@@ -76,7 +76,7 @@ describe('svgWriter', function (){
 
         if (_isLastTest) {
             try {
-                templ = fs.readFileSync('./tests/report/reportTemplate.html').toString();
+                templ = fs.readFileSync("./tests/report/reportTemplate.html").toString();
                 pos = templ.indexOf(insertStr);
                 header = templ.substring(0, pos);
                 footer = templ.substring(pos + insertStr.length);
@@ -84,15 +84,15 @@ describe('svgWriter', function (){
                 out.push(header);
 
                 _compareLogDoc.forEach(function (comparison) {
-                    writeComparison(out, comparison, 'doc');
+                    writeComparison(out, comparison, "doc");
                 });
 
                 _compareLogSubtree.forEach(function (comparison) {
-                    writeComparison(out, comparison, 'subtree');
+                    writeComparison(out, comparison, "subtree");
                 });
 
                 out.push(footer);
-                fs.writeFileSync('./test-summary.html', out.join(""), 'utf8');
+                fs.writeFileSync("./test-summary.html", out.join(""), "utf8");
             } catch (err) {
                 console.warn("error making summary " + err);
             }
@@ -102,10 +102,10 @@ describe('svgWriter', function (){
 
         if (svgOut != expectedOut) {
             if (repairMedia) {
-                fs.writeFileSync(pathCompare, expectedOut, 'utf8');
-                fs.writeFileSync(pathData, svgOut, 'utf8');
+                fs.writeFileSync(pathCompare, expectedOut, "utf8");
+                fs.writeFileSync(pathData, svgOut, "utf8");
             } else {
-                fs.writeFileSync(pathCompare, svgOut, 'utf8');
+                fs.writeFileSync(pathCompare, svgOut, "utf8");
             }
             compareLog.push({
                 name: testName,
@@ -123,31 +123,58 @@ describe('svgWriter', function (){
         }
     }
 
+    function compareResultsWidthOM(svgOM, testName, testPath, options) {
+        var svgOut,
+            expectedOut,
+            path = "data/" + (testPath ? testPath + "/" : "") + testName;
+
+        svgOut = svgWriter.printSVG(svgOM, options || {});
+
+        try {
+            expectedOut = fs.readFileSync("./tests/" + path + ".svg", "utf8");
+        } catch (e) {
+            fs.writeFileSync("./tests/" + path + ".svg", svgOut, "utf8");
+            console.log("No reference SVG document found. New one created as " + path + ".svg");
+            return;
+        }
+
+        handleResults(_compareLogDoc, testName, expectedOut, svgOut, "./tests/" + path + ".svg", "./tests/data-compare/" + testName +".svg");
+
+        expect(svgOut).to.equal(expectedOut);
+    }
+
+    function compareResults(testName, testPath, options) {
+        var path = "data/" + (testPath ? testPath + "/" : "") + testName,
+            svgOM = require("./" + path + "-om.js");
+
+        compareResultsWidthOM(svgOM, testName, testPath, options);
+    }
+
 
     /**
      * Test extraction of masks to SVG
      **/
-    describe('Test extraction of masks to SVG', function () {
+    describe("Test extraction of masks to SVG", function () {
 
         function compareResults (testName) {
             var svgOM,
                 svgOut,
                 expectedOut,
                 svgWriterErrors = [],
-                path = 'data/mask/' + testName;
+                path = "data/mask/" + testName;
 
-            svgOM = JSON.parse(fs.readFileSync('./tests/' + path + '-om.json'));
+            svgOM = JSON.parse(fs.readFileSync("./tests/" + path + "-om.json"));
             svgOut = svgWriter.printSVG(svgOM);
 
             try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+                expectedOut = fs.readFileSync("./tests/" + path + ".svg", "utf8");
             } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                fs.writeFileSync("./tests/" + path + ".svg", svgOut, "utf8");
+                console.log("No reference SVG document found. New one created as " + testName + ".svg");
                 return svgOut;
             }
 
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, "./tests/" + path + ".svg", "./tests/data-compare/" + testName + ".svg");
 
             expect(svgOut).to.equal(expectedOut);
             return svgOut;
@@ -161,120 +188,78 @@ describe('svgWriter', function (){
     });
 
     /**
-     * Test extraction of masks to SVG
+     * Test extraction of clipping paths to SVG
      **/
-    describe('Test extraction of clipPath to SVG', function () {
+    describe("Test extraction of clipPath to SVG", function () {
+        it("Clipping path extraction 1", function () {
+            compareResults("clipPath-1", "clipPath");
+        });
 
-        function compareResults (testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                svgWriterErrors = [],
-                path = 'data/clipPath/' + testName;
+        it("Clipping path extraction 2", function () {
+            compareResults("clipPath-2", "clipPath");
+        });
 
-            svgOM = JSON.parse(fs.readFileSync('./tests/' + path + '-om.js'));
-            svgOut = svgWriter.printSVG(svgOM);
+        it("Clipping path extraction 3", function () {
+            compareResults("clipPath-3", "clipPath");
+        });
 
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
+        it("Clipping path extraction 4", function () {
+            compareResults("clipPath-4", "clipPath");
+        });
 
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
+        it("Clipping path extraction 5", function () {
+            compareResults("clipPath-5", "clipPath");
+        });
 
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
+        it("Clipping path extraction 6", function () {
+            compareResults("clipPath-6", "clipPath");
+        });
 
-        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5", "clipPath-6", "clipPath-7"];
-
-        for (var i = 0, end = database.length; i < end; i++) {
-            compareResults(database[i]);
-        }
+        it("Clipping path extraction 7", function () {
+            compareResults("clipPath-7", "clipPath");
+        });
     });
 
     /**
      * Test extraction of patterns to SVG
      **/
-    describe('Test extraction of patterns to SVG', function () {
+    describe("Test extraction of patterns to SVG", function () {
+        it("normal pattern reference", function () {
+            compareResults("pattern-1", "pattern");
+        });
 
-        function compareResults (testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                svgWriterErrors = [],
-                path = 'data/pattern/' + testName;
+        it("pattern with viewBox", function () {
+            compareResults("pattern-2", "pattern");
+        });
 
-            svgOM = JSON.parse(fs.readFileSync('./tests/' + path + '-om.js'));
-            svgOut = svgWriter.printSVG(svgOM);
+        it("normal pattern reference", function () {
+            compareResults("pattern-3", "pattern");
+        });
 
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        var database = ["pattern-1", "pattern-2", "pattern-3", "pattern-4"];
-
-        for (var i = 0, end = database.length; i < end; i++) {
-            compareResults(database[i]);
-        }
+        it("multiple pattern", function () {
+            compareResults("pattern-4", "pattern");
+        });
     });
 
     /**
      * Test extraction of all layers to SVG
      **/
-    describe('Test extraction of all layers to SVG', function () {
-
-        function compareResults (layerId, testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                svgWriterErrors = [],
-                path = 'data/' + testName + '/' + testName + '-' + layerId;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, {
-                        trimToArtBounds: true,
-                        preserveAspectRatio: "xMidYMid",
-                        scale: 1,
-                        constrainToDocBounds: true
-                    }, svgWriterErrors);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '-' + layerId + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName + '-' + layerId + '.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
+    describe("Test extraction of all layers to SVG", function () {
         function runJSONLayerToOMExtractionTest (layer, testName, skipTest) {
+            var options = {
+                    trimToArtBounds: true,
+                    preserveAspectRatio: "xMidYMid",
+                    scale: 1,
+                    constrainToDocBounds: true
+                };
 
             if (skipTest) {
-                it.skip('Extract ' + layer.id + ' from ' + testName, function () {
-                    compareResults(layer.id, testName);
+                it.skip("Extract " + layer.id + " from " + testName, function () {
+                    compareResults(testName + "-" + layer.id, testName, options);
                 });
             } else {
-                it('Extract layer ' + layer.id + ' from ' + testName, function () {
-                    compareResults(layer.id, testName);
+                it("Extract layer " + layer.id + " from " + testName, function () {
+                    compareResults(testName + "-" + layer.id, testName, options);
                 });
             }
 
@@ -288,12 +273,12 @@ describe('svgWriter', function (){
         }
 
         function setupTesting (testName, desc, skipTest) {
-            var testData = require('./data/' + testName + '-data.js');
+            var testData = require("./data/" + testName + "-data.js");
             if (!testData.layers) {
-                console.log('Warning: PSD does not have any layers.')
+                console.log("Warning: PSD does not have any layers.");
             }
 
-            if (!fs.existsSync('./tests/data/' + testName)) {
+            if (!fs.existsSync("./tests/data/" + testName)) {
                 console.log("Error: Expected layer OM data for " + testName);
                 return;
             }
@@ -319,51 +304,26 @@ describe('svgWriter', function (){
     /**
      * Test individual OM object extraction
      **/
-    describe('Test individual OM object extraction', function (){
-
-
+    describe("Test individual OM object extraction", function (){
         function compareResultsExport (testName, aTestData) {
             var testData,
                 svgOM,
-                svgOut,
-                expectedOut,
-                svgFilename,
-                omOpt,
-                scale,
-                svgWriterErrors,
-                i;
-
-            for (i = 0; i + 2 < aTestData.length; i = i + 3) {
-
-                omOpt = { layerSpec: aTestData[i] };
-                testData = require("./data/" + testName + "/" + aTestData[i + 1] + "-data.js");
-                svgFilename = "./tests/data/" + testName + "/" + aTestData[i + 1] + ".svg";
-
-                scale = aTestData[i + 2];
-                svgWriterErrors = [];
-
-                svgOM = OMG.extractSVGOM(testData, omOpt);
-
-                svgOut = svgWriter.printSVG(svgOM, {
+                i,
+                options = {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
-                    scale: scale,
+                    scale: 1,
                     constrainToDocBounds: true
-                }, svgWriterErrors);
+                };
 
-                try {
-                   expectedOut = fs.readFileSync(svgFilename, 'utf8');
-                } catch(er) {
-                    fs.writeFileSync(svgFilename, svgOut, 'utf8');
-                    console.log('No reference SVG document found. New one created as ' + aTestData[i + 1] + '.svg');
-                    continue;
-                }
+            for (i = 0; i + 2 < aTestData.length; i = i + 3) {
+                testData = require("./data/" + testName + "/" + aTestData[i + 1] + "-data.js");
 
-                handleResults(_compareLogSubtree, testName + "/" + aTestData[i + 1], expectedOut, svgOut, './tests/data/' + testName + '/' + aTestData[i + 1] + '.svg', './tests/data-compare/' + testName + "-" + aTestData[i + 1] + '.svg');
+                options.scale = aTestData[i + 2];
+                svgOM = OMG.extractSVGOM(testData, { layerSpec: aTestData[i] });
 
-                expect(svgOut).to.equal(expectedOut);
+                compareResultsWidthOM(svgOM, aTestData[i + 1], testName, options);
             }
-            return svgOut;
         }
 
         it("should align text properly inside a paragraph", function () {
@@ -404,40 +364,21 @@ describe('svgWriter', function (){
     /**
      * Test text alignment
      **/
-    describe("Test text alignment of individual layers", function (){
-
-
+    describe("Test text alignment of individual layers", function () {
         function compareResultsExport (testName, layerID) {
             var testData,
                 svgOM,
-                svgOut,
-                expectedOut,
-                svgFilename;
+                options = {
+                    constrainToDocBounds: true,
+                    preserveAspectRatio: "xMidYMid",
+                    scale: 1,
+                    trimToArtBounds: true
+                };
 
             testData = require("./data/" + testName + "-data.json");
-            svgFilename = "./tests/data/" + testName + "-" + layerID + ".svg";
-
             svgOM = OMG.extractSVGOM(testData, { layerSpec: layerID });
 
-            svgOut = svgWriter.printSVG(svgOM, {
-                constrainToDocBounds: true,
-                preserveAspectRatio: "xMidYMid",
-                scale: 1,
-                trimToArtBounds: true
-            });
-
-            try {
-               expectedOut = fs.readFileSync(svgFilename, "utf8");
-            } catch(er) {
-                fs.writeFileSync(svgFilename, svgOut, "utf8");
-                console.log('No reference SVG document found. New one created as ' + testName + "-" + layerID + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogSubtree, testName + "-" + layerID, expectedOut, svgOut, './tests/data/' + testName + "-" + layerID + '.svg', './tests/data-compare/' + testName + "-" + layerID + '.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
+            compareResultsWidthOM(svgOM, testName + "-" + layerID, "", options);
         }
 
         it("should position left aligned text correctly", function () {
@@ -458,27 +399,6 @@ describe('svgWriter', function (){
      * Test complete OM to SVG extraction
      **/
     describe("Test complete OM to SVG extraction", function () {
-        function compareResults (testName) {
-            var svgOM,
-                expectedOut;
-
-            svgOM = require("./data/" + testName + "-om.js");
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/data/' + testName + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/' + testName + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/data/' + testName + '.svg', './tests/data-compare/' + testName + '.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
         function runCompleteOMToSVGExtractionTest(name, desc, skipTest, isLastTest) {
             if (skipTest) {
                 it.skip("Entire OM ⇒ SVG for " + name, function () {
@@ -512,183 +432,16 @@ describe('svgWriter', function (){
      **/
     describe("Test polygon, polyline and line shapes", function () {
         it("polygons, polylines and lines should be transformed to SVG", function () {
-            var svgOM = {
-                global: {
-                    bounds: {
-                        left: 0,
-                        right: 400,
-                        top: 0,
-                        bottom: 500
-                    }
-                },
-                children:[
-                    {
-                        type: "shape",
-                        visible: true,
-                        visualBounds: {
-                            left: 100,
-                            right: 200,
-                            top: 100,
-                            bottom: 200
-                        },
-                        shape: {
-                            type: "polygon",
-                            points: [
-                                {
-                                    x: 100,
-                                    y: 200
-                                },
-                                {
-                                    x: 150,
-                                    y: 100
-                                },
-                                {
-                                    x: 200,
-                                    y: 100
-                                },
-                                {
-                                    x: 200,
-                                    y: 200
-                                },
-                                {
-                                    x: 100,
-                                    y: 200
-                                }
-                            ]
-                        },
-                        style: {
-                            fill: {
-                                type: "solid",
-                                color: {
-                                    r: 0,
-                                    g: 0,
-                                    b: 0,
-                                    a: 1
-                                }
-                            }
-                        }
-                    },
-                    {
-                        type: "shape",
-                        visible: true,
-                        visualBounds: {
-                            left: 100,
-                            right: 200,
-                            top: 100,
-                            bottom: 200
-                        },
-                        shape: {
-                            type: "polyline",
-                            points: [
-                                {
-                                    x: 100,
-                                    y: 150
-                                },
-                                {
-                                    x: 150,
-                                    y: 100
-                                },
-                                {
-                                    x: 200,
-                                    y: 100
-                                },
-                                {
-                                    x: 200,
-                                    y: 200
-                                },
-                                {
-                                    x: 100,
-                                    y: 200
-                                }
-                            ]
-                        },
-                        style: {
-                            fill: {
-                                type: "solid",
-                                color: {
-                                    r: 0,
-                                    g: 0,
-                                    b: 0,
-                                    a: 1
-                                }
-                            }
-                        }
-                    },
-                    {
-                        type: "shape",
-                        visible: true,
-                        visualBounds: {
-                            left: 100,
-                            right: 200,
-                            top: 300,
-                            bottom: 400
-                        },
-                        shape: {
-                            type: "line",
-                            x1: 100,
-                            y1: 400,
-                            x2: 200,
-                            y2: 300
-                        },
-                        style: {
-                            fill: {
-                                type: "solid",
-                                color: {
-                                    r: 0,
-                                    g: 0,
-                                    b: 0,
-                                    a: 1
-                                }
-                            }
-                        }
-                    },
-                ]
-            },
-            expectedOut,
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/data/polygon-line.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/polygon-line.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as polygon-line.svg');
-                return;
-            }
-
-            expect(svgOut).to.equal(expectedOut);
-            return;
+            compareResults("polygon-line");
         });
     });
 
     /**
      * Test radial gradient with focal point
      **/
-    describe('Test radial gradient with focal point', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                expectedOut,
-                path = 'data/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test variation of focal points', function () {
-            compareResults('radial-gradient-focal');
+    describe("Test radial gradient with focal point", function () {
+        it("Test variation of focal points", function () {
+            compareResults("radial-gradient-focal");
         });
     });
 
@@ -697,20 +450,9 @@ describe('svgWriter', function (){
      **/
     describe("Test export to presentation attribute", function () {
         it("should export without style blocks", function () {
-            var svgOM = require('./data/stroke-fx-2-om.js'),
-                expectedOut,
-                svgOut = svgWriter.printSVG(svgOM, {usePresentationAttribute: true});
+            var svgOM = require("./data/stroke-fx-2-om.js");
 
-            try {
-                expectedOut = fs.readFileSync('./tests/data/stroke-fx-pres-attr.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/stroke-fx-pres-attr.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as stroke-fx-pres-attr.svg');
-                return;
-            }
-
-            expect(svgOut).to.equal(expectedOut);
-            return;
+            compareResultsWidthOM(svgOM, "stroke-fx-pres-attr", "", { usePresentationAttribute: true });
         });
     });
 
@@ -719,20 +461,7 @@ describe('svgWriter', function (){
      **/
     describe("Test that groups with styles are preserved", function () {
         it("group has opacity", function () {
-            var svgOM = require('./data/group-opacity-om.js'),
-                expectedOut,
-                svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/data/group-opacity.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/group-opacity.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as group-opacity.svg');
-                return;
-            }
-
-            expect(svgOut).to.equal(expectedOut);
-            return;
+            compareResults("group-opacity");
         });
     });
 
@@ -740,245 +469,17 @@ describe('svgWriter', function (){
      * Test termination of rendering on visible: false.
      **/
     describe("Test termination of rendering on visible: false", function () {
+        var options = {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid"
+            };
+
         it("should not render circle", function () {
-            var svgOM1 = {
-                global: {
-                    viewBox: {
-                        left: 0,
-                        right: 400,
-                        top: 0,
-                        bottom: 500
-                    }
-                },
-                children:[
-                    {
-                        type: "shape",
-                        visible: false,
-                        visualBounds: {
-                            left: 50,
-                            right: 150,
-                            top: 50,
-                            bottom: 150
-                        },
-                        shape: {
-                            type: "circle",
-                            cx: 100,
-                            cy: 100,
-                            r: 50
-                        },
-                        style: {
-                            stroke: {
-                                type: "solid",
-                                color: {r:255,g:0,b:0,a:1},
-                                width: 10,
-                                "stroke-opacity": 1
-                            }
-                        }
-                    },
-                    {
-                        type: "shape",
-                        visible: true,
-                        visualBounds: {
-                            left: 100,
-                            right: 300,
-                            top: 100,
-                            bottom: 300
-                        },
-                        shape: {
-                            type: "rect",
-                            x: 100,
-                            y: 100,
-                            width: 200,
-                            height: 200
-                        },
-                        style: {
-                            fill: {
-                                type: "solid",
-                                color: {
-                                    r: 0,
-                                    g: 0,
-                                    b: 0,
-                                    a: 1
-                                }
-                            },
-                            stroke: {
-                                type: "solid",
-                                color: {r:0,g:0,b:0,a:1},
-                                width: 10,
-                                dash: [0,4],
-                                "dash-offset": 10
-                            }
-                        }
-                    },
-                ]
-            },
-            svgOM2 = {
-                global: {
-                    viewBox: {
-                        left: 0,
-                        right: 400,
-                        top: 0,
-                        bottom: 500
-                    },
-                    masks: {
-                        "mask1": {
-                            "children": [{
-                                "id": "shape-3",
-                                "type": "shape",
-                                "style": {
-                                    "fill": {
-                                        "type": "solid",
-                                        "color": {
-                                            "r": 0,
-                                            "g": 113.686632,
-                                            "b": 187.776986,
-                                            "a": 1
-                                        }
-                                    }
-                                },
-                                "children": [],
-                                "title": "Rectangle 1",
-                                "visualBounds": {
-                                    "top": 67,
-                                    "left": 130,
-                                    "bottom": 245,
-                                    "right": 309
-                                },
-                                "shape": {
-                                    "type": "rect",
-                                    "x": 130,
-                                    "y": 67,
-                                    "width": 179,
-                                    "height": 179
-                                }
-                            }],
-                            "type": "mask",
-                            "kind": "opacity"
-                        },
-                        "mask2": {
-                            "children": [{
-                                "id": "shape-4",
-                                "type": "shape",
-                                "visible": false,
-                                "style": {
-                                    "fill": {
-                                        "type": "solid",
-                                        "color": {
-                                            "r": 0,
-                                            "g": 113.686632,
-                                            "b": 187.776986,
-                                            "a": 1
-                                        }
-                                    }
-                                },
-                                "children": [],
-                                "title": "Rectangle 1",
-                                "visualBounds": {
-                                    "top": 67,
-                                    "left": 130,
-                                    "bottom": 245,
-                                    "right": 309
-                                },
-                                "shape": {
-                                    "type": "rect",
-                                    "x": 130,
-                                    "y": 67,
-                                    "width": 179,
-                                    "height": 179
-                                }
-                            }],
-                            "type": "mask",
-                            "kind": "opacity"
-                        }
-                    }
-                },
-                children:[
-                    {
-                        type: "shape",
-                        visible: false,
-                        visualBounds: {
-                            left: 50,
-                            right: 150,
-                            top: 50,
-                            bottom: 150
-                        },
-                        shape: {
-                            type: "circle",
-                            cx: 100,
-                            cy: 100,
-                            r: 50
-                        },
-                        style: {
-                            stroke: {
-                                type: "solid",
-                                color: {r:255,g:0,b:0,a:1},
-                                width: 10,
-                                "stroke-opacity": 1,
-                            },
-                            mask: "mask1"
-                        }
-                    },
-                    {
-                        type: "shape",
-                        visualBounds: {
-                            left: 100,
-                            right: 300,
-                            top: 100,
-                            bottom: 300
-                        },
-                        shape: {
-                            type: "rect",
-                            x: 100,
-                            y: 100,
-                            width: 200,
-                            height: 200
-                        },
-                        style: {
-                            mask: "mask2",
-                            fill: {
-                                type: "solid",
-                                color: {
-                                    r: 0,
-                                    g: 0,
-                                    b: 0,
-                                    a: 1
-                                }
-                            }
-                        }
-                    },
-                ]
-            },
-            expectedOut1,
-            expectedOut2,
-            svgOut1 = svgWriter.printSVG(svgOM1, {
-                trimToArtBounds: true,
-                preserveAspectRatio: "xMidYMid"
-            }),
-            svgOut2 = svgWriter.printSVG(svgOM2, {
-                trimToArtBounds: true,
-                preserveAspectRatio: "xMidYMid"
-            });
+            compareResults("invisible-circle", "", options);
+        });
 
-            try {
-                expectedOut1 = fs.readFileSync('./tests/data/invisible-circle.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/invisible-circle.svg', svgOut1, 'utf8');
-                console.log('No reference SVG document found. New one created as invisible-circle.svg');
-                return;
-            }
-
-            expect(svgOut1).to.equal(expectedOut1);
-
-            try {
-                expectedOut2 = fs.readFileSync('./tests/data/invisible-with-mask.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/invisible-with-mask.svg', svgOut2, 'utf8');
-                console.log('No reference SVG document found. New one created as invisible-with-mask.svg');
-                return;
-            }
-
-            expect(svgOut2).to.equal(expectedOut2);
-            return;
+        it("should not render invisible shape with mask", function () {
+            compareResults("invisible-with-mask", "", options);
         });
     });
 
@@ -986,61 +487,13 @@ describe('svgWriter', function (){
      * Test scale factors.
      **/
     describe("Test polygon and line shapes", function () {
-        it("polygons and lines should be transformed to SVG", function () {
-            var svgOM = {
-                global: {
-                    viewBox: {
-                        left: 0,
-                        right: 600,
-                        top: 0,
-                        bottom: 600
-                    },
-                    bounds: {
-                        left: 0,
-                        right: 600,
-                        top: 0,
-                        bottom: 600
-                    }
-                },
-                children:[
-                    {
-                        type: "shape",
-                        visualBounds: {
-                            left: 100,
-                            right: 300,
-                            top: 100,
-                            bottom: 200
-                        },
-                        shape: {
-                            type: "rect",
-                            x: 100,
-                            y: 100,
-                            width: 200,
-                            height: 100
-                        },
-                        style: {
-                            fill: {
-                                type: "solid",
-                                color: {
-                                    r: 0,
-                                    g: 0,
-                                    b: 0,
-                                    a: 1
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            expectedOut1,
-            svgOut1 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
+        var options1 = {
                 trimToArtBounds: true,
                 preserveAspectRatio: "xMidYMid",
                 scale: 2,
                 constrainToDocBounds: true
-            }),
-            expectedOut2,
-            svgOut2 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
+            },
+            options2 = {
                 trimToArtBounds: true,
                 preserveAspectRatio: "xMidYMid",
                 scale: 2,
@@ -1049,162 +502,65 @@ describe('svgWriter', function (){
                     width: 600,
                     height: 300
                 }
-            });
+            };
 
-            try {
-                expectedOut1 = fs.readFileSync('./tests/data/scale-1.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/scale-1.svg', svgOut1, 'utf8');
-                console.log('No reference SVG document found. New one created as scale-1.svg');
-                return;
-            }
-            expect(svgOut1).to.equal(expectedOut1);
+        it("polygons and lines should be transformed to SVG 1", function () {
+            compareResults("scale-1", "", options1);
+        });
 
-            try {
-                expectedOut2 = fs.readFileSync('./tests/data/scale-2.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/scale-2.svg', svgOut2, 'utf8');
-                console.log('No reference SVG document found. New one created as scale-2.svg');
-                return;
-            }
-            expect(svgOut2).to.equal(expectedOut2);
-            return;
+        it("polygons and lines should be transformed to SVG 2", function () {
+            compareResults("scale-2", "", options2);
         });
     });
 
     /**
      * Test minification of SVG output
      **/
-    describe('Test minification of SVG output', function () {
+    describe("Test minification of SVG output", function () {
 
-        function compareResults (testName) {
-            var svgOM,
-                expectedOut,
-                path = 'data/' + testName;
+        function compareMinifyResults (testName) {
+            var svgOM = require("./data/" + testName + "-om.js");
 
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, {minify: true});
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '-minify.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '-minify.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '-minify.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName + '-minify', expectedOut, svgOut, './tests/' + path + '-minify.svg', './tests/data-compare/' + testName +'-minify.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
+            compareResultsWidthOM(svgOM, testName + "-minify", "", { minify: true });
         }
 
-        it('Test minification of SVG output with gradient', function () {
-            compareResults('gradient-scale-2');
+        it("Test minification of SVG output with gradient", function () {
+            compareMinifyResults("gradient-scale-2");
         });
 
-        it('Test minification of SVG output with filters', function () {
-            compareResults('multi-layer-fx-5');
+        it("Test minification of SVG output with filters", function () {
+            compareMinifyResults("multi-layer-fx-5");
         });
 
-        it('Test minification of SVG output with clip-path', function () {
-            compareResults('clipPath-1');
+        it("Test minification of SVG output with clip-path", function () {
+            compareMinifyResults("clipPath-1");
         });
     });
 
     /**
      * Test gradient transform
      **/
-    describe('Test gradient transform', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                expectedOut,
-                path = 'data/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test transform on gradient', function () {
-            compareResults('gradient-transform');
+    describe("Test gradient transform", function () {
+        it("Test transform on gradient", function () {
+            compareResults("gradient-transform");
         });
     });
 
     /**
      * Test image processing
      **/
-    describe('Test image processing', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                expectedOut,
-                path = 'data/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Objects of type "image" are recognized', function () {
-            compareResults('image');
+    describe("Test image processing", function () {
+        it("Objects of type 'image' are recognized", function () {
+            compareResults("image");
         });
     });
 
     /**
      * Test that focal point on/outside gradient radius gets moved.
      **/
-    describe('Test that focal point on/outside gradient radius gets moved', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                expectedOut,
-                path = 'data/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Focal point on radius gets moved', function () {
-            compareResults('focal-point-on-radius');
+    describe("Test that focal point on/outside gradient radius gets moved", function () {
+        it("Focal point on radius gets moved", function () {
+            compareResults("focal-point-on-radius");
         });
     });
 
@@ -1213,58 +569,9 @@ describe('svgWriter', function (){
      **/
     describe("Test empty groups", function () {
         it("printSVG should not throw on empty groups", function () {
-            var svgOM = {"children": [
-                    {
-                        "children": [],
-                        "id": "just-circles",
-                        "title": "",
-                        "type": "group",
-                        "visible": true
-                    },
-                    {
-                        "id": "red-rect",
-                        "shape": {
-                            "height": 58.2535,
-                            "r": [
-                                0,
-                                0,
-                                0,
-                                0
-                            ],
-                            "type": "rect",
-                            "width": 233.099,
-                            "x": 18.6056,
-                            "y": 29.4085
-                        },
-                        "shapeBounds": {
-                            "bottom": 200,
-                            "left": 100,
-                            "right": 200,
-                            "top": 100
-                        },
-                        "title": "",
-                        "type": "shape",
-                        "visible": true
-                    }
-                ],
-                "global": {
-                    "bounds": {
-                        "bottom": 653.761,
-                        "left": 3.9507,
-                        "right": 576.93,
-                        "top": -23.9085
-                    },
-                    "viewBox": {
-                        "bottom": 653.761,
-                        "left": 3.9507,
-                        "right": 576.93,
-                        "top": -23.9085
-                    }
-                },
-                "title": "layers",
-                "version": "0.1.0"
-            };
-            expect(svgWriter.printSVG(svgOM)).to.not.equal('');
+            var svgOM = require("./data/custom/empty-group-om.js");
+
+            expect(svgWriter.printSVG(svgOM)).to.not.equal("");
         });
     });
 
@@ -1273,61 +580,7 @@ describe('svgWriter', function (){
      **/
     describe("Test fill: none", function () {
         it("If fill was set to 'none', it should not fallback to black.", function () {
-            var svgOM = {
-                "title": "generatedAsset",
-                "version": "0.1.0",
-                "global": {
-                    "bounds": {
-                        "top": 9.00,
-                        "left": 177.00,
-                        "bottom": 127.00,
-                        "right": 297.00
-                    },
-                    "viewBox": {
-                        "top": 9.00,
-                        "left": 177.00,
-                        "bottom": 127.00,
-                        "right": 297.00
-                    }
-                },
-                "children": [
-                    {
-                        "type": "shape",
-                        "shape": {
-                            "type": "ellipse",
-                            "cx": 237.00,
-                            "cy": 68.00,
-                            "ry": 56.00,
-                            "rx": 57.00
-                        },
-                        "style": {
-                            "fill": {
-                                "type": "none"
-                            },
-                            "stroke": {
-                                "width": 14.47,
-                                "type": "solid",
-                                "color": {
-                                    "r": 255.00,
-                                    "g": 0.00,
-                                    "b": 0.00
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            expectedOut,
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/data/fill-none.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/data/fill-none.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as fill-none.svg');
-                return;
-            }
-            expect(svgOut).to.equal(expectedOut);
+            compareResults("fill-none");
         });
     });
 
@@ -1335,217 +588,79 @@ describe('svgWriter', function (){
      * Test precision parameter
      **/
     describe("Test precision parameter", function () {
+        function comparePrecisionResults(precision) {
+            var svgOM = require("./data/precision-om.json");
 
-        function test(precision) {
-            var svgOM,
-                svgOut,
-                expectedOut;
-
-            svgOM = require("./data/precision-om.json");
-            svgOut = svgWriter.printSVG(svgOM, {precision: precision});
-
-            try {
-                expectedOut = fs.readFileSync("./tests/data/precision-" + precision + ".svg", "utf8");
-            } catch (e) {
-                fs.writeFileSync("./tests/data/precision-" + precision + ".svg", svgOut, "utf8");
-                console.log("No reference SVG document found. New one created as precision-" + precision + ".svg");
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, "precision-" + precision, expectedOut, svgOut, "./tests/data/precision-" + precision + ".svg", "./tests/data-compare/precision-" + precision + ".svg");
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
+            compareResultsWidthOM(svgOM, "precision-" + precision, "", { precision: precision });
         }
 
         it("Test with precision 3", function () {
-            test(3);
+            comparePrecisionResults(3);
         });
         it("Test with precision 0", function () {
-            test(0);
+            comparePrecisionResults(0);
         });
         it("Test with precision 5", function () {
-            test(5);
+            comparePrecisionResults(5);
         });
         it("Test with precision 1", function () {
-            test(1);
+            comparePrecisionResults(1);
         });
         it("Test with undefined precision", function () {
-            test();
+            comparePrecisionResults();
         });
     });
 
     /**
      * Test options for idGenerator
      **/
-    describe('Test options for idGenerator', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                path = 'data/idGenerator/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, {idType: "unique"});
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it.skip('Test unique ID generation', function () {
-            compareResults('unique-id');
+    describe("Test options for idGenerator", function () {
+        it.skip("Test unique ID generation", function () {
+            compareResults("unique-id", "idGenerator", { idType: "unique" });
         });
     });
 
     /**
      * Test transform on groups
      **/
-    describe('Test transform on groups', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                path = 'data/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test transform attribute on group', function () {
-            compareResults('group-transform');
+    describe("Test transform on groups", function () {
+        it("Test transform attribute on group", function () {
+            compareResults("group-transform");
         });
     });
 
     /**
      * Test symbols
      **/
-    describe('Test symbols', function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                path = 'data/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test references with symbol', function () {
-            compareResults('symbol');
+    describe("Test symbols", function () {
+        it("Test references with symbol", function () {
+            compareResults("symbol");
         });
     });
 
     /**
      * Test gradient objectBoundingBox
      **/
-    describe('Test gradient objectBoundingBox', function () {
+    describe("Test gradient objectBoundingBox", function () {
+        var options = {
+                cropRect: {
+                    width: 300,
+                    height: 300
+                },
+                trimToArtBounds: true,
+                constrainToDocBounds: true
+            };
 
-        function compareResults (testName, isArtboard) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                path = 'data/gradient/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(
-                svgOM,
-                {
-                    cropRect: {
-                        width: 300,
-                        height: 300
-                    },
-                    trimToArtBounds: true,
-                    constrainToDocBounds: true
-                }
-            );
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test cropping on ellipse exceeding document bounds 1', function () {
-            compareResults("gradient-obb");
+        it("Test cropping on ellipse exceeding document bounds 1", function () {
+            compareResults("gradient-obb", "gradient", options);
         });
     });
 
     /**
      * Test cropping
      **/
-    describe('Test cropping', function () {
-
-        function compareResults (testName, config) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                path = 'data/cropping/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, config);
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        var config1 = {
+    describe("Test cropping", function () {
+        var options1 = {
                 cropRect: {
                     width: 300,
                     height: 300
@@ -1553,7 +668,7 @@ describe('svgWriter', function (){
                 trimToArtBounds: true,
                 constrainToDocBounds: true
             },
-            config2 = {
+            options2 = {
                 cropRect: {
                     width: 200,
                     height: 200
@@ -1561,303 +676,118 @@ describe('svgWriter', function (){
                 scale: 0.5
             };
 
-        it('Test cropping on ellipse exceeding document bounds 1', function () {
-            compareResults("ellipse-past-doc-1", config1);
+        it("Test cropping on ellipse exceeding document bounds 1", function () {
+            compareResults("ellipse-past-doc-1", "cropping", options1);
         });
 
-        it('Test cropping on ellipse exceeding document bounds 2', function () {
-            compareResults("ellipse-past-doc-2", config1);
+        it("Test cropping on ellipse exceeding document bounds 2", function () {
+            compareResults("ellipse-past-doc-2", "cropping", options1);
         });
 
-        it('Test cropping on ellipse exceeding document bounds 3', function () {
-            compareResults("ellipse-past-doc-3", config2);
+        it("Test cropping on ellipse exceeding document bounds 3", function () {
+            compareResults("ellipse-past-doc-3", "cropping", options2);
         });
     });
 
     /**
      * Test artboard cropping
      **/
-    describe('Test artboard cropping', function () {
+    describe("Test artboard cropping", function () {
+        var options = {
+                artboardBounds: {
+                    "top": 900,
+                    "left": 900,
+                    "bottom": 1300,
+                    "right": 1300
+                },
+                cropRect: {
+                    width: 300,
+                    height: 300
+                },
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 1,
+                constrainToDocBounds: true,
+                clipToArtboardBounds: true,
+            };
 
-        function compareResults (testName, isArtboard) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                path = 'data/artboard-cropping/' + testName;
-
-            svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(
-                svgOM,
-                {
-                    artboardBounds: {
-                        "top": 900,
-                        "left": 900,
-                        "bottom": 1300,
-                        "right": 1300
-                    },
-                    cropRect: {
-                        width: 300,
-                        height: 300
-                    },
-                    trimToArtBounds: true,
-                    preserveAspectRatio: "xMidYMid",
-                    scale: 1,
-                    constrainToDocBounds: true,
-                    clipToArtboardBounds: true,
-                    isArtboard: isArtboard
-                }
-            );
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test extracting ellipse-1 from artboard', function () {
-            compareResults("ellipse-1");
+        it("Test extracting ellipse-1 from artboard", function () {
+            compareResults("ellipse-1", "artboard-cropping", options);
         });
-        it('Test extracting ellipse-2 from artboard', function () {
-            compareResults("ellipse-2");
+        it("Test extracting ellipse-2 from artboard", function () {
+            compareResults("ellipse-2", "artboard-cropping", options);
         });
-        it('Test extracting ellipse-3 from artboard', function () {
-            compareResults("ellipse-3");
+        it("Test extracting ellipse-3 from artboard", function () {
+            compareResults("ellipse-3", "artboard-cropping", options);
         });
-        it('Test extracting ellipse-4 from artboard', function () {
-            compareResults("ellipse-4");
+        it("Test extracting ellipse-4 from artboard", function () {
+            compareResults("ellipse-4", "artboard-cropping", options);
         });
-        it('Test extracting artboard', function () {
-            compareResults("artboard", true);
+        it("Test extracting artboard", function () {
+            options.isArtboard = true;
+            compareResults("artboard", "artboard-cropping", options);
         });
     });
 
     /**
      * Test isResponsive
      **/
-    describe('Test isResponsive', function () {
+    describe("Test isResponsive", function () {
+        var options = {
+                trimToArtBounds: true,
+                isResponsive: true
+            };
 
-        function compareResults (testName, isArtboard) {
-            var svgOut,
-                expectedOut,
-                path = 'data/responsive/' + testName,
-                svgOM = {
-                    "title": "generatedAsset",
-                    "version": "0.1.0",
-                    "global": {
-                        "bounds": {
-                            "top": 0,
-                            "left": 0,
-                            "bottom": 400,
-                            "right": 400
-                        }
-                    },
-                    "children": [
-                        {
-                            "type": "shape",
-                            "shape": {
-                                "type": "ellipse",
-                                "cx": 105,
-                                "cy": 155,
-                                "ry": 150,
-                                "rx": 100
-                            },
-                            "style": {
-                                "stroke": {
-                                    "width": 10,
-                                    "type": "solid",
-                                    "color": {
-                                        "r": 0,
-                                        "g": 127,
-                                        "b": 0
-                                    }
-                                }
-                            },
-                            "visualBounds": {
-                                "left": 5,
-                                "right": 305,
-                                "top": 5,
-                                "bottom": 205
-                            }
-                        }
-                    ]
-                };
-            svgOut = svgWriter.printSVG(
-                svgOM,
-                {
-                    trimToArtBounds: true,
-                    isResponsive: true
-                }
-            );
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test isResponsive on trimmed-to-artbounds art.', function () {
-            compareResults("responsive");
+        it("Test isResponsive on trimmed-to-artbounds art.", function () {
+            compareResults("responsive", "responsive", options);
         });
     });
 
     /**
      * Test that name is not part of a style
      **/
-    describe('Test that name is not part of a style', function () {
-
-        function compareResults (testName) {
-            var svgOut,
-                expectedOut,
-                path = 'data/custom/' + testName,
-                svgOM = {
-                    "version": "0.1.0",
-                    "global": {
-                        "bounds": {
-                            "top": 0,
-                            "left": 0,
-                            "bottom": 200,
-                            "right": 200
-                        }
-                    },
-                    "children": [
-                        {
-                            "type": "shape",
-                            "shape": {
-                                "type": "circle",
-                                "cx": 100,
-                                "cy": 100,
-                                "r": 100
-                            },
-                            "style": {
-                                "name": "Shouldn't show up",
-                                "stroke": {
-                                    "width": 10,
-                                    "type": "solid",
-                                    "color": {
-                                        "r": 0,
-                                        "g": 127,
-                                        "b": 0
-                                    }
-                                }
-                            },
-                        }
-                    ]
-                };
-            svgOut = svgWriter.printSVG(svgOM, {});
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test that name is not part of a style sheet.', function () {
-            compareResults("style-name");
+    describe("Test that name is not part of a style", function () {
+        it("Test that name is not part of a style sheet.", function () {
+            compareResults("style-name", "custom");
         });
     });
 
     /**
      * Test shifting of groups with transform applied
      **/
-    describe('Test shifting of groups with transform applied', function () {
-
-        function compareResults (testName) {
-            var svgOut,
-                expectedOut,
-                path = 'data/custom/' + testName,
-                svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, {
+    describe("Test shifting of groups with transform applied", function () {
+        var options = {
                 trimToArtBounds: true
-            });
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
+            };
 
         it("Test that group is translated instead of leaves if it has transform.", function () {
-            compareResults("group-transform");
+            compareResults("group-transform", "custom", options);
         });
         it("Test that two elements sharing pattern wouldn’t cause style issues.", function () {
-            compareResults("double-pattern");
+            compareResults("double-pattern", "custom", options);
         });
         it("Test that masks get shifted correctly.", function () {
-            compareResults("mask");
+            compareResults("mask", "custom", options);
 		});
         it("Test that images get shifted.", function () {
-            compareResults("image");
+            compareResults("image", "custom", options);
         });
     });
 
     /**
      * Test that attributes of referencing gradient get overridden
      **/
-    describe('Test that attributes of referencing gradient get overridden', function () {
-
-        function compareResults (testName) {
-            var svgOut,
-                expectedOut,
-                path = 'data/custom/' + testName,
-                svgOM = require('./' + path + '-om.js');
-            svgOut = svgWriter.printSVG(svgOM, {});
-
-            try {
-                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
-            } catch (e) {
-                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
-                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
-        it('Test that gradientTransform overrides trasnform on referencing gradient', function () {
-            compareResults("pattern-gradient");
+    describe("Test that attributes of referencing gradient get overridden", function () {
+        it("Test that gradientTransform overrides trasnform on referencing gradient", function () {
+            compareResults("pattern-gradient", "custom");
         });
 
-        it('Test that x1-y1 overridde x1-y1 on referencing gradient', function () {
-            compareResults("gradient-1");
+        it("Test that x1-y1 overridde x1-y1 on referencing gradient", function () {
+            compareResults("gradient-1", "custom");
         });
 
-        it('Test that cx,cy,r overridde cx,cy,r on referencing gradient', function () {
-            compareResults("gradient-2");
+        it("Test that cx,cy,r overridde cx,cy,r on referencing gradient", function () {
+            compareResults("gradient-2", "custom");
         });
 
         it("Test global styles functionality", function () {
