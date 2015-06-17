@@ -162,11 +162,11 @@
             var gradient = {},
                 gradientRef = {},
                 gradientType = gradientRaw.type === "radial" ? "radial" : "linear",
-                scale = gradientRaw.scale ? gradientRaw.scale.value / 100 : 1;
+                scale = gradientRaw.scale ? gradientRaw.scale.value / 100 : 1,
 
-            // CSS uses clock orientation, PSDs use trig orientation
-            // both point an arrow in direction gradient extends.
-            var angle = 0;
+                // CSS uses clock orientation, PSDs use trig orientation
+                // both point an arrow in direction gradient extends.
+                angle = 0;
             if (gradientRaw.angle) {
                 angle += gradientRaw.angle.value;
             }
