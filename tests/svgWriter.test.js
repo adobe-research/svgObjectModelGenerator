@@ -155,68 +155,25 @@ describe("svgWriter", function (){
      * Test extraction of masks to SVG
      **/
     describe("Test extraction of masks to SVG", function () {
-
-        function compareResults (testName) {
-            var svgOM,
-                svgOut,
-                expectedOut,
-                svgWriterErrors = [],
-                path = "data/mask/" + testName;
-
-            svgOM = JSON.parse(fs.readFileSync("./tests/" + path + "-om.json"));
-            svgOut = svgWriter.printSVG(svgOM);
-
-            try {
-                expectedOut = fs.readFileSync("./tests/" + path + ".svg", "utf8");
-            } catch (e) {
-                fs.writeFileSync("./tests/" + path + ".svg", svgOut, "utf8");
-                console.log("No reference SVG document found. New one created as " + testName + ".svg");
-                return svgOut;
-            }
-
-            handleResults(_compareLogDoc, testName, expectedOut, svgOut, "./tests/" + path + ".svg", "./tests/data-compare/" + testName + ".svg");
-
-            expect(svgOut).to.equal(expectedOut);
-            return svgOut;
-        }
-
         var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6", "mask-7", "mask-8", "mask-9", "mask-10", "mask-11", "mask-12", "mask-13"];
 
-        for (var i = 0, end = database.length; i < end; i++) {
-            compareResults(database[i]);
-        }
+        database.forEach(function(item) {
+            it("test " + item, function () {
+                compareResults(item, "mask");
+            });
+        });
     });
 
     /**
      * Test extraction of clipping paths to SVG
      **/
     describe("Test extraction of clipPath to SVG", function () {
-        it("Clipping path extraction 1", function () {
-            compareResults("clipPath-1", "clipPath");
-        });
+        var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5", "clipPath-6", "clipPath-7"];
 
-        it("Clipping path extraction 2", function () {
-            compareResults("clipPath-2", "clipPath");
-        });
-
-        it("Clipping path extraction 3", function () {
-            compareResults("clipPath-3", "clipPath");
-        });
-
-        it("Clipping path extraction 4", function () {
-            compareResults("clipPath-4", "clipPath");
-        });
-
-        it("Clipping path extraction 5", function () {
-            compareResults("clipPath-5", "clipPath");
-        });
-
-        it("Clipping path extraction 6", function () {
-            compareResults("clipPath-6", "clipPath");
-        });
-
-        it("Clipping path extraction 7", function () {
-            compareResults("clipPath-7", "clipPath");
+        database.forEach(function(item) {
+            it("test " + item, function () {
+                compareResults(item, "clipPath");
+            });
         });
     });
 
@@ -224,20 +181,12 @@ describe("svgWriter", function (){
      * Test extraction of patterns to SVG
      **/
     describe("Test extraction of patterns to SVG", function () {
-        it("normal pattern reference", function () {
-            compareResults("pattern-1", "pattern");
-        });
+        var database = ["pattern-1", "pattern-2", "pattern-3", "pattern-4"];
 
-        it("pattern with viewBox", function () {
-            compareResults("pattern-2", "pattern");
-        });
-
-        it("normal pattern reference", function () {
-            compareResults("pattern-3", "pattern");
-        });
-
-        it("multiple pattern", function () {
-            compareResults("pattern-4", "pattern");
+        database.forEach(function(item) {
+            it("test " + item, function () {
+                compareResults(item, "pattern");
+            });
         });
     });
 
@@ -517,7 +466,6 @@ describe("svgWriter", function (){
      * Test minification of SVG output
      **/
     describe("Test minification of SVG output", function () {
-
         function compareMinifyResults (testName) {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/" +testName+ "-om.json"));
 
