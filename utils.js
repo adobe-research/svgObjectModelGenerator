@@ -780,7 +780,7 @@
                 }
             }
             return out;
-        }
+        };
         self.merge = function (o1, o2) {
             var out = self.clone(o1);
             for (var key in o2) {
@@ -793,8 +793,7 @@
                 }
             }
             return out;
-        }
-
+        };
     }
 
     module.exports = new Utils();
