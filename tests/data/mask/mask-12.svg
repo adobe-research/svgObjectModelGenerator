@@ -22,7 +22,7 @@
       <feComposite in="SourceGraphic" in2="only0"/>
       <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 -1 1"/>
     </filter>
-    <mask style="mask-type:alpha" id="mask-1">
+    <mask id="mask-1">
       <rect x="130" y="67" width="179" height="179" class="cls-1"/>
     </mask>
   </defs>
