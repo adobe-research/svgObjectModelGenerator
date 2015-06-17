@@ -82,7 +82,7 @@ describe('OMG validation', function (){
     });
 
     it("Group opacity OMG test", function () {
-        var OMG = require('./data/group-opacity-om.js'),
+        var OMG  = JSON.parse(fs.readFileSync("./tests/data/group-opacity-om.json")),
             result = v.validate(OMG, schema);
         
         for (var i = 0; i < result.errors.length; ++i)
@@ -92,7 +92,7 @@ describe('OMG validation', function (){
 
     describe("OMG validation of PS ⇒ OMG input", function () {
         function compareResults (testName) {
-            var OMG = require("./data/" + testName + "-om.js"),
+            var OMG = JSON.parse(fs.readFileSync("./tests/data/" +testName+ "-om.json")),
                 result = v.validate(OMG, schema);
 
             for (var i = 0; i < result.errors.length; ++i) {

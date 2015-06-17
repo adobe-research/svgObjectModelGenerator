@@ -145,7 +145,7 @@ describe("svgWriter", function (){
 
     function compareResults(testName, testPath, options) {
         var path = "data/" + (testPath ? testPath + "/" : "") + testName,
-            svgOM = require("./" + path + "-om.js");
+            svgOM = JSON.parse(fs.readFileSync("./tests/" + path + "-om.json"));
 
         compareResultsWidthOM(svgOM, testName, testPath, options);
     }
@@ -450,7 +450,7 @@ describe("svgWriter", function (){
      **/
     describe("Test export to presentation attribute", function () {
         it("should export without style blocks", function () {
-            var svgOM = require("./data/stroke-fx-2-om.js");
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/stroke-fx-2-om.json"));
 
             compareResultsWidthOM(svgOM, "stroke-fx-pres-attr", "", { usePresentationAttribute: true });
         });
@@ -519,7 +519,7 @@ describe("svgWriter", function (){
     describe("Test minification of SVG output", function () {
 
         function compareMinifyResults (testName) {
-            var svgOM = require("./data/" + testName + "-om.js");
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/" +testName+ "-om.json"));
 
             compareResultsWidthOM(svgOM, testName + "-minify", "", { minify: true });
         }
@@ -569,7 +569,7 @@ describe("svgWriter", function (){
      **/
     describe("Test empty groups", function () {
         it("printSVG should not throw on empty groups", function () {
-            var svgOM = require("./data/custom/empty-group-om.js");
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/empty-group-om.json"));
 
             expect(svgWriter.printSVG(svgOM)).to.not.equal("");
         });
@@ -589,7 +589,7 @@ describe("svgWriter", function (){
      **/
     describe("Test precision parameter", function () {
         function comparePrecisionResults(precision) {
-            var svgOM = require("./data/precision-om.json");
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/precision-om.json"));
 
             compareResultsWidthOM(svgOM, "precision-" + precision, "", { precision: precision });
         }
