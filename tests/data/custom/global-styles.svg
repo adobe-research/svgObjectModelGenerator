@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .\39 ½-weeks, .cls-1 {
+        fill: #d9e021;
+        stroke-width: 6px;
+      }
+
+      .\39 ½-weeks {
+        stroke: #c69c6d;
+      }
+
+      .\39 ½-weeks, .cls-1, .cls-2, .dots {
+        stroke-miterlimit: 10;
+      }
+
+      .\39 ½-weeks, .cls-1, .cls-2 {
+        opacity: 0.5;
+      }
+
+      .cls-1 {
+        stroke: red;
+      }
+
+      .brown\;\|\/\?\.\,\@\#\$\%\&amp;\*\(\)\~\&lt;\&gt; {
+        fill: #754c24;
+      }
+
+      .cls-2, .dots {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-width: 14px;
+        stroke-dasharray: 0.001 20.363;
+      }
+    </style>
+  </defs>
+  <g>
+    <circle cx="113.5" cy="228.5" r="87.5" class="9½ weeks"/>
+    <circle cx="304.5" cy="228.5" r="87.5" class="cls-1"/>
+    <circle cx="495.5" cy="228.5" r="87.5" class="9½ weeks"/>
+    <circle cx="686.5" cy="228.5" r="87.5" class="9½ weeks"/>
+    <g>
+      <circle cx="113.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
+      <circle cx="113.5" cy="371.5" r="87.5" class="dots"/>
+    </g>
+    <g>
+      <circle cx="304.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
+      <circle cx="304.5" cy="371.5" r="87.5" class="cls-2"/>
+    </g>
+    <g>
+      <circle cx="495.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
+      <circle cx="495.5" cy="371.5" r="87.5" class="dots"/>
+    </g>
+    <g>
+      <circle cx="686.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
+      <circle cx="686.5" cy="371.5" r="87.5" class="dots"/>
+    </g>
+  </g>
+</svg>

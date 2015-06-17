@@ -28,7 +28,8 @@
         svgWriterTextPath = require("./svgWriterTextPath.js"),
         matrix = require("./matrix.js"),
         utils = require("./utils.js"),
-        ID = require("./idGenerator.js");
+        ID = require("./idGenerator.js"),
+        globalStyles = {};
 
     function SVGWriterPreprocessor() {
 
@@ -37,10 +38,44 @@
          **/
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                styleBlock;
+                global = ctx.svgOM.global,
+                fingerprint,
+                ref,
+                styleBlock,
+                style,
+                fakeNode;
+
+            if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
+                omIn.style = utils.merge(omIn.style, global.styles[omIn.style.ref]);
+            }
+            if (omIn.style) {
+                delete omIn.style.ref;
+            }
+
+            fingerprint = JSON.stringify(omIn.style);
+
+            if (globalStyles[fingerprint]) {
+                ref = globalStyles[fingerprint];
+                style = global.styles[ref];
+                if (style) {
+                    omIn.className = ref;
+                    fakeNode = {
+                        style: style,
+                        type: omIn.type,
+                        shape: omIn.shape,
+                        className: ref
+                    };
+                    ctx.omStylesheet.getStyleBlock(fakeNode, ctx.ID.getUnique);
+                    fakeNode.styleBlock.element = null;
+                    omIn.styleBlock = fakeNode.styleBlock;
+                }
+            }
 
             delete ctx.stylesCurrentBlock;
 
+            if (fakeNode) {
+                omIn = ctx.currentOMNode = fakeNode;
+            }
             svgWriterFill.externalizeStyles(ctx);
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
@@ -455,6 +490,12 @@
                 w,
                 h,
                 scale = ctx.config.scale || 1;
+
+            if (global.styles) {
+                for (var name in global.styles) {
+                    globalStyles[JSON.stringify(global.styles[name])] = name;
+                }
+            }
 
             ctx.omStylesheet = new SVGStylesheet;
 

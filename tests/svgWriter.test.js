@@ -1859,5 +1859,9 @@ describe('svgWriter', function (){
         it('Test that cx,cy,r overridde cx,cy,r on referencing gradient', function () {
             compareResults("gradient-2");
         });
+
+        it("Test global styles functionality", function () {
+            compareResults("global-styles");
+        });
     });
 });
