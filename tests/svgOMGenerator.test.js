@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     sinon = require('sinon'),
-    database = require('./test-database.js');
+    database = require('./test-database.js'),
     fs = require("fs");
 
 describe('svgOMGenerator', function (){

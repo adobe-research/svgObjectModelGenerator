@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff0;
+        filter: url(#color-overlay-1);
+      }
+    </style>
+
+    <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#61b18e" flood-opacity="0.75"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+      <feBlend mode="multiply" in2="SourceGraphic" result="solidFill"/>
+      <feFlood flood-color="#d58686"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+      <feBlend mode="multiply" in2="solidFill" result="solidFill-1"/>
+    </filter>
+  </defs>
+  <rect x="224" y="204" width="200" height="200" class="cls-1"/>
+</svg>

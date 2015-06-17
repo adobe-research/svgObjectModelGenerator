@@ -1,8 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         fill: #32e2a1;
         filter: url(#filter-chain-1);
         fill-opacity: 0.78;
@@ -14,17 +13,17 @@
       <feGaussianBlur stdDeviation="4.583" result="dropBlur"/>
       <feFlood flood-color="#d62d2d" flood-opacity="0.75"/>
       <feComposite operator="in" in2="dropBlur" result="dropShadowComp"/>
-      <feComposite in="SourceGraphic" result="dropShadow"/>
+      <feComposite in="SourceGraphic" result="shadowed"/>
       <feFlood flood-color="red" flood-opacity="0.75"/>
       <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend mode="lighten" in2="dropShadow" result="colorOverlay"/>
+      <feBlend mode="lighten" in2="shadowed" result="solidFill"/>
       <feOffset dx="75" in="SourceAlpha"/>
       <feGaussianBlur stdDeviation="6.782" result="innerShadowBlur"/>
       <feFlood flood-color="#2362e1" flood-opacity="0.75"/>
       <feComposite operator="out" in2="innerShadowBlur"/>
       <feComposite operator="in" in2="SourceAlpha"/>
-      <feBlend mode="multiply" in2="colorOverlay" result="innerShadow"/>
+      <feBlend mode="multiply" in2="solidFill" result="innerShadow"/>
     </filter>
   </defs>
-  <rect x="100" y="100" width="300" height="150" rx="10" ry="10" class="cls-3"/>
+  <rect x="100" y="100" width="300" height="150" rx="10" ry="10" class="cls-1"/>
 </svg>

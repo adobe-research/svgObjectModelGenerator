@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +23,9 @@
     
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         Utils = require("./utils.js"),
-        Matrix = require("./matrix.js"),
-        omgUtils = require("./svgOMGeneratorUtils.js"),
-        round2 = Utils.round2,
+        Matrix = require("./matrix.js");
+
+    var round2 = Utils.round2,
         round1k = Utils.round1k;
     
 	function SVGOMGeneratorShapes() {
@@ -183,7 +183,7 @@
         };
         
         
-        this.addEllipse = function (svgNode, layer, dpi) {
+        this.addEllipse = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 var newBounds;
                 if (origin.type === "ellipse") {
@@ -195,15 +195,21 @@
                             return false;
                         }
                     }
-                    
-                    svgNode.shape = "ellipse";
-                    
+
                     if (typeof newBounds === "object") {
                         svgNode.originBounds = newBounds;
                     }
                     svgNode.shapeBounds = origin.bounds;
                     
-                    omgStyles.addStylingData(svgNode, layer, dpi);
+                    svgNode.shape = {
+                        type: "ellipse",
+                        cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
+                        cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
+                        rx: (origin.bounds.right - origin.bounds.left) / 2,
+                        ry: (origin.bounds.bottom - origin.bounds.top) / 2
+                    }
+
+                    omgStyles.addStylingData(svgNode, layer, writer);
                     
                     return true;
                 }
@@ -211,7 +217,7 @@
             }.bind(this));
         };
         
-        this.addCircle = function (svgNode, layer, dpi) {
+        this.addCircle = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 if (origin.type === "ellipse") {
                     
@@ -219,11 +225,15 @@
                         h = parseInt(origin.bounds.bottom) - parseInt(origin.bounds.top);
                     
                     if (w == h) {
-                        svgNode.shape = "circle";
                         svgNode.shapeBounds = origin.bounds;
-                        
-                        omgStyles.addStylingData(svgNode, layer, dpi);
-                        
+
+                        svgNode.shape = {
+                            type: "circle",
+                            cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
+                            cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
+                            r: (origin.bounds.right - origin.bounds.left) / 2
+                        }
+                        omgStyles.addStylingData(svgNode, layer, writer);
                         return true;
                     }
                 }
@@ -231,7 +241,7 @@
             });
         };
 
-        this.addRect = function (svgNode, layer, dpi) {
+        this.addRect = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 
                 var newBounds;
@@ -252,15 +262,23 @@
                         }
                     }
                     
-                    svgNode.shape = "rect";
                     //may have acquired shapeBounds while inferring the transform
                     if (typeof newBounds === "object") {
                         svgNode.originBounds = newBounds;
                     }
                     svgNode.shapeBounds = origin.bounds;
                     svgNode.shapeRadii = origin.radii;
-                    
-                    omgStyles.addStylingData(svgNode, layer, dpi);
+
+                    svgNode.shape = {
+                        type: "rect",
+                        x: origin.bounds.left,
+                        y: origin.bounds.top,
+                        width: origin.bounds.right - origin.bounds.left,
+                        height: origin.bounds.bottom - origin.bounds.top,
+                        r: origin.radii
+                    }
+
+                    omgStyles.addStylingData(svgNode, layer, writer);
 
                     return true;
                 }
@@ -268,28 +286,31 @@
             }.bind(this));
         };
         
-        this.addPath = function (svgNode, layer, dpi) {
+        this.addPath = function (svgNode, layer, writer) {
             var path = layer.path,
                 pathData = layer.path.rawPathData;
             
             if (path && pathData) {
-                svgNode.shape = "path";
                 
                 svgNode.shapeBounds = path.bounds;
-                svgNode.pathData = pathData;
-                
-                omgStyles.addStylingData(svgNode, layer, dpi);
+
+                svgNode.shape = {
+                    type: "path",
+                    path: pathData
+                }
+
+                omgStyles.addStylingData(svgNode, layer, writer);
                 
                 return true;
             }
             return false;
         };
         
-        this.addShapeData = function(svgNode, layer, dpi) {
-            if (this.addCircle(svgNode, layer, dpi) || 
-                this.addEllipse(svgNode, layer, dpi) ||
-                this.addRect(svgNode, layer, dpi) ||
-                this.addPath(svgNode, layer, dpi)) {
+        this.addShapeData = function(svgNode, layer, writer) {
+            if (this.addCircle(svgNode, layer, writer) || 
+                this.addEllipse(svgNode, layer, writer) ||
+                this.addRect(svgNode, layer, writer) ||
+                this.addPath(svgNode, layer, writer)) {
                 return true;
             }
             console.log("Error: No shape data added for " + JSON.stringify(layer));

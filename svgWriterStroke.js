@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,29 +21,23 @@
 (function () {
 "use strict";
     
-    var svgWriterUtils = require("./svgWriterUtils.js");
+    var svgWriterUtils = require("./svgWriterUtils.js"),
+        svgWriterGradient = require("./svgWriterGradient.js");
     
     var write = svgWriterUtils.write,
-        indent = svgWriterUtils.indent,
-        undent = svgWriterUtils.undent,
-        writeRadialGradient = svgWriterUtils.writeRadialGradient,
-        writeLinearGradient = svgWriterUtils.writeLinearGradient,
+        writeRadialGradient = svgWriterGradient.writeRadialGradient,
+        writeLinearGradient = svgWriterGradient.writeLinearGradient,
         writeColor = svgWriterUtils.writeColor,
-        px = svgWriterUtils.px,
-        ifStylesheetDoesNotHaveStyle = svgWriterUtils.ifStylesheetDoesNotHaveStyle;
+        px = svgWriterUtils.px;
     
     function SVGWriterStroke() {
         
         this.hasStroke = function (ctx) {
             var omIn = ctx.currentOMNode;
-            if (omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none") {  
-                return true;
-            }
-            return false;
+            return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
         };
         
         this.scanForUnsupportedFeatures = function (ctx) {
-            
         };
         
         this.externalizeStyles = function (ctx) {
@@ -101,33 +95,8 @@
                 }
             }
         };
-        
-        
-        this.addShapeStrokeAttr = function (ctx) {
-            var node = ctx.currentOMNode,
-                stroke = node.style.stroke,
-                lineW;
-            
-            if (stroke.type != "none") {
-                if (stroke.color) {
-                    ifStylesheetDoesNotHaveStyle(ctx, node, "stroke", function () {
-                        write(ctx, " stroke=\"" + svgWriterUtils.writeColor(stroke.color) + "\"");
-                    });
-                }
-                
-                if (stroke.lineWidth) {
-                    ifStylesheetDoesNotHaveStyle(ctx, node, "stroke-width", function () {
-                        lineW = parseInt(px(ctx, stroke.lineWidth), 10);
-                        if (lineW !== 1) {
-                            write(ctx, " stroke-width=\"" + lineW + "\"");
-                        }
-                    });
-                }
-            }
-        };
 	}
 
 	module.exports = new SVGWriterStroke();
     
 }());
-

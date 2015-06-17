@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 /* Help write the SVG */
 
 (function () {
-"use strict";
+    "use strict";
 
     var asin = Math.asin,
         sin = Math.sin,
@@ -115,7 +115,6 @@
                     this[i][i] = 1;
                 }
             }
-            this.size = 4;
         
             this.identity = function () {
                 var i,
@@ -738,8 +737,8 @@
             var decomposed = this.decomposeTransform(txfm4x4);
             
             if (decomposed.translation[2] ||
-                decomposed.rotation[0] || decomposed.rotation[1] || 
-                decomposed.skew[0] || decomposed.skew[1] || 
+                decomposed.rotation[0] || decomposed.rotation[1] ||
+                decomposed.skew[0] || decomposed.skew[1] ||
                 round2(decomposed.scale[2]) !== 1) {
                 
                 return this.writeRawMatrix(txfm4x4, tX, tY);
@@ -790,7 +789,7 @@
             if (round2(rad2Deg * txfm.skew[0])) {
                 txfmOut.push(sep + "skewX(" + round2(rad2Deg * txfm.skew[0]) + ")");
                 sep = " ";
-            }    
+            }
             if (round2(rad2Deg * txfm.skew[1])) {
                 txfmOut.push(sep + "skewY(" + round2(rad2Deg * txfm.skew[1]) + ")");
                 sep = " ";

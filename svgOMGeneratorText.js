@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,8 +23,9 @@
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         omgUtils = require("./svgOMGeneratorUtils.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        Matrix = require("./matrix.js"),
-        round1k = svgWriterUtils.round1k,
+        Matrix = require("./matrix.js");
+
+    var round1k = svgWriterUtils.round1k,
         _boundInPx = omgUtils.boundInPx;
 
 	function SVGOMGeneratorText() {
@@ -92,9 +93,8 @@
                 var svgTextPathNode,
                     isBoxMode = (layer.text.textShape[0].char === "box"),
                     boxOrientation = layer.text.textShape[0].orientation,
-                    dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
+                    dpi = writer._dpi(),
                     maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
-
                 try {
                 
                     svgNode.type = "text";
@@ -125,7 +125,7 @@
 
                     self.addTextTransform(writer, svgNode, text, layer);
 
-                    if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds, dpi)) {
+                    if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, svgNode.shapeBounds)) {
                         return false;
                     }
 
@@ -135,7 +135,7 @@
 
                     omgStyles.addTextStyle(svgNode, layer);
 
-                    omgStyles.addStylingData(svgNode, layer, dpi);
+                    omgStyles.addStylingData(svgNode, layer, writer);
                 
                 } catch (exter) {
                     console.warn(exter.stack);
@@ -149,15 +149,12 @@
         this.addSimpleText = function (svgNode, layer, writer) {
             var self = this;
             
-            return this.textComponentOrigin(layer, function (text) {                
-                
-                var dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0;
-                
+            return this.textComponentOrigin(layer, function (text) {
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won't be supported sufficiently enough initially.
                 svgNode.type = "text";
                 svgNode.shapeBounds = layer.bounds;
-                svgNode.layerName = layer.name;
+                svgNode.title = layer.name;
                 
                 svgNode.textBounds = JSON.parse(JSON.stringify(layer.bounds));
                 
@@ -165,23 +162,24 @@
                 // the initial <text> element. 
                 // Values in percentage, moving to pixels so it is easier to work with te position
                 svgNode.position = {
-                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.docBounds.right - writer._root.docBounds.left),
-                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.docBounds.bottom - writer._root.docBounds.top),
+                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.global.bounds.right - writer._root.global.bounds.left),
+                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.global.bounds.bottom - writer._root.global.bounds.top),
                     unitX: "px",
                     unitY: "px"
                 };
                 
                 self.addTextTransform(writer, svgNode, text, layer);
                 
-                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds, dpi);
+                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, svgNode.shapeBounds);
             });
         };
         
-        this.addTextChunks = function (svgNode, layer, text, writer, position, bounds, dpi) {
+        this.addTextChunks = function (svgNode, layer, text, writer, position, bounds) {
             var textString = text.textKey,
                 svgParagraphNode,
                 svgTextChunkNode,
-                yEMs = 0;
+                yEMs = 0,
+                dpi = writer._dpi();
             
             writer.pushCurrent(svgNode);
             
@@ -278,7 +276,7 @@
             });
             
             omgStyles.addTextStyle(svgNode, layer);
-            omgStyles.addStylingData(svgNode, layer, dpi);
+            omgStyles.addStylingData(svgNode, layer, writer);
             
             writer.popCurrent();
             return true;
@@ -289,7 +287,7 @@
                 return;
             }
             var transform = text.transform || text.textShape[0].transform,
-                dpi = (writer._root && writer._root.pxToInchRatio) ? writer._root.pxToInchRatio : 72.0,
+                dpi = writer._dpi(),
                 // The trnasformation matrix is relative to this boundaries.
                 boundsOrig = layer.bounds,
                 // This covers the actual bounds of the text in pt units and needs
@@ -345,4 +343,3 @@
     
 }());
      
-    

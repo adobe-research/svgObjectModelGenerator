@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
-// 
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
 /*global define: true, module: true, require: true */
 
@@ -20,24 +19,27 @@
 
 (function () {
     "use strict";
-    
+
     var svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterIDs = require("./svgWriterIDs.js");
-    
+        Tag = require("./svgWriterTag.js"),
+        svgWriterGradient = require("./svgWriterGradient.js"),
+        svgWriterIDs = require("./svgWriterIDs.js"),
+        svgWriterContext = require("./svgWriterContext.js");
+
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         indentify = svgWriterUtils.indentify;
-    
+
     var ONLY_EXTERNALIZE_CONSOLIDATED = false;
-    
+
     function CSSStyleRule(prop, val) {
         this.propertyName = prop;
         this.value = val;
     }
-    
+
     (function (proto) {
         proto.write = function (ctx) {
             writeln(ctx, ctx.currentIndent + this);
@@ -104,7 +106,8 @@
             return (this.rules.length > 0);
         };
 
-        proto.write = function (ctx) {
+        proto.write = proto.toString = function (ctx) {
+            ctx = ctx || new svgWriterContext({});
             var i;
 
             writeln(ctx, ctx.currentIndent + "." + this.class.join(", .") + " {");
@@ -116,20 +119,7 @@
 
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "}");
-        };
-
-        proto.toString = function (cr) {
-            if (!this.rules.length) {
-                return "";
-            }
-            if (cr == null) {
-                cr = "\n";
-            }
-            var out = "." + this.class.join(", .") + " {" + cr;
-            for (var i = 0; i < this.rules.length; i++) {
-                out += "    " + this.rules[i] + cr;
-            }
-            return out + "}";
+            return ctx.sOut;
         };
 
         proto.hasProperty = function (prop) {
@@ -153,9 +143,9 @@
         }
 
     }(CSSStyleBlock.prototype));
-    
+
 	function SVGStylesheet() {
-        
+
         this.defines = {};
         this.eleDefines = {};
         this.blocks = {};
@@ -166,7 +156,7 @@
         proto.hasDefines = function () {
             var hasDefines = false,
                 defn;
-            
+
             for (defn in this.defines) {
                 if (this.defines.hasOwnProperty(defn)) {
                     if (this.defines[defn] && !this.defines[defn].written) {
@@ -175,18 +165,18 @@
                     }
                 }
             }
-            
+
             return hasDefines;
         };
-        
+
         proto.getDefines = function (elId) {
             return this.eleDefines[elId];
         };
-        
+
         proto.getDefine = function (elId, type) {
             var aEl = this.getDefines(elId),
                 i;
-            
+
             for (i = 0; aEl && i < aEl.length; i++) {
                 if (aEl[i].type === type) {
                     return aEl[i];
@@ -194,9 +184,9 @@
             }
             return null;
         };
-        
+
         proto.define = function (type, elId, defnId, defnOut, defnFingerprint) {
-            
+
             this.defines[defnId] = {
                 type: type,
                 defnId: defnId,
@@ -208,7 +198,7 @@
 
             this.addElementDefn(this.eleDefines, elId, this.defines[defnId]);
         };
-        
+
         proto.addElementDefn = function (eleList, elId, defn) {
             eleList[elId] = eleList[elId] || [];
             eleList[elId].push(defn);
@@ -217,11 +207,11 @@
             // duplicates right away.
             this.consolidateDefines();
         };
-        
+
         proto.removeElementDefn = function (elId, defnId) {
             var aDef = this.eleDefines[elId],
                 i;
-            
+
             for (i = 0; aDef && i < aDef.length; i++) {
                 if (aDef[i].defnId === defnId) {
                     aDef.splice(i, 1);
@@ -229,27 +219,29 @@
                     break;
                 }
             }
-            
+
             delete this.defines[defnId];
         };
 
         proto.removeElementBlocks = function (elId, className) {
             var aDef = this.eleBlocks[elId],
                 i;
-            
+
             for (i = 0; aDef && i < aDef.length; i++) {
                 if (aDef[i].className === className) {
                     aDef.splice(i, 1);
-                    this.eleBocks[elId] = aDef;
+                    this.eleBlocks[elId] = aDef;
                     break;
                 }
             }
 
-            delete this.blocks[className];
+            for (i = 0; i < className.length; i++) {
+                delete this.blocks[className[i]];
+            }
         };
-        
+
         proto.consolidateDefines = function () {
-            
+
             //find dupes and make em shared...
             var dupTable = {},
                 defnId,
@@ -259,11 +251,11 @@
                 dup,
                 dupElId,
                 fingerprint;
-            
+
             for (defnId in this.defines) {
                 if (this.defines.hasOwnProperty(defnId)) {
                     defn = this.defines[defnId];
-                
+
                     dupTable[defn.fingerprint] = dupTable[defn.fingerprint] || [];
                     dupTable[defn.fingerprint].push(defn);
                 }
@@ -288,38 +280,37 @@
                 }
             }
         };
-        
+
         proto.hasRules = function () {
-            var hasRules = false,
-                cls;
-            for (cls in this.blocks) {
-                if (this.blocks.hasOwnProperty(cls)) {
-                    if (this.blocks[cls].hasRules()) {
-                        hasRules = true;
-                        break;
-                    }
+            for (var cls in this.blocks) {
+                if (this.blocks[cls] && this.blocks[cls].hasRules()) {
+                    return true;
                 }
             }
-            return hasRules;
+            return false;
         };
-        
+
         proto.hasStyleBlock = function (omNode) {
             return !!(omNode.styleBlock && omNode.styleBlock.hasRules());
         };
-        
+
         proto.getStyleBlock = function (omNode) {
-            
+
+            if (omNode.styleBlock) {
+                return omNode.styleBlock;
+            }
+
             omNode.className = omNode.className || svgWriterIDs.getUnique("cls");
-            
+
             //TBD: factor in IDs
-            
+
             omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
-            
+
             this.blocks[omNode.className] = omNode.styleBlock;
             // We create an styleBlock for each element initially.
             // Store the element for later reference.
             omNode.styleBlock.element = omNode.id;
-            
+
             return omNode.styleBlock;
         };
 
@@ -332,7 +323,7 @@
         };
 
         proto.consolidateStyleBlocks = function () {
-            
+
             //find dupes and make em shared...
             var dupTable = {},
                 className,
@@ -341,19 +332,21 @@
                 aDups,
                 dup,
                 dupElId,
-                fingerprint;
-            
+                fingerprint,
+                tag,
+                tags;
+
             for (className in this.blocks) {
                 if (this.blocks.hasOwnProperty(className)) {
                     defn = this.blocks[className];
                     fingerprint = JSON.stringify(defn.rules);
-                    defn['fingerprint'] = fingerprint;
+                    defn.fingerprint = fingerprint;
 
                     dupTable[fingerprint] = dupTable[fingerprint] || [];
                     dupTable[fingerprint].push(defn);
                 }
             }
-            
+
             //migrate any eleDefines to re-point
             for (fingerprint in dupTable) {
                 if (dupTable.hasOwnProperty(fingerprint)) {
@@ -364,6 +357,14 @@
                         for (i = 1; i < aDups.length; i++) {
                             dup = aDups[i];
                             dupElId = dup.element;
+                            tags = dup.tags;
+                            for (var j = 0; tags && j < tags.length; j++) {
+                                tag = Tag.getById(tags[j]);
+                                if (tag) {
+                                    tag.styleBlock = aDups[0];
+                                    aDups[0].tags.push(tags[j]);
+                                }
+                            }
 
                             this.removeElementBlocks(dupElId, dup.class);
                             this.addElementDefn(this.eleBlocks, dupElId, aDups[0]);
@@ -373,17 +374,16 @@
                     }
                 }
             }
-
         }
-        
+
         proto.writeSheet = function (ctx) {
-            
+
             var blockClass,
                 blocks = [];
-            
+
             writeln(ctx, ctx.currentIndent + "<style>");
             indent(ctx);
-            
+
             for (blockClass in this.blocks) {
                 if (this.blocks.hasOwnProperty(blockClass)) {
                     if (this.blocks[blockClass].hasRules()) {
@@ -391,19 +391,20 @@
                     }
                 }
             }
+
             // extract all common rules into comma
             blocks = this.extract(blocks);
 
             for (var i = 0, len = blocks.length; i < len; i++) {
-                writeln(ctx, ''); //new line before blocks
+                i && writeln(ctx, ""); // new line before blocks
                 blocks[i].write(ctx);
             }
-            
+
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
-            
+
         };
-        
+
         proto.writePredefines = function (ctx) {
             var omIn = ctx.currentOMNode,
                 eleDefines = this.getDefines(omIn.id),
@@ -419,12 +420,13 @@
                 }
             }
         };
-        
+
         proto.writeDefines = function (ctx) {
-            
+
             var defnId,
                 defn;
-            
+
+            svgWriterGradient.gradientStopsReset();
             for (defnId in this.defines) {
                 if (this.defines.hasOwnProperty(defnId)) {
                     defn = this.defines[defnId];
@@ -437,79 +439,46 @@
             }
         };
 
-        var extract = proto.extract = function (blocks) {
-            var out,
-                oldout = [];
-            out = extract.finder(blocks);
-            while (out.join() != oldout.join()) {
-                out = extract.finder(out);
-                oldout = out = extract.consolidate(out);
+        proto.extract = function (blocks) {
+            var byRule = {},
+                byClass = {},
+                block,
+                cls,
+                rule,
+                name,
+                i,
+                j;
+            for (i = 0; i < blocks.length; i++) {
+                cls = blocks[i].class;
+                for (j = 0; j < blocks[i].rules.length; j++) {
+                    rule = blocks[i].rules[j];
+                    name = rule.propertyName + ":" + rule.value;
+                    byRule[name] = byRule[name] || {
+                        name: rule.propertyName,
+                        value: rule.value,
+                        classes: []
+                    };
+                    byRule[name].classes = byRule[name].classes.concat(cls);
+                }
             }
-            if (blocks.join().length > out.join().length) {
-                return out;
+            blocks = [];
+            for (name in byRule) {
+                rule = byRule[name];
+                var classes = rule.classes.sort();
+                if (byClass[classes]) {
+                    byClass[classes].addRule(rule.name, rule.value);
+                } else {
+                    block = new CSSStyleBlock(classes);
+                    block.addRule(rule.name, rule.value);
+                    blocks.push(block);
+                    byClass[classes] = block;
+                }
             }
             return blocks;
-        }
-
-        extract.union = function (a, b, ba, bb) {
-            var bab = new CSSStyleBlock([].concat(a.class, b.class)),
-                rules = {},
-                name,
-                val;
-
-            for (var i = 0, len = a.rules.length; i < len; i++) {
-                rules[a.rules[i].propertyName] = a.rules[i].value;
-            }
-            for (i = 0, len = b.rules.length; i < len; i++) {
-                name = b.rules[i].propertyName;
-                val = b.rules[i].value;
-                if (rules[name] == val) {
-                    bab.addRule(name, val);
-                    ba.removeRule(name, val);
-                    bb.removeRule(name, val);
-                }
-            }
-            return bab;
         };
-        extract.finder = function (blocks) {
-            var blocksnew = [],
-                blocksadd = [];
-            for (var i = 0, len = blocks.length; i < len; i++) {
-                !i && (blocksnew[i] = blocks[i].clone());
-                for (var j = i + 1; j < len; j++) {
-                    !i && (blocksnew[j] = blocks[j].clone());
-                    var u = extract.union(blocks[i], blocks[j], blocksnew[i], blocksnew[j]);
-                    if (u) {
-                        blocksadd.push(u);
-                    }
-                }
-            }
-            return blocksadd.concat(blocksnew);
-        };
-        extract.consolidate = function (blocks) {
-            var dup = {},
-                out = [],
-                fprint;
-            for (var i = 0, len = blocks.length; i < len; i++) {
-                fprint = blocks[i].rules;
-                if (fprint.length) {
-                    dup[fprint] = dup[fprint] || [];
-                    dup[fprint].push(blocks[i]);
-                }
-            }
-            for (var key in dup) {
-                if (dup.hasOwnProperty(key)) {
-                    var first = dup[key][0];
-                    for (i = 1, len = dup[key].length; i < len; i++) {
-                        first.add(dup[key][i]);
-                    }
-                    out.push(first);
-                }
-            }
-            return out;
-        }
+
     }(SVGStylesheet.prototype));
 
 	module.exports = SVGStylesheet;
-    
+
 }());

@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
-// 
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -26,9 +26,9 @@
         svgWriterIDs = require("./svgWriterIDs.js");
 
 	function Utils() {
-        
+
         var self = this;
-        
+
         self.px = function (ctx, length) {
             if (typeof length === "number")
                 return length;
@@ -49,7 +49,7 @@
             }
             return 0;
         };
-        
+
         self.round2 = function (x) {
             return +(+x).toFixed(2);
         };
@@ -65,7 +65,25 @@
         self.roundDown = function (x) {
             return Math.round(x);
         };
-        
+
+        self.unionRect = function (rect1, rect2, expand) {
+            if (!rect2) {
+                return;
+            }
+            if (!isFinite(rect1.left) || (rect2.left - expand) < rect1.left) {
+                rect1.left = (rect2.left - expand);
+            }
+            if (!isFinite(rect1.right) || (rect2.right + expand) > rect1.right) {
+                rect1.right = rect2.right + expand;
+            }
+            if (!isFinite(rect1.top) || (rect2.top - expand) < rect1.top) {
+                rect1.top = rect2.top - expand;
+            }
+            if (!isFinite(rect1.bottom) || (rect2.bottom + expand) > rect1.bottom) {
+                rect1.bottom = rect2.bottom + expand;
+            }
+        };
+
         /** jQuery-style extend
          *  https://github.com/jquery/jquery/blob/master/src/core.js
          */
@@ -103,7 +121,7 @@
                     return key === undefined || obj.hasOwnProperty(key);
                 }
             };
-        
+
         self.extend = function (deep, target, source) {
             var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {},
                 i = 1,
@@ -115,7 +133,7 @@
                 slice = Array.prototype.slice,
                 trim = String.prototype.trim,
                 indexOf = Array.prototype.indexOf;
-            
+
             if (typeof target === "boolean") {
                 deep = target;
                 target = arguments[1] || {};
@@ -124,7 +142,7 @@
             if (typeof target !== "object" && !jQueryLike.isFunction(target)) {
                 target = {};
             }
-            
+
             for (i; i < length; i++) {
                 if ((options = arguments[i]) != null) {
                     for (name in options) {
@@ -133,7 +151,7 @@
                         if (target === copy) {
                             continue;
                         }
-                        
+
                         if (deep && copy && (jQueryLike.isPlainObject(copy) || (copyIsArray = jQueryLike.isArray(copy)))) {
                             if (copyIsArray) {
                                 copyIsArray = false;
@@ -150,7 +168,7 @@
             }
             return target;
         };
-        
+
         self.toBase64 = function (string) {
             var buf = new Buffer(string);
             return buf.toString("base64");
@@ -245,6 +263,7 @@
                 out.a1 = ang_start;
                 out.a2 = ang_end;
                 out.r = r;
+                out.a = angl;
                 out.f1 = +(Math.abs(angl) > 180);
                 out.f2 = +(angl > 0);
                 out.path = "A" + [safeRound(r), safeRound(r), 0, out.f1, out.f2, x3, y3];
@@ -279,9 +298,20 @@
             }
             return arc;
         }
+        self.precision = function (arg) {
+            return isFinite(arg) ? arg : 3;
+        }
+
+        self.pointsToString = function (points, precision) {
+            var precision = self.precision(precision);
+            return points.map(function (item) {
+                return item.x.toFixed(precision) + " " + item.y.toFixed(precision);
+            }).join();
+        };
 
         self.optimisePath = function (path, precision) {
-            precision = isFinite(precision) ? precision : 3;
+            return path;
+            var precision = self.precision(precision);
             function isSmall(num) {
                 return Math.abs(num.toFixed(precision)) <= sigma;
             }
@@ -328,7 +358,9 @@
                     var rest = seg.rest,
                         x = seg.x,
                         y = seg.y,
-                        arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], rest[4], rest[5]) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, rest[4] + x, rest[5] + y);
+                        X = seg.type == "abs" ? rest[4] : rest[4] + x,
+                        Y = seg.type == "abs" ? rest[5] : rest[5] + y,
+                        arc = seg.type == "abs" ? asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y) : asArc(x, y, rest[0] + x, rest[1] + y, rest[2] + x, rest[3] + y, X, Y);
                     // This number 1e5 should be dependant on the dimensions
                     if (arc && arc.r && arc.r < 1e5) {
                         if (segp.r && Math.abs(segp.r - arc.r) < .5 && Math.abs(segp.cx - arc.cx) < .5 && Math.abs(segp.cy - arc.cy) < .5) {
@@ -338,13 +370,18 @@
                                 segp.rest[5] = segp.cx * 2 - segp.x;
                                 segp.rest[6] = segp.cy * 2 - segp.y;
                                 seg.command = seg.cmd = "A";
-                                seg.rest = [segp.r, segp.r, 0, 0, arc.f2, rest[4], rest[5]];
+                                seg.rest = [segp.r, segp.r, 0, 0, arc.f2, X, Y];
                                 return;
                             }
-                            segp.rest[3] = +(Math.abs(segp.a) > 180);
-                            segp.rest[4] = +(segp.a > 0);
-                            segp.rest[5] = rest[4];
-                            segp.rest[6] = rest[5];
+                            // Need to calculate it again for better precision
+                            arc = arc3(segp.x, segp.y, seg.x, seg.y, X, Y);
+                            segp.a = arc.a;
+                            segp.rest[0] = arc.r;
+                            segp.rest[1] = arc.r;
+                            segp.rest[3] = +(Math.abs(arc.a) > 180);
+                            segp.rest[4] = +(arc.a > 0);
+                            segp.rest[5] = X;
+                            segp.rest[6] = Y;
                             return "unite";
                         }
                         seg.command = seg.cmd = "A";
@@ -371,6 +408,19 @@
                         seg.cmd = "S";
                         seg.command = seg.command == "C" ? "S" : "s";
                     }
+                }
+            }
+            function h2hv2v(segp, seg) {
+                var pcmd = segp && segp.cmd.toLowerCase();
+                if (segp && pcmd == seg.cmd.toLowerCase() && (pcmd == "h" || pcmd == "v")) {
+                    if (seg.type == "rel") {
+                        segp.rest[0] += seg.rest[0];
+                    } else if (segp.type == "rel") {
+                        segp.rest[0] += seg.rest[0] - (pcmd == "h" ? seg.x : seg.y);
+                    } else {
+                        segp.rest[0] = seg.rest[0];
+                    }
+                    return "unite";
                 }
             }
             var res = "",
@@ -425,7 +475,8 @@
                     }
                 } else {
                     segs.push({
-                        command: command
+                        command: command,
+                        cmd: command.toUpperCase()
                     });
                     x = mx;
                     y = my;
@@ -446,6 +497,11 @@
                 }
                 // Special case if "C" instead of "S"
                 c2s(segs[i - 1], segs[i], goodEnough);
+                // Special case if "C" instead of "A"
+                if (h2hv2v(segs[i - 1], segs[i]) == "unite") {
+                    segs.splice(i, 1);
+                    i--;
+                }
             }
 
             for (i = 0; i < segs.length; i++) {
@@ -517,5 +573,5 @@
     }
 
 	module.exports = new Utils();
-    
+
 }());

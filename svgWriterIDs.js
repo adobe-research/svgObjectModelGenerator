@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,19 +19,19 @@
 
 (function () {
 "use strict";
-    
+
     var docIDs = {};
-    
+
 	module.exports = {
-        
+
         reset: function () {
             docIDs = {};
         },
-        
+
         getUnique: function (kind) {
             docIDs[kind] = docIDs[kind] || 1;
             return kind + "-" + docIDs[kind]++;
         }
     };
-    
+
 }());

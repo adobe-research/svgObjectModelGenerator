@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1000" height="750" viewBox="0 0 1000 750">
   <defs>
     <style>
-
-      .cls-3 {
+      .cls-1 {
         fill: url(#linear-gradient-1);
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: url(#linear-gradient-2);
       }
     </style>
@@ -18,6 +17,6 @@
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="0" y1="725.104" x2="1000" y2="24.896" xlink:href="#linear-gradient-1"/>
   </defs>
-  <rect x="300" y="100" width="300" height="150" class="cls-3"/>
-  <rect x="50" y="350" width="900" height="150" class="cls-4"/>
+  <rect x="300" y="100" width="300" height="150" class="cls-1"/>
+  <rect x="50" y="350" width="900" height="150" class="cls-2"/>
 </svg>

@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -79,16 +79,6 @@
                 return bnd.value;
             }
             return parseInt(bnd, 10);
-        };
-        
-        this.shiftBoundsX = function (bounds, delta) {
-            bounds.left += delta;
-            bounds.right += delta;
-        };
-        
-        this.shiftBoundsY = function (bounds, delta) {
-            bounds.top += delta;
-            bounds.bottom += delta;
         };
         
         function _addOrEditStop(stops, def, colorDefined) {
@@ -321,4 +311,3 @@
     
 }());
      
-    

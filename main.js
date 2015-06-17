@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -172,7 +172,11 @@
             targetHeight,
             docId,
             compId,
-            constrainToDocBounds;
+            constrainToDocBounds,
+            cropRect,
+            clipToArtboardBounds,
+            artboardBounds,
+            isArtboard;
         
         compId = params.compId;
         layerSpec = params.layerSpec;
@@ -180,8 +184,12 @@
         targetWidth = params.targetWidth;
         targetHeight = params.targetHeight;
         constrainToDocBounds = params.constrainToDocBounds;
+        cropRect = params.cropRect;
+        clipToArtboardBounds = params.clipToArtboardBounds;
+        artboardBounds = params.artboardBounds;
         docId = params.documentId;
-        
+        isArtboard = params.isArtboard;
+
         generator.evaluateJSXString("app.activeDocument.id").then(function (activeDocId) {
             if (docId !== activeDocId) {
                 deferedResult.reject("svgOMG only works on the active document");
@@ -203,7 +211,11 @@
                                     scale: layerScale,
                                     targetWidth: targetWidth,
                                     targetHeight: targetHeight,
-                                    constrainToDocBounds: constrainToDocBounds
+                                    constrainToDocBounds: constrainToDocBounds,
+                                    cropRect: cropRect,
+                                    clipToArtboardBounds: clipToArtboardBounds,
+                                    artboardBounds: artboardBounds,
+                                    isArtboard: isArtboard
                                 }, svgWriterErrors);
 
                             deferedResult.resolve({

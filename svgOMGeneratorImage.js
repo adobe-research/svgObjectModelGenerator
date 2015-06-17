@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
             return false;
         };
 
-        this.addImage = function (svgNode, layer, dpi) {
+        this.addImage = function (svgNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (pixel) {
                 svgNode.pixel = pixel;
                 svgNode.shapeBounds = layer.bounds;
@@ -41,14 +41,14 @@
                     svgNode.shapeBounds = layer.boundsWithFX;
                 }
 
-                omgStyles.addStylingData(svgNode, layer, dpi);
+                omgStyles.addStylingData(svgNode, layer, writer);
                 
                 return true;
             });
         };
 
-        this.addImageData = function(svgNode, layer, dpi) {
-            if (this.addImage(svgNode, layer, dpi)) {
+        this.addImageData = function(svgNode, layer, writer) {
+            if (this.addImage(svgNode, layer, writer)) {
                 return true;
             }
             console.log("ERROR: No image data added for " + JSON.stringify(layer));

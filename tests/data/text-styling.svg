@@ -1,73 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-
-      .cls-3, .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
         font-size: 60px;
       }
 
-      .cls-4, .cls-6, .cls-8, .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
         fill: #030303;
-        font-size: 60px;
       }
 
-      .cls-10, .cls-12, .cls-14, .cls-16, .cls-18 {
-        fill: #030303;
-        font-size: 60px;
-        font-family: "Arial";
+      .cls-2 {
+        font-family: "Arial-ItalicMT";
       }
 
-      .cls-4, .cls-8 {
+      .cls-2, .cls-4 {
         font-style: italic;
       }
 
-      .cls-6, .cls-8 {
+      .cls-3 {
+        font-family: "Arial-BoldMT";
+      }
+
+      .cls-3, .cls-4 {
         font-weight: bold;
       }
 
       .cls-4 {
-        font-family: "Arial-ItalicMT";
-      }
-
-      .cls-6 {
-        font-family: "Arial-BoldMT";
-      }
-
-      .cls-8 {
         font-family: "Arial-BoldItalicMT";
       }
 
-      .cls-10 {
+      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        font-family: "Arial";
+      }
+
+      .cls-5 {
         text-decoration: underline;
       }
 
-      .cls-12 {
+      .cls-6 {
         text-decoration: line-through;
       }
 
-      .cls-14 {
+      .cls-7 {
         font-variant: small-caps;
       }
 
-      .cls-16 {
+      .cls-8 {
         text-transform: uppercase;
       }
     </style>
   </defs>
-  <text x="57px" y="98px" class="cls-3"><tspan class="cls-4">Text</tspan></text>
-  <text x="64px" y="186px" class="cls-3"><tspan class="cls-6">Text</tspan></text>
-  <text x="64px" y="273px" class="cls-3"><tspan class="cls-8">Text</tspan></text>
-  <text x="64px" y="349px" class="cls-3"><tspan class="cls-10">Text</tspan></text>
-  <text x="57px" y="440px" class="cls-3"><tspan class="cls-12">Text</tspan></text>
-  <text x="62px" y="525px" class="cls-3"><tspan class="cls-14">Text</tspan></text>
-  <text x="331px" y="99px" class="cls-3"><tspan class="cls-16">Text</tspan></text>
-  <text x="332px" y="206px" class="cls-3"><tspan class="cls-18">Text</tspan></text>
-  <text x="333px" y="267px" class="cls-3"><tspan class="cls-18">Text</tspan></text>
-  <text x="329px" y="363px" class="cls-3"><tspan class="cls-18">Text</tspan></text>
-  <text x="330px" y="439px" class="cls-3"><tspan class="cls-18">Text</tspan></text>
-  <text x="326px" y="568px" class="cls-3"><tspan class="cls-18">Text</tspan></text>
-  <text x="624px" y="104px" class="cls-3"><tspan class="cls-18">Test</tspan></text>
-  <text x="626px" y="195px" class="cls-3"><tspan class="cls-18">Test</tspan></text>
-  <text x="627px" y="283px" class="cls-3"><tspan class="cls-18">Test</tspan></text>
-  <text x="621px" y="413px" class="cls-3"><tspan class="cls-18">Test</tspan></text>
+  <text x="57" y="98" class="cls-1"><tspan class="cls-2">Text</tspan></text>
+  <text x="64" y="186" class="cls-1"><tspan class="cls-3">Text</tspan></text>
+  <text x="64" y="273" class="cls-1"><tspan class="cls-4">Text</tspan></text>
+  <text x="64" y="349" class="cls-1"><tspan class="cls-5">Text</tspan></text>
+  <text x="57" y="440" class="cls-1"><tspan class="cls-6">Text</tspan></text>
+  <text x="62" y="525" class="cls-1"><tspan class="cls-7">Text</tspan></text>
+  <text x="331" y="99" class="cls-1"><tspan class="cls-8">Text</tspan></text>
+  <text x="332" y="206" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="333" y="267" class="cls-1"><tspan dy="0.6em" class="cls-9">Text</tspan></text>
+  <text x="329" y="363" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="330" y="439" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="326" y="568" class="cls-1"><tspan class="cls-9">Text</tspan></text>
+  <text x="624" y="104" class="cls-1"><tspan class="cls-9">Test</tspan></text>
+  <text x="626" y="195" class="cls-1"><tspan class="cls-9">Test</tspan></text>
+  <text x="627" y="283" class="cls-1"><tspan class="cls-9">Test</tspan></text>
+  <text x="621" y="413" class="cls-1"><tspan class="cls-9">Test</tspan></text>
 </svg>

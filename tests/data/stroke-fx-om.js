@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -28,39 +28,49 @@ module.exports = {
 					"miterLimit": 100,
 					"sourceStyle": "outsetFrame"
 				},
-				"fx": {
-					"frameFX": {
-						"enabled": true,
-						"style": "outsetFrame",
-						"paintType": "solidColor",
-						"mode": "normal",
-						"opacity": {
-							"value": 50,
-							"units": "percentUnit"
-						},
-						"size": 10,
-						"color": {
-							"red": 0,
-							"green": 0,
-							"blue": 0
+				"meta": {
+					"PS": {
+						"fx": {
+							"frameFX": {
+								"enabled": true,
+								"style": "outsetFrame",
+								"paintType": "solidColor",
+								"mode": "normal",
+								"opacity": {
+									"value": 50,
+									"units": "percentUnit"
+								},
+								"size": 10,
+								"color": {
+									"red": 0,
+									"green": 0,
+									"blue": 0
+								}
+							}
 						}
 					}
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
+			"title": "Rectangle 1",
 			"boundsWithFX": {
 				"top": 88,
 				"left": 88,
 				"bottom": 212,
 				"right": 212
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
 				"bottom": 200,
 				"right": 200
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -117,116 +127,126 @@ module.exports = {
 						"gradientSpace": "objectBoundingBox"
 					}
 				},
-				"fx": {
-					"frameFX": {
-						"enabled": true,
-						"style": "outsetFrame",
-						"paintType": "gradientFill",
-						"mode": "normal",
-						"opacity": {
-							"value": 80,
-							"units": "percentUnit"
-						},
-						"size": 10,
-						"color": {
-							"red": 0,
-							"green": 0,
-							"blue": 0
-						},
-						"gradient": {
-							"name": "$$$/DefaultGradient/BlueRedYellow=Blue, Red, Yellow",
-							"gradientForm": "customStops",
-							"interfaceIconFrameDimmed": 4096,
-							"colors": [
-								{
-									"color": {
-										"red": 9.575876,
-										"green": 0.003891,
-										"blue": 178.000005
-									},
-									"type": "userStop",
-									"location": 0,
-									"midpoint": 50
+				"meta": {
+					"PS": {
+						"fx": {
+							"frameFX": {
+								"enabled": true,
+								"style": "outsetFrame",
+								"paintType": "gradientFill",
+								"mode": "normal",
+								"opacity": {
+									"value": 80,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.027237
-									},
-									"type": "userStop",
-									"location": 2048,
-									"midpoint": 50
+								"size": 10,
+								"color": {
+									"red": 0,
+									"green": 0,
+									"blue": 0
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 251.996109,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 4096,
-									"midpoint": 50
-								}
-							],
-							"transparency": [
-								{
-									"opacity": {
-										"value": 100,
+								"gradient": {
+									"name": "$$$/DefaultGradient/BlueRedYellow=Blue, Red, Yellow",
+									"gradientForm": "customStops",
+									"interfaceIconFrameDimmed": 4096,
+									"colors": [
+										{
+											"color": {
+												"red": 9.575876,
+												"green": 0.003891,
+												"blue": 178.000005
+											},
+											"type": "userStop",
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.027237
+											},
+											"type": "userStop",
+											"location": 2048,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 251.996109,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 4096,
+											"midpoint": 50
+										}
+									],
+									"transparency": [
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 4096,
+											"midpoint": 50
+										}
+									]
+								},
+								"angle": {
+									"value": 0,
+									"units": "angleUnit"
+								},
+								"type": "linear",
+								"reverse": false,
+								"dither": false,
+								"scale": {
+									"value": 100,
+									"units": "percentUnit"
+								},
+								"align": true,
+								"offset": {
+									"horizontal": {
+										"value": 0,
 										"units": "percentUnit"
 									},
-									"location": 0,
-									"midpoint": 50
-								},
-								{
-									"opacity": {
-										"value": 100,
+									"vertical": {
+										"value": 0,
 										"units": "percentUnit"
-									},
-									"location": 4096,
-									"midpoint": 50
+									}
 								}
-							]
-						},
-						"angle": {
-							"value": 0,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": false,
-						"dither": false,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"align": true,
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
 							}
 						}
 					}
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
+			"title": "Rectangle 2",
 			"boundsWithFX": {
 				"top": 88,
 				"left": 288,
 				"bottom": 212,
 				"right": 412
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 300,
 				"bottom": 200,
 				"right": 400
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 100,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -283,116 +303,126 @@ module.exports = {
 						"gradientSpace": "objectBoundingBox"
 					}
 				},
-				"fx": {
-					"frameFX": {
-						"enabled": true,
-						"style": "outsetFrame",
-						"paintType": "gradientFill",
-						"mode": "normal",
-						"opacity": {
-							"value": 10,
-							"units": "percentUnit"
-						},
-						"size": 10,
-						"color": {
-							"red": 0,
-							"green": 0,
-							"blue": 0
-						},
-						"gradient": {
-							"name": "$$$/DefaultGradient/BlueRedYellow=Blue, Red, Yellow",
-							"gradientForm": "customStops",
-							"interfaceIconFrameDimmed": 4096,
-							"colors": [
-								{
-									"color": {
-										"red": 9.575876,
-										"green": 0.003891,
-										"blue": 178.000005
-									},
-									"type": "userStop",
-									"location": 0,
-									"midpoint": 50
+				"meta": {
+					"PS": {
+						"fx": {
+							"frameFX": {
+								"enabled": true,
+								"style": "outsetFrame",
+								"paintType": "gradientFill",
+								"mode": "normal",
+								"opacity": {
+									"value": 10,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.027237
-									},
-									"type": "userStop",
-									"location": 2048,
-									"midpoint": 50
+								"size": 10,
+								"color": {
+									"red": 0,
+									"green": 0,
+									"blue": 0
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 251.996109,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 4096,
-									"midpoint": 50
-								}
-							],
-							"transparency": [
-								{
-									"opacity": {
-										"value": 100,
+								"gradient": {
+									"name": "$$$/DefaultGradient/BlueRedYellow=Blue, Red, Yellow",
+									"gradientForm": "customStops",
+									"interfaceIconFrameDimmed": 4096,
+									"colors": [
+										{
+											"color": {
+												"red": 9.575876,
+												"green": 0.003891,
+												"blue": 178.000005
+											},
+											"type": "userStop",
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.027237
+											},
+											"type": "userStop",
+											"location": 2048,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 251.996109,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 4096,
+											"midpoint": 50
+										}
+									],
+									"transparency": [
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 4096,
+											"midpoint": 50
+										}
+									]
+								},
+								"angle": {
+									"value": 0,
+									"units": "angleUnit"
+								},
+								"type": "linear",
+								"reverse": true,
+								"dither": false,
+								"scale": {
+									"value": 100,
+									"units": "percentUnit"
+								},
+								"align": true,
+								"offset": {
+									"horizontal": {
+										"value": 0,
 										"units": "percentUnit"
 									},
-									"location": 0,
-									"midpoint": 50
-								},
-								{
-									"opacity": {
-										"value": 100,
+									"vertical": {
+										"value": 0,
 										"units": "percentUnit"
-									},
-									"location": 4096,
-									"midpoint": 50
+									}
 								}
-							]
-						},
-						"angle": {
-							"value": 0,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": true,
-						"dither": false,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"align": true,
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
 							}
 						}
 					}
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
+			"title": "Rectangle 3",
 			"boundsWithFX": {
 				"top": 88,
 				"left": 488,
 				"bottom": 212,
 				"right": 612
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 500,
 				"bottom": 200,
 				"right": 600
+			},
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 100,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -481,156 +511,166 @@ module.exports = {
 						"gradientSpace": "objectBoundingBox"
 					}
 				},
-				"fx": {
-					"frameFX": {
-						"enabled": true,
-						"style": "outsetFrame",
-						"paintType": "gradientFill",
-						"mode": "normal",
-						"opacity": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"size": 10,
-						"color": {
-							"red": 0,
-							"green": 0,
-							"blue": 0
-						},
-						"gradient": {
-							"name": "$$$/DefaultGradient/Spectrum=Spectrum",
-							"gradientForm": "customStops",
-							"interfaceIconFrameDimmed": 4096,
-							"colors": [
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 0,
-									"midpoint": 50
+				"meta": {
+					"PS": {
+						"fx": {
+							"frameFX": {
+								"enabled": true,
+								"style": "outsetFrame",
+								"paintType": "gradientFill",
+								"mode": "normal",
+								"opacity": {
+									"value": 100,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 614,
-									"midpoint": 50
+								"size": 10,
+								"color": {
+									"red": 0,
+									"green": 0,
+									"blue": 0
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 0,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 1352,
-									"midpoint": 50
+								"gradient": {
+									"name": "$$$/DefaultGradient/Spectrum=Spectrum",
+									"gradientForm": "customStops",
+									"interfaceIconFrameDimmed": 4096,
+									"colors": [
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 614,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 0,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 1352,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 255,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 2007,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 255,
+												"blue": 0
+											},
+											"type": "userStop",
+											"location": 2744,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 255,
+												"blue": 0
+											},
+											"type": "userStop",
+											"location": 3441,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 4096,
+											"midpoint": 50
+										}
+									],
+									"transparency": [
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 4096,
+											"midpoint": 50
+										}
+									]
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 255,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 2007,
-									"midpoint": 50
+								"angle": {
+									"value": 45,
+									"units": "angleUnit"
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 255,
-										"blue": 0
-									},
-									"type": "userStop",
-									"location": 2744,
-									"midpoint": 50
+								"type": "linear",
+								"reverse": false,
+								"dither": false,
+								"scale": {
+									"value": 100,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 255,
-										"blue": 0
-									},
-									"type": "userStop",
-									"location": 3441,
-									"midpoint": 50
-								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 4096,
-									"midpoint": 50
-								}
-							],
-							"transparency": [
-								{
-									"opacity": {
-										"value": 100,
+								"align": true,
+								"offset": {
+									"horizontal": {
+										"value": 0,
 										"units": "percentUnit"
 									},
-									"location": 0,
-									"midpoint": 50
-								},
-								{
-									"opacity": {
-										"value": 100,
+									"vertical": {
+										"value": 0,
 										"units": "percentUnit"
-									},
-									"location": 4096,
-									"midpoint": 50
+									}
 								}
-							]
-						},
-						"angle": {
-							"value": 45,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": false,
-						"dither": false,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"align": true,
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
 							}
 						}
 					}
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 4",
+			"title": "Rectangle 4",
 			"boundsWithFX": {
 				"top": 288,
 				"left": 88,
 				"bottom": 412,
 				"right": 212
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 300,
 				"left": 100,
 				"bottom": 400,
 				"right": 200
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 300,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -719,156 +759,166 @@ module.exports = {
 						"gradientSpace": "userSpaceOnUse"
 					}
 				},
-				"fx": {
-					"frameFX": {
-						"enabled": true,
-						"style": "outsetFrame",
-						"paintType": "gradientFill",
-						"mode": "normal",
-						"opacity": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"size": 10,
-						"color": {
-							"red": 0,
-							"green": 0,
-							"blue": 0
-						},
-						"gradient": {
-							"name": "$$$/DefaultGradient/Spectrum=Spectrum",
-							"gradientForm": "customStops",
-							"interfaceIconFrameDimmed": 4096,
-							"colors": [
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 0,
-									"midpoint": 50
+				"meta": {
+					"PS": {
+						"fx": {
+							"frameFX": {
+								"enabled": true,
+								"style": "outsetFrame",
+								"paintType": "gradientFill",
+								"mode": "normal",
+								"opacity": {
+									"value": 100,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 614,
-									"midpoint": 50
+								"size": 10,
+								"color": {
+									"red": 0,
+									"green": 0,
+									"blue": 0
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 0,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 1352,
-									"midpoint": 50
+								"gradient": {
+									"name": "$$$/DefaultGradient/Spectrum=Spectrum",
+									"gradientForm": "customStops",
+									"interfaceIconFrameDimmed": 4096,
+									"colors": [
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 614,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 0,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 1352,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 255,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 2007,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 255,
+												"blue": 0
+											},
+											"type": "userStop",
+											"location": 2744,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 255,
+												"blue": 0
+											},
+											"type": "userStop",
+											"location": 3441,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 4096,
+											"midpoint": 50
+										}
+									],
+									"transparency": [
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 4096,
+											"midpoint": 50
+										}
+									]
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 255,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 2007,
-									"midpoint": 50
+								"angle": {
+									"value": 45,
+									"units": "angleUnit"
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 255,
-										"blue": 0
-									},
-									"type": "userStop",
-									"location": 2744,
-									"midpoint": 50
+								"type": "linear",
+								"reverse": false,
+								"dither": false,
+								"scale": {
+									"value": 100,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 255,
-										"blue": 0
-									},
-									"type": "userStop",
-									"location": 3441,
-									"midpoint": 50
-								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 4096,
-									"midpoint": 50
-								}
-							],
-							"transparency": [
-								{
-									"opacity": {
-										"value": 100,
+								"align": false,
+								"offset": {
+									"horizontal": {
+										"value": 0,
 										"units": "percentUnit"
 									},
-									"location": 0,
-									"midpoint": 50
-								},
-								{
-									"opacity": {
-										"value": 100,
+									"vertical": {
+										"value": 0,
 										"units": "percentUnit"
-									},
-									"location": 4096,
-									"midpoint": 50
+									}
 								}
-							]
-						},
-						"angle": {
-							"value": 45,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": false,
-						"dither": false,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"align": false,
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
 							}
 						}
 					}
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 5",
+			"title": "Rectangle 5",
 			"boundsWithFX": {
 				"top": 288,
 				"left": 288,
 				"bottom": 412,
 				"right": 412
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 300,
 				"left": 300,
 				"bottom": 400,
 				"right": 400
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 300,
+				"width": 100,
+				"height": 100
 			}
 		},
 		{
@@ -957,176 +1007,192 @@ module.exports = {
 						"gradientSpace": "userSpaceOnUse"
 					}
 				},
-				"fx": {
-					"frameFX": {
-						"enabled": true,
-						"style": "outsetFrame",
-						"paintType": "gradientFill",
-						"mode": "normal",
-						"opacity": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"size": 10,
-						"color": {
-							"red": 0,
-							"green": 0,
-							"blue": 0
-						},
-						"gradient": {
-							"name": "$$$/DefaultGradient/Spectrum=Spectrum",
-							"gradientForm": "customStops",
-							"interfaceIconFrameDimmed": 4096,
-							"colors": [
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 0,
-									"midpoint": 50
+				"meta": {
+					"PS": {
+						"fx": {
+							"frameFX": {
+								"enabled": true,
+								"style": "outsetFrame",
+								"paintType": "gradientFill",
+								"mode": "normal",
+								"opacity": {
+									"value": 100,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 614,
-									"midpoint": 50
+								"size": 10,
+								"color": {
+									"red": 0,
+									"green": 0,
+									"blue": 0
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 0,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 1352,
-									"midpoint": 50
+								"gradient": {
+									"name": "$$$/DefaultGradient/Spectrum=Spectrum",
+									"gradientForm": "customStops",
+									"interfaceIconFrameDimmed": 4096,
+									"colors": [
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 614,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 0,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 1352,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 255,
+												"blue": 255
+											},
+											"type": "userStop",
+											"location": 2007,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 0,
+												"green": 255,
+												"blue": 0
+											},
+											"type": "userStop",
+											"location": 2744,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 255,
+												"blue": 0
+											},
+											"type": "userStop",
+											"location": 3441,
+											"midpoint": 50
+										},
+										{
+											"color": {
+												"red": 255,
+												"green": 0.003891,
+												"blue": 0.003891
+											},
+											"type": "userStop",
+											"location": 4096,
+											"midpoint": 50
+										}
+									],
+									"transparency": [
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 0,
+											"midpoint": 50
+										},
+										{
+											"opacity": {
+												"value": 100,
+												"units": "percentUnit"
+											},
+											"location": 4096,
+											"midpoint": 50
+										}
+									]
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 255,
-										"blue": 255
-									},
-									"type": "userStop",
-									"location": 2007,
-									"midpoint": 50
+								"angle": {
+									"value": 45,
+									"units": "angleUnit"
 								},
-								{
-									"color": {
-										"red": 0,
-										"green": 255,
-										"blue": 0
-									},
-									"type": "userStop",
-									"location": 2744,
-									"midpoint": 50
+								"type": "radial",
+								"reverse": false,
+								"dither": false,
+								"scale": {
+									"value": 100,
+									"units": "percentUnit"
 								},
-								{
-									"color": {
-										"red": 255,
-										"green": 255,
-										"blue": 0
-									},
-									"type": "userStop",
-									"location": 3441,
-									"midpoint": 50
-								},
-								{
-									"color": {
-										"red": 255,
-										"green": 0.003891,
-										"blue": 0.003891
-									},
-									"type": "userStop",
-									"location": 4096,
-									"midpoint": 50
-								}
-							],
-							"transparency": [
-								{
-									"opacity": {
-										"value": 100,
+								"align": false,
+								"offset": {
+									"horizontal": {
+										"value": 0,
 										"units": "percentUnit"
 									},
-									"location": 0,
-									"midpoint": 50
-								},
-								{
-									"opacity": {
-										"value": 100,
+									"vertical": {
+										"value": 0,
 										"units": "percentUnit"
-									},
-									"location": 4096,
-									"midpoint": 50
+									}
 								}
-							]
-						},
-						"angle": {
-							"value": 45,
-							"units": "angleUnit"
-						},
-						"type": "radial",
-						"reverse": false,
-						"dither": false,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"align": false,
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
 							}
 						}
 					}
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 6",
+			"title": "Rectangle 6",
 			"boundsWithFX": {
 				"top": 288,
 				"left": 488,
 				"bottom": 412,
 				"right": 612
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 300,
 				"left": 500,
 				"bottom": 400,
 				"right": 600
+			},
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 300,
+				"width": 100,
+				"height": 100
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "stroke-fx.psd"
 }

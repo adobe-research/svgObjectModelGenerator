@@ -155,6 +155,10 @@ var database = [
 	desc: "should support text styling"
 },
 {
+	test: "text-styling2",
+	desc: "should support font-weight"
+},
+{
 	test: "text-on-path",
 	desc: "should support text on path"
 },
@@ -182,6 +186,38 @@ var database = [
 {
 	test: "multi-layer-fx-1",
 	desc: "Test multiple drop shadows per layer."
+},
+{
+	test: "multi-layer-fx-2",
+	desc: "Test multiple color overlays per layer."
+},
+{
+	test: "multi-layer-fx-3",
+	desc: "Test multiple gradient overlays per layer."
+},
+{
+	test: "multi-layer-fx-4",
+	desc: "Test multiple inline shadows per layer."
+},
+{
+	test: "artboards-1",
+	desc: "Test of artboards 1.",
+	layerTest: true
+},
+{
+	test: "artboards-2",
+	desc: "Test of artboards 2.",
+	layerTest: true
+},
+{
+	test: "artboards-3",
+	desc: "Test of artboards 3.",
+	layerTest: true
+},
+{
+	test: "group-path",
+	desc: "Test of artboards 3.",
+	layerTest: true
 }
 ];
 

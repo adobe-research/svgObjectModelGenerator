@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -30,29 +30,7 @@ describe('SVGWriterStroke', function (){
     afterEach(function () {
         sandbox.restore();
     });
-    
-    it("knows how to add a shape's stroke attribute", function (){
-        
-        var goodCTX = {
-            currentOMNode: {
-                style: {
-                    stroke: {
-                        strokeEnabled: true,
-                        color: "rgb(1, 2, 3)",
-                        lineWidth: 3
-                    }
-                }
-            },
-            omStylesheet: {
-                hasStyleBlock: sinon.spy()
-            },
-            sOut: ""
-        };
-        
-        svgWriterStroke.addShapeStrokeAttr(goodCTX);
-        expect(goodCTX.sOut).to.equal(' stroke="rgb(1, 2, 3)" stroke-width="3"');
-    });
-    
+
     it("knows how to externalize fringe styles", function (){
         var styleBlock = {
                 addRule: sinon.spy()

@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="317" height="315" viewBox="0 0 317 315">
   <defs>
     <style>
-
-      .cls-2 {
+      .cls-1 {
         fill: #00aeef;
         stroke: #000;
         stroke-linejoin: round;
         stroke-width: 18px;
+        fill-rule: evenodd;
       }
     </style>
   </defs>
-  <path d="M212.477,285.492,42.046,262.101,11.627,92.783,163.258,11.531,287.389,130.632l-74.912,154.86Z" class="cls-2" fill-rule="evenodd"/>
+  <path d="M212.477,285.492 C212.477,285.492 42.046,262.101 42.046,262.101 C42.046,262.101 11.627,92.783 11.627,92.783 C11.627,92.783 163.258,11.531 163.258,11.531 C163.258,11.531 287.389,130.632 287.389,130.632 C287.389,130.632 212.477,285.492 212.477,285.492 Z" class="cls-1"/>
 </svg>

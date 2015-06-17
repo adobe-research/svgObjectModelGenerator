@@ -1,25 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-
-      .cls-3, .cls-4, .cls-5, .cls-6 {
+      .cls-1, .cls-2, .cls-3, .cls-4 {
         font-size: 63.635px;
       }
 
-      .cls-4, .cls-5, .cls-6 {
+      .cls-2, .cls-3, .cls-4 {
         fill: #030303;
-        font-size: 63.635px;
         font-family: "Minion Pro";
       }
 
-      .cls-5 {
+      .cls-3 {
         text-anchor: middle;
       }
 
-      .cls-6 {
+      .cls-4 {
         text-anchor: end;
       }
     </style>
   </defs>
-  <text x="460px" y="270px" class="cls-3"><tspan class="cls-4">Left aligned</tspan><tspan dy="1.2em" x="460px" class="cls-5">center</tspan><tspan dy="1.2em" x="100%" class="cls-6">right aligned</tspan></text>
+  <text x="460" y="270" class="cls-1"><tspan class="cls-2">Left aligned</tspan><tspan dy="1.2em" x="460" class="cls-3">center</tspan><tspan dy="1.2em" x="460" class="cls-4">right aligned</tspan></text>
 </svg>

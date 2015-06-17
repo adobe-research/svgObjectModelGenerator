@@ -1,68 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #000;
+      }
+
+      .cls-1, .cls-2, .cls-7 {
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-4 {
+        stroke-width: 3px;
+      }
+
+      .cls-1 {
+        stroke-dasharray: 0.001,6;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-7, .cls-8 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        stroke-linejoin: bevel;
+        stroke-dasharray: 50,20,20,50;
+      }
+
+      .cls-2, .cls-3, .cls-5, .cls-6 {
+        stroke-width: 10px;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-linejoin: round;
+      }
 
       .cls-3 {
-        stroke: #000;
-        stroke-linecap: round;
-        stroke-width: 3px;
-        stroke-dasharray: 0.001,6;
-        fill: none;
+        stroke-dasharray: 40,20;
       }
 
       .cls-4 {
-        stroke: #000;
-        stroke-linecap: round;
-        stroke-linejoin: bevel;
-        stroke-width: 10px;
-        stroke-dasharray: 50,20,20,50;
-        fill: none;
+        stroke-dasharray: 0.001,12,9;
       }
 
       .cls-5 {
-        stroke: #000;
-        stroke-linejoin: round;
-        stroke-width: 10px;
-        stroke-dasharray: 40,20;
-        fill: none;
+        stroke: url(#linear-gradient-1);
+      }
+
+      .cls-5, .cls-6 {
+        stroke-dasharray: 0.001,40,30;
       }
 
       .cls-6 {
-        stroke: #000;
-        stroke-linejoin: round;
-        stroke-width: 3px;
-        stroke-dasharray: 0.001,12,9;
-        fill: none;
+        fill: url(#radial-gradient-1);
+        stroke: url(#radial-gradient-2);
       }
 
       .cls-7 {
-        stroke: url(#linear-gradient-1);
-        stroke-linejoin: round;
-        stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
-        fill: none;
+        stroke: url(#linear-gradient-2);
+        stroke-dasharray: 0.001,40;
+      }
+
+      .cls-7, .cls-8 {
+        stroke-width: 20px;
       }
 
       .cls-8 {
-        fill: url(#radial-gradient-1);
-        stroke: url(#radial-gradient-2);
-        stroke-linejoin: round;
-        stroke-width: 10px;
-        stroke-dasharray: 0.001,40,30;
-      }
-
-      .cls-9 {
-        stroke: url(#linear-gradient-2);
-        stroke-linecap: round;
-        stroke-width: 20px;
-        stroke-dasharray: 0.001,40;
-        fill: none;
-      }
-
-      .cls-10 {
         stroke: url(#linear-gradient-3);
-        stroke-width: 20px;
-        fill: none;
       }
     </style>
 
@@ -98,12 +105,12 @@
     </linearGradient>
     <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient-1"/>
   </defs>
-  <path d="M50,50H250V150H50V50Z" class="cls-3" fill-rule="evenodd"/>
-  <path d="M300,50H500V150H300V50Z" class="cls-4" fill-rule="evenodd"/>
-  <path d="M550,50H750V150H550V50Z" class="cls-5" fill-rule="evenodd"/>
-  <path d="M50,200H250V300H50V200Z" class="cls-6" fill-rule="evenodd"/>
-  <path d="M300,200H500V300H300V200Z" class="cls-7" fill-rule="evenodd"/>
-  <path d="M550,200H750V300H550V200Z" class="cls-8" fill-rule="evenodd"/>
-  <path d="M50,350H250V450H50V350Z" class="cls-9" fill-rule="evenodd"/>
-  <path d="M300,350H500V450H300V350Z" class="cls-10" fill-rule="evenodd"/>
+  <path d="M50.000,50.000 C50.000,50.000 250.000,50.000 250.000,50.000 C250.000,50.000 250.000,150.000 250.000,150.000 C250.000,150.000 50.000,150.000 50.000,150.000 C50.000,150.000 50.000,50.000 50.000,50.000 Z" class="cls-1"/>
+  <path d="M300.000,50.000 C300.000,50.000 500.000,50.000 500.000,50.000 C500.000,50.000 500.000,150.000 500.000,150.000 C500.000,150.000 300.000,150.000 300.000,150.000 C300.000,150.000 300.000,50.000 300.000,50.000 Z" class="cls-2"/>
+  <path d="M550.000,50.000 C550.000,50.000 750.000,50.000 750.000,50.000 C750.000,50.000 750.000,150.000 750.000,150.000 C750.000,150.000 550.000,150.000 550.000,150.000 C550.000,150.000 550.000,50.000 550.000,50.000 Z" class="cls-3"/>
+  <path d="M50.000,200.000 C50.000,200.000 250.000,200.000 250.000,200.000 C250.000,200.000 250.000,300.000 250.000,300.000 C250.000,300.000 50.000,300.000 50.000,300.000 C50.000,300.000 50.000,200.000 50.000,200.000 Z" class="cls-4"/>
+  <path d="M300.000,200.000 C300.000,200.000 500.000,200.000 500.000,200.000 C500.000,200.000 500.000,300.000 500.000,300.000 C500.000,300.000 300.000,300.000 300.000,300.000 C300.000,300.000 300.000,200.000 300.000,200.000 Z" class="cls-5"/>
+  <path d="M550.000,200.000 C550.000,200.000 750.000,200.000 750.000,200.000 C750.000,200.000 750.000,300.000 750.000,300.000 C750.000,300.000 550.000,300.000 550.000,300.000 C550.000,300.000 550.000,200.000 550.000,200.000 Z" class="cls-6"/>
+  <path d="M50.000,350.000 C50.000,350.000 250.000,350.000 250.000,350.000 C250.000,350.000 250.000,450.000 250.000,450.000 C250.000,450.000 50.000,450.000 50.000,450.000 C50.000,450.000 50.000,350.000 50.000,350.000 Z" class="cls-7"/>
+  <path d="M300.000,350.000 C300.000,350.000 500.000,350.000 500.000,350.000 C500.000,350.000 500.000,450.000 500.000,450.000 C500.000,450.000 300.000,450.000 300.000,450.000 C300.000,450.000 300.000,350.000 300.000,350.000 Z" class="cls-8"/>
 </svg>

@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "rectangle-1",
@@ -145,13 +145,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 1",
-			"shape": "rect",
+			"title": "Rectangle 1",
 			"shapeBounds": {
 				"top": 50,
 				"left": 50,
 				"bottom": 150,
 				"right": 250
+			},
+			"shape": {
+				"type": "rect",
+				"x": 50,
+				"y": 50,
+				"width": 200,
+				"height": 100
 			}
 		},
 		{
@@ -291,13 +297,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 2",
-			"shape": "rect",
+			"title": "Rectangle 2",
 			"shapeBounds": {
 				"top": 50,
 				"left": 300,
 				"bottom": 150,
 				"right": 500
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 50,
+				"width": 200,
+				"height": 100
 			}
 		},
 		{
@@ -437,13 +449,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 3",
-			"shape": "rect",
+			"title": "Rectangle 3",
 			"shapeBounds": {
 				"top": 50,
 				"left": 550,
 				"bottom": 150,
 				"right": 750
+			},
+			"shape": {
+				"type": "rect",
+				"x": 550,
+				"y": 50,
+				"width": 200,
+				"height": 100
 			}
 		},
 		{
@@ -583,13 +601,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 10",
-			"shape": "rect",
+			"title": "Rectangle 10",
 			"shapeBounds": {
 				"top": 200,
 				"left": 50,
 				"bottom": 300,
 				"right": 250
+			},
+			"shape": {
+				"type": "rect",
+				"x": 50,
+				"y": 200,
+				"width": 200,
+				"height": 100
 			}
 		},
 		{
@@ -729,13 +753,19 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 11",
-			"shape": "rect",
+			"title": "Rectangle 11",
 			"shapeBounds": {
 				"top": 200,
 				"left": 300,
 				"bottom": 300,
 				"right": 500
+			},
+			"shape": {
+				"type": "rect",
+				"x": 300,
+				"y": 200,
+				"width": 200,
+				"height": 100
 			}
 		},
 		{
@@ -875,33 +905,45 @@ module.exports = {
 				}
 			},
 			"children": [],
-			"layerName": "Rectangle 12",
-			"shape": "rect",
+			"title": "Rectangle 12",
 			"shapeBounds": {
 				"top": 200,
 				"left": 552,
 				"bottom": 294,
 				"right": 748
+			},
+			"shape": {
+				"type": "rect",
+				"x": 552,
+				"y": 200,
+				"width": 196,
+				"height": 94
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "gradient-scale-reflected.psd"
 }

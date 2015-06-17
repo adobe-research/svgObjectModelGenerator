@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@
 "use strict";
 
     var omgUtils = require("./svgOMGeneratorUtils.js");
-    
+
     var CONST_COLOR_BLACK = { "red": 0, "green": 0, "blue": 0 };
-    
+
 	function SVGOMGeneratorStyles() {
         var decamelcase = function (string) {
             return string.replace(/([A-Z])/g, "-$1");
@@ -35,6 +35,10 @@
                 return layer.blendOptions.opacity.value / 100;
             }
             return undefined;
+        }
+
+        var isPathNode = function (svgNode) {
+            return svgNode.type == 'shape' && svgNode.shape.type == 'path';
         }
 
         this.fetchBlendMode = function (layer) {
@@ -71,7 +75,6 @@
         }
 
         this.addGlobalStyle = function (svgNode, layer) {
-
             var propertyFetchers = { // Properties we fetch for all layers
                     "opacity": fetchOpacity,
                     "mix-blend-mode": this.fetchBlendMode
@@ -85,7 +88,7 @@
                 }
             }
         };
-        
+
         this.addStroke = function (svgNode, layer, dpi) {
             var stroke = svgNode.style.stroke || {},
                 strokeStyle = layer.strokeStyle,
@@ -99,7 +102,7 @@
                     "strokeStyleRoundJoin": "round",
                     "strokeStyleMiterJoin": "miter"
                 };
-            
+
             svgNode.style.stroke = stroke;
 
             if (strokeStyle) {
@@ -121,6 +124,14 @@
                 stroke.type = "none";
             }
         };
+
+        this.addFillRule = function (svgNode, layer) {
+            if (!isPathNode(svgNode)) {
+                return;
+            }
+            // evenodd is the default and only fill rule supported in PS.
+            svgNode.style['fill-rule'] = 'evenodd';
+        }
         
         this.addFill = function (svgNode, layer) {
             var fill = svgNode.style.fill || {},
@@ -131,9 +142,9 @@
             }
 
             var fillClass = fillStyle["class"];
-            
+
             svgNode.style.fill = fill;
-            
+
             if (fillClass === "solidColorLayer") {
                 fill.type = "solid";
                 fill.color = omgUtils.toColor(fillStyle.color);
@@ -158,138 +169,110 @@
             }
         };
 
-        this.addFx = function (svgNode, layer) {
-            var color;
+        var applyStrokeFilter = function (svgNode, strokeStyle) {
+            var stroke = {};
 
+            if (!strokeStyle) {
+                return;
+            }
+
+            svgNode.style.stroke = stroke;
+
+            if (strokeStyle) {
+                stroke.type = !strokeStyle.enabled ? "none" : "solid";
+                stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
+                stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
+                stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
+                stroke.lineCap = "butt";
+                stroke.lineJoin = "round";
+                stroke.miterLimit = 100;
+                stroke.sourceStyle = strokeStyle.style;
+                if (strokeStyle.gradient) {
+                    stroke.type = "gradient";
+                    stroke.gradient = omgUtils.toGradient(strokeStyle);
+                }
+            } else {
+                stroke.type = "none";
+            }
+        }
+
+        this.addFx = function (svgNode, layer) {
             if (!layer.layerEffects || layer.layerEffects.masterFXSwitch === false) {
                 return;
             }
-            svgNode.style.fx = JSON.parse(JSON.stringify(layer.layerEffects));
+            svgNode.style.meta = svgNode.style.meta || {};
+            svgNode.style.meta.PS = svgNode.style.meta.PS || {};
+            svgNode.style.meta.PS.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
-            function prepareEffect (effect, effectFunction) {
-                var list = effect + 'Multi';
+            function prepareEffect (effect, prepareFunction) {
+                var list = effect + 'Multi',
+                    fx = svgNode.style.meta.PS.fx;
 
-                if (svgNode.style.fx[effect]) {
+                if (fx[effect]) {
                     // Transform single effects to lists.
-                    svgNode.style.fx[list] = [
-                        svgNode.style.fx[effect]
+                    fx[list] = [
+                        fx[effect]
                     ];
-                    delete svgNode.style.fx[effect];
+                    delete fx[effect];
                 }
-                if (svgNode.style.fx[list]) {
+                if (fx[list]) {
                     // PS exports filters in the opposite order, revert.
-                    svgNode.style.fx[list].reverse();
-                    svgNode.style.fx[list].forEach(effectFunction);
-                }
-            }
-
-            // Alpha isn't really used in an solid fill since there is a separate opacity passed.
-            if (svgNode.style.fx.solidFill) {
-                color = svgNode.style.fx.solidFill.color;
-                color.r = color.red;
-                color.g = color.green;
-                color.b = color.blue;
-                color.a = 1;
-            }
-
-            if (svgNode.style.fx.outerGlow) {
-                if (svgNode.style.fx.outerGlow.gradient) {
-                    var gradient = omgUtils.toColorStops(svgNode.style.fx.outerGlow);
-                    svgNode.style.fx.outerGlow.gradient = gradient;
-                } else {
-                    color = svgNode.style.fx.outerGlow.color;
-                    svgNode.style.fx.outerGlow.color = omgUtils.toColor(color);
-                }
-                svgNode.style.fx.outerGlow.opacity = svgNode.style.fx.outerGlow.opacity ? svgNode.style.fx.outerGlow.opacity.value / 100 : 1;
-            }
-
-            if (svgNode.style.fx.innerGlow) {
-                if (svgNode.style.fx.innerGlow.gradient) {
-                    var gradient = omgUtils.toColorStops(svgNode.style.fx.innerGlow);
-                    // Reverse gradient.
-                    for (var i = gradient.stops.length - 1; i >= 0; i--) {
-                        gradient.stops[i].position = Math.abs(gradient.stops[i].position - 100);
+                    fx[list].reverse();
+                    if (typeof prepareFunction == "function") {
+                        fx[list].forEach(prepareFunction);
                     }
-                    gradient.stops.sort(function (a, b) {
-                        return a.position - b.position;
-                    });
-                    svgNode.style.fx.innerGlow.gradient = gradient;
-                } else {
-                    color = svgNode.style.fx.innerGlow.color;
-                    svgNode.style.fx.innerGlow.color = omgUtils.toColor(color);
                 }
-                svgNode.style.fx.innerGlow.opacity = svgNode.style.fx.innerGlow.opacity ? svgNode.style.fx.innerGlow.opacity.value / 100 : 1;
             }
 
-            if (svgNode.style.fx.chromeFX) {
-                color = svgNode.style.fx.chromeFX.color;
-                svgNode.style.fx.chromeFX.color = omgUtils.toColor(color);
-            }
-
-            if (svgNode.style.fx.innerShadow) {
-                color = svgNode.style.fx.innerShadow.color;
-                svgNode.style.fx.innerShadow.color = omgUtils.toColor(color);
-                
-                svgNode.style.fx.innerShadow.opacity = svgNode.style.fx.innerShadow.opacity ? svgNode.style.fx.innerShadow.opacity.value / 100 : 1;
-            }
-
-            if (svgNode.style.fx.gradientFill) {
-                var gradient = omgUtils.toGradient(svgNode.style.fx.gradientFill);
-                svgNode.style.fx.gradientFill.gradient = gradient;
-            }
-
-            function prepareDropShadow (ele) {
-                color = ele.color;
-                ele.color = omgUtils.toColor(color);
+            function prepareColor (ele) {
+                ele.color = omgUtils.toColor(ele.color);
                 ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
             }
 
-            prepareEffect('dropShadow', prepareDropShadow);
+            function prepareGradient (ele) {
+                ele.gradient = omgUtils.toGradient(ele);
+                ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
+            }
 
-            if (svgNode.style.fx.frameFX) {
-                var stroke = {},
-                    strokeStyle = svgNode.style.fx.frameFX;
-                
-                svgNode.style.stroke = stroke;
-                
-                if (strokeStyle) {
-                    stroke.type = !strokeStyle.enabled ? "none" : "solid";
-                    stroke.lineWidth = strokeStyle.size ? strokeStyle.size : 1;
-                    stroke.color = strokeStyle.color ? omgUtils.toColor(strokeStyle.color) : CONST_COLOR_BLACK;
-                    stroke.opacity = strokeStyle.opacity ? strokeStyle.opacity.value / 100 : 1;
-                    stroke.lineCap = "butt";
-                    stroke.lineJoin = "round";
-                    stroke.miterLimit = 100;
-                    stroke.sourceStyle = strokeStyle.style;
-                    if (strokeStyle.gradient) {
-                        stroke.type = "gradient";
-                        stroke.gradient = omgUtils.toGradient(strokeStyle);
-                    }
+            function prepareGlow (ele) {
+                if (ele.gradient) {
+                    ele.gradient = omgUtils.toColorStops(ele);
+                    ele.opacity = ele.opacity ? ele.opacity.value / 100 : 1;
                 } else {
-                    stroke.type = "none";
+                    prepareColor(ele);
                 }
             }
+
+            prepareEffect('dropShadow', prepareColor);
+            prepareEffect('outerGlow', prepareGlow);
+            prepareEffect('gradientFill', prepareGradient);
+            prepareEffect('solidFill', prepareColor);
+            prepareEffect('chromeFX', prepareColor);
+            prepareEffect('innerGlow', prepareGlow);
+            prepareEffect('innerShadow', prepareColor);
+            prepareEffect('bevelEmboss');
+            prepareEffect('patternOverlay');
+
+            applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX);
         };
-        
-        this.addGroupStylingData = function (svgNode, layer, dpi) {
+
+        this.addGroupStylingData = function (svgNode, layer, writer) {
             svgNode.shapeBounds = layer.bounds;
-            this.addStylingData(svgNode, layer, dpi);
+            this.addStylingData(svgNode, layer, writer);
         };
-        
-        this.addStylingData = function (svgNode, layer, dpi) {
+
+        this.addStylingData = function (svgNode, layer, writer) {
 
             this.addGlobalStyle(svgNode, layer);
 
-            // FIXME: The PS imported image already has all fx effects applied.
             if (svgNode.type == "generic") {
                 return;
             }
 
-            this.addStroke(svgNode, layer, dpi);
+            this.addStroke(svgNode, layer, writer._dpi());
             this.addFill(svgNode, layer);
+            this.addFillRule(svgNode, layer);
             this.addFx(svgNode, layer);
-            
-            //more stuff...
         };
 
         this.addTextChunkStyle = function (span, textStyle) {
@@ -365,7 +348,7 @@
             var maxSize,
                 fontSize,
                 i;
-            
+
             // For correct paragraph offset, we need to know the max font size.
             if (paragraphNode.children && paragraphNode.children.length) {
                 
@@ -374,7 +357,7 @@
                         continue;
                     }
                     fontSize = paragraphNode.children[i].style["font-size"]
-                    
+
                     if (typeof fontSize === "number") {
                         if (!isFinite(maxSize) || fontSize > maxSize) {
                             maxSize = fontSize;
@@ -387,10 +370,10 @@
                     }
                 }
             }
-                
+
             return maxSize;
         }
-        
+
         this.addParagraphStyle = function (paragraphNode, paragraphStyle) {
             function fetchTextAlign(paragraphStyle) {
                 var alignment = {
@@ -404,25 +387,25 @@
                 }
                 return undefined;
             }
-            
+
             paragraphNode.style = {
                 "text-anchor": fetchTextAlign(paragraphStyle),
                 "font-size": _computeMaxFontSize(paragraphNode)
             }
         }
-        
-        this.addComputedTextStyle = function (svgNode, layer) {
+
+        var addComputedTextStyle = function (svgNode, layer) {
             svgNode.style["font-size"] = _computeMaxFontSize(svgNode);
         };
-        
+
         this.addTextStyle = function (svgNode, layer) {
             if (layer.text.textShape[0].orientation &&
                 layer.text.textShape[0].orientation == "vertical") {
                 svgNode.style["writing-mode"] = "tb";
                 svgNode.style["glyph-orientation-vertical"] = "0";
             }
-            
-            this.addComputedTextStyle(svgNode, layer);
+
+            addComputedTextStyle(svgNode, layer);
         }
 	}
 

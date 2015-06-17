@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "shadow",
@@ -26,92 +26,93 @@ module.exports = {
 					}
 				},
 				"fill-opacity": 0.78,
-				"fx": {
-					"innerShadow": {
-						"enabled": true,
-						"mode": "multiply",
-						"color": {
-							"r": 35.295721,
-							"g": 97.797663,
-							"b": 225.000002,
-							"a": 1
-						},
-						"opacity": 0.75,
-						"useGlobalAngle": false,
-						"localLightingAngle": {
-							"value": 180,
-							"units": "angleUnit"
-						},
-						"distance": 75,
-						"chokeMatte": 0,
-						"blur": 46,
-						"noise": {
-							"value": 0,
-							"units": "percentUnit"
-						},
-						"antiAlias": false,
-						"transferSpec": {
-							"name": "Linear"
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 214.000002,
+										"g": 45.319066,
+										"b": 45.319066,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": 180,
+										"units": "angleUnit"
+									},
+									"distance": 24,
+									"chokeMatte": 0,
+									"blur": 21,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							],
+							"solidFillMulti": [
+								{
+									"enabled": true,
+									"mode": "lighten",
+									"opacity": 0.75,
+									"color": {
+										"r": 255,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									}
+								}
+							],
+							"innerShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 35.295721,
+										"g": 97.797663,
+										"b": 225.000002,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": 180,
+										"units": "angleUnit"
+									},
+									"distance": 75,
+									"chokeMatte": 0,
+									"blur": 46,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									}
+								}
+							]
 						}
-					},
-					"solidFill": {
-						"enabled": true,
-						"mode": "lighten",
-						"opacity": {
-							"value": 75,
-							"units": "percentUnit"
-						},
-						"color": {
-							"red": 255,
-							"green": 0,
-							"blue": 0,
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
-						}
-					},
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 214.000002,
-								"g": 45.319066,
-								"b": 45.319066,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": 180,
-								"units": "angleUnit"
-							},
-							"distance": 24,
-							"chokeMatte": 0,
-							"blur": 21,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
-						}
-					]
+					}
 				}
 			},
 			"children": [],
-			"layerName": "shadow",
+			"title": "shadow",
 			"boundsWithFX": {
 				"top": 80,
 				"left": 100,
 				"bottom": 271,
 				"right": 445
 			},
-			"shape": "rect",
 			"shapeBounds": {
 				"top": 100,
 				"left": 100,
@@ -123,26 +124,45 @@ module.exports = {
 				10,
 				10,
 				10
-			]
+			],
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 300,
+				"height": 150,
+				"r": [
+					10,
+					10,
+					10,
+					10
+				]
+			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": -107,
+				"altitude": 90
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": -107,
-		"altitude": 90
-	}
+	"title": "svgFx-shadow-overlay.psd"
 }

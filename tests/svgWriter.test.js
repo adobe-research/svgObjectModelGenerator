@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ var expect = require('chai').expect,
     OMG = require("../svgOMGenerator.js"),
     svgWriter = require("../svgWriter.js"),
     sinon = require('sinon'),
-    database = require('./test-database.js');
+    database = require('./test-database.js'),
     fs = require('fs');
 
 
@@ -345,4 +345,374 @@ describe('svgWriter', function (){
         }
 
     });
+
+    /**
+     * Test polygon and line shapes.
+     **/
+    describe("Test polygon and line shapes", function () {
+        it("polygons and lines should be transformed to SVG", function () {
+            var svgOM = {
+                global: {
+                    bounds: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    },
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        visible: true,
+                        shapeBounds: {
+                            left: 100,
+                            right: 200,
+                            top: 100,
+                            bottom: 200
+                        },
+                        shape: {
+                            type: "polygon",
+                            points: [
+                                {
+                                    x: 100,
+                                    y: 200
+                                },
+                                {
+                                    x: 150,
+                                    y: 100
+                                },
+                                {
+                                    x: 200,
+                                    y: 100
+                                },
+                                {
+                                    x: 200,
+                                    y: 200
+                                },
+                                {
+                                    x: 100,
+                                    y: 200
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        type: "shape",
+                        visible: true,
+                        shapeBounds: {
+                            left: 100,
+                            right: 200,
+                            top: 300,
+                            bottom: 400
+                        },
+                        shape: {
+                            type: "line",
+                            x1: 100,
+                            y1: 400,
+                            x2: 200,
+                            y2: 300
+                        }
+                    },
+                ]
+            },
+            exptectedOut,
+            svgOut = svgWriter.printSVG(svgOM);
+
+            try {
+                exptectedOut = fs.readFileSync('./tests/data/polygon-line.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/polygon-line.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as polygon-line.svg');
+                return;
+            }
+            
+            expect(svgOut).to.equal(exptectedOut);
+            return;
+        });
+    });
+
+    /**
+     * Test scale factors.
+     **/
+    describe("Test polygon and line shapes", function () {
+        it("polygons and lines should be transformed to SVG", function () {
+            var svgOM = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 600,
+                        top: 0,
+                        bottom: 600
+                    },
+                    bounds: {
+                        left: 0,
+                        right: 600,
+                        top: 0,
+                        bottom: 600
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        shapeBounds: {
+                            left: 100,
+                            right: 300,
+                            top: 100,
+                            bottom: 200
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 200,
+                            height: 100
+                        }
+                    }
+                ]
+            },
+            exptectedOut1,
+            svgOut1 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 2,
+                constrainToDocBounds: true
+            }),
+            exptectedOut2,
+            svgOut2 = svgWriter.printSVG(JSON.parse(JSON.stringify(svgOM)), {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 2,
+                constrainToDocBounds: true,
+                cropRect: {
+                    width: 600,
+                    height: 300
+                }
+            });
+
+            try {
+                exptectedOut1 = fs.readFileSync('./tests/data/scale-1.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/scale-1.svg', svgOut1, 'utf8');
+                console.log('No reference SVG document found. New one created as scale-1.svg');
+                return;
+            }
+            expect(svgOut1).to.equal(exptectedOut1);
+
+            try {
+                exptectedOut2 = fs.readFileSync('./tests/data/scale-2.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/scale-2.svg', svgOut2, 'utf8');
+                console.log('No reference SVG document found. New one created as scale-2.svg');
+                return;
+            }
+            expect(svgOut2).to.equal(exptectedOut2);
+            return;
+        });
+    });
+
+    /**
+     * Test termination of rendering on visible: false.
+     **/
+    describe("Test termination of rendering on visible: false", function () {
+        it("should not render circle", function () {
+            var svgOM1 = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    }
+                },
+                children:[
+                    {
+                        type: "shape",
+                        visible: false,
+                        shapeBounds: {
+                            left: 50,
+                            right: 150,
+                            top: 50,
+                            bottom: 150
+                        },
+                        shape: {
+                            type: "circle",
+                            cx: 100,
+                            cy: 100,
+                            r: 50
+                        },
+                        style: {
+                            stroke: {
+                                type: "solid",
+                                color: {r:255,g:0,b:0,a:1},
+                                lineWidht: 10,
+                                "stroke-opacity": 1,
+                            }
+                        }
+                    },
+                    {
+                        type: "shape",
+                        visible: true,
+                        shapeBounds: {
+                            left: 100,
+                            right: 300,
+                            top: 100,
+                            bottom: 300
+                        },
+                        shape: {
+                            type: "rect",
+                            x: 100,
+                            y: 100,
+                            width: 200,
+                            height: 200
+                        },
+                    },
+                ]
+            },
+            exptectedOut1,
+            svgOut1 = svgWriter.printSVG(svgOM1, {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid"
+            });
+
+            try {
+                exptectedOut1 = fs.readFileSync('./tests/data/invisible-circle.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/invisible-circle.svg', svgOut1, 'utf8');
+                console.log('No reference SVG document found. New one created as invisible-circle.svg');
+                return;
+            }
+            
+            expect(svgOut1).to.equal(exptectedOut1);
+            return;
+        });
+    });
+
+    /**
+     * Test crop rect on paths
+     **/
+    describe('Test crop rect on paths', function () {
+
+        function compareResults (testName) {
+            var svgOM,
+                svgOut,
+                expectedOut,
+                path = 'data/' + testName;
+            svgOM = require('./' + path + '-om.js');
+            svgOut = svgWriter.printSVG(svgOM, {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                scale: 1,
+                constrainToDocBounds: true,
+                cropRect: {
+                    width: 350,
+                    height: 600
+                }
+            });
+
+            try {
+                expectedOut = fs.readFileSync('./tests/' + path + '.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/' + path + '.svg', svgOut, 'utf8');
+                console.log('No reference SVG document found. New one created as ' + testName + '.svg');
+                return svgOut;
+            }
+            
+            handleResults(_compareLogDoc, testName, expectedOut, svgOut, './tests/' + path + '.svg', './tests/data-compare/' + testName +'.svg');
+            
+            expect(svgOut).to.equal(expectedOut);
+            return svgOut;
+        }
+
+        it('Test crop rect on a shape layer', function () {
+            compareResults('drop-shadow');
+        });
+    });
+
+
+    /**
+     * Test clip-to-artboard.
+     **/
+    describe("Test clip-to-artboard.", function () {
+        it("should clip to artboard", function () {
+            var svgOM1 = {
+                global: {
+                    viewBox: {
+                        left: 0,
+                        right: 400,
+                        top: 0,
+                        bottom: 500
+                    }
+                },
+                artboards: {
+                    "artboard-1": {
+                        title: "Artboard 1",
+                        bounds: {
+                            top: 100,
+                            left: 100,
+                            bottom: 200,
+                            right: 200
+                        }
+                    }
+                },
+                children: [
+                    {
+                        type: "artboard",
+                        id: "artboard-1",
+                        children: [
+                            {
+                                type: "shape",
+                                shape: {
+                                    type: "rect",
+                                    x: 0,
+                                    y: 0,
+                                    width: 200,
+                                    height: 200
+                                },
+                                shapeBounds: {
+                                    top: 0,
+                                    left: 0,
+                                    bottom: 200,
+                                    right: 200
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            exptectedOut1,
+            svgOut1 = svgWriter.printSVG(svgOM1, {
+                trimToArtBounds: true,
+                preserveAspectRatio: "xMidYMid",
+                cropRect: {
+                    width: 300,
+                    height: 300
+                },
+                artboardBounds: {
+                    top: 100,
+                    left: 100,
+                    bottom: 200,
+                    right: 200
+                },
+                clipToArtboardBounds: true
+            });
+
+            try {
+                exptectedOut1 = fs.readFileSync('./tests/data/artboard-clipping.svg', 'utf8');
+            } catch (e) {
+                fs.writeFileSync('./tests/data/artboard-clipping.svg', svgOut1, 'utf8');
+                console.log('No reference SVG document found. New one created as artboard-clipping.svg');
+                return;
+            }
+            
+            expect(svgOut1).to.equal(exptectedOut1);
+            return;
+        });
+    });
+
 });

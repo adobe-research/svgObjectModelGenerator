@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@
     
     var svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterIDs = require("./svgWriterIDs.js"),
-        SVGWriterContext = require("./svgWriterContext.js");
+        svgWriterGradient = require("./svgWriterGradient.js"),
+        SVGWriterContext = require("./svgWriterContext.js"),
+        SVGWriterGradientMap = require("./svgWriterGradientMap.js");
 
     var write = svgWriterUtils.write,
         writeln = svgWriterUtils.writeln,
@@ -39,148 +41,168 @@
         undent = svgWriterUtils.undent,
         writeColor = svgWriterUtils.writeColor,
         round1k = svgWriterUtils.round1k,
-        ctxCapture = svgWriterUtils.ctxCapture;
+        ctxCapture = svgWriterUtils.ctxCapture,
+        hasColorNoise = svgWriterUtils.hasColorNoise,
+        hasEffect = svgWriterUtils.hasEffect,
+        PSFx = svgWriterUtils.PSFx;
     
     function SVGWriterFx() {
-        
-        this.hasFx = function (ctx) {
-            return (this.hasEffect(ctx, 'dropShadow') || 
-                    this.hasGradientOverlay(ctx) || 
-                    this.hasColorOverlay(ctx) ||
-                    this.hasSatin(ctx) ||
-                    this.hasInnerShadow(ctx));
-        };
-        
         this.scanForUnsupportedFeatures = function (ctx) {
-            var omIn = ctx.currentOMNode;
-            
-            if (omIn.style && omIn.style.fx) {
-                if (this.hasEmboss(ctx)) {
-                    ctx.errors.push("Bevel and Emboss filter effects are not supported by SVG export.");
-                }
-                
-                if (this.hasPatternOverlay(ctx)) {
-                    ctx.errors.push("Pattern Overlay effects are not supported by SVG export.");
-                }
+            var omIn = ctx.currentOMNode,
+                fx = PSFx(omIn);
+
+            if (!fx) {
+                return;
             }
-            
+            if (hasEffect(ctx, 'bevelEmboss')) {
+                ctx.errors.push("Bevel and Emboss filter effects are not supported by SVG export.");
+            }
+            if (hasEffect(ctx, 'patternOverlay')) {
+                ctx.errors.push("Pattern Overlay effects are not supported by SVG export.");
+            }
+            if (fx.gradientFill &&
+                fx.gradientFill.gradient &&
+                fx.gradientFill.gradient.gradientForm === 'colorNoise') {
+                ctx.errors.push("Gradients with noise are not supported by SVG export.");
+            }
         };
-        
+
         this.externalizeStyles = function (ctx) {
-            
             var omIn = ctx.currentOMNode,
                 stroke,
                 styleBlock,
                 iFx = 0,
                 filterFlavor;
-            
-            if (omIn.style && omIn.style.fx) {
 
-                styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-                
-                // Check to see if any of the components actually need to write.
-                if (this.hasEffect(ctx, 'dropShadow')) {
-                    iFx++;
-                    filterFlavor = "drop-shadow";
-                }
-                if (this.hasOuterGlow(ctx)) {
-                    iFx++;
-                    filterFlavor = "outer-glow";
-                }
-                if (this.hasGradientOverlay(ctx)) {
-                    iFx++;
-                    filterFlavor = "gradient-overlay";
-                }
-                if (this.hasColorOverlay(ctx)) {
-                    iFx++;
-                    filterFlavor = "color-overlay";
-                }
-                if (this.hasSatin(ctx)) {
-                    iFx++;
-                    filterFlavor = "satin";
-                }
-                if (this.hasInnerGlow(ctx)) {
-                    iFx++;
-                    filterFlavor = "inner-glow";
-                }
-                if (this.hasInnerShadow(ctx)) {
-                    iFx++;
-                    filterFlavor = "inner-shadow";
-                }
-                
-                // More than one componet is a filter-chain.
-                if (iFx > 1) {
-                    filterFlavor = "filter-chain";
-                }
-                
-                if (iFx > 0) {
-                    omIn._filterflavor = filterFlavor;
-                    
-                    var filterID = svgWriterIDs.getUnique(filterFlavor),
-                        fingerprint = "";
-
-                    ctxCapture(ctx, function () {
-                        writeln(ctx, ctx.currentIndent + "<filter id=\"" + filterID + "\" filterUnits=\"userSpaceOnUse\">");
-                        indent(ctx);
-
-                        var param = { pass: "SourceGraphic" };
-                        fingerprint += this.externalizeDropShadow(ctx, param);
-                        fingerprint += this.externalizeOuterGlow(ctx, param);
-                        fingerprint += this.externalizeGradientOverlay(ctx, param);
-                        fingerprint += this.externalizeColorOverlay(ctx, param);
-                        fingerprint += this.externalizeSatin(ctx, param);
-                        fingerprint += this.externalizeInnerGlow(ctx, param);
-                        fingerprint += this.externalizeInnerShadow(ctx, param);
-
-                        undent(ctx);
-                        writeln(ctx, ctx.currentIndent + "</filter>");
-                    }.bind(this), function (out) {
-                        
-                        ctx.omStylesheet.define(filterFlavor, omIn.id, filterID, out, fingerprint);
-                    }.bind(this));
-
-                    filterID = ctx.omStylesheet.getDefine(omIn.id, filterFlavor).defnId;
-
-                    styleBlock.addRule("filter", "url(#" + filterID + ")");
-                }
+            if (!PSFx(omIn)) {
+                return;
             }
+
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
+
+            // Check to see if any of the components actually need to write.
+            if (hasEffect(ctx, 'dropShadow')) {
+                iFx++;
+                filterFlavor = 'drop-shadow';
+            }
+            if (hasEffect(ctx, 'outerGlow')) {
+                iFx++;
+                filterFlavor = 'outer-glow';
+            }
+            if (hasEffect(ctx, 'gradientFill', hasColorNoise)) {
+                iFx++;
+                filterFlavor = 'gradient-overlay';
+            }
+            if (hasEffect(ctx, 'solidFill')) {
+                iFx++;
+                filterFlavor = 'color-overlay';
+            }
+            if (hasEffect(ctx, 'chromeFX')) {
+                iFx++;
+                filterFlavor = 'satin';
+            }
+            if (hasEffect(ctx, 'innerGlow')) {
+                iFx++;
+                filterFlavor = 'inner-glow';
+            }
+            if (hasEffect(ctx, 'innerShadow')) {
+                iFx++;
+                filterFlavor = 'inner-shadow';
+            }
+
+            // No filter found.
+            if (!iFx) {
+                return;
+            }
+
+            // More than one componet is a filter-chain.
+            if (iFx > 1) {
+                filterFlavor = 'filter-chain';
+            }
+
+            omIn._filterflavor = filterFlavor;
+
+            var filterID = svgWriterIDs.getUnique(filterFlavor),
+                fingerprint = "";
+
+            ctxCapture(ctx, function () {
+                writeln(ctx, ctx.currentIndent + '<filter id="' + filterID + '" filterUnits="userSpaceOnUse">');
+                indent(ctx);
+
+                var param = { pass: 'SourceGraphic' };
+                fingerprint += externalizeDropShadow(ctx, param);
+                fingerprint += externalizeEffect(ctx, param, 'outerGlow', writeOuterGlow);
+                fingerprint += externalizeSourceGraphic(ctx, param);
+                fingerprint += externalizeEffect(ctx, param, 'gradientFill', writeGradientFill);
+                fingerprint += externalizeEffect(ctx, param, 'solidFill', writeColorOverlay);
+                fingerprint += externalizeEffect(ctx, param, 'chromeFX', writeSatin);
+                fingerprint += externalizeEffect(ctx, param, 'innerGlow', writeInnerGlow);
+                fingerprint += externalizeEffect(ctx, param, 'innerShadow', writeInnerShadow);
+
+                undent(ctx);
+                writeln(ctx, ctx.currentIndent + '</filter>');
+            }.bind(this), function (out) {
+                ctx.omStylesheet.define(filterFlavor, omIn.id, filterID, out, fingerprint);
+            }.bind(this));
+
+            filterID = ctx.omStylesheet.getDefine(omIn.id, filterFlavor).defnId;
+
+            styleBlock.addRule("filter", "url(#" + filterID + ")");
         };
 
-        this.hasEffect = function (ctx, effect) {
-            var omIn = ctx.currentOMNode;
+        var glowHelperFunction = function (ctx, glow, glowType, ind) {
+            var gradientMap = new SVGWriterGradientMap,
+                opacity = round1k(glow.opacity),
+                op = glowType == 'innerGlow' ? 'out' : 'in';
 
-            effect += 'Multi';
-            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx[effect]) {
-                return omIn.style.fx[effect].some(function(ele) {
-                    return ele.enabled;
-                });
+            if (glow.gradient) {
+                // Inverse colors.
+                writeFeInvert(ctx);
+                // Set RGB channels to A.
+                writeFeLuminance(ctx);
+                writeFeInvert(ctx);
+
+                // Gradient map.
+                gradientMap.createGradientMap(ctx, glow.gradient.stops);
+            } else {
+                var color = glow.color;
+                writeFeFlood(ctx, color, opacity);
+                writeFeComposite(ctx, op, {in2: glowType + 'Blur' + ind});
             }
-            return false;
         }
-        
-        this.hasPatternOverlay = function (ctx) {
-            var omIn = ctx.currentOMNode;
-            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx.patternOverlay && omIn.style.fx.patternOverlay.enabled) {
-                return true;
-            }
-            return false;
-        };
-        
-        this.hasEmboss = function (ctx) {
-            var omIn = ctx.currentOMNode;
-            if (omIn && omIn.style && omIn.style.fx && omIn.style.fx.bevelEmboss && omIn.style.fx.bevelEmboss.enabled) {
-                return true;
-            }
-            return false;
-        };
 
-        this.externalizeDropShadow = function (ctx, param) {
-            if (!this.hasEffect(ctx, 'dropShadow')) {
+        var externalizeEffect = function (ctx, param, name, writer) {
+            if (!hasEffect(ctx, name)) {
                 return;
             }
 
             var omIn = ctx.currentOMNode,
-                dropShadowMulti = omIn.style.fx.dropShadowMulti,
+                effects = omIn.style.meta.PS.fx[name + 'Multi'],
+                specifies = [];
+
+            effects.forEach(function (effect) {
+                if (!effect.enabled) {
+                    return;
+                }
+                var num = specifies.length,
+                    ind = num ? '-' + num : '',
+                    input = param.pass;
+
+                specifies.push(writer(ctx, effect, ind));
+                param.pass = name + ind;
+                writeFeBlend(ctx, effect.mode, {in2: input, result: param.pass});
+            });
+
+            return JSON.stringify(specifies);
+        }
+
+        var externalizeDropShadow = function (ctx, param) {
+            if (!hasEffect(ctx, 'dropShadow')) {
+                return;
+            }
+
+            var omIn = ctx.currentOMNode,
+                dropShadowMulti = omIn.style.meta.PS.fx.dropShadowMulti,
                 specifies = [];
 
             function writeDropShadow(ctx, dropShadow, ind) {
@@ -221,164 +243,74 @@
             return JSON.stringify(specifies);
         };
 
-        this.hasOuterGlow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                outerGlow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                outerGlow = omIn.style.fx.outerGlow;
-            
-                if (outerGlow && outerGlow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
-        this.externalizeOuterGlow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                outerGlow = omIn.style.fx.outerGlow;
-            if (!outerGlow || !outerGlow.enabled) {
-                if (param.pass.substr(0, 10) == 'dropShadow') {
-                    writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'dropShadow'});
-                    param.pass = 'dropShadow';
-                }
-                return;
-            }
-
+        var writeOuterGlow = function (ctx, glow, ind) {
             // There is no particular reason. It just looks correct with the 3 compositing operations
             // and setting "Contur" to "Half-round".
-            var blur = round1k(outerGlow.blur / 3),
-                opacity = round1k(outerGlow.opacity);
+            var blur = round1k(glow.blur / 3),
+                opacity = round1k(glow.opacity);
 
             writeFeGauss(ctx, blur, {in1: 'SourceAlpha'});
             writeFeComposite(ctx);
             writeFeComposite(ctx);
-            writeFeComposite(ctx, 'over', {result: 'outerGlowBlur'});
-            if (outerGlow.gradient) {
-                var nSegs = this.findMatchingDistributedNSegs(outerGlow.gradient.stops);
-                var colors = this.calcDistributedColors(outerGlow.gradient.stops, nSegs);
-                // Inverse colors.
-                writeFeInvert(ctx);
-                // Set RGB channels to A.
-                writeFeLuminance(ctx);
-                writeFeInvert(ctx);
-                // Gradient map.
-                this.createGradientMap(ctx, colors);
-            } else {
-                writeFeFlood(ctx, outerGlow.color, opacity);
-                writeFeComposite(ctx, 'in', {in2: 'outerGlowBlur'});
-            }
-            if (param.pass.substr(0, 10) == "dropShadow") {
-                writeFeBlend(ctx, omIn.style.fx.outerGlow.mode, {in2: param.pass});
-            }
-            writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: 'outerGlow'});
-            param.pass = "outerGlow";
+            writeFeComposite(ctx, 'over', {result: 'outerGlowBlur' + ind});
 
-            return JSON.stringify({ c: outerGlow.color, g: outerGlow.gradient, o: opacity, b: blur });
-        };
+            glowHelperFunction(ctx, glow, 'outerGlow', ind);
 
-        this.hasGradientOverlay = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                gradientFill;
-            
-            if (omIn && omIn.style && omIn.style.fx) {
-                gradientFill = omIn.style.fx.gradientFill;
-                if (gradientFill && gradientFill.enabled && gradientFill.gradient &&
-                    gradientFill.gradient.gradientForm !== 'colorNoise') {
-                    return true;
-                }
-            }
-            return false;
-        };
-        this.externalizeGradientOverlay = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                gradientFill = omIn.style.fx.gradientFill,
-                bounds = omIn.shapeBounds,
-                pseudoCtx = new SVGWriterContext(omIn),
-                opacity;
+            return { c: glow.color, g: glow.gradient, o: opacity, b: blur };
+        }
 
-            if (!gradientFill || !gradientFill.enabled) {
+        var externalizeSourceGraphic = function (ctx, param) {
+            if (param.pass == 'SourceGraphic') {
                 return;
             }
-            opacity = round1k(gradientFill.opacity.value / 100);
+            param.pass = 'shadowed';
+            writeFeComposite(ctx, 'over', {in1: 'SourceGraphic', result: param.pass});
+        }
 
-            svgWriterUtils.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.svgOM.viewBox, 'grad');
+        var writeGradientFill = function (ctx, gradientFill) {
+            var omIn = ctx.currentOMNode,
+                bounds = omIn.shapeBounds,
+                pseudoCtx = new SVGWriterContext(omIn),
+                opacity = round1k(gradientFill.opacity);
+
+            svgWriterGradient.writeGradientOverlay(pseudoCtx, gradientFill.gradient, ctx.viewBox, 'grad');
 
             var string = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' +
                 ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '">' +
-                pseudoCtx.sOut + '<rect width="100%" height="100%"';
+                pseudoCtx.sOut + '<rect width="100%" height="100%"',
+                base64;
+
             if (opacity != 1) {
                 string += ' opacity="' + opacity + '"';
             }
             string += ' fill="url(#grad)"/></svg>';
-            var base64 = svgWriterUtils.toBase64(string);
+            base64 = svgWriterUtils.toBase64(string);
 
-            writeln(ctx, ctx.currentIndent + "<feImage x=\"" + bounds.left + "\" y=\"" + bounds.top + "\"" +
-                ' preserveAspectRatio="none"' +
-                ' width="' + (bounds.right - bounds.left) + '" height="' + (bounds.bottom - bounds.top) + '"' +
-                ' xlink:href="data:image/svg+xml;base64,' + base64 + '"/>');
+            write(ctx, ctx.currentIndent + '<feImage');
+            writeAttrIfNecessary(ctx, 'x', bounds.left);
+            writeAttrIfNecessary(ctx, 'y', bounds.top);
+            writeAttrIfNecessary(ctx, 'width', bounds.right - bounds.left);
+            writeAttrIfNecessary(ctx, 'height', bounds.bottom - bounds.top);
+            writeAttrIfNecessary(ctx, 'preserveAspectRatio', 'none');
+            writeAttrIfNecessary(ctx, 'xlink:href', 'data:image/svg+xml;base64,' + base64);
+            writeln(ctx, '/>');
             writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
-            writeFeBlend(ctx, gradientFill.mode, {in2: param.pass, result: 'gradientFill'});
-            param.pass = 'gradientFill';
-            
-            return JSON.stringify({ l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 });
-        };
 
-        this.hasColorOverlay = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                solidFill;
-            if (omIn && omIn.style && omIn.style.fx) {
-                solidFill = omIn.style.fx.solidFill
-                if (solidFill && solidFill.enabled) {
-                    return true;
-                }
+            return { l: bounds.left, r: bounds.right, t: bounds.top, b: bounds.bottom, mo: gradientFill.mode, base: base64 };
+        }
 
-                solidFill = omIn.style.fx.solidFillMulti;
-                if (solidFill) {
-                    return solidFill.some(function(ele) {
-                        return ele.enabled;
-                    });
-                }
-            }
-            return false;
-        };
-        this.externalizeColorOverlay = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                solidFill = omIn.style.fx.solidFill;
-            if (!solidFill || !solidFill.enabled) {
-                return;
-            }
-
+        var writeColorOverlay = function (ctx, solidFill) {
             var color = solidFill.color,
-                opacity = round1k(solidFill.opacity.value / 100);
+                opacity = round1k(solidFill.opacity);
 
             writeFeFlood(ctx, color, opacity);
             writeFeComposite(ctx, 'in', {in2: 'SourceGraphic'});
-            writeFeBlend(ctx, solidFill.mode, {in2: param.pass, result: 'colorOverlay'});
-            param.pass = "colorOverlay";
+            return { c: color, o: opacity, m: solidFill.mode};
+        }
 
-            return JSON.stringify({ c: color, m: solidFill.mode, o: opacity});
-        };
-
-        this.hasSatin = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                satin;
-            if (omIn && omIn.style && omIn.style.fx) {
-                satin = omIn.style.fx.chromeFX
-                if (satin && satin.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
-
-        this.externalizeSatin = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                satin = omIn.style.fx.chromeFX;
-            if (!satin || !satin.enabled) {
-                return;
-            }
+        var writeSatin = function (ctx, satin, ind) {
             var color = satin.color,
-                opacity = round1k(satin.opacity.value / 100),
+                opacity = round1k(satin.opacity),
                 offset = {
                     x: round1k(satin.distance * Math.cos(-satin.localLightingAngle.value)),
                     y: round1k(satin.distance * Math.sin(-satin.localLightingAngle.value))
@@ -386,91 +318,45 @@
                 blur = round1k(Math.sqrt(satin.blur));
 
             writeFeFlood(ctx, color);
-            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha', result: 'snSilhouette'});
-            writeFeOffset(ctx, offset, {in1: 'snSilhouette', result: 'snShifted1'});
-            writeFeOffset(ctx, { x: -offset.x, y: -offset.y }, {in1: 'snSilhouette', result: 'snShifted2'});
-            writeFeComposite(ctx, 'xor', {in1: 'snShifted1', in2: 'snShifted2'});
+            writeFeComposite(ctx, 'in', {in2: 'SourceAlpha', result: 'snSilhouette' + ind});
+            writeFeOffset(ctx, offset, {in1: 'snSilhouette' + ind, result: 'snShifted1' + ind});
+            writeFeOffset(ctx, { x: -offset.x, y: -offset.y }, {in1: 'snSilhouette' + ind, result: 'snShifted2' + ind});
+            writeFeComposite(ctx, 'xor', {in1: 'snShifted1' + ind, in2: 'snShifted2' + ind});
             if (satin.invert) {
-                writeFeComposite(ctx, 'xor', {in2: 'snSilhouette'});
+                writeFeComposite(ctx, 'xor', {in2: 'snSilhouette' + ind});
             }
             writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
             writeFeGauss(ctx, blur);
-            writeln(ctx, ctx.currentIndent + "<feComponentTransfer>");
+            writeln(ctx, ctx.currentIndent + '<feComponentTransfer>');
             indent(ctx);
-            writeln(ctx, ctx.currentIndent + "<feFuncA type=\"linear\" slope=\"" + opacity + "\"/>");
+            writeln(ctx, ctx.currentIndent + '<feFuncA type="linear" slope="' + opacity + '"/>');
             undent(ctx);
-            writeln(ctx, ctx.currentIndent + "</feComponentTransfer>");
+            writeln(ctx, ctx.currentIndent + '</feComponentTransfer>');
             writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeBlend(ctx, satin.mode, {in2: param.pass, result: 'satin'});
-            param.pass = "satin";
 
-            return JSON.stringify({m: satin.mode, c: color, o: opacity, b: blur, offset: offset});
-        };
+            return {m: satin.mode, c: color, o: opacity, b: blur, offset: offset};
+        }
 
+        var writeInnerGlow = function (ctx, glow, ind) {
+            var blur = round1k(glow.blur / 3),
+                opacity = round1k(glow.opacity);
 
-        this.hasInnerGlow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                innerGlow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                innerGlow = omIn.style.fx.innerGlow;
-                if (innerGlow && innerGlow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
-        this.externalizeInnerGlow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                innerGlow = omIn.style.fx.innerGlow;
-            if (!innerGlow || !innerGlow.enabled) {
-                return;
+            writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur' + ind});
+            if (glow.gradient) {
+                // Reverse gradient. The luminance for inner shadows is inverse to outer shadows.
+                glow.gradient.stops.reverse().forEach(function(ele) {
+                    ele.position = Math.abs(ele.position - 100);
+                });
             }
 
-            // There is no particular reason. It just looks correct with the 3 compositing operations
-            // and setting "Contur" to "Half-round".
-            var blur = round1k(innerGlow.blur / 3),
-                opacity = round1k(innerGlow.opacity);
+            glowHelperFunction(ctx, glow, 'innerGlow', ind);
 
-            writeFeGauss(ctx, blur, {in1: 'SourceAlpha', result: 'innerGlowBlur'});
-            if (innerGlow.gradient) {
-                var nSegs = this.findMatchingDistributedNSegs(innerGlow.gradient.stops);
-                var colors = this.calcDistributedColors(innerGlow.gradient.stops, nSegs);
-                // Inverse colors.
-                writeFeInvert(ctx);
-                // Set RGB channels to A.
-                writeFeLuminance(ctx);
-                writeFeInvert(ctx);
-                // Gradient map.
-                this.createGradientMap(ctx, colors);
-            } else {
-                var color = innerGlow.color;
-                writeFeFlood(ctx, color, opacity);
-                writeFeComposite(ctx, 'out', {in2: 'innerGlowBlur'});
-            }
             writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeBlend(ctx, innerGlow.mode, {in2: param.pass, result: 'innerGlow'});
-            param.pass = "innerGlow";
 
-            return JSON.stringify({ c: innerGlow.color, g: innerGlow.gradient, o: opacity, b: blur });
-        };
+            return { c: glow.color, g: glow.gradient, o: opacity, b: blur };
+        }
 
-        this.hasInnerShadow = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                innerShadow;
-            if (omIn && omIn.style && omIn.style.fx) {
-                innerShadow = omIn.style.fx.innerShadow;
-                if (innerShadow && innerShadow.enabled) {
-                    return true;
-                }
-            }
-            return false;
-        };
-        this.externalizeInnerShadow = function (ctx, param) {
-            var omIn = ctx.currentOMNode,
-                innerShadow = omIn.style.fx.innerShadow;
-            if (!innerShadow || !innerShadow.enabled) {
-                return;
-            }
+        var writeInnerShadow = function (ctx, innerShadow, ind) {
             var color = innerShadow.color,
                 opacity = round1k(innerShadow.opacity),
                 distance = innerShadow.distance,
@@ -482,132 +368,13 @@
                 };
 
             writeFeOffset(ctx, offset, {in1: 'SourceAlpha'});
-            writeFeGauss(ctx, blur, {result: 'innerShadowBlur'});
+            writeFeGauss(ctx, blur, {result: 'innerShadowBlur' + ind});
             writeFeFlood(ctx, color, opacity);
-            writeFeComposite(ctx, 'out', {in2: 'innerShadowBlur'});
+            writeFeComposite(ctx, 'out', {in2: 'innerShadowBlur' + ind});
             writeFeComposite(ctx, 'in', {in2: 'SourceAlpha'});
-            writeFeBlend(ctx, innerShadow.mode, {in2: param.pass, result: 'innerShadow'});
-            param.pass = "innerShadow";
 
-            return JSON.stringify({m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset});
-        };
-        
-        this.addFxAttr = function (ctx) {
-            var node = ctx.currentOMNode;
-            //see what we have...
-            if (node._filterflavor && !ctx.hasWritten(node, node._filterflavor + "-attr")) {
-                ctx.didWrite(node, node._filterflavor + "-attr");
-                var overlayDefn = ctx.omStylesheet.getDefine(node.id, node._filterflavor);
-                if (overlayDefn) {
-                    write(ctx, " filter=\"url(#" + overlayDefn.defnId + ")\"");
-                }
-            }
-        };
-
-        // This is borrowed from gradientmaps.js
-        // https://github.com/awgreenblatt/gradientmaps/blob/master/gradientmaps.js
-        this.findMatchingDistributedNSegs = function (stops) {
-            var maxNumSegs = 100;
-            var matched = false;
-            for (var nSegs = 1; !matched && nSegs <= maxNumSegs; nSegs++) {
-                var segSize = maxNumSegs / nSegs;
-                matched = true;
-                for (var i = 1; i < stops.length-1; i++) {
-                    var pos = stops[i].position;
-                    if (pos < segSize) {
-                        matched = false;
-                        break;
-                    }
-                    var rem = pos % segSize;
-                    var maxDiff = 1.0;
-                    if (!(rem < maxDiff || (segSize - rem) < maxDiff)) {
-                        matched = false;
-                        break;
-                    }
-                }
-        
-                if (matched)
-                    return nSegs;
-            }       
-        
-            return nSegs; 
-        };
-
-        this.calcDistributedColors = function (stops, nSegs) {
-            var colors = new Array(nSegs);
-            colors[0] = stops[0].color;
-        
-            var segSize = 100 / nSegs;
-            for (var i = 1; i < stops.length-1; i++) {
-                var stop = stops[i];
-                var n = Math.round(stop.position / segSize);
-                colors[n] = stop.color;
-            }
-            colors[nSegs] = stops[stops.length-1].color;
-
-            var i = 1;
-            while (i < colors.length) {
-                if (!colors[i]) {
-                    for (var j = i+1; j < colors.length; j++) {
-                        if (colors[j])
-                            break;
-                    }
-        
-                    // Need to evenly distribute colors stops from svgStop[i-1] to svgStop[j]
-                    var startColor = colors[i-1];
-                    var r = startColor.r;
-                    var g = startColor.g;
-                    var b = startColor.b;
-                    var a = startColor.a;
-        
-                    var endColor = colors[j];
-        
-                    var nSegs = j - i + 1;
-                    var dr = (endColor.r - r) / nSegs;
-                    var dg = (endColor.g - g) / nSegs;
-                    var db = (endColor.b - b) / nSegs;
-                    var da = (endColor.a - a) / nSegs;
-                    while (i < j) {
-                        r += dr;
-                        g += dg;
-                        b += db;
-                        a += da;
-                        colors[i] = { "r": r, "g": g, "b": b, "a": a };
-                        i++;
-                    }
-                }
-                i++;
-            }
-            return colors;
-        };
-
-        this.createGradientMap = function (ctx, colors) {        
-            var redTableValues = "";
-            var greenTableValues = "";
-            var blueTableValues = "";
-            var alphaTableValues = "";
-        
-            colors.forEach(function(color, index, colors) {
-                redTableValues += (svgWriterUtils.round10k(color.r / 255) + " ");
-                greenTableValues += (svgWriterUtils.round10k(color.g / 255) + " ");
-                blueTableValues += (svgWriterUtils.round10k(color.b / 255) + " ");
-                alphaTableValues += (color.a + " ");
-            });
-
-            if (!String.prototype.trim) {  
-                String.prototype.trim = function () {  
-                    return this.replace(/^\s+|\s+$/g,'');  
-                };  
-            }
-
-            writeln(ctx, ctx.currentIndent + "<feComponentTransfer color-interpolation-filters=\"sRGB\">");
-            indent(ctx);
-            writeln(ctx, ctx.currentIndent + "<feFuncR type=\"table\" tableValues=\"" + redTableValues.trim() + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feFuncG type=\"table\" tableValues=\"" + greenTableValues.trim() + "\"/>");
-            writeln(ctx, ctx.currentIndent + "<feFuncB type=\"table\" tableValues=\"" + blueTableValues.trim() + "\"/>");
-            undent(ctx);
-            writeln(ctx, ctx.currentIndent + "</feComponentTransfer>");        
-        };
+            return {m: innerShadow.mode, c: color, o: opacity, b: blur, off: offset};
+        }
 	}
 
 	module.exports = new SVGWriterFx();

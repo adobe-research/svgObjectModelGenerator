@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
-// 
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -18,60 +18,63 @@
 /* Help construct the svgOM from generator data */
 
 (function () {
-"use strict";
-    
+    "use strict";
+
     var SVGStylesheet = require("./svgStylesheet.js"),
         svgWriterStroke = require("./svgWriterStroke.js"),
         svgWriterFill = require("./svgWriterFill.js"),
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
         svgWriterText = require("./svgWriterText.js"),
-        omgUtils = require("./svgOMGeneratorUtils.js"),
-        px = svgWriterUtils.px;
-    
-	function SVGWriterPreprocessor() {
-        
+        svgWriterIDs = require("./svgWriterIDs.js"),
+        Tag = require("./svgWriterTag.js"),
+        matrix = require("./matrix.js"),
+        utils = require("./utils.js"),
+        matrix = require("./matrix.js");
+
+    var px = svgWriterUtils.px;
+
+    function SVGWriterPreprocessor() {
+
         this.scanForUnsupportedFeatures = function (ctx) {
             svgWriterFill.scanForUnsupportedFeatures(ctx);
             svgWriterStroke.scanForUnsupportedFeatures(ctx);
             svgWriterFx.scanForUnsupportedFeatures(ctx);
             svgWriterText.scanForUnsupportedFeatures(ctx);
         };
-        
+
         this.provideBackupDefaults = function (omIn, styleBlock) {
-            if (omIn.style && styleBlock.hasRules()) {
-                if (omIn.type === "shape" && omIn.style.fill === undefined) {
-                    omIn.style.fill = "none";
-                    styleBlock.addRule("fill", "none");
-                }
+            if (omIn.style && styleBlock.hasRules() &&
+                    omIn.type === "shape" && !omIn.style.fill) {
+                omIn.style.fill = "none";
+                styleBlock.addRule("fill", "none");
             }
         };
-        
+
         /**
          * Externalize styles identifies styles that can be detached from artwork.
          **/
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                property,
                 styleBlock;
 
-            ctx.stylesCurrentBlock = null;
-            
+            delete ctx.stylesCurrentBlock;
+
             svgWriterFill.externalizeStyles(ctx);
             svgWriterStroke.externalizeStyles(ctx);
             svgWriterFx.externalizeStyles(ctx);
 
             styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            
+
             this.provideBackupDefaults(omIn, styleBlock);
-            
+
             if (omIn.style) {
                 Object.keys(omIn.style).forEach(function (property) {
                     if (omIn.style[property] === undefined) {
                         return;
                     }
                     // fill, stroke and fx are handled above.
-                    if (property === "fill" || property === "stroke" | property ==="fx") {
+                    if (property === "fill" || property === "stroke" || property === "meta") {
                         return;
                     }
                     if (property === "font-size") {
@@ -83,214 +86,131 @@
                     }
                 });
             }
-            
         };
-        
-        this.growBoundsUniform = function (bounds, delta) {
-            bounds.left -= delta;
-            bounds.right += delta;
-            bounds.top -= delta;
-            bounds.bottom += delta;
+
+        var writeClipPath = function (ctx, bounds, offsetX, offsetY) {
+            var clipPathTag,
+                clipPathID = svgWriterIDs.getUnique("clip-path"),
+                rects = [];
+
+            if (!bounds || !bounds.length) {
+                return;
+            }
+            clipPathTag = new Tag("clipPath", {
+                id: clipPathID
+            });
+
+            for (var i = 0; i < bounds.length; ++i) {
+                rects.push(new Tag("rect", {
+                    x: bounds[i].left + (ctx._shiftContentX || 0) + offsetX,
+                    y: bounds[i].top + (ctx._shiftContentY || 0) + offsetY,
+                    width: bounds[i].right - bounds[i].left,
+                    height: bounds[i].bottom - bounds[i].top
+                }));
+            }
+            clipPathTag.children = rects;
+
+            ctx.omStylesheet.define("clip-path", "svg-root", clipPathID, clipPathTag.toString(), JSON.stringify({
+                bounds: bounds
+            }));
+
+            ctx.artboardClipPath = clipPathID;
         };
-        
-        this.recordBounds = function (ctx, omIn) {
+
+        var recordBounds = function (ctx, omIn) {
             var bnds = ctx.contentBounds,
-                bndsIn = omIn.bounds,
-                boundPadLeft = 0,
-                boundPadRight = 0,
-                boundPadTop = 0,
-                boundPadBottom = 0,
-                bndsTextFx,
-                bndsText;
+                bndsIn = omIn.boundsWithFX || omIn.textBounds || omIn.shapeBounds,
+                lineWidth = omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" &&
+                            omIn.style.stroke.lineWidth || 0,
+                expand = lineWidth / 2;
 
-            if (omIn.boundsWithFX) {
-                bndsIn = omIn.boundsWithFX;
-                
-            } else {
-                if (omIn.type === "shape" || omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
-                    bndsIn = omIn.shapeBounds;
-                } else if (omIn.type === "text") {
-                    if (omIn.textBounds) {
-                        bndsIn = JSON.parse(JSON.stringify(omIn.textBounds));
-                    } else if (omIn.shapeBounds) {
-                        bndsIn = omIn.shapeBounds;
-                    }
-                }
-            }
-            
-            if (omIn.style && omIn.style.stroke && omIn.style.stroke.type !== "none" && omIn.style.stroke.lineWidth) {
-                //the shape has a border then we need to bump the bounds up?
-                boundPadLeft = omIn.style.stroke.lineWidth/2.0;
-                boundPadRight = omIn.style.stroke.lineWidth/2.0;
-                boundPadTop = omIn.style.stroke.lineWidth/2.0;
-                boundPadBottom = omIn.style.stroke.lineWidth/2.0;
-            } else if(omIn.style && omIn.style.fx && omIn.style.fx.frameFX && omIn.style.fx.frameFX.enabled && omIn.style.fx.frameFX.size) {
-                boundPadLeft = omIn.style.fx.frameFX.size/2.0;
-                boundPadRight = omIn.style.fx.frameFX.size/2.0;
-                boundPadTop = omIn.style.fx.frameFX.size/2.0;
-                boundPadBottom = omIn.style.fx.frameFX.size/2.0;
-            }
-            
-            if (omIn.type === "shape" && (omIn.shape === "circle" || omIn.shape === "ellipse")) {
-                if ((bndsIn.right - bndsIn.left) % 2 !== 0) {
-                    boundPadRight += 1.0;
-                }
-                if ((bndsIn.bottom - bndsIn.top) % 2 !== 0) {
-                    boundPadBottom += 1.0;
-                }
-            }
-
-            if (bndsIn) {
-                if (!isFinite(bnds.left) || (bndsIn.left - boundPadLeft) < bnds.left) {
-                    bnds.left = (bndsIn.left - boundPadLeft);
-                }
-                if (!isFinite(bnds.right) || (bndsIn.right + boundPadRight) > bnds.right) {
-                    bnds.right = bndsIn.right + boundPadRight;
-                }
-                if (!isFinite(bnds.top) || (bndsIn.top - boundPadTop) < bnds.top) {
-                    bnds.top = bndsIn.top - boundPadTop;
-                }
-                if (!isFinite(bnds.bottom) || (bndsIn.bottom + boundPadBottom) > bnds.bottom) {
-                    bnds.bottom = bndsIn.bottom + boundPadBottom;
-                }
-            }
+            utils.unionRect(bnds, bndsIn, expand);
         };
-        
-        //shift the bounds recorded in recordBounds
-        this.shiftBounds = function (ctx, omIn, nested, sibling) {
+
+        var shiftTextBounds = function (ctx, omIn, nested, sibling) {
             var bnds = omIn.bounds,
                 pR,
                 pL,
                 newMid,
-                deltaX,
-                deltaX2,
-                deltaY,
-                deltaY2;
-            if (omIn.type === "shape" || omIn.type === "text" ||
-                omIn.type === "group" || (omIn.type === "generic" && omIn.shapeBounds)) {
-                bnds = omIn.shapeBounds;
-                if (omIn.type === "text") {
-                    bnds = omIn.textBounds;
-                    
-                    if (omIn.shapeBounds) {
-                        omgUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
-                        omgUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
-                    }
-                    
-                    if (omIn.transform) {
-                        
-                        omIn.transformTX += ctx._shiftContentX;
-                        omIn.transformTY += ctx._shiftContentY;
-                        
-                        if (omIn.children) {
-                            omIn.children.forEach(function (chld) {
-                                chld._hasParentTXFM = true;
-                            });
-                        }
-                    } else if (omIn.position) {
-                        if (!nested) {
-                            if (omIn.children && omIn.children.length === 1) {
-                                if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
-                                    omIn.position.x += ctx._shiftContentX;
-                                } else {
-                                    omIn.position.x = 0.0;
-                                }
-                                if (omIn.position.unitY === "px") {
-                                    omIn.position.y += ctx._shiftContentY;
-                                }
-                                omIn.children[0].position = omIn.children[0].position || {x: 0, y: 0};
-                                omIn.children[0].position.x = 0.0;
-                            } else {
-                                if (ctx.config.constrainToDocBounds) {
-                                    omIn.position.x += ctx._shiftContentX;
-                                } else {
-                                    omIn.position.x = 0.0;
-                                }
-                                omIn.position.y += ctx._shiftContentY;
+                deltaX;
 
-                                if (Math.abs(omIn.position.y) === 1) {
-                                    omIn.position.y = 1.0;
-                                    omIn.position.unitY = "em";
-                                }
-                            }
-                        } else {
-                            if (omIn.position.unitX === "px") {
+            if (omIn.type === "text") {
+                bnds = omIn.textBounds;
+
+                if (omIn.shapeBounds) {
+                    svgWriterUtils.shiftBoundsX(omIn.shapeBounds, ctx._shiftContentX);
+                    svgWriterUtils.shiftBoundsY(omIn.shapeBounds, ctx._shiftContentY);
+                }
+
+                if (omIn.transform) {
+                    omIn.transformTX += ctx._shiftContentX;
+                    omIn.transformTY += ctx._shiftContentY;
+
+                    if (omIn.children) {
+                        omIn.children.forEach(function (chld) {
+                            chld._hasParentTXFM = true;
+                        });
+                    }
+                } else if (omIn.position) {
+                    if (!nested) {
+                        if (omIn.children && omIn.children.length === 1) {
+                            if (ctx.config.constrainToDocBounds && omIn.position.unitX === "px") {
                                 omIn.position.x += ctx._shiftContentX;
+                            } else {
+                                omIn.position.x = 0;
                             }
                             if (omIn.position.unitY === "px") {
                                 omIn.position.y += ctx._shiftContentY;
                             }
+                        } else {
+                            if (ctx.config.constrainToDocBounds) {
+                                omIn.position.x += ctx._shiftContentX;
+                            } else {
+                                omIn.position.x = 0;
+                            }
+                            omIn.position.y += ctx._shiftContentY;
+
+                            if (Math.abs(omIn.position.y) === 1) {
+                                omIn.position.y = 1;
+                                omIn.position.unitY = "em";
+                            }
                         }
-                    }
-                } else if (omIn.type === "shape") {
-                    if (omIn.shape === "circle" || omIn.shape === "ellipse") {
-                        if ((bnds.right - bnds.left) % 2 !== 0) {
-                            bnds.right += 1.0;
+                    } else {
+                        if (omIn.position.unitX === "px") {
+                            omIn.position.x += ctx._shiftContentX;
                         }
-                        if ((bnds.bottom - bnds.top) % 2 !== 0) {
-                            bnds.bottom += 1.0;
+                        if (omIn.position.unitY === "px") {
+                            omIn.position.y += ctx._shiftContentY;
                         }
                     }
                 }
-                
             } else if (omIn.type === "tspan") {
                 if (omIn.style) {
                     if (omIn.position && isFinite(omIn.position.x)) {
-                        if (omIn.style["text-anchor"] === "middle") {
-                            if (omIn._parentBounds) {
-                                pR = omIn._parentBounds.right;
-                                pL = omIn._parentBounds.left;
-                                newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
-                                if (omIn._parentIsRoot) {
-                                    omIn.position.x = 50;
-                                    omIn.position.unitX = "%";
-                                } else {
-                                    omIn.position.x = newMid;
-                                    omIn.position.unitX = "px";
-                                }
-                            } else {
-                                omIn.position.x = 50;
-                                omIn.position.unitX = "%";
-                            }
-                            
-                        } else if (omIn.style["text-anchor"] === "end") {
-                            if (omIn._parentBounds) {
-                                pR = omIn._parentBounds.right;
-                                pL = omIn._parentBounds.left;
-                                newMid = omIn._parentBounds.left + (pR - pL) / 2.0;
-                                
-                                if (omIn._parentIsRoot || !omIn.textBounds) {
-                                    omIn.position.x = 100;
-                                } else {
-                                    deltaX = (ctx.contentBounds.right - omIn.textBounds.right);
-                                    omIn.position.deltaX = -deltaX;
-                                }
-                            } else {
-                                omIn.position.x = 100;
-                                omIn.position.unitX = "%";
-                            }
+                        if (sibling && !omIn._hasParentTXFM) {
+                            omIn.position.x += ctx._shiftContentX;
                         } else {
-                            if (sibling && !omIn._hasParentTXFM) {
-                                omIn.position.x += ctx._shiftContentX;
-                            } else {
-                                if (omIn._parentIsRoot) {
-                                    omIn.position.x = 0;
+                            if (omIn._parentIsRoot) {
+                                if ((omIn.style["text-anchor"] == "middle" || omIn.style["text-anchor"] == "end") && !omIn._hasParentTXFM) {
+                                    omIn.position.x -= omIn.textBounds.left;
                                 } else {
-                                    omIn.position.x = undefined;
+                                    omIn.position.x = 0;
                                 }
+                            } else {
+                                omIn.position.x = undefined;
                             }
                         }
                     }
-                    
+
                     if (omIn.style["_baseline-script"] === "sub" ||
-                        omIn.style["_baseline-script"] === "super") {
+                            omIn.style["_baseline-script"] === "super") {
                         if (typeof omIn.style["font-size"] === "number") {
                             omIn.style["font-size"] = Math.round(omIn.style["font-size"] / 2.0);
                         } else {
                             omIn.style["font-size"].value = Math.round(omIn.style["font-size"].value / 2.0);
                         }
                     }
-                    
+
                     if (omIn.style["_baseline-script"] === "super") {
                         omIn.position = omIn.position || {};
                         omIn.position.y = -0.5;
@@ -299,86 +219,229 @@
                 }
             }
             if (bnds) {
-                omgUtils.shiftBoundsX(bnds, ctx._shiftContentX);
-                omgUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
             }
             if (omIn.originBounds) {
-                omgUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
-                omgUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
+                svgWriterUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
             }
         };
-        
-        this.preprocessSVGNode = function (ctx) {
-            var omIn = ctx.currentOMNode,
-                children = omIn.children;
-            
-            if (ctx.config.trimToArtBounds) {
-                this.recordBounds(ctx, omIn);
-            }
-            
-            if (children) {
-                children.forEach(function (childNode) {
-                    ctx.currentOMNode = childNode;
-                    this.preprocessSVGNode(ctx);
-                }.bind(this));
-            }
-        };
-        
-        this.finalizePreprocessing = function (ctx) {
-            var bnds = ctx.contentBounds,
-                adjustBounds = 1,
-                docBounds = ctx.svgOM.docBounds;
-            if (ctx.config.trimToArtBounds) {
-                if (bnds) {
-                    if (ctx.config.constrainToDocBounds && docBounds) {
-                        bnds.left = Math.max(0, svgWriterUtils.roundDown(bnds.left || 0));
-                        bnds.right = Math.min(docBounds.right, svgWriterUtils.roundUp(bnds.right || 0));
-                        bnds.top = Math.max(0, svgWriterUtils.roundDown(bnds.top || 0));
-                        bnds.bottom = Math.min(docBounds.bottom, svgWriterUtils.roundUp(bnds.bottom || 0));
-                    } else {
-                        bnds.left = svgWriterUtils.roundDown(bnds.left || 0);
-                        bnds.right = svgWriterUtils.roundUp(bnds.right || 0);
-                        bnds.top = svgWriterUtils.roundDown(bnds.top || 0);
-                        bnds.bottom = svgWriterUtils.roundUp(bnds.bottom || 0);
-                    }
 
-                    ctx._shiftContentX = -bnds.left;
-                    ctx._shiftContentY = -bnds.top;
-                    
-                    if (ctx.svgOM && ctx.svgOM.viewBox) {
-                        ctx.svgOM.viewBox.left = 0;
-                        ctx.svgOM.viewBox.top = 0;
-                        ctx.svgOM.viewBox.right = bnds.right - bnds.left;
-                        ctx.svgOM.viewBox.bottom = bnds.bottom - bnds.top;
-                    }
+        var shiftShapePosition = function (ctx, omIn) {
+            var shape = omIn.shape,
+                offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
+                offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
+            // PS and Ai propagate all transforms to the leaves.
+            if (omIn.transform) {
+                omIn.transformTX += ctx._shiftContentX;
+                omIn.transformTY += ctx._shiftContentY;
+                return;
+            }
+            switch (shape.type) {
+            case "circle":
+            case "ellipse":
+                shape.cx += offsetX;
+                shape.cy += offsetY;
+                break;
+            case "line":
+                shape.x1 += offsetX;
+                shape.y1 += offsetY;
+                shape.x2 += offsetX;
+                shape.y2 += offsetY;
+                break;
+            case "polygon":
+                shape.points.forEach(function (item) {
+                    item.x += offsetX;
+                    item.y += offsetY;
+                });
+                break;
+            case "rect":
+                shape.x += offsetX;
+                shape.y += offsetY;
+                break;
+            case "path":
+                if (ctx._shiftCropRectX || ctx._shiftCropRectY) {
+                    omIn.transform = matrix.createMatrix();
+                    omIn.transformTX = ctx._shiftCropRectX || 0;
+                    omIn.transformTY = ctx._shiftCropRectY || 0;
                 }
             }
         };
-        
+
+        // Shift the bounds recorded in recordBounds.
+        var shiftBounds = function (ctx, omIn, nested, sibling) {
+            var bnds = omIn.shapeBounds || omIn.bounds;
+
+            if (omIn.type == "text" || omIn.type == "tspan") {
+                shiftTextBounds(ctx, omIn, nested, sibling);
+                return;
+            }
+
+            if (omIn.type == "shape") {
+                shiftShapePosition(ctx, omIn);
+            }
+
+            if (bnds) {
+                svgWriterUtils.shiftBoundsX(bnds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(bnds, ctx._shiftContentY);
+            }
+            if (omIn.originBounds) {
+                svgWriterUtils.shiftBoundsX(omIn.originBounds, ctx._shiftContentX);
+                svgWriterUtils.shiftBoundsY(omIn.originBounds, ctx._shiftContentY);
+            }
+        };
+
+        var isVisible = function (ctx, omIn) {
+            return omIn == ctx.svgOM || !omIn.hasOwnProperty("visible") || omIn.visible;
+        };
+
+        var preprocessSVGNode = function (ctx) {
+            var omIn = ctx.currentOMNode,
+                children = omIn.children;
+
+            // Do not process style of element if it is not visible.
+            if (!isVisible(ctx, omIn)) {
+                return;
+            }
+
+            if (ctx.config.trimToArtBounds) {
+                recordBounds(ctx, omIn);
+            }
+
+            if (children) {
+                children.forEach(function (childNode) {
+                    ctx.currentOMNode = childNode;
+                    preprocessSVGNode(ctx);
+                }.bind(this));
+            }
+        };
+
+        var finalizePreprocessing = function (ctx) {
+            var bnds = ctx.contentBounds,
+                docBounds = ctx.docBounds,
+                w,
+                h,
+                cropRect = ctx.config.cropRect,
+                artboardRect = ctx.config.artboardBounds,
+                artboardShiftX = 0,
+                artboardShiftY = 0;
+
+            if (!ctx.config.trimToArtBounds || !bnds) {
+                return;
+            }
+
+            // FIXME: This resets the visual bounds with the artboard bounds
+            // if we export an artboard. Artboard clipping for all other layers is
+            // done based on the visual bounds. This is a hack mostly around PSs
+            // behavior to shift paths and us not detecting when we need to something
+            // different. We should probably teach PS not to shift paths around
+            // on single layer export.
+            if (ctx.config.isArtboard && artboardRect) {
+                bnds = {
+                    left: artboardRect.left,
+                    right: artboardRect.right,
+                    bottom: artboardRect.bottom,
+                    top: artboardRect.top
+                };
+            }
+
+            // FIXME: We rounded the document size before. However, this causes visual problems
+            // with small viewports or viewBoxes. Move back to more precise dimensions for now.
+            if (ctx.config.constrainToDocBounds) {
+                bnds.left = Math.max(0, bnds.left || 0);
+                bnds.right = Math.min(docBounds.right, bnds.right || 0);
+                bnds.top = Math.max(0, bnds.top || 0);
+                bnds.bottom = Math.min(docBounds.bottom, bnds.bottom || 0);
+            } else {
+                bnds.left = bnds.left || 0;
+                bnds.right = bnds.right || 0;
+                bnds.top = bnds.top || 0;
+                bnds.bottom = bnds.bottom || 0;
+            }
+
+            ctx._shiftContentX = -bnds.left;
+            ctx._shiftContentY = -bnds.top;
+
+            // FIXME: If we export a layer, svgOMG does not preserve the artboard
+            // the layer is bound to. We rely on the artboard size provided by
+            // generator-assets. We need to find a better way, probably by adding
+            // the artboard to OMG directly.
+            if (ctx.config.clipToArtboardBounds && artboardRect) {
+                artboardShiftX = Math.min(bnds.left - artboardRect.left, 0);
+                artboardShiftY = Math.min(bnds.top - artboardRect.top, 0);
+                bnds.left = Math.max(bnds.left, artboardRect.left);
+                bnds.right = Math.min(bnds.right, artboardRect.right);
+                bnds.top = Math.max(bnds.top, artboardRect.top);
+                bnds.bottom = Math.min(bnds.bottom, artboardRect.bottom);
+            }
+
+
+            if (!ctx.viewBox) {
+                console.log("no viewBox");
+                return;
+            }
+
+            ctx.viewBox.left = Math.abs(artboardShiftX);
+            ctx.viewBox.top = Math.abs(artboardShiftY);
+            ctx.viewBox.right = bnds.right - bnds.left;
+            ctx.viewBox.bottom = bnds.bottom - bnds.top;
+
+            w = ctx.viewBox.right;
+            h = ctx.viewBox.bottom;
+
+            // Clip to crop boundaries.
+            // FIXME: Do we want to allow cropping without trimToArtBounds set?
+            if (!cropRect) {
+                return;
+            }
+            cropRect.width /= ctx.config.scale || 1;
+            cropRect.height /= ctx.config.scale || 1;
+
+            if (cropRect.width == w &&
+                cropRect.height == h) {
+                return;
+            }
+
+            ctx.viewBox.right = cropRect.width;
+            ctx.viewBox.bottom = cropRect.height;
+
+            ctx._shiftCropRectX = (cropRect.width - w) / 2;
+            ctx._shiftCropRectY = (cropRect.height - h) / 2;
+
+            if (ctx.config.clipToArtboardBounds && artboardRect) {
+                writeClipPath(ctx, [artboardRect], ctx._shiftCropRectX, ctx._shiftCropRectX);
+            }
+        };
+
         this.processSVGNode = function (ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children;
-            
-            //if these bounds shifted is not 0 then shift children to be relative to this text block...
+
+            // Do not process style of element if it is not visible.
+            if (!isVisible(ctx, omIn)) {
+                return;
+            }
+
+            // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {
                     chld._parentBounds = omIn.textBounds;
                     chld._parentIsRoot = !nested;
                 });
             }
-            
-            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {   
-                this.shiftBounds(ctx, omIn, nested, sibling);
+
+            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {
+                shiftBounds(ctx, omIn, nested, sibling);
             }
-            
+
             this.scanForUnsupportedFeatures(ctx);
-            
             this.externalizeStyles(ctx);
-            
-            if (omIn.type == "textPath") {
+
+            if (omIn.type === "textPath") {
                 svgWriterUtils.writeTextPath(ctx, omIn.pathData);
             }
-            
+
             if (children) {
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
@@ -386,32 +449,45 @@
                 }.bind(this));
             }
         };
-        
-        this.preprocessingNecessary = function (ctx) {
-            //more reasons to be added as necessary
-            if (ctx.config.trimToArtBounds) {
-                return true;
-            }
-            return false;
-        };
-        
+
         this.processSVGOM = function (ctx) {
-            var omSave = ctx.currentOMNode;
+            var omSave = ctx.currentOMNode,
+                docBounds = ctx.docBounds,
+                w,
+                h,
+                cropRect = ctx.config.cropRect;
             ctx.omStylesheet = new SVGStylesheet();
-            
-            if (this.preprocessingNecessary(ctx)) {
-                this.preprocessSVGNode(ctx, ctx.currentOMNode);
-                this.finalizePreprocessing(ctx);
+
+            if (ctx.config.trimToArtBounds) {
+                preprocessSVGNode(ctx, ctx.currentOMNode);
+                finalizePreprocessing(ctx);
                 ctx.currentOMNode = omSave;
+            } else {
+                ctx.viewBox.left = 0;
+                ctx.viewBox.top = 0;
+                ctx.viewBox.right = docBounds.right - docBounds.left;
+                ctx.viewBox.bottom = docBounds.bottom - docBounds.top;
+
+                w = ctx.viewBox.right;
+                h = ctx.viewBox.bottom;
+
+                // Clip to crop boundaries.
+                if (cropRect && (cropRect.width != w || cropRect.height != h)) {
+                    cropRect.width /= ctx.config.scale || 1;
+                    cropRect.height /= ctx.config.scale || 1;
+
+                    ctx.viewBox.right = cropRect.width;
+                    ctx.viewBox.bottom = cropRect.height;
+
+                    ctx.viewBox.left = -(cropRect.width - w) / 2;
+                    ctx.viewBox.top = -(cropRect.height - h) / 2;
+                }
             }
             this.processSVGNode(ctx, false, false);
             ctx.currentOMNode = omSave;
         };
-        
-	}
+    }
 
-	module.exports = new SVGWriterPreprocessor();
-    
+    module.exports = new SVGWriterPreprocessor();
+
 }());
-     
-    

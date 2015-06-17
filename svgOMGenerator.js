@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,13 +24,12 @@
 (function () {
     "use strict";
 
-    var omgUtils = require("./svgOMGeneratorUtils.js"),
-        SVGOMWriter = require("./svgOMWriter.js"),
+    var SVGOMWriter = require("./svgOMWriter.js"),
         omgShapes = require("./svgOMGeneratorShapes.js"),
         omgText = require("./svgOMGeneratorText.js"),
         omgImage = require("./svgOMGeneratorImage.js"),
         omgStyles = require("./svgOMGeneratorStyles.js");
-    
+
     var layerTypeMap = {
         "backgroundLayer": "background",
         "shapeLayer": "shape",
@@ -38,22 +37,22 @@
         "layerSection": "group",
         "layer": "generic"
     };
-    
+
     function getSVGLayerType(layer) {
         if (!layerTypeMap[layer.type]) {
             console.log("[svgOMGenerator] skip '" + layer.type + "' - consider adding");
         }
-        
-        return layerTypeMap[layer.type];
+
+        return layer.artboard ? "artboard" : layerTypeMap[layer.type];
     }
-    
+
     function getSVGID(layer) {
-        var l = "layer" + layer.index; // Default is 'layerN'
-        var wsSequence = false;
+        var l = "layer" + layer.index, // Default is 'layerN'
+            wsSequence = false;
 
         function _toClass(c) {
-            var ret = c;
-            var skip = ".<>[]`~!@#$%^&*(){}|?/\\:;\"',";
+            var ret = c,
+                skip = ".<>[]`~!@#$%^&*(){}|?/\\:;\"',";
 
             if (c.trim().length === 0) { // Whitespace?
                 if (wsSequence === false) {
@@ -83,33 +82,15 @@
 
         return l;
     }
-    
+
     function layerSpecActive(layerSpec) {
-        if (layerSpec) {
-            if (typeof layerSpec === "number") {
-                // Then it is a layerId.
-                return true;
-            }
-        }
-        return false;
+        return !!(layerSpec && typeof layerSpec === "number");
     }
-    
+
     function layerSpecMatches(layer, layerSpec) {
-        
-        if (layerSpec) {
-            if (typeof layerSpec === "number") {
-                // Then it is a layerId.
-                if (layer.id === layerSpec) {
-                    return true;
-                }
-            } else {
-                // Then it is a layer spec object.
-                //console.log("layer spec full object = " + JSON.stringify(layerSpec));
-            }
-        }
-        return false;
+        return layerSpecActive(layerSpec) && layer.id === layerSpec;
     }
-    
+
     function layerShouldBeRasterized(layer, aErrors) {
         var layerType = getSVGLayerType(layer),
             imageType = (layerType === "generic" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0);
@@ -126,9 +107,8 @@
         }
         return imageType;
     }
-    
+
     function extractSVGOM (psd, opts) {
-        
         var layers = psd.layers,
             writer = new SVGOMWriter(),
             iL,
@@ -138,7 +118,6 @@
             dpi = (psd.resolution) ? psd.resolution : 72.0;
 
         function extractLayerSVG(layer) {
-            
             var layerType,
                 svgNode,
                 property,
@@ -158,15 +137,15 @@
                     justTraverse = true;
                 }
             }
-            
+
             if (layer.visible === false) {
                 layerVisible = false;
             }
-            
+
             layerType = getSVGLayerType(layer);
             if (!justTraverse) {
                 svgNode = writer.addSVGNode(getSVGID(layer), layerType, layerVisible);
-                svgNode.layerName = layer.name;
+                svgNode.title = layer.name;
                 if (layer.boundsWithFX) {
                     svgNode.boundsWithFX = layer.boundsWithFX;                    
                 }
@@ -175,7 +154,7 @@
             switch (layerType) {
                 case "shape":
                     if (!justTraverse) {
-                        omgShapes.addShapeData(svgNode, layer, dpi);
+                        omgShapes.addShapeData(svgNode, layer, writer);
                     }
                     break;
                 case "text":
@@ -187,13 +166,17 @@
                     if (!justTraverse) {
                         // FIXME: Could also be an empty layer or a gradient layer.
                         // Treat all of them as image for now.
-                        omgImage.addImageData(svgNode, layer, dpi);
+                        omgImage.addImageData(svgNode, layer, writer);
                     }
                     break;
+                case "artboard":
+                    if (!justTraverse) {
+                        writer.setArtboard(svgNode.id, svgNode.title, layer.artboard.artboardRect);
+                    }
                 case "group":
                     if (!justTraverse) {
                         
-                        omgStyles.addGroupStylingData(svgNode, layer, dpi);
+                        omgStyles.addGroupStylingData(svgNode, layer, writer);
                         writer.pushCurrent(svgNode);
                     }
                     if (layer.layers) {
@@ -211,24 +194,22 @@
             }
             layerSpecFound = specFound;
         }
-        
-        // Assume the PSD is at 0,0.
-        writer.setDocOffset(0, 0);
+
+        writer.setDocTitle(psd.file);
         writer.setDocViewBox(psd.bounds);
         writer.setDocBounds(psd.bounds);
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);
-        
+
         if (layers) {
             for (iL = layers.length - 1; iL >= 0; iL--) {
                 lyr = layers[iL];
                 extractLayerSVG(lyr);
             }
         }
-        
+
         return writer.toSVGOM();
     }
-
 
     module.exports.extractSVGOM = extractSVGOM;
     module.exports.layerShouldBeRasterized = layerShouldBeRasterized;
@@ -236,5 +217,4 @@
     module.exports._layerSpecActive = layerSpecActive;
     module.exports._layerSpecMatches = layerSpecMatches;
     module.exports._getSVGID = getSVGID;
-
 } ());

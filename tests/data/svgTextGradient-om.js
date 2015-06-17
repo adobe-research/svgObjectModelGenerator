@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "layer1",
@@ -20,69 +20,72 @@ module.exports = {
 				"stroke": {
 					"type": "none"
 				},
-				"fx": {
-					"gradientFill": {
-						"enabled": true,
-						"mode": "normal",
-						"opacity": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"gradient": {
-							"stops": [
+				"meta": {
+					"PS": {
+						"fx": {
+							"gradientFillMulti": [
 								{
-									"position": 0,
-									"color": {
-										"r": 255,
-										"g": 110.268479,
-										"b": 2.003891,
-										"a": 1
-									}
-								},
-								{
-									"position": 50,
-									"color": {
-										"r": 255,
-										"g": 254.984436,
-										"b": 0.003891
-									}
-								},
-								{
-									"position": 100,
-									"color": {
-										"r": 255,
-										"g": 109.124513,
-										"b": 0.003891,
-										"a": 1
+									"enabled": true,
+									"mode": "normal",
+									"opacity": 1,
+									"gradient": {
+										"stops": [
+											{
+												"position": 0,
+												"color": {
+													"r": 255,
+													"g": 110.268479,
+													"b": 2.003891,
+													"a": 1
+												}
+											},
+											{
+												"position": 50,
+												"color": {
+													"r": 255,
+													"g": 254.984436,
+													"b": 0.003891
+												}
+											},
+											{
+												"position": 100,
+												"color": {
+													"r": 255,
+													"g": 109.124513,
+													"b": 0.003891,
+													"a": 1
+												}
+											}
+										],
+										"scale": 1,
+										"type": "linear",
+										"angle": 0,
+										"gradientSpace": "objectBoundingBox"
+									},
+									"angle": {
+										"value": 0,
+										"units": "angleUnit"
+									},
+									"type": "linear",
+									"reverse": false,
+									"dither": false,
+									"align": true,
+									"scale": {
+										"value": 100,
+										"units": "percentUnit"
+									},
+									"offset": {
+										"horizontal": {
+											"value": 0,
+											"units": "percentUnit"
+										},
+										"vertical": {
+											"value": 0,
+											"units": "percentUnit"
+										}
 									}
 								}
-							],
-							"scale": 1,
-							"type": "linear",
-							"angle": 0,
-							"gradientSpace": "objectBoundingBox"
-						},
-						"angle": {
-							"value": 0,
-							"units": "angleUnit"
-						},
-						"type": "linear",
-						"reverse": false,
-						"dither": false,
-						"align": true,
-						"scale": {
-							"value": 100,
-							"units": "percentUnit"
-						},
-						"offset": {
-							"horizontal": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"vertical": {
-								"value": 0,
-								"units": "percentUnit"
-							}
+							]
 						}
 					}
 				}
@@ -124,7 +127,7 @@ module.exports = {
 					}
 				}
 			],
-			"layerName": "This is a text.svg",
+			"title": "This is a text.svg",
 			"boundsWithFX": {
 				"top": 161,
 				"left": 303,
@@ -152,23 +155,29 @@ module.exports = {
 			"maxTextSize": 64
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1024,
+			"right": 1024
+		},
+		"pxToInchRatio": 144
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 1024,
-		"right": 1024
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 144,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "svgTextGradient.psd"
 }

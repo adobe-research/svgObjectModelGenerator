@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Adobe Systems Incorporated. All rights reserved.
+// Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,12 +24,21 @@
 	function SVGOMWriter() {
         
 		var _root = {
-                children: []
+                children: [],
+                global: {},
+                artboards: {},
+                meta: {
+                    PS: {}
+                }
 		    },
             _currentNodeStack = [],
             _docIDs = {};
         
         this._root = _root;
+
+        this._dpi = function () {
+            return (_root && _root.global.pxToInchRatio) ? _root.global.pxToInchRatio : 72.0;
+        }
         
         this.peekCurrent = function () {
             if (_currentNodeStack.length > 0) {
@@ -45,25 +54,31 @@
         };
         this.pushCurrent(_root);
         
-        this.setDocOffset = function (offX, offY) {
-            _root.offsetX = offX;
-            _root.offsetY = offY;
-        };
-        
         this.setDocBounds = function (bounds) {
-            _root.docBounds = bounds;
+            _root.global.bounds = bounds;
         };
         
         this.setDocViewBox = function (bounds) {
-            _root.viewBox = bounds;
+            _root.global.viewBox = bounds;
         };
+
+        this.setDocTitle = function (title) {
+            _root.title = title;
+        }
 
         this.setDocPxToInchRatio = function (pxToInchRatio) {
-            _root.pxToInchRatio = pxToInchRatio;
+            _root.global.pxToInchRatio = pxToInchRatio;
         };
 
+        this.setArtboard = function (id, title, bounds) {
+            _root.artboards[id] = {
+                title: title,
+                bounds: bounds
+            };
+        }
+
         this.setDocGlobalLight = function (globalLight) {
-            _root.globalLight = globalLight;
+            _root.meta.PS.globalLight = globalLight;
         };
 
         this.uniqueId = function (nodeID) {

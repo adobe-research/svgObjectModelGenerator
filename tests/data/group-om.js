@@ -6,7 +6,7 @@ module.exports = {
 			"visible": true,
 			"style": {},
 			"children": [],
-			"layerName": "Background"
+			"title": "Background"
 		},
 		{
 			"id": "group",
@@ -18,37 +18,41 @@ module.exports = {
 				"stroke": {
 					"type": "none"
 				},
-				"fx": {
-					"dropShadowMulti": [
-						{
-							"enabled": true,
-							"mode": "multiply",
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
-							},
-							"opacity": 0.75,
-							"useGlobalAngle": false,
-							"localLightingAngle": {
-								"value": 141,
-								"units": "angleUnit"
-							},
-							"distance": 13,
-							"chokeMatte": 0,
-							"blur": 27,
-							"noise": {
-								"value": 0,
-								"units": "percentUnit"
-							},
-							"antiAlias": false,
-							"transferSpec": {
-								"name": "Linear"
-							},
-							"layerConceals": true
+				"meta": {
+					"PS": {
+						"fx": {
+							"dropShadowMulti": [
+								{
+									"enabled": true,
+									"mode": "multiply",
+									"color": {
+										"r": 0,
+										"g": 0,
+										"b": 0,
+										"a": 1
+									},
+									"opacity": 0.75,
+									"useGlobalAngle": false,
+									"localLightingAngle": {
+										"value": 141,
+										"units": "angleUnit"
+									},
+									"distance": 13,
+									"chokeMatte": 0,
+									"blur": 27,
+									"noise": {
+										"value": 0,
+										"units": "percentUnit"
+									},
+									"antiAlias": false,
+									"transferSpec": {
+										"name": "Linear"
+									},
+									"layerConceals": true
+								}
+							]
 						}
-					]
+					}
 				}
 			},
 			"children": [
@@ -84,13 +88,19 @@ module.exports = {
 						}
 					},
 					"children": [],
-					"layerName": "Rectangle 1",
-					"shape": "rect",
+					"title": "Rectangle 1",
 					"shapeBounds": {
 						"top": 100,
 						"left": 100,
 						"bottom": 300,
 						"right": 300
+					},
+					"shape": {
+						"type": "rect",
+						"x": 100,
+						"y": 100,
+						"width": 200,
+						"height": 200
 					}
 				},
 				{
@@ -124,54 +134,66 @@ module.exports = {
 								"a": 1
 							}
 						},
-						"fx": {
-							"innerShadow": {
-								"enabled": true,
-								"mode": "multiply",
-								"color": {
-									"r": 0.003891,
-									"g": 54.019456,
-									"b": 255,
-									"a": 1
-								},
-								"opacity": 0.75,
-								"useGlobalAngle": true,
-								"localLightingAngle": {
-									"value": 120,
-									"units": "angleUnit"
-								},
-								"distance": 15,
-								"chokeMatte": 0,
-								"blur": 21,
-								"noise": {
-									"value": 0,
-									"units": "percentUnit"
-								},
-								"antiAlias": false,
-								"transferSpec": {
-									"name": "Linear"
+						"meta": {
+							"PS": {
+								"fx": {
+									"innerShadowMulti": [
+										{
+											"enabled": true,
+											"mode": "multiply",
+											"color": {
+												"r": 0.003891,
+												"g": 54.019456,
+												"b": 255,
+												"a": 1
+											},
+											"opacity": 0.75,
+											"useGlobalAngle": true,
+											"localLightingAngle": {
+												"value": 120,
+												"units": "angleUnit"
+											},
+											"distance": 15,
+											"chokeMatte": 0,
+											"blur": 21,
+											"noise": {
+												"value": 0,
+												"units": "percentUnit"
+											},
+											"antiAlias": false,
+											"transferSpec": {
+												"name": "Linear"
+											}
+										}
+									]
 								}
 							}
 						}
 					},
 					"children": [],
-					"layerName": "Rectangle 2",
+					"title": "Rectangle 2",
 					"boundsWithFX": {
 						"top": 200,
 						"left": 200,
 						"bottom": 400,
 						"right": 400
 					},
-					"shape": "rect",
 					"shapeBounds": {
 						"top": 200,
 						"left": 200,
 						"bottom": 400,
 						"right": 400
+					},
+					"shape": {
+						"type": "rect",
+						"x": 200,
+						"y": 200,
+						"width": 200,
+						"height": 200
 					}
 				}
 			],
-			"layerName": "Group",
+			"title": "Group",
 			"boundsWithFX": {
 				"top": 82,
 				"left": 84,
@@ -186,23 +208,29 @@ module.exports = {
 			}
 		}
 	],
-	"offsetX": 0,
-	"offsetY": 0,
-	"viewBox": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"global": {
+		"viewBox": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 600,
+			"right": 800
+		},
+		"pxToInchRatio": 72
 	},
-	"docBounds": {
-		"top": 0,
-		"left": 0,
-		"bottom": 600,
-		"right": 800
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
 	},
-	"pxToInchRatio": 72,
-	"globalLight": {
-		"angle": 120,
-		"altitude": 30
-	}
+	"title": "group.psd"
 }
