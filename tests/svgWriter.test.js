@@ -791,7 +791,7 @@ describe("svgWriter", function (){
         });
 
         it("Test global styles functionality", function () {
-            compareResults("global-styles");
+            compareResults("global-styles", "custom");
         });
     });
 });
