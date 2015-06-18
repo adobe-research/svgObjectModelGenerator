@@ -18,7 +18,7 @@ var expect = require("chai").expect,
     ID = require("../idGenerator.js"),
     sinon = require("sinon");
 
-describe("idGenerator", function (){
+describe("idGenerator", function () {
 
     var sandbox = sinon.sandbox.create();
 

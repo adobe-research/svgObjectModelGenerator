@@ -13,13 +13,10 @@
 // limitations under the License.
 
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, it: true */
 
 var expect = require("chai").expect,
-    Tag = require("../svgWriterTag.js"),
-    Context = require("../svgWriterContext.js"),
-    sinon = require("sinon");
+    Tag = require("../svgWriterTag.js");
 
 describe("svgWriterTag", function () {
 
@@ -27,7 +24,7 @@ describe("svgWriterTag", function () {
 
         it("knows how to create itself", function () {
             var tag = new Tag("circle");
-            expect(String(tag)).to.equal('<circle/>\n');
+            expect(String(tag)).to.equal("<circle/>\n");
         });
 
         it("knows how to apply attribute after creation", function () {
@@ -88,7 +85,7 @@ describe("svgWriterTag", function () {
                 cx: 0,
                 cy: "0px"
             });
-            expect(String(tag)).to.equal('<circle/>\n');
+            expect(String(tag)).to.equal("<circle/>\n");
         });
 
         it("knows how to round", function () {
@@ -120,7 +117,7 @@ describe("svgWriterTag", function () {
             });
             expect(tag.writeAttribute("fill")).to.equal(' fill="khaki"');
             expect(tag.writeAttribute("cx")).to.equal(' cx="10"');
-            expect(tag.writeAttribute("cy")).to.equal('');
+            expect(tag.writeAttribute("cy")).to.equal("");
         });
 
         it("knows how to write attributes that are not there", function () {
@@ -130,42 +127,42 @@ describe("svgWriterTag", function () {
 
         it("knows how to be a text", function () {
             var tag = new Tag("#text", "hello world");
-            expect(String(tag)).to.equal('hello world');
+            expect(String(tag)).to.equal("hello world");
         });
 
         it("knows how to change value as a text", function () {
             var tag = new Tag("#text", "hello world");
-            tag.setAttribute("#text", "good buy, world")
-            expect(String(tag)).to.equal('good buy, world');
+            tag.setAttribute("#text", "good buy, world");
+            expect(String(tag)).to.equal("good buy, world");
         });
 
         it("knows how to be a comment", function () {
             var tag = new Tag("#comment", "hello world");
-            expect(String(tag)).to.equal('<!-- hello world -->\n');
+            expect(String(tag)).to.equal("<!-- hello world -->\n");
         });
 
         it("knows how to have children", function () {
             var tag = new Tag("g");
             tag.appendChild(new Tag("circle"), new Tag("rect"));
-            expect(String(tag)).to.equal('<g>\n<circle/>\n<rect/>\n</g>\n');
+            expect(String(tag)).to.equal("<g>\n<circle/>\n<rect/>\n</g>\n");
         });
 
         it("knows how to have children as a text tag", function () {
             var tag = new Tag("text");
             tag.appendChild(new Tag("#text", "testing..."));
-            expect(String(tag)).to.equal('<text>testing...</text>\n');
+            expect(String(tag)).to.equal("<text>testing...</text>\n");
         });
 
         it("knows how to have text children as a text tag", function () {
             var tag = new Tag("text");
             tag.appendChild("testing...");
-            expect(String(tag)).to.equal('<text>testing...</text>\n');
+            expect(String(tag)).to.equal("<text>testing...</text>\n");
         });
 
         it("knows how to be a tag list", function () {
             var tag = new Tag("");
             tag.appendChild(new Tag("circle"), new Tag("rect"));
-            expect(String(tag)).to.equal('<circle/>\n<rect/>\n');
+            expect(String(tag)).to.equal("<circle/>\n<rect/>\n");
         });
 
     });

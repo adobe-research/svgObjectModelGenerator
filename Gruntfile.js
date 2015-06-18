@@ -6,10 +6,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         exec: {
             jscs: {
-                command: "./node_modules/jscs/bin/jscs ./*.js --config=./jscs.json"
+                command: "./node_modules/jscs/bin/jscs ./*.js ./tests/*.js --config=./jscs.json"
             },
             eslint: {
-                command: "./node_modules/eslint/bin/eslint.js ./*.js"
+                command: "./node_modules/eslint/bin/eslint.js ./*.js ./tests/*.js"
             },
             test: {
                 command: "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js"

@@ -21,7 +21,7 @@ var expect = require("chai").expect,
     database = require("./test-database.js"),
     fs = require("fs");
 
-describe("svgOMGenerator", function (){
+describe("svgOMGenerator", function () {
 
     var sandbox = sinon.sandbox.create();
 
@@ -37,12 +37,12 @@ describe("svgOMGenerator", function (){
      **/
     describe("Test complete Generator JSON to OM extraction", function () {
 
-        function compareResults (testName) {
+        function compareResults(testName) {
             var expectedModule,
                 testData = require("./data/" + testName + "-data.js"),
-                svgOMGText = JSON.stringify(OMG.extractSVGOM(testData, { }), null, "\t");
+                svgOMGText = JSON.stringify(OMG.extractSVGOM(testData, {}), null, "\t");
             try {
-                expectedModule = JSON.parse(fs.readFileSync("./tests/data/" +testName+ "-om.json"));
+                expectedModule = JSON.parse(fs.readFileSync("./tests/data/" + testName + "-om.json"));
             } catch (e) {
                 fs.writeFileSync("./tests/data/" + testName + "-om.json", svgOMGText, "utf8");
                 console.log("No reference OM document found. New one created as " + testName + "-om.json");
@@ -54,20 +54,14 @@ describe("svgOMGenerator", function (){
             return expect(svgOM).to.eql(svgOMExpected);
         }
 
-        function runCompleteJSONToOMExtractionTest(name, desc, skipTest, isLastTest) {
+        function runCompleteJSONToOMExtractionTest(name, desc, skipTest) {
             if (skipTest) {
                 it.skip("Entire Generator JSON ⇒ OM for " + name, function () {
                     compareResults(name);
-                    if (isLastTest) {
-                        _isLastTest = true;
-                    }
                 });
             } else {
                 it("Entire Generator JSON ⇒ OM for " + name, function () {
                     compareResults(name);
-                    if (isLastTest) {
-                        _isLastTest = true;
-                    }
                 });
             }
         }
@@ -85,9 +79,9 @@ describe("svgOMGenerator", function (){
     /**
      * Test individual Generator JSON layers to OM extraction
      **/
-     describe("Test individual layer extraction to OM", function () {
+    describe("Test individual layer extraction to OM", function () {
 
-        function compareResults (testData, layerId, testName) {
+        function compareResults(testData, layerId, testName) {
             var expectedModule,
                 svgOM,
                 svgOMGText,
@@ -107,13 +101,13 @@ describe("svgOMGenerator", function (){
                 return svgOMGText;
             }
 
-            svgOMExpected = JSON.parse(JSON.stringify(expectedModule)),
+            svgOMExpected = JSON.parse(JSON.stringify(expectedModule));
             svgOM = JSON.parse(svgOMGText);
 
             return expect(svgOM).to.eql(svgOMExpected);
         }
 
-        function runJSONLayerToOMExtractionTest (testData, layer, testName, skipTest) {
+        function runJSONLayerToOMExtractionTest(testData, layer, testName, skipTest) {
 
             if (skipTest) {
                 it.skip("Extract layer " + layer.id + " from " + testName, function () {
@@ -134,10 +128,10 @@ describe("svgOMGenerator", function (){
             }
         }
 
-        function setupTesting (testName, desc, skipTest) {
+        function setupTesting(testName, desc, skipTest) {
             var testData = require("./data/" + testName + "-data.js");
             if (!testData.layers) {
-                console.log("Warning: PSD does not have any layers.")
+                console.log("Warning: PSD does not have any layers.");
             }
 
             // Does the directory with the test results exist? If not create it.
@@ -162,34 +156,34 @@ describe("svgOMGenerator", function (){
                 database[i].desc,
                 !!database[i].skip);
         }
-     });
+    });
 
     /**
      * Test extraction of individual layers
      **/
     describe("Test svgOMGenerator stability", function () {
 
-        it.skip("should be able to OM a text with a layer spec", function (){
+        it.skip("should be able to OM a text with a layer spec", function () {
 
-            var testData = require("./data/svgText-data.js"),
-                svgOM = OMG.extractSVGOM(testData, { layerSpec: 4 });
+            // var testData = require("./data/svgText-data.js"),
+            //     svgOM = OMG.extractSVGOM(testData, { layerSpec: 4 });
             // FIXME: The test doesn't compare anything.
             //expect(svgOMExpected).to.eql(svgOM);
         });
 
-        it("should survive unknown layer type", function (){
+        it("should survive unknown layer type", function () {
             sandbox.stub(console, "log");
             OMG._getSVGLayerType("nannan");
             expect(console.log.calledOnce).to.equal(true);
         });
 
-        it("should recognize a layer spec when it sees one", function (){
+        it("should recognize a layer spec when it sees one", function () {
             expect(OMG._layerSpecActive()).to.equal(false);
             expect(OMG._layerSpecActive(3)).to.equal(true);
             //expect(OMG._layerSpecActive({ TBD })).to.equal(true);
         });
 
-        it("should be able to match a layer spec with a layer", function (){
+        it("should be able to match a layer spec with a layer", function () {
 
             var layer = {
                     id: 3

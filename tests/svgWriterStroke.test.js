@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -13,26 +13,25 @@
 // limitations under the License.
 
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, beforeEach: true, afterEach: true, it: true */
 
-var expect = require('chai').expect,
+var expect = require("chai").expect,
     svgWriterStroke = require("../svgWriterStroke.js"),
     ID = require("../idGenerator.js"),
-    sinon = require('sinon');
+    sinon = require("sinon");
 
-describe('SVGWriterStroke', function (){
-    
+describe("SVGWriterStroke", function () {
+
     var sandbox = sinon.sandbox.create();
-    
+
     beforeEach(function () {
     });
-    
+
     afterEach(function () {
         sandbox.restore();
     });
 
-    it("knows how to externalize fringe styles", function (){
+    it("knows how to externalize fringe styles", function () {
         var styleBlock = {
                 addRule: sinon.spy()
             },
@@ -50,15 +49,13 @@ describe('SVGWriterStroke', function (){
                 },
                 omStylesheet: {
                     hasStyleBlock: sinon.spy(),
-                    getStyleBlock: function () { return styleBlock; }
+                    getStyleBlock: function () {
+                        return styleBlock;
+                    }
                 },
                 sOut: ""
             };
         svgWriterStroke.externalizeStyles(goodCTX);
         expect(styleBlock.addRule.callCount).to.equal(3);
     });
-    
-   
-   
-    
 });

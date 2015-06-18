@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,27 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, beforeEach: true, afterEach: true, it: true */
 
-var expect = require('chai').expect,
+var expect = require("chai").expect,
     svgWriterPreprocessor = require("../svgWriterPreprocessor.js"),
     ID = require("../idGenerator.js"),
-    sinon = require('sinon');
+    sinon = require("sinon");
 
-describe('SVGWriterPreprocessor', function (){
-    
+describe("SVGWriterPreprocessor", function () {
+
     var sandbox = sinon.sandbox.create();
-    
+
     beforeEach(function () {
     });
-    
+
     afterEach(function () {
         sandbox.restore();
     });
-    
+
     it("knows how to trim to artwork 1", function () {
-        
+
         var svgOM = {
                 global: {
                     bounds: {
@@ -42,7 +41,7 @@ describe('SVGWriterPreprocessor', function (){
                         bottom: 100
                     }
                 },
-                children:[
+                children: [
                     {
                         type: "shape",
                         visible: true,
@@ -102,14 +101,14 @@ describe('SVGWriterPreprocessor', function (){
                     trimToArtBounds: true
                 }
             };
-        
+
         svgWriterPreprocessor.processSVGOM(ctx);
-        
+
         expect(ctx._viewBox[0]).to.equal(0);
         expect(ctx._viewBox[1]).to.equal(0);
         expect(ctx._viewBox[2]).to.equal(33);
         expect(ctx._viewBox[3]).to.equal(93);
-        
+
         expect(svgOM.children[0].visualBounds.top).to.equal(1.5);
         expect(svgOM.children[0].visualBounds.left).to.equal(1.5);
         expect(svgOM.children[0].visualBounds.right).to.equal(31.5);
@@ -126,7 +125,7 @@ describe('SVGWriterPreprocessor', function (){
                         bottom: 100
                     }
                 },
-                children:[
+                children: [
                     {
                         type: "shape",
                         visible: true,
@@ -201,7 +200,7 @@ describe('SVGWriterPreprocessor', function (){
                         bottom: 400
                     }
                 },
-                children:[
+                children: [
                     {
                         type: "shape",
                         visible: true,
@@ -255,7 +254,7 @@ describe('SVGWriterPreprocessor', function (){
                         bottom: 300
                     }
                 },
-                children:[
+                children: [
                     {
                         type: "shape",
                         visible: true,
