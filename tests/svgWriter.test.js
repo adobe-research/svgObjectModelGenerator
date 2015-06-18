@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, beforeEach: true, afterEach: true, it: true, repairMedia: true */
 
 var expect = require("chai").expect,
     OMG = require("../svgOMGenerator.js"),
@@ -23,7 +22,7 @@ var expect = require("chai").expect,
     fs = require("fs");
 
 
-describe("svgWriter", function (){
+describe("svgWriter", function () {
 
     //report the differences in an easy-to-review format
 
@@ -36,19 +35,19 @@ describe("svgWriter", function (){
     beforeEach(function () {
     });
 
-    function writeComparison (out, comparison, level) {
+    function writeComparison(out, comparison, level) {
         var svgA,
             svgB;
 
         out.push('<li id="itm' + itmId + '" class="' + level);
-        sep = ' ';
+        var sep = " ";
         if (comparison.passed) {
-            out.push(sep + 'passed');
-            sep = ' ';
+            out.push(sep + "passed");
+            sep = " ";
         }
         if (comparison.repaired) {
-            out.push(sep + 'repaired');
-            sep = ' ';
+            out.push(sep + "repaired");
+            sep = " ";
             svgA = comparison.filename;
             svgB = comparison.compareFilename;
         } else if (!comparison.passed) {
@@ -56,12 +55,12 @@ describe("svgWriter", function (){
             svgB = comparison.filename;
         } else {
             svgA = comparison.filename;
-            svgB = '';
+            svgB = "";
         }
 
-        out.push('" onclick="compareSVG(\'#itm' + itmId++ + '\', \'' + svgA + '\', \'' + svgB + '\')"><div class="passfail"></div><span>');
+        out.push('" onclick="compareSVG(\'#itm' + itmId++ + "', '" + svgA + "', '" + svgB + '\')"><div class="passfail"></div><span>');
 
-        out.push(comparison.name + '</span></li>');
+        out.push(comparison.name + "</span></li>");
     }
 
     afterEach(function () {
@@ -138,7 +137,7 @@ describe("svgWriter", function (){
             return;
         }
 
-        handleResults(_compareLogDoc, testName, expectedOut, svgOut, "./tests/" + path + ".svg", "./tests/data-compare/" + testName +".svg");
+        handleResults(_compareLogDoc, testName, expectedOut, svgOut, "./tests/" + path + ".svg", "./tests/data-compare/" + testName + ".svg");
 
         expect(svgOut).to.equal(expectedOut);
     }
@@ -157,7 +156,7 @@ describe("svgWriter", function (){
     describe("Test extraction of masks to SVG", function () {
         var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6", "mask-7", "mask-8", "mask-9", "mask-10", "mask-11", "mask-12", "mask-13"];
 
-        database.forEach(function(item) {
+        database.forEach(function (item) {
             it("test " + item, function () {
                 compareResults(item, "mask");
             });
@@ -170,7 +169,7 @@ describe("svgWriter", function (){
     describe("Test extraction of clipPath to SVG", function () {
         var database = ["clipPath-1", "clipPath-2", "clipPath-3", "clipPath-4", "clipPath-5", "clipPath-6", "clipPath-7"];
 
-        database.forEach(function(item) {
+        database.forEach(function (item) {
             it("test " + item, function () {
                 compareResults(item, "clipPath");
             });
@@ -183,7 +182,7 @@ describe("svgWriter", function (){
     describe("Test extraction of patterns to SVG", function () {
         var database = ["pattern-1", "pattern-2", "pattern-3", "pattern-4"];
 
-        database.forEach(function(item) {
+        database.forEach(function (item) {
             it("test " + item, function () {
                 compareResults(item, "pattern");
             });
@@ -194,7 +193,7 @@ describe("svgWriter", function (){
      * Test extraction of all layers to SVG
      **/
     describe("Test extraction of all layers to SVG", function () {
-        function runJSONLayerToOMExtractionTest (layer, testName, skipTest) {
+        function runJSONLayerToOMExtractionTest(layer, testName, skipTest) {
             var options = {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
@@ -221,7 +220,7 @@ describe("svgWriter", function (){
             }
         }
 
-        function setupTesting (testName, desc, skipTest) {
+        function setupTesting(testName, desc, skipTest) {
             var testData = require("./data/" + testName + "-data.js");
             if (!testData.layers) {
                 console.log("Warning: PSD does not have any layers.");
@@ -253,8 +252,8 @@ describe("svgWriter", function (){
     /**
      * Test individual OM object extraction
      **/
-    describe("Test individual OM object extraction", function (){
-        function compareResultsExport (testName, aTestData) {
+    describe("Test individual OM object extraction", function () {
+        function compareResultsExport(testName, aTestData) {
             var testData,
                 svgOM,
                 i,
@@ -314,7 +313,7 @@ describe("svgWriter", function (){
      * Test text alignment
      **/
     describe("Test text alignment of individual layers", function () {
-        function compareResultsExport (testName, layerID) {
+        function compareResultsExport(testName, layerID) {
             var testData,
                 svgOM,
                 options = {
@@ -466,12 +465,12 @@ describe("svgWriter", function (){
      * Test minification of SVG output
      **/
     describe("Test minification of SVG output", function () {
-        function compareMinifyResults (testName) {
+        function compareMinifyResults(testName) {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/" + testName + "-om.json"));
 
             compareResultsWidthOM(svgOM, testName + "-minify", "", { minify: true });
         }
-        function compareCarriageResults (testName) {
+        function compareCarriageResults(testName) {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/" + testName + "-om.json"));
 
             compareResultsWidthOM(svgOM, testName + "-carriage", "", { carriageReturn: true });
@@ -521,7 +520,7 @@ describe("svgWriter", function (){
         });
     });
 
-	/**
+    /**
      * Test empty groups.
      **/
     describe("Test empty groups", function () {
@@ -665,7 +664,7 @@ describe("svgWriter", function (){
                 preserveAspectRatio: "xMidYMid",
                 scale: 1,
                 constrainToDocBounds: true,
-                clipToArtboardBounds: true,
+                clipToArtboardBounds: true
             };
 
         it("Test extracting ellipse-1 from artboard", function () {
@@ -725,7 +724,7 @@ describe("svgWriter", function (){
         });
         it("Test that masks get shifted correctly.", function () {
             compareResults("mask", "custom", options);
-		});
+        });
         it("Test that images get shifted.", function () {
             compareResults("image", "custom", options);
         });

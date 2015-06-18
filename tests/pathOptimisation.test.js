@@ -13,15 +13,13 @@
 // limitations under the License.
 
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, it: true */
 
 var expect = require("chai").expect,
     utils = require("../utils.js"),
     data = require("./paths/data.json"),
     optimisePath = utils.optimisePath,
-    parsePath = utils.parsePath,
-    sinon = require("sinon");
+    parsePath = utils.parsePath;
 
 describe("Path Optimisation ★", function () {
 

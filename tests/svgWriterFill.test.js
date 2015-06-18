@@ -1,5 +1,5 @@
 // Copyright (c) 2014, 2015 Adobe Systems Incorporated. All rights reserved.
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -13,20 +13,14 @@
 // limitations under the License.
 
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, afterEach: true */
 
-var expect = require('chai').expect,
-    svgWriterFill = require("../svgWriterFill.js"),
-    sinon = require('sinon');
+var sinon = require("sinon");
 
-describe('SVGWriterFill', function (){
-    
+describe("SVGWriterFill", function () {
+
     var sandbox = sinon.sandbox.create();
-    
-    beforeEach(function () {
-    });
-    
+
     afterEach(function () {
         sandbox.restore();
     });

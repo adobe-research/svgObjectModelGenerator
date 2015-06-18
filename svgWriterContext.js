@@ -38,7 +38,7 @@
         this.indent = this.minify ? "" : "  ";
         this.space = this.minify ? "" : " ";
         this.currentIndent = "";
-        this.terminator = this.minify ? "" : (this.config && this.config.carriageReturn ? "\r\n" : "\n");
+        this.terminator = this.minify ? "" : this.config && this.config.carriageReturn ? "\r\n" : "\n";
         this.idType = this.minify ? "minimal" : "regular";
 
         if (this.config && this.config.idType) {

@@ -19,7 +19,7 @@ var expect = require("chai").expect,
     Matrix = require("../matrix.js"),
     sinon = require("sinon");
 
-describe("Matrix", function (){
+describe("Matrix", function () {
 
     var sandbox = sinon.sandbox.create();
 
@@ -43,7 +43,7 @@ describe("Matrix", function (){
                                             ])).to.equal(false);
     });
 
-    it("knows how to decompose a transform", function (){
+    it("knows how to decompose a transform", function () {
         var matrix4x4 = Matrix.createMatrix([[0.707107, -0.707107, 0, 0],
                                              [0.707107, 0.707107, 0, 0],
                                              [0, 0, 1, 0],
@@ -56,7 +56,7 @@ describe("Matrix", function (){
         expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("rotate(-45)");
     });
 
-    it("knows how to decompose and write a transform", function (){
+    it("knows how to decompose and write a transform", function () {
         var matrix4x4 = Matrix.createMatrix([[1.210279, -1.686825, 0, 0],
                                              [2.229008, 0.345909, 0, 0],
                                              [0, 0, 1, 0],
@@ -67,7 +67,7 @@ describe("Matrix", function (){
         expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("translate(5 10) rotate(-54.34) skewX(28.99) scale(2.08 2.01)");
     });
 
-    it("knows how to transform points", function (){
+    it("knows how to transform points", function () {
         var matrix4x4 = Matrix.createMatrix([[0.707107, -0.707107, 0, 0],
                                              [0.707107, 0.707107, 0, 0],
                                              [0, 0, 1, 0],
@@ -82,7 +82,7 @@ describe("Matrix", function (){
         expect(pts[1][1]).to.equal(3.5355349999999994);
     });
 
-    it("knows how to invert", function (){
+    it("knows how to invert", function () {
         var matrix4x4 = Matrix.createMatrix([[0.707107, -0.707107, 0, 0],
                                              [0.707107, 0.707107, 0, 0],
                                              [0, 0, 1, 0],
@@ -101,7 +101,7 @@ describe("Matrix", function (){
         expect(pt[1]).to.equal(15);
     });
 
-    it("knows how to rotate", function (){
+    it("knows how to rotate", function () {
         var matrix4x4 = Matrix.createMatrix([[0.707107, -0.707107, 0, 0],
                                              [0.707107, 0.707107, 0, 0],
                                              [0, 0, 1, 0],

@@ -13,21 +13,19 @@
 // limitations under the License.
 
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, bitwise: true */
-/*global define: true, require: true, describe: true, beforeEach: true, afterEach: true, it: true */
+/*global require: true, describe: true, it: true */
 
-var expect = require('chai').expect,
-    svgStylesheet = require("../svgStylesheet.js"),
-    ID = require("../idGenerator.js"),
-    sinon = require('sinon');
+var expect = require("chai").expect,
+    SVGStylesheet = require("../svgStylesheet.js"),
+    ID = require("../idGenerator.js");
 
-describe('svgStylesheet', function () {
+describe("SVGStylesheet", function () {
 
-    describe('our SVG stylesheet', function () {
+    describe("our SVG stylesheet", function () {
 
         it("knows whether it has rules to write", function () {
 
-            var sheet = new svgStylesheet(),
+            var sheet = new SVGStylesheet,
                 styleBlock;
 
             expect(sheet.hasRules()).to.equal(false);
@@ -40,7 +38,7 @@ describe('svgStylesheet', function () {
 
 
         it("knows whether it has defines to write", function () {
-            var sheet = new svgStylesheet(),
+            var sheet = new SVGStylesheet,
                 defn;
 
             expect(sheet.hasDefines()).to.equal(false);
@@ -56,8 +54,7 @@ describe('svgStylesheet', function () {
         });
 
         it("combines like defines", function () {
-            var sheet = new svgStylesheet(),
-                defn;
+            var sheet = new SVGStylesheet;
 
             expect(sheet.hasDefines()).to.equal(false);
 
@@ -74,7 +71,7 @@ describe('svgStylesheet', function () {
 
         it("knows how to extract similar rules from 2 blocks", function () {
 
-            var sheet = new svgStylesheet(),
+            var sheet = new SVGStylesheet,
                 blocks = [];
 
             blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
@@ -100,7 +97,7 @@ describe('svgStylesheet', function () {
 
         it("knows how to extract similar rules from 3 blocks", function () {
 
-            var sheet = new svgStylesheet(),
+            var sheet = new SVGStylesheet,
                 blocks = [];
 
             blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
@@ -133,7 +130,7 @@ describe('svgStylesheet', function () {
 
         it("knows how to extract similar rules from 4 blocks", function () {
 
-            var sheet = new svgStylesheet(),
+            var sheet = new SVGStylesheet,
                 blocks = [];
 
             blocks[0] = sheet.getStyleBlock({className: "clsTest1" });
