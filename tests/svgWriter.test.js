@@ -519,9 +519,14 @@ describe("svgWriter", function (){
     describe("Test minification of SVG output", function () {
 
         function compareMinifyResults (testName) {
-            var svgOM = JSON.parse(fs.readFileSync("./tests/data/" +testName+ "-om.json"));
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/" + testName + "-om.json"));
 
             compareResultsWidthOM(svgOM, testName + "-minify", "", { minify: true });
+        }
+        function compareCarriageResults (testName) {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/" + testName + "-om.json"));
+
+            compareResultsWidthOM(svgOM, testName + "-carriage", "", { carriageReturn: true });
         }
 
         it("Test minification of SVG output with gradient", function () {
@@ -534,6 +539,10 @@ describe("svgWriter", function (){
 
         it("Test minification of SVG output with clip-path", function () {
             compareMinifyResults("clipPath-1");
+        });
+
+        it("Test carriage return on radial-gradient-focal", function () {
+            compareCarriageResults("radial-gradient-focal");
         });
     });
 

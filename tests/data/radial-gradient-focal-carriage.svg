@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-1);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient-4);
+      }
+    </style>
+
+    <radialGradient id="radial-gradient-1" cx="150" cy="100" r="75" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="aqua"/>
+      <stop offset="1" stop-color="blue"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="400" fx="425" fy="125" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-3" cy="250" fx="100" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-4" cx="400" cy="250" fy="200" xlink:href="#radial-gradient-1"/>
+  </defs>
+  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
+  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
+  <rect x="50" y="200" width="200" height="100" class="cls-3"/>
+  <rect x="300" y="200" width="200" height="100" class="cls-4"/>
+</svg>
