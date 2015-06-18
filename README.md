@@ -123,6 +123,7 @@ The configuration object has the following arguments:
     * **unique** Create UUIDs based on rfc4122 in the format `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.
 * **precision** *number* The number of digits after floating point. Number must be in the range of 0 .. 10 and is trimmed otherwise. Default is `3`.
 * **isResponsive** *boolean* If set to `true` makes the SVG document fill the viewport/image area. (No `width` and `height` attribtues set on SVG root.)
+* **carriageReturn** *boolean* By default, svgWriter uses the line ending `LF`. With *carriageReturn* set to `true` line endings use `CRLF`.
 
 ## Setup Generator
 
