@@ -44,7 +44,7 @@
             } else if (fill.type == "none") {
                 styleBlock.addRule("fill", "none");
             } else {
-                styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color));
+                styleBlock.addRule("fill", svgWriterUtils.writeColor(fill.color, ctx));
             }
 
             if (isFinite(omIn.style.fill.opacity)) {
