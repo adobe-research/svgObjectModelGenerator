@@ -13,13 +13,13 @@
                     "style": {
                         "fill": {
                             "color": {
-                                "ref": "#dd3c3c"
+                                "ref": "dd3c3c"
                             },
                             "type": "solid"
                         },
                         "stroke": {
                             "color": {
-                                "ref": "#20f20f"
+                                "ref": "20f20f"
                             },
                             "cap": "butt",
                             "join": "miter",
@@ -49,7 +49,7 @@
                         "fill": {
                             "type": "solid",
                             "color": {
-                                "ref": "#ed1c24"
+                                "ref": "ed1c24"
                             }
                         }
                     },
@@ -89,17 +89,17 @@
             "top": 0
         },
         "colors": {
-            "#dd3c3c": {
+            "dd3c3c": {
                 "b": 60,
                 "g": 60,
                 "r": 221
             },
-            "#20f20f": {
+            "20f20f": {
                 "b": 15,
                 "g": 242,
                 "r": 32
             },
-            "#ed1c24": {
+            "ed1c24": {
                 "r": 237.000275,
                 "g": 27.999573,
                 "b": 35.999451,
