@@ -97,15 +97,21 @@
             "#c0c0c0": "silver",
             "#808080": "gray"
         };
-        self.writeColor = function (val) {
+        self.writeColor = function (val, ctx) {
             var color;
             val = val || "transparent";
             if (typeof val == "string") {
                 color = val;
-            } else if (typeof val == "object" && val.hasOwnProperty("a") && val.a != 1) {
-                return "rgba(" + Utils.roundUp(val.r) + "," + Utils.roundUp(val.g) + "," + Utils.roundUp(val.b) + "," + Utils.round2(val.a) + ")";
-            } else {
-                color = self.rgbToHex(val.r, val.g, val.b);
+            }
+            if (typeof val == "object") {
+                if (val.ref && ctx && ctx.svgOM.global && ctx.svgOM.global.colors && ctx.svgOM.global.colors[val.ref]) {
+                    val = ctx.svgOM.global.colors[val.ref];
+                }
+                if (val.hasOwnProperty("a") && val.a != 1) {
+                    return "rgba(" + Utils.roundUp(val.r) + "," + Utils.roundUp(val.g) + "," + Utils.roundUp(val.b) + "," + Utils.round2(val.a) + ")";
+                } else {
+                    color = self.rgbToHex(val.r, val.g, val.b);
+                }
             }
             if (colorNames[color.toLowerCase()]) {
                 color = colorNames[color.toLowerCase()];

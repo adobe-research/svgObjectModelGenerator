@@ -46,7 +46,7 @@
             } else if (stroke.type == "pattern") {
                 writePattern(ctx, stroke.pattern, "stroke");
             } else {
-                styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color));
+                styleBlock.addRule("stroke", svgWriterUtils.writeColor(omIn.style.stroke.color, ctx));
             }
             if (omIn.style.stroke.cap) {
                 styleBlock.addRule("stroke-linecap", omIn.style.stroke.cap);

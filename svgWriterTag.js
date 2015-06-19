@@ -177,7 +177,7 @@
                 break;
             case "color":
                 if (value != "none") {
-                    value = writeColor(value);
+                    value = writeColor(value, ctx);
                 }
                 break;
         }
