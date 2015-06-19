@@ -9,7 +9,7 @@
       }
 
       .cls-2 {
-        fill: #ed1c24;
+        fill: rgba(238,28,36,0.25);
         fill-rule: evenodd;
       }
     </style>
