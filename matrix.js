@@ -25,6 +25,7 @@
         rad2Deg = 180.0 / Math.PI,
         round2 = Utils.round2,
         round10k = Utils.round10k,
+        roundP = Utils.roundP,
 
         MatrixClass = function () {
 
@@ -748,8 +749,7 @@
             };
 
 
-            this.writeTransform = function (txfm4x4, tX, tY) {
-
+            this.writeTransform = function (txfm4x4, tX, tY, precision) {
                 var decomposed = this.decomposeTransform(txfm4x4);
 
                 if (decomposed.translation[2] ||
@@ -757,66 +757,70 @@
                     decomposed.skew[0] || decomposed.skew[1] ||
                     round2(decomposed.scale[2]) !== 1) {
 
-                    return this.writeRawMatrix(txfm4x4, tX, tY);
+                    return this.writeRawMatrix(txfm4x4, tX, tY, precision);
                 } else {
 
                     decomposed.translation[0] += tX;
                     decomposed.translation[1] += tY;
 
-                    return this.writeDecomposedTransform(decomposed);
+                    return this.writeDecomposedTransform(decomposed, precision);
                 }
             };
 
-            this.writeRawMatrix = function (txfm4x4, tX, tY) {
+            this.writeRawMatrix = function (txfm4x4, tX, tY, precision) {
                 var txfmOut = [];
+                precision = isFinite(precision) ? Math.max(2, precision) : 2;
 
                 txfmOut.push("matrix(");
-                txfmOut.push(round10k(txfm4x4[0][0]) + ", ");
-                txfmOut.push(round10k(txfm4x4[0][1]) + ", ");
-                txfmOut.push(round10k(txfm4x4[1][0]) + ", ");
-                txfmOut.push(round10k(txfm4x4[1][1]) + ", ");
-                txfmOut.push(round10k(txfm4x4[3][0] + tX) + ", ");
-                txfmOut.push(round10k(txfm4x4[3][1] + tY) + ")");
+                txfmOut.push(roundP(txfm4x4[0][0], precision) + ", ");
+                txfmOut.push(roundP(txfm4x4[0][1], precision) + ", ");
+                txfmOut.push(roundP(txfm4x4[1][0], precision) + ", ");
+                txfmOut.push(roundP(txfm4x4[1][1], precision) + ", ");
+                txfmOut.push(roundP(txfm4x4[3][0] + tX, precision) + ", ");
+                txfmOut.push(roundP(txfm4x4[3][1] + tY, precision) + ")");
 
                 return txfmOut.join("");
             };
 
-            this.writeDecomposedTransform = function (txfm) {
+            this.writeDecomposedTransform = function (txfm, precision) {
                 var txfmOut = [],
                     sep = "";
+
+                precision = isFinite(precision) ? precision : 2;
 
                 //translate
                 if (txfm.translation[0] || txfm.translation[1]) {
                     if (txfm.translation[1]) {
-                        txfmOut.push(sep + "translate(" + round2(txfm.translation[0]) + " " + round2(txfm.translation[1]) + ")");
+                        txfmOut.push(sep + "translate(" + roundP(txfm.translation[0], precision) + " " + roundP(txfm.translation[1], precision) + ")");
                     } else {
-                        txfmOut.push(sep + "translate(" + round2(txfm.translation[0]) + ")");
+                        txfmOut.push(sep + "translate(" + roundP(txfm.translation[0], precision) + ")");
                     }
                     sep = " ";
                 }
 
                 //rotate
                 if (round2(rad2Deg * txfm.rotation[2])) {
-                    txfmOut.push(sep + "rotate(" + round2(rad2Deg * txfm.rotation[2]) + ")");
+                    txfmOut.push(sep + "rotate(" + roundP(rad2Deg * txfm.rotation[2], precision) + ")");
                     sep = " ";
                 }
 
                 //skew
                 if (round2(rad2Deg * txfm.skew[0])) {
-                    txfmOut.push(sep + "skewX(" + round2(rad2Deg * txfm.skew[0]) + ")");
+                    txfmOut.push(sep + "skewX(" + roundP(rad2Deg * txfm.skew[0], precision) + ")");
                     sep = " ";
                 }
                 if (round2(rad2Deg * txfm.skew[1])) {
-                    txfmOut.push(sep + "skewY(" + round2(rad2Deg * txfm.skew[1]) + ")");
+                    txfmOut.push(sep + "skewY(" + roundP(rad2Deg * txfm.skew[1], precision) + ")");
                     sep = " ";
                 }
 
                 //scale
                 if (round2(txfm.scale[0]) !== 1 || round2(txfm.scale[1]) !== 1) {
+                    precision = Math.max(2, precision);
                     if (txfm.scale[0] !== txfm.scale[1]) {
-                        txfmOut.push(sep + "scale(" + round2(txfm.scale[0]) + " " + round2(txfm.scale[1]) + ")");
+                        txfmOut.push(sep + "scale(" + roundP(txfm.scale[0], precision) + " " + roundP(txfm.scale[1], precision) + ")");
                     } else {
-                        txfmOut.push(sep + "scale(" + round2(txfm.scale[0]) + ")");
+                        txfmOut.push(sep + "scale(" + roundP(txfm.scale[0], precision) + ")");
                     }
                     sep = " ";
                 }

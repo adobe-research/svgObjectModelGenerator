@@ -28,7 +28,15 @@
                             "type": "solid"
                         }
                     },
-                    "title": "<Path>",
+                    "transform": {
+                        "a": 0.707107,
+                        "b": 0.707107,
+                        "c": -0.707107,
+                        "d": 0.707107,
+                        "e": 1.993592353,
+                        "f": 234.45454415
+                    },
+                    "name": "<Path>",
                     "type": "shape",
                     "visible": true,
                     "visualBounds": {
@@ -61,6 +69,14 @@
                         "bottom": 286,
                         "right": 300.555555555
                     },
+                    "transform": {
+                        "a": 0.254544325,
+                        "b": 0.3524647,
+                        "c": -0.42646477,
+                        "d": 0.14563,
+                        "e": 1.13636535,
+                        "f": 234.45454415
+                    },
                     "shape": {
                         "type": "path",
                         "path": "M200.555555555,200.555555555L300.333333333,10.222222222V500.111111111",
@@ -69,7 +85,7 @@
                 }
             ],
             "id": "layer-1",
-            "title": "Layer 1",
+            "name": "Layer 1",
             "type": "group",
             "visible": true
         }
@@ -107,6 +123,6 @@
             }
         }
     },
-    "title": "pattern-fill-ellipse",
+    "name": "pattern-fill-ellipse",
     "version": "0.1.0"
 }

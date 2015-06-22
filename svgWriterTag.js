@@ -502,7 +502,7 @@
                 cx: node.shape.cx,
                 cy: node.shape.cy,
                 r: node.shape.r,
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
@@ -512,7 +512,7 @@
                 cy: node.shape.cy,
                 rx: node.shape.rx,
                 ry: node.shape.ry,
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
@@ -522,7 +522,7 @@
                 y1: node.shape.y1,
                 x2: node.shape.x2,
                 y2: node.shape.y2,
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
 
@@ -530,21 +530,21 @@
         path: function (ctx, node) {
             var tag = new Tag("path", {
                 d: util.optimisePath(node.shape.path, ctx.precision),
-                transform: getTransform(node.transform || matrix.createMatrix(), node.transformTX, node.transformTY)
+                transform: getTransform(node.transform || matrix.createMatrix(), node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
         polygon: function (ctx, node) {
             var tag = new Tag("polygon", {
                 points: util.pointsToString(node.shape.points),
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
         polyline: function (ctx, node) {
             var tag = new Tag("polyline", {
                 points: util.pointsToString(node.shape.points),
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
@@ -586,7 +586,7 @@
             var attr = {},
                 offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
                 offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0),
-                t = getTransform(node.transform, offsetX, offsetY);
+                t = getTransform(node.transform, offsetX, offsetY, ctx.precision);
             if (node.bounds) {
                 attr.x = node.bounds.left + (t ? 0 : offsetX);
                 attr.y = node.bounds.top + (t ? 0 : offsetY);
@@ -614,7 +614,7 @@
                 if (r[0] != r[1] || r[1] != r[2] || r[2] != r[3]) {
                     tag = new Tag("path", {
                         d: util.optimisePath(roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r), ctx.precision),
-                        transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                     }, ctx);
                     return tag.useTrick(ctx);
                 } else {
@@ -626,7 +626,7 @@
                 y: node.shape.y,
                 width: node.shape.width,
                 height: node.shape.height,
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             r && tag.setAttributes({
                 rx: r,
@@ -638,7 +638,7 @@
             var tag = new Tag("text", {
                 x: node.position.x + (node.position.unitX || ""),
                 y: node.position.y + (node.position.unitY || ""),
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
@@ -675,13 +675,13 @@
                     y: top,
                     width: w,
                     height: h,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                 }, ctx);
             return tag.useTrick(ctx);
         },
         group: function (ctx, node) {
             var tag = new Tag("g", {
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             }, ctx);
             return tag.useTrick(ctx);
         },
@@ -709,7 +709,7 @@
         reference: function (ctx, node) {
             var attr = {
                 "xlink:href": "#" + ctx.omStylesheet.getDefine(node.ref, "symbol").defnId,
-                transform: getTransform(node.transform, node.transformTX, node.transformTY)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             };
             if (node.bounds) {
                 attr.x = node.bounds.left || 0;
