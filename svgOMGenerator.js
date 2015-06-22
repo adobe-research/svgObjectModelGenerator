@@ -99,6 +99,13 @@
             }
 
             layerType = getSVGLayerType(layer);
+            // Don't process empty nodes.
+            if (layer.bounds &&
+                layer.bounds.left == layer.bounds.right &&
+                layer.bounds.top == layer.bounds.bottom &&
+                layerType != "artboard") {
+                return;
+            }
             if (!justTraverse && layerType != "background") {
                 svgNode = writer.addSVGNode(layerType, layerVisible);
                 svgNode.name = layer.name;

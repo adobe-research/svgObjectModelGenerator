@@ -1,6 +1,7 @@
 {
 	"children": [
 		{
+			"name": "circle",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -8,10 +9,10 @@
 					"type": "none"
 				}
 			},
-			"name": "circle",
 			"ref": "artboard-1",
 			"children": [
 				{
+					"name": "Ellipse 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -28,7 +29,6 @@
 							}
 						}
 					},
-					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2125,
 						"left": 2125,

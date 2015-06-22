@@ -1,6 +1,7 @@
 {
 	"children": [
 		{
+			"name": "Rectangle 1",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -33,7 +34,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 2212,
 				"left": 4000,

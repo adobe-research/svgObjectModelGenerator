@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="0" height="0" viewBox="0 0 0 0"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="2820" height="1920" viewBox="0 0 2820 1920">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: lime;
+      }
+    </style>
+  </defs>
+  <g id="artboard-1">
+    <circle cx="540" cy="960" r="393" class="cls-1"/>
+  </g>
+  <g id="artboard-2">
+    <rect x="1972" y="811" width="533" height="533" class="cls-1"/>
+  </g>
+</svg>

@@ -1,6 +1,7 @@
 {
 	"children": [
 		{
+			"name": "Ellipse 1",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -17,7 +18,6 @@
 					}
 				}
 			},
-			"name": "Ellipse 1",
 			"visualBounds": {
 				"top": 2125,
 				"left": 2125,
