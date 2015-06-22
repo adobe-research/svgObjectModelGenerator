@@ -1,12 +1,7 @@
 {
 	"children": [
 		{
-			"type": "image",
-			"visible": true,
-			"style": {},
-			"name": "Layer 1"
-		},
-		{
+			"name": "square",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -14,10 +9,10 @@
 					"type": "none"
 				}
 			},
-			"name": "square",
 			"ref": "artboard-1",
 			"children": [
 				{
+					"name": "Ellipse 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -34,7 +29,6 @@
 							}
 						}
 					},
-					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2567,
 						"left": 2147,
@@ -51,6 +45,7 @@
 			]
 		},
 		{
+			"name": "iPhone",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -58,10 +53,10 @@
 					"type": "none"
 				}
 			},
-			"name": "iPhone",
 			"ref": "artboard-2",
 			"children": [
 				{
+					"name": "Rectangle 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -78,7 +73,6 @@
 							}
 						}
 					},
-					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2811,
 						"left": 3972,

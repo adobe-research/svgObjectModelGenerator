@@ -1,6 +1,7 @@
 {
 	"children": [
 		{
+			"name": "Artboard 2",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -8,10 +9,10 @@
 					"type": "none"
 				}
 			},
-			"name": "Artboard 2",
 			"ref": "artboard-1",
 			"children": [
 				{
+					"name": "Rectangle 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -44,7 +45,6 @@
 							}
 						}
 					},
-					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2212,
 						"left": 4000,

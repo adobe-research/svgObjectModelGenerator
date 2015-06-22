@@ -1,14 +1,6 @@
 {
 	"children": [
 		{
-			"id": "background-1",
-			"type": "background",
-			"visible": true,
-			"style": {},
-			"children": [],
-			"title": "Background"
-		},
-		{
 			"id": "shape-1",
 			"type": "shape",
 			"visible": true,
