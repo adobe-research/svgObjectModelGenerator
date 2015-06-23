@@ -19,23 +19,24 @@
 
     var Tag = require("./svgWriterTag.js"),
         ID = require("./idGenerator.js"),
-
+        insertArrayAt = function (array, index, arrayToInsert) {
+            Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
+        },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
                 var mum = parents[parents.length - 1];
-                if (tag.name == "g" && tag.children.length < 2 &&
+                if (tag.name == "g" &&
                     !tag.isArtboard &&
                     (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
-                    tag.getAttribute("transform") == "") {
+                    tag.getAttribute("transform") == "" &&
+                    (tag.children.length < 2 || ctx.minify)) {
                     if (Object.keys(tag.attrs).length) {
                         return;
                     }
+                    mum.children.splice(num, 1);
                     if (tag.children.length) {
-                        mum.children[num] = tag.children[0];
-                    } else {
-                        mum.children.splice(num, 1);
+                        insertArrayAt(mum.children, num, tag.children);
                     }
-                    return true;
                 }
             },
             function clipRule(tag, ctx, parents) {
