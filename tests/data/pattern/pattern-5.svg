@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="485.843" height="415.88" viewBox="0 0 485.843 415.88">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #29abe2;
+      }
+
+      .cls-3 {
+        fill: url(#pattern-1);
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 1px;
+      }
+    </style>
+
+    <pattern x="-280.681" y="39.979" width="28.549" height="37.47" viewBox="-280.681 2.509 28.549 37.47" patternUnits="userSpaceOnUse" id="pattern-1">
+      <g>
+        <rect x="-280.681" y="2.509" width="28.549" height="37.47" class="cls-1"/>
+        <g>
+          <path d="M6.132-16.239a2.629,2.629,0,0,1-3.71.28,2.628,2.628,0,0,1-.285-3.706,2.638,2.638,0,0,1,3.711-.29,2.639,2.639,0,0,1,.284,3.716Z" transform="translate(-280.68 39.98)" class="cls-2"/>
+          <path d="M10.316-9.384L7.687-11.639a9.422,9.422,0,0,0,2.149-6.754,9.373,9.373,0,0,0-3.132-6.339l2.246-2.62A12.934,12.934,0,0,1,10.316-9.384h0Z" transform="translate(-280.68 39.98)" class="cls-2"/>
+          <path d="M15.431-5L12.809-7.247a16.226,16.226,0,0,0-1.708-22.601l2.246-2.62A19.683,19.683,0,0,1,15.431-5h0Z" transform="translate(-280.68 39.98)" class="cls-2"/>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <g>
+    <ellipse cx="70.018" cy="287.898" rx="69.018" ry="207.94" class="cls-3"/>
+    <polygon points="484.491 79.958 484.491 495.838 274.191 495.838 274.191 79.958 484.491 79.958" class="cls-3"/>
+  </g>
+</svg>
