@@ -725,9 +725,11 @@
             return new Tag("use", attr, ctx);
         },
         symbol: function (ctx, node) {
-            var attr = {};
+            var attr = {},
+                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
+                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
             if (node.viewBox) {
-                attr.viewBox = [node.viewBox.left, node.viewBox.top, node.viewBox.right, node.viewBox.bottom];
+                attr.viewBox = [node.viewBox.left + offsetX, node.viewBox.top + offsetY, node.viewBox.right, node.viewBox.bottom];
             }
             return new Tag("symbol", attr, ctx);
         },

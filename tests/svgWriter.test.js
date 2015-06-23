@@ -592,6 +592,10 @@ describe("svgWriter", function () {
         it("Test references with symbol", function () {
             compareResults("symbol");
         });
+
+        it("Test trimToArtBounds with symbol", function () {
+            compareResults("symbol2", "custom", { trimToArtBounds: true });
+        });
     });
 
     /**
@@ -734,8 +738,8 @@ describe("svgWriter", function () {
      * Test that attributes of referencing gradient get overridden
      **/
     describe("Test that attributes of referencing gradient get overridden", function () {
-        it("Test that gradientTransform overrides trasnform on referencing gradient", function () {
-            compareResults("pattern-gradient", "custom");
+        it("Test that gradientTransform overrides transform on referencing gradient", function () {
+            compareResults("pattern-gradient", "custom", { trimToArtBounds: true });
         });
 
         it("Test that x1-y1 overridde x1-y1 on referencing gradient", function () {
