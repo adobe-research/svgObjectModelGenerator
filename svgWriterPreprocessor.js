@@ -272,6 +272,17 @@
                 var offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
                     offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
 
+                // PS and Ai propagate all transforms to the leaves.
+                // FIXME: We probably should rather check if the transformation
+                // is a translation and propagate the translation to leaves.
+                if (omIn.transform && !matrix.createMatrix(omIn.transform).isIdentity()) {
+                    omIn.transformTX = ctx._shiftContentX;
+                    omIn.transformTY = ctx._shiftContentY;
+                    // Do not apply further translation to children.
+                    ctx._transformOnNode = true;
+                    return;
+                }
+
                 if (omIn.bounds) {
                     omIn.bounds.left += offsetX;
                     omIn.bounds.top += offsetY;

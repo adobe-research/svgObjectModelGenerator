@@ -1,0 +1,109 @@
+{
+    "children": [
+        {
+            "children": [
+                {
+                    "bounds": {
+                        "bottom": 5.88942,
+                        "left": -9.01442,
+                        "right": 9.01442,
+                        "top": -5.88942
+                    },
+                    "name": "Red rect",
+                    "ref": "Red rect",
+                    "transform": {
+                        "a": 7.64667,
+                        "b": 0,
+                        "c": 0,
+                        "d": -4.93878,
+                        "e": 83.6947,
+                        "f": 43.2788
+                    },
+                    "type": "reference",
+                    "visualBounds": {
+                        "bottom": 72.3654,
+                        "left": 14.7644,
+                        "right": 152.625,
+                        "top": 14.1923
+                    }
+                }
+            ],
+            "name": "Layer 1",
+            "type": "group"
+        }
+    ],
+    "desc": "Created by Adobe Illustrator",
+    "global": {
+        "bounds": {
+            "bottom": 200,
+            "left": 0,
+            "right": 200,
+            "top": 0
+        },
+        "symbols": {
+            "Red rect": {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "name": "<Rectangle>",
+                                "shape": {
+                                    "height": 11.7788,
+                                    "type": "rect",
+                                    "width": 18.0288,
+                                    "x": -9.01442,
+                                    "y": -5.88942
+                                },
+                                "style": {
+                                    "fill": {
+                                        "color": {
+                                            "b": 71,
+                                            "g": 63,
+                                            "r": 175
+                                        },
+                                        "type": "solid"
+                                    }
+                                },
+                                "type": "shape",
+                                "visualBounds": {
+                                    "bottom": -5.88942,
+                                    "left": -9.01442,
+                                    "right": 9.01442,
+                                    "top": 5.88942
+                                }
+                            }
+                        ],
+                        "name": "<Group>",
+                        "type": "group"
+                    }
+                ],
+                "name": "Red rect",
+                "type": "symbol",
+                "viewBox": {
+                    "bottom": 11.7788,
+                    "left": -9.01442,
+                    "right": 18.0288,
+                    "top": -5.88942
+                }
+            }
+        }
+    },
+    "meta": {
+        "AI": {
+            "host": {
+                "options": {
+                    "constrainToDocBounds": false,
+                    "idType": "regular",
+                    "isResponsive": true,
+                    "minify": false,
+                    "precision": 3,
+                    "preserveAspectRatio": "xMidYMid",
+                    "trimToArtBounds": true,
+                    "usePresentationAttribute": false
+                }
+            }
+        }
+    },
+    "name": "Untitled-1",
+    "version": "0.1.0"
+}
