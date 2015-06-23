@@ -148,14 +148,15 @@
             return self.encodedText(out);
         };
 
-        self.getTransform = function (val, tX, tY) {
+        self.getTransform = function (val, tX, tY, precision) {
             if (!val) {
                 return "";
             }
             return Matrix.writeTransform(
                 Matrix.createMatrix(val),
                 isFinite(tX) ? tX : 0,
-                isFinite(tY) ? tY : 0);
+                isFinite(tY) ? tY : 0,
+                precision);
         };
 
         self.round2 = Utils.round2;

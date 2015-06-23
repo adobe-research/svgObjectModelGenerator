@@ -13,7 +13,7 @@
     <clipPath id="clip-path-1">
       <path d="M7,31.603C7,14.916,39.82,1.241,81.483,0H93.854c41.663,1.241,74.482,14.916,74.482,31.603,0,17.504-36.116,31.693-80.668,31.693S7,49.107,7,31.603"/>
     </clipPath>
-    <radialGradient id="radial-gradient-1" cx="0" cy="0" r="1" gradientTransform="matrix(61.2855, 0, 0, -61.2855, 87.668, 31.6022)" fx="0.99" fy="0" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient-1" cx="0" cy="0" r="1" gradientTransform="matrix(61.286, 0, 0, -61.286, 87.668, 31.602)" fx="0.99" fy="0" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="blue"/>
       <stop offset="0.131" stop-color="blue"/>
       <stop offset="0.471" stop-color="#fff"/>

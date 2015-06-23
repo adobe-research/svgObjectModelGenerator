@@ -39,7 +39,7 @@
             gradientStops = {};
         },
         getLinearGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
-            var t = getTransform(gradientRef.transform, offsetX, offsetY),
+            var t = getTransform(gradientRef.transform, offsetX, offsetY, ctx.precision),
             x1 = gradientRef.x1 + (t ? 0 : offsetX),
                 x2 = gradientRef.x2 + (t ? 0 : offsetX),
                 y1 = gradientRef.y1 + (t ? 0 : offsetY),
@@ -74,7 +74,7 @@
             }
         },
         getRadialGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
-            var t = getTransform(gradientRef.transform, offsetX, offsetY),
+            var t = getTransform(gradientRef.transform, offsetX, offsetY, ctx.precision),
                 cx = gradientRef.cx + (t ? 0 : offsetX),
                 cy = gradientRef.cy + (t ? 0 : offsetY),
                 fx = gradientRef.fx ? gradientRef.fx + (t ? 0 : offsetX) : cx,

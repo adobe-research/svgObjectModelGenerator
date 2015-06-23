@@ -15,7 +15,7 @@
     </style>
   </defs>
   <g>
-    <circle cx="253.08" cy="266.08" r="197.922" class="cls-1"/>
-    <path d="M200.556,200.556L300.333,10.222V500.111" class="cls-2"/>
+    <circle cx="253.08" cy="266.08" r="197.922" transform="translate(1.994 234.455) rotate(45)" class="cls-1"/>
+    <path d="M200.556,200.556L300.333,10.222V500.111" transform="matrix(0.255, 0.352, -0.426, 0.146, 1.136, 234.455)" class="cls-2"/>
   </g>
 </svg>

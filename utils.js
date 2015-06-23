@@ -36,6 +36,9 @@
         self.roundDown = function (x) {
             return Math.round(x);
         };
+        self.roundP = function (x, precision) {
+            return +(+x).toFixed(precision);
+        };
 
         self.unionRect = function (rect1, rect2, expand) {
             if (!rect2) {
