@@ -488,6 +488,10 @@ describe("svgWriter", function () {
             compareMinifyResults("clipPath-1");
         });
 
+        it("Test minification of SVG output with clip-path", function () {
+            compareMinifyResults("group-opacity");
+        });
+
         it("Test carriage return on radial-gradient-focal", function () {
             compareCarriageResults("radial-gradient-focal");
         });

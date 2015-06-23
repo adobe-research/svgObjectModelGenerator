@@ -28,7 +28,8 @@
                 if (tag.name == "g" &&
                     !tag.isArtboard &&
                     (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
-                    tag.getAttribute("transform") == "") {
+                    tag.getAttribute("transform") == "" &&
+                    (tag.children.length < 2 || ctx.minify)) {
                     if (Object.keys(tag.attrs).length) {
                         return;
                     }
