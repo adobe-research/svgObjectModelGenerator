@@ -768,18 +768,15 @@
             };
 
             this.writeRawMatrix = function (txfm4x4, tX, tY, precision) {
-                var txfmOut = [];
                 precision = isFinite(precision) ? Math.max(2, precision) : 2;
 
-                txfmOut.push("matrix(");
-                txfmOut.push(roundP(txfm4x4[0][0], precision) + ", ");
-                txfmOut.push(roundP(txfm4x4[0][1], precision) + ", ");
-                txfmOut.push(roundP(txfm4x4[1][0], precision) + ", ");
-                txfmOut.push(roundP(txfm4x4[1][1], precision) + ", ");
-                txfmOut.push(roundP(txfm4x4[3][0] + tX, precision) + ", ");
-                txfmOut.push(roundP(txfm4x4[3][1] + tY, precision) + ")");
-
-                return txfmOut.join("");
+                return "matrix(" +
+                    roundP(txfm4x4[0][0], precision) + ", " +
+                    roundP(txfm4x4[0][1], precision) + ", " +
+                    roundP(txfm4x4[1][0], precision) + ", " +
+                    roundP(txfm4x4[1][1], precision) + ", " +
+                    roundP(txfm4x4[3][0] + tX, precision) + ", " +
+                    roundP(txfm4x4[3][1] + tY, precision) + ")";
             };
 
             this.writeDecomposedTransform = function (txfm, precision) {
