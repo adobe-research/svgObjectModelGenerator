@@ -23,7 +23,7 @@
       }
     </style>
 
-    <radialGradient id="radial-gradient-1" cx="39.515" cy="-16899.8" r="40.363" gradientTransform="matrix(1, 0, 0, -1, -69.2273, -16987.7121)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient-1" cx="39.515" cy="-16899.8" r="40.363" gradientTransform="matrix(1, 0, 0, -1, -69.227, -16987.712)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="0.085" stop-color="#ffedd8"/>
       <stop offset="0.208" stop-color="#ffd5a7"/>
