@@ -33,7 +33,6 @@
                 patternID = ctx.ID.getUnique("pattern", ctx.currentOMNode.name);
                 patternTag = Tag.make(ctx);
                 fingerprint = patternTag.toString();
-                delete ctx.currentOMNode.transform;
                 ctx.currentOMNode = omIn;
                 patternTag.setAttribute("id", patternID);
                 ctx.omStylesheet.define("pattern-" + flavor, omIn.id, patternID, patternTag, fingerprint);
