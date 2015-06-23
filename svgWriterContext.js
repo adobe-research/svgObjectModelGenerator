@@ -28,7 +28,12 @@
         this.currentOMNode = svgOM;
         if (this.config) {
             this.minify = !!this.config.minify;
-            this.usePresentationAttribute = !!config.usePresentationAttribute;
+            var stylingMap = {
+                "class": 0,
+                "style": 1,
+                "attribute": 2
+            };
+            this.styling = stylingMap[config.styling];
             this.precision = Math.round(this.config.precision);
         }
         if (!isFinite(this.precision)) {

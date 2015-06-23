@@ -327,13 +327,28 @@
         if (!omStyleBlock || !omStyleBlock.hasRules()) {
             return;
         }
-        if (!ctx.usePresentationAttribute) {
+        // Use class attribute
+        if (!ctx.styling) {
             this.setAttribute("class", svgWriterUtils.encodedText(omStyleBlock.class + ""));
             return;
         }
-        for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
-            var rule = omStyleBlock.rules[i];
-            this.setAttribute(rule.propertyName, rule.value);
+        // Use style attribute
+        if (ctx.styling == 1) {
+            var style = "";
+            for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
+                var rule = omStyleBlock.rules[i];
+                style += rule.propertyName + ":" + ctx.space + rule.value + ";";
+            }
+            this.setAttribute("style", style);
+            return;
+        }
+        // Use presentation attributes
+        if (ctx.styling == 2) {
+            for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
+                var rule = omStyleBlock.rules[i];
+                this.setAttribute(rule.propertyName, rule.value);
+            }
+            return;
         }
     };
     Tag.prototype.useTrick = function (ctx) {
@@ -350,7 +365,7 @@
         this.setAttribute("id", id);
         list.appendChild(g, use);
         g.appendChild(this);
-        if (ctx.usePresentationAttribute) {
+        if (ctx.styling) {
             g.setAttributes({
                 fill: fill,
                 filter: filter
