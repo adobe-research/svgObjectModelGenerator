@@ -1,0 +1,160 @@
+{
+	"children": [
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "gradient",
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 300,
+						"y1": 300,
+						"x2": 300,
+						"y2": 500,
+						"ref": "linear-gradient-1"
+					}
+				}
+			},
+			"name": "Rectangle 1",
+			"visualBounds": {
+				"top": 150,
+				"left": 200,
+				"bottom": 650,
+				"right": 400
+			},
+			"shape": {
+				"type": "rect",
+				"x": 200,
+				"y": 150,
+				"width": 200,
+				"height": 500
+			}
+		},
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "gradient",
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 557.5525183790396,
+						"y1": 300,
+						"x2": 642.4474816209604,
+						"y2": 500,
+						"ref": "linear-gradient-2"
+					}
+				}
+			},
+			"name": "Rectangle 2",
+			"visualBounds": {
+				"top": 150,
+				"left": 500,
+				"bottom": 650,
+				"right": 700
+			},
+			"shape": {
+				"type": "rect",
+				"x": 500,
+				"y": 150,
+				"width": 200,
+				"height": 500
+			}
+		}
+	],
+	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"linear-gradient-1": {
+				"stops": [
+					{
+						"offset": 0,
+						"color": {
+							"r": 9.57588,
+							"g": 0.00389105,
+							"b": 178,
+							"a": 1
+						}
+					},
+					{
+						"offset": 0.5,
+						"color": {
+							"r": 255,
+							"g": 0.00389105,
+							"b": 0.0272374
+						}
+					},
+					{
+						"offset": 1,
+						"color": {
+							"r": 255,
+							"g": 251.996,
+							"b": 0.00389105,
+							"a": 1
+						}
+					}
+				],
+				"type": "linear"
+			},
+			"linear-gradient-2": {
+				"stops": [
+					{
+						"offset": 0,
+						"color": {
+							"r": 9.57588,
+							"g": 0.00389105,
+							"b": 178,
+							"a": 1
+						}
+					},
+					{
+						"offset": 0.5,
+						"color": {
+							"r": 255,
+							"g": 0.00389105,
+							"b": 0.0272374
+						}
+					},
+					{
+						"offset": 1,
+						"color": {
+							"r": 255,
+							"g": 251.996,
+							"b": 0.00389105,
+							"a": 1
+						}
+					}
+				],
+				"type": "linear"
+			}
+		},
+		"masks": {},
+		"patterns": {},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 768,
+			"right": 1024
+		},
+		"pxToInchRatio": 72
+	},
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "0.1.0",
+	"name": "linear-gradient-angle-layer-3.psd"
+}

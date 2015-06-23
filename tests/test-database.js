@@ -146,6 +146,10 @@
             desc: "should support different radii for linear gradients in layer space part 2"
         },
         {
+            test: "linear-gradient-angle-layer-3",
+            desc: "should support different radii for linear gradients in layer space part 3"
+        },
+        {
             test: "linear-gradient-angle-global",
             desc: "should support different radii for linear gradients in global space"
         },
