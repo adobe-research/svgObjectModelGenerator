@@ -336,9 +336,9 @@
         if (ctx.styling == 1) {
             var style = "";
             for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
-                var rule = omStyleBlock.rules[i];
-                style += rule.propertyName + ":" + ctx.space + rule.value + ";";
+                style += omStyleBlock.rules[i].toString(ctx);
             }
+            style = style.substring(0, style.length - 1);
             this.setAttribute("style", style);
             return;
         }
