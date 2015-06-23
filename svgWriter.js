@@ -34,7 +34,7 @@
             Tag.resetRoot(svgOM);
             svgWriterPreprocessor.processSVGOM(ctx);
             var svg = Tag.make(ctx, svgOM),
-                hasRules = !ctx.usePresentationAttribute && ctx.omStylesheet.hasRules(),
+                hasRules = !ctx.styling && ctx.omStylesheet.hasRules(),
                 hasDefines = ctx.omStylesheet.hasDefines();
             if (hasRules || hasDefines) {
                 svg.children.unshift(ctx.omStylesheet.getDefsTag());

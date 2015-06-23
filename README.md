@@ -114,7 +114,10 @@ The configuration object has the following arguments:
 * **trimToArtBounds** *boolean* The SVG will cover the art bounds independent of the dimension of the OMG document.
 * **constrainToDocBounds** *boolean* Clip the visible content to the document bounds.
 * **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute). Setting *preserveAspectRatio* overrides the computed value of svgWriter. Therefore, it is recommended to not set this value.
-* **usePresentationAttribute** *boolean* Use presentation attributes instead of CSS styling.
+* **styling** *enumeration* This property is optional and defaults to `class`.
+    * *class* Use the global `<style>` element and reference the style block with the `class` attribute.
+    * *style* Use the `style` attribute to apply styling properties to elements.
+    * *attribute* Use presentation attributes to apply styling properties to elements.
 * **cropRect** *object* A rectangle with the properties `x`, `y`, `width` and `height`. `x` and `y` are optional. Defines a rectangle the SVG document gets cropped to. It may create a padding if the dimension is smaller than the crop rectangle.
 * **minify** Avoids indentations, newlines and whitespaces in the SVG output. Uses minimal IDs.
 * **idType** *string*

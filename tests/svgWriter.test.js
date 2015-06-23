@@ -400,7 +400,18 @@ describe("svgWriter", function () {
         it("should export without style blocks", function () {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/stroke-fx-2-om.json"));
 
-            compareResultsWidthOM(svgOM, "stroke-fx-pres-attr", "", { usePresentationAttribute: true });
+            compareResultsWidthOM(svgOM, "stroke-fx-pres-attr", "", { styling: "attribute" });
+        });
+    });
+
+    /**
+     * Test style attribute export.
+     **/
+    describe("Test export to style attribute", function () {
+        it("should export without style blocks", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/stroke-fx-2-om.json"));
+
+            compareResultsWidthOM(svgOM, "stroke-fx-2-style", "", { styling: "style" });
         });
     });
 

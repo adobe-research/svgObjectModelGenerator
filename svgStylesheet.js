@@ -251,7 +251,7 @@
             }
             var write = defs.write;
             defs.write = defs.toString = function (ctx) {
-                var hasRules = !ctx.usePresentationAttribute && sheet.hasRules(),
+                var hasRules = !ctx.styling && sheet.hasRules(),
                     hasDefines = sheet.hasDefines();
                 if (hasRules || hasDefines) {
                     return write.call(this, ctx);
@@ -435,7 +435,7 @@
         };
 
         proto.writeSheet = function (ctx) {
-            if (ctx.usePresentationAttribute) {
+            if (ctx.styling) {
                 return "";
             }
             var blockClass,
