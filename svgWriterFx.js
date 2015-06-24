@@ -23,26 +23,19 @@
 
         var writeFilter = function (ctx, ele, previousEffect) {
             var attr = {},
-                // kind = ele.kind,
                 input = ele.input || [],
                 children = ele.children || [],
                 cur,
                 i,
                 ii;
-            // delete ele.kind;
-            // delete ele.input;
-            // delete ele.children;
 
             attr.result = ele.id;
             if (ele.kind == "filter") {
                 attr.id = ele.id;
             }
             for(var prop in ele) {
-                if (prop == 'input' ||
-                    prop == 'children' ||
-                    prop == 'kind' ||
-                    prop == 'input' ||
-                    prop == 'id') {
+                if (prop == 'input' || prop == 'children' ||
+                    prop == 'kind' || prop == 'input' || prop == 'id') {
                     continue;
                 }
                 attr[prop] = ele[prop];
