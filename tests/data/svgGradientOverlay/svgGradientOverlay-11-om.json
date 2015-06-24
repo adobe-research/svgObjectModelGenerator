@@ -124,8 +124,8 @@
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
-						"name": "feImage",
-						"result": "image-1",
+						"kind": "feImage",
+						"id": "image-1",
 						"input": [],
 						"x": 50,
 						"y": 500,
@@ -135,8 +135,8 @@
 						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgfQogICAgPC9zdHlsZT4KCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0xIiB4MT0iMTAwIiB5MT0iMTAwIiB4Mj0iMTAwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI5MGE1OSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjdjMDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-1",
+						"kind": "feComposite",
+						"id": "composite-1",
 						"input": [
 							"image-1",
 							"SourceGraphic"
@@ -144,8 +144,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-1",
+						"kind": "feBlend",
+						"id": "blend-1",
 						"input": [
 							"composite-1",
 							"SourceGraphic"

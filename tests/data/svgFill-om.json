@@ -152,8 +152,8 @@
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
-						"name": "feImage",
-						"result": "image-1",
+						"kind": "feImage",
+						"id": "image-1",
 						"input": [],
 						"x": 49,
 						"y": 62,
@@ -163,8 +163,8 @@
 						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIHZpZXdCb3g9IjAgMCAxNjUgMTY1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAwLjczOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmFkaWFsLWdyYWRpZW50LTEiIGN4PSI4Mi41IiBjeT0iODIuNSIgcj0iODIuNSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxNjUiIGhlaWdodD0iMTY1IiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-1",
+						"kind": "feComposite",
+						"id": "composite-1",
 						"input": [
 							"image-1",
 							"SourceGraphic"
@@ -172,8 +172,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-1",
+						"kind": "feBlend",
+						"id": "blend-1",
 						"input": [
 							"composite-1",
 							"SourceGraphic"
@@ -181,8 +181,8 @@
 						"mode": "normal"
 					},
 					{
-						"name": "feFlood",
-						"result": "flood-1",
+						"kind": "feFlood",
+						"id": "flood-1",
 						"input": [],
 						"flood-color": {
 							"r": 255,
@@ -193,8 +193,8 @@
 						"flood-opacity": 0.5
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-2",
+						"kind": "feComposite",
+						"id": "composite-2",
 						"input": [
 							"flood-1",
 							"SourceGraphic"
@@ -202,8 +202,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-2",
+						"kind": "feBlend",
+						"id": "blend-2",
 						"input": [
 							"composite-2",
 							"blend-1"

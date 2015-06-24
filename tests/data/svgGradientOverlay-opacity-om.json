@@ -183,16 +183,16 @@
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
-						"name": "feGaussianBlur",
-						"result": "blur-1",
+						"kind": "feGaussianBlur",
+						"id": "blur-1",
 						"input": [
 							"SourceAlpha"
 						],
 						"stdDeviation": 1.414
 					},
 					{
-						"name": "feFlood",
-						"result": "flood-1",
+						"kind": "feFlood",
+						"id": "flood-1",
 						"input": [],
 						"flood-color": {
 							"r": 0,
@@ -203,8 +203,8 @@
 						"flood-opacity": 0.5
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-1",
+						"kind": "feComposite",
+						"id": "composite-1",
 						"input": [
 							"flood-1",
 							"blur-1"
@@ -212,8 +212,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feOffset",
-						"result": "offset-1",
+						"kind": "feOffset",
+						"id": "offset-1",
 						"input": [
 							"composite-1"
 						],
@@ -221,16 +221,16 @@
 						"dy": 2
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-1",
+						"kind": "feBlend",
+						"id": "blend-1",
 						"input": [
 							"SourceGraphic",
 							"offset-1"
 						]
 					},
 					{
-						"name": "feImage",
-						"result": "image-1",
+						"kind": "feImage",
+						"id": "image-1",
 						"input": [],
 						"x": 263,
 						"y": 185,
@@ -240,8 +240,8 @@
 						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE5MyIgaGVpZ2h0PSI2MSIgdmlld0JveD0iMCAwIDE5MyA2MSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtMSk7CiAgICAgICAgb3BhY2l0eTogMC4xOTsKICAgICAgfQogICAgPC9zdHlsZT4KCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0xIiB4MT0iOTYuNSIgeTE9IjYxIiB4Mj0iOTYuNSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDAzMDAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTkzIiBoZWlnaHQ9IjYxIiBjbGFzcz0iY2xzLTEiLz4KPC9zdmc+Cg=="
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-2",
+						"kind": "feComposite",
+						"id": "composite-2",
 						"input": [
 							"image-1",
 							"SourceGraphic"
@@ -249,8 +249,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-2",
+						"kind": "feBlend",
+						"id": "blend-2",
 						"input": [
 							"composite-2",
 							"blend-1"
@@ -258,16 +258,16 @@
 						"mode": "normal"
 					},
 					{
-						"name": "feGaussianBlur",
-						"result": "blur-2",
+						"kind": "feGaussianBlur",
+						"id": "blur-2",
 						"input": [
 							"SourceAlpha"
 						],
 						"stdDeviation": 0
 					},
 					{
-						"name": "feFlood",
-						"result": "flood-2",
+						"kind": "feFlood",
+						"id": "flood-2",
 						"input": [],
 						"flood-color": {
 							"r": 0,
@@ -278,8 +278,8 @@
 						"flood-opacity": 0.75
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-3",
+						"kind": "feComposite",
+						"id": "composite-3",
 						"input": [
 							"flood-2",
 							"blur-2"
@@ -287,8 +287,8 @@
 						"operator": "out"
 					},
 					{
-						"name": "feOffset",
-						"result": "offset-2",
+						"kind": "feOffset",
+						"id": "offset-2",
 						"input": [
 							"composite-3"
 						],
@@ -296,8 +296,8 @@
 						"dy": 1
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-4",
+						"kind": "feComposite",
+						"id": "composite-4",
 						"input": [
 							"offset-2",
 							"SourceAlpha"
@@ -305,8 +305,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-3",
+						"kind": "feBlend",
+						"id": "blend-3",
 						"input": [
 							"composite-4",
 							"blend-2"

@@ -22,32 +22,48 @@
     function SVGWriterFx() {
 
         var writeFilter = function (ctx, ele, previousEffect) {
-            var name = ele.name,
+            var attr = {},
+                // kind = ele.kind,
                 input = ele.input || [],
                 children = ele.children || [],
                 cur,
                 i,
                 ii;
-            delete ele.name;
-            delete ele.input;
-            delete ele.children;
+            // delete ele.kind;
+            // delete ele.input;
+            // delete ele.children;
 
-            if (typeof ele.x === "number") {
-                ele.x += ctx._shiftContentX || 0;
+            attr.result = ele.id;
+            if (ele.kind == "filter") {
+                attr.id = ele.id;
             }
-            if (typeof ele.y === "number") {
-                ele.y += ctx._shiftContentY || 0;
+            for(var prop in ele) {
+                if (prop == 'input' ||
+                    prop == 'children' ||
+                    prop == 'kind' ||
+                    prop == 'input' ||
+                    prop == 'id') {
+                    continue;
+                }
+                attr[prop] = ele[prop];
+            }
+
+            if (typeof attr.x === "number") {
+                attr.x += ctx._shiftContentX || 0;
+            }
+            if (typeof attr.y === "number") {
+                attr.y += ctx._shiftContentY || 0;
             }
 
             for (i = 0, ii = input.length; i < ii; ++i) {
                 if (input[i] != previousEffect) {
-                    ele["in" + (i ? "2" : "")] = input[i];
+                    attr["in" + (i ? "2" : "")] = input[i];
                 }
             }
-            cur = new Tag(name, ele);
+            cur = new Tag(ele.kind, attr);
 
             for (i = 0, ii = children.length; i < ii; ++i) {
-                cur.appendChild(writeFilter(ctx, children[i], i ? children[i - 1].result : ""));
+                cur.appendChild(writeFilter(ctx, children[i], i ? children[i - 1].id : ""));
             }
             return cur;
         };
@@ -68,7 +84,7 @@
                 ctx.currentOMNode = ctx.svgOM.global.filters[filter];
                 filterID = ctx.ID.getUnique("filter", ctx.currentOMNode.name);
                 fingerprint = JSON.stringify(ctx.currentOMNode.children);
-                ctx.currentOMNode.name = "filter";
+                ctx.currentOMNode.kind = "filter";
                 filterTag = writeFilter(ctx, ctx.currentOMNode);
                 ctx.currentOMNode = omIn;
                 filterTag.setAttribute("id", filterID);
