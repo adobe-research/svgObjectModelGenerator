@@ -11,10 +11,10 @@
 					"type": "gradient",
 					"gradient": {
 						"gradientSpace": "userSpaceOnUse",
-						"x1": 300,
-						"y1": 300,
-						"x2": 300,
-						"y2": 500,
+						"x1": 400,
+						"y1": 400,
+						"x2": 200,
+						"y2": 400,
 						"ref": "linear-gradient-1"
 					}
 				}
@@ -45,10 +45,10 @@
 					"type": "gradient",
 					"gradient": {
 						"gradientSpace": "userSpaceOnUse",
-						"x1": 557.5525183790396,
-						"y1": 300,
-						"x2": 642.4474816209604,
-						"y2": 500,
+						"x1": 700,
+						"y1": 442.44748162096045,
+						"x2": 500,
+						"y2": 357.55251837903955,
 						"ref": "linear-gradient-2"
 					}
 				}

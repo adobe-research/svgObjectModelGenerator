@@ -111,13 +111,8 @@
                 cy = bounds.top + h2;
 
             if (Math.abs(w2 / Math.cos(rad) * Math.sin(rad)) < h2) {
-                if (h2 > w2) {
-                    xa = w2 / Math.cos(rad) * Math.sin(rad);
-                    ya = w2;
-                } else {
-                    xa = w2;
-                    ya = w2 / Math.cos(rad) * Math.sin(rad);
-                }
+                xa = w2;
+                ya = w2 / Math.cos(rad) * Math.sin(rad);
             } else {
                 xa = h2 / Math.sin(rad) * Math.cos(rad);
                 ya = h2;
@@ -130,6 +125,7 @@
             } else {
                 xa = -xa;
             }
+
 
             // FIXME: We should be able to optimize the cases of angle mod 90 to use %
             // and possibly switch to objectBoundingBox.
