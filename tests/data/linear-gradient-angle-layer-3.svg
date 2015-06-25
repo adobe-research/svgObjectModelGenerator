@@ -10,12 +10,12 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="300" y1="300" x2="300" y2="500" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient-1" x1="400" y1="400" x2="200" y2="400" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="557.553" x2="642.447" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-2" x1="700" y1="442.447" x2="500" y2="357.553" xlink:href="#linear-gradient-1"/>
   </defs>
   <rect x="200" y="150" width="200" height="500" class="cls-1"/>
   <rect x="500" y="150" width="200" height="500" class="cls-2"/>
