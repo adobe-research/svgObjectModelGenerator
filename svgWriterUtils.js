@@ -123,6 +123,7 @@
         };
         self.escapeCSS = function (className) {
             className += "";
+            className = className.replace(/\s+/g, "-");
             var len = className.length,
                 i = 0,
                 isDash = className.charAt() == "-",
@@ -135,11 +136,7 @@
                     out += "\\" + code.toString(16) + " ";
                 } else {
                     if (code > 127 || char == "-" || char == "_" || isNum || /[a-z]/i.test(char)) {
-                        if (char == " ") {
-                            out += "-";
-                        } else {
-                            out += char;
-                        }
+                        out += char;
                     } else {
                         out += "\\" + char;
                     }

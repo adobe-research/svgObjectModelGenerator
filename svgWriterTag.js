@@ -269,8 +269,19 @@
                 ind = "";
             }
             write(ctx, ind + "<" + tag.name);
+            if ("id" in tag.attrs) {
+                tag.writeAttribute(ctx, "id");
+            }
+            if ("class" in tag.attrs) {
+                tag.writeAttribute(ctx, "class");
+            }
             for (var name in tag.attrs) {
-                tag.writeAttribute(ctx, name);
+                if (name != "class" && name != "id" && name != "style") {
+                    tag.writeAttribute(ctx, name);
+                }
+            }
+            if ("style" in tag.attrs) {
+                tag.writeAttribute(ctx, "style");
             }
             if (noctx) {
                 var omStyleBlock = tag.styleBlock;
@@ -329,7 +340,10 @@
         }
         // Use class attribute
         if (!ctx.styling) {
-            this.setAttribute("class", svgWriterUtils.encodedText(omStyleBlock.class + ""));
+            var style = omStyleBlock.class.map(function (el) {
+                return el.replace(/\s+/g, "-");
+            }).join(" ");
+            this.setAttribute("class", svgWriterUtils.encodedText(style));
             return;
         }
         // Use style attribute
@@ -344,7 +358,7 @@
         }
         // Use presentation attributes
         if (ctx.styling == 2) {
-            for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
+            for (i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
                 var rule = omStyleBlock.rules[i];
                 this.setAttribute(rule.propertyName, rule.value);
             }
