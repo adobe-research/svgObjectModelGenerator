@@ -341,7 +341,7 @@
         // Use class attribute
         if (!ctx.styling) {
             var style = omStyleBlock.class.map(function (el) {
-                return el.replace(/ /g, "-");
+                return el.replace(/\s/g, "-");
             }).join(" ");
             this.setAttribute("class", svgWriterUtils.encodedText(style));
             return;

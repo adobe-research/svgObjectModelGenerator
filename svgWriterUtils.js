@@ -135,7 +135,7 @@
                     out += "\\" + code.toString(16) + " ";
                 } else {
                     if (code > 127 || char == "-" || char == "_" || isNum || /[a-z]/i.test(char)) {
-                        if (char == " ") {
+                        if (/\s/.test(char)) {
                             out += "-";
                         } else {
                             out += char;
