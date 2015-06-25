@@ -62,8 +62,8 @@
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
-						"name": "feFlood",
-						"result": "flood-1",
+						"kind": "feFlood",
+						"id": "flood-1",
 						"input": [],
 						"flood-color": {
 							"r": 255,
@@ -74,8 +74,8 @@
 						"flood-opacity": 1
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-1",
+						"kind": "feComposite",
+						"id": "composite-1",
 						"input": [
 							"flood-1",
 							"SourceGraphic"
@@ -83,8 +83,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-1",
+						"kind": "feBlend",
+						"id": "blend-1",
 						"input": [
 							"composite-1",
 							"SourceGraphic"

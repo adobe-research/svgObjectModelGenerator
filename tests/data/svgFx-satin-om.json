@@ -71,8 +71,8 @@
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
-						"name": "feFlood",
-						"result": "flood-1",
+						"kind": "feFlood",
+						"id": "flood-1",
 						"input": [],
 						"flood-color": {
 							"r": 212.000003,
@@ -82,8 +82,8 @@
 						}
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-1",
+						"kind": "feComposite",
+						"id": "composite-1",
 						"input": [
 							"flood-1",
 							"SourceAlpha"
@@ -91,8 +91,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feOffset",
-						"result": "offset-1",
+						"kind": "feOffset",
+						"id": "offset-1",
 						"input": [
 							"composite-1"
 						],
@@ -100,8 +100,8 @@
 						"dy": 24.453
 					},
 					{
-						"name": "feOffset",
-						"result": "offset-2",
+						"kind": "feOffset",
+						"id": "offset-2",
 						"input": [
 							"composite-1"
 						],
@@ -109,8 +109,8 @@
 						"dy": -24.453
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-2",
+						"kind": "feComposite",
+						"id": "composite-2",
 						"input": [
 							"offset-1",
 							"offset-2"
@@ -118,8 +118,8 @@
 						"operator": "xor"
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-3",
+						"kind": "feComposite",
+						"id": "composite-3",
 						"input": [
 							"composite-2",
 							"SourceAlpha"
@@ -127,30 +127,30 @@
 						"operator": "in"
 					},
 					{
-						"name": "feGaussianBlur",
-						"result": "blur-1",
+						"kind": "feGaussianBlur",
+						"id": "blur-1",
 						"input": [
 							"composite-3"
 						],
 						"stdDeviation": 3.162
 					},
 					{
-						"name": "feComponentTransfer",
-						"result": "comp-1",
+						"kind": "feComponentTransfer",
+						"id": "comp-1",
 						"input": [
 							"blur-1"
 						],
 						"children": [
 							{
-								"name": "feFuncA",
+								"kind": "feFuncA",
 								"type": "linear",
 								"slope": 0.7
 							}
 						]
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-4",
+						"kind": "feComposite",
+						"id": "composite-4",
 						"input": [
 							"comp-1",
 							"SourceAlpha"
@@ -158,8 +158,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-1",
+						"kind": "feBlend",
+						"id": "blend-1",
 						"input": [
 							"composite-4",
 							"SourceGraphic"

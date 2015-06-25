@@ -89,8 +89,8 @@
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
-						"name": "feFlood",
-						"result": "flood-1",
+						"kind": "feFlood",
+						"id": "flood-1",
 						"input": [],
 						"flood-color": {
 							"r": 97.178987,
@@ -101,8 +101,8 @@
 						"flood-opacity": 0.75
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-1",
+						"kind": "feComposite",
+						"id": "composite-1",
 						"input": [
 							"flood-1",
 							"SourceGraphic"
@@ -110,8 +110,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-1",
+						"kind": "feBlend",
+						"id": "blend-1",
 						"input": [
 							"composite-1",
 							"SourceGraphic"
@@ -119,8 +119,8 @@
 						"mode": "multiply"
 					},
 					{
-						"name": "feFlood",
-						"result": "flood-2",
+						"kind": "feFlood",
+						"id": "flood-2",
 						"input": [],
 						"flood-color": {
 							"r": 213.000003,
@@ -131,8 +131,8 @@
 						"flood-opacity": 1
 					},
 					{
-						"name": "feComposite",
-						"result": "composite-2",
+						"kind": "feComposite",
+						"id": "composite-2",
 						"input": [
 							"flood-2",
 							"SourceGraphic"
@@ -140,8 +140,8 @@
 						"operator": "in"
 					},
 					{
-						"name": "feBlend",
-						"result": "blend-2",
+						"kind": "feBlend",
+						"id": "blend-2",
 						"input": [
 							"composite-2",
 							"blend-1"

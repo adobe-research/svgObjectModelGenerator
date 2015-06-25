@@ -123,25 +123,25 @@
 
             effects.push(
                 {
-                    name: "feComponentTransfer",
-                    result: getId("comp"),
-                    input: [effects[effects.length - 1].result],
+                    kind: "feComponentTransfer",
+                    id: getId("comp"),
+                    input: [effects[effects.length - 1].id],
                     "color-interpolation-filters": "sRGB",
                     children: [
                         {
-                            name: "feFuncR",
+                            kind: "feFuncR",
                             input: [],
                             type: "table",
                             tableValues: redTableValues.trim()
                         },
                         {
-                            name: "feFuncG",
+                            kind: "feFuncG",
                             input: [],
                             type: "table",
                             tableValues: greenTableValues.trim()
                         },
                         {
-                            name: "feFuncB",
+                            kind: "feFuncB",
                             input: [],
                             type: "table",
                             tableValues: blueTableValues.trim()
