@@ -78,6 +78,15 @@
                         tag.children = [g];
                     }
                 }
+            },
+            function removeUselessTSpans(tag, ctx, parents) {
+                if (tag.name == "tspan") {
+                    console.log(Object.keys(tag.attrs));
+                }
+                if (tag.name == "tspan" && !Object.keys(tag.attrs).length) {
+                    var mum = parents[parents.length - 1];
+                    mum.dissolveChild(tag);
+                }
             }
         ];
 

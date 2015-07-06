@@ -488,6 +488,20 @@
                     this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
                 }, this);
             }
+            if (omIn.paragraphs) {
+                omIn.paragraphs.forEach(function (paragraph, ind) {
+                    ctx.currentOMNode = paragraph;
+                    this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
+                    if (paragraph.lines) {
+                        paragraph.lines.forEach(function (line, ind) {
+                            line.forEach(function (glyphrun, ind) {
+                                ctx.currentOMNode = glyphrun;
+                                this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
+                            }, this);
+                        }, this);
+                    }
+                }, this);
+            }
             if (state != ctx._transformOnNode) {
                 ctx._transformOnNode = false;
             }

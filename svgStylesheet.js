@@ -357,6 +357,7 @@
             this.blocks[omNode.className] = omNode.styleBlock;
             // We create an styleBlock for each element initially.
             // Store the element for later reference.
+            omNode.id = omNode.id || getUnique();
             omNode.styleBlock.element = omNode.id;
 
             return omNode.styleBlock;

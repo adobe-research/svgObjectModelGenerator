@@ -127,6 +127,14 @@
             }
         }
     };
+    Tag.prototype.dissolveChild = function (child) {
+        for (var i = 0, ii = this.children.length; i < ii; i++) {
+            if (this.children[i] == child) {
+                Array.prototype.splice.apply(this.children, [i, 1].concat(child.children));
+                return;
+            }
+        }
+    };
     function parseNumber(value, isAttr, precision) {
         precision = util.precision(precision);
         function round(x) {
@@ -664,6 +672,42 @@
             return tag.useTrick(ctx);
         },
         text: function (ctx, node) {
+            if (node.kind == "positioned") {
+                var x = node["text-frame"].x,
+                    tag = new Tag("text", {
+                    x: node["text-frame"].x,
+                    y: node["text-frame"].y,
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
+                }, ctx);
+                var paralen = node.paragraphs && node.paragraphs.length;
+                for (var i = 0; i < paralen; i++) {
+                    var para = node.paragraphs[i],
+                        p = new Tag("tspan", {}, ctx, para);
+                    tag.appendChild(p);
+                    for (var j = 0; j < para.lines.length; j++) {
+                        var lineNode = para.lines[j],
+                            line = new Tag("tspan", {
+                                x: j ? x : "",
+                                dy: j ? "1.2em" : 0
+                            }, ctx, lineNode);
+                        p.appendChild(line);
+                        var lineslen = lineNode.length;
+                        for (var k = 0; k < lineslen; k++) {
+                            var glyph = lineNode[k],
+                                glyphText = node["raw-text"].substring(glyph.from, glyph.to),
+                                glyphRun = new Tag("tspan", {
+                                    x: glyph.x,
+                                    y: glyph.y,
+                                }, ctx, glyph);
+                            glyphRun.appendChild(new Tag("#text", glyphText));
+                            line.appendChild(glyphRun);
+                        }
+                    }
+                }
+            }
+            return tag.useTrick(ctx);
+        },
+        textOld: function (ctx, node) {
             var tag = new Tag("text", {
                 x: node.position.x + (node.position.unitX || ""),
                 y: node.position.y + (node.position.unitY || ""),
