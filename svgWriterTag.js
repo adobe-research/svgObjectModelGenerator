@@ -127,7 +127,7 @@
             }
         }
     };
-    Tag.prototype.dissolveChild = function (child) {
+    Tag.prototype.collapseChild = function (child) {
         for (var i = 0, ii = this.children.length; i < ii; i++) {
             if (this.children[i] == child) {
                 Array.prototype.splice.apply(this.children, [i, 1].concat(child.children));
@@ -679,20 +679,14 @@
                     y: node["text-frame"].y,
                     transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                 }, ctx);
-                var paralen = node.paragraphs && node.paragraphs.length;
-                for (var i = 0; i < paralen; i++) {
+                var paraLen = node.paragraphs && node.paragraphs.length;
+                for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);
                     tag.appendChild(p);
                     for (var j = 0; j < para.lines.length; j++) {
-                        var lineNode = para.lines[j],
-                            line = new Tag("tspan", {
-                                x: j ? x : "",
-                                dy: j ? "1.2em" : 0
-                            }, ctx, lineNode);
-                        p.appendChild(line);
-                        var lineslen = lineNode.length;
-                        for (var k = 0; k < lineslen; k++) {
+                        var lineNode = para.lines[j];
+                        for (var k = 0; k < lineNode.length; k++) {
                             var glyph = lineNode[k],
                                 glyphText = node["raw-text"].substring(glyph.from, glyph.to),
                                 glyphRun = new Tag("tspan", {
@@ -700,7 +694,7 @@
                                     y: glyph.y,
                                 }, ctx, glyph);
                             glyphRun.appendChild(new Tag("#text", glyphText));
-                            line.appendChild(glyphRun);
+                            p.appendChild(glyphRun);
                         }
                     }
                 }

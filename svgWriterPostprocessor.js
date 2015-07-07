@@ -80,13 +80,15 @@
                 }
             },
             function removeUselessTSpans(tag, ctx, parents) {
-                if (tag.name == "tspan") {
-                    console.log(Object.keys(tag.attrs));
+                if (tag.name != "tspan") {
+                    return;
                 }
-                if (tag.name == "tspan" && !Object.keys(tag.attrs).length) {
-                    var mum = parents[parents.length - 1];
-                    mum.dissolveChild(tag);
+                for (var key in tag.attrs) {
+                    if (tag.writeAttribute(key)) {
+                        return;
+                    }
                 }
+                parents[parents.length - 1].collapseChild(tag);
             }
         ];
 

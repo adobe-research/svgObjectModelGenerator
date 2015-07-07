@@ -489,14 +489,14 @@
                 }, this);
             }
             if (omIn.paragraphs) {
-                omIn.paragraphs.forEach(function (paragraph, ind) {
+                omIn.paragraphs.forEach(function (paragraph, pind) {
                     ctx.currentOMNode = paragraph;
-                    this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
+                    this.processSVGNode(ctx, true, pind);
                     if (paragraph.lines) {
-                        paragraph.lines.forEach(function (line, ind) {
-                            line.forEach(function (glyphrun, ind) {
+                        paragraph.lines.forEach(function (line) {
+                            line.forEach(function (glyphrun, lind) {
                                 ctx.currentOMNode = glyphrun;
-                                this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
+                                this.processSVGNode(ctx, true, lind);
                             }, this);
                         }, this);
                     }
