@@ -19,7 +19,7 @@
 
     var ID = require("./idGenerator.js");
 
-    function SVGWriterContext(svgOM, config, errors) {
+    function SVGWriterContext(svgOM, stream, config, errors) {
         this.minify = false;
 
         // FIXME: In the future, determine that svgOM is a root element.
@@ -66,6 +66,8 @@
         this.out = [];
         this.sOut = "";
         this.contentBounds = {};
+
+        this.stream = stream;
 
         // Document sizing parameters.
         this._x = 0;

@@ -24,12 +24,27 @@
         SVGWriterContext = require("./svgWriterContext.js"),
         toString = svgWriterUtils.toString;
 
-    function getFormatContext(svgOM, cfg, errors) {
-        return new SVGWriterContext(svgOM, cfg, errors);
+    function getFormatContext(svgOM, stream, cfg, errors) {
+        return new SVGWriterContext(svgOM, stream, cfg, errors);
     }
 
     function print(svgOM, opt, errors) {
-        var ctx = getFormatContext(svgOM, opt || {}, errors);
+        function Writable () {
+            this.buffer = "";
+
+            this.write = function (chunk) {
+                this.buffer += chunk;
+            };
+        }
+
+        var writer = new Writable();
+        stream(svgOM, writer, opt, errors);
+
+        return writer.buffer;
+    }
+
+    function stream(svgOM, stream, opt, errors) {
+        var ctx = getFormatContext(svgOM, stream, opt || {}, errors);
         try {
             Tag.resetRoot(svgOM);
             svgWriterPreprocessor.processSVGOM(ctx);
@@ -49,4 +64,5 @@
     }
 
     module.exports.printSVG = print;
+    module.exports.streamSVG = stream;
 }());
