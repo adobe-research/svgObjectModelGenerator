@@ -219,20 +219,13 @@
         function areCloseEnough(num1, num2) {
             return Math.abs(num1 - num2) < (num1 + num2) / 2 / 100;
         }
-        function safeRound(n) {
-            var match = (+n).toFixed(10).match(safeRound.rg);
-            return match ? +match[0] : n;
-        }
-        safeRound.rg = /^\d*\.[^0]*(?=0|$)/;
         function arc3(x1, y1, x2, y2, x3, y3) {
             var out = {};
             if (x1 == x2 && y1 == y2 || x3 == x2 && y3 == y2) {
-                out.path = "L" + [x3, y3];
                 return out;
             }
             if (x1 == x3 && y1 == y3) {
                 var r = len(x1, y1, x2, y2) / 2;
-                out.path = "A" + [r, r, 0, 0, 0, x2, y2] + "A" + [r, r, 0, 0, 0, x1, y1];
                 out.a1 = 0;
                 out.a2 = 360;
                 out.r = r;
@@ -272,9 +265,7 @@
                 out.a = angl;
                 out.f1 = +(Math.abs(angl) > 180);
                 out.f2 = +(angl > 0);
-                out.path = "A" + [safeRound(r), safeRound(r), 0, out.f1, out.f2, x3, y3];
             } else {
-                out.path = "L" + [x3, y3];
             }
             return out;
         }
@@ -301,6 +292,9 @@
                 }
                 return arc;
             }
+        }
+        function cleanNumbers(str) {
+            return str.replace(/([^\d.]\d+\.\d+),(-?)0\./, "$1$2.").replace(/([^\d.]\d+,-?)0\./, "$1.").replace(/,-/, "-");
         }
         self.precision = function (arg) {
             return isFinite(arg) && arg >= 0 ? arg : 3;
@@ -472,25 +466,26 @@
                 },
                 sigma = Math.pow(10, -precision),
                 gamma = Math.pow(10, 1 - precision),
+                prec = Math.pow(10, precision),
+                prec1 = Math.pow(10, Math.max(precision - 1, 0)),
+                prec2 = Math.pow(10, Math.max(precision - 2, 0)),
                 num,
                 prev,
                 segs = [];
             function number(num) {
-                var rough1 = String(+num.toFixed(Math.max(precision - 1, 0))),
-                    rough0 = String(+num.toFixed(precision)),
-                    res;
-                if (rough0.length - rough1.length >= 3) {
-                    res = rough1;
-                } else {
-                    res = rough0;
+                var rnd = Math.round(num * prec) / prec,
+                    rnd1 = Math.round(num * prec1) / prec1,
+                    rnd2 = Math.round(num * prec2) / prec2;
+                if (rnd2 == rnd1) {
+                    return rnd1;
                 }
-                return res.replace(/^(-?)0\./, "$1.");
+                return rnd;
             }
             function isSmall(num) {
-                return Math.abs(num.toFixed(precision)) <= sigma;
+                return Math.abs(Math.round(num * prec) / prec) <= sigma;
             }
             function goodEnough(num) {
-                return Math.abs(num.toFixed(Math.max(precision - 1, 0))) <= gamma;
+                return Math.abs(Math.round(num * prec1) / prec1) <= gamma;
             }
             function isCL(seg) {
                 var xs = [seg.x],
@@ -573,7 +568,7 @@
                     if (arc && arc.r && arc.r < len(x, y, X, Y) * 10) {
                         if (segp.r && areCloseEnough(segp.r, arc.r) && areCloseEnough(segp.cx, arc.cx) && areCloseEnough(segp.cy, arc.cy)) {
                             segp.a += arc.a;
-                            if (number(Math.abs(X - segp.x)) == "0" && number(Math.abs(Y - segp.y)) == "0") {
+                            if (!number(Math.abs(X - segp.x)) && !number(Math.abs(Y - segp.y))) {
                                 seg.cmd = "a";
                                 seg.abs = [segp.r, segp.r, 0, arc.f1, arc.f2, segp.x, segp.y];
                                 seg.rel = seg.abs.slice(0);
@@ -598,7 +593,7 @@
                             }
                         }
                         seg.cmd = "a";
-                        seg.abs = [safeRound(arc.r), safeRound(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
+                        seg.abs = [number(arc.r), number(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
                         seg.rel = seg.abs.slice(0);
                         seg.rel[5] -= x;
                         seg.rel[6] -= y;
@@ -614,7 +609,7 @@
                     return;
                 }
                 if (!segp || segp.cmd != "c" && segp.cmd != "s") {
-                    if (!+number(seg.rel[0]) && !+number(seg.rel[1])) {
+                    if (!number(seg.rel[0]) && !number(seg.rel[1])) {
                         seg.abs.splice(0, 2);
                         seg.rel.splice(0, 2);
                         seg.cmd = "s";
@@ -640,7 +635,7 @@
                     return;
                 }
                 if (!segp || segp.cmd != "q" && segp.cmd != "t") {
-                    if (!+number(seg.rel[0]) && !+number(seg.rel[1])) {
+                    if (!number(seg.rel[0]) && !number(seg.rel[1])) {
                         seg.abs.splice(0, 2);
                         seg.rel.splice(0, 2);
                         seg.cmd = "t";
@@ -735,17 +730,10 @@
 
                 args.abs = args.rel = "";
                 if (abs) {
-                    var prevAbsNum, prevRelNum;
-                    for (var j = 0, jj = abs.length; j < jj; j++) {
-                        if (isFinite(abs[j])) {
-                            num = number(abs[j]);
-                            args.abs += num.charAt() == "." && !prevAbsNum || num.charAt() == "-" || !j ? num : "," + num;
-                            prevAbsNum = num == ~~num;
-                            num = number(rel[j]);
-                            args.rel += num.charAt() == "." && !prevRelNum || num.charAt() == "-" || !j ? num : "," + num;
-                            prevRelNum = num == ~~num;
-                        }
-                    }
+                    args.abs = abs.map(number).join();
+                    args.abs = cleanNumbers(args.abs);
+                    args.rel = rel.map(number).join();
+                    args.rel = cleanNumbers(args.rel);
 
                     var arg;
                     if (args.abs.length <= args.rel.length) {
@@ -769,7 +757,6 @@
             }
             return res;
         };
-        self.safeRound = safeRound;
         self.clone = function (o) {
             if (Object(o) !== o) {
                 return o;
