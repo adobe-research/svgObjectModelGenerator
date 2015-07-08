@@ -80,7 +80,7 @@
                 }
             },
             function removeUselessTSpans(tag, ctx, parents) {
-                if (tag.name != "tspan") {
+                if (tag.name != "tspan" || tag.styleBlock) {
                     return;
                 }
                 for (var key in tag.attrs) {

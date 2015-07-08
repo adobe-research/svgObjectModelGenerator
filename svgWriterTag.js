@@ -675,11 +675,11 @@
             if (node.kind == "positioned") {
                 var x = node["text-frame"].x,
                     tag = new Tag("text", {
-                    x: node["text-frame"].x,
-                    y: node["text-frame"].y,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
-                }, ctx);
-                var paraLen = node.paragraphs && node.paragraphs.length;
+                        x: node["text-frame"].x,
+                        y: node["text-frame"].y,
+                        transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
+                    }, ctx),
+                    paraLen = node.paragraphs && node.paragraphs.length;
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);
@@ -692,6 +692,7 @@
                                 glyphRun = new Tag("tspan", {
                                     x: glyph.x,
                                     y: glyph.y,
+                                    rotate: glyph.rotate
                                 }, ctx, glyph);
                             glyphRun.appendChild(new Tag("#text", glyphText));
                             p.appendChild(glyphRun);
