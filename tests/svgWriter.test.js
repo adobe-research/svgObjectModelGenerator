@@ -748,6 +748,15 @@ describe("svgWriter", function () {
     });
 
     /**
+     * Test that name is not part of a style
+     **/
+    describe("Test M, L, C, Z restricted path data", function () {
+        it("Test restricted path data with `preparedPath` option.", function () {
+            compareResults("prepared-path", "custom", { preparedPath: true });
+        });
+    });
+
+    /**
      * Test shifting of groups with transform applied
      **/
     describe("Test shifting of groups with transform applied", function () {

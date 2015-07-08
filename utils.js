@@ -307,6 +307,72 @@
             }).join();
         };
 
+        self.parsePreparedPath = function (pathString) {
+            var array = pathString.split(/\s/),
+                data = [],
+                x = 0,
+                y = 0,
+                mx = 0,
+                my = 0;
+
+            while(array.length) {
+                var cur = array.shift().toLowerCase(),
+                    abs = [],
+                    rel = [],
+                    seg = {
+                        cmd: cur,
+                        abs: abs,
+                        rel: rel,
+                        x: x,
+                        y: y,
+                        isabs: 1
+                    };
+                switch (cur) {
+                case "m":
+                    mx = Number(array.shift());
+                    my = Number(array.shift());
+                    abs.push(mx);
+                    abs.push(my);
+                    rel.push(mx - x);
+                    rel.push(my - x);
+                    x = abs[abs.length - 2];
+                    y = abs[abs.length - 1];
+                    break;
+                case "l":
+                    abs.push(Number(array.shift()));
+                    abs.push(Number(array.shift()));
+                    rel.push(abs[abs.length - 2] - x);
+                    rel.push(abs[abs.length - 1] - y);
+                    x = abs[abs.length - 2];
+                    y = abs[abs.length - 1];
+                    break;
+                case "c":
+                    abs.push(Number(array.shift()));
+                    abs.push(Number(array.shift()));
+                    abs.push(Number(array.shift()));
+                    abs.push(Number(array.shift()));
+                    abs.push(Number(array.shift()));
+                    abs.push(Number(array.shift()));
+                    rel.push(abs[abs.length - 6] - x);
+                    rel.push(abs[abs.length - 5] - y);
+                    rel.push(abs[abs.length - 4] - x);
+                    rel.push(abs[abs.length - 3] - y);
+                    rel.push(abs[abs.length - 2] - x);
+                    rel.push(abs[abs.length - 1] - y);
+                    x = abs[abs.length - 2];
+                    y = abs[abs.length - 1];
+                    break;
+                case "z":
+                    x = mx;
+                    y = my;
+                    break;
+                }
+
+                data.push(seg);
+            }
+            return data;
+        };
+
         var pathCommand = /([a-z])[\s,]*((-?\d*\.?\d*(?:e[\-+]?\d+)?[\s]*,?[\s]*)+)/ig,
             pathValues = /(-?\d*\.?\d*(?:e[\-+]?\d+)?)[\s]*,?[\s]*/ig,
             paramCounts = {a: 7, c: 6, h: 1, l: 2, m: 2, q: 4, s: 4, t: 2, v: 1, z: 0};
@@ -457,7 +523,7 @@
             return data;
         };
 
-        self.optimisePath = function (path, precision) {
+        self.optimisePath = function (path, precision, preparedPath) {
             precision = self.precision(precision);
             var res = "",
                 args = {
@@ -677,7 +743,11 @@
                     return "unite";
                 }
             }
-            segs = self.parsePath(path);
+            if (preparedPath) {
+                segs = self.parsePreparedPath(path);
+            } else {
+                segs = self.parsePath(path);
+            }
 
             // Convert all S to C and T to Q prior to processing
             for (var i = 1; i < segs.length; i++) {
@@ -710,6 +780,7 @@
                 }
             }
             for (i = 0; i < segs.length; i++) {
+                prev = false;
 
                 // Special case for "C" instead of "L"
                 c2l(segs[i]);
@@ -720,6 +791,7 @@
                 // Special case if "C" instead of "A"
                 if (c2a(segs[i - 1], segs[i]) == "unite") {
                     segs.splice(i, 1);
+                    prev = true;
                     i--;
                 }
                 // Special case if "C" instead of "S"
@@ -731,9 +803,21 @@
                 // Special case when H followed by H or V followed by V
                 if (h2hv2v(segs[i - 1], segs[i]) == "unite") {
                     segs.splice(i, 1);
+                    prev = true;
                     i--;
                 }
+
+                // Don't clean segment numbers twice.
+                if (prev) {
+                    continue;
+                }
+
+                for (var j = 0, jj = segs[i].abs.length; j < jj; j++) {
+                    segs[i].rel[j] = number(segs[i].rel[j]);
+                    segs[i].abs[j] = number(segs[i].abs[j]);
+                }
             }
+            prev = undefined;
 
             for (i = 0; i < segs.length; i++) {
                 var command = segs[i].cmd,
@@ -742,10 +826,8 @@
 
                 args.abs = args.rel = "";
                 if (abs) {
-                    args.abs = abs.map(number).join();
-                    args.abs = cleanNumbers(args.abs);
-                    args.rel = rel.map(number).join();
-                    args.rel = cleanNumbers(args.rel);
+                    args.abs = cleanNumbers(abs.join());
+                    args.rel = cleanNumbers(rel.join());
 
                     var arg;
                     if (args.abs.length <= args.rel.length) {
