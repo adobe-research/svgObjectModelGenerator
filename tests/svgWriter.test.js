@@ -149,6 +149,26 @@ describe("svgWriter", function () {
         compareResultsWidthOM(svgOM, testName, testPath, options);
     }
 
+    /**
+     * Test streaming of SVG output
+     **/
+    describe("Test streaming of SVG output", function () {
+        var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-opacity-om.json")),
+            stream = fs.createWriteStream("./tests/data/stream/ouput.svg"),
+            result,
+            load;
+
+        svgWriter.streamSVG(svgOM, stream);
+        stream.end();
+        stream.on('finish', function() {
+            // FIXME: Newer versions of Chai support asynch testing and promises.
+            it.skip("Test that streaming succeeded", function () {
+                result = fs.readFileSync("./tests/data/stream/result.svg");
+                load = fs.readFileSync("./tests/data/stream/ouput.svg");
+                expect(result).to.equal(load);
+            });
+        });
+    });
 
     /**
      * Test extraction of masks to SVG

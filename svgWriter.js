@@ -24,8 +24,8 @@
         SVGWriterContext = require("./svgWriterContext.js"),
         toString = svgWriterUtils.toString;
 
-    function getFormatContext(svgOM, stream, cfg, errors) {
-        return new SVGWriterContext(svgOM, stream, cfg, errors);
+    function getFormatContext(svgOM, writable, cfg, errors) {
+        return new SVGWriterContext(svgOM, writable, cfg, errors);
     }
 
     function print(svgOM, opt, errors) {
@@ -37,14 +37,14 @@
             };
         }
 
-        var writer = new Writable();
-        stream(svgOM, writer, opt, errors);
+        var writable = new Writable();
+        stream(svgOM, writable, opt, errors);
 
-        return writer.buffer;
+        return writable.buffer;
     }
 
-    function stream(svgOM, stream, opt, errors) {
-        var ctx = getFormatContext(svgOM, stream, opt || {}, errors);
+    function stream(svgOM, writable, opt, errors) {
+        var ctx = getFormatContext(svgOM, writable, opt || {}, errors);
         try {
             Tag.resetRoot(svgOM);
             svgWriterPreprocessor.processSVGOM(ctx);
