@@ -356,7 +356,7 @@
         }
         // Use style attribute
         if (ctx.styling == 1) {
-            var style = "";
+            style = "";
             for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
                 style += omStyleBlock.rules[i].toString(ctx);
             }
@@ -673,8 +673,7 @@
         },
         text: function (ctx, node) {
             if (node.kind == "positioned") {
-                var x = node["text-frame"].x,
-                    tag = new Tag("text", {
+                var tag = new Tag("text", {
                         x: node["text-frame"].x,
                         y: node["text-frame"].y,
                         transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)

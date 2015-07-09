@@ -33,9 +33,9 @@
             if (ele.kind == "filter") {
                 attr.id = ele.id;
             }
-            for(var prop in ele) {
-                if (prop == 'input' || prop == 'children' ||
-                    prop == 'kind' || prop == 'input' || prop == 'id') {
+            for (var prop in ele) {
+                if (prop == "input" || prop == "children" ||
+                    prop == "kind" || prop == "input" || prop == "id") {
                     continue;
                 }
                 attr[prop] = ele[prop];
@@ -90,6 +90,6 @@
         };
     }
 
-    module.exports = new SVGWriterFx();
+    module.exports = new SVGWriterFx;
 
 }());
