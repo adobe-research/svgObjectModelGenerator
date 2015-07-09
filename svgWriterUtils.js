@@ -34,7 +34,11 @@
         };
 
         self.write = function (ctx, sOut) {
-            ctx.sOut += sOut;
+            if (!ctx.stream) {
+                ctx.sOut += sOut;
+                return;
+            }
+            ctx.stream.write(sOut);
         };
 
         self.writeln = function (ctx, sOut) {
