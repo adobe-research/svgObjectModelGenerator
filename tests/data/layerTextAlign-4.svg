@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="228" height="37" viewBox="0 0 228 37">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 36px;
+        fill: #22376b;
+        text-anchor: end;
+        font-family: Optima;
+        font-weight: 900;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" x="229.617" y="27.742"><tspan x="229.617">right aligned</tspan></text>
+</svg>

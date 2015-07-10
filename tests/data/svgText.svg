@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1, .cls-3, .cls-8 {
+        font-size: 63.635px;
+      }
+
+      .cls-1, .cls-8 {
+        fill: #030303;
+        font-family: "Myriad Pro";
+      }
+
+      .cls-2 {
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        fill: #ff032d;
+        font-family: "Minion Pro";
+      }
+    </style>
+  </defs>
+  <text class="cls-1" x="128.703" y="121.297"><tspan>This is a text example</tspan></text>
+  <text class="cls-1" x="140.625" y="232.094"><tspan>This is a text example</tspan></text>
+  <text class="cls-1" x="139.055" y="341.414"><tspan>This is a tex<tspan class="cls-2">t e</tspan>xample</tspan></text>
+  <text class="cls-3" x="148.648" y="439.898"><tspan>This is</tspan><tspan dy="1.2em" x="148.648">a text</tspan><tspan dy="1.2em" x="148.648">example</tspan></text>
+</svg>

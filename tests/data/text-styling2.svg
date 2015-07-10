@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        font-size: 111px;
+        text-anchor: middle;
+        font-family: "Source Sans Pro";
+      }
+
+      .cls-1 {
+        font-weight: 300;
+      }
+
+      .cls-3 {
+        font-weight: 600;
+      }
+
+      .cls-4 {
+        font-weight: 700;
+      }
+
+      .cls-5, .cls-6 {
+        font-weight: 800;
+      }
+
+      .cls-6, .cls-9 {
+        font-style: italic;
+      }
+
+      .cls-7, .cls-8 {
+        font-weight: 200;
+      }
+
+      .cls-8 {
+        font-size: 72px;
+        font-family: "Helvetica Neue";
+      }
+    </style>
+  </defs>
+  <text class="cls-1" x="86.777" y="285.703"><tspan x="86.777">2</tspan></text>
+  <text class="cls-2" x="86.777" y="413.703"><tspan x="86.777">3</tspan></text>
+  <text class="cls-3" x="86.777" y="538.703"><tspan x="86.777">4</tspan></text>
+  <text class="cls-4" x="86.777" y="669.703"><tspan x="86.777">5</tspan></text>
+  <text class="cls-5" x="86.777" y="794.703"><tspan x="86.777">6</tspan></text>
+  <text class="cls-6" x="86.777" y="919.703"><tspan x="86.777">7</tspan></text>
+  <text class="cls-7" x="86.777" y="149.703"><tspan x="86.777">1</tspan></text>
+  <text class="cls-8" x="369.777" y="127.703"><tspan>thin</tspan><tspan dy="1.542em" x="369.777">ultrathin</tspan><tspan class="cls-9" dy="1.542em" x="369.777">thin italic</tspan><tspan dy="1.542em" x="369.777">medium</tspan><tspan class="cls-9" dy="1.542em" x="369.777">light oblique</tspan><tspan dy="1.542em" x="369.777">book</tspan><tspan class="cls-9" dy="1.542em" x="369.777">slanted</tspan></text>
+</svg>

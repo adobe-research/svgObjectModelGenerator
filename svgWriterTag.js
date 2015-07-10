@@ -698,6 +698,8 @@
                         }
                     }
                 }
+            } else {
+                return factory.textOld(ctx, node);
             }
             return tag.useTrick(ctx);
         },
