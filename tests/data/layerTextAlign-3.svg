@@ -1,11 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="255" height="37" viewBox="0 0 255 37">
   <defs>
     <style>
-      .cls-1, .cls-2 {
+      .cls-1 {
         font-size: 36px;
-      }
-
-      .cls-2 {
         fill: #22376b;
         text-anchor: middle;
         font-family: Optima;
@@ -13,5 +10,5 @@
       }
     </style>
   </defs>
-  <text x="128.047" y="27.828" class="cls-1"><tspan x="128.047" class="cls-2">center aligned</tspan></text>
+  <text class="cls-1" x="128.047" y="27.828"><tspan x="128.047">center aligned</tspan></text>
 </svg>

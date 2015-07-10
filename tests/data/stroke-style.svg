@@ -105,12 +105,12 @@
     </linearGradient>
     <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient-1"/>
   </defs>
-  <path d="M50,50H250V150H50V50Z" class="cls-1"/>
-  <path d="M300,50H500V150H300V50Z" class="cls-2"/>
-  <path d="M550,50H750V150H550V50Z" class="cls-3"/>
-  <path d="M50,200H250V300H50V200Z" class="cls-4"/>
-  <path d="M300,200H500V300H300V200Z" class="cls-5"/>
-  <path d="M550,200H750V300H550V200Z" class="cls-6"/>
-  <path d="M50,350H250V450H50V350Z" class="cls-7"/>
-  <path d="M300,350H500V450H300V350Z" class="cls-8"/>
+  <path class="cls-1" d="M50,50H250V150H50V50Z"/>
+  <path class="cls-2" d="M300,50H500V150H300V50Z"/>
+  <path class="cls-3" d="M550,50H750V150H550V50Z"/>
+  <path class="cls-4" d="M50,200H250V300H50V200Z"/>
+  <path class="cls-5" d="M300,200H500V300H300V200Z"/>
+  <path class="cls-6" d="M550,200H750V300H550V200Z"/>
+  <path class="cls-7" d="M50,350H250V450H50V350Z"/>
+  <path class="cls-8" d="M300,350H500V450H300V350Z"/>
 </svg>

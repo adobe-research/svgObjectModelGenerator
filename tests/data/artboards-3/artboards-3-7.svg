@@ -16,5 +16,5 @@
       <stop offset="1" stop-color="#002874"/>
     </linearGradient>
   </defs>
-  <path d="M4000,2212h600v600H4000V2212Z" transform="translate(-4000 -2212)" class="cls-1"/>
+  <path class="cls-1" d="M4000,2212h600v600H4000V2212Z" transform="translate(-4000 -2212)"/>
 </svg>

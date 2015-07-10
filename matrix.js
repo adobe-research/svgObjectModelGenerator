@@ -21,10 +21,9 @@
         cos = Math.cos,
         tan = Math.tan,
         atan2 = Math.atan2,
-        deg2Rad = Math.PI / 180.0,
-        rad2Deg = 180.0 / Math.PI,
+        deg2Rad = Math.PI / 180,
+        rad2Deg = 180 / Math.PI,
         round2 = Utils.round2,
-        round10k = Utils.round10k,
         roundP = Utils.roundP,
 
         MatrixClass = function () {

@@ -95,16 +95,16 @@
     <linearGradient id="linear-gradient-5" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient-1"/>
     <linearGradient id="linear-gradient-6" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
-  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
-  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
-  <rect x="550" y="50" width="200" height="100" class="cls-3"/>
-  <rect x="50" y="500" width="200" height="100" class="cls-4"/>
-  <rect x="300" y="500" width="200" height="100" class="cls-5"/>
-  <rect x="550" y="500" width="200" height="100" class="cls-6"/>
-  <rect x="50" y="200" width="200" height="100" class="cls-7"/>
-  <rect x="300" y="200" width="200" height="100" class="cls-8"/>
-  <rect x="552" y="200" width="196" height="94" class="cls-9"/>
-  <rect x="50" y="350" width="200" height="100" class="cls-10"/>
-  <rect x="300" y="350" width="200" height="100" class="cls-11"/>
-  <rect x="550" y="350" width="200" height="100" class="cls-12"/>
+  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
+  <rect class="cls-3" x="550" y="50" width="200" height="100"/>
+  <rect class="cls-4" x="50" y="500" width="200" height="100"/>
+  <rect class="cls-5" x="300" y="500" width="200" height="100"/>
+  <rect class="cls-6" x="550" y="500" width="200" height="100"/>
+  <rect class="cls-7" x="50" y="200" width="200" height="100"/>
+  <rect class="cls-8" x="300" y="200" width="200" height="100"/>
+  <rect class="cls-9" x="552" y="200" width="196" height="94"/>
+  <rect class="cls-10" x="50" y="350" width="200" height="100"/>
+  <rect class="cls-11" x="300" y="350" width="200" height="100"/>
+  <rect class="cls-12" x="550" y="350" width="200" height="100"/>
 </svg>

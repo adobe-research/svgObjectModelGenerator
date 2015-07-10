@@ -36,25 +36,25 @@
     </style>
   </defs>
   <g>
-    <circle cx="113.5" cy="228.5" r="87.5" class="9½ weeks"/>
-    <circle cx="304.5" cy="228.5" r="87.5" class="cls-1"/>
-    <circle cx="495.5" cy="228.5" r="87.5" class="9½ weeks"/>
-    <circle cx="686.5" cy="228.5" r="87.5" class="9½ weeks"/>
+    <circle class="9½-weeks" cx="113.5" cy="228.5" r="87.5"/>
+    <circle class="cls-1" cx="304.5" cy="228.5" r="87.5"/>
+    <circle class="9½-weeks" cx="495.5" cy="228.5" r="87.5"/>
+    <circle class="9½-weeks" cx="686.5" cy="228.5" r="87.5"/>
     <g>
-      <circle cx="113.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
-      <circle cx="113.5" cy="371.5" r="87.5" class="dots"/>
+      <circle class="brown;|/?.,@#$%&amp;*()~&lt;&gt;" cx="113.5" cy="371.5" r="87.5"/>
+      <circle class="dots" cx="113.5" cy="371.5" r="87.5"/>
     </g>
     <g>
-      <circle cx="304.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
-      <circle cx="304.5" cy="371.5" r="87.5" class="cls-2"/>
+      <circle class="brown;|/?.,@#$%&amp;*()~&lt;&gt;" cx="304.5" cy="371.5" r="87.5"/>
+      <circle class="cls-2" cx="304.5" cy="371.5" r="87.5"/>
     </g>
     <g>
-      <circle cx="495.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
-      <circle cx="495.5" cy="371.5" r="87.5" class="dots"/>
+      <circle class="brown;|/?.,@#$%&amp;*()~&lt;&gt;" cx="495.5" cy="371.5" r="87.5"/>
+      <circle class="dots" cx="495.5" cy="371.5" r="87.5"/>
     </g>
     <g>
-      <circle cx="686.5" cy="371.5" r="87.5" class="brown;|/?.,@#$%&amp;*()~&lt;&gt;"/>
-      <circle cx="686.5" cy="371.5" r="87.5" class="dots"/>
+      <circle class="brown;|/?.,@#$%&amp;*()~&lt;&gt;" cx="686.5" cy="371.5" r="87.5"/>
+      <circle class="dots" cx="686.5" cy="371.5" r="87.5"/>
     </g>
   </g>
 </svg>

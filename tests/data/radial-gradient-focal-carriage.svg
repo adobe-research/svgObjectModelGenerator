@@ -26,8 +26,8 @@
     <radialGradient id="radial-gradient-3" cy="250" fx="100" xlink:href="#radial-gradient-1"/>
     <radialGradient id="radial-gradient-4" cx="400" cy="250" fy="200" xlink:href="#radial-gradient-1"/>
   </defs>
-  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
-  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
-  <rect x="50" y="200" width="200" height="100" class="cls-3"/>
-  <rect x="300" y="200" width="200" height="100" class="cls-4"/>
+  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
+  <rect class="cls-3" x="50" y="200" width="200" height="100"/>
+  <rect class="cls-4" x="300" y="200" width="200" height="100"/>
 </svg>

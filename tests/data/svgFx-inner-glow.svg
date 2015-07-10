@@ -14,7 +14,7 @@
       }
     </style>
 
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="12.667" in="SourceAlpha"/>
       <feColorMatrix result="color-1" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
       <feColorMatrix result="color-2" values="0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0"/>
@@ -27,7 +27,7 @@
       <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
       <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
-    <filter filterUnits="userSpaceOnUse" id="filter-2">
+    <filter id="filter-2" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="21.667" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-color="#bec9ff" flood-opacity="0.75"/>
       <feComposite result="composite-2" operator="out" in2="blur-1"/>
@@ -35,6 +35,6 @@
       <feBlend result="blend-1" mode="darken" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect x="150" y="200" width="200" height="200" class="cls-1"/>
-  <rect x="450" y="200" width="200" height="200" class="cls-2"/>
+  <rect class="cls-1" x="150" y="200" width="200" height="200"/>
+  <rect class="cls-2" x="450" y="200" width="200" height="200"/>
 </svg>

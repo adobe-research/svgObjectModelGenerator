@@ -1,21 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-1, .cls-2 {
+      .cls-1 {
         font-size: 30px;
-      }
-
-      .cls-2 {
         font-family: Arial;
       }
 
-      .cls-3 {
+      .cls-2 {
         fill: none;
         stroke: #f26522;
         stroke-width: 3px;
       }
     </style>
   </defs>
-  <text transform="translate(246.897 366.187) rotate(-45)" class="cls-1"><tspan class="cls-2">Text</tspan></text>
-  <rect x="208" y="275" width="98" height="121" class="cls-3"/>
+  <text class="cls-1" transform="translate(246.897 366.187) rotate(-45)"><tspan>Text</tspan></text>
+  <rect class="cls-2" x="208" y="275" width="98" height="121"/>
 </svg>

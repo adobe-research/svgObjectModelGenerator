@@ -11,5 +11,5 @@
       <stop offset="1" stop-color="#00007f"/>
     </linearGradient>
   </defs>
-  <circle cx="150" cy="150" r="100" class="cls-1"/>
+  <circle class="cls-1" cx="150" cy="150" r="100"/>
 </svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <style>
+      .cls-1 {
+        text-anchor: middle;
+        font: 30px "Myriad Pro";
+      }
+
+      .cls-2 {
+        fill: #16e14f;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" x="215.969" y="166.274">This is aTe<tspan class="cls-2">xt w</tspan><tspan class="cls-2">it</tspan>hdifferent paragraphs</text>
+</svg>
