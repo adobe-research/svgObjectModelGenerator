@@ -16,6 +16,6 @@
     </radialGradient>
     <linearGradient id="linear-gradient-1" x1="300" y1="50" x2="500" y2="50" gradientTransform="rotate(-45)" xlink:href="#radial-gradient-1"/>
   </defs>
-  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
-  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
+  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
 </svg>

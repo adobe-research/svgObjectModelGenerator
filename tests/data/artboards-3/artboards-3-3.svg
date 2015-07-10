@@ -17,6 +17,6 @@
     </linearGradient>
   </defs>
   <g id="artboard-1">
-    <path d="M2212,2212h600v600H2212V2212Z" transform="translate(-2000 -2000)" class="cls-1"/>
+    <path class="cls-1" d="M2212,2212h600v600H2212V2212Z" transform="translate(-2000 -2000)"/>
   </g>
 </svg>

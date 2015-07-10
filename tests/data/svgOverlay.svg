@@ -11,11 +11,11 @@
       <stop offset="0" stop-color="#e10019"/>
       <stop offset="1" stop-color="#00601b"/>
     </linearGradient>
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feFlood result="flood-1" flood-color="red"/>
       <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect x="100" y="100" width="350" height="150" class="cls-1"/>
+  <rect class="cls-1" x="100" y="100" width="350" height="150"/>
 </svg>

@@ -7,7 +7,7 @@
       }
     </style>
 
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="29" in="SourceAlpha"/>
       <feComposite result="composite-1"/>
       <feComposite result="composite-2"/>
@@ -24,5 +24,5 @@
       <feBlend result="blend-2" in="SourceGraphic"/>
     </filter>
   </defs>
-  <rect x="236" y="190" width="149" height="114" class="cls-1"/>
+  <rect class="cls-1" x="236" y="190" width="149" height="114"/>
 </svg>

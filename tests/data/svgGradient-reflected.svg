@@ -17,6 +17,6 @@
     </linearGradient>
     <linearGradient id="linear-gradient-2" x1="0" y1="725.104" x2="1000" y2="24.896" xlink:href="#linear-gradient-1"/>
   </defs>
-  <rect x="300" y="100" width="300" height="150" class="cls-1"/>
-  <rect x="50" y="350" width="900" height="150" class="cls-2"/>
+  <rect class="cls-1" x="300" y="100" width="300" height="150"/>
+  <rect class="cls-2" x="50" y="350" width="900" height="150"/>
 </svg>

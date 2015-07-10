@@ -17,11 +17,11 @@
     </style>
 
     <clipPath id="clip-path-1">
-      <path d="M100,100H200V200H100Z" class="cls-2"/>
+      <path class="cls-2" d="M100,100H200V200H100Z"/>
     </clipPath>
     <clipPath id="clip-path-2">
-      <path d="M50,50H250V250H50Z" class="cls-1"/>
+      <path class="cls-1" d="M50,50H250V250H50Z"/>
     </clipPath>
   </defs>
-  <rect width="300" height="300" class="cls-3"/>
+  <rect class="cls-3" width="300" height="300"/>
 </svg>

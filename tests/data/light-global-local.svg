@@ -26,21 +26,21 @@
       }
     </style>
 
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="14.142" dy="14.142"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
-    <filter filterUnits="userSpaceOnUse" id="filter-2">
+    <filter id="filter-2" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
-    <filter filterUnits="userSpaceOnUse" id="filter-3">
+    <filter id="filter-3" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="out" in2="blur-1"/>
@@ -48,7 +48,7 @@
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
       <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
     </filter>
-    <filter filterUnits="userSpaceOnUse" id="filter-4">
+    <filter id="filter-4" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="out" in2="blur-1"/>
@@ -57,8 +57,8 @@
       <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect x="50" y="83" width="250" height="150" class="cls-1"/>
-  <rect x="450" y="80" width="250" height="150" class="cls-2"/>
-  <rect x="50" y="350" width="250" height="150" class="cls-3"/>
-  <rect x="450" y="350" width="250" height="150" class="cls-4"/>
+  <rect class="cls-1" x="50" y="83" width="250" height="150"/>
+  <rect class="cls-2" x="450" y="80" width="250" height="150"/>
+  <rect class="cls-3" x="50" y="350" width="250" height="150"/>
+  <rect class="cls-4" x="450" y="350" width="250" height="150"/>
 </svg>

@@ -22,7 +22,7 @@
   </defs>
   <g transform="matrix(1, 0, 0, -1, 0, 560)">
     <g class="cls-1">
-      <path d="M7,63.296H168.336V0H7Z" class="cls-2"/>
+      <path class="cls-2" d="M7,63.296H168.336V0H7Z"/>
     </g>
   </g>
 </svg>

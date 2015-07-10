@@ -1,0 +1,147 @@
+{
+    "children": [
+        {
+            "type": "text",
+            "visible": true,
+            "style": {
+                "stroke": {
+                    "type": "none"
+                }
+            },
+            "name": "This is a Text with different paragraphs",
+            "kind": "positioned",
+            "visualBounds": {
+                "top": 144,
+                "left": 74,
+                "bottom": 260,
+                "right": 358
+            },
+            "text-frame": {
+                "x": 215.96876799999998,
+                "y": 166.27353600000004
+            },
+            "raw-text": "This is a\rText with\rdifferent paragraphs",
+            "paragraphs": [
+                {
+                    "lines": [
+                        [
+                            {
+                                "from": 0,
+                                "to": 10,
+                                "style": {
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            }
+                        ]
+                    ],
+                    "style": {
+                        "text-anchor": "middle"
+                    }
+                },
+                {
+                    "lines": [
+                        [
+                            {
+                                "from": 10,
+                                "to": 12,
+                                "style": {
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            },
+                            {
+                                "from": 12,
+                                "to": 16,
+                                "style": {
+                                    "fill": {
+                                        "type": "solid",
+                                        "color": {
+                                            "r": 22.0623,
+                                            "g": 225,
+                                            "b": 79.3541,
+                                            "a": 1
+                                        }
+                                    },
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            },
+                            {
+                                "from": 16,
+                                "to": 18,
+                                "style": {
+                                    "fill": {
+                                        "type": "solid",
+                                        "color": {
+                                            "r": 22.0623,
+                                            "g": 225,
+                                            "b": 79.3541,
+                                            "a": 1
+                                        }
+                                    },
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            },
+                            {
+                                "from": 18,
+                                "to": 20,
+                                "style": {
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            }
+                        ]
+                    ],
+                    "style": {
+                        "text-anchor": "middle"
+                    }
+                },
+                {
+                    "lines": [
+                        [
+                            {
+                                "from": 20,
+                                "to": 33,
+                                "style": {
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            },
+                            {
+                                "from": 33,
+                                "to": 41,
+                                "style": {
+                                    "font": "30px \"Myriad Pro\""
+                                }
+                            }
+                        ]
+                    ],
+                    "style": {
+                        "text-anchor": "middle"
+                    }
+                }
+            ]
+        }
+    ],
+    "global": {
+        "clipPaths": {},
+        "filters": {},
+        "gradients": {},
+        "masks": {},
+        "patterns": {},
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "bottom": 768,
+            "right": 1024
+        },
+        "pxToInchRatio": 72
+    },
+    "artboards": {},
+    "meta": {
+        "PS": {
+            "globalLight": {
+                "angle": 90,
+                "altitude": 30
+            }
+        }
+    },
+    "version": "0.1.0",
+    "name": "Untitled-1"
+}

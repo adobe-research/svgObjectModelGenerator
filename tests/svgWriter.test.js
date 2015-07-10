@@ -769,4 +769,10 @@ describe("svgWriter", function () {
             compareResults("global-styles", "custom");
         });
     });
+
+    describe("Test text support", function () {
+        it("Test positioned text", function () {
+            compareResults("positioned-text");
+        });
+    });
 });

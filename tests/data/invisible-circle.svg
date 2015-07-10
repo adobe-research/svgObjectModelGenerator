@@ -9,5 +9,5 @@
       }
     </style>
   </defs>
-  <rect x="5" y="5" width="200" height="200" class="cls-1"/>
+  <rect class="cls-1" x="5" y="5" width="200" height="200"/>
 </svg>

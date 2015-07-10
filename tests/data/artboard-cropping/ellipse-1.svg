@@ -16,6 +16,6 @@
     </radialGradient>
   </defs>
   <g clip-path="url(#clip-path-1)">
-    <circle cx="100" cy="100" r="100" class="cls-1"/>
+    <circle class="cls-1" cx="100" cy="100" r="100"/>
   </g>
 </svg>

@@ -6,5 +6,5 @@
       }
     </style>
   </defs>
-  <ellipse cy="150" rx="300" ry="150" class="cls-1"/>
+  <ellipse class="cls-1" cy="150" rx="300" ry="150"/>
 </svg>

@@ -16,5 +16,5 @@
       <stop offset="1" stop-color="red"/>
     </radialGradient>
   </defs>
-  <rect width="194" height="98" class="cls-1"/>
+  <rect class="cls-1" width="194" height="98"/>
 </svg>

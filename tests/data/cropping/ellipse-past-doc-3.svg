@@ -11,6 +11,6 @@
     </clipPath>
   </defs>
   <g clip-path="url(#clip-path-1)">
-    <ellipse cx="90" cy="100" rx="125" ry="125" class="cls-1"/>
+    <ellipse class="cls-1" cx="90" cy="100" rx="125" ry="125"/>
   </g>
 </svg>
