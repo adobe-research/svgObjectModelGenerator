@@ -97,8 +97,10 @@
                     for (var j = 0; j < style.rules.length; j++) {
                         var name = style.rules[j].propertyName,
                             value = style.rules[j].value;
-                        if (firstStyle.getPropertyValue(name) == value) {
+                        if (common[name] != null && firstStyle.getPropertyValue(name) == value) {
                             common[name] = value;
+                        } else {
+                            common[name] = null;
                         }
                     }
                 }
@@ -108,7 +110,7 @@
                     if (style) {
                         for (j = 0; j < style.rules.length; j++) {
                             name = style.rules[j].propertyName;
-                            if (name in common) {
+                            if (name in common && common[name] != null) {
                                 style.rules.splice(j, 1);
                                 j--;
                             }
@@ -128,7 +130,9 @@
                     }
                 }
                 for (name in common) {
-                    tagStyle.addRule(name, common[name]);
+                    if (common[name] != null) {
+                        tagStyle.addRule(name, common[name]);
+                    }
                 }
             }
         ];
