@@ -488,27 +488,39 @@
                 return Math.abs(Math.round(num * prec1) / prec1) <= gamma;
             }
             function isCL(seg) {
-                var xs = [seg.x],
-                    ys = [seg.y];
-                seg.abs.forEach(function (a, i) {
-                    if (i % 2) {
-                        ys.push(a);
-                    } else {
-                        xs.push(a);
+                var i = seg.abs.length - 1,
+                    xn,
+                    yn,
+                    a;
+                // Find first point that is not equal to the last point.
+                while (i >= 0) {
+                    yn = seg.abs[i];
+                    xn = seg.abs[--i];
+                    --i;
+                    if (seg.x != xn || seg.y != yn) {
+                        break;
                     }
-                });
-                var i = xs.length - 1,
-                    a = ys[i] - ys[0],
-                    b = xs[i] - xs[0],
-                    c = xs[i] * ys[0] - xs[0] * ys[i],
-                    d = Math.sqrt(a * a + b * b);
-                if (!isFinite(d)) {
+                }
+                // All points are identical.
+                if (i < 0) {
                     return false;
                 }
-                while (--i) {
-                    if (Math.abs(a * xs[i] - b * ys[i] + c) / d > sigma) {
+                // Special case vertical line.
+                if (seg.x == xn) {
+                    while (i >= 0) {
+                        if (seg.x != seg.abs[--i]) {
+                            return false;
+                        }
+                        --i;
+                    }
+                    return true;
+                }
+                a = (yn - seg.y) / (xn - seg.x);
+                while (i >= 0) {
+                    if (Math.abs(a * (seg.abs[i-1] - seg.x) + seg.y - seg.abs[i]) > sigma) {
                         return false;
                     }
+                    i -= 2;
                 }
                 return true;
             }
