@@ -27,6 +27,7 @@
         this.svgOM = svgOM;
         this.currentOMNode = svgOM;
         if (this.config) {
+            this.preparedPath = this.config.preparedPath;
             this.minify = !!this.config.minify;
             var stylingMap = {
                 "class": 0,

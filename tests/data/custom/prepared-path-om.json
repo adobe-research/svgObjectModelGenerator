@@ -1,0 +1,85 @@
+{
+	"children": [
+		{
+			"type": "group",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				}
+			},
+			"name": "Group 1",
+			"children": [
+				{
+					"type": "shape",
+					"visible": true,
+					"style": {
+						"stroke": {
+							"type": "none",
+							"align": "inside",
+							"cap": "butt",
+							"join": "miter",
+							"width": 12.5,
+							"miter-limit": 100,
+							"dash": [],
+							"dash-offset": 0,
+							"color": {
+								"r": 0,
+								"g": 0,
+								"b": 0,
+								"a": 1
+							},
+							"opacity": 1
+						},
+						"fill": {
+							"type": "solid",
+							"color": {
+								"r": 0,
+								"g": 255,
+								"b": 0,
+								"a": 1
+							}
+						}
+					},
+					"name": "Shape 1",
+					"visualBounds": {
+						"top": 773.71875,
+						"left": 1145.75,
+						"bottom": 1148.59375,
+						"right": 1533.53125
+					},
+					"shape": {
+						"type": "path",
+						"path": "M 1268.84 527.242 C 1268.84 527.242 1268.29 529.058 1267.52 528.759 C 1266.75 528.461 1267.64 477.655 1247.57 472.781 C 1247.57 472.781 1266.79 471.917 1268.84 527.242 Z",
+						"winding": "evenodd"
+					}
+				}
+			]
+		}
+	],
+	"global": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {},
+		"bounds": {
+			"top": 0,
+			"left": 0,
+			"bottom": 1500,
+			"right": 2100
+		},
+		"pxToInchRatio": 300
+	},
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "0.1.0",
+	"name": "Untitled-3"
+}
