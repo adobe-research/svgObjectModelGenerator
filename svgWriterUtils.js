@@ -151,15 +151,13 @@
 
         self.getTransform = function (val, tX, tY, precision, keepTranslation) {
             if (!val) {
-                // So far paths are the only consumer of getTransform with keepTranslation.
+                // So far paths are the only consumers of getTransform with keepTranslation.
                 // Elsewhere we are able to bake in tX and tY otherwise.
-                if (!keepTranslation || !tX && !tY) {
-                    return "";
-                } else if (!tY) {
-                    return "translate(" + Utils.roundP(tX, precision) + ")";
-                } else {
-                    return "translate(" + Utils.roundP(tX || 0, precision) + " " + Utils.roundP(tY || 0, precision) + ")";
+                if (keepTranslation && (tX || tY)) {
+                    return !tY ? "translate(" + Utils.roundP(tX, precision) + ")" :
+                        "translate(" + Utils.roundP(tX || 0, precision) + " " + Utils.roundP(tY || 0, precision) + ")";
                 }
+                return "";
             }
             return Matrix.writeTransform(
                 val,
