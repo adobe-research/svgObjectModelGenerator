@@ -362,14 +362,6 @@
             return omNode.styleBlock;
         };
 
-        proto.getStyleBlockForElement = function (omNode) {
-
-            if (this.eleBlocks[omNode.id]) {
-                return this.eleBlocks[omNode.id][0];
-            }
-            return null;
-        };
-
         proto.consolidateStyleBlocks = function () {
 
             //find dupes and make em shared...

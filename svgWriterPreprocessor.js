@@ -434,13 +434,13 @@
                 }
             };
 
-        this.processSVGNode = function (ctx, nested, sibling) {
+        this.processSVGNode = function (genID, ctx, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children,
                 state = ctx._transformOnNode;
 
             // Give every element a unique id for processing.
-            omIn.id = new ID("unique").getUnique();
+            omIn.id = genID.getUnique('');
 
             // Do not process style of element if it is not visible.
             if (!isVisible(ctx, omIn)) {
@@ -472,7 +472,7 @@
             // We should process mask before masked element
             if (omIn.style && omIn.style.mask && ctx.svgOM.global.masks) {
                 ctx.currentOMNode = ctx.svgOM.global.masks[omIn.style.mask];
-                this.processSVGNode(ctx);
+                this.processSVGNode(genID, ctx);
                 ctx.currentOMNode = omIn;
             }
 
@@ -485,18 +485,18 @@
             if (children) {
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(ctx, omIn !== ctx.svgOM, ind);
+                    this.processSVGNode(genID, ctx, omIn !== ctx.svgOM, ind);
                 }, this);
             }
             if (omIn.paragraphs) {
                 omIn.paragraphs.forEach(function (paragraph, pInd) {
                     ctx.currentOMNode = paragraph;
-                    this.processSVGNode(ctx, true, pInd);
+                    this.processSVGNode(genID, ctx, true, pInd);
                     if (paragraph.lines) {
                         paragraph.lines.forEach(function (line) {
                             line.forEach(function (glyphrun, lInd) {
                                 ctx.currentOMNode = glyphrun;
-                                this.processSVGNode(ctx, true, lInd);
+                                this.processSVGNode(genID, ctx, true, lInd);
                             }, this);
                         }, this);
                     }
@@ -514,7 +514,8 @@
                 cropRect = ctx.config.cropRect,
                 w,
                 h,
-                scale = ctx.config.scale || 1;
+                scale = ctx.config.scale || 1,
+                genID = new ID();
 
             if (global.styles) {
                 for (var name in global.styles) {
@@ -566,22 +567,22 @@
             // since they are not a part of the tree
             Object.keys(global.masks || {}).forEach(function (key) {
                 ctx.currentOMNode = global.masks[key];
-                self.processSVGNode(ctx);
+                self.processSVGNode(genID, ctx);
             });
             Object.keys(global.clipPaths || {}).forEach(function (key) {
                 ctx.currentOMNode = global.clipPaths[key];
-                self.processSVGNode(ctx);
+                self.processSVGNode(genID, ctx);
             });
             Object.keys(global.patterns || {}).forEach(function (key) {
                 ctx.currentOMNode = global.patterns[key];
-                self.processSVGNode(ctx);
+                self.processSVGNode(genID, ctx);
             });
             Object.keys(global.symbols || {}).forEach(function (key) {
                 ctx.currentOMNode = global.symbols[key];
-                self.processSVGNode(ctx);
+                self.processSVGNode(genID, ctx);
             });
             ctx.currentOMNode = omSave;
-            this.processSVGNode(ctx);
+            this.processSVGNode(genID, ctx);
             ctx.currentOMNode = omSave;
         };
     }
