@@ -329,8 +329,8 @@
                     };
                 switch (cur) {
                 case "m":
-                    mx = Number(array.shift());
-                    my = Number(array.shift());
+                    mx = +array.shift();
+                    my = +array.shift();
                     abs.push(mx);
                     abs.push(my);
                     rel.push(mx - x);
@@ -339,20 +339,20 @@
                     y = abs[abs.length - 1];
                     break;
                 case "l":
-                    abs.push(Number(array.shift()));
-                    abs.push(Number(array.shift()));
+                    abs.push(+array.shift());
+                    abs.push(+array.shift());
                     rel.push(abs[abs.length - 2] - x);
                     rel.push(abs[abs.length - 1] - y);
                     x = abs[abs.length - 2];
                     y = abs[abs.length - 1];
                     break;
                 case "c":
-                    abs.push(Number(array.shift()));
-                    abs.push(Number(array.shift()));
-                    abs.push(Number(array.shift()));
-                    abs.push(Number(array.shift()));
-                    abs.push(Number(array.shift()));
-                    abs.push(Number(array.shift()));
+                    abs.push(+array.shift());
+                    abs.push(+array.shift());
+                    abs.push(+array.shift());
+                    abs.push(+array.shift());
+                    abs.push(+array.shift());
+                    abs.push(+array.shift());
                     rel.push(abs[abs.length - 6] - x);
                     rel.push(abs[abs.length - 5] - y);
                     rel.push(abs[abs.length - 4] - x);

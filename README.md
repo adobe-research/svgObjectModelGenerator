@@ -127,7 +127,7 @@ The configuration object has the following arguments:
 * **precision** *number* The number of digits after floating point. Number must be in the range of 0 .. 10 and is trimmed otherwise. Default is `3`.
 * **isResponsive** *boolean* If set to `true` makes the SVG document fill the viewport/image area. (No `width` and `height` attribtues set on SVG root.)
 * **carriageReturn** *boolean* By default, svgWriter uses the line ending `LF`. With *carriageReturn* set to `true` line endings use `CRLF`.
-* **preparedPath** *boolean* All path data were prepared to just consist of the path segments `M` (and 2 numbers), `C` (and 6 numbers), `L` (and 2 numbers) and `Z`. All path segment characters and all numbers must be space separated. **WARNING**: This is a temporary flag and may be delted without further warning in the future.
+* **preparedPath** *boolean* All path data were prepared to just consist of the path segments `M` (and 2 numbers), `C` (and 6 numbers), `L` (and 2 numbers) and `Z`. All path segment characters and all numbers must be space separated. **WARNING**: This is a temporary flag and may be removed without further notice in the future.
 
 ## Setup Generator
 
