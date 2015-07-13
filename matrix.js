@@ -769,6 +769,17 @@
             this.writeRawMatrix = function (txfm4x4, tX, tY, precision) {
                 precision = isFinite(precision) ? Math.max(2, precision) : 2;
 
+                // FIXME: We will need to add a is2D flag and a real 2D mode.
+                if (typeof txfm4x4.a == "number") {
+                    return "matrix(" +
+                        roundP(txfm4x4.a, precision) + ", " +
+                        roundP(txfm4x4.b, precision) + ", " +
+                        roundP(txfm4x4.c, precision) + ", " +
+                        roundP(txfm4x4.d, precision) + ", " +
+                        roundP(txfm4x4.e + tX, precision) + ", " +
+                        roundP(txfm4x4.f + tY, precision) + ")";
+                }
+
                 return "matrix(" +
                     roundP(txfm4x4[0][0], precision) + ", " +
                     roundP(txfm4x4[0][1], precision) + ", " +
