@@ -183,11 +183,6 @@
                 }
                 value = value.join(" ");
                 break;
-            case "color":
-                if (value != "none") {
-                    value = writeColor(value, ctx);
-                }
-                break;
         }
         return value;
     };
@@ -348,16 +343,17 @@
         }
         // Use class attribute
         if (!ctx.styling) {
-            var style = omStyleBlock.class.map(function (el) {
-                return el.replace(/\s+/g, "-");
-            }).join(" ");
-            this.setAttribute("class", svgWriterUtils.encodedText(style));
+            var style = "";
+            for (var i = 0, ii = omStyleBlock.class.length; i < ii; i++) {
+                style += " " + omStyleBlock.class[i].replace(/\s+/g, "-");
+            }
+            this.setAttribute("class", svgWriterUtils.encodedText(style.substr(1)));
             return;
         }
         // Use style attribute
         if (ctx.styling == 1) {
             style = "";
-            for (var i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
+            for (i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
                 style += omStyleBlock.rules[i].toString(ctx);
             }
             style = style.substring(0, style.length - 1);

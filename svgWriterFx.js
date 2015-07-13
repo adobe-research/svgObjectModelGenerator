@@ -17,7 +17,8 @@
 (function () {
     "use strict";
 
-    var Tag = require("./svgWriterTag.js");
+    var Tag = require("./svgWriterTag.js"),
+        svgWriterUtils = require("./svgWriterUtils.js");
 
     function SVGWriterFx() {
 
@@ -38,7 +39,11 @@
                     prop == "kind" || prop == "input" || prop == "id") {
                     continue;
                 }
-                attr[prop] = ele[prop];
+                if (prop == "flood-color") {
+                    attr[prop] = svgWriterUtils.writeColor(ele[prop], ctx);
+                } else {
+                    attr[prop] = ele[prop];
+                }
             }
 
             if (typeof attr.x === "number") {

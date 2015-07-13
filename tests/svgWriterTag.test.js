@@ -71,23 +71,6 @@ describe("svgWriterTag", function () {
             expect(String(tag)).to.equal('<circle cx="10em" cy="20%" r="30"/>\n');
         });
 
-        it("knows how to deal with colours", function () {
-            var tag = new Tag("circle", {
-                fill: "#F0E68C",
-                stroke: {r: 100, g: 200, b: 10}
-            });
-            expect(String(tag)).to.equal('<circle fill="khaki" stroke="#64c80a"/>\n');
-        });
-
-        it("knows how to deal with defaults", function () {
-            var tag = new Tag("circle", {
-                fill: "#000000",
-                cx: 0,
-                cy: "0px"
-            });
-            expect(String(tag)).to.equal("<circle/>\n");
-        });
-
         it("knows how to round", function () {
             var tag = new Tag("circle", {
                 r: 10.555555
@@ -115,14 +98,14 @@ describe("svgWriterTag", function () {
                 cx: 10,
                 cy: "0px"
             });
-            expect(tag.writeAttribute("fill")).to.equal(' fill="khaki"');
+            expect(tag.writeAttribute("fill")).to.equal(' fill="#F0E68C"');
             expect(tag.writeAttribute("cx")).to.equal(' cx="10"');
             expect(tag.writeAttribute("cy")).to.equal("");
         });
 
         it("knows how to write attributes that are not there", function () {
             var tag = new Tag("circle");
-            expect(tag.writeAttribute("fill", "#F0E68C")).to.equal(' fill="khaki"');
+            expect(tag.writeAttribute("fill", "#F0E68C")).to.equal(' fill="#F0E68C"');
         });
 
         it("knows how to be a text", function () {
