@@ -567,7 +567,7 @@
         path: function (ctx, node) {
             var tag = new Tag("path", {
                 d: util.optimisePath(node.shape.path, ctx.precision, ctx.preparedPath),
-                transform: getTransform(node.transform || matrix.createMatrix(), node.transformTX, node.transformTY, ctx.precision)
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision, true)
             }, ctx);
             return tag.useTrick(ctx);
         },

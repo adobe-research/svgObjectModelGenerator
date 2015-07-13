@@ -149,12 +149,18 @@
             return self.encodedText(out);
         };
 
-        self.getTransform = function (val, tX, tY, precision) {
+        self.getTransform = function (val, tX, tY, precision, keepTranslation) {
             if (!val) {
+                // So far paths are the only consumers of getTransform with keepTranslation.
+                // Elsewhere we are able to bake in tX and tY otherwise.
+                if (keepTranslation && (tX || tY)) {
+                    return !tY ? "translate(" + Utils.roundP(tX, precision) + ")" :
+                        "translate(" + Utils.roundP(tX || 0, precision) + " " + Utils.roundP(tY || 0, precision) + ")";
+                }
                 return "";
             }
             return Matrix.writeTransform(
-                Matrix.createMatrix(val),
+                val,
                 isFinite(tX) ? tX : 0,
                 isFinite(tY) ? tY : 0,
                 precision);
