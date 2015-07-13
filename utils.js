@@ -780,8 +780,6 @@
                 }
             }
             for (i = 0; i < segs.length; i++) {
-                prev = false;
-
                 // Special case for "C" instead of "L"
                 c2l(segs[i]);
                 // Special case if "L" instead of "H"
@@ -791,7 +789,6 @@
                 // Special case if "C" instead of "A"
                 if (c2a(segs[i - 1], segs[i]) == "unite") {
                     segs.splice(i, 1);
-                    prev = true;
                     i--;
                 }
                 // Special case if "C" instead of "S"
@@ -803,26 +800,19 @@
                 // Special case when H followed by H or V followed by V
                 if (h2hv2v(segs[i - 1], segs[i]) == "unite") {
                     segs.splice(i, 1);
-                    prev = true;
                     i--;
                 }
-
-                // Don't clean segment numbers twice.
-                if (prev) {
-                    continue;
-                }
-
-                for (var j = 0, jj = segs[i].abs.length; j < jj; j++) {
-                    segs[i].rel[j] = number(segs[i].rel[j]);
-                    segs[i].abs[j] = number(segs[i].abs[j]);
-                }
             }
-            prev = undefined;
 
             for (i = 0; i < segs.length; i++) {
                 var command = segs[i].cmd,
                     abs = segs[i].abs,
                     rel = segs[i].rel;
+
+                for (var j = 0, jj = abs.length; j < jj; j++) {
+                    rel[j] = number(rel[j]);
+                    abs[j] = number(abs[j]);
+                }
 
                 args.abs = args.rel = "";
                 if (abs) {
