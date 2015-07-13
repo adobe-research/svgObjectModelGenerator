@@ -171,7 +171,7 @@
                 stp.color.a = 1;
                 lines.push(new Tag("stop", {
                     offset: stp.offset,
-                    "stop-color": stp.color,
+                    "stop-color": svgWriterUtils.writeColor(stp.color, ctx),
                     "stop-opacity": alpha
                 }));
             }
