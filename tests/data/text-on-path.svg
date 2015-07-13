@@ -26,12 +26,12 @@
 
     <path id="text-path-1" d="M46,75H209"/>
     <path id="text-path-2" d="M55,303l26-47,37,37,29-29"/>
-    <path id="text-path-3" d="M41,400c64.813-73.469,67.234-72.414,113,2"/>
+    <path id="text-path-3" d="M41,400c64.813-73.469,67.234,-72.414,113,2"/>
     <path id="text-path-4" d="M37,447H173"/>
     <path id="text-path-5" d="M714,66c-148.773,148.773,0,107.852,0,314"/>
     <path id="text-path-6" d="M282,78H470"/>
     <path id="text-path-7" d="M296,220H467"/>
-    <path id="text-path-8" d="M310,366c100.875-77.375,134.211-79.789,214,0"/>
+    <path id="text-path-8" d="M310,366c100.875-77.375,134.211,-79.789,214,0"/>
     <path id="text-path-9" d="M312,449H496"/>
     <path id="text-path-10" d="M273,133H466"/>
     <path id="text-path-11" d="M191,127H46"/>
