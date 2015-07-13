@@ -503,7 +503,7 @@
                 }
                 // All points are identical.
                 if (i < 0) {
-                    return false;
+                    return true;
                 }
                 // Special case vertical line.
                 if (seg.x == xn) {
