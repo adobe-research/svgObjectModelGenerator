@@ -161,16 +161,18 @@
         return this.styleBlock && this.styleBlock.getPropertyValue(name) || this.attrs[name] || "";
     };
     function getDesc(tagname, attrname) {
-        return attrsDefs[tagname + "/" + attrname] || attrsDefs["*/" + attrname] || attrsDefs.default;
+        if (attrsDefs[tagname] && attrsDefs[tagname][attrname]) {
+            return attrsDefs[tagname][attrname];
+        }
+        return attrsDefs["*"][attrname] || attrsDefs.default;
     }
     Tag.getDefault = function (tagname, attrname) {
         return getDesc(tagname, attrname)[0];
     };
     Tag.getValue = function (tagname, attrname, value, ctx) {
         var desc = getDesc(tagname, attrname),
-            prec = util.precision(ctx && ctx.precision),
-            type = desc[1];
-        switch (type) {
+            prec = util.precision(ctx && ctx.precision);
+        switch (desc[1]) {
             case "number":
                 value = parseNumber(value, tagname != "*", prec);
                 break;
