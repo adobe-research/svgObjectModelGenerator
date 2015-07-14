@@ -269,6 +269,10 @@
             }
             return out;
         }
+        // LUT for the operations:
+        // t1 = 1 - t/10
+        // x: pow(t1, 3) * p1x + pow(t1, 2) * 3 * t * c1x + t1 * 3 * t * t * c2x + pow(t, 3) * p2x,
+        // y: pow(t1, 3) * p1y + pow(t1, 2) * 3 * t * c1y + t1 * 3 * t * t * c2y + pow(t, 3) * p2y
         var dotAtBezierSegment = [
                 [1,0,0,0],
                 [0.7290000000000001,0.24300000000000002,0.027000000000000007,0.0010000000000000002],
