@@ -294,7 +294,7 @@
             }
         }
         function cleanNumbers(str) {
-            return str.replace(/([^\d.]\d+\.\d+),(-?)0\./, "$1$2.").replace(/([^\d.]\d+,-?)0\./, "$1.").replace(/,-/, "-");
+            return str.replace(/([^\d.]\d+\.\d+),(-?)0\./, "$1$2.").replace(/([^\d.]\d+,-?)0\./, "$1.");
         }
         self.precision = function (arg) {
             return isFinite(arg) && arg >= 0 ? arg : 3;
@@ -812,11 +812,13 @@
                 args.abs = args.rel = "";
                 if (abs) {
                     for (var j = 0, jj = abs.length; j < jj; j++) {
-                        args.abs += "," + number(abs[j]);
-                        args.rel += "," + number(rel[j]);
+                        var a = number(abs[j]),
+                            r = number(rel[j]);
+                        args.abs += (a < 0 || !j ? "" : ",") + a;
+                        args.rel += (r < 0 || !j ? "" : ",") + r;
                     }
-                    args.abs = cleanNumbers(args.abs.substr(1));
-                    args.rel = cleanNumbers(args.rel.substr(1));
+                    args.abs = cleanNumbers(args.abs);
+                    args.rel = cleanNumbers(args.rel);
 
                     var arg;
                     if (args.abs.length <= args.rel.length) {
