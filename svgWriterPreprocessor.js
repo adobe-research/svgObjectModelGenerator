@@ -133,7 +133,7 @@
                 if (font.family) {
                     styleBlock.addRule("font-family", font.family);
                 }
-                if (font.variant && font.variant == "small-caps") {
+                if (font.variant == "small-caps") {
                     styleBlock.addRule("font-variant", font.variant);
                 }
                 if (font.style) {
