@@ -29,7 +29,10 @@
                                 "from": 0,
                                 "to": 10,
                                 "style": {
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\""
+                                    }
                                 }
                             }
                         ]
@@ -45,7 +48,10 @@
                                 "from": 10,
                                 "to": 12,
                                 "style": {
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\""
+                                    }
                                 }
                             },
                             {
@@ -61,7 +67,10 @@
                                             "a": 1
                                         }
                                     },
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\""
+                                    }
                                 }
                             },
                             {
@@ -77,14 +86,24 @@
                                             "a": 1
                                         }
                                     },
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\""
+                                    }
                                 }
                             },
                             {
                                 "from": 18,
                                 "to": 20,
                                 "style": {
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\"",
+                                        "style": "bold italic"
+                                    },
+                                    "text-attributes": {
+                                        "paragraph-after-spacing": 10
+                                    }
                                 }
                             }
                         ]
@@ -100,14 +119,20 @@
                                 "from": 20,
                                 "to": 33,
                                 "style": {
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\""
+                                    }
                                 }
                             },
                             {
                                 "from": 33,
                                 "to": 41,
                                 "style": {
-                                    "font": "30px \"Myriad Pro\""
+                                    "font": {
+                                        "size": 30,
+                                        "family": "\"Myriad Pro\""
+                                    }
                                 }
                             }
                         ]
