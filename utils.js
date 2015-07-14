@@ -193,7 +193,9 @@
             }
         }
         function len(x1, y1, x2, y2) {
-            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            //+ Jonas Raoni Soares Silva
+            //@ http://jsfromhell.com/math/line-length [rev. #1]
+            return Math.sqrt((x1 -= x2) * x1 + (y1 -= y2) * y1);
         }
         function angle(x1, y1, x2, y2) {
             if (x1 == x2) {
