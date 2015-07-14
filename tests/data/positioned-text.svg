@@ -3,7 +3,8 @@
     <style>
       .cls-1 {
         text-anchor: middle;
-        font: 30px "Myriad Pro";
+        font-size: 30px;
+        font-family: "Myriad Pro";
       }
 
       .cls-2 {

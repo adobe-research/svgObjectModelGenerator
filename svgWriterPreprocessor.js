@@ -43,7 +43,44 @@
                 ref,
                 styleBlock,
                 style,
-                fakeNode;
+                fakeNode,
+                weightMap = {
+                    hairline: 100,
+                    "ultra-light": 100,
+                    ultralight: 100,
+                    "ultra-thin": 100,
+                    ultrathin: 100,
+                    "extra-light": 200,
+                    extralight: 200,
+                    thin: 200,
+                    light: 300,
+                    demi: 300,
+                    normal: 400,
+                    regular: 400,
+                    book: 400,
+                    roman: 400,
+                    plain: 400,
+                    medium: 500,
+                    semibold: 600,
+                    demibold: 600,
+                    "demi-bold": 600,
+                    bold: 700,
+                    black: 800,
+                    heavy: 800,
+                    "extra-bold": 800,
+                    extrabold: 800,
+                    "extra-black": 900,
+                    extrablack: 900,
+                    fat: 900,
+                    poster: 900,
+                    "ultra-black": 900,
+                    ultrablack: 900
+                },
+                italicMap = {
+                    italic: 1,
+                    oblique: 1,
+                    slanted: 1
+                };
 
             if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
                 omIn.style = utils.merge(omIn.style, global.styles[omIn.style.ref]);
@@ -88,6 +125,31 @@
                 styleBlock.addRule("fill-rule", omIn.shape.winding);
             }
 
+            if (omIn.style && omIn.style.font && typeof omIn.style.font == "object") {
+                var font = omIn.style.font;
+                if (isFinite(font.size)) {
+                    styleBlock.addRule("font-size", font.size + "px");
+                }
+                if (font.family) {
+                    styleBlock.addRule("font-family", font.family);
+                }
+                if (font.variant && font.variant == "small-caps") {
+                    styleBlock.addRule("font-variant", font.variant);
+                }
+                if (font.style) {
+                    var styles = font.style.split(" ");
+                    styles.forEach(function (style) {
+                        if (weightMap[style]) {
+                            if (weightMap[style] != 400) { // default
+                                styleBlock.addRule("font-weight", weightMap[style]);
+                            }
+                        } else if (italicMap[style]) {
+                            styleBlock.addRule("font-style", "italic");
+                        }
+                    });
+                }
+            }
+
             if (omIn.style) {
                 Object.keys(omIn.style).forEach(function (property) {
                     if (omIn.style[property] === undefined) {
@@ -97,7 +159,9 @@
                     if (property == "fill" || property == "stroke" ||
                         property == "filter" || property == "meta" ||
                         property == "mask" || property == "clip-path" ||
-                        property == "name") {
+                        property == "name" ||
+                        property == "font" && typeof omIn.style[property] == "object" ||
+                        property == "text-attributes") {
                         return;
                     }
                     if (property == "font-size") {
