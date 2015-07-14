@@ -10,7 +10,12 @@
       .cls-2 {
         fill: #16e14f;
       }
+
+      .cls-3 {
+        font-weight: 700;
+        font-style: italic;
+      }
     </style>
   </defs>
-  <text class="cls-1" x="215.969" y="166.274">This is aTe<tspan class="cls-2">xt w</tspan><tspan class="cls-2">it</tspan>hdifferent paragraphs</text>
+  <text class="cls-1" x="215.969" y="166.274">This is aTe<tspan class="cls-2">xt w</tspan><tspan class="cls-2">it</tspan><tspan class="cls-3">h</tspan>different paragraphs</text>
 </svg>
