@@ -269,22 +269,38 @@
             }
             return out;
         }
+        // LUT for the operations:
+        // t1 = 1 - t/10
+        // x: pow(t1, 3) * p1x + pow(t1, 2) * 3 * t * c1x + t1 * 3 * t * t * c2x + pow(t, 3) * p2x,
+        // y: pow(t1, 3) * p1y + pow(t1, 2) * 3 * t * c1y + t1 * 3 * t * t * c2y + pow(t, 3) * p2y
+        var dotAtBezierSegment = [
+                [1,0,0,0],
+                [0.7290000000000001,0.24300000000000002,0.027000000000000007,0.0010000000000000002],
+                [0.512,0.384,0.09600000000000003,0.008000000000000002],
+                [0.3429999999999999,0.441,0.18900000000000003,0.02700000000000001],
+                [0.216,0.43200000000000005,0.28800000000000003,0.06400000000000002],
+                [0.125,0.375,0.375,0.125],
+                [0.06400000000000002,0.28800000000000003,0.43200000000000005,0.216],
+                [0.02700000000000001,0.18900000000000003,0.441,0.3429999999999999],
+                [0.00800000000000001,0.09600000000000007,0.38400000000000006,0.5119999999999999],
+                [0.0010000000000000018,0.02700000000000002,0.24300000000000016,0.7289999999999998],
+                [0,0,3.3306690738754686e-16,0.9999999999999997]
+            ];
         function findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {
-            var t1 = 1 - t,
-                pow = Math.pow;
+            var a = dotAtBezierSegment[t];
             return {
-                x: pow(t1, 3) * p1x + pow(t1, 2) * 3 * t * c1x + t1 * 3 * t * t * c2x + pow(t, 3) * p2x,
-                y: pow(t1, 3) * p1y + pow(t1, 2) * 3 * t * c1y + t1 * 3 * t * t * c2y + pow(t, 3) * p2y
+                x: a[0] * p1x + a[1] * c1x + a[2] * c2x + a[3] * p2x,
+                y: a[0] * p1y + a[1] * c1y + a[2] * c2y + a[3] * p2y
             };
         }
         function asArc(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y) {
-            var m = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, .5),
+            var m = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, 5),
                 arc = arc3(p1x, p1y, m.x, m.y, p2x, p2y);
             if (arc && arc.r) {
                 var sigma = Math.min(.1, arc.r / 100 * 5); // 5% of radius or 0.1
                 for (var i = 1; i < 10; i++) {
                     if (i != 5) {
-                        var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i / 10);
+                        var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i);
                         if (Math.abs(len(arc.cx, arc.cy, dot.x, dot.y) - arc.r) > sigma) {
                             return null;
                         }
