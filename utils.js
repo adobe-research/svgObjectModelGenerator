@@ -809,15 +809,14 @@
                     abs = segs[i].abs,
                     rel = segs[i].rel;
 
-                for (var j = 0, jj = abs.length; j < jj; j++) {
-                    rel[j] = number(rel[j]);
-                    abs[j] = number(abs[j]);
-                }
-
                 args.abs = args.rel = "";
                 if (abs) {
-                    args.abs = cleanNumbers(abs.join());
-                    args.rel = cleanNumbers(rel.join());
+                    for (var j = 0, jj = abs.length; j < jj; j++) {
+                        args.abs += "," + number(abs[j]);
+                        args.rel += "," + number(rel[j]);
+                    }
+                    args.abs = cleanNumbers(args.abs.substr(1));
+                    args.rel = cleanNumbers(args.rel.substr(1));
 
                     var arg;
                     if (args.abs.length <= args.rel.length) {
