@@ -233,7 +233,6 @@
                 out.a = 360;
                 out.f1 = 0;
                 out.f2 = 0;
-                out.r = r;
                 return out;
             }
             var bp1 = calc_bisect_perp(x1, y1, x2, y2),
@@ -273,17 +272,17 @@
         // x: pow(t1, 3) * p1x + pow(t1, 2) * 3 * t * c1x + t1 * 3 * t * t * c2x + pow(t, 3) * p2x,
         // y: pow(t1, 3) * p1y + pow(t1, 2) * 3 * t * c1y + t1 * 3 * t * t * c2y + pow(t, 3) * p2y
         var dotAtBezierSegment = [
-                [1,0,0,0],
-                [0.7290000000000001,0.24300000000000002,0.027000000000000007,0.0010000000000000002],
-                [0.512,0.384,0.09600000000000003,0.008000000000000002],
-                [0.3429999999999999,0.441,0.18900000000000003,0.02700000000000001],
-                [0.216,0.43200000000000005,0.28800000000000003,0.06400000000000002],
-                [0.125,0.375,0.375,0.125],
-                [0.06400000000000002,0.28800000000000003,0.43200000000000005,0.216],
-                [0.02700000000000001,0.18900000000000003,0.441,0.3429999999999999],
-                [0.00800000000000001,0.09600000000000007,0.38400000000000006,0.5119999999999999],
-                [0.0010000000000000018,0.02700000000000002,0.24300000000000016,0.7289999999999998],
-                [0,0,3.3306690738754686e-16,0.9999999999999997]
+                [1, 0, 0, 0],
+                [0.729, 0.243, 0.027, 0.001],
+                [0.512, 0.384, 0.096, 0.008],
+                [0.343, 0.441, 0.189, 0.027],
+                [0.216, 0.432, 0.288, 0.064],
+                [0.125, 0.375, 0.375, 0.125],
+                [0.064, 0.288, 0.432, 0.216],
+                [0.027, 0.189, 0.441, 0.343],
+                [0.008, 0.096, 0.384, 0.512],
+                [0.001, 0.027, 0.243, 0.729],
+                [0, 0, 3.3306690738754686e-16, 1]
             ];
         function findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {
             var a = dotAtBezierSegment[t];
@@ -330,7 +329,7 @@
                 mx = 0,
                 my = 0;
 
-            while(array.length) {
+            while (array.length) {
                 var cur = array.shift().toLowerCase(),
                     abs = [],
                     rel = [],
@@ -550,15 +549,16 @@
                 prec = Math.pow(10, precision),
                 prec1 = Math.pow(10, Math.max(precision - 1, 0)),
                 prec2 = Math.pow(10, Math.max(precision - 2, 0)),
-                num,
                 prev,
                 segs = [];
             function number(num) {
-                var rnd = Math.round(num * prec) / prec,
-                    rnd1 = Math.round(num * prec1) / prec1,
-                    rnd2 = Math.round(num * prec2) / prec2;
-                if (rnd2 == rnd1) {
-                    return rnd1;
+                var rnd = Math.round(num * prec) / prec;
+                if (prec1 != prec2) {
+                    var rnd1 = Math.round(num * prec1) / prec1,
+                        rnd2 = Math.round(num * prec2) / prec2;
+                    if (rnd2 == rnd1) {
+                        return rnd1;
+                    }
                 }
                 return rnd;
             }
@@ -598,7 +598,7 @@
                 }
                 a = (yn - seg.y) / (xn - seg.x);
                 while (i >= 0) {
-                    if (Math.abs(a * (seg.abs[i-1] - seg.x) + seg.y - seg.abs[i]) > sigma) {
+                    if (Math.abs(a * (seg.abs[i - 1] - seg.x) + seg.y - seg.abs[i]) > sigma) {
                         return false;
                     }
                     i -= 2;

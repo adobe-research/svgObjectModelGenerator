@@ -28,21 +28,6 @@
         return new SVGWriterContext(svgOM, writable, cfg, errors);
     }
 
-    function print(svgOM, opt, errors) {
-        function Writable () {
-            this.buffer = "";
-
-            this.write = function (chunk) {
-                this.buffer += chunk;
-            };
-        }
-
-        var writable = new Writable();
-        stream(svgOM, writable, opt, errors);
-
-        return writable.buffer;
-    }
-
     function stream(svgOM, writable, opt, errors) {
         var ctx = getFormatContext(svgOM, writable, opt || {}, errors);
         try {
@@ -61,6 +46,21 @@
             console.log(ex.stack);
         }
         return toString(ctx);
+    }
+
+    function print(svgOM, opt, errors) {
+        function Writable() {
+            this.buffer = "";
+
+            this.write = function (chunk) {
+                this.buffer += chunk;
+            };
+        }
+
+        var writable = new Writable();
+        stream(svgOM, writable, opt, errors);
+
+        return writable.buffer;
     }
 
     module.exports.printSVG = print;

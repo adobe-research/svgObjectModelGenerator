@@ -504,7 +504,7 @@
                 state = ctx._transformOnNode;
 
             // Give every element a unique id for processing.
-            omIn.id = genID.getUnique('');
+            omIn.id = genID.getUnique("");
 
             // Do not process style of element if it is not visible.
             if (!isVisible(ctx, omIn)) {
