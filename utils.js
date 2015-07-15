@@ -767,12 +767,13 @@
                         seg.cmd = "t";
                     }
                 } else {
-                    var prevAnchorX = seg.q ? seg.q.x : segp.abs[0],
-                        prevAnchorY = seg.q ? seg.q.y : segp.abs[1],
+                    var prevAnchorX = "qx" in seg ? seg.qx : segp.abs[0],
+                        prevAnchorY = "qy" in seg ? seg.qy : segp.abs[1],
                         anchorX = 2 * seg.x - prevAnchorX,
-                        anchorY = 2 * seg.y - prevAnchor.y;
+                        anchorY = 2 * seg.y - prevAnchorY;
                     if (goodEnough(seg.abs[0] - anchorX) && goodEnough(seg.abs[1] - anchorY)) {
-                        seg.q = anchor;
+                        seg.qx = anchorX;
+                        seg.qy = anchorY;
                         seg.abs.shift();
                         seg.abs.shift();
                         seg.rel.shift();
