@@ -8,6 +8,7 @@
       .cls-2, .cls-3, .cls-4 {
         font-size: 30px;
         font-family: "Myriad Pro";
+        text-decoration: underline line-through;
       }
 
       .cls-3 {
