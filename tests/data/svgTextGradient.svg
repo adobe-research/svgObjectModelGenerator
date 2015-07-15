@@ -3,7 +3,13 @@
     <style>
       .cls-1 {
         filter: url(#filter-1);
+      }
+
+      .cls-1, .cls-2 {
         font-size: 63.635px;
+      }
+
+      .cls-2 {
         fill: #696969;
         font-family: "Myriad Pro";
       }
@@ -15,5 +21,5 @@
       <feBlend result="blend-1" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <text class="cls-1" x="302.812" y="205.703"><tspan>This is a text</tspan></text>
+  <text class="cls-1" x="302.812" y="205.703"><tspan class="cls-2">This is a text</tspan></text>
 </svg>
