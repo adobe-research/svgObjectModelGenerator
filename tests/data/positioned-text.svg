@@ -3,19 +3,22 @@
     <style>
       .cls-1 {
         text-anchor: middle;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
         font-size: 30px;
         font-family: "Myriad Pro";
       }
 
-      .cls-2 {
+      .cls-3 {
         fill: #16e14f;
       }
 
-      .cls-3 {
+      .cls-4 {
         font-weight: 700;
         font-style: italic;
       }
     </style>
   </defs>
-  <text class="cls-1" x="215.969" y="166.274">This is aTe<tspan class="cls-2">xt w</tspan><tspan class="cls-2">it</tspan><tspan class="cls-3">h</tspan>different paragraphs</text>
+  <text x="215.969" y="166.274"><tspan class="cls-1"><tspan class="cls-2">This is a</tspan></tspan><tspan class="cls-1"><tspan class="cls-2">Te</tspan><tspan class="cls-3">xt w</tspan><tspan class="cls-3">it</tspan><tspan class="cls-4">h</tspan></tspan><tspan class="cls-1"><tspan class="cls-2">different par</tspan><tspan class="cls-2">agraphs</tspan></tspan></text>
 </svg>
