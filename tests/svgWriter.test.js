@@ -160,7 +160,7 @@ describe("svgWriter", function () {
 
         svgWriter.streamSVG(svgOM, stream);
         stream.end();
-        stream.on('finish', function() {
+        stream.on("finish", function () {
             // FIXME: Newer versions of Chai support asynch testing and promises.
             it.skip("Test that streaming succeeded", function () {
                 result = fs.readFileSync("./tests/data/stream/result.svg");

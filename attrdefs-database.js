@@ -67,7 +67,6 @@ module.exports = {
         "cx": ["50%", "number"],
         "cy": ["50%", "number"],
         "fx": ["50%", "string"],
-        "fx": ["50%", "string"],
         "r": ["50%", "number"]
     },
     "feDiffuseLighting": {

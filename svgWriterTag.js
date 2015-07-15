@@ -25,13 +25,11 @@
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
-        writeColor = svgWriterUtils.writeColor,
         getTransform = svgWriterUtils.getTransform,
         encodedText = svgWriterUtils.encodedText,
         hasFx = svgWriterUtils.hasFx,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
-        matrix = require("./matrix.js"),
         root,
         tagid = 0;
 
