@@ -227,10 +227,9 @@
                 return out;
             }
             if (x1 == x3 && y1 == y3) {
-                var r = len(x1, y1, x2, y2) / 2;
                 out.a1 = 0;
                 out.a2 = 360;
-                out.r = r;
+                out.r = len(x1, y1, x2, y2) / 2;
                 out.a = 360;
                 out.f1 = 0;
                 out.f2 = 0;
@@ -258,16 +257,14 @@
                 }
             }
             if (inter) {
-                r = len(x1, y1, inter.x, inter.y);
                 out.cx = inter.x;
                 out.cy = inter.y;
                 out.a1 = ang_start;
                 out.a2 = ang_end;
-                out.r = r;
+                out.r = len(x1, y1, inter.x, inter.y);
                 out.a = angl;
                 out.f1 = +(Math.abs(angl) > 180);
                 out.f2 = +(angl > 0);
-            } else {
             }
             return out;
         }
@@ -611,8 +608,14 @@
             function c2l(seg) {
                 if (seg.cmd == "c" && isCL(seg)) {
                     seg.cmd = "l";
-                    seg.rel = [seg.abs[4] - seg.x, seg.abs[5] - seg.y];
-                    seg.abs = [seg.abs[4], seg.abs[5]];
+                    seg.rel.shift();
+                    seg.rel.shift();
+                    seg.rel.shift();
+                    seg.rel.shift();
+                    seg.abs.shift();
+                    seg.abs.shift();
+                    seg.abs.shift();
+                    seg.abs.shift();
                 }
             }
             function c2q(seg) {
@@ -666,10 +669,20 @@
                             segp.a += arc.a;
                             if (!number(Math.abs(X - segp.x)) && !number(Math.abs(Y - segp.y))) {
                                 seg.cmd = "a";
-                                seg.abs = [segp.r, segp.r, 0, arc.f1, arc.f2, segp.x, segp.y];
-                                seg.rel = seg.abs.slice(0);
-                                seg.rel[5] -= x;
-                                seg.rel[6] -= y;
+                                seg.abs[0] = segp.r;
+                                seg.abs[1] = segp.r;
+                                seg.abs[2] = 0;
+                                seg.abs[3] = arc.f1;
+                                seg.abs[4] = arc.f2;
+                                seg.abs[5] = segp.x;
+                                seg.abs.push(segp.y);
+                                seg.rel[0] = seg.abs[0];
+                                seg.rel[1] = seg.abs[1];
+                                seg.rel[2] = seg.abs[2];
+                                seg.rel[3] = seg.abs[3];
+                                seg.rel[4] = seg.abs[4];
+                                seg.rel[5] = seg.abs[5] - x;
+                                seg.rel[6] = seg.abs[6] - y;
                                 return;
                             }
                             // Need to calculate it again for better precision
@@ -682,17 +695,32 @@
                                 segp.abs[4] = +(newarc.a > 0);
                                 segp.abs[5] = X;
                                 segp.abs[6] = Y;
-                                segp.rel = segp.abs.slice(0);
-                                segp.rel[5] -= segp.x;
-                                segp.rel[6] -= segp.y;
+                                segp.rel[0] = segp.abs[0];
+                                segp.rel[1] = segp.abs[1];
+                                segp.rel[2] = segp.abs[2];
+                                segp.rel[3] = segp.abs[3];
+                                segp.rel[4] = segp.abs[4];
+                                segp.rel[5] = segp.abs[5] - segp.x;
+                                segp.rel[6] = segp.abs[6] - segp.y;
                                 return "unite";
                             }
                         }
+                        var n = number(arc.r);
                         seg.cmd = "a";
-                        seg.abs = [number(arc.r), number(arc.r), 0, arc.f1, arc.f2, rest[4], rest[5]];
-                        seg.rel = seg.abs.slice(0);
-                        seg.rel[5] -= x;
-                        seg.rel[6] -= y;
+                        seg.abs[0] = n;
+                        seg.abs[1] = n;
+                        seg.abs[2] = 0;
+                        seg.abs[3] = arc.f1;
+                        seg.abs.push(rest[5]);
+                        seg.abs[5] = rest[4];
+                        seg.abs[4] = arc.f2;
+                        seg.rel[0] = seg.abs[0];
+                        seg.rel[1] = seg.abs[1];
+                        seg.rel[2] = seg.abs[2];
+                        seg.rel[3] = seg.abs[3];
+                        seg.rel[4] = seg.abs[4];
+                        seg.rel[5] = seg.abs[5] - x;
+                        seg.rel.push(seg.abs[6] - y);
                         seg.r = arc.r;
                         seg.cx = arc.cx;
                         seg.cy = arc.cy;
@@ -706,22 +734,22 @@
                 }
                 if (!segp || segp.cmd != "c" && segp.cmd != "s") {
                     if (!number(seg.rel[0]) && !number(seg.rel[1])) {
-                        seg.abs.splice(0, 2);
-                        seg.rel.splice(0, 2);
+                        seg.abs.shift();
+                        seg.abs.shift();
+                        seg.rel.shift();
+                        seg.rel.shift();
                         seg.cmd = "s";
                     }
                 } else {
-                    var prevAnchor = {
-                            x: segp.abs[segp.abs.length - 4],
-                            y: segp.abs[segp.abs.length - 3]
-                        },
-                        anchor = {
-                            x: 2 * seg.x - prevAnchor.x,
-                            y: 2 * seg.y - prevAnchor.y
-                        };
-                    if (goodEnough(seg.abs[0] - anchor.x) && goodEnough(seg.abs[1] - anchor.y)) {
-                        seg.abs.splice(0, 2);
-                        seg.rel.splice(0, 2);
+                    var prevAnchorX = segp.abs[segp.abs.length - 4],
+                        prevAnchorY = segp.abs[segp.abs.length - 3],
+                        anchorX = 2 * seg.x - prevAnchorX,
+                        anchorY = 2 * seg.y - prevAnchorY;
+                    if (goodEnough(seg.abs[0] - anchorX) && goodEnough(seg.abs[1] - anchorY)) {
+                        seg.abs.shift();
+                        seg.abs.shift();
+                        seg.rel.shift();
+                        seg.rel.shift();
                         seg.cmd = "s";
                     }
                 }
@@ -732,23 +760,23 @@
                 }
                 if (!segp || segp.cmd != "q" && segp.cmd != "t") {
                     if (!number(seg.rel[0]) && !number(seg.rel[1])) {
-                        seg.abs.splice(0, 2);
-                        seg.rel.splice(0, 2);
+                        seg.abs.shift();
+                        seg.abs.shift();
+                        seg.rel.shift();
+                        seg.rel.shift();
                         seg.cmd = "t";
                     }
                 } else {
-                    var prevAnchor = {
-                            x: seg.q ? seg.q.x : segp.abs[0],
-                            y: seg.q ? seg.q.y : segp.abs[1]
-                        },
-                        anchor = {
-                            x: 2 * seg.x - prevAnchor.x,
-                            y: 2 * seg.y - prevAnchor.y
-                        };
-                    if (goodEnough(seg.abs[0] - anchor.x) && goodEnough(seg.abs[1] - anchor.y)) {
+                    var prevAnchorX = seg.q ? seg.q.x : segp.abs[0],
+                        prevAnchorY = seg.q ? seg.q.y : segp.abs[1],
+                        anchorX = 2 * seg.x - prevAnchorX,
+                        anchorY = 2 * seg.y - prevAnchor.y;
+                    if (goodEnough(seg.abs[0] - anchorX) && goodEnough(seg.abs[1] - anchorY)) {
                         seg.q = anchor;
-                        seg.abs.splice(0, 2);
-                        seg.rel.splice(0, 2);
+                        seg.abs.shift();
+                        seg.abs.shift();
+                        seg.rel.shift();
+                        seg.rel.shift();
                         seg.cmd = "t";
                     }
                 }
