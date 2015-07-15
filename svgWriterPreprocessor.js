@@ -125,7 +125,11 @@
                 styleBlock.addRule("fill-rule", omIn.shape.winding);
             }
 
-            if (omIn.style && omIn.style.font && typeof omIn.style.font == "object") {
+            if (!omIn.style) {
+                return;
+            }
+
+            if (omIn.style.font && typeof omIn.style.font == "object") {
                 var font = omIn.style.font;
                 if (isFinite(font.size)) {
                     styleBlock.addRule("font-size", font.size + "px");
@@ -150,34 +154,36 @@
                 }
             }
 
-            if (omIn.style) {
-                Object.keys(omIn.style).forEach(function (property) {
-                    if (omIn.style[property] === undefined) {
-                        return;
-                    }
-                    // fill, stroke, mask and fx are handled above.
-                    if (property == "fill" || property == "stroke" ||
-                        property == "filter" || property == "meta" ||
-                        property == "mask" || property == "clip-path" ||
-                        property == "name" ||
-                        property == "font" && typeof omIn.style[property] == "object" ||
-                        property == "text-attributes") {
-                        return;
-                    }
-                    if (property == "font-size") {
-                        styleBlock.addRule(property, omIn.style[property] + "px");
-                        return;
-                    }
-                    if (property == "blend-mode") {
-                        styleBlock.addRule("mix-blend-mode", omIn.style[property]);
-                        return;
-                    }
-
-                    if (property.indexOf("_") !== 0) {
-                        styleBlock.addRule(property, omIn.style[property]);
-                    }
-                });
+            if (omIn.style["text-attributes"] && omIn.style["text-attributes"].decoration) {
+                styleBlock.addRule("text-decoration", omIn.style["text-attributes"].decoration.join(" "));
             }
+
+            Object.keys(omIn.style).forEach(function (property) {
+                if (omIn.style[property] === undefined) {
+                    return;
+                }
+                // fill, stroke, mask and fx are handled above.
+                if (property == "fill" || property == "stroke" ||
+                    property == "filter" || property == "meta" ||
+                    property == "mask" || property == "clip-path" ||
+                    property == "name" ||
+                    property == "font" && typeof omIn.style[property] == "object" ||
+                    property == "text-attributes") {
+                    return;
+                }
+                if (property == "font-size") {
+                    styleBlock.addRule(property, omIn.style[property] + "px");
+                    return;
+                }
+                if (property == "blend-mode") {
+                    styleBlock.addRule("mix-blend-mode", omIn.style[property]);
+                    return;
+                }
+
+                if (property.indexOf("_") !== 0) {
+                    styleBlock.addRule(property, omIn.style[property]);
+                }
+            });
         };
 
         var recordBounds = function (ctx, omIn) {
