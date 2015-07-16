@@ -29,6 +29,7 @@
         matrix = require("./matrix.js"),
         utils = require("./utils.js"),
         ID = require("./idGenerator.js"),
+        fontMaps = require("./fontMaps.json"),
         globalStyles = {};
 
     function SVGWriterPreprocessor() {
@@ -44,43 +45,8 @@
                 styleBlock,
                 style,
                 fakeNode,
-                weightMap = {
-                    hairline: 100,
-                    "ultra-light": 100,
-                    ultralight: 100,
-                    "ultra-thin": 100,
-                    ultrathin: 100,
-                    "extra-light": 200,
-                    extralight: 200,
-                    thin: 200,
-                    light: 300,
-                    demi: 300,
-                    normal: 400,
-                    regular: 400,
-                    book: 400,
-                    roman: 400,
-                    plain: 400,
-                    medium: 500,
-                    semibold: 600,
-                    demibold: 600,
-                    "demi-bold": 600,
-                    bold: 700,
-                    black: 800,
-                    heavy: 800,
-                    "extra-bold": 800,
-                    extrabold: 800,
-                    "extra-black": 900,
-                    extrablack: 900,
-                    fat: 900,
-                    poster: 900,
-                    "ultra-black": 900,
-                    ultrablack: 900
-                },
-                italicMap = {
-                    italic: 1,
-                    oblique: 1,
-                    slanted: 1
-                };
+                weightMap = fontMaps.weights,
+                italicMap = fontMaps.italics;
 
             if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
                 omIn.style = utils.merge(omIn.style, global.styles[omIn.style.ref]);
