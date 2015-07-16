@@ -19,6 +19,7 @@
 
     var omgUtils = require("./svgOMGeneratorUtils.js"),
         omgSVGFilter = require("./svgOMGeneratorSVGFilter.js"),
+        fontMaps = require("./fontMaps.json"),
         CONST_COLOR_BLACK = { red: 0, green: 0, blue: 0 };
 
     function SVGOMGeneratorStyles() {
@@ -304,43 +305,8 @@
             this.addFx(svgNode, layer, layerBounds, writer);
         };
 
-        var weightMap = {
-                hairline: 100,
-                "ultra-light": 100,
-                ultralight: 100,
-                "ultra-thin": 100,
-                ultrathin: 100,
-                "extra-light": 200,
-                extralight: 200,
-                thin: 200,
-                light: 300,
-                demi: 300,
-                normal: 400,
-                regular: 400,
-                book: 400,
-                roman: 400,
-                plain: 400,
-                medium: 500,
-                semibold: 600,
-                demibold: 600,
-                "demi-bold": 600,
-                bold: 700,
-                black: 800,
-                heavy: 800,
-                "extra-bold": 800,
-                extrabold: 800,
-                "extra-black": 900,
-                extrablack: 900,
-                fat: 900,
-                poster: 900,
-                "ultra-black": 900,
-                ultrablack: 900
-            },
-            italicMap = {
-                italic: 1,
-                oblique: 1,
-                slanted: 1
-            };
+        var weightMap = fontMaps.weights,
+            italicMap = fontMaps.italics;
         this.addTextChunkStyle = function (span, textStyle, dpi) {
             var fontFamily,
                 PSName;
