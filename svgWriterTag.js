@@ -678,7 +678,6 @@
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);
-                    tag.appendChild(p);
                     for (var j = 0; j < para.lines.length; j++) {
                         var lineNode = para.lines[j];
                         for (var k = 0; k < lineNode.length; k++) {
@@ -692,6 +691,9 @@
                             glyphRun.appendChild(new Tag("#text", glyphText));
                             p.appendChild(glyphRun);
                         }
+                    }
+                    if (p.children.length) {
+                        tag.appendChild(p);
                     }
                 }
             } else {
