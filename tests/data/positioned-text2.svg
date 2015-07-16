@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 12px;
+        font-family: MyriadPro-Regular;
+      }
+    </style>
+  </defs>
+  <text transform="translate(77.977 82.114)"><tspan><tspan class="cls-1">this is the 1st line</tspan></tspan><tspan><tspan class="cls-1" x="0" y="14.4">this is the 2nd line</tspan></tspan><tspan><tspan class="cls-1" x="0" y="43.2">this is the 4th line</tspan></tspan></text>
+</svg>
