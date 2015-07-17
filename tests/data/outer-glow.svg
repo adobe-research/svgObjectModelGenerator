@@ -3,26 +3,26 @@
     <style>
       .cls-1 {
         fill: #000300;
-        filter: url(#filter-1);
+        filter: url(#filter);
       }
     </style>
 
-    <filter id="filter-1" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="29" in="SourceAlpha"/>
-      <feComposite result="composite-1"/>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="29" in="SourceAlpha"/>
+      <feComposite result="composite"/>
       <feComposite result="composite-2"/>
       <feComposite result="composite-3"/>
-      <feColorMatrix result="color-1" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+      <feColorMatrix result="color" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
       <feColorMatrix result="color-2" values="0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0"/>
       <feColorMatrix result="color-3" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
-      <feComponentTransfer result="comp-1" color-interpolation-filters="sRGB">
+      <feComponentTransfer result="comp" color-interpolation-filters="sRGB">
         <feFuncR type="table" tableValues="0.977 0.977 0.886 0.796 0.706 0.616 0.525 0.435 0.528 0.621 0.714 0.806 0.899 0.992 0.827 0.661 0.496 0.331 0.165 0 0"/>
         <feFuncG type="table" tableValues="0.902 0.902 0.765 0.629 0.492 0.356 0.219 0.082 0.15 0.217 0.284 0.352 0.419 0.486 0.431 0.377 0.322 0.267 0.212 0.157 0.157"/>
         <feFuncB type="table" tableValues="0 0 0.071 0.141 0.212 0.282 0.353 0.423 0.353 0.282 0.212 0.141 0.071 0 0.076 0.152 0.228 0.303 0.379 0.455 0.455"/>
       </feComponentTransfer>
-      <feBlend result="blend-1" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
       <feBlend result="blend-2" in="SourceGraphic"/>
     </filter>
   </defs>
-  <rect class="cls-1" x="236" y="190" width="149" height="114"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="236" y="190" width="149" height="114"/>
 </svg>

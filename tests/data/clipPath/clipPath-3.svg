@@ -12,7 +12,7 @@
       }
 
       .cls-1 {
-        clip-path: url(#clip-path-1);
+        clip-path: url(#clip-path);
       }
 
       .cls-3 {
@@ -22,7 +22,7 @@
       }
     </style>
 
-    <clipPath id="clip-path-1">
+    <clipPath id="clip-path">
       <circle class="cls-2" cx="215" cy="245" r="94"/>
     </clipPath>
     <clipPath id="clip-path-2">

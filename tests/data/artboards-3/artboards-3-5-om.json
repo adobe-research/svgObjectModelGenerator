@@ -1,7 +1,6 @@
 {
 	"children": [
 		{
-			"name": "Artboard 2",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -9,10 +8,10 @@
 					"type": "none"
 				}
 			},
-			"ref": "artboard-1",
+			"name": "Artboard 2",
+			"ref": "artboard",
 			"children": [
 				{
-					"name": "Rectangle 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -41,10 +40,11 @@
 								"y1": 2512,
 								"x2": 5924,
 								"y2": 2512,
-								"ref": "linear-gradient-1"
+								"ref": "linear-gradient"
 							}
 						}
 					},
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2212,
 						"left": 4000,
@@ -64,7 +64,7 @@
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-1": {
+			"linear-gradient": {
 				"stops": [
 					{
 						"offset": 0,
@@ -131,7 +131,7 @@
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"artboard-1": {
+		"artboard": {
 			"name": "Artboard 2",
 			"bounds": {
 				"top": 2000,

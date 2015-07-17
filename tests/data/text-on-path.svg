@@ -24,7 +24,7 @@
       }
     </style>
 
-    <path id="text-path-1" d="M46,75H209"/>
+    <path id="text-path" d="M46,75H209"/>
     <path id="text-path-2" d="M55,303l26-47,37,37,29-29"/>
     <path id="text-path-3" d="M41,400c64.813-73.469,67.234-72.414,113,2"/>
     <path id="text-path-4" d="M37,447H173"/>

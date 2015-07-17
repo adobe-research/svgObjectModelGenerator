@@ -10,14 +10,14 @@
       }
 
       .cls-3 {
-        fill: url(#pattern-1);
+        fill: url(#pattern);
         stroke: #000;
         stroke-miterlimit: 10;
         stroke-width: 1px;
       }
     </style>
 
-    <pattern id="pattern-1" x="-280.681" y="39.979" width="28.549" height="37.47" viewBox="-280.681 2.509 28.549 37.47" patternUnits="userSpaceOnUse">
+    <pattern id="pattern" x="-280.681" y="39.979" width="28.549" height="37.47" viewBox="-280.681 2.509 28.549 37.47" patternUnits="userSpaceOnUse">
       <g>
         <rect class="cls-1" x="-280.681" y="2.509" width="28.549" height="37.47"/>
         <g>

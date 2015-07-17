@@ -12,7 +12,7 @@
       }
 
       .cls-2 {
-        mask: url(#mask-1);
+        mask: url(#mask);
       }
 
       .cls-3 {
@@ -22,7 +22,7 @@
       }
     </style>
 
-    <mask id="mask-1" style="mask-type:alpha">
+    <mask id="mask" style="mask-type:alpha">
       <circle class="cls-1" cx="215" cy="245" r="94"/>
     </mask>
     <mask id="mask-2" style="mask-type:alpha">

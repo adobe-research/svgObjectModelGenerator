@@ -2,20 +2,20 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient-1);
+        fill: url(#linear-gradient);
         stroke: url(#linear-gradient-2);
         stroke-width: 10px;
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="100" y1="600" x2="700" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" data-name="Rectangle 1" x1="100" y1="600" x2="700" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="400" x2="400" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-2" x1="400" x2="400" xlink:href="#linear-gradient"/>
   </defs>
-  <rect class="cls-1" x="50" y="200" width="200" height="200"/>
-  <rect class="cls-1" x="300" y="200" width="200" height="200"/>
-  <rect class="cls-1" x="550" y="200" width="200" height="200"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="200" width="200" height="200"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" x="300" y="200" width="200" height="200"/>
+  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1" x="550" y="200" width="200" height="200"/>
 </svg>

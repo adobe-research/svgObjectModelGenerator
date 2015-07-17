@@ -10,7 +10,7 @@
       }
 
       .cls-3 {
-        fill: url(#pattern-1);
+        fill: url(#pattern);
         stroke: url(#pattern-2);
         stroke-width: 20px;
       }
@@ -20,7 +20,7 @@
       }
     </style>
 
-    <pattern id="pattern-1" width="55" height="55" patternUnits="userSpaceOnUse">
+    <pattern id="pattern" width="55" height="55" patternUnits="userSpaceOnUse">
       <rect class="cls-1" width="50" height="50"/>
     </pattern>
     <pattern id="pattern-2" width="55" height="55" patternUnits="userSpaceOnUse">

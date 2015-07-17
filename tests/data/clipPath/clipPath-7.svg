@@ -7,7 +7,7 @@
       }
 
       .cls-1 {
-        clip-path: url(#clip-path-1);
+        clip-path: url(#clip-path);
       }
 
       .cls-3 {
@@ -16,7 +16,7 @@
       }
     </style>
 
-    <clipPath id="clip-path-1">
+    <clipPath id="clip-path">
       <path class="cls-2" d="M100,100H200V200H100Z"/>
     </clipPath>
     <clipPath id="clip-path-2">

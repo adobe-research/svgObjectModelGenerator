@@ -2,12 +2,12 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient-1);
+        fill: url(#linear-gradient);
         fill-rule: evenodd;
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" y1="2512" x2="5924" y2="2512" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" data-name="Rectangle 2" y1="2512" x2="5924" y2="2512" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f9e600"/>
       <stop offset="0.05" stop-color="#f9e600"/>
       <stop offset="0.35" stop-color="#6f156c"/>
@@ -16,5 +16,5 @@
       <stop offset="1" stop-color="#002874"/>
     </linearGradient>
   </defs>
-  <path class="cls-1" d="M2212,2212h600v600H2212V2212Z" transform="translate(-2212 -2212)"/>
+  <path id="Rectangle_2" data-name="Rectangle 2" class="cls-1" d="M2212,2212h600v600H2212V2212Z" transform="translate(-2212 -2212)"/>
 </svg>

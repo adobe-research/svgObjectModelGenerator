@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient-1);
+        fill: url(#linear-gradient);
       }
 
       .cls-2 {
@@ -10,11 +10,11 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="100" y1="100" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="100" y1="100" x2="200" y2="200" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="1" stop-color="#ff931e"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="0" y1="0" x2="100" y2="0" xlink:href="#linear-gradient-1"/>
+    <linearGradient id="linear-gradient-2" x1="0" y1="0" x2="100" y2="0" xlink:href="#linear-gradient"/>
   </defs>
   <rect class="cls-1" x="100" y="100" width="100" height="100"/>
   <rect class="cls-2" width="100" height="100"/>

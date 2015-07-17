@@ -6,7 +6,7 @@
       }
 
       .cls-1 {
-        filter: url(#filter-1);
+        filter: url(#filter);
       }
 
       .cls-2 {
@@ -14,27 +14,27 @@
       }
     </style>
 
-    <filter id="filter-1" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="12.667" in="SourceAlpha"/>
-      <feColorMatrix result="color-1" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="12.667" in="SourceAlpha"/>
+      <feColorMatrix result="color" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
       <feColorMatrix result="color-2" values="0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0"/>
       <feColorMatrix result="color-3" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
-      <feComponentTransfer result="comp-1" color-interpolation-filters="sRGB">
+      <feComponentTransfer result="comp" color-interpolation-filters="sRGB">
         <feFuncR type="table" tableValues="1 1 1 1 1 1 0.833 0.667 0.5 0.333 0.167 0 0 0 0 0 0 0 0 0 0 0 0 0.167 0.333 0.5 0.667 0.833 1 1 1 1 1 1"/>
         <feFuncG type="table" tableValues="0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0 0 0 0 0 0 0 0 0 0 0 0"/>
         <feFuncB type="table" tableValues="0 0 0 0 0 0 0 0 0 0 0 0 0.167 0.333 0.5 0.667 0.833 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0"/>
       </feComponentTransfer>
-      <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
-      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
+      <feComposite result="composite" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
     </filter>
     <filter id="filter-2" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="21.667" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-color="#bec9ff" flood-opacity="0.75"/>
-      <feComposite result="composite-2" operator="out" in2="blur-1"/>
-      <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
-      <feBlend result="blend-1" mode="darken" in2="SourceGraphic"/>
+      <feGaussianBlur result="blur" stdDeviation="21.667" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#bec9ff" flood-opacity="0.75"/>
+      <feComposite result="composite-2" operator="out" in2="blur"/>
+      <feComposite result="composite" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" mode="darken" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect class="cls-1" x="150" y="200" width="200" height="200"/>
-  <rect class="cls-2" x="450" y="200" width="200" height="200"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="150" y="200" width="200" height="200"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="450" y="200" width="200" height="200"/>
 </svg>

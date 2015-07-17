@@ -1,7 +1,6 @@
 {
 	"children": [
 		{
-			"name": "Rectangle 1",
 			"type": "shape",
 			"visible": true,
 			"style": {
@@ -30,10 +29,11 @@
 						"y1": 2512,
 						"x2": 5924,
 						"y2": 2512,
-						"ref": "linear-gradient-1"
+						"ref": "linear-gradient"
 					}
 				}
 			},
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 2212,
 				"left": 4000,
@@ -51,7 +51,7 @@
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-1": {
+			"linear-gradient": {
 				"stops": [
 					{
 						"offset": 0,

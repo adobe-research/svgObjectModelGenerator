@@ -9,11 +9,11 @@
 
       .cls-2 {
         fill: #ed1c24;
-        clip-path: url(#clip-path-1);
+        clip-path: url(#clip-path);
       }
     </style>
 
-    <clipPath id="clip-path-1">
+    <clipPath id="clip-path">
       <rect class="cls-1" x="130" y="67" width="179" height="179"/>
     </clipPath>
   </defs>

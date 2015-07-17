@@ -14,8 +14,8 @@
       }
     </style>
   </defs>
-  <g>
-    <circle class="cls-1" cx="253.1" cy="266.1" r="197.9" transform="translate(2 234.5) rotate(45)"/>
-    <path class="cls-2" d="M200.6,200.6L300.3,10.2V500.1" transform="matrix(0.25, 0.35, -0.43, 0.15, 1.14, 234.45)"/>
+  <g id="Layer_1" data-name="Layer 1">
+    <circle id="<Path>" class="cls-1" cx="253.1" cy="266.1" r="197.9" transform="translate(2 234.5) rotate(45)"/>
+    <path id="Shape_1" data-name="Shape 1" class="cls-2" d="M201,201L300,10V500" transform="matrix(0.25, 0.35, -0.43, 0.15, 1.14, 234.45)"/>
   </g>
 </svg>

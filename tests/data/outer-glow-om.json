@@ -102,7 +102,7 @@
 						}
 					}
 				},
-				"filter": "filter-1"
+				"filter": "filter"
 			},
 			"name": "Rectangle 1",
 			"visualBounds": {
@@ -123,12 +123,12 @@
 	"global": {
 		"clipPaths": {},
 		"filters": {
-			"filter-1": {
+			"filter": {
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -136,18 +136,18 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"blur-1",
-							"blur-1"
+							"blur",
+							"blur"
 						]
 					},
 					{
 						"kind": "feComposite",
 						"id": "composite-2",
 						"input": [
-							"composite-1",
-							"composite-1"
+							"composite",
+							"composite"
 						]
 					},
 					{
@@ -161,7 +161,7 @@
 					},
 					{
 						"kind": "feColorMatrix",
-						"id": "color-1",
+						"id": "color",
 						"input": [
 							"composite-3"
 						],
@@ -193,7 +193,7 @@
 						"kind": "feColorMatrix",
 						"id": "color-2",
 						"input": [
-							"color-1"
+							"color"
 						],
 						"type": "matrix",
 						"values": [
@@ -251,7 +251,7 @@
 					},
 					{
 						"kind": "feComponentTransfer",
-						"id": "comp-1",
+						"id": "comp",
 						"input": [
 							"color-3"
 						],
@@ -279,9 +279,9 @@
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
-							"comp-1",
+							"comp",
 							"SourceGraphic"
 						],
 						"mode": "normal"
@@ -291,7 +291,7 @@
 						"id": "blend-2",
 						"input": [
 							"SourceGraphic",
-							"blend-1"
+							"blend"
 						]
 					}
 				]

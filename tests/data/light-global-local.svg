@@ -6,7 +6,7 @@
       }
 
       .cls-1 {
-        filter: url(#filter-1);
+        filter: url(#filter);
       }
 
       .cls-2 {
@@ -26,39 +26,39 @@
       }
     </style>
 
-    <filter id="filter-1" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
-      <feComposite result="composite-1" operator="in" in2="blur-1"/>
-      <feOffset result="offset-1" dx="14.142" dy="14.142"/>
-      <feBlend result="blend-1" in="SourceGraphic"/>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feOffset result="offset" dx="14.142" dy="14.142"/>
+      <feBlend result="blend" in="SourceGraphic"/>
     </filter>
     <filter id="filter-2" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
-      <feComposite result="composite-1" operator="in" in2="blur-1"/>
-      <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
-      <feBlend result="blend-1" in="SourceGraphic"/>
+      <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feOffset result="offset" dx="-16.383" dy="-11.472"/>
+      <feBlend result="blend" in="SourceGraphic"/>
     </filter>
     <filter id="filter-3" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
-      <feComposite result="composite-1" operator="out" in2="blur-1"/>
-      <feOffset result="offset-1" dx="14.142" dy="14.142"/>
+      <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dx="14.142" dy="14.142"/>
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
-      <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
     <filter id="filter-4" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="4.472" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
-      <feComposite result="composite-1" operator="out" in2="blur-1"/>
-      <feOffset result="offset-1" dx="-16.383" dy="-11.472"/>
+      <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dx="-16.383" dy="-11.472"/>
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
-      <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect class="cls-1" x="50" y="83" width="250" height="150"/>
-  <rect class="cls-2" x="450" y="80" width="250" height="150"/>
-  <rect class="cls-3" x="50" y="350" width="250" height="150"/>
-  <rect class="cls-4" x="450" y="350" width="250" height="150"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="83" width="250" height="150"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="450" y="80" width="250" height="150"/>
+  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="50" y="350" width="250" height="150"/>
+  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-4" x="450" y="350" width="250" height="150"/>
 </svg>
