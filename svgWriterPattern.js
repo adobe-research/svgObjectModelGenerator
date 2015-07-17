@@ -25,16 +25,21 @@
                 fingerprint = "",
                 patternID,
                 styleBlock,
-                patternTag;
+                patternTag,
+                name;
 
             if (ctx.svgOM.global && ctx.svgOM.global.patterns[patternRef.ref]) {
                 ctx.currentOMNode = ctx.svgOM.global.patterns[patternRef.ref];
                 ctx.currentOMNode.transform = patternRef.transform;
-                patternID = ctx.ID.getUnique("pattern", ctx.currentOMNode.name);
+                name = ctx.currentOMNode.name;
+                patternID = ctx.ID.getUnique("pattern", name);
                 patternTag = Tag.make(ctx);
                 fingerprint = patternTag.toString();
                 ctx.currentOMNode = omIn;
                 patternTag.setAttribute("id", patternID);
+                if (name && patternID != name) {
+                    patternTag.setAttribute("data-name", name);
+                }
                 ctx.omStylesheet.define("pattern-" + flavor, omIn.id, patternID, patternTag, fingerprint);
             }
 

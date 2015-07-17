@@ -275,11 +275,14 @@
             if ("id" in tag.attrs) {
                 tag.writeAttribute(ctx, "id");
             }
+            if ("data-name" in tag.attrs) {
+                tag.writeAttribute(ctx, "data-name");
+            }
             if ("class" in tag.attrs) {
                 tag.writeAttribute(ctx, "class");
             }
             for (var name in tag.attrs) {
-                if (name != "class" && name != "id" && name != "style") {
+                if (name != "class" && name != "id" && name != "data-name" && name != "style") {
                     tag.writeAttribute(ctx, name);
                 }
             }
@@ -821,7 +824,8 @@
         node = node || ctx.currentOMNode;
         var tag,
             rootArtboardClipPath,
-            f;
+            f,
+            id;
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
@@ -848,6 +852,13 @@
                     console.error("ERROR: Unknown omIn.type = " + node.type);
                 } else {
                     tag = f(ctx, node, sibling);
+                }
+            }
+            if (ctx.idType != "minimal" && typeof node.name == "string" && node.name.length && !tag.getAttribute("id")) {
+                id = ctx.ID.getUnique("", node.name);
+                tag.setAttribute("id", id);
+                if (node.name != id) {
+                    tag.setAttribute("data-name", node.name);
                 }
             }
         }

@@ -3,7 +3,6 @@
         {
             "children": [
                 {
-                    "name": "<Rectangle>",
                     "shape": {
                         "height": 259.848,
                         "type": "rect",
@@ -37,7 +36,6 @@
                     }
                 },
                 {
-                    "name": "<Rectangle>",
                     "shape": {
                         "height": 83.3333,
                         "type": "rect",
@@ -189,7 +187,6 @@
                     {
                         "children": [
                             {
-                                "name": "<Path>",
                                 "shape": {
                                     "height": 84.3333,
                                     "type": "rect",
@@ -206,7 +203,6 @@
                                 }
                             },
                             {
-                                "name": "<Rectangle>",
                                 "shape": {
                                     "height": 83.3333,
                                     "type": "rect",
@@ -252,7 +248,6 @@
                                 }
                             }
                         ],
-                        "name": "<Group>",
                         "type": "group"
                     }
                 ],

@@ -148,6 +148,11 @@
                 }),
                 alpha = 0;
 
+
+            if (ctx.currentOMNode.name && gradientID != ctx.currentOMNode.name) {
+                tag.setAttribute("data-name", ctx.currentOMNode.name);
+            }
+
             // FIXME: This check is because we do not shift points of paths
             // but translate the whole path including paint servers.
             // In the future we may shift the points and remove this special

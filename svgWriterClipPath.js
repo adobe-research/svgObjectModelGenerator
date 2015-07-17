@@ -26,7 +26,8 @@
                 clipPath,
                 clipPathID,
                 styleBlock,
-                clipPathTag;
+                clipPathTag,
+                name;
 
             if (!omIn.style || !omIn.style["clip-path"]) {
                 return;
@@ -34,11 +35,15 @@
             clipPath = omIn.style["clip-path"];
             if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
                 ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
-                clipPathID = ctx.ID.getUnique("clip-path", ctx.currentOMNode.name);
+                name = ctx.currentOMNode.name;
+                clipPathID = ctx.ID.getUnique("clip-path", name);
                 clipPathTag = Tag.make(ctx);
                 fingerprint = clipPathTag.toString();
                 ctx.currentOMNode = omIn;
                 clipPathTag.setAttribute("id", clipPathID);
+                if (name && clipPathID != name) {
+                    clipPathTag.setAttribute("data-name", name);
+                }
                 ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, fingerprint);
             }
 
