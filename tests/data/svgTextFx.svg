@@ -30,5 +30,5 @@
       <feBlend result="blend-2" mode="lighten" in2="blend"/>
     </filter>
   </defs>
-  <text class="cls-1" x="244.922" y="153.82"><tspan class="cls-2"><tspan class="cls-3">This is a <tspan class="cls-4">text</tspan></tspan></tspan></text>
+  <text id="This_is_a_text" data-name="This is a text" class="cls-1" x="244.922" y="153.82"><tspan class="cls-2"><tspan class="cls-3">This is a <tspan class="cls-4">text</tspan></tspan></tspan></text>
 </svg>
