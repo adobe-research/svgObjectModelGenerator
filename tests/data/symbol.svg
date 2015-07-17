@@ -13,12 +13,9 @@
     <symbol id="<A_damn_cool_circle>" data-name="<A damn cool circle>">
       <circle class="cls-1" cx="100" cy="100" r="100"/>
     </symbol>
-    <symbol id="symbol-3">
-      <circle class="cls-1" cx="100" cy="100" r="100"/>
-    </symbol>
   </defs>
   <use xlink:href="#symbol"/>
   <use xlink:href="#symbol" x="200" width="200"/>
   <use xlink:href="#<A_damn_cool_circle>" y="200" width="200" height="200"/>
-  <use xlink:href="#symbol-3" x="200" y="200"/>
+  <use xlink:href="#<A_damn_cool_circle>" x="200" y="200"/>
 </svg>

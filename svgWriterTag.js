@@ -272,10 +272,10 @@
                 ind = "";
             }
             write(ctx, ind + "<" + tag.name);
-            if ("id" in tag.attrs) {
+            if ("id" in tag.attrs && !noctx) {
                 tag.writeAttribute(ctx, "id");
             }
-            if ("data-name" in tag.attrs) {
+            if ("data-name" in tag.attrs && !noctx) {
                 tag.writeAttribute(ctx, "data-name");
             }
             if ("class" in tag.attrs) {
