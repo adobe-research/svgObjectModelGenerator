@@ -23,16 +23,21 @@
         writeSymbol: function (ctx, symbol) {
             var omIn = ctx.currentOMNode,
                 fingerprint = "",
+                name,
                 symbolID,
                 symbolTag;
 
             if (ctx.svgOM.global && ctx.svgOM.global.symbols[symbol]) {
                 ctx.currentOMNode = ctx.svgOM.global.symbols[symbol];
-                symbolID = ctx.ID.getUnique("symbol", ctx.currentOMNode.name);
+                name = ctx.currentOMNode.name;
+                symbolID = ctx.ID.getUnique("symbol", name);
                 symbolTag = Tag.make(ctx);
                 fingerprint = symbolTag.toString();
                 ctx.currentOMNode = omIn;
                 symbolTag.setAttribute("id", symbolID);
+                if (name && symbolID != name) {
+                    symbolTag.setAttribute("data-name", name);
+                }
                 ctx.omStylesheet.define("symbol", symbol, symbolID, symbolTag, fingerprint);
             }
         }
