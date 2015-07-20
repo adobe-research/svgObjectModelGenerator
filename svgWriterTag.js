@@ -71,7 +71,6 @@
         var bounds = svgOM.global.bounds || {};
         root = {
             all: {},
-            artboards: 1,
             ids: {},
             x: bounds.left,
             y: bounds.top,
@@ -755,8 +754,12 @@
             }, ctx);
             return tag.useTrick(ctx);
         },
-        artboard: function (ctx) {
-            var artboard = new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
+        artboard: function (ctx, node) {
+            var id = ctx.ID.getUnique("artboard", node.name),
+                artboard = new Tag("g", {id: id}, ctx).useTrick(ctx);
+            if (!ctx.minify && node.name && node.name != id) {
+                artboard.setAttribute("data-name", node.name);
+            }
             artboard.isArtboard = true;
             return artboard;
         },
