@@ -23,7 +23,7 @@
         font-weight: 800;
       }
 
-      .cls-11, .cls-13, .cls-15, .cls-6 {
+      .cls-11, .cls-13, .cls-14, .cls-6 {
         font-style: italic;
       }
 
@@ -33,9 +33,6 @@
 
       .cls-8 {
         font-size: 72px;
-      }
-
-      .cls-10, .cls-11, .cls-12, .cls-9 {
         font-family: "Helvetica Neue";
       }
 
@@ -46,18 +43,6 @@
       .cls-12 {
         font-weight: 500;
       }
-
-      .cls-13 {
-        font-family: Helvetica;
-      }
-
-      .cls-14 {
-        font-family: "Bodoni 72";
-      }
-
-      .cls-15 {
-        font-family: "Letter Gothic Std";
-      }
     </style>
   </defs>
   <text class="cls-1" x="86.777" y="285.703"><tspan x="86.777">2</tspan></text>
@@ -67,5 +52,5 @@
   <text class="cls-5" x="86.777" y="794.703"><tspan x="86.777">6</tspan></text>
   <text class="cls-6" x="86.777" y="919.703"><tspan x="86.777">7</tspan></text>
   <text class="cls-7" x="86.777" y="149.703"><tspan x="86.777">1</tspan></text>
-  <text class="cls-8" x="369.777" y="127.703"><tspan class="cls-9">thin</tspan><tspan class="cls-10" dy="111.024" x="369.777">ultrathin</tspan><tspan class="cls-11" dy="111.024" x="369.777">thin italic</tspan><tspan class="cls-12" dy="111.024" x="369.777">medium</tspan><tspan class="cls-13" dy="111.024" x="369.777">light oblique</tspan><tspan class="cls-14" dy="111.024" x="369.777">book</tspan><tspan class="cls-15" dy="111.024" x="369.777">slanted</tspan></text>
+  <text class="cls-8" x="369.777" y="127.703"><tspan class="cls-9">thin</tspan><tspan class="cls-10" dy="111.024" x="369.777">ultrathin</tspan><tspan class="cls-11" dy="111.024" x="369.777">thin italic</tspan><tspan class="cls-12" dy="111.024" x="369.777">medium</tspan><tspan class="cls-13" dy="111.024" x="369.777">light oblique</tspan><tspan dy="111.024" x="369.777">book</tspan><tspan class="cls-14" dy="111.024" x="369.777">slanted</tspan></text>
 </svg>

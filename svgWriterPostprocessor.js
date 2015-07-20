@@ -84,24 +84,25 @@
                     return;
                 }
                 var tagStyle = tag.styleBlock,
-                    firstStyle = tag.children && tag.children[0].styleBlock,
-                    unique = {},
-                    common = {};
-                if (!firstStyle) {
-                    return;
-                }
+                    common = {},
+                    name,
+                    value;
                 for (var i = 0; i < tag.children.length; i++) {
                     var style = tag.children[i].styleBlock;
                     if (!style) {
                         return;
                     }
-                    for (var j = 0; j < style.rules.length; j++) {
-                        var name = style.rules[j].propertyName,
+                    if (i) {
+                        for (name in common) {
+                            if (style.getPropertyValue(name) == null) {
+                                delete common[name];
+                            }
+                        }
+                    } else {
+                        for (var j = 0; j < style.rules.length; j++) {
+                            name = style.rules[j].propertyName;
                             value = style.rules[j].value;
-                        if (common[name] != unique && firstStyle.getPropertyValue(name) == value) {
                             common[name] = value;
-                        } else {
-                            common[name] = unique;
                         }
                     }
                 }
@@ -112,7 +113,7 @@
                     if (style) {
                         for (j = 0; j < style.rules.length; j++) {
                             name = style.rules[j].propertyName;
-                            if (name in common && common[name] != unique) {
+                            if (name in common) {
                                 style.rules.splice(j, 1);
                                 j--;
                             }
@@ -135,9 +136,7 @@
                     tag.collapseChild(toCollapse[i]);
                 }
                 for (name in common) {
-                    if (common[name] != unique) {
-                        tagStyle.addRule(name, common[name]);
-                    }
+                    tagStyle.addRule(name, common[name]);
                 }
             }
         ];

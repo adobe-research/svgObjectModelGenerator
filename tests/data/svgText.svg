@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-      .cls-1, .cls-12, .cls-6, .cls-7, .cls-9 {
+      .cls-1, .cls-6, .cls-9 {
         font-size: 63.635px;
       }
 
-      .cls-1, .cls-4, .cls-8, .cls-9 {
+      .cls-1, .cls-4, .cls-7 {
         fill: #030303;
       }
 
@@ -17,7 +17,7 @@
         fill: #39ff02;
       }
 
-      .cls-12, .cls-3, .cls-7 {
+      .cls-3, .cls-6, .cls-9 {
         fill: #ff032d;
       }
 
@@ -30,7 +30,7 @@
         font-family: "Minion Pro";
       }
 
-      .cls-10, .cls-11 {
+      .cls-8 {
         fill: #02ffa2;
         font-size: 20px;
       }
@@ -39,5 +39,5 @@
   <text class="cls-1" x="128.703" y="121.297">This is a text example</text>
   <text class="cls-1" x="140.625" y="232.094">This is a <tspan class="cls-2">text </tspan>example</text>
   <text class="cls-1" x="139.055" y="341.414">Thi<tspan class="cls-2">s i</tspan>s <tspan class="cls-3">a t</tspan>ex<tspan class="cls-4">t e</tspan>xa<tspan class="cls-5">mple</tspan></text>
-  <text class="cls-6" x="148.648" y="439.898"><tspan class="cls-7">This i<tspan class="cls-8">s</tspan></tspan><tspan class="cls-9" dy="76.362" x="148.648">a te<tspan class="cls-3">x<tspan class="cls-10">t</tspan></tspan></tspan><tspan class="cls-11" dy="76.362" x="148.648">exam<tspan class="cls-12">ple</tspan></tspan></text>
+  <text class="cls-6" x="148.648" y="439.898">This i<tspan class="cls-7">s</tspan><tspan dy="76.362" x="148.648">a te<tspan class="cls-3">x<tspan class="cls-8">t</tspan></tspan></tspan><tspan dy="76.362" x="148.648">exam<tspan class="cls-9">ple</tspan></tspan></text>
 </svg>
