@@ -1,43 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
     <style>
-      .cls-1, .cls-10, .cls-13, .cls-2, .cls-3, .cls-8 {
+      .cls-1, .cls-12, .cls-6, .cls-7, .cls-9 {
         font-size: 63.635px;
       }
 
-      .cls-10, .cls-2, .cls-3, .cls-6, .cls-9 {
+      .cls-1, .cls-4, .cls-8, .cls-9 {
         fill: #030303;
       }
 
-      .cls-2, .cls-3 {
+      .cls-1 {
         font-family: "Myriad Pro";
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: #39ff02;
       }
 
-      .cls-13, .cls-5, .cls-8 {
+      .cls-12, .cls-3, .cls-7 {
         fill: #ff032d;
       }
 
-      .cls-6 {
+      .cls-4 {
         font-family: MyriadPro-BoldCond, "Myriad Pro";
         font-weight: 700;
       }
 
-      .cls-10, .cls-12, .cls-7, .cls-8 {
+      .cls-5, .cls-6 {
         font-family: "Minion Pro";
       }
 
-      .cls-11, .cls-12 {
+      .cls-10, .cls-11 {
         fill: #02ffa2;
         font-size: 20px;
       }
     </style>
   </defs>
-  <text class="cls-1" x="128.703" y="121.297"><tspan class="cls-2">This is a text example</tspan></text>
-  <text class="cls-1" x="140.625" y="232.094"><tspan class="cls-1"><tspan class="cls-3">This is a <tspan class="cls-4">text </tspan>example</tspan></tspan></text>
-  <text class="cls-1" x="139.055" y="341.414"><tspan class="cls-1"><tspan class="cls-3">Thi<tspan class="cls-4">s i</tspan>s <tspan class="cls-5">a t</tspan>ex<tspan class="cls-6">t e</tspan>xa<tspan class="cls-7">mple</tspan></tspan></tspan></text>
-  <text class="cls-1" x="148.648" y="439.898"><tspan class="cls-1"><tspan class="cls-8">This i<tspan class="cls-9">s</tspan></tspan></tspan><tspan class="cls-1" dy="1.2em" x="148.648"><tspan class="cls-10">a te<tspan class="cls-5">x<tspan class="cls-11">t</tspan></tspan></tspan></tspan><tspan class="cls-1" dy="1.2em" x="148.648"><tspan class="cls-12">exam<tspan class="cls-13">ple</tspan></tspan></tspan></text>
+  <text class="cls-1" x="128.703" y="121.297">This is a text example</text>
+  <text class="cls-1" x="140.625" y="232.094">This is a <tspan class="cls-2">text </tspan>example</text>
+  <text class="cls-1" x="139.055" y="341.414">Thi<tspan class="cls-2">s i</tspan>s <tspan class="cls-3">a t</tspan>ex<tspan class="cls-4">t e</tspan>xa<tspan class="cls-5">mple</tspan></text>
+  <text class="cls-6" x="148.648" y="439.898"><tspan class="cls-7">This i<tspan class="cls-8">s</tspan></tspan><tspan class="cls-9" dy="76.362" x="148.648">a te<tspan class="cls-3">x<tspan class="cls-10">t</tspan></tspan></tspan><tspan class="cls-11" dy="76.362" x="148.648">exam<tspan class="cls-12">ple</tspan></tspan></text>
 </svg>

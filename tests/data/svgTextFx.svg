@@ -3,18 +3,12 @@
     <style>
       .cls-1 {
         filter: url(#filter-1);
-      }
-
-      .cls-1, .cls-2, .cls-3 {
         font-size: 31.818px;
-      }
-
-      .cls-3 {
         fill: #030303;
         font-family: "Minion Pro";
       }
 
-      .cls-4 {
+      .cls-2 {
         fill: #0241ff;
       }
     </style>
@@ -30,5 +24,5 @@
       <feBlend result="blend-2" mode="lighten" in2="blend-1"/>
     </filter>
   </defs>
-  <text class="cls-1" x="244.922" y="153.82"><tspan class="cls-2"><tspan class="cls-3">This is a <tspan class="cls-4">text</tspan></tspan></tspan></text>
+  <text class="cls-1" x="244.922" y="153.82">This is a <tspan class="cls-2">text</tspan></text>
 </svg>

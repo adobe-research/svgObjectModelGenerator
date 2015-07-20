@@ -434,7 +434,7 @@
                 blocks = [];
 
             for (blockClass in this.blocks) {
-                if (this.blocks.hasOwnProperty(blockClass) && this.blocks[blockClass].hasRules()) {
+                if (this.blocks.hasOwnProperty(blockClass) && this.blocks[blockClass].hasRules() && this.blocks[blockClass].tags && this.blocks[blockClass].tags.length) {
                     blocks.push(this.blocks[blockClass]);
                 }
             }
