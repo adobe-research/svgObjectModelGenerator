@@ -20,7 +20,7 @@
                 }
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "visualBounds": {
                 "top": 100,
                 "left": 100,
@@ -74,7 +74,7 @@
                 }
             },
             "children": [],
-            "title": "Rectangle 2",
+            "name": "Rectangle 2",
             "visualBounds": {
                 "top": 450,
                 "left": 450,
@@ -113,7 +113,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Rectangle 2",
+                    "name": "Rectangle 2",
                     "visualBounds": {
                         "top": 0,
                         "left": 0,
@@ -156,7 +156,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Rectangle 2",
+                    "name": "Rectangle 2",
                     "visualBounds": {
                         "top": 0,
                         "left": 0,

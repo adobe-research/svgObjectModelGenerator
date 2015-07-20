@@ -19,8 +19,8 @@
     </style>
 
     <clipPath id="clip-path">
-      <circle class="cls-1" cx="309" cy="245" r="94"/>
+      <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="309" cy="245" r="94"/>
     </clipPath>
   </defs>
-  <rect class="cls-2" x="130" y="66" width="179" height="179"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" x="130" y="66" width="179" height="179"/>
 </svg>

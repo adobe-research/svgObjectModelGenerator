@@ -3,7 +3,6 @@
         {
             "children": [],
             "id": "just-circles",
-            "title": "",
             "type": "group",
             "visible": true
         },
@@ -28,7 +27,6 @@
                 "right": 200,
                 "top": 100
             },
-            "title": "",
             "type": "shape",
             "visible": true
         }

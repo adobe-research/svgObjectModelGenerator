@@ -21,15 +21,15 @@
     </style>
 
     <pattern id="pattern" width="55" height="55" patternUnits="userSpaceOnUse">
-      <rect class="cls-1" width="50" height="50"/>
+      <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" width="50" height="50"/>
     </pattern>
     <pattern id="pattern-2" width="55" height="55" patternUnits="userSpaceOnUse">
-      <rect class="cls-2" width="50" height="50"/>
+      <rect id="Rectangle_2-2" data-name="Rectangle 2" class="cls-2" width="50" height="50"/>
     </pattern>
     <pattern id="pattern-3" width="55" height="55" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse">
-      <rect class="cls-1" width="50" height="50"/>
+      <rect id="Rectangle_2-3" data-name="Rectangle 2" class="cls-1" width="50" height="50"/>
     </pattern>
   </defs>
-  <rect class="cls-3" x="100" y="100" width="300" height="300"/>
-  <rect class="cls-4" x="450" y="450" width="300" height="300"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-3" x="100" y="100" width="300" height="300"/>
+  <rect id="Rectangle_2-4" data-name="Rectangle 2" class="cls-4" x="450" y="450" width="300" height="300"/>
 </svg>

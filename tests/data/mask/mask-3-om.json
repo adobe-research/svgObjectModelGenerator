@@ -33,7 +33,7 @@
                 "mask": "mask1"
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "shapeBounds": {
                 "top": 66,
                 "left": 130,
@@ -88,7 +88,7 @@
                         "mask": "mask2"
                     },
                     "children": [],
-                    "title": "Ellipse 1",
+                    "name": "Ellipse 1",
                     "shapeBounds": {
                         "top": 151,
                         "left": 215,
@@ -138,7 +138,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Circle",
+                    "name": "Circle",
                     "shapeBounds": {
                         "top": 151,
                         "left": 121,

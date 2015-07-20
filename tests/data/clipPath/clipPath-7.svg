@@ -17,11 +17,11 @@
     </style>
 
     <clipPath id="clip-path">
-      <path class="cls-2" d="M100,100H200V200H100Z"/>
+      <path id="Rectangle_1" data-name="Rectangle 1" class="cls-2" d="M100,100H200V200H100Z"/>
     </clipPath>
     <clipPath id="clip-path-2">
-      <path class="cls-1" d="M50,50H250V250H50Z"/>
+      <path id="Rectangle_1-2" data-name="Rectangle 1" class="cls-1" d="M50,50H250V250H50Z"/>
     </clipPath>
   </defs>
-  <rect class="cls-3" width="300" height="300"/>
+  <rect id="Rectangle_1-3" data-name="Rectangle 1" class="cls-3" width="300" height="300"/>
 </svg>

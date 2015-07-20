@@ -30,7 +30,7 @@
 						}
 					},
 					"children": [],
-					"title": "Ellipse 1",
+					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 800,
 						"left": 800,
@@ -64,7 +64,7 @@
 						}
 					},
 					"children": [],
-					"title": "Ellipse 2",
+					"name": "Ellipse 2",
 					"visualBounds": {
 						"top": 800,
 						"left": 1200,
@@ -98,7 +98,7 @@
 						}
 					},
 					"children": [],
-					"title": "Ellipse 3",
+					"name": "Ellipse 3",
 					"visualBounds": {
 						"top": 1200,
 						"left": 800,
@@ -132,7 +132,7 @@
 						}
 					},
 					"children": [],
-					"title": "Ellipse 4",
+					"name": "Ellipse 4",
 					"visualBounds": {
 						"top": 1200,
 						"left": 1200,
@@ -147,7 +147,7 @@
 					}
 				}
 			],
-			"title": "Artboard 1"
+			"name": "Artboard 1"
 		}
 	],
 	"global": {
@@ -297,7 +297,7 @@
 	},
 	"artboards": {
 		"artboard-1": {
-			"title": "Artboard 1",
+			"name": "Artboard 1",
 			"bounds": {
 				"top": 900,
 				"left": 900,

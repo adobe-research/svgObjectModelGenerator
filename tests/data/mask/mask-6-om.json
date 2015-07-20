@@ -20,7 +20,7 @@
                 "mask": "mask1"
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "shapeBounds": {
                 "top": 66,
                 "left": 130,
@@ -55,7 +55,7 @@
                 "mask": "mask2"
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "shapeBounds": {
                 "top": 66,
                 "left": 130,
@@ -90,7 +90,7 @@
                 "mask": "mask3"
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "shapeBounds": {
                 "top": 66,
                 "left": 130,
@@ -144,7 +144,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Rectangle 1",
+                    "name": "Rectangle 1",
                     "shapeBounds": {
                         "top": 67,
                         "left": 130,
@@ -195,7 +195,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Rectangle 1",
+                    "name": "Rectangle 1",
                     "shapeBounds": {
                         "top": 67,
                         "left": 130,
@@ -246,7 +246,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Rectangle 1",
+                    "name": "Rectangle 1",
                     "shapeBounds": {
                         "top": 67,
                         "left": 130,
