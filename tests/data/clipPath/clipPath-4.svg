@@ -23,11 +23,11 @@
     </style>
 
     <clipPath id="clip-path" clipPathUnits="objectBoundingBox">
-      <circle class="cls-2" cx="0.25" cy="0.5" r="0.4"/>
+      <circle id="Circle" class="cls-2" cx="0.25" cy="0.5" r="0.4"/>
     </clipPath>
     <clipPath id="clip-path-2">
-      <circle class="cls-1" cx="309" cy="245" r="94"/>
+      <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="309" cy="245" r="94"/>
     </clipPath>
   </defs>
-  <rect class="cls-3" x="130" y="66" width="179" height="179"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-3" x="130" y="66" width="179" height="179"/>
 </svg>

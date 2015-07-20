@@ -21,7 +21,7 @@
 				}
 			},
 			"children": [],
-			"title": "Rectangle 1",
+			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 50,
 				"left": 50,
@@ -57,7 +57,7 @@
 				}
 			},
 			"children": [],
-			"title": "Rectangle 2",
+			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
 				"left": 300,
@@ -92,7 +92,7 @@
 				}
 			},
 			"children": [],
-			"title": "Rectangle 3",
+			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 200,
 				"left": 50,
@@ -127,7 +127,7 @@
 				}
 			},
 			"children": [],
-			"title": "Rectangle 4",
+			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,

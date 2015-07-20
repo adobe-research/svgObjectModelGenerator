@@ -33,7 +33,7 @@
                 "clip-path": "clipPath1"
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "shapeBounds": {
                 "top": 66,
                 "left": 130,
@@ -87,7 +87,7 @@
                         }
                     },
                     "children": [],
-                    "title": "Ellipse 1",
+                    "name": "Ellipse 1",
                     "shapeBounds": {
                         "top": 151,
                         "left": 215,
