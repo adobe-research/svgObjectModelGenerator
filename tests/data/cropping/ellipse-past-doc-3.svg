@@ -6,11 +6,11 @@
       }
     </style>
 
-    <clipPath id="clip-path-1">
+    <clipPath id="clip-path">
       <rect width="200" height="200"/>
     </clipPath>
   </defs>
-  <g clip-path="url(#clip-path-1)">
+  <g clip-path="url(#clip-path)">
     <ellipse class="cls-1" cx="90" cy="100" rx="125" ry="125"/>
   </g>
 </svg>

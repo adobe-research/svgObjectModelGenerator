@@ -26,7 +26,8 @@
                 mask,
                 maskID,
                 styleBlock,
-                maskTag;
+                maskTag,
+                name;
 
             if (!omIn.style || !omIn.style.mask) {
                 return;
@@ -34,11 +35,15 @@
             mask = omIn.style.mask;
             if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
                 ctx.currentOMNode = ctx.svgOM.global.masks[mask];
-                maskID = ctx.ID.getUnique("mask", ctx.currentOMNode.name);
+                name = ctx.currentOMNode.name;
+                maskID = ctx.ID.getUnique("mask", name);
                 maskTag = Tag.make(ctx);
                 fingerprint = maskTag.toString();
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
+                if (!ctx.minify && name && maskID != name) {
+                    maskTag.setAttribute("data-name", name);
+                }
                 ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, fingerprint);
             }
 

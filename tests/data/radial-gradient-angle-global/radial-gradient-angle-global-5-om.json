@@ -14,7 +14,7 @@
 						"r": 424.26406871192853,
 						"cx": 400,
 						"cy": 300,
-						"ref": "radial-gradient-1"
+						"ref": "radial-gradient"
 					}
 				}
 			},
@@ -38,7 +38,7 @@
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"radial-gradient-1": {
+			"radial-gradient": {
 				"stops": [
 					{
 						"offset": 0,

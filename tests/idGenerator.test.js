@@ -32,11 +32,11 @@ describe("idGenerator", function () {
     it("test regular ID generation", function () {
         var idGen = new ID();
 
-        expect(idGen.getUnique("gradient")).to.equal("gradient-1");
-        expect(idGen.getUnique("pattern")).to.equal("pattern-1");
+        expect(idGen.getUnique("gradient")).to.equal("gradient");
+        expect(idGen.getUnique("pattern")).to.equal("pattern");
         expect(idGen.getUnique("gradient")).to.equal("gradient-2");
-        expect(idGen.getUnique("gradient", "--Test_Alpha:;&")).to.equal("test_alpha:_-1");
-        expect(idGen.getUnique("gradient", "--test_Alpha:;&")).to.equal("test_alpha:_-2");
+        expect(idGen.getUnique("gradient", "--Test_Alpha:;&")).to.equal("Test_Alpha:;_");
+        expect(idGen.getUnique("gradient", "--test_Alpha:;&")).to.equal("test_Alpha:;_-2");
         expect(idGen.getUnique("gradient", {})).to.equal("gradient-3");
         expect(idGen.getUnique("gradient", "")).to.equal("gradient-4");
     });

@@ -52,7 +52,7 @@
 						}
 					}
 				},
-				"filter": "filter-1"
+				"filter": "filter"
 			},
 			"name": "Rectangle 1",
 			"visualBounds": {
@@ -278,12 +278,12 @@
 	"global": {
 		"clipPaths": {},
 		"filters": {
-			"filter-1": {
+			"filter": {
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -291,7 +291,7 @@
 					},
 					{
 						"kind": "feFlood",
-						"id": "flood-1",
+						"id": "flood",
 						"input": [],
 						"flood-color": {
 							"r": 0,
@@ -303,28 +303,28 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"flood-1",
-							"blur-1"
+							"flood",
+							"blur"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feOffset",
-						"id": "offset-1",
+						"id": "offset",
 						"input": [
-							"composite-1"
+							"composite"
 						],
 						"dx": 14.142,
 						"dy": 14.142
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
 							"SourceGraphic",
-							"offset-1"
+							"offset"
 						]
 					}
 				]
@@ -334,7 +334,7 @@
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -342,7 +342,7 @@
 					},
 					{
 						"kind": "feFlood",
-						"id": "flood-1",
+						"id": "flood",
 						"input": [],
 						"flood-color": {
 							"r": 0,
@@ -354,28 +354,28 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"flood-1",
-							"blur-1"
+							"flood",
+							"blur"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feOffset",
-						"id": "offset-1",
+						"id": "offset",
 						"input": [
-							"composite-1"
+							"composite"
 						],
 						"dx": -16.383,
 						"dy": -11.472
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
 							"SourceGraphic",
-							"offset-1"
+							"offset"
 						]
 					}
 				]
@@ -385,7 +385,7 @@
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -393,7 +393,7 @@
 					},
 					{
 						"kind": "feFlood",
-						"id": "flood-1",
+						"id": "flood",
 						"input": [],
 						"flood-color": {
 							"r": 0,
@@ -405,18 +405,18 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"flood-1",
-							"blur-1"
+							"flood",
+							"blur"
 						],
 						"operator": "out"
 					},
 					{
 						"kind": "feOffset",
-						"id": "offset-1",
+						"id": "offset",
 						"input": [
-							"composite-1"
+							"composite"
 						],
 						"dx": 14.142,
 						"dy": 14.142
@@ -425,14 +425,14 @@
 						"kind": "feComposite",
 						"id": "composite-2",
 						"input": [
-							"offset-1",
+							"offset",
 							"SourceAlpha"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
 							"composite-2",
 							"SourceGraphic"
@@ -446,7 +446,7 @@
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -454,7 +454,7 @@
 					},
 					{
 						"kind": "feFlood",
-						"id": "flood-1",
+						"id": "flood",
 						"input": [],
 						"flood-color": {
 							"r": 0,
@@ -466,18 +466,18 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"flood-1",
-							"blur-1"
+							"flood",
+							"blur"
 						],
 						"operator": "out"
 					},
 					{
 						"kind": "feOffset",
-						"id": "offset-1",
+						"id": "offset",
 						"input": [
-							"composite-1"
+							"composite"
 						],
 						"dx": -16.383,
 						"dy": -11.472
@@ -486,14 +486,14 @@
 						"kind": "feComposite",
 						"id": "composite-2",
 						"input": [
-							"offset-1",
+							"offset",
 							"SourceAlpha"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
 							"composite-2",
 							"SourceGraphic"

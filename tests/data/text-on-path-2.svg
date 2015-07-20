@@ -16,10 +16,10 @@
       }
     </style>
 
-    <path id="text-path-1" d="M145.08,123.12c31.613,0,57.24,17.568,57.24,39.24s-25.627,39.24-57.24,39.24-57.24-17.568-57.24-39.24Z"/>
+    <path id="text-path" d="M145.08,123.12c31.613,0,57.24,17.568,57.24,39.24s-25.627,39.24-57.24,39.24-57.24-17.568-57.24-39.24Z"/>
     <path id="text-path-2" d="M360.72,269.76c30.221,0,54.72,15.043,54.72,33.6s-24.5,33.6-54.72,33.6S306,321.917,306,303.36Z"/>
   </defs>
-  <text class="cls-1"><textPath class="cls-2" xlink:href="#text-path-1" startOffset="100%"><tspan class="cls-3" x="0">Text on Path</tspan></textPath></text>
-  <text class="cls-1" x="744.176" y="168.574"><tspan class="cls-3" x="744.176">Plain text</tspan></text>
-  <text class="cls-1"><textPath class="cls-2" xlink:href="#text-path-2" startOffset="100%"><tspan class="cls-3" x="0">more path text </tspan></textPath></text>
+  <text id="Text_on_Path.svg" data-name="Text on Path.svg" class="cls-1"><textPath class="cls-2" xlink:href="#text-path" startOffset="100%"><tspan class="cls-3" x="0">Text on Path</tspan></textPath></text>
+  <text id="Plain_text.svg" data-name="Plain text.svg" class="cls-1" x="744.176" y="168.574"><tspan class="cls-3" x="744.176">Plain text</tspan></text>
+  <text id="more_path_text.svg" data-name="more path text.svg" class="cls-1"><textPath class="cls-2" xlink:href="#text-path-2" startOffset="100%"><tspan class="cls-3" x="0">more path text </tspan></textPath></text>
 </svg>

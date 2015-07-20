@@ -13,7 +13,7 @@
       }
 
       .cls-2 {
-        stroke: url(#linear-gradient-1);
+        stroke: url(#linear-gradient);
         stroke-opacity: 0.8;
       }
 
@@ -31,11 +31,11 @@
       }
 
       .cls-6 {
-        stroke: url(#radial-gradient-1);
+        stroke: url(#radial-gradient);
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="300" y1="150" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="300" y1="150" x2="400" y2="150" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
@@ -55,12 +55,12 @@
       <stop offset="1" stop-color="red"/>
     </linearGradient>
     <linearGradient id="linear-gradient-4" y1="600" x2="700" y2="0" xlink:href="#linear-gradient-3"/>
-    <radialGradient id="radial-gradient-1" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
+    <radialGradient id="radial-gradient" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
   </defs>
-  <rect class="cls-1" x="100" y="100" width="100" height="100"/>
-  <rect class="cls-2" x="300" y="100" width="100" height="100"/>
-  <rect class="cls-3" x="500" y="100" width="100" height="100"/>
-  <rect class="cls-4" x="100" y="300" width="100" height="100"/>
-  <rect class="cls-5" x="300" y="300" width="100" height="100"/>
-  <rect class="cls-6" x="500" y="300" width="100" height="100"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="100" y="100" width="100" height="100"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="100" width="100" height="100"/>
+  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="500" y="100" width="100" height="100"/>
+  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-4" x="100" y="300" width="100" height="100"/>
+  <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-5" x="300" y="300" width="100" height="100"/>
+  <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-6" x="500" y="300" width="100" height="100"/>
 </svg>

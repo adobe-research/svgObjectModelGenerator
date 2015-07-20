@@ -1,7 +1,6 @@
 {
 	"children": [
 		{
-			"name": "circle",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -9,10 +8,10 @@
 					"type": "none"
 				}
 			},
-			"ref": "artboard-1",
+			"name": "circle",
+			"ref": "artboard",
 			"children": [
 				{
-					"name": "Ellipse 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -29,6 +28,7 @@
 							}
 						}
 					},
+					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2125,
 						"left": 2125,
@@ -45,7 +45,6 @@
 			]
 		},
 		{
-			"name": "square",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -53,10 +52,10 @@
 					"type": "none"
 				}
 			},
+			"name": "square",
 			"ref": "artboard-2",
 			"children": [
 				{
-					"name": "Rectangle 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -73,6 +72,7 @@
 							}
 						}
 					},
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2138,
 						"left": 3390,
@@ -105,7 +105,7 @@
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"artboard-1": {
+		"artboard": {
 			"name": "circle",
 			"bounds": {
 				"top": 2000,

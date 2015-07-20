@@ -14,11 +14,11 @@
       .cls-2 {
         fill: #0072bc;
         stroke-width: 14px;
-        clip-path: url(#clip-path-1);
+        clip-path: url(#clip-path);
       }
     </style>
 
-    <clipPath id="clip-path-1">
+    <clipPath id="clip-path">
       <circle class="cls-1" cx="309" cy="245" r="94"/>
     </clipPath>
   </defs>

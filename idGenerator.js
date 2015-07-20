@@ -21,6 +21,14 @@
     function ID(type) {
         var docIDs = type == "minimal" ? {min: "`"} : {},
             _type = type,
+            // NameStartChar ::= ":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] |
+            //     [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] |
+            //     [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
+            // NameChar ::= NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
+            reg1 = /^[_:a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u10000-\uEFFFF][\._\-:a-zA-Z0-9\u00B7\u0300-\u036F\u203F-\u2040\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u10000-\uEFFFF]*&/,
+            reg2 = /^[^_:a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u10000-\uEFFFF]+/,
+            reg3 = /[^\._\-:a-zA-Z0-9\u00B7\u0300-\u036F\u203F-\u2040\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u10000-\uEFFFF]+/g,
+
             // Will create minimal Ids in the format
             // a, b, c, ..., z, aa, ab, ..., az, ba, ...
             minimalId = function () {
@@ -51,16 +59,20 @@
                     });
             },
             namedId = function (type, name) {
-                var s = type;
+                var s = type || "",
+                    e,
+                    i;
                 if (typeof name == "string") {
-                    // FIXME: We may want to preserve case sensitivity. That requires another map
-                    // with the lower case version as value and the case sensitive version as key.
                     // FIXME: Avoid cases where we get "_-".
-                    s = name.replace(/^[^a-zA-Z]+/, "").replace(/[^a-zA-Z0-9\-\_\:\.]+/g, "_").toLowerCase();
+                    if (name.search(reg1) == -1) {
+                        s = name.replace(reg2, "").replace(reg3, "_");
+                    }
                     s = s.length ? s : type;
                 }
-                docIDs[s] = docIDs[s] || 1;
-                return s + "-" + docIDs[s]++;
+                e = s.toLowerCase();
+                docIDs[e] = docIDs[e] || 1;
+                i = docIDs[e]++;
+                return s + (type == "cls" || i > 1 ? "-" + i : "");
             };
 
         this.reset = function () {

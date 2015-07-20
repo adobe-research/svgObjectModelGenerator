@@ -15,7 +15,7 @@
 						"y1": 100,
 						"x2": 250,
 						"y2": 100,
-						"ref": "linear-gradient-1"
+						"ref": "linear-gradient"
 					}
 				}
 			},
@@ -48,7 +48,7 @@
 						"r": 100,
 						"cx": 400,
 						"cy": 100,
-						"ref": "radial-gradient-1"
+						"ref": "radial-gradient"
 					}
 				}
 			},
@@ -207,7 +207,7 @@
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
-			"linear-gradient-1": {
+			"linear-gradient": {
 				"stops": [
 					{
 						"offset": 0,
@@ -270,7 +270,7 @@
 				],
 				"type": "linear"
 			},
-			"radial-gradient-1": {
+			"radial-gradient": {
 				"stops": [
 					{
 						"offset": 0,

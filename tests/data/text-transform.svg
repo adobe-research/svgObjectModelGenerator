@@ -16,6 +16,6 @@
       }
     </style>
   </defs>
-  <text class="cls-1" transform="translate(246.897 366.187) rotate(-45)"><tspan class="cls-2">Text</tspan></text>
-  <rect class="cls-3" x="208" y="275" width="98" height="121"/>
+  <text id="Text.svg" class="cls-1" transform="translate(246.897 366.187) rotate(-45)"><tspan class="cls-2">Text</tspan></text>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-3" x="208" y="275" width="98" height="121"/>
 </svg>

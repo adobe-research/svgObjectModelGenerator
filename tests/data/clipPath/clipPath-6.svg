@@ -2,18 +2,18 @@
   <defs>
     <style>
       .cls-1 {
-        clip-path: url(#clip-path-1);
+        clip-path: url(#clip-path);
       }
 
       .cls-2 {
-        mask: url(#mask-1);
+        mask: url(#mask);
       }
     </style>
 
-    <clipPath id="clip-path-1">
+    <clipPath id="clip-path">
       <rect x="100" y="100" width="100" height="100"/>
     </clipPath>
-    <mask id="mask-1">
+    <mask id="mask">
       <rect class="cls-1" x="100" y="100" width="100" height="100"/>
       <rect class="cls-1" x="100" y="100" width="100" height="100"/>
       <rect class="cls-1" x="100" y="100" width="100" height="100"/>

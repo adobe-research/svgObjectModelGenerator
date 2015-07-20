@@ -13,11 +13,11 @@
 
       .cls-3 {
         fill: #ed1c24;
-        mask: url(#mask-1);
+        mask: url(#mask);
       }
     </style>
 
-    <mask id="mask-1" style="mask-type:alpha">
+    <mask id="mask" style="mask-type:alpha">
       <rect class="cls-1" x="130" y="67" width="110" height="179"/>
       <rect class="cls-1" x="270" y="67" width="39" height="179"/>
     </mask>
