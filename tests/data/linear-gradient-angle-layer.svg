@@ -50,7 +50,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient" data-name="Rectangle 1" x1="150" y1="150" x2="150" y2="50" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="150" y1="150" x2="150" y2="50" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
@@ -59,17 +59,17 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" data-name="Rectangle 2" x1="376.685" x2="423.315" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-3" data-name="Rectangle 3" x1="550" y1="100" x2="750" y2="100" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-4" data-name="Rectangle 4" x1="126.685" y1="200" x2="173.315" y2="300" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-5" data-name="Rectangle 5" x1="400" y1="200" x2="400" y2="300" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-6" data-name="Rectangle 6" x1="673.315" y1="200" x2="626.685" y2="300" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-7" data-name="Rectangle 7" x1="250" y1="400" x2="50" y2="400" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-8" data-name="Rectangle 8" x1="423.315" y1="450" x2="376.685" y2="350" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-9" data-name="Rectangle 9" x1="750" y1="402" x2="556" y2="402" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-10" data-name="Rectangle 10" y1="600" y2="500" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-11" data-name="Rectangle 11" x1="300" y1="550" x2="500" y2="550" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-12" data-name="Rectangle 12" x1="650" y1="500" x2="650" y2="600" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-2" x1="376.685" x2="423.315" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="550" y1="100" x2="750" y2="100" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="126.685" y1="200" x2="173.315" y2="300" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="400" y1="200" x2="400" y2="300" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="673.315" y1="200" x2="626.685" y2="300" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-7" x1="250" y1="400" x2="50" y2="400" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-8" x1="423.315" y1="450" x2="376.685" y2="350" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-9" x1="750" y1="402" x2="556" y2="402" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-10" y1="600" y2="500" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-11" x1="300" y1="550" x2="500" y2="550" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-12" x1="650" y1="500" x2="650" y2="600" xlink:href="#linear-gradient"/>
   </defs>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>

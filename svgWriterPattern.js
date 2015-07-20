@@ -37,7 +37,7 @@
                 fingerprint = patternTag.toString();
                 ctx.currentOMNode = omIn;
                 patternTag.setAttribute("id", patternID);
-                if (name && patternID != name) {
+                if (!ctx.minify && name && patternID != name) {
                     patternTag.setAttribute("data-name", name);
                 }
                 ctx.omStylesheet.define("pattern-" + flavor, omIn.id, patternID, patternTag, fingerprint);

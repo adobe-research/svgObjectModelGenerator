@@ -34,7 +34,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient" data-name="Rectangle 1" x1="400" y1="600" x2="400" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="400" y1="600" x2="400" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
@@ -43,13 +43,13 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" data-name="Rectangle 2" x1="260.108" x2="539.892" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-3" data-name="Rectangle 3" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-4" data-name="Rectangle 4" x1="260.108" y1="0" x2="539.892" y2="600" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-5" data-name="Rectangle 5" y1="0" y2="600" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-6" data-name="Rectangle 6" x1="539.892" y1="0" x2="260.108" y2="600" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-7" data-name="Rectangle 7" x1="800" y1="300" x2="0" y2="300" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-8" data-name="Rectangle 8" x1="539.892" x2="260.108" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-2" x1="260.108" x2="539.892" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="260.108" y1="0" x2="539.892" y2="600" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" y1="0" y2="600" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="539.892" y1="0" x2="260.108" y2="600" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-7" x1="800" y1="300" x2="0" y2="300" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-8" x1="539.892" x2="260.108" xlink:href="#linear-gradient"/>
   </defs>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>

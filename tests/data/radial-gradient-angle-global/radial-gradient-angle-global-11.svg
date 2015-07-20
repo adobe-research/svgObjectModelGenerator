@@ -6,7 +6,7 @@
       }
     </style>
 
-    <radialGradient id="radial-gradient" data-name="Rectangle 10" cx="350" cy="-200" r="300" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="350" cy="-200" r="300" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>

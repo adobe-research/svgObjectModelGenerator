@@ -50,7 +50,7 @@
       }
     </style>
 
-    <radialGradient id="radial-gradient" data-name="Rectangle 1" cx="150" cy="100" r="50" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="150" cy="100" r="50" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
@@ -59,17 +59,17 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" data-name="Rectangle 2" cx="400" r="70.711" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-3" data-name="Rectangle 3" cx="650" r="100" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-4" data-name="Rectangle 4" cy="250" r="70.711" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-5" data-name="Rectangle 5" cx="400" cy="250" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-6" data-name="Rectangle 6" cx="650" cy="250" r="70.711" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-7" data-name="Rectangle 7" cy="400" r="100" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-8" data-name="Rectangle 8" cx="400" cy="400" r="70.711" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-9" data-name="Rectangle 9" cx="653" cy="402" r="97" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-10" data-name="Rectangle 10" cy="550" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-11" data-name="Rectangle 11" cx="400" cy="550" r="100" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-12" data-name="Rectangle 12" cx="650" cy="550" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-2" cx="400" r="70.711" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-3" cx="650" r="100" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-4" cy="250" r="70.711" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-5" cx="400" cy="250" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-6" cx="650" cy="250" r="70.711" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-7" cy="400" r="100" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-8" cx="400" cy="400" r="70.711" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-9" cx="653" cy="402" r="97" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-10" cy="550" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-11" cx="400" cy="550" r="100" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-12" cx="650" cy="550" xlink:href="#radial-gradient"/>
   </defs>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>

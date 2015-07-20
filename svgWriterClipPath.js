@@ -41,7 +41,7 @@
                 fingerprint = clipPathTag.toString();
                 ctx.currentOMNode = omIn;
                 clipPathTag.setAttribute("id", clipPathID);
-                if (name && clipPathID != name) {
+                if (!ctx.minify && name && clipPathID != name) {
                     clipPathTag.setAttribute("data-name", name);
                 }
                 ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, fingerprint);

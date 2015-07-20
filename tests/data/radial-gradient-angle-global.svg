@@ -14,7 +14,7 @@
       }
     </style>
 
-    <radialGradient id="radial-gradient" data-name="Rectangle 1" cx="400" cy="300" r="300" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="400" cy="300" r="300" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
@@ -23,8 +23,8 @@
       <stop offset="0.84" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" data-name="Rectangle 2" r="424.264" xlink:href="#radial-gradient"/>
-    <radialGradient id="radial-gradient-3" data-name="Rectangle 3" r="400" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-2" r="424.264" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-3" r="400" xlink:href="#radial-gradient"/>
   </defs>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>

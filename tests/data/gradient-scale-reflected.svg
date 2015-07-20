@@ -26,7 +26,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient" data-name="Rectangle 1" x1="50" y1="100" x2="250" y2="100" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="50" y1="100" x2="250" y2="100" gradientUnits="userSpaceOnUse">
       <stop offset="0.25" stop-color="red"/>
       <stop offset="0.29" stop-color="#ff0"/>
       <stop offset="0.333" stop-color="lime"/>
@@ -41,8 +41,8 @@
       <stop offset="0.71" stop-color="#ff0"/>
       <stop offset="0.75" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" data-name="Rectangle 2" x1="400" y1="150" x2="400" y2="50" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-3" data-name="Rectangle 3" x1="550" y1="100" x2="750" y2="100" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient-2" x1="400" y1="150" x2="400" y2="50" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="550" y1="100" x2="750" y2="100" gradientUnits="userSpaceOnUse">
       <stop offset="-0.25" stop-color="red"/>
       <stop offset="-0.13" stop-color="#ff0"/>
       <stop offset="-0.002" stop-color="lime"/>
@@ -57,9 +57,9 @@
       <stop offset="1.13" stop-color="#ff0"/>
       <stop offset="1.25" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-4" data-name="Rectangle 10" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-5" data-name="Rectangle 11" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient"/>
-    <linearGradient id="linear-gradient-6" data-name="Rectangle 12" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-4" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="400" y1="600" x2="400" y2="0" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>

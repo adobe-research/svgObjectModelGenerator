@@ -73,12 +73,12 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient" data-name="Rectangle 5" x1="328.593" y1="300" x2="471.407" y2="200" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="328.593" y1="300" x2="471.407" y2="200" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
-    <radialGradient id="radial-gradient" data-name="Rectangle 6" cx="650" cy="250" r="100" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="650" cy="250" r="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
@@ -88,7 +88,7 @@
       <stop offset="1" stop-color="red"/>
     </radialGradient>
     <radialGradient id="radial-gradient-2" r="50" xlink:href="#radial-gradient"/>
-    <linearGradient id="linear-gradient-2" data-name="Rectangle 7" x1="150" y1="450" x2="150" y2="350" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient-2" x1="150" y1="450" x2="150" y2="350" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.08" stop-color="#ff0"/>
       <stop offset="0.165" stop-color="lime"/>
@@ -103,7 +103,7 @@
       <stop offset="0.92" stop-color="#ff0"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-3" data-name="Rectangle 8" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient"/>
   </defs>
   <path id="Rectangle_1" data-name="Rectangle 1" class="cls-1" d="M50,50H250V150H50V50Z"/>
   <path id="Rectangle_2" data-name="Rectangle 2" class="cls-2" d="M300,50H500V150H300V50Z"/>

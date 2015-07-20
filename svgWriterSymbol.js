@@ -35,7 +35,7 @@
                 fingerprint = symbolTag.toString();
                 ctx.currentOMNode = omIn;
                 symbolTag.setAttribute("id", symbolID);
-                if (name && symbolID != name) {
+                if (!ctx.minify && name && symbolID != name) {
                     symbolTag.setAttribute("data-name", name);
                 }
                 ctx.omStylesheet.define("symbol", symbol, symbolID, symbolTag, fingerprint);

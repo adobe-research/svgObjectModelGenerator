@@ -10,12 +10,12 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient" data-name="Rectangle 1" x1="400" y1="400" x2="200" y2="400" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="400" y1="400" x2="200" y2="400" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>
       <stop offset="1" stop-color="#fffc00"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" data-name="Rectangle 2" x1="700" y1="442.447" x2="500" y2="357.553" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-2" x1="700" y1="442.447" x2="500" y2="357.553" xlink:href="#linear-gradient"/>
   </defs>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="200" y="150" width="200" height="500"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="500" y="150" width="200" height="500"/>

@@ -41,7 +41,7 @@
                 fingerprint = maskTag.toString();
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
-                if (name && maskID != name) {
+                if (!ctx.minify && name && maskID != name) {
                     maskTag.setAttribute("data-name", name);
                 }
                 ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, fingerprint);

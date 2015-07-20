@@ -7,7 +7,7 @@
       }
     </style>
 
-    <linearGradient id="linear-gradient" data-name="Rectangle 1" x1="275" y1="250" x2="275" y2="100" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="275" y1="250" x2="275" y2="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e10019"/>
       <stop offset="1" stop-color="#00601b"/>
     </linearGradient>
