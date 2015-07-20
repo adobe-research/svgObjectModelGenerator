@@ -113,7 +113,8 @@
                     if (style) {
                         for (j = 0; j < style.rules.length; j++) {
                             name = style.rules[j].propertyName;
-                            if (name in common) {
+                            value = style.rules[j].value;
+                            if (common[name] == value) {
                                 style.rules.splice(j, 1);
                                 j--;
                             }
