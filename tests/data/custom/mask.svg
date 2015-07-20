@@ -11,14 +11,14 @@
     </style>
 
     <mask id="mask" x="35.212" y="37.121" width="124.242" height="124.242" maskUnits="userSpaceOnUse">
-      <g id="<Group>">
-        <circle id="<Path>" class="cls-1" cx="97.333" cy="99.242" r="62.121"/>
+      <g id="_Group_" data-name="&lt;Group&gt;">
+        <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="97.333" cy="99.242" r="62.121"/>
       </g>
     </mask>
   </defs>
   <g id="Layer_1" data-name="Layer 1">
     <g class="cls-2">
-      <rect id="<Rectangle>" class="cls-1" width="200" height="200"/>
+      <rect id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-1" width="200" height="200"/>
     </g>
   </g>
 </svg>

@@ -82,8 +82,8 @@
     <radialGradient id="radial-gradient-4" cx="104.526" cy="280.885" r="49.679" xlink:href="#radial-gradient"/>
     <radialGradient id="radial-gradient-5" cx="104.526" r="49.679" xlink:href="#radial-gradient"/>
     <mask id="mask" x="221.282" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse">
-      <g id="<Group>">
-        <circle id="<Path>" class="cls-1" cx="276.962" cy="109.731" r="49.679"/>
+      <g id="_Group_" data-name="&lt;Group&gt;">
+        <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="276.962" cy="109.731" r="49.679"/>
       </g>
     </mask>
     <filter id="luminosity-noclip" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -91,16 +91,16 @@
       <feBlend in="SourceGraphic" in2="bg"/>
     </filter>
     <mask id="mask-2" maskUnits="userSpaceOnUse">
-      <g id="<Group>-2" data-name="<Group>" class="cls-2">
-        <circle id="<Path>-2" data-name="<Path>" class="cls-3" cx="276.962" cy="280.885" r="49.679"/>
+      <g id="_Group_-2" data-name="&lt;Group&gt;" class="cls-2">
+        <circle id="_Path_-2" data-name="&lt;Path&gt;" class="cls-3" cx="276.962" cy="280.885" r="49.679"/>
       </g>
     </mask>
     <filter id="luminosity-invert" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
     </filter>
     <mask id="mask-3" x="408.782" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse">
-      <g id="<Group>-3" data-name="<Group>" class="cls-4">
-        <circle id="<Path>-3" data-name="<Path>" class="cls-5" cx="464.462" cy="109.731" r="49.679"/>
+      <g id="_Group_-3" data-name="&lt;Group&gt;" class="cls-4">
+        <circle id="_Path_-3" data-name="&lt;Path&gt;" class="cls-5" cx="464.462" cy="109.731" r="49.679"/>
       </g>
     </mask>
     <filter id="luminosity-invert-noclip" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -109,83 +109,83 @@
       <feBlend in="invert" in2="bg"/>
     </filter>
     <mask id="mask-4" maskUnits="userSpaceOnUse">
-      <g id="<Group>-4" data-name="<Group>" class="cls-6">
-        <circle id="<Path>-4" data-name="<Path>" class="cls-7" cx="104.526" cy="280.885" r="49.679"/>
+      <g id="_Group_-4" data-name="&lt;Group&gt;" class="cls-6">
+        <circle id="_Path_-4" data-name="&lt;Path&gt;" class="cls-7" cx="104.526" cy="280.885" r="49.679"/>
       </g>
     </mask>
   </defs>
   <g id="Layer_1" data-name="Layer 1">
-    <g id="<Rectangle>">
-      <rect id="<Path>-5" data-name="<Path>" class="cls-8" x="29.846" y="35.051" width="149.359" height="149.359"/>
-      <g id="<Group>-5" data-name="<Group>">
-        <polyline id="<Path>-6" data-name="<Path>" class="cls-9" points="179.205 178.41 179.205 184.41 173.205 184.41"/>
-        <line id="<Path>-7" data-name="<Path>" class="cls-10" x1="160.718" y1="184.41" x2="42.09" y2="184.41"/>
-        <polyline id="<Path>-8" data-name="<Path>" class="cls-9" points="35.846 184.41 29.846 184.41 29.846 178.41"/>
-        <line id="<Path>-9" data-name="<Path>" class="cls-10" x1="29.846" y1="165.923" x2="29.846" y2="47.295"/>
-        <polyline id="<Path>-10" data-name="<Path>" class="cls-9" points="29.846 41.051 29.846 35.051 35.846 35.051"/>
-        <line id="<Path>-11" data-name="<Path>" class="cls-10" x1="48.333" y1="35.051" x2="166.962" y2="35.051"/>
-        <polyline id="<Path>-12" data-name="<Path>" class="cls-9" points="173.205 35.051 179.205 35.051 179.205 41.051"/>
-        <line id="<Path>-13" data-name="<Path>" class="cls-10" x1="179.205" y1="53.538" x2="179.205" y2="172.167"/>
+    <g id="_Rectangle_" data-name="&lt;Rectangle&gt;">
+      <rect id="_Path_-5" data-name="&lt;Path&gt;" class="cls-8" x="29.846" y="35.051" width="149.359" height="149.359"/>
+      <g id="_Group_-5" data-name="&lt;Group&gt;">
+        <polyline id="_Path_-6" data-name="&lt;Path&gt;" class="cls-9" points="179.205 178.41 179.205 184.41 173.205 184.41"/>
+        <line id="_Path_-7" data-name="&lt;Path&gt;" class="cls-10" x1="160.718" y1="184.41" x2="42.09" y2="184.41"/>
+        <polyline id="_Path_-8" data-name="&lt;Path&gt;" class="cls-9" points="35.846 184.41 29.846 184.41 29.846 178.41"/>
+        <line id="_Path_-9" data-name="&lt;Path&gt;" class="cls-10" x1="29.846" y1="165.923" x2="29.846" y2="47.295"/>
+        <polyline id="_Path_-10" data-name="&lt;Path&gt;" class="cls-9" points="29.846 41.051 29.846 35.051 35.846 35.051"/>
+        <line id="_Path_-11" data-name="&lt;Path&gt;" class="cls-10" x1="48.333" y1="35.051" x2="166.962" y2="35.051"/>
+        <polyline id="_Path_-12" data-name="&lt;Path&gt;" class="cls-9" points="173.205 35.051 179.205 35.051 179.205 41.051"/>
+        <line id="_Path_-13" data-name="&lt;Path&gt;" class="cls-10" x1="179.205" y1="53.538" x2="179.205" y2="172.167"/>
       </g>
     </g>
-    <circle id="<Path>-14" data-name="<Path>" class="cls-11" cx="104.526" cy="109.731" r="49.679"/>
+    <circle id="_Path_-14" data-name="&lt;Path&gt;" class="cls-11" cx="104.526" cy="109.731" r="49.679"/>
     <g class="cls-12">
-      <g id="<Rectangle>-2" data-name="<Rectangle>">
-        <rect id="<Path>-15" data-name="<Path>" class="cls-8" x="202.282" y="35.051" width="149.359" height="149.359"/>
-        <g id="<Group>-6" data-name="<Group>">
-          <polyline id="<Path>-16" data-name="<Path>" class="cls-9" points="351.641 178.41 351.641 184.41 345.641 184.41"/>
-          <line id="<Path>-17" data-name="<Path>" class="cls-10" x1="333.154" y1="184.41" x2="214.526" y2="184.41"/>
-          <polyline id="<Path>-18" data-name="<Path>" class="cls-9" points="208.282 184.41 202.282 184.41 202.282 178.41"/>
-          <line id="<Path>-19" data-name="<Path>" class="cls-10" x1="202.282" y1="165.923" x2="202.282" y2="47.295"/>
-          <polyline id="<Path>-20" data-name="<Path>" class="cls-9" points="202.282 41.051 202.282 35.051 208.282 35.051"/>
-          <line id="<Path>-21" data-name="<Path>" class="cls-10" x1="220.769" y1="35.051" x2="339.397" y2="35.051"/>
-          <polyline id="<Path>-22" data-name="<Path>" class="cls-9" points="345.641 35.051 351.641 35.051 351.641 41.051"/>
-          <line id="<Path>-23" data-name="<Path>" class="cls-10" x1="351.641" y1="53.538" x2="351.641" y2="172.167"/>
+      <g id="_Rectangle_-2" data-name="&lt;Rectangle&gt;">
+        <rect id="_Path_-15" data-name="&lt;Path&gt;" class="cls-8" x="202.282" y="35.051" width="149.359" height="149.359"/>
+        <g id="_Group_-6" data-name="&lt;Group&gt;">
+          <polyline id="_Path_-16" data-name="&lt;Path&gt;" class="cls-9" points="351.641 178.41 351.641 184.41 345.641 184.41"/>
+          <line id="_Path_-17" data-name="&lt;Path&gt;" class="cls-10" x1="333.154" y1="184.41" x2="214.526" y2="184.41"/>
+          <polyline id="_Path_-18" data-name="&lt;Path&gt;" class="cls-9" points="208.282 184.41 202.282 184.41 202.282 178.41"/>
+          <line id="_Path_-19" data-name="&lt;Path&gt;" class="cls-10" x1="202.282" y1="165.923" x2="202.282" y2="47.295"/>
+          <polyline id="_Path_-20" data-name="&lt;Path&gt;" class="cls-9" points="202.282 41.051 202.282 35.051 208.282 35.051"/>
+          <line id="_Path_-21" data-name="&lt;Path&gt;" class="cls-10" x1="220.769" y1="35.051" x2="339.397" y2="35.051"/>
+          <polyline id="_Path_-22" data-name="&lt;Path&gt;" class="cls-9" points="345.641 35.051 351.641 35.051 351.641 41.051"/>
+          <line id="_Path_-23" data-name="&lt;Path&gt;" class="cls-10" x1="351.641" y1="53.538" x2="351.641" y2="172.167"/>
         </g>
       </g>
     </g>
     <g class="cls-13">
-      <g id="<Rectangle>-3" data-name="<Rectangle>">
-        <rect id="<Path>-24" data-name="<Path>" class="cls-8" x="202.282" y="206.205" width="149.359" height="149.359"/>
-        <g id="<Group>-7" data-name="<Group>">
-          <polyline id="<Path>-25" data-name="<Path>" class="cls-9" points="351.641 349.564 351.641 355.564 345.641 355.564"/>
-          <line id="<Path>-26" data-name="<Path>" class="cls-10" x1="333.154" y1="355.564" x2="214.526" y2="355.564"/>
-          <polyline id="<Path>-27" data-name="<Path>" class="cls-9" points="208.282 355.564 202.282 355.564 202.282 349.564"/>
-          <line id="<Path>-28" data-name="<Path>" class="cls-10" x1="202.282" y1="337.077" x2="202.282" y2="218.449"/>
-          <polyline id="<Path>-29" data-name="<Path>" class="cls-9" points="202.282 212.205 202.282 206.205 208.282 206.205"/>
-          <line id="<Path>-30" data-name="<Path>" class="cls-10" x1="220.769" y1="206.205" x2="339.397" y2="206.205"/>
-          <polyline id="<Path>-31" data-name="<Path>" class="cls-9" points="345.641 206.205 351.641 206.205 351.641 212.205"/>
-          <line id="<Path>-32" data-name="<Path>" class="cls-10" x1="351.641" y1="224.692" x2="351.641" y2="343.32"/>
+      <g id="_Rectangle_-3" data-name="&lt;Rectangle&gt;">
+        <rect id="_Path_-24" data-name="&lt;Path&gt;" class="cls-8" x="202.282" y="206.205" width="149.359" height="149.359"/>
+        <g id="_Group_-7" data-name="&lt;Group&gt;">
+          <polyline id="_Path_-25" data-name="&lt;Path&gt;" class="cls-9" points="351.641 349.564 351.641 355.564 345.641 355.564"/>
+          <line id="_Path_-26" data-name="&lt;Path&gt;" class="cls-10" x1="333.154" y1="355.564" x2="214.526" y2="355.564"/>
+          <polyline id="_Path_-27" data-name="&lt;Path&gt;" class="cls-9" points="208.282 355.564 202.282 355.564 202.282 349.564"/>
+          <line id="_Path_-28" data-name="&lt;Path&gt;" class="cls-10" x1="202.282" y1="337.077" x2="202.282" y2="218.449"/>
+          <polyline id="_Path_-29" data-name="&lt;Path&gt;" class="cls-9" points="202.282 212.205 202.282 206.205 208.282 206.205"/>
+          <line id="_Path_-30" data-name="&lt;Path&gt;" class="cls-10" x1="220.769" y1="206.205" x2="339.397" y2="206.205"/>
+          <polyline id="_Path_-31" data-name="&lt;Path&gt;" class="cls-9" points="345.641 206.205 351.641 206.205 351.641 212.205"/>
+          <line id="_Path_-32" data-name="&lt;Path&gt;" class="cls-10" x1="351.641" y1="224.692" x2="351.641" y2="343.32"/>
         </g>
       </g>
     </g>
     <g class="cls-14">
-      <g id="<Rectangle>-4" data-name="<Rectangle>">
-        <rect id="<Path>-33" data-name="<Path>" class="cls-8" x="389.782" y="35.051" width="149.359" height="149.359"/>
-        <g id="<Group>-8" data-name="<Group>">
-          <polyline id="<Path>-34" data-name="<Path>" class="cls-9" points="539.141 178.41 539.141 184.41 533.141 184.41"/>
-          <line id="<Path>-35" data-name="<Path>" class="cls-10" x1="520.654" y1="184.41" x2="402.026" y2="184.41"/>
-          <polyline id="<Path>-36" data-name="<Path>" class="cls-9" points="395.782 184.41 389.782 184.41 389.782 178.41"/>
-          <line id="<Path>-37" data-name="<Path>" class="cls-10" x1="389.782" y1="165.923" x2="389.782" y2="47.295"/>
-          <polyline id="<Path>-38" data-name="<Path>" class="cls-9" points="389.782 41.051 389.782 35.051 395.782 35.051"/>
-          <line id="<Path>-39" data-name="<Path>" class="cls-10" x1="408.269" y1="35.051" x2="526.897" y2="35.051"/>
-          <polyline id="<Path>-40" data-name="<Path>" class="cls-9" points="533.141 35.051 539.141 35.051 539.141 41.051"/>
-          <line id="<Path>-41" data-name="<Path>" class="cls-10" x1="539.141" y1="53.538" x2="539.141" y2="172.167"/>
+      <g id="_Rectangle_-4" data-name="&lt;Rectangle&gt;">
+        <rect id="_Path_-33" data-name="&lt;Path&gt;" class="cls-8" x="389.782" y="35.051" width="149.359" height="149.359"/>
+        <g id="_Group_-8" data-name="&lt;Group&gt;">
+          <polyline id="_Path_-34" data-name="&lt;Path&gt;" class="cls-9" points="539.141 178.41 539.141 184.41 533.141 184.41"/>
+          <line id="_Path_-35" data-name="&lt;Path&gt;" class="cls-10" x1="520.654" y1="184.41" x2="402.026" y2="184.41"/>
+          <polyline id="_Path_-36" data-name="&lt;Path&gt;" class="cls-9" points="395.782 184.41 389.782 184.41 389.782 178.41"/>
+          <line id="_Path_-37" data-name="&lt;Path&gt;" class="cls-10" x1="389.782" y1="165.923" x2="389.782" y2="47.295"/>
+          <polyline id="_Path_-38" data-name="&lt;Path&gt;" class="cls-9" points="389.782 41.051 389.782 35.051 395.782 35.051"/>
+          <line id="_Path_-39" data-name="&lt;Path&gt;" class="cls-10" x1="408.269" y1="35.051" x2="526.897" y2="35.051"/>
+          <polyline id="_Path_-40" data-name="&lt;Path&gt;" class="cls-9" points="533.141 35.051 539.141 35.051 539.141 41.051"/>
+          <line id="_Path_-41" data-name="&lt;Path&gt;" class="cls-10" x1="539.141" y1="53.538" x2="539.141" y2="172.167"/>
         </g>
       </g>
     </g>
     <g class="cls-15">
-      <g id="<Rectangle>-5" data-name="<Rectangle>">
-        <rect id="<Path>-42" data-name="<Path>" class="cls-8" x="29.846" y="206.205" width="149.359" height="149.359"/>
-        <g id="<Group>-9" data-name="<Group>">
-          <polyline id="<Path>-43" data-name="<Path>" class="cls-9" points="179.205 349.564 179.205 355.564 173.205 355.564"/>
-          <line id="<Path>-44" data-name="<Path>" class="cls-10" x1="160.718" y1="355.564" x2="42.09" y2="355.564"/>
-          <polyline id="<Path>-45" data-name="<Path>" class="cls-9" points="35.846 355.564 29.846 355.564 29.846 349.564"/>
-          <line id="<Path>-46" data-name="<Path>" class="cls-10" x1="29.846" y1="337.077" x2="29.846" y2="218.449"/>
-          <polyline id="<Path>-47" data-name="<Path>" class="cls-9" points="29.846 212.205 29.846 206.205 35.846 206.205"/>
-          <line id="<Path>-48" data-name="<Path>" class="cls-10" x1="48.333" y1="206.205" x2="166.962" y2="206.205"/>
-          <polyline id="<Path>-49" data-name="<Path>" class="cls-9" points="173.205 206.205 179.205 206.205 179.205 212.205"/>
-          <line id="<Path>-50" data-name="<Path>" class="cls-10" x1="179.205" y1="224.692" x2="179.205" y2="343.32"/>
+      <g id="_Rectangle_-5" data-name="&lt;Rectangle&gt;">
+        <rect id="_Path_-42" data-name="&lt;Path&gt;" class="cls-8" x="29.846" y="206.205" width="149.359" height="149.359"/>
+        <g id="_Group_-9" data-name="&lt;Group&gt;">
+          <polyline id="_Path_-43" data-name="&lt;Path&gt;" class="cls-9" points="179.205 349.564 179.205 355.564 173.205 355.564"/>
+          <line id="_Path_-44" data-name="&lt;Path&gt;" class="cls-10" x1="160.718" y1="355.564" x2="42.09" y2="355.564"/>
+          <polyline id="_Path_-45" data-name="&lt;Path&gt;" class="cls-9" points="35.846 355.564 29.846 355.564 29.846 349.564"/>
+          <line id="_Path_-46" data-name="&lt;Path&gt;" class="cls-10" x1="29.846" y1="337.077" x2="29.846" y2="218.449"/>
+          <polyline id="_Path_-47" data-name="&lt;Path&gt;" class="cls-9" points="29.846 212.205 29.846 206.205 35.846 206.205"/>
+          <line id="_Path_-48" data-name="&lt;Path&gt;" class="cls-10" x1="48.333" y1="206.205" x2="166.962" y2="206.205"/>
+          <polyline id="_Path_-49" data-name="&lt;Path&gt;" class="cls-9" points="173.205 206.205 179.205 206.205 179.205 212.205"/>
+          <line id="_Path_-50" data-name="&lt;Path&gt;" class="cls-10" x1="179.205" y1="224.692" x2="179.205" y2="343.32"/>
         </g>
       </g>
     </g>
