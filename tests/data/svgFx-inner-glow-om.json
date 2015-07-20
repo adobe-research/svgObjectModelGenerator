@@ -111,7 +111,7 @@
 						}
 					}
 				},
-				"filter": "filter-1"
+				"filter": "filter"
 			},
 			"name": "Rectangle 1",
 			"visualBounds": {
@@ -204,12 +204,12 @@
 	"global": {
 		"clipPaths": {},
 		"filters": {
-			"filter-1": {
+			"filter": {
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -217,9 +217,9 @@
 					},
 					{
 						"kind": "feColorMatrix",
-						"id": "color-1",
+						"id": "color",
 						"input": [
-							"blur-1"
+							"blur"
 						],
 						"type": "matrix",
 						"values": [
@@ -249,7 +249,7 @@
 						"kind": "feColorMatrix",
 						"id": "color-2",
 						"input": [
-							"color-1"
+							"color"
 						],
 						"type": "matrix",
 						"values": [
@@ -307,7 +307,7 @@
 					},
 					{
 						"kind": "feComponentTransfer",
-						"id": "comp-1",
+						"id": "comp",
 						"input": [
 							"color-3"
 						],
@@ -335,18 +335,18 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"comp-1",
+							"comp",
 							"SourceAlpha"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
-							"composite-1",
+							"composite",
 							"SourceGraphic"
 						],
 						"mode": "lighten"
@@ -358,7 +358,7 @@
 				"children": [
 					{
 						"kind": "feGaussianBlur",
-						"id": "blur-1",
+						"id": "blur",
 						"input": [
 							"SourceAlpha"
 						],
@@ -366,7 +366,7 @@
 					},
 					{
 						"kind": "feFlood",
-						"id": "flood-1",
+						"id": "flood",
 						"input": [],
 						"flood-color": {
 							"r": 189.996113,
@@ -380,14 +380,14 @@
 						"kind": "feComposite",
 						"id": "composite-2",
 						"input": [
-							"flood-1",
-							"blur-1"
+							"flood",
+							"blur"
 						],
 						"operator": "out"
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
 							"composite-2",
 							"SourceAlpha"
@@ -396,9 +396,9 @@
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
-							"composite-1",
+							"composite",
 							"SourceGraphic"
 						],
 						"mode": "darken"

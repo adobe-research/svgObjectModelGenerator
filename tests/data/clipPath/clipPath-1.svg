@@ -9,14 +9,14 @@
 
       .cls-2 {
         fill: #ed1c24;
-        clip-path: url(#clip-path-1);
+        clip-path: url(#clip-path);
       }
     </style>
 
-    <clipPath id="clip-path-1">
-      <rect class="cls-1" x="130" y="67" width="179" height="179"/>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="130" y="67" width="179" height="179"/>
     </clipPath>
   </defs>
-  <rect class="cls-1" x="130" y="66" width="179" height="179"/>
-  <circle class="cls-2" cx="309" cy="245" r="94"/>
+  <rect id="Rectangle_1-2" data-name="Rectangle 1" class="cls-1" x="130" y="66" width="179" height="179"/>
+  <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-2" cx="309" cy="245" r="94"/>
 </svg>

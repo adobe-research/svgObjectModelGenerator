@@ -18,7 +18,7 @@ var svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
         preserveAspectRatio: "xMidYMid",
         scale: 1,
         constrainToDocBounds: false,
-        preparedPath: false
+        preparedPath: true
     },
     svgOM = JSON.parse(svgOMString);
 if ("layers" in svgOM) {

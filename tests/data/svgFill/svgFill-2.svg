@@ -2,31 +2,31 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient-1);
+        fill: url(#linear-gradient);
         stroke: #000;
         stroke-width: 3px;
-        filter: url(#filter-1);
+        filter: url(#filter);
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="84" y1="166.5" x2="84" y2="1.5" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="84" y1="166.5" x2="84" y2="1.5" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0b01b8"/>
       <stop offset="0.1" stop-color="#0b01b8"/>
       <stop offset="0.5" stop-color="#fdfa03"/>
       <stop offset="0.9" stop-color="#0b02aa"/>
       <stop offset="1" stop-color="#0b02aa"/>
     </linearGradient>
-    <filter id="filter-1" filterUnits="userSpaceOnUse">
-      <feImage result="image-1" x="1.5" y="1.5" width="165" height="165" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIHZpZXdCb3g9IjAgMCAxNjUgMTY1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudC0xKTsKICAgICAgICBvcGFjaXR5OiAwLjczOwogICAgICB9CiAgICA8L3N0eWxlPgoKICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmFkaWFsLWdyYWRpZW50LTEiIGN4PSI4Mi41IiBjeT0iODIuNSIgcj0iODIuNSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiLz4KPC9zdmc+Cg=="/>
-      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
-      <feBlend result="blend-1" in2="SourceGraphic"/>
-      <feFlood result="flood-1" flood-color="red" flood-opacity="0.5"/>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feImage result="image" x="1.5" y="1.5" width="165" height="165" preserveAspectRatio="none" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE2NSIgaGVpZ2h0PSIxNjUiIHZpZXdCb3g9IjAgMCAxNjUgMTY1Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudCk7CiAgICAgICAgb3BhY2l0eTogMC43MzsKICAgICAgfQogICAgPC9zdHlsZT4KCiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InJhZGlhbC1ncmFkaWVudCIgY3g9IjgyLjUiIGN5PSI4Mi41IiByPSI4Mi41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTY1IiBoZWlnaHQ9IjE2NSIvPgo8L3N2Zz4K"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feFlood result="flood" flood-color="red" flood-opacity="0.5"/>
       <feComposite result="composite-2" operator="in" in2="SourceGraphic"/>
-      <feBlend result="blend-2" in2="blend-1"/>
+      <feBlend result="blend-2" in2="blend"/>
     </filter>
   </defs>
-  <g style="fill: url(#linear-gradient-1); filter: url(#filter-1)">
-    <circle id="circle-1" class="cls-1" cx="84" cy="84" r="82.5" style="stroke: inherit; filter: none; fill: inherit"/>
+  <g style="fill: url(#linear-gradient); filter: url(#filter)">
+    <circle id="circle" class="cls-1" cx="84" cy="84" r="82.5" style="stroke: inherit; filter: none; fill: inherit"/>
   </g>
-  <use xlink:href="#circle-1" style="stroke: #000; filter: none; fill: none"/>
+  <use xlink:href="#circle" style="stroke: #000; filter: none; fill: none"/>
 </svg>

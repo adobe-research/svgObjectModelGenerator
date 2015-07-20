@@ -2,11 +2,11 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#radial-gradient-1);
+        fill: url(#radial-gradient);
       }
     </style>
 
-    <radialGradient id="radial-gradient-1" cx="350" cy="100" r="424.264" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="350" cy="100" r="424.264" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>
       <stop offset="0.33" stop-color="blue"/>
@@ -16,5 +16,5 @@
       <stop offset="1" stop-color="red"/>
     </radialGradient>
   </defs>
-  <rect class="cls-1" width="200" height="100"/>
+  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-1" width="200" height="100"/>
 </svg>

@@ -14,13 +14,13 @@
       .cls-2 {
         fill: #0072bc;
         stroke-width: 14px;
-        mask: url(#mask-1);
+        mask: url(#mask);
       }
     </style>
 
-    <mask id="mask-1" style="mask-type:alpha">
-      <circle class="cls-1" cx="309" cy="245" r="94"/>
+    <mask id="mask" style="mask-type:alpha">
+      <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="309" cy="245" r="94"/>
     </mask>
   </defs>
-  <rect class="cls-2" x="130" y="66" width="179" height="179"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" x="130" y="66" width="179" height="179"/>
 </svg>

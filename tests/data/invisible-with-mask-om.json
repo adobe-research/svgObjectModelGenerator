@@ -24,7 +24,7 @@
 							}
 						},
 						"children": [],
-						"title": "Rectangle 1",
+						"name": "Rectangle 1",
 						"visualBounds": {
 							"top": 67,
 							"left": 130,
@@ -61,7 +61,7 @@
 							}
 						},
 						"children": [],
-						"title": "Rectangle 1",
+						"name": "Rectangle 1",
 						"visualBounds": {
 							"top": 67,
 							"left": 130,

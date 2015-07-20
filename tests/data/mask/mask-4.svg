@@ -12,7 +12,7 @@
       }
 
       .cls-2 {
-        mask: url(#mask-1);
+        mask: url(#mask);
       }
 
       .cls-3 {
@@ -22,12 +22,12 @@
       }
     </style>
 
-    <mask id="mask-1" x="96" y="126" width="238" height="238" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" style="mask-type:alpha">
-      <circle class="cls-1" cx="0.25" cy="0.5" r="0.4"/>
+    <mask id="mask" x="96" y="126" width="238" height="238" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" style="mask-type:alpha">
+      <circle id="Circle" class="cls-1" cx="0.25" cy="0.5" r="0.4"/>
     </mask>
     <mask id="mask-2" style="mask-type:alpha">
-      <circle class="cls-2" cx="309" cy="245" r="94"/>
+      <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-2" cx="309" cy="245" r="94"/>
     </mask>
   </defs>
-  <rect class="cls-3" x="130" y="66" width="179" height="179"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-3" x="130" y="66" width="179" height="179"/>
 </svg>

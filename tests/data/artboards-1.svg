@@ -7,9 +7,9 @@
     </style>
   </defs>
   <g id="artboard-1">
-    <circle class="cls-1" cx="2540" cy="2960" r="393"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="2540" cy="2960" r="393"/>
   </g>
   <g id="artboard-2">
-    <rect class="cls-1" x="3972" y="2811" width="533" height="533"/>
+    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="3972" y="2811" width="533" height="533"/>
   </g>
 </svg>

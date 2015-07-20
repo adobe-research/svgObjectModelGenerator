@@ -17,7 +17,7 @@
                 "clip-path": "clipPath1"
             },
             "children": [],
-            "title": "Rectangle 1",
+            "name": "Rectangle 1",
             "shapeBounds": {
                 "top": 0,
                 "left": 0,
@@ -41,7 +41,7 @@
                     "type": "shape",
                     "visible": true,
                     "children": [],
-                    "title": "Rectangle 1",
+                    "name": "Rectangle 1",
                     "shapeBounds": {
                         "top": 50,
                         "left": 50,
@@ -65,7 +65,7 @@
                     "type": "shape",
                     "visible": true,
                     "children": [],
-                    "title": "Rectangle 1",
+                    "name": "Rectangle 1",
                     "shapeBounds": {
                         "top": 100,
                         "left": 100,

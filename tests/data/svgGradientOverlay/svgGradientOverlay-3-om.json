@@ -99,7 +99,7 @@
 						}
 					}
 				},
-				"filter": "filter-1"
+				"filter": "filter"
 			},
 			"name": "Rectangle 2",
 			"visualBounds": {
@@ -120,34 +120,34 @@
 	"global": {
 		"clipPaths": {},
 		"filters": {
-			"filter-1": {
+			"filter": {
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
 						"kind": "feImage",
-						"id": "image-1",
+						"id": "image",
 						"input": [],
 						"x": 300,
 						"y": 50,
 						"width": 200,
 						"height": 100,
 						"preserveAspectRatio": "none",
-						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudC0xKTsKICAgICAgfQogICAgPC9zdHlsZT4KCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0xIiB4MT0iMjguNTkzIiB5MT0iMTAwIiB4Mj0iMTcxLjQwNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjdjMDAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjkwYTU5Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIi8+Cjwvc3ZnPgo="
+						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAyMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSIyOC41OTMiIHkxPSIxMDAiIHgyPSIxNzEuNDA3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiLz4KPC9zdmc+Cg=="
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"image-1",
+							"image",
 							"SourceGraphic"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
-							"composite-1",
+							"composite",
 							"SourceGraphic"
 						],
 						"mode": "lighten"

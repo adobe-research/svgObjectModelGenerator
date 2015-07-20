@@ -29,5 +29,5 @@
       }
     </style>
   </defs>
-  <text class="cls-1" x="215.969" y="166.274"><tspan class="cls-2">This is a</tspan><tspan class="cls-3">Te</tspan><tspan class="cls-4">xt w</tspan><tspan class="cls-5">it</tspan><tspan class="cls-6">h</tspan>different paragraphs</text>
+  <text id="This_is_a_Text_with_different_paragraphs" data-name="This is a Text with different paragraphs" class="cls-1" x="215.969" y="166.274"><tspan class="cls-2">This is a</tspan><tspan class="cls-3">Te</tspan><tspan class="cls-4">xt w</tspan><tspan class="cls-5">it</tspan><tspan class="cls-6">h</tspan>different paragraphs</text>
 </svg>

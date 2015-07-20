@@ -2,20 +2,20 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient-1);
-        filter: url(#filter-1);
+        fill: url(#linear-gradient);
+        filter: url(#filter);
       }
     </style>
 
-    <linearGradient id="linear-gradient-1" x1="275" y1="250" x2="275" y2="100" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="275" y1="250" x2="275" y2="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#e10019"/>
       <stop offset="1" stop-color="#00601b"/>
     </linearGradient>
-    <filter id="filter-1" filterUnits="userSpaceOnUse">
-      <feFlood result="flood-1" flood-color="red"/>
-      <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
-      <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="red"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect class="cls-1" x="100" y="100" width="350" height="150"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="100" y="100" width="350" height="150"/>
 </svg>

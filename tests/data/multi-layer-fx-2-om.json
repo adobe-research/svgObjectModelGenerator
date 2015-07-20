@@ -64,7 +64,7 @@
 						}
 					}
 				},
-				"filter": "filter-1"
+				"filter": "filter"
 			},
 			"name": "Rectangle 1",
 			"visualBounds": {
@@ -85,12 +85,12 @@
 	"global": {
 		"clipPaths": {},
 		"filters": {
-			"filter-1": {
+			"filter": {
 				"filterUnits": "userSpaceOnUse",
 				"children": [
 					{
 						"kind": "feFlood",
-						"id": "flood-1",
+						"id": "flood",
 						"input": [],
 						"flood-color": {
 							"r": 97.178987,
@@ -102,18 +102,18 @@
 					},
 					{
 						"kind": "feComposite",
-						"id": "composite-1",
+						"id": "composite",
 						"input": [
-							"flood-1",
+							"flood",
 							"SourceGraphic"
 						],
 						"operator": "in"
 					},
 					{
 						"kind": "feBlend",
-						"id": "blend-1",
+						"id": "blend",
 						"input": [
-							"composite-1",
+							"composite",
 							"SourceGraphic"
 						],
 						"mode": "multiply"
@@ -144,7 +144,7 @@
 						"id": "blend-2",
 						"input": [
 							"composite-2",
-							"blend-1"
+							"blend"
 						],
 						"mode": "multiply"
 					}

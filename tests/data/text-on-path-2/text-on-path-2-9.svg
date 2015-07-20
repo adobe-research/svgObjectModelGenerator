@@ -13,7 +13,7 @@
       }
     </style>
 
-    <path id="text-path-1" d="M360.72,269.76c30.221,0,54.72,15.043,54.72,33.6s-24.5,33.6-54.72,33.6S306,321.917,306,303.36Z"/>
+    <path id="text-path" d="M360.72,269.76c30.221,0,54.72,15.043,54.72,33.6s-24.5,33.6-54.72,33.6S306,321.917,306,303.36Z"/>
   </defs>
-  <text class="cls-1"><textPath xlink:href="#text-path-1" startOffset="100%"><tspan class="cls-2">more path text </tspan></textPath></text>
+  <text id="more_path_text.svg" data-name="more path text.svg" class="cls-1"><textPath xlink:href="#text-path" startOffset="100%"><tspan class="cls-2">more path text </tspan></textPath></text>
 </svg>

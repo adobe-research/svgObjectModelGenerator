@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        filter: url(#filter-1);
+        filter: url(#filter);
         opacity: 0.35;
         mix-blend-mode: multiply;
       }
@@ -19,27 +19,27 @@
       }
     </style>
 
-    <filter id="filter-1" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="5.196" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-opacity="0.75"/>
-      <feComposite result="composite-1" operator="in" in2="blur-1"/>
-      <feOffset result="offset-1" dx="10.103" dy="8.181"/>
-      <feBlend result="blend-1" in="SourceGraphic"/>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="5.196" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feOffset result="offset" dx="10.103" dy="8.181"/>
+      <feBlend result="blend" in="SourceGraphic"/>
     </filter>
     <filter id="filter-2" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur-1" stdDeviation="4.583" in="SourceAlpha"/>
-      <feFlood result="flood-1" flood-color="#0036ff" flood-opacity="0.75"/>
-      <feComposite result="composite-1" operator="out" in2="blur-1"/>
-      <feOffset result="offset-1" dx="7.5" dy="12.99"/>
+      <feGaussianBlur result="blur" stdDeviation="4.583" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#0036ff" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dx="7.5" dy="12.99"/>
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
-      <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <g class="cls-1">
-    <rect class="cls-2" x="100" y="100" width="200" height="200"/>
+  <g id="Group" class="cls-1">
+    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" x="100" y="100" width="200" height="200"/>
     <g style="fill: #2ccf26; filter: url(#filter-2)">
-      <rect id="rect-1" class="cls-3" x="200" y="200" width="200" height="200" style="stroke: inherit; filter: none; fill: inherit"/>
+      <rect id="rect" class="cls-3" x="200" y="200" width="200" height="200" style="stroke: inherit; filter: none; fill: inherit"/>
     </g>
-    <use xlink:href="#rect-1" style="stroke: #f26522; filter: none; fill: none"/>
+    <use xlink:href="#rect" style="stroke: #f26522; filter: none; fill: none"/>
   </g>
 </svg>

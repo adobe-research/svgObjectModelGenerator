@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#radial-gradient-1);
+        fill: url(#radial-gradient);
       }
 
       .cls-2 {
@@ -18,16 +18,16 @@
       }
     </style>
 
-    <radialGradient id="radial-gradient-1" cx="150" cy="100" r="75" gradientUnits="userSpaceOnUse">
+    <radialGradient id="radial-gradient" cx="150" cy="100" r="75" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="aqua"/>
       <stop offset="1" stop-color="blue"/>
     </radialGradient>
-    <radialGradient id="radial-gradient-2" cx="400" fx="425" fy="125" xlink:href="#radial-gradient-1"/>
-    <radialGradient id="radial-gradient-3" cy="250" fx="100" xlink:href="#radial-gradient-1"/>
-    <radialGradient id="radial-gradient-4" cx="400" cy="250" fy="200" xlink:href="#radial-gradient-1"/>
+    <radialGradient id="radial-gradient-2" cx="400" fx="425" fy="125" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-3" cy="250" fx="100" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-4" cx="400" cy="250" fy="200" xlink:href="#radial-gradient"/>
   </defs>
-  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
-  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
-  <rect class="cls-3" x="50" y="200" width="200" height="100"/>
-  <rect class="cls-4" x="300" y="200" width="200" height="100"/>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>
+  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="50" y="200" width="200" height="100"/>
+  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-4" x="300" y="200" width="200" height="100"/>
 </svg>

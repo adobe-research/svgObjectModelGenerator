@@ -136,7 +136,8 @@
         writeGradient: function (ctx, styleBlock, gradientRef, flavor) {
             var omIn = ctx.currentOMNode,
                 gradient = ctx.svgOM.global.gradients[gradientRef.ref],
-                gradientID = ctx.ID.getUnique(gradient.type + "-gradient"),
+                name = gradient.name && gradient.name.substr(0,7) != "Unnamed" ? gradient.name : undefined, // FIXME: Hack until we know how to identify unnamed gradients in Ai.
+                gradientID = ctx.ID.getUnique(gradient.type + "-gradient", name),
                 stops = gradient.stops,
                 gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 fingerprint = "",
@@ -147,6 +148,10 @@
                     id: gradientID
                 }),
                 alpha = 0;
+
+            if (!ctx.minify && name && gradientID != name) {
+                tag.setAttribute("data-name", name);
+            }
 
             // FIXME: This check is because we do not shift points of paths
             // but translate the whole path including paint servers.

@@ -1,7 +1,6 @@
 {
 	"children": [
 		{
-			"name": "iPhone",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -9,10 +8,10 @@
 					"type": "none"
 				}
 			},
-			"ref": "artboard-1",
+			"name": "iPhone",
+			"ref": "artboard",
 			"children": [
 				{
-					"name": "Rectangle 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -29,6 +28,7 @@
 							}
 						}
 					},
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2811,
 						"left": 3972,
@@ -61,7 +61,7 @@
 		"pxToInchRatio": 326
 	},
 	"artboards": {
-		"artboard-1": {
+		"artboard": {
 			"name": "iPhone",
 			"bounds": {
 				"top": 2497,
