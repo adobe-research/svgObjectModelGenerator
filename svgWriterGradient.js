@@ -136,7 +136,7 @@
         writeGradient: function (ctx, styleBlock, gradientRef, flavor) {
             var omIn = ctx.currentOMNode,
                 gradient = ctx.svgOM.global.gradients[gradientRef.ref],
-                name = gradient.name && gradient.name.substr(0,7) != "Unnamed" ? gradient.name : undefined, // FIXME: Hack until we know how to identify unnamed gradients in Ai.
+                name = gradient.name && gradient.name.substr(0, 7) != "Unnamed" ? gradient.name : undefined, // FIXME: Hack until we know how to identify unnamed gradients in Ai.
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient", name),
                 stops = gradient.stops,
                 gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",

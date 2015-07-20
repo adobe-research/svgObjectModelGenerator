@@ -79,6 +79,67 @@
                         tag.children = [g];
                     }
                 }
+            },
+            function collapseTspanClasses(tag) {
+                if (tag.name != "tspan" && tag.name != "text") {
+                    return;
+                }
+                var tagStyle = tag.styleBlock,
+                    common = {},
+                    name,
+                    value;
+                for (var i = 0; i < tag.children.length; i++) {
+                    var style = tag.children[i].styleBlock;
+                    if (!style) {
+                        return;
+                    }
+                    if (i) {
+                        for (name in common) {
+                            if (style.getPropertyValue(name) == null) {
+                                delete common[name];
+                            }
+                        }
+                    } else {
+                        for (var j = 0; j < style.rules.length; j++) {
+                            name = style.rules[j].propertyName;
+                            value = style.rules[j].value;
+                            common[name] = value;
+                        }
+                    }
+                }
+                var toCollapse = [];
+                for (i = 0; i < tag.children.length; i++) {
+                    var child = tag.children[i];
+                    style = child.styleBlock;
+                    if (style) {
+                        for (j = 0; j < style.rules.length; j++) {
+                            name = style.rules[j].propertyName;
+                            value = style.rules[j].value;
+                            if (common[name] == value) {
+                                style.rules.splice(j, 1);
+                                j--;
+                            }
+                        }
+                        var toBe = child.styleBlock.hasRules();
+                        if (!toBe) {
+                            for (name in child.attrs) {
+                                if (child.writeAttribute(name)) {
+                                    toBe = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!toBe) {
+                            toCollapse.push(child);
+                        }
+                    }
+                }
+                for (i = 0; i < toCollapse.length; i++) {
+                    tag.collapseChild(toCollapse[i]);
+                }
+                for (name in common) {
+                    tagStyle.addRule(name, common[name]);
+                }
             }
         ];
 

@@ -216,11 +216,11 @@
             ctx = null;
         }
         value = value == null ? this.attrs[name] : value;
-        value = Tag.getValue(this.name, name, value, ctx);
+        value = value == null ? value : Tag.getValue(this.name, name, value, ctx);
         var tag = this,
             deft = Tag.getDefault(tag.name, name),
             link,
-            toWrite = value + "" != deft + "",
+            toWrite = value != null && value + "" != deft + "",
             out;
         // Special case of linked tags
         if (tag.name in linkableNames && tag.attrs["xlink:href"]) {

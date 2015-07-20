@@ -96,10 +96,14 @@
             }
 
             if (!ctx._nextTspanAdjustSuper) {
+                fontSize = fontSize || node.style["font-size"];
+                if (fontSize.units) {
+                    fontSize = fontSize.value;
+                }
                 if (node.position.unitY === "em") {
-                    dy = node.position.y * lineEM + "em";
+                    dy = node.position.y * lineEM * fontSize;
                 } else {
-                    dy = (sibling ? lineEM : 0) + "em";
+                    dy = (sibling ? lineEM : 0) * fontSize;
                 }
                 tag.setAttribute("dy", dy);
             }

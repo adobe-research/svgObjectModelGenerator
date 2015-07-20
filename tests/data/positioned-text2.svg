@@ -8,6 +8,6 @@
     </style>
   </defs>
   <g id="Layer_1" data-name="Layer 1">
-    <text transform="translate(77.977 82.114)"><tspan><tspan class="cls-1">this is the 1st line</tspan></tspan><tspan><tspan class="cls-1" x="0" y="14.4">this is the 2nd line</tspan></tspan><tspan><tspan class="cls-1" x="0" y="43.2">this is the 4th line</tspan></tspan></text>
+    <text class="cls-1" transform="translate(77.977 82.114)">this is the 1st line<tspan x="0" y="14.4">this is the 2nd line</tspan><tspan x="0" y="43.2">this is the 4th line</tspan></text>
   </g>
 </svg>

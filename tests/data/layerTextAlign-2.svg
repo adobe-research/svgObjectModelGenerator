@@ -1,16 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="201" height="37" viewBox="0 0 201 37">
   <defs>
     <style>
-      .cls-1, .cls-2 {
+      .cls-1 {
         font-size: 36px;
-      }
-
-      .cls-2 {
         fill: #22376b;
         font-family: Optima;
         font-weight: 900;
       }
     </style>
   </defs>
-  <text id="left_aligned" data-name="left aligned" class="cls-1" x="-0.898" y="27.586"><tspan class="cls-2">left aligned</tspan></text>
+  <text id="left_aligned" data-name="left aligned" class="cls-1" x="-0.898" y="27.586">left aligned</text>
 </svg>

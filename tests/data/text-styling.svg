@@ -1,54 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <style>
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
         font-size: 60px;
-      }
-
-      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
         fill: #030303;
         font-family: Arial;
       }
 
-      .cls-2, .cls-4 {
+      .cls-1, .cls-3 {
         font-style: italic;
       }
 
-      .cls-3, .cls-4 {
+      .cls-2, .cls-3 {
         font-weight: 700;
       }
 
-      .cls-5 {
+      .cls-4 {
         text-decoration: underline;
       }
 
-      .cls-6 {
+      .cls-5 {
         text-decoration: line-through;
       }
 
-      .cls-7 {
+      .cls-6 {
         font-variant: small-caps;
       }
 
-      .cls-8 {
+      .cls-7 {
         text-transform: uppercase;
       }
     </style>
   </defs>
-  <text id="Text" class="cls-1" x="56.75" y="98.336"><tspan class="cls-2">Text</tspan></text>
-  <text id="Text-2" data-name="Text" class="cls-1" x="64.359" y="185.906"><tspan class="cls-3">Text</tspan></text>
-  <text id="Text-3" data-name="Text" class="cls-1" x="64.438" y="273.281"><tspan class="cls-4">Text</tspan></text>
-  <text id="Text-4" data-name="Text" class="cls-1" x="64.328" y="349.352"><tspan class="cls-5">Text</tspan></text>
-  <text id="Text-5" data-name="Text" class="cls-1" x="56.617" y="440.336"><tspan class="cls-6">Text</tspan></text>
-  <text id="Text-6" data-name="Text" class="cls-1" x="62.195" y="525.273"><tspan class="cls-7">Text</tspan></text>
-  <text id="Text-7" data-name="Text" class="cls-1" x="331.062" y="98.922"><tspan class="cls-8">Text</tspan></text>
-  <text id="Text-8" data-name="Text" class="cls-1" x="331.695" y="206.172"><tspan class="cls-9">Text</tspan></text>
-  <text id="Text-9" data-name="Text" class="cls-1" x="333.445" y="266.766"><tspan class="cls-9" dy="0.6em">Text</tspan></text>
-  <text id="Text-10" data-name="Text" class="cls-1" x="329.078" y="363.453"><tspan class="cls-9">Text</tspan></text>
-  <text id="Text-11" data-name="Text" class="cls-1" x="329.961" y="438.938"><tspan class="cls-9">Text</tspan></text>
-  <text id="Text-12" data-name="Text" class="cls-1" x="326.195" y="568.195"><tspan class="cls-9">Text</tspan></text>
-  <text id="Test" class="cls-1" x="623.656" y="103.906"><tspan class="cls-9">Test</tspan></text>
-  <text id="Test-2" data-name="Test" class="cls-1" x="625.914" y="194.664"><tspan class="cls-9">Test</tspan></text>
-  <text id="Test-3" data-name="Test" class="cls-1" x="626.648" y="283.289"><tspan class="cls-9">Test</tspan></text>
-  <text id="Test-4" data-name="Test" class="cls-1" x="620.625" y="413.336"><tspan class="cls-9">Test</tspan></text>
+  <text id="Text" class="cls-1" x="56.75" y="98.336">Text</text>
+  <text id="Text-2" data-name="Text" class="cls-2" x="64.359" y="185.906">Text</text>
+  <text id="Text-3" data-name="Text" class="cls-3" x="64.438" y="273.281">Text</text>
+  <text id="Text-4" data-name="Text" class="cls-4" x="64.328" y="349.352">Text</text>
+  <text id="Text-5" data-name="Text" class="cls-5" x="56.617" y="440.336">Text</text>
+  <text id="Text-6" data-name="Text" class="cls-6" x="62.195" y="525.273">Text</text>
+  <text id="Text-7" data-name="Text" class="cls-7" x="331.062" y="98.922">Text</text>
+  <text id="Text-8" data-name="Text" class="cls-8" x="331.695" y="206.172">Text</text>
+  <text id="Text-9" data-name="Text" class="cls-8" x="333.445" y="266.766"><tspan dy="0.6em">Text</tspan></text>
+  <text id="Text-10" data-name="Text" class="cls-8" x="329.078" y="363.453">Text</text>
+  <text id="Text-11" data-name="Text" class="cls-8" x="329.961" y="438.938">Text</text>
+  <text id="Text-12" data-name="Text" class="cls-8" x="326.195" y="568.195">Text</text>
+  <text id="Test" class="cls-8" x="623.656" y="103.906">Test</text>
+  <text id="Test-2" data-name="Test" class="cls-8" x="625.914" y="194.664">Test</text>
+  <text id="Test-3" data-name="Test" class="cls-8" x="626.648" y="283.289">Test</text>
+  <text id="Test-4" data-name="Test" class="cls-8" x="620.625" y="413.336">Test</text>
 </svg>
