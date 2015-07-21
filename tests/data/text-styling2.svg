@@ -57,12 +57,12 @@
       }
     </style>
   </defs>
-  <text id="2" class="cls-1" x="86.777" y="285.703"><tspan x="86.777">2</tspan></text>
-  <text id="3" class="cls-2" x="86.777" y="413.703"><tspan x="86.777">3</tspan></text>
-  <text id="4" class="cls-3" x="86.777" y="538.703"><tspan x="86.777">4</tspan></text>
-  <text id="5" class="cls-4" x="86.777" y="669.703"><tspan x="86.777">5</tspan></text>
-  <text id="6" class="cls-5" x="86.777" y="794.703"><tspan x="86.777">6</tspan></text>
-  <text id="7" class="cls-6" x="86.777" y="919.703"><tspan x="86.777">7</tspan></text>
-  <text id="1_copy" data-name="1 copy" class="cls-7" x="86.777" y="149.703"><tspan x="86.777">1</tspan></text>
+  <text id="_" data-name="2" class="cls-1" x="86.777" y="285.703"><tspan x="86.777">2</tspan></text>
+  <text id="_-2" data-name="3" class="cls-2" x="86.777" y="413.703"><tspan x="86.777">3</tspan></text>
+  <text id="_-3" data-name="4" class="cls-3" x="86.777" y="538.703"><tspan x="86.777">4</tspan></text>
+  <text id="_-4" data-name="5" class="cls-4" x="86.777" y="669.703"><tspan x="86.777">5</tspan></text>
+  <text id="_-5" data-name="6" class="cls-5" x="86.777" y="794.703"><tspan x="86.777">6</tspan></text>
+  <text id="_-6" data-name="7" class="cls-6" x="86.777" y="919.703"><tspan x="86.777">7</tspan></text>
+  <text id="_copy" data-name="1 copy" class="cls-7" x="86.777" y="149.703"><tspan x="86.777">1</tspan></text>
   <text id="thin_ultrathin_thin_italic_medium_light_oblique_book_slanted" data-name="thin ultrathin thin italic medium light oblique book slanted" class="cls-8" x="369.777" y="127.703"><tspan class="cls-9">thin</tspan><tspan class="cls-10" dy="111.024" x="369.777">ultrathin</tspan><tspan class="cls-11" dy="111.024" x="369.777">thin italic</tspan><tspan class="cls-12" dy="111.024" x="369.777">medium</tspan><tspan class="cls-13" dy="111.024" x="369.777">light oblique</tspan><tspan class="cls-14" dy="111.024" x="369.777">book</tspan><tspan class="cls-15" dy="111.024" x="369.777">slanted</tspan></text>
 </svg>

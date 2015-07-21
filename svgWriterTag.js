@@ -276,7 +276,7 @@
                 tag.writeAttribute(ctx, "id");
             }
             if ("data-name" in tag.attrs && !noctx) {
-                tag.writeAttribute(ctx, "data-name");
+                tag.writeAttribute(ctx, "data-name", encodedText(tag.attrs["data-name"]));
             }
             if ("class" in tag.attrs) {
                 tag.writeAttribute(ctx, "class");

@@ -35,10 +35,12 @@ describe("idGenerator", function () {
         expect(idGen.getUnique("gradient")).to.equal("gradient");
         expect(idGen.getUnique("pattern")).to.equal("pattern");
         expect(idGen.getUnique("gradient")).to.equal("gradient-2");
-        expect(idGen.getUnique("gradient", "--Test_Alpha:;&")).to.equal("Test_Alpha:;_");
-        expect(idGen.getUnique("gradient", "--test_Alpha:;&")).to.equal("test_Alpha:;_-2");
+        expect(idGen.getUnique("gradient", "--Test_Alpha:;&")).to.equal("_Test_Alpha:_");
+        expect(idGen.getUnique("gradient", "--test_Alpha:;&")).to.equal("_test_Alpha:_-2");
         expect(idGen.getUnique("gradient", {})).to.equal("gradient-3");
         expect(idGen.getUnique("gradient", "")).to.equal("gradient-4");
+        expect(idGen.getUnique("gradient", "1")).to.equal("_");
+        expect(idGen.getUnique("gradient", "2")).to.equal("_-2");
     });
 
     it("test GUID generation", function () {
