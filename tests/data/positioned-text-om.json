@@ -81,11 +81,6 @@
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\""
-                                    },
-                                    "text-attributes": {
-                                        "decoration": [
-                                            "underline"
-                                        ]
                                     }
                                 }
                             },
