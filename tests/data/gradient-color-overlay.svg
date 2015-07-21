@@ -28,6 +28,6 @@
       <feBlend result="blend" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect id="Rectangle_1_svg" data-name="Rectangle 1.svg" class="cls-1" x="100" y="100" width="400" height="400"/>
-  <rect id="Rectangle_2_svg" data-name="Rectangle 2.svg" class="cls-2" x="550" y="100" width="200" height="200"/>
+  <rect id="Rectangle_1.svg" data-name="Rectangle 1.svg" class="cls-1" x="100" y="100" width="400" height="400"/>
+  <rect id="Rectangle_2.svg" data-name="Rectangle 2.svg" class="cls-2" x="550" y="100" width="200" height="200"/>
 </svg>

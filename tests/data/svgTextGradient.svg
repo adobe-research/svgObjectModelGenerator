@@ -15,5 +15,5 @@
       <feBlend result="blend" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <text id="This_is_a_text_svg" data-name="This is a text.svg" class="cls-1" x="302.812" y="205.703">This is a text</text>
+  <text id="This_is_a_text.svg" data-name="This is a text.svg" class="cls-1" x="302.812" y="205.703">This is a text</text>
 </svg>
