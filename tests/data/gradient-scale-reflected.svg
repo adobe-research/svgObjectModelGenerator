@@ -62,10 +62,10 @@
     <linearGradient id="linear-gradient-6" x1="0" y1="300" x2="800" y2="300" xlink:href="#linear-gradient-3"/>
   </defs>
   <title>gradient-scale-reflected.psd</title>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>
-  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="550" y="50" width="200" height="100"/>
-  <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-4" x="50" y="200" width="200" height="100"/>
-  <rect id="Rectangle_11" data-name="Rectangle 11" class="cls-5" x="300" y="200" width="200" height="100"/>
-  <rect id="Rectangle_12" data-name="Rectangle 12" class="cls-6" x="552" y="200" width="196" height="94"/>
+  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
+  <rect class="cls-3" x="550" y="50" width="200" height="100"/>
+  <rect class="cls-4" x="50" y="200" width="200" height="100"/>
+  <rect class="cls-5" x="300" y="200" width="200" height="100"/>
+  <rect class="cls-6" x="552" y="200" width="196" height="94"/>
 </svg>

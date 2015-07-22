@@ -8,9 +8,9 @@
   </defs>
   <title>artboards-1.psd</title>
   <g id="square">
-    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="2540" cy="2960" r="393"/>
+    <circle class="cls-1" cx="2540" cy="2960" r="393"/>
   </g>
   <g id="iPhone">
-    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="3972" y="2811" width="533" height="533"/>
+    <rect class="cls-1" x="3972" y="2811" width="533" height="533"/>
   </g>
 </svg>

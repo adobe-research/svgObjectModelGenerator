@@ -106,12 +106,12 @@
     <linearGradient id="linear-gradient-3" x1="0" y1="580.083" x2="800" y2="19.917" xlink:href="#radial-gradient"/>
   </defs>
   <title>/Users/dschulze/Downloads/plugins/svgesus-psds/stroke-style.psd</title>
-  <path id="Rectangle_1" data-name="Rectangle 1" class="cls-1" d="M50,50H250V150H50V50Z"/>
-  <path id="Rectangle_2" data-name="Rectangle 2" class="cls-2" d="M300,50H500V150H300V50Z"/>
-  <path id="Rectangle_3" data-name="Rectangle 3" class="cls-3" d="M550,50H750V150H550V50Z"/>
-  <path id="Rectangle_4" data-name="Rectangle 4" class="cls-4" d="M50,200H250V300H50V200Z"/>
-  <path id="Rectangle_5" data-name="Rectangle 5" class="cls-5" d="M300,200H500V300H300V200Z"/>
-  <path id="Rectangle_6" data-name="Rectangle 6" class="cls-6" d="M550,200H750V300H550V200Z"/>
-  <path id="Rectangle_7" data-name="Rectangle 7" class="cls-7" d="M50,350H250V450H50V350Z"/>
-  <path id="Rectangle_8" data-name="Rectangle 8" class="cls-8" d="M300,350H500V450H300V350Z"/>
+  <path class="cls-1" d="M50,50H250V150H50V50Z"/>
+  <path class="cls-2" d="M300,50H500V150H300V50Z"/>
+  <path class="cls-3" d="M550,50H750V150H550V50Z"/>
+  <path class="cls-4" d="M50,200H250V300H50V200Z"/>
+  <path class="cls-5" d="M300,200H500V300H300V200Z"/>
+  <path class="cls-6" d="M550,200H750V300H550V200Z"/>
+  <path class="cls-7" d="M50,350H250V450H50V350Z"/>
+  <path class="cls-8" d="M300,350H500V450H300V350Z"/>
 </svg>

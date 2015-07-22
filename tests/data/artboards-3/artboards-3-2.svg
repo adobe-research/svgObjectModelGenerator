@@ -18,9 +18,9 @@
   </defs>
   <title>Untitled-1</title>
   <g id="Artboard_1" data-name="Artboard 1">
-    <path id="Rectangle_2" data-name="Rectangle 2" class="cls-1" d="M2212,2212h600v600H2212V2212Z" transform="translate(-2000 -2000)"/>
+    <path class="cls-1" d="M2212,2212h600v600H2212V2212Z" transform="translate(-2000 -2000)"/>
   </g>
   <g id="Artboard_2" data-name="Artboard 2">
-    <path id="Rectangle_1" data-name="Rectangle 1" class="cls-1" d="M4000,2212h600v600H4000V2212Z" transform="translate(-2000 -2000)"/>
+    <path class="cls-1" d="M4000,2212h600v600H4000V2212Z" transform="translate(-2000 -2000)"/>
   </g>
 </svg>

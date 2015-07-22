@@ -17,7 +17,7 @@
     </linearGradient>
   </defs>
   <title>linear-gradient-angle-global-2.psd</title>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="200" y="50" width="400" height="100"/>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" x="350" y="200" width="100" height="100"/>
-  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1" x="350" y="350" width="100" height="250"/>
+  <rect class="cls-1" x="200" y="50" width="400" height="100"/>
+  <rect class="cls-1" x="350" y="200" width="100" height="100"/>
+  <rect class="cls-1" x="350" y="350" width="100" height="250"/>
 </svg>

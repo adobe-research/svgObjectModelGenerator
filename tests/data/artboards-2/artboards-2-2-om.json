@@ -28,7 +28,6 @@
 							}
 						}
 					},
-					"name": "Ellipse 1",
 					"visualBounds": {
 						"top": 2125,
 						"left": 2125,
@@ -72,7 +71,6 @@
 							}
 						}
 					},
-					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2138,
 						"left": 3390,
