@@ -33,15 +33,10 @@
         if (!st1) {
             return;
         }
-        var eq = 0,
-            s2 = {};
-        for (var i = 0, ii = st2.rules.length; i < ii; i++) {
-            s2[st2.rules[i].propertyName] = st2.rules[i].value;
-        }
-        for (i = 0, ii = st1.rules.length; i < ii; i++) {
-            var prop = st1.rules[i].propertyName;
-            if (prop in s2) {
-                eq += iseq(prop, st1.rules[i].value, s2[prop]);
+        var eq = 0;
+        for (var name in st1.rules) {
+            if (name in st2.rules) {
+                eq += iseq(name, st1.rules[name], st2.rules[name]);
             } else {
                 return;
             }
@@ -59,12 +54,11 @@
         css = simpleClone(css);
         for (var i = 0, len = c.length; i < len; i++) {
             var style = c[i].style;
-            for (var j = 0; j < style.rules.length; j++) {
-                if (css[style.rules[j].propertyName] == style.rules[j].value) {
-                    style.rules.splice(j, 1);
-                    j--;
+            for (var name in style.rules) {
+                if (css[name] == style.rules[name]) {
+                    delete style.rules[name];
                 } else {
-                    css[style.rules[j].propertyName] = style.rules[j].value;
+                    css[name] = style.rules[name];
                 }
             }
             style.fingerprint = JSON.stringify(style.rules);
@@ -146,7 +140,7 @@
                 if (match > compres.match) {
                     compres = {
                         match: match,
-                        full: match == tspans[i].styleBlock.rules.length,
+                        full: match == Object.keys(tspans[i].styleBlock.rules).length,
                         style: opened[j],
                         j: j
                     };
