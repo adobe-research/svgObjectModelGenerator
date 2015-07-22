@@ -13,5 +13,6 @@
       <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
+  <title>svgGradientOverlay.psd</title>
   <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-1" width="200" height="100"/>
 </svg>

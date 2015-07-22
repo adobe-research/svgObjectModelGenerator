@@ -57,6 +57,7 @@
       <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
+  <title>light-global-local.psd</title>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="83" width="250" height="150"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="450" y="80" width="250" height="150"/>
   <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="50" y="350" width="250" height="150"/>
