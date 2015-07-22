@@ -72,16 +72,16 @@
     <linearGradient id="linear-gradient-12" x1="650" y1="500" x2="650" y2="600" xlink:href="#linear-gradient"/>
   </defs>
   <title>linear-gradient-angle-layer.psd</title>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>
-  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="550" y="50" width="200" height="100"/>
-  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-4" x="50" y="200" width="200" height="100"/>
-  <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-5" x="300" y="200" width="200" height="100"/>
-  <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-6" x="550" y="200" width="200" height="100"/>
-  <rect id="Rectangle_7" data-name="Rectangle 7" class="cls-7" x="50" y="350" width="200" height="100"/>
-  <rect id="Rectangle_8" data-name="Rectangle 8" class="cls-8" x="300" y="350" width="200" height="100"/>
-  <rect id="Rectangle_9" data-name="Rectangle 9" class="cls-9" x="556" y="353" width="194" height="98"/>
-  <rect id="Rectangle_10" data-name="Rectangle 10" class="cls-10" x="50" y="500" width="200" height="100"/>
-  <rect id="Rectangle_11" data-name="Rectangle 11" class="cls-11" x="300" y="500" width="200" height="100"/>
-  <rect id="Rectangle_12" data-name="Rectangle 12" class="cls-12" x="550" y="500" width="200" height="100"/>
+  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
+  <rect class="cls-3" x="550" y="50" width="200" height="100"/>
+  <rect class="cls-4" x="50" y="200" width="200" height="100"/>
+  <rect class="cls-5" x="300" y="200" width="200" height="100"/>
+  <rect class="cls-6" x="550" y="200" width="200" height="100"/>
+  <rect class="cls-7" x="50" y="350" width="200" height="100"/>
+  <rect class="cls-8" x="300" y="350" width="200" height="100"/>
+  <rect class="cls-9" x="556" y="353" width="194" height="98"/>
+  <rect class="cls-10" x="50" y="500" width="200" height="100"/>
+  <rect class="cls-11" x="300" y="500" width="200" height="100"/>
+  <rect class="cls-12" x="550" y="500" width="200" height="100"/>
 </svg>

@@ -58,10 +58,10 @@
     <radialGradient id="radial-gradient" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
   </defs>
   <title>stroke-fx.psd</title>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="100" y="100" width="100" height="100"/>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="100" width="100" height="100"/>
-  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="500" y="100" width="100" height="100"/>
-  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-4" x="100" y="300" width="100" height="100"/>
-  <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-5" x="300" y="300" width="100" height="100"/>
-  <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-6" x="500" y="300" width="100" height="100"/>
+  <rect class="cls-1" x="100" y="100" width="100" height="100"/>
+  <rect class="cls-2" x="300" y="100" width="100" height="100"/>
+  <rect class="cls-3" x="500" y="100" width="100" height="100"/>
+  <rect class="cls-4" x="100" y="300" width="100" height="100"/>
+  <rect class="cls-5" x="300" y="300" width="100" height="100"/>
+  <rect class="cls-6" x="500" y="300" width="100" height="100"/>
 </svg>

@@ -43,7 +43,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 88,
 				"left": 88,
@@ -186,7 +185,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 88,
 				"left": 288,
@@ -329,7 +327,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 88,
 				"left": 488,
@@ -512,7 +509,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 288,
 				"left": 88,
@@ -695,7 +691,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 288,
 				"left": 288,
@@ -877,7 +872,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 288,
 				"left": 488,

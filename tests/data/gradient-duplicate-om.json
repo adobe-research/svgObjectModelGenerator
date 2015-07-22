@@ -40,7 +40,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 200,
 				"left": 50,
@@ -95,7 +94,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,
@@ -150,7 +148,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 200,
 				"left": 550,

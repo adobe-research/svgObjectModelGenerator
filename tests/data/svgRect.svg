@@ -7,8 +7,8 @@
     </style>
   </defs>
   <title>rect.psd</title>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" x="70" y="100" width="338" height="163"/>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="500" y="100" width="300" height="150" rx="30" ry="30"/>
-  <path id="Rectangle_3" data-name="Rectangle 3" class="cls-1" d="M110,300H360a10,10,0,0,1,10,10V430a20,20,0,0,1-20,20H100a30,30,0,0,1-30-30V340a40,40,0,0,1,40-40Z"/>
-  <path id="Rectangle_4" data-name="Rectangle 4" class="cls-1" d="M394.286,300H672.857A7.143,7.143,0,0,1,680,307.143v0A142.857,142.857,0,0,1,537.143,450h-50A107.143,107.143,0,0,1,380,342.857V314.286A14.286,14.286,0,0,1,394.286,300Z"/>
+  <rect class="cls-1" x="70" y="100" width="338" height="163"/>
+  <rect class="cls-1" x="500" y="100" width="300" height="150" rx="30" ry="30"/>
+  <path class="cls-1" d="M110,300H360a10,10,0,0,1,10,10V430a20,20,0,0,1-20,20H100a30,30,0,0,1-30-30V340a40,40,0,0,1,40-40Z"/>
+  <path class="cls-1" d="M394.286,300H672.857A7.143,7.143,0,0,1,680,307.143v0A142.857,142.857,0,0,1,537.143,450h-50A107.143,107.143,0,0,1,380,342.857V314.286A14.286,14.286,0,0,1,394.286,300Z"/>
 </svg>

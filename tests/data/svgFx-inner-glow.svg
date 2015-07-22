@@ -36,6 +36,6 @@
     </filter>
   </defs>
   <title>svgFx-inner-glow.psd</title>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="150" y="200" width="200" height="200"/>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="450" y="200" width="200" height="200"/>
+  <rect class="cls-1" x="150" y="200" width="200" height="200"/>
+  <rect class="cls-2" x="450" y="200" width="200" height="200"/>
 </svg>
