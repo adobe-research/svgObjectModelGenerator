@@ -24,5 +24,6 @@
       <feBlend result="blend-2" in="SourceGraphic"/>
     </filter>
   </defs>
+  <title>outer-glow.psd</title>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="236" y="190" width="149" height="114"/>
 </svg>

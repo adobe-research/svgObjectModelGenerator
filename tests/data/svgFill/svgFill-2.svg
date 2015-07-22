@@ -25,6 +25,7 @@
       <feBlend result="blend-2" in2="blend"/>
     </filter>
   </defs>
+  <title>svgFill.psd</title>
   <g style="fill: url(#linear-gradient); filter: url(#filter)">
     <circle id="circle" class="cls-1" cx="84" cy="84" r="82.5" style="stroke: inherit; filter: none; fill: inherit"/>
   </g>

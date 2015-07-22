@@ -37,6 +37,7 @@
     <path id="text-path-11" d="M191,127H46"/>
     <path id="text-path-12" d="M52,189H187"/>
   </defs>
+  <title>text-on-path.psd</title>
   <text id="Text_path" data-name="Text path" class="cls-1"><textPath xlink:href="#text-path"><tspan class="cls-2">Text path</tspan></textPath></text>
   <text id="Text_path-2" data-name="Text path" class="cls-1"><textPath xlink:href="#text-path-2"><tspan class="cls-2">Text path</tspan></textPath></text>
   <text id="Text_path-3" data-name="Text path" class="cls-1"><textPath xlink:href="#text-path-3"><tspan class="cls-2">Text path</tspan></textPath></text>

@@ -6,6 +6,7 @@
       }
     </style>
   </defs>
+  <title>rect.psd</title>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" x="70" y="100" width="338" height="163"/>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="500" y="100" width="300" height="150" rx="30" ry="30"/>
   <path id="Rectangle_3" data-name="Rectangle 3" class="cls-1" d="M110,300H360a10,10,0,0,1,10,10V430a20,20,0,0,1-20,20H100a30,30,0,0,1-30-30V340a40,40,0,0,1,40-40Z"/>
