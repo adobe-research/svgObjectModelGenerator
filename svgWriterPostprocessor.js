@@ -22,6 +22,38 @@
         insertArrayAt = function (array, index, arrayToInsert) {
             Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
         },
+        removeChains = function (children) {
+            var pass,
+                name,
+                i;
+            for (i = 0; i < children.length - 1; i++) {
+                pass = false;
+                while (children[i + 1] && children[i].styleBlock && children[i + 1].styleBlock &&
+                       children[i].styleBlock.isEqual(children[i + 1].styleBlock)) {
+                    for (name in children[i].attrs) {
+                        if (children[i].writeAttribute(name)) {
+                            pass = true;
+                            break;
+                        }
+                    }
+                    if (pass) {
+                        break;
+                    }
+                    for (name in children[i + 1].attrs) {
+                        if (children[i + 1].writeAttribute(name)) {
+                            pass = true;
+                            break;
+                        }
+                    }
+                    if (pass) {
+                        break;
+                    }
+                    children[i].children = children[i].children.concat(children[i + 1].children);
+                    removeChains(children[i].children);
+                    children.splice(i + 1, 1);
+                }
+            }
+        },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
                 var mum = parents[parents.length - 1];
@@ -137,6 +169,7 @@
                 for (i = 0; i < toCollapse.length; i++) {
                     tag.collapseChild(toCollapse[i]);
                 }
+                removeChains(tag.children);
                 for (name in common) {
                     tagStyle.addRule(name, common[name]);
                 }

@@ -165,6 +165,28 @@
             }
         };
 
+        proto.isEqual = function (block) {
+            var isIt,
+                a1 = [],
+                a2 = [],
+                i;
+            if (this.rules.length != block.rules.length) {
+                return false;
+            }
+            for (i = 0; i < this.rules.length; i++) {
+                a1[i] = this.rules[i].propertyName + ":" + this.rules[i].value;
+                a2[i] = block.rules[i].propertyName + ":" + block.rules[i].value;
+            }
+            a1.sort();
+            a2.sort();
+            for (i = 0; i < a1.length; i++) {
+                if (a1[i] != a2[i]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
     }(CSSStyleBlock.prototype));
 
     function SVGStylesheet() {
