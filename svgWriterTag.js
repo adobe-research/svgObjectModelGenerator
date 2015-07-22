@@ -292,9 +292,8 @@
             if (noctx) {
                 var omStyleBlock = tag.styleBlock;
                 if (omStyleBlock) {
-                    for (var i = 0; i < omStyleBlock.rules.length; i++) {
-                        var rule = omStyleBlock.rules[i];
-                        tag.writeAttribute(ctx, rule.propertyName, rule.value);
+                    for (var name in omStyleBlock.rules) {
+                        tag.writeAttribute(ctx, name, omStyleBlock.rules[name]);
                     }
                 }
             }
@@ -310,7 +309,7 @@
                 }
             }
         }
-        for (i = 0; i < numChildren; i++) {
+        for (var i = 0; i < numChildren; i++) {
             if (noctx) {
                 write(ctx, tag.children[i].toString());
             } else {
@@ -356,8 +355,8 @@
         // Use style attribute
         if (ctx.styling == 1) {
             style = "";
-            for (i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
-                style += omStyleBlock.rules[i].toString(ctx);
+            for (var key in omStyleBlock.rules) {
+                style += key + ":" + ctx.space + omStyleBlock.rules[key] + ";";
             }
             style = style.substring(0, style.length - 1);
             this.setAttribute("style", style);
@@ -365,9 +364,8 @@
         }
         // Use presentation attributes
         if (ctx.styling == 2) {
-            for (i = 0, ii = omStyleBlock.rules.length; i < ii; i++) {
-                var rule = omStyleBlock.rules[i];
-                this.setAttribute(rule.propertyName, rule.value);
+            for (key in omStyleBlock.rules) {
+                this.setAttribute(key, omStyleBlock.rules[key]);
             }
             return;
         }
