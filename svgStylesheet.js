@@ -110,22 +110,17 @@
         };
 
         proto.isEqual = function (block) {
-            var isIt,
-                keys1 = Object.keys(this.rules),
-                keys2 = Object.keys(block.rules),
-                a2 = [],
-                i;
-            if (keys1.length != keys2.length) {
-                return false;
-            }
-            keys1.sort();
-            keys2.sort();
-            for (i = 0; i < keys1.length; i++) {
-                if (keys1[i] != keys2[i] || this.rules[keys1[i]] != block.rules[keys1[i]]) {
+            for (var key in this.rules) {
+                if (block.rules[key] != this.rules[key]) {
                     return false;
                 }
             }
-            return true;
+            for (key in block.rules) {
+                if (block.rules[key] != this.rules[key]) {
+                    return false;
+                }
+            }
+            return false;
         };
 
     }(CSSStyleBlock.prototype));
