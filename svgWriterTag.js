@@ -300,7 +300,8 @@
             if (!numChildren && tag.name != "script") {
                 write(ctx, "/");
             }
-            if (tag.name == "text" || tag.name == "tspan" || tag.name == "textPath") {
+            if (tag.name == "text" || tag.name == "tspan" || tag.name == "textPath" ||
+                tag.name == "desc" || tag.name == "title") {
                 write(ctx, ">");
             } else {
                 writeln(ctx, ">");
@@ -319,7 +320,7 @@
         if (!numChildren && tag.name != "script" || !tag.name) {
             return ctx.sOut;
         }
-        if (tag.name == "text") {
+        if (tag.name == "text" || tag.name == "desc" || tag.name == "title") {
             writeln(ctx, "</" + tag.name + ">");
         } else if (tag.name == "tspan" || tag.name == "textPath") {
             write(ctx, "</" + tag.name + ">");
@@ -826,12 +827,24 @@
     Tag.make = function (ctx, node, sibling) {
         node = node || ctx.currentOMNode;
         var tag,
+            title,
+            desc,
             rootArtboardClipPath,
             f,
             id;
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
+            if (ctx.svgOM.name && ctx.svgOM.name.length) {
+                title = new Tag("title");
+                title.appendChild(new Tag("#text", encodedText(ctx.svgOM.name)));
+                tag.appendChild(title);
+            }
+            if (ctx.svgOM.desc && ctx.svgOM.desc.length) {
+                desc = new Tag("desc");
+                desc.appendChild(new Tag("#text", encodedText(ctx.svgOM.desc)));
+                tag.appendChild(desc);
+            }
             if (ctx._needsClipping) {
                 rootArtboardClipPath = tag;
                 tag = new Tag("g");
