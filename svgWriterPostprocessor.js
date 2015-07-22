@@ -132,8 +132,10 @@
                             }
                         }
                     } else {
-                        for (name in style.rules) {
-                            common[name] = style.rules[name];
+                        for (var j = 0; j < style.rules.length; j++) {
+                            name = style.rules[j].propertyName;
+                            value = style.rules[j].value;
+                            common[name] = value;
                         }
                     }
                 }
@@ -142,9 +144,12 @@
                     var child = tag.children[i];
                     style = child.styleBlock;
                     if (style) {
-                        for (name in style.rules) {
-                            if (common[name] == style.rules[name]) {
-                                delete style.rules[name];
+                        for (j = 0; j < style.rules.length; j++) {
+                            name = style.rules[j].propertyName;
+                            value = style.rules[j].value;
+                            if (common[name] == value) {
+                                style.rules.splice(j, 1);
+                                j--;
                             }
                         }
                         var toBe = child.styleBlock.hasRules();
@@ -180,7 +185,7 @@
     function processStyle(ctx, blocks) {
         var id = new ID(ctx.idType);
         for (var i in blocks) {
-            if (blocks[i].tags && blocks[i].tags.length && blocks[i].hasRules() && (!ctx.svgOM.global.styles || !ctx.svgOM.global.styles[blocks[i].class[0]])) {
+            if (blocks[i].tags && blocks[i].rules.length && (!ctx.svgOM.global.styles || !ctx.svgOM.global.styles[blocks[i].class[0]])) {
                 blocks[i].class[0] = id.getUnique("cls");
             }
         }
