@@ -322,7 +322,7 @@
         };
 
         self.parsePreparedPath = function (pathString) {
-            var array = pathString.split(/\s/),
+            var array = pathString.replace(/([MmLlCcZz])/g, " $1 ").split(/\s*,\s*|\s+/),
                 data = [],
                 x = 0,
                 y = 0,
@@ -330,11 +330,15 @@
                 my = 0;
 
             while (array.length) {
-                var cur = array.shift().toLowerCase(),
-                    abs = [],
+                var cur = array.shift();
+                if (cur == "") {
+                    continue;
+                }
+
+                var abs = [],
                     rel = [],
                     seg = {
-                        cmd: cur,
+                        cmd: cur.toLowerCase(),
                         abs: abs,
                         rel: rel,
                         x: x,
@@ -342,17 +346,28 @@
                         isabs: 1
                     };
                 switch (cur) {
-                case "m":
+                case "M":
                     mx = +array.shift();
                     my = +array.shift();
                     abs.push(mx);
                     abs.push(my);
                     rel.push(mx - x);
-                    rel.push(my - x);
+                    rel.push(my - y);
                     x = abs[abs.length - 2];
                     y = abs[abs.length - 1];
                     break;
-                case "l":
+                case "m":
+                    mx = +array.shift();
+                    my = +array.shift();
+                    abs.push(mx + x);
+                    abs.push(my + y);
+                    rel.push(mx);
+                    rel.push(my);
+                    seg.isabs = 0;
+                    x = abs[abs.length - 2];
+                    y = abs[abs.length - 1];
+                    break;
+                case "L":
                     abs.push(+array.shift());
                     abs.push(+array.shift());
                     rel.push(abs[abs.length - 2] - x);
@@ -360,7 +375,16 @@
                     x = abs[abs.length - 2];
                     y = abs[abs.length - 1];
                     break;
-                case "c":
+                case "l":
+                    rel.push(+array.shift());
+                    rel.push(+array.shift());
+                    abs.push(rel[rel.length - 2] + x);
+                    abs.push(rel[rel.length - 1] + y);
+                    seg.isabs = 0;
+                    x = abs[abs.length - 2];
+                    y = abs[abs.length - 1];
+                    break;
+                case "C":
                     abs.push(+array.shift());
                     abs.push(+array.shift());
                     abs.push(+array.shift());
@@ -376,6 +400,24 @@
                     x = abs[abs.length - 2];
                     y = abs[abs.length - 1];
                     break;
+                case "c":
+                    rel.push(+array.shift());
+                    rel.push(+array.shift());
+                    rel.push(+array.shift());
+                    rel.push(+array.shift());
+                    rel.push(+array.shift());
+                    rel.push(+array.shift());
+                    abs.push(rel[rel.length - 6] + x);
+                    abs.push(rel[rel.length - 5] + y);
+                    abs.push(rel[rel.length - 4] + x);
+                    abs.push(rel[rel.length - 3] + y);
+                    abs.push(rel[rel.length - 2] + x);
+                    abs.push(rel[rel.length - 1] + y);
+                    seg.isabs = 0;
+                    x = abs[abs.length - 2];
+                    y = abs[abs.length - 1];
+                    break;
+                case "Z":
                 case "z":
                     x = mx;
                     y = my;
