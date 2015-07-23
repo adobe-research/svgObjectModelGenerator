@@ -120,7 +120,7 @@
                     return false;
                 }
             }
-            return false;
+            return true;
         };
 
     }(CSSStyleBlock.prototype));
@@ -233,23 +233,6 @@
             delete this.defines[defnId];
         };
 
-        proto.removeElementBlocks = function (elId, className) {
-            var aDef = this.eleBlocks[elId],
-                i;
-
-            for (i = 0; aDef && i < aDef.length; i++) {
-                if (aDef[i].className === className) {
-                    aDef.splice(i, 1);
-                    this.eleBlocks[elId] = aDef;
-                    break;
-                }
-            }
-
-            for (i = 0; i < className.length; i++) {
-                delete this.blocks[className[i]];
-            }
-        };
-
         proto.consolidateDefines = function () {
 
             //find dupes and make em shared...
@@ -312,9 +295,6 @@
             omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
 
             this.blocks[omNode.className] = omNode.styleBlock;
-            // We create an styleBlock for each element initially.
-            // Store the element for later reference.
-            omNode.styleBlock.element = omNode.id;
 
             return omNode.styleBlock;
         };
@@ -352,13 +332,14 @@
             for (fingerprint in dupTable) {
                 if (dupTable.hasOwnProperty(fingerprint)) {
                     aDups = dupTable[fingerprint];
-                    if (aDups && aDups.length >= 1) {
+                    if (aDups && aDups.length) {
                         for (i = 1; i < aDups.length; i++) {
                             dup = aDups[i];
                             tags = dup.tags;
                             for (var j = 0; tags && j < tags.length; j++) {
                                 tag = Tag.getById(tags[j]);
                                 if (tag) {
+                                    delete this.blocks[tag.styleBlock.class];
                                     tag.styleBlock = aDups[0];
                                     aDups[0].tags.push(tags[j]);
                                 }
