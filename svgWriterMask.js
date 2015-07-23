@@ -47,7 +47,7 @@
                 ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, fingerprint);
             }
 
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
             maskID = ctx.omStylesheet.getDefine(omIn.id, "mask").defnId;
             styleBlock.addRule("mask", "url(#" + maskID + ")");
         }

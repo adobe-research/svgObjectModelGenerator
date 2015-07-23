@@ -89,7 +89,7 @@
                 ctx.omStylesheet.define("filter", omIn.id, filterID, filterTag, fingerprint);
             }
 
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
             filterID = ctx.omStylesheet.getDefine(omIn.id, "filter").defnId;
             styleBlock.addRule("filter", "url(#" + filterID + ")");
         };

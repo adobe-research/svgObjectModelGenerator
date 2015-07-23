@@ -57,7 +57,7 @@
                 }
                 break;
             case "group":
-                // Should we add "Artboard <number>" as well? 
+                // Should we add "Artboard <number>" as well?
                 if (layer.name.search(/^Group [1-9][0-9]*$/) != -1) {
                     return;
                 }

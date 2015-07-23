@@ -32,7 +32,7 @@
 
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique),
+                styleBlock = ctx.omStylesheet.getStyleBlock(omIn),
                 stroke;
 
             if (!hasStroke(ctx)) {

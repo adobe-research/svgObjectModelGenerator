@@ -43,7 +43,7 @@
                 ctx.omStylesheet.define("pattern-" + flavor, omIn.id, patternID, patternTag, fingerprint);
             }
 
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
             patternID = ctx.omStylesheet.getDefine(omIn.id, "pattern-" + flavor).defnId;
             styleBlock.addRule(flavor, "url(#" + patternID + ")");
         }

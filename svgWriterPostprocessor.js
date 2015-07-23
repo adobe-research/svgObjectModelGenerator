@@ -118,8 +118,7 @@
                 }
                 var tagStyle = tag.styleBlock,
                     common = {},
-                    name,
-                    value;
+                    name;
                 for (var i = 0; i < tag.children.length; i++) {
                     var style = tag.children[i].styleBlock;
                     if (!style) {
@@ -132,10 +131,8 @@
                             }
                         }
                     } else {
-                        for (var j = 0; j < style.rules.length; j++) {
-                            name = style.rules[j].propertyName;
-                            value = style.rules[j].value;
-                            common[name] = value;
+                        for (name in style.rules) {
+                            common[name] = style.rules[name];
                         }
                     }
                 }
@@ -144,12 +141,9 @@
                     var child = tag.children[i];
                     style = child.styleBlock;
                     if (style) {
-                        for (j = 0; j < style.rules.length; j++) {
-                            name = style.rules[j].propertyName;
-                            value = style.rules[j].value;
-                            if (common[name] == value) {
-                                style.rules.splice(j, 1);
-                                j--;
+                        for (name in style.rules) {
+                            if (common[name] == style.rules[name]) {
+                                delete style.rules[name];
                             }
                         }
                         var toBe = child.styleBlock.hasRules();
@@ -185,7 +179,7 @@
     function processStyle(ctx, blocks) {
         var id = new ID(ctx.idType);
         for (var i in blocks) {
-            if (blocks[i].tags && blocks[i].rules.length && (!ctx.svgOM.global.styles || !ctx.svgOM.global.styles[blocks[i].class[0]])) {
+            if (blocks[i].tags && blocks[i].tags.length && blocks[i].hasRules() && (!ctx.svgOM.global.styles || !ctx.svgOM.global.styles[blocks[i].class[0]])) {
                 blocks[i].class[0] = id.getUnique("cls");
             }
         }
