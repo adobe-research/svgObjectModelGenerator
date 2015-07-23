@@ -68,7 +68,7 @@
                         shape: omIn.shape,
                         className: ref
                     };
-                    ctx.omStylesheet.getStyleBlock(fakeNode, ctx.ID.getUnique);
+                    ctx.omStylesheet.getStyleBlock(fakeNode);
                     fakeNode.styleBlock.element = null;
                     omIn.styleBlock = fakeNode.styleBlock;
                 }
@@ -85,7 +85,7 @@
             svgWriterMask.externalizeStyles(ctx);
             svgWriterClipPath.externalizeStyles(ctx);
 
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
 
             if (omIn.shape && omIn.shape.winding) {
                 styleBlock.addRule("fill-rule", omIn.shape.winding);

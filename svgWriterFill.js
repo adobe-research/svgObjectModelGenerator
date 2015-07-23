@@ -27,7 +27,7 @@
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
                 fill,
-                styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+                styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
 
             if (!omIn.style || !omIn.style.fill) {
                 if (omIn.type == "shape") {

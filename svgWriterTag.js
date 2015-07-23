@@ -292,7 +292,7 @@
             if (noctx) {
                 var omStyleBlock = tag.styleBlock;
                 if (omStyleBlock) {
-                    for (var name in omStyleBlock.rules) {
+                    for (name in omStyleBlock.rules) {
                         tag.writeAttribute(ctx, name, omStyleBlock.rules[name]);
                     }
                 }
@@ -331,7 +331,7 @@
     };
     Tag.prototype.setStyleBlock = function (ctx, node) {
         node = node || ctx.currentOMNode;
-        var omStyleBlock = ctx.omStylesheet.getStyleBlock(node, ctx.ID.getUnique);
+        var omStyleBlock = ctx.omStylesheet.getStyleBlock(node);
         if (!omStyleBlock) {
             return;
         }

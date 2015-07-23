@@ -87,7 +87,6 @@
 
         proto.write = proto.toString = function (ctx) {
             ctx = ctx || new SVGWriterContext({});
-            var i;
             writeln(ctx, ctx.currentIndent + "." + this.class.map(svgWriterUtils.escapeCSS).join("," + ctx.space + ".") + ctx.space + "{");
             indent(ctx);
 
@@ -286,16 +285,11 @@
             return omNode.styleBlock && omNode.styleBlock.hasRules();
         };
 
-        proto.getStyleBlock = function (omNode, getUnique) {
-
-            omNode.className = omNode.className || getUnique("cls");
-
-            //TBD: factor in IDs
-
+        var classID = 1;
+        proto.getStyleBlock = function (omNode) {
+            omNode.className = omNode.className || "cls-" + classID++;
             omNode.styleBlock = omNode.styleBlock || new CSSStyleBlock(omNode.className);
-
             this.blocks[omNode.className] = omNode.styleBlock;
-
             return omNode.styleBlock;
         };
 
@@ -308,7 +302,6 @@
                 i,
                 aDups,
                 dup,
-                dupElId,
                 fingerprint,
                 tag,
                 tags;
@@ -401,8 +394,7 @@
                 cls,
                 rule,
                 name,
-                i,
-                j;
+                i;
             for (i = 0; i < blocks.length; i++) {
                 cls = blocks[i].class;
                 for (var key in blocks[i].rules) {

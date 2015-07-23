@@ -118,8 +118,7 @@
                 }
                 var tagStyle = tag.styleBlock,
                     common = {},
-                    name,
-                    value;
+                    name;
                 for (var i = 0; i < tag.children.length; i++) {
                     var style = tag.children[i].styleBlock;
                     if (!style) {

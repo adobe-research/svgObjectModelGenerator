@@ -47,7 +47,7 @@
                 ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, fingerprint);
             }
 
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn, ctx.ID.getUnique);
+            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
             clipPathID = ctx.omStylesheet.getDefine(omIn.id, "clip-path").defnId;
             styleBlock.addRule("clip-path", "url(#" + clipPathID + ")");
         },
