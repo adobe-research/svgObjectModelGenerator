@@ -41,6 +41,35 @@
         return layer.artboard ? "artboard" : layerTypeMap[layer.type];
     }
 
+    function getSVGLayerName(type, layer) {
+        if (!layer.name && !layer.name.length) {
+            return;
+        }
+        switch (type) {
+            case "shape":
+                if (layer.name.search(/^(Rectangle|Ellipse|Shape) [1-9][0-9]*$/) != -1) {
+                    return;
+                }
+                break;
+            case "text":
+                if (layer.text.textKey.replace(/\s/g, " ").search(layer.name) != -1) {
+                    return;
+                }
+                break;
+            case "group":
+                // Should we add "Artboard <number>" as well?
+                if (layer.name.search(/^Group [1-9][0-9]*$/) != -1) {
+                    return;
+                }
+                break;
+            default:
+                if (layer.name.search(/^Layer [1-9][0-9]*$/) != -1) {
+                    return;
+                }
+        }
+        return layer.name;
+    }
+
     function layerSpecActive(layerSpec) {
         return !!(layerSpec && typeof layerSpec === "number");
     }
@@ -108,7 +137,7 @@
             }
             if (!justTraverse && layerType != "background") {
                 svgNode = writer.addSVGNode(layerType, layerVisible);
-                svgNode.name = layer.name;
+                svgNode.name = getSVGLayerName(layerType, layer);
             }
 
             switch (layerType) {

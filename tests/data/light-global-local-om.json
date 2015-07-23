@@ -54,7 +54,6 @@
 				},
 				"filter": "filter"
 			},
-			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 64,
 				"left": 11,
@@ -123,7 +122,6 @@
 				},
 				"filter": "filter-2"
 			},
-			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
 				"left": 415,
@@ -191,7 +189,6 @@
 				},
 				"filter": "filter-3"
 			},
-			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 350,
 				"left": 50,
@@ -259,7 +256,6 @@
 				},
 				"filter": "filter-4"
 			},
-			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 350,
 				"left": 450,

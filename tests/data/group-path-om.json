@@ -8,7 +8,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Group 1",
 			"children": [
 				{
 					"type": "shape",
@@ -41,7 +40,6 @@
 							}
 						}
 					},
-					"name": "Shape 1",
 					"visualBounds": {
 						"top": 773.71875,
 						"left": 1145.75,

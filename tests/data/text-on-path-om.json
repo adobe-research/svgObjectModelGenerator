@@ -9,7 +9,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -73,7 +72,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -11.840942,
 				"bottom": 35.680756,
@@ -137,7 +135,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -15.915802,
 				"bottom": 39.18768299999999,
@@ -201,7 +198,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 0,
@@ -267,7 +263,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text on path",
 			"visualBounds": {
 				"top": 9.578139999999998,
 				"bottom": 293.951904,
@@ -331,7 +326,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -399,7 +393,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -8.837402,
 				"bottom": 8.162598,
@@ -463,7 +456,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -21.067017,
 				"bottom": 46.151703,
@@ -529,7 +521,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -8.837402,
 				"bottom": 8.162598,
@@ -595,7 +586,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,
@@ -661,7 +651,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path ",
 			"visualBounds": {
 				"top": -6,
 				"bottom": 22,
@@ -725,7 +714,6 @@
 					"type": "none"
 				}
 			},
-			"name": "Text path ",
 			"visualBounds": {
 				"top": -22,
 				"bottom": 6,

@@ -218,7 +218,8 @@ describe("svgWriter", function () {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
-                    constrainToDocBounds: true
+                    constrainToDocBounds: true,
+                    preparedPath: true
                 };
 
             if (skipTest) {
@@ -281,7 +282,8 @@ describe("svgWriter", function () {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
-                    constrainToDocBounds: true
+                    constrainToDocBounds: true,
+                    preparedPath: true
                 };
 
             for (i = 0; i + 2 < aTestData.length; i = i + 3) {

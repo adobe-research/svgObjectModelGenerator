@@ -10,5 +10,6 @@
       }
     </style>
   </defs>
+  <title>svgText-writing-mode</title>
   <text id="This_is_a_text" data-name="This is a text" class="cls-1" x="338.336" y="231.555">This is a text</text>
 </svg>

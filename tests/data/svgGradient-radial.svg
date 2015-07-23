@@ -16,6 +16,7 @@
     </radialGradient>
     <radialGradient id="radial-gradient-2" cx="500" cy="375" r="500" xlink:href="#radial-gradient"/>
   </defs>
-  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="300" y="100" width="300" height="150"/>
-  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="50" y="350" width="900" height="150"/>
+  <title>svgGradient-radial.psd</title>
+  <rect class="cls-1" x="300" y="100" width="300" height="150"/>
+  <rect class="cls-2" x="50" y="350" width="900" height="150"/>
 </svg>

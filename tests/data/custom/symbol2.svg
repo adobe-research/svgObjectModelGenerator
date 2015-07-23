@@ -7,11 +7,13 @@
     </style>
 
     <symbol id="Red_rect" data-name="Red rect" viewBox="-23.779 -20.082 18.029 11.779">
-      <g id="<Group>">
-        <rect id="<Rectangle>" class="cls-1" x="-23.779" y="-20.082" width="18.029" height="11.779"/>
+      <g id="_Group_" data-name="&lt;Group&gt;">
+        <rect id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-1" x="-23.779" y="-20.082" width="18.029" height="11.779"/>
       </g>
     </symbol>
   </defs>
+  <title>Untitled-1</title>
+  <desc>Created by Adobe Illustrator</desc>
   <g id="Layer_1" data-name="Layer 1">
     <use id="Red_rect-3" data-name="Red rect" xlink:href="#Red_rect" transform="matrix(7.647, 0, 0, -4.939, 68.93, 29.086)" x="-9.014" y="-5.889" width="18.029" height="11.779"/>
   </g>

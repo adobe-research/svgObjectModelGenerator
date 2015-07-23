@@ -6,10 +6,11 @@
       }
     </style>
   </defs>
-  <g id="artboard-1">
-    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="2512" cy="2512" r="387"/>
+  <title>artboards-2.psd</title>
+  <g id="circle">
+    <circle class="cls-1" cx="2512" cy="2512" r="387"/>
   </g>
-  <g id="artboard-2">
-    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="3390" y="2138" width="748" height="748"/>
+  <g id="square">
+    <rect class="cls-1" x="3390" y="2138" width="748" height="748"/>
   </g>
 </svg>

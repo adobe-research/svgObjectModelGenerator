@@ -19,7 +19,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 50,
 				"left": 50,
@@ -53,7 +52,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 50,
 				"left": 300,
@@ -87,7 +85,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 50,
 				"left": 550,
@@ -121,7 +118,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 200,
 				"left": 50,
@@ -155,7 +151,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 200,
 				"left": 300,
@@ -189,7 +184,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 200,
 				"left": 550,
@@ -223,7 +217,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 350,
 				"left": 50,
@@ -257,7 +250,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 8",
 			"visualBounds": {
 				"top": 350,
 				"left": 300,
@@ -291,7 +283,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 9",
 			"visualBounds": {
 				"top": 353,
 				"left": 556,
@@ -325,7 +316,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 10",
 			"visualBounds": {
 				"top": 500,
 				"left": 50,
@@ -359,7 +349,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 11",
 			"visualBounds": {
 				"top": 500,
 				"left": 300,
@@ -393,7 +382,6 @@
 					}
 				}
 			},
-			"name": "Rectangle 12",
 			"visualBounds": {
 				"top": 500,
 				"left": 550,

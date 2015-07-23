@@ -71,7 +71,6 @@
         var bounds = svgOM.global.bounds || {};
         root = {
             all: {},
-            artboards: 1,
             ids: {},
             x: bounds.left,
             y: bounds.top,
@@ -276,7 +275,7 @@
                 tag.writeAttribute(ctx, "id");
             }
             if ("data-name" in tag.attrs && !noctx) {
-                tag.writeAttribute(ctx, "data-name");
+                tag.writeAttribute(ctx, "data-name", encodedText(tag.attrs["data-name"]));
             }
             if ("class" in tag.attrs) {
                 tag.writeAttribute(ctx, "class");
@@ -300,7 +299,8 @@
             if (!numChildren && tag.name != "script") {
                 write(ctx, "/");
             }
-            if (tag.name == "text" || tag.name == "tspan" || tag.name == "textPath") {
+            if (tag.name == "text" || tag.name == "tspan" || tag.name == "textPath" ||
+                tag.name == "desc" || tag.name == "title") {
                 write(ctx, ">");
             } else {
                 writeln(ctx, ">");
@@ -319,7 +319,7 @@
         if (!numChildren && tag.name != "script" || !tag.name) {
             return ctx.sOut;
         }
-        if (tag.name == "text") {
+        if (tag.name == "text" || tag.name == "desc" || tag.name == "title") {
             writeln(ctx, "</" + tag.name + ">");
         } else if (tag.name == "tspan" || tag.name == "textPath") {
             write(ctx, "</" + tag.name + ">");
@@ -753,8 +753,12 @@
             }, ctx);
             return tag.useTrick(ctx);
         },
-        artboard: function (ctx) {
-            var artboard = new Tag("g", {id: "artboard-" + root.artboards++}, ctx).useTrick(ctx);
+        artboard: function (ctx, node) {
+            var id = ctx.ID.getUnique("artboard", node.name),
+                artboard = new Tag("g", {id: id}, ctx).useTrick(ctx);
+            if (!ctx.minify && node.name && node.name != id) {
+                artboard.setAttribute("data-name", node.name);
+            }
             artboard.isArtboard = true;
             return artboard;
         },
@@ -821,12 +825,24 @@
     Tag.make = function (ctx, node, sibling) {
         node = node || ctx.currentOMNode;
         var tag,
+            title,
+            desc,
             rootArtboardClipPath,
             f,
             id;
         if (node == ctx.svgOM) {
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
+            if (ctx.svgOM.name && ctx.svgOM.name.length) {
+                title = new Tag("title");
+                title.appendChild(new Tag("#text", encodedText(ctx.svgOM.name)));
+                tag.appendChild(title);
+            }
+            if (ctx.svgOM.desc && ctx.svgOM.desc.length) {
+                desc = new Tag("desc");
+                desc.appendChild(new Tag("#text", encodedText(ctx.svgOM.desc)));
+                tag.appendChild(desc);
+            }
             if (ctx._needsClipping) {
                 rootArtboardClipPath = tag;
                 tag = new Tag("g");

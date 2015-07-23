@@ -35,8 +35,9 @@
       <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
+  <title>group.psd</title>
   <g id="Group" class="cls-1">
-    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-2" x="100" y="100" width="200" height="200"/>
+    <rect class="cls-2" x="100" y="100" width="200" height="200"/>
     <g style="fill: #2ccf26; filter: url(#filter-2)">
       <rect id="rect" class="cls-3" x="200" y="200" width="200" height="200" style="stroke: inherit; filter: none; fill: inherit"/>
     </g>

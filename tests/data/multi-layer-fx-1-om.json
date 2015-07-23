@@ -100,7 +100,6 @@
 				},
 				"filter": "filter"
 			},
-			"name": "Rectangle 1",
 			"visualBounds": {
 				"top": 455,
 				"left": 418,
@@ -227,7 +226,6 @@
 				},
 				"filter": "filter-2"
 			},
-			"name": "Rectangle 4",
 			"visualBounds": {
 				"top": 881,
 				"left": 210,
@@ -370,7 +368,6 @@
 				},
 				"filter": "filter-3"
 			},
-			"name": "Rectangle 7",
 			"visualBounds": {
 				"top": 1103,
 				"left": 110,
@@ -529,7 +526,6 @@
 				},
 				"filter": "filter-4"
 			},
-			"name": "Rectangle 5",
 			"visualBounds": {
 				"top": 881,
 				"left": 850,
@@ -716,7 +712,6 @@
 				},
 				"filter": "filter-5"
 			},
-			"name": "Rectangle 6",
 			"visualBounds": {
 				"top": 881,
 				"left": 1490,
@@ -810,7 +805,6 @@
 				},
 				"filter": "filter-6"
 			},
-			"name": "Rectangle 3",
 			"visualBounds": {
 				"top": 197,
 				"left": 210,
@@ -955,7 +949,6 @@
 				},
 				"filter": "filter-7"
 			},
-			"name": "Rectangle 2",
 			"visualBounds": {
 				"top": 197,
 				"left": 1490,
