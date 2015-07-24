@@ -669,13 +669,18 @@
             return tag.useTrick(ctx);
         },
         text: function (ctx, node) {
+            var textFrame = node["text-frame"];
             if (node.kind == "positioned") {
                 var tag = new Tag("text", {
-                        x: node["text-frame"].x,
-                        y: node["text-frame"].y,
+                        x: textFrame.x,
+                        y: textFrame.y,
                         transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                     }, ctx),
                     paraLen = node.paragraphs && node.paragraphs.length;
+                if (textFrame.direction && textFrame.direction.substring(0, 8) == "vertical") {
+                    tag.styleBlock.addRule("writing-mode", "tb");
+                    tag.styleBlock.addRule("glyph-orientation-vertical", 0);
+                }
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);

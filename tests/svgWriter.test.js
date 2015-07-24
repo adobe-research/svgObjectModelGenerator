@@ -808,5 +808,8 @@ describe("svgWriter", function () {
         it("Test empty paragraph", function () {
             compareResults("positioned-text2");
         });
+        it("Test vertical text", function () {
+            compareResults("positioned-text3");
+        });
     });
 });
