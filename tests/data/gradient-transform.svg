@@ -15,6 +15,7 @@
     </radialGradient>
     <linearGradient id="linear-gradient" x1="300" y1="50" x2="500" y2="50" gradientTransform="rotate(-45)" xlink:href="#radial-gradient"/>
   </defs>
+  <title>Test focal points</title>
   <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="50" width="200" height="100"/>
 </svg>

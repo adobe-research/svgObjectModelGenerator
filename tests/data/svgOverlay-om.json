@@ -10,7 +10,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 275,
 						"y1": 250,
 						"x2": 275,
@@ -27,23 +27,24 @@
 									"mode": "lighten",
 									"opacity": 1,
 									"color": {
-										"r": 255,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									}
 								}
 							]
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"visualBounds": {
-				"top": 100,
-				"left": 100,
-				"bottom": 250,
-				"right": 450
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -51,46 +52,58 @@
 				"y": 100,
 				"width": 350,
 				"height": 150
+			},
+			"visualBounds": {
+				"x": 100,
+				"y": 100,
+				"width": 350,
+				"height": 150
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 255,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite",
-							"SourceGraphic"
-						],
-						"mode": "lighten"
-					}
-				]
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"SourceGraphic"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite",
+								"SourceGraphic"
+							],
+							"mode": "lighten"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {
@@ -99,19 +112,25 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 225.000002,
-							"g": 0,
-							"b": 25.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 225.000002,
+								"g": 0,
+								"b": 25.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 0,
-							"g": 96.000002,
-							"b": 27.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 96.000002,
+								"b": 27.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -119,14 +138,7 @@
 			}
 		},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -137,6 +149,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgOverlay.psd"
+	"version": "1.0.0",
+	"name": "svgOverlay.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

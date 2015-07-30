@@ -57,10 +57,10 @@
             node = node || ctx.currentOMNode;
             if (node.visualBounds) {
                 this.bbox = {
-                    x: node.visualBounds.left,
-                    y: node.visualBounds.top,
-                    width: node.visualBounds.right - node.visualBounds.left,
-                    height: node.visualBounds.bottom - node.visualBounds.top
+                    x: node.visualBounds.x,
+                    y: node.visualBounds.y,
+                    width: node.visualBounds.width,
+                    height: node.visualBounds.height
                 };
             }
             this.setStyleBlock(ctx, node);
@@ -74,15 +74,15 @@
         return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
     }
     Tag.resetRoot = function (ctx) {
-        var bounds = ctx.svgOM.global.bounds || {};
+        var bounds = ctx.svgOM.viewSource || {};
         root = {
             ctx: ctx,
             all: {},
             ids: {},
-            x: bounds.left,
-            y: bounds.top,
-            width: bounds.right - bounds.left,
-            height: bounds.bottom - bounds.top,
+            x: bounds.x,
+            y: bounds.y,
+            width: bounds.width,
+            height: bounds.height,
             images: {}
         };
     };
@@ -548,7 +548,7 @@
         },
         path: function (ctx, node) {
             var tag = new Tag("path", {
-                d: ctx.config.turnOffPathOptimisation ? node.shape.path : util.optimisePath(node.shape.path, ctx.precision, ctx.preparedPath),
+                d: ctx.config.turnOffPathOptimisation ? node.shape.path : util.optimisePath(node.shape.path, ctx.precision, node.shape.preparedPath !== false),
                 transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision, true)
             }, ctx);
             return tag.useTrick(ctx);
@@ -569,20 +569,16 @@
         },
         mask: function (ctx, node) {
             // FIXME: We might need special casing for objectBoundingBox.
-            var attr = {},
-                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
-                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
-            if (node.bounds) {
-                attr.x = node.bounds.left + offsetX;
-                attr.y = node.bounds.top + offsetY;
-                attr.width = node.bounds.right - node.bounds.left;
-                attr.height = node.bounds.bottom - node.bounds.top;
-            }
-            attr.maskUnits = node.maskUnits || "userSpaceOnUse";
-            if (!node.bounds && !node.maskUnits) {
+            var attr = {};
+            attr.x = (node.x || 0) + (node.translateTX || 0);
+            attr.y = (node.y || 0) + (node.translateTY || 0);
+            attr.width = node.width;
+            attr.height = node.height;
+            attr.maskUnits = node.units || "userSpaceOnUse";
+            if (!attr.width && !attr.height && !node.units) {
                 delete attr.maskUnits;
             }
-            attr.maskContentUnits = node.maskContentUnits;
+            attr.maskContentUnits = node.contentUnits;
             var mask = new Tag("mask", attr, ctx);
             if (node.kind == "opacity") {
                 mask.setAttribute("style", "mask-type:alpha");
@@ -604,21 +600,19 @@
         pattern: function (ctx, node) {
             // FIXME: We might need special casing for objectBoundingBox.
             var attr = {};
-            if (node.bounds) {
-                attr.x = node.bounds.left + (node.transform ? 0 : node.transformTX || 0);
-                attr.y = node.bounds.top + (node.transform ? 0 : node.transformTY || 0);
-                attr.width = node.bounds.right - node.bounds.left;
-                attr.height = node.bounds.bottom - node.bounds.top;
-            }
+            attr.x = node.x + (node.transform ? 0 : node.transformTX || 0);
+            attr.y = node.y + (node.transform ? 0 : node.transformTY || 0);
+            attr.width = node.width;
+            attr.height = node.height;
             if (node.viewBox) {
-                attr.viewBox = [node.viewBox.left, node.viewBox.top, node.viewBox.right, node.viewBox.bottom];
+                attr.viewBox = [node.viewBox.x, node.viewBox.y, node.viewBox.width, node.viewBox.height];
             }
             attr.patternTransform = getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision);
-            attr.patternUnits = node.patternUnits || "userSpaceOnUse";
-            if (!node.bounds && !node.patternUnits) {
+            attr.patternUnits = node.units || "userSpaceOnUse";
+            if (!attr.width && !attr.height && !node.units) {
                 delete attr.patternUnits;
             }
-            attr.patternContentUnits = node.patternContentUnits;
+            attr.patternContentUnits = node.contentUnits;
             return new Tag("pattern", attr, ctx);
         },
         rect: function (ctx, node) {
@@ -652,6 +646,9 @@
             return tag.useTrick(ctx);
         },
         text: function (ctx, node) {
+            if (!node.text) {
+                return factory.textOld(ctx, node);
+            }
             function setGlyphOrientation(tag, isVertical) {
                 var style = tag.styleBlock;
                 // ATE does not support "sideways" on horizontal text. Skip support
@@ -667,45 +664,42 @@
                     style.addRule("glyph-orientation-vertical", "90deg");
                 }
             }
-            var textFrame = node["text-frame"];
-            if (node.kind == "positioned") {
-                var tag = new Tag("text", {
-                        x: textFrame.x,
-                        y: textFrame.y,
-                        transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
-                    }, ctx),
-                    paraLen = node.paragraphs && node.paragraphs.length,
-                    isVertical = false;
-                if (textFrame.direction && textFrame.direction.substring(0, 8) == "vertical") {
-                    tag.styleBlock.addRule("writing-mode", "tb");
-                    isVertical = true;
-                }
-                setGlyphOrientation(tag, isVertical);
-                for (var i = 0; i < paraLen; i++) {
-                    var para = node.paragraphs[i],
-                        p = new Tag("tspan", {}, ctx, para);
-                    setGlyphOrientation(p, isVertical);
-                    for (var j = 0; j < para.lines.length; j++) {
-                        var lineNode = para.lines[j];
-                        for (var k = 0; k < lineNode.length; k++) {
-                            var glyph = lineNode[k],
-                                glyphText = node["raw-text"].substring(glyph.from, glyph.to),
-                                glyphRun = new Tag("tspan", {
-                                    x: glyph.x,
-                                    y: glyph.y,
-                                    rotate: glyph.rotate
-                                }, ctx, glyph);
-                            glyphRun.appendChild(new Tag("#text", glyphText));
-                            setGlyphOrientation(glyphRun, isVertical);
-                            p.appendChild(glyphRun);
-                        }
-                    }
-                    if (p.children.length) {
-                        tag.appendChild(p);
+            var text = node.text,
+                frame = text.frame,
+                tag = new Tag("text", {
+                    x: frame.x,
+                    y: frame.y,
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
+                }, ctx),
+                paraLen = text.paragraphs && text.paragraphs.length,
+                isVertical = false;
+            if (text.orientation && text.orientation.substring(0, 8) == "vertical") {
+                tag.styleBlock.addRule("writing-mode", "tb");
+                isVertical = true;
+            }
+            setGlyphOrientation(tag, isVertical);
+            for (var i = 0; i < paraLen; i++) {
+                var para = text.paragraphs[i],
+                    p = new Tag("tspan", {}, ctx, para);
+                setGlyphOrientation(p, isVertical);
+                for (var j = 0; j < para.lines.length; j++) {
+                    var lineNode = para.lines[j];
+                    for (var k = 0; k < lineNode.length; k++) {
+                        var glyph = lineNode[k],
+                            glyphText = text.rawText.substring(glyph.from, glyph.to),
+                            glyphRun = new Tag("tspan", {
+                                x: glyph.x,
+                                y: glyph.y,
+                                rotate: glyph.rotate
+                            }, ctx, glyph);
+                        glyphRun.appendChild(new Tag("#text", glyphText));
+                        setGlyphOrientation(glyphRun, isVertical);
+                        p.appendChild(glyphRun);
                     }
                 }
-            } else {
-                return factory.textOld(ctx, node);
+                if (p.children.length) {
+                    tag.appendChild(p);
+                }
             }
             return tag.useTrick(ctx);
         },
@@ -737,16 +731,14 @@
             return tag.useTrick(ctx);
         },
         image: function (ctx, node) {
-            if (!node.bounds) {
+            if (!node.image) {
                 return;
             }
-            var img = root.images[node.href],
-                top = parseFloat(node.bounds.top),
-                right = parseFloat(node.bounds.right),
-                bottom = parseFloat(node.bounds.bottom),
-                left = parseFloat(node.bounds.left),
-                w = right - left,
-                h = bottom - top,
+            var img = root.images[node.image.href],
+                x = node.image.x || 0,
+                y = node.image.y || 0,
+                w = parseFloat(node.image.width),
+                h = parseFloat(node.image.height),
                 tag;
             ctx.xlinkRequired = true;
             if (img) {
@@ -764,7 +756,7 @@
                         height: "",
                         "xlink:href": "#" + id
                     });
-                    root.images[node.href] = defimg;
+                    root.images[node.image.href] = defimg;
                     defimg.inDefs = true;
                     ctx.omStylesheet.def(defimg);
                     img = defimg;
@@ -778,21 +770,21 @@
                     matrix = Matrix.createMatrix(node.transform);
                 matrix.scale(sx, sy, 1);
                 tag = new Tag("use", {
-                    x: left / sx,
-                    y: top / sy,
+                    x: x / sx,
+                    y: y / sy,
                     transform: getTransform(matrix, 0, 0, ctx.precision),
                     "xlink:href": "#" + id
                 }, ctx);
             } else {
                 tag = new Tag("image", {
-                    x: left,
-                    y: top,
+                    x: x,
+                    y: y,
                     width: w,
                     height: h,
                     transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision),
-                    "xlink:href": node.href
+                    "xlink:href": node.image.href
                 }, ctx);
-                root.images[node.href] = tag;
+                root.images[node.image.href] = tag;
             }
             return tag.useTrick(ctx);
         },
@@ -828,7 +820,7 @@
             return tag.useTrick(ctx);
         },
         reference: function (ctx, node) {
-            var symbol = ctx.svgOM.global.symbols[node.ref],
+            var symbol = ctx.svgOM.resources.symbols[node.reference.ref],
                 use = new Tag("use", {}, ctx);
             ctx.xlinkRequired = true;
             if (symbol) {
@@ -847,16 +839,13 @@
                 "xlink:href": "",
                 transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             };
-            if (node.bounds) {
-                attr.x = node.bounds.left || 0;
-                attr.y = node.bounds.top || 0;
-                // If right and bottom were not specified, don't write width or height.
-                if (isFinite(node.bounds.right)) {
-                    attr.width = node.bounds.right - node.bounds.left;
-                }
-                if (isFinite(node.bounds.bottom)) {
-                    attr.height = node.bounds.bottom - node.bounds.top;
-                }
+            attr.x = node.reference.x || 0;
+            attr.y = node.reference.y || 0;
+            if (isFinite(node.reference.width)) {
+                attr.width = node.reference.width;
+            }
+            if (isFinite(node.reference.height)) {
+                attr.height = node.reference.height;
             }
             use.setAttributes(attr);
             return use;
@@ -864,7 +853,7 @@
         symbol: function (ctx, node) {
             var attr = {};
             if (node.viewBox) {
-                attr.viewBox = [node.viewBox.left || 0, node.viewBox.top || 0, node.viewBox.right, node.viewBox.bottom];
+                attr.viewBox = [node.viewBox.x || 0, node.viewBox.y || 0, node.viewBox.width, node.viewBox.height];
             }
             return new Tag("symbol", attr, ctx);
         },
@@ -876,10 +865,18 @@
             };
 
             if (!ctx.config.isResponsive) {
-                attr.width = toDocumentUnits(ctx, ctx._width);
-                attr.height = toDocumentUnits(ctx, ctx._height);
+                if (isFinite(ctx._width)) {
+                    attr.width = toDocumentUnits(ctx, ctx._width);
+                }
+                if (isFinite(ctx._height)) {
+                    attr.height = toDocumentUnits(ctx, ctx._height);
+                }
             }
-            attr.viewBox = ctx._viewBox;
+            if (ctx._viewBox.reduce(function (prev, cur) {
+                    return prev && isFinite(cur);
+                }, true)) {
+                attr.viewBox = ctx._viewBox;
+            }
 
             return new Tag("svg", attr);
         }
@@ -892,7 +889,8 @@
             desc,
             rootArtboardClipPath,
             f,
-            id;
+            id,
+            children;
         if (node == ctx.svgOM) {
             if (ctx.tick) {
                 ctx.tick("pre");
@@ -943,11 +941,12 @@
                 }
             }
         }
-        if (tag && tag.name != "tspan" && node.children && node.children.length) {
+        children = (node.artboard || node.group || node).children;
+        if (tag && tag.name != "tspan" && children && children.length) {
             var subtag;
-            for (var i = 0, ii = node.children.length; i < ii; i++) {
-                ctx.currentOMNode = node.children[i];
-                subtag = Tag.make(ctx, node.children[i], i);
+            for (var i = 0, ii = children.length; i < ii; i++) {
+                ctx.currentOMNode = children[i];
+                subtag = Tag.make(ctx, children[i], i);
                 if (subtag) {
                     tag.appendChild(subtag);
                 }

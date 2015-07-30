@@ -1,70 +1,76 @@
 {
-  "children": [
-    {
-      "children": [
-        {
-          "kind": "positioned",
-          "paragraphs": [
-            {
-              "lines": [
-                [
-                  {
-                    "from": 0,
-                    "style": {
-                      "fill": {
-                        "color": {
-                          "b": 255,
-                          "g": 0,
-                          "r": 0
-                        },
-                        "type": "solid"
-                      },
-                      "font": {
-                        "family": "Courier New",
-                        "size": 40,
-                        "style": "bold"
-                      }
-                    },
-                    "to": 11
-                  }
-                ]
-              ],
-              "style": {
-                "font": {
-                  "size": 12
-                }
-              }
-            }
-          ],
-          "raw-text": "Sample text",
-          "text-frame": {
-            "height": 60.2539,
-            "path": "",
-            "width": 264.043,
-            "x": 127.114,
-            "y": 108.25
-          },
-          "type": "text",
-          "visualBounds": {
-            "bottom": 136.668,
-            "left": 127.114,
-            "right": 391.157,
-            "top": 76.4141
-          }
-        }
-      ],
-      "type": "group"
-    }
-  ],
-  "desc": "Created by Adobe Illustrator",
-  "global": {
-    "bounds": {
-      "bottom": 560,
-      "left": 0,
-      "right": 960,
-      "top": 0
-    }
-  },
-  "name": "sample_text",
-  "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"text": {
+							"paragraphs": [
+								{
+									"lines": [
+										[
+											{
+												"from": 0,
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 0,
+																"b": 255
+															}
+														},
+														"type": "solid"
+													},
+													"font": {
+														"family": "Courier New",
+														"size": 40,
+														"style": "bold"
+													}
+												},
+												"to": 11
+											}
+										]
+									],
+									"style": {
+										"font": {
+											"size": 12
+										}
+									}
+								}
+							],
+							"rawText": "Sample text",
+							"frame": {
+								"height": 60.2539,
+								"path": "",
+								"width": 264.043,
+								"x": 127.114,
+								"y": 108.25,
+								"type": "positioned"
+							}
+						},
+						"type": "text",
+						"visualBounds": {
+							"x": 127.114,
+							"y": 76.4141,
+							"width": 264.043,
+							"height": 60.2539
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"name": "sample_text",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {}
 }

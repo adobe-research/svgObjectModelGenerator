@@ -1,261 +1,288 @@
 {
     "children": [
         {
-            "children": [
-                {
-                    "kind": "positioned",
-                    "paragraphs": [
-                        {
-                            "lines": [
-                                [
-                                    {
-                                        "from": 0,
-                                        "style": {
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            },
-                                            "text-attributes": {
-                                                "decoration": [
-                                                    "underline"
-                                                ],
-                                                "letter-spacing": 0,
-                                                "line-spacing": 0
-                                            }
-                                        },
-                                        "to": 16
-                                    },
-                                    {
-                                        "from": 16,
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 255,
-                                                    "g": 0,
-                                                    "r": 0
+            "group": {
+                "children": [
+                    {
+                        "text": {
+                            "paragraphs": [
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 0,
+                                                "style": {
+                                                    "font": {
+                                                        "family": "MyriadPro-Regular",
+                                                        "postScriptName": "",
+                                                        "size": 12,
+                                                        "style": "normal",
+                                                        "typekitId": "",
+                                                        "variant": "all-caps"
+                                                    },
+                                                    "textAttributes": {
+                                                        "decoration": [
+                                                            "underline"
+                                                        ],
+                                                        "letterSpacing": 0,
+                                                        "lineHeight": 0
+                                                    }
                                                 },
-                                                "type": "solid"
+                                                "to": 16
                                             },
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
+                                            {
+                                                "from": 16,
+                                                "style": {
+                                                    "fill": {
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "b": 255,
+                                                                "g": 0,
+                                                                "r": 0
+                                                            }
+                                                        },
+                                                        "type": "solid"
+                                                    },
+                                                    "font": {
+                                                        "family": "MyriadPro-Regular",
+                                                        "postscriptName": "",
+                                                        "size": 12,
+                                                        "style": "normal",
+                                                        "typekitId": "",
+                                                        "variant": "all-caps"
+                                                    },
+                                                    "textAttributes": {
+                                                        "decoration": [
+                                                            "underline"
+                                                        ],
+                                                        "letterSpacing": 0,
+                                                        "lineHeight": 0
+                                                    }
+                                                },
+                                                "to": 21
                                             },
-                                            "text-attributes": {
-                                                "decoration": [
-                                                    "underline"
-                                                ],
-                                                "letter-spacing": 0,
-                                                "line-spacing": 0
+                                            {
+                                                "from": 21,
+                                                "style": {
+                                                    "fill": {
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "b": 0,
+                                                                "g": 0,
+                                                                "r": 255
+                                                            }
+                                                        },
+                                                        "type": "solid"
+                                                    },
+                                                    "font": {
+                                                        "family": "MyriadPro-Regular",
+                                                        "postscriptName": "",
+                                                        "size": 12,
+                                                        "style": "normal",
+                                                        "typekitId": "",
+                                                        "variant": "all-caps"
+                                                    },
+                                                    "textAttributes": {
+                                                        "decoration": [
+                                                            "underline"
+                                                        ],
+                                                        "letterSpacing": 0,
+                                                        "lineHeight": 0
+                                                    }
+                                                },
+                                                "to": 22
                                             }
-                                        },
-                                        "to": 21
-                                    },
-                                    {
-                                        "from": 21,
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 0,
-                                                    "g": 0,
+                                        ]
+                                    ],
+                                    "style": {
+                                        "fill": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "b": 255,
+                                                    "g": 255,
                                                     "r": 255
-                                                },
-                                                "type": "solid"
+                                                }
                                             },
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            },
-                                            "text-attributes": {
-                                                "decoration": [
-                                                    "underline"
-                                                ],
-                                                "letter-spacing": 0,
-                                                "line-spacing": 0
-                                            }
+                                            "type": "solid"
                                         },
-                                        "to": 22
-                                    }
-                                ]
-                            ],
-                            "style": {
-                                "fill": {
-                                    "color": {
-                                        "b": 255,
-                                        "g": 255,
-                                        "r": 255
-                                    },
-                                    "type": "solid"
-                                },
-                                "stroke": {
-                                    "color": {
-                                        "b": 255,
-                                        "g": 0,
-                                        "r": 0
-                                    },
-                                    "type": "solid"
-                                },
-                                "stroke-width": 0.5
-                            }
-                        }
-                    ],
-                    "raw-text": "this is a text (duuuh)",
-                    "text-frame": {
-                        "height": 51,
-                        "path": "",
-                        "width": 98.5776
-                    },
-                    "style": {
-                        "fill": {
-                            "color": {
-                                "b": 15,
-                                "g": 15,
-                                "r": 15
-                            },
-                            "type": "solid"
-                        }
-                    },
-                    "transform": {
-                        "a": 1,
-                        "b": 0,
-                        "c": 0,
-                        "d": 1,
-                        "e": 50,
-                        "f": 30
-                    },
-                    "type": "text"
-                },
-                {
-                    "kind": "positioned",
-                    "paragraphs": [
-                        {
-                            "lines": [
-                                [
-                                    {
-                                        "from": 0,
-                                        "style": {
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            },
-                                            "text-attributes": {
-                                                "decoration": [
-                                                    "underline"
-                                                ],
-                                                "letter-spacing": 0,
-                                                "line-spacing": 0
-                                            }
-                                        },
-                                        "to": 16
-                                    },
-                                    {
-                                        "from": 16,
-                                        "style": {
-                                            "fill": {
-                                                "color": {
+                                        "stroke": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
                                                     "b": 255,
                                                     "g": 0,
                                                     "r": 0
-                                                },
-                                                "type": "solid"
+                                                }
                                             },
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            },
-                                            "text-attributes": {
-                                                "decoration": [
-                                                    "underline"
-                                                ],
-                                                "letter-spacing": 0,
-                                                "line-spacing": 0
-                                            }
-                                        },
-                                        "to": 21
-                                    },
-                                    {
-                                        "from": 21,
-                                        "style": {
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            },
-                                            "text-attributes": {
-                                                "decoration": [
-                                                    "underline"
-                                                ],
-                                                "letter-spacing": 0,
-                                                "line-spacing": 0
-                                            }
-                                        },
-                                        "to": 22
+                                            "type": "solid",
+                                            "width": 0.5
+                                        }
                                     }
-                                ]
+                                }
                             ],
-                            "style": {
-                                "stroke": {
-                                    "color": {
-                                        "b": 255,
-                                        "g": 0,
-                                        "r": 0
-                                    },
-                                    "type": "solid"
-                                },
-                                "stroke-width": 0.5
+                            "rawText": "this is a text (duuuh)",
+                            "frame": {
+                                "type": "positioned",
+                                "height": 51,
+                                "path": "",
+                                "width": 98.5776
                             }
-                        }
-                    ],
-                    "raw-text": "this is a none (duuuh)",
-                    "text-frame": {
-                        "height": 51,
-                        "path": "",
-                        "width": 98.5776
+                        },
+                        "style": {
+                            "fill": {
+                                "color": {
+                                    "mode": "RGB",
+                                    "value": {
+                                        "b": 15,
+                                        "g": 15,
+                                        "r": 15
+                                    }
+                                },
+                                "type": "solid"
+                            }
+                        },
+                        "transform": {
+                            "a": 1,
+                            "b": 0,
+                            "c": 0,
+                            "d": 1,
+                            "tx": 50,
+                            "ty": 30
+                        },
+                        "type": "text"
                     },
-                    "transform": {
-                        "a": 1,
-                        "b": 0,
-                        "c": 0,
-                        "d": 1,
-                        "e": 50,
-                        "f": 50
-                    },
-                    "type": "text"
-                }
-            ],
+                    {
+                        "text": {
+                            "paragraphs": [
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 0,
+                                                "style": {
+                                                    "font": {
+                                                        "family": "MyriadPro-Regular",
+                                                        "postscriptName": "",
+                                                        "size": 12,
+                                                        "style": "normal",
+                                                        "typekitId": "",
+                                                        "variant": "all-caps"
+                                                    },
+                                                    "textAttributes": {
+                                                        "decoration": [
+                                                            "underline"
+                                                        ],
+                                                        "letterSpacing": 0,
+                                                        "lineHeight": 0
+                                                    }
+                                                },
+                                                "to": 16
+                                            },
+                                            {
+                                                "from": 16,
+                                                "style": {
+                                                    "fill": {
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "b": 255,
+                                                                "g": 0,
+                                                                "r": 0
+                                                            }
+                                                        },
+                                                        "type": "solid"
+                                                    },
+                                                    "font": {
+                                                        "family": "MyriadPro-Regular",
+                                                        "postscriptName": "",
+                                                        "size": 12,
+                                                        "style": "normal",
+                                                        "typekitId": "",
+                                                        "variant": "all-caps"
+                                                    },
+                                                    "textAttributes": {
+                                                        "decoration": [
+                                                            "underline"
+                                                        ],
+                                                        "letterSpacing": 0,
+                                                        "lineHeight": 0
+                                                    }
+                                                },
+                                                "to": 21
+                                            },
+                                            {
+                                                "from": 21,
+                                                "style": {
+                                                    "font": {
+                                                        "family": "MyriadPro-Regular",
+                                                        "postscriptName": "",
+                                                        "size": 12,
+                                                        "style": "normal",
+                                                        "typekitId": "",
+                                                        "variant": "all-caps"
+                                                    },
+                                                    "textAttributes": {
+                                                        "decoration": [
+                                                            "underline"
+                                                        ],
+                                                        "letterSpacing": 0,
+                                                        "lineHeight": 0
+                                                    }
+                                                },
+                                                "to": 22
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "stroke": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "b": 255,
+                                                    "g": 0,
+                                                    "r": 0
+                                                }
+                                            },
+                                            "type": "solid",
+                                            "width": 0.5
+                                        }
+                                    }
+                                }
+                            ],
+                            "rawText": "this is a none (duuuh)",
+                            "frame": {
+                                "type": "positioned",
+                                "height": 51,
+                                "path": "",
+                                "width": 98.5776
+                            }
+                        },
+                        "transform": {
+                            "a": 1,
+                            "b": 0,
+                            "c": 0,
+                            "d": 1,
+                            "tx": 50,
+                            "ty": 50
+                        },
+                        "type": "text"
+                    }
+                ]
+            },
             "type": "group"
         }
     ],
     "desc": "Created by Adobe Illustrator",
-    "global": {
-        "bounds": {
-            "bottom": 560,
-            "left": 0,
-            "right": 960,
-            "top": 0
-        }
+    "resources": {
+    },
+    "viewSource": {
+        "height": 560,
+        "x": 0,
+        "width": 960,
+        "y": 0
     },
     "meta": {
         "AI": {
@@ -274,5 +301,5 @@
         }
     },
     "name": "1st",
-    "version": "0.1.0"
+    "version": "1.0.0"
 }

@@ -1,275 +1,500 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/style",
-    "title": "style",
-    "description": "The style object",
-    "type": "object",
-    "properties": {
-    	"name": {
-    		"description": "The name of the style specified by the author. (For instance art style as shown in the 'Graphic Styles' panel in Illustrator.)",
-    		"type": "string"
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/style",
+	"title": "style",
+	"description": "The style object",
+	"type": "object",
+	"properties": {
+		"name": {
+			"description": "The name of the style specified by the author. (For instance art style as shown in the 'Graphic Styles' panel in Illustrator.)",
+			"type": "string"
 		},
-    	"blend-mode": {
-    		"description": "These are all blend modes that are supported in browsers beside the default `normal`",
-    		"enum": [ "normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity" ]
-    	},
-    	"fill": {
-    		"description": "The fill properties of the object",
-    		"anyOf": [
-    			{ "$ref": "#fillColor" },
-    			{ "$ref": "#fillGradient" },
-    			{ "$ref": "#fillPattern" }
-    		],
-    		"type": "object"
-    	},
-    	"font": {
-    		"description": "The font properties of the object",
-    		"$ref": "#font"
-    	},
-    	"isolation": {
-    		"description": "If the isolation property is set to `isolate` the object gets isolated",
-    		"enum": [ "isolate" ]
-    	},
-    	"stroke": {
-    		"description": "The stroke properties of the object",
-    		"anyOf": [
-    			{ "$ref": "#strokeColor" },
-    			{ "$ref": "#strokeGradient" },
-    			{ "$ref": "#strokePattern" }
-    		],
-    		"type": "object"
-    	},
-    	"clip-path": {
-    		"description": "The unique id of the clipping path in the global `clipPaths` object",
-    		"type": "string"
-    	},
-    	"filter": {
-    		"description": "The unique id of the filter in the global `filters` object",
-    		"type": "string"
-    	},
-    	"mask": {
-    		"description": "The unique id of the mask in the global `masks` object",
-    		"type": "string"
-    	},
-    	"opacity": {
-    		"description": "The opacity of the whole object including filter, stroke and fill",
-    		"type": "number",
-    		"minimum": 0,
-    		"maximum": 1
-    	}
-	},
-    "defintions": {
-    	"gradientRefLinear": {
-    		"type": "object",
-    		"properties": {
-    			"ref": {
-    				"description": "A unique identifier that references a gradient",
-    				"type": "string"
-    			},
-		        "transform": {
-		            "type": "object",
-		            "oneOf": [
-		                { "$ref": "/transform2d" },
-		                { "$ref": "/transform3d" }
-		            ]
-		        },
-		        "gradientSpace": {
-		        	"enum": [ "userSpaceOnUse", "objectBoundingBox" ]
-		        },
-		        "x1": {
-		        	"type": "number"
-		        },
-		        "y1": {
-		        	"type": "number"
-		        },
-		        "x2": {
-		        	"type": "number"
-		        },
-		        "y2": {
-		        	"type": "number"
-		        }
-    		},
-    		"required": [ "ref", "x1", "y1", "x2", "y2" ]
+		"blendMode": {
+			"description": "These are all blend modes that are supported in browsers beside the default `normal`",
+			"enum": [ "normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity" ]
 		},
-    	"gradientRefRadial": {
-    		"type": "object",
-    		"properties": {
-    			"ref": {
-    				"description": "A unique identifier that references a gradient",
-    				"type": "string"
-    			},
-		        "transform": {
-		            "type": "object",
-		            "oneOf": [
-		                { "$ref": "/transform2d" },
-		                { "$ref": "/transform3d" }
-		            ]
-		        },
-		        "gradientSpace": {
-		        	"enum": [ "userSpaceOnUse", "objectBoundingBox" ]
-		        },
-		        "cx": {
-		        	"type": "number"
-		        },
-		        "cy": {
-		        	"type": "number"
-		        },
-		        "fx": {
-		        	"type": "number"
-		        },
-		        "fy": {
-		        	"type": "number"
-		        },
-		        "r": {
-		        	"type": "number"
-		        }
-    		},
-    		"required": [ "ref", "cx", "cy", "r" ]
+		"clipPath": {
+			"description": "A clipping path applied to the object",
+			"anyOf": [
+				{ "$ref": "#clipPathRef" },
+				{ "$ref": "#clipPathPath" }
+			]
 		},
-    	"patternRef": {
-    		"type": "object",
-    		"properties": {
-    			"ref": {
-    				"description": "A unique identifier that references a gradient",
-    				"type": "string"
-    			},
-		        "transform": {
-		            "type": "object",
-		            "oneOf": [
-		                { "$ref": "/transform2d" },
-		                { "$ref": "/transform3d" }
-		            ]
-		        }
-	        },
-		    "required": [ "ref" ]
-    	},
-    	"fill": {
-    		"properties": {
-    			"opacity": {
-    				"type": "number",
-    				"minimum": 0,
-    				"maximum": 1
-    			}
-    		}
+		"fill": {
+			"description": "The fill properties of the object",
+			"anyOf": [
+				{ "$ref": "#fillColor" },
+				{ "$ref": "#fillGradient" },
+				{ "$ref": "#fillPattern" }
+			],
+			"type": "object"
 		},
-    	"fillColor": {
-    		"type": "object",
-    		"$ref": "#fill",
-    		"properties": {
-    			"color": {
-    				"type": "object",
-    				"$ref": "/color"
-    			},
-    			"type": {
-    				"enum": [ "color", "none" ]
-    			}
-    		},
-    		"required": [ "color", "type" ]
+		"filters": {
+			"description": "An array of filters applied in order from right to left",
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{ "$ref": "/svgFilter" },
+					{
+						"type": "object",
+						"properties": {
+							"ref": {
+								"type": "string"
+							}
+						},
+						"additionalProperties": false,
+						"required": [ "ref" ]
+					},
+					{
+						"type": "object",
+						"properties": {
+							"type": {
+								"enum": [ "psdSmartFilters", "psdProjectiveTransform", "dropShadow" ]
+							},
+							"params": {
+								"type": "object"
+							}
+						},
+						"additionalProperties": false,
+						"required": [ "type", "params" ]
+					}
+				]
+			}
 		},
-    	"fillGradient": {
-    		"type": "object",
-    		"$ref": "#fill",
-    		"properties": {
-    			"gradient": {
-    				"type": "object",
-    				"$ref": "#gradientRef"
-    			},
-    			"type": {
-    				"enum": [ "gradient", "none" ]
-    			}
-    		},
-    		"required": [ "color", "type" ]
+		"font": {
+			"description": "The font properties of the object",
+			"$ref": "#font"
 		},
-    	"fillPattern": {
-    		"type": "object",
-    		"$ref": "#fill",
-    		"properties": {
-    			"gradient": {
-    				"type": "object",
-    				"$ref": "#patternRef"
-    			},
-    			"type": {
-    				"enum": [ "pattern", "none" ]
-    			}
-    		},
-    		"required": [ "pattern", "type" ]
+		"isolation": {
+			"description": "If the isolation property is set to `isolate` the object gets isolated",
+			"enum": [ "isolate" ]
 		},
-    	"stroke": {
-    		"properties": {
-    			"align": {
-    				"enum": [ "center", "inside", "outside" ]
-    			},
-    			"cap": {
-    				"enum": [ "round", "butt", "square" ]
-    			},
-    			"dash": {
-    				"type": "array",
-    				"items": {
-                        "type": "number"
-                    }
-    			},
-    			"join": {
-    				"enum": [ "bevel", "round", "miter" ]
-    			},
-    			"miter-limit": {
-    				"type": "integer"
+		"mask": {
+			"description": "A mask applied to the object",
+			"anyOf": [
+				{ "$ref": "#maskRef" },
+				{ "$ref": "#maskImage" }
+			]
+		},
+		"opacity": {
+			"description": "The opacity of the whole object including filter, stroke and fill",
+			"type": "number",
+			"minimum": 0,
+			"maximum": 1
+		},
+		"ref": {
+			"description": "A unique identifier that references a global style",
+			"type": "string"
+		},
+		"stroke": {
+			"description": "The stroke properties of the object",
+			"anyOf": [
+				{ "$ref": "#strokeColor" },
+				{ "$ref": "#strokeGradient" },
+				{ "$ref": "#strokePattern" }
+			],
+			"type": "object"
+		},
+		"textAttributes": {
+			"description": "Text or paragraph sepcific properties",
+			"properties": {
+				"decoration": {
+					"type": "array",
+					"items": {
+						"enum": [ "underline", "line-through" ]
+					}
 				},
-    			"opacity": {
-    				"type": "number",
-    				"minimum": 0,
-    				"maximum": 1
-    			},
-    			"width": {
-    				"description": "The width of the stroke",
-    				"type": "number",
-    				"minimum": 0
-    			}
-    		}
-    	},
-    	"strokeColor": {
-    		"type": "object",
-    		"$ref": "#stroke",
-    		"properties": {
-    			"color": {
-    				"type": "object",
-    				"$ref": "/color"
-    			},
-    			"type": {
-    				"enum": [ "color", "none" ]
-    			}
-    		},
-    		"required": [ "color", "type" ]
+				"glyphOrientation": {
+					"enum": [ "upright", "sideways-right" ]
+				},
+				"kerning": {
+					"enum": [ "none", "metric", "optical", "metric-roman" ]
+				},
+				"letterSpacing": {
+					"type": "number"
+				},
+				"lineHeight": {
+					"type": "number"
+				},
+				"paragraphAlign": {
+					"enum": [ "left", "center", "right", "justify-left", "justify-center", "justify-right", "justify-all" ]
+				},
+				"paragraphBeforeSpacing": {
+					"type": "number"
+				},
+				"paragraphAfterSpacing": {
+					"type": "number"
+				},
+				"leftIndent": {
+					"type": "number"
+				},
+				"rightIndent": {
+					"type": "number"
+				},
+				"firstLineIndent": {
+					"type": "number"
+				},
+				"hyphenate": {
+					"type": "boolean"
+				}
+			},
+			"type": "object",
+			"additionalProperties": false
+		}
+	},
+	"defintions": {
+		"clipPathPath": {
+			"type": "object",
+			"properties": {
+				"path": {
+					"description": "The SVG path data that is used as clipping path",
+					"type": "string"
+				},
+				"preparedPath": {
+					"description": "SVG path data with limited syntax",
+					"type": "boolean"
+				},
+				"winding": {
+					"description": "The winding rule for paths",
+					"enum": [ "nonzero", "evenodd" ]
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "path" ]
 		},
-    	"strokeGradient": {
-    		"type": "object",
-    		"$ref": "#stroke",
-    		"properties": {
-    			"gradient": {
-    				"type": "object",
-    				"$ref": "#gradientRef"
-    			},
-    			"type": {
-    				"enum": [ "gradient", "none" ]
-    			}
-    		},
-    		"required": [ "color", "type" ]
+		"clipPathRef": {
+			"type": "object",
+			"properties": {
+				"ref": {
+					"description": "The unique id of the clipping path in the global `clipPaths` object",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "ref" ]
 		},
-    	"strokePattern": {
-    		"type": "object",
-    		"$ref": "#stroke",
-    		"properties": {
-    			"gradient": {
-    				"type": "object",
-    				"$ref": "#patternRef"
-    			},
-    			"type": {
-    				"enum": [ "pattern", "none" ]
-    			}
-    		},
-    		"required": [ "pattern", "type" ]
+		"gradientRefLinear": {
+			"type": "object",
+			"properties": {
+				"ref": {
+					"description": "A unique identifier that references a gradient",
+					"type": "string"
+				},
+				"transform": {
+					"type": "object",
+					"oneOf": [
+						{ "$ref": "/transform2d" },
+						{ "$ref": "/transform3d" }
+					]
+				},
+				"units": {
+					"enum": [ "userSpaceOnUse", "objectBoundingBox" ]
+				},
+				"x1": {
+					"type": "number"
+				},
+				"y1": {
+					"type": "number"
+				},
+				"x2": {
+					"type": "number"
+				},
+				"y2": {
+					"type": "number"
+				}
+			},
+			"required": [ "ref", "x1", "y1", "x2", "y2" ]
 		},
-    	"font": {
-    		"type": "object"
-    	}
-    }
+		"gradientRefRadial": {
+			"type": "object",
+			"properties": {
+				"ref": {
+					"description": "A unique identifier that references a gradient",
+					"type": "string"
+				},
+				"transform": {
+					"type": "object",
+					"oneOf": [
+						{ "$ref": "/transform2d" },
+						{ "$ref": "/transform3d" }
+					]
+				},
+				"units": {
+					"enum": [ "userSpaceOnUse", "objectBoundingBox" ]
+				},
+				"cx": {
+					"type": "number"
+				},
+				"cy": {
+					"type": "number"
+				},
+				"fx": {
+					"type": "number"
+				},
+				"fy": {
+					"type": "number"
+				},
+				"r": {
+					"type": "number"
+				}
+			},
+			"required": [ "ref", "cx", "cy", "r" ]
+		},
+		"maskImage": {
+			"type": "object",
+			"properties": {
+				"density": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1
+				},
+				"feather": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1000
+				},
+				"height": {
+					"type": "number"
+				},
+				"href": {
+					"description": "A base64 encoded image or a path to an external image",
+					"type": "string"
+				},
+				"transform": {
+					"type": "object",
+					"oneOf": [
+						{ "$ref": "/transform2d" },
+						{ "$ref": "/transform3d" }
+					]
+				},
+				"width": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "href" ]
+		},
+		"maskRef": {
+			"type": "object",
+			"properties": {
+				"ref": {
+					"description": "The unique id of the mask in the global `masks` object",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "ref" ]
+		},
+		"patternImage": {
+			"type": "object",
+			"properties": {
+				"href": {
+					"description": "A path to an image or a base64 encoded inage,",
+					"type": "string"
+				},
+				"x": {
+					"description": "The horizontal position",
+					"type": "number"
+				},
+				"y": {
+					"description": "The vertical position",
+					"type": "number"
+				},
+				"meta": {
+					"type": "object"
+				},
+				"width": {
+					"description": "The horizontal dimension",
+					"type": "number"
+				},
+				"height": {
+					"description": "The vertical dimension",
+					"type": "number"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "href", "width", "height" ]
+		},
+		"patternRef": {
+			"type": "object",
+			"properties": {
+				"ref": {
+					"description": "A unique identifier that references a gradient",
+					"type": "string"
+				},
+				"transform": {
+					"oneOf": [
+						{ "$ref": "/transform2d" },
+						{ "$ref": "/transform3d" }
+					]
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "ref" ]
+		},
+		"fill": {
+			"properties": {
+				"opacity": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1
+				}
+			}
+		},
+		"fillColor": {
+			"type": "object",
+			"$ref": "#fill",
+			"properties": {
+				"color": {
+					"oneOf": [
+						{ "$ref": "/colorRef" },
+						{ "$ref": "/color" }
+					]
+				},
+				"type": {
+					"enum": [ "color", "none" ]
+				}
+			},
+			"required": [ "color", "type" ]
+		},
+		"fillGradient": {
+			"type": "object",
+			"$ref": "#fill",
+			"properties": {
+				"gradient": {
+					"type": "object",
+					"$ref": "#gradientRef"
+				},
+				"type": {
+					"enum": [ "gradient", "none" ]
+				}
+			},
+			"required": [ "color", "type" ]
+		},
+		"fillPattern": {
+			"type": "object",
+			"$ref": "#fill",
+			"properties": {
+				"pattern": {
+					"oneOf": [
+						{ "$ref": "#patternRef" },
+						{ "$ref": "#patternImage" }
+					]
+				},
+				"type": {
+					"enum": [ "pattern", "none" ]
+				}
+			},
+			"required": [ "pattern", "type" ]
+		},
+		"stroke": {
+			"properties": {
+				"align": {
+					"enum": [ "center", "inside", "outside" ]
+				},
+				"cap": {
+					"enum": [ "round", "butt", "square" ]
+				},
+				"dash": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"dashOffset": {
+					"type": "number"
+				},
+				"join": {
+					"enum": [ "bevel", "round", "miter" ]
+				},
+				"miterLimit": {
+					"type": "integer"
+				},
+				"opacity": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1
+				},
+				"width": {
+					"description": "The width of the stroke",
+					"type": "number",
+					"minimum": 0
+				}
+			}
+		},
+		"strokeColor": {
+			"type": "object",
+			"$ref": "#stroke",
+			"properties": {
+				"color": {
+					"oneOf": [
+						{ "$ref": "/colorRef" },
+						{ "$ref": "/color" }
+					]
+				},
+				"type": {
+					"enum": [ "color", "none" ]
+				}
+			},
+			"required": [ "color", "type" ]
+		},
+		"strokeGradient": {
+			"type": "object",
+			"$ref": "#stroke",
+			"properties": {
+				"gradient": {
+					"type": "object",
+					"$ref": "#gradientRef"
+				},
+				"type": {
+					"enum": [ "gradient", "none" ]
+				}
+			},
+			"required": [ "color", "type" ]
+		},
+		"strokePattern": {
+			"type": "object",
+			"$ref": "#stroke",
+			"properties": {
+				"pattern": {
+					"oneOf": [
+						{ "$ref": "#patternRef" },
+						{ "$ref": "#patternImage" }
+					]
+				},
+				"type": {
+					"enum": [ "pattern", "none" ]
+				}
+			},
+			"required": [ "pattern", "type" ]
+		},
+		"font": {
+			"type": "object",
+			"properties": {
+				"postscriptName": {
+					"description": "A string specifying the PostScript name of the font to use for the text",
+					"type": "string"
+				},
+				"size": {
+					"description": "The size of the text",
+					"type": "number"
+				},
+				"family": {
+					"description": "The font name or font family",
+					"type": "string"
+				},
+				"style": {
+					"type": "string" 
+				},
+				"variant": {
+					"enum": [ "all-caps", "small-caps" ]
+				},
+				"typekitId": {
+					"description": "A string specifying the TypeKit identifier",
+					"type": "string"
+				},
+				"additionalProperties": false
+			}
+		}
+	}
 }

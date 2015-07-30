@@ -14,6 +14,7 @@
       <stop offset="1" stop-color="#fffc00"/>
     </radialGradient>
   </defs>
+  <title>artboard-cropping.psd</title>
   <g clip-path="url(#clip-path)">
     <circle id="Ellipse_3" data-name="Ellipse 3" class="cls-1" cx="100" cy="200" r="100"/>
   </g>

@@ -10,10 +10,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 49.63424,
-						"g": 226.000002,
-						"b": 161.33074,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 49.63424,
+							"g": 226.000002,
+							"b": 161.33074
+						},
+						"alpha": 1
 					},
 					"opacity": 0.78
 				},
@@ -25,10 +28,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 214.000002,
-										"g": 45.319066,
-										"b": 45.319066,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 214.000002,
+											"g": 45.319066,
+											"b": 45.319066
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": false,
@@ -55,10 +61,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 35.295721,
-										"g": 97.797663,
-										"b": 225.000002,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 35.295721,
+											"g": 97.797663,
+											"b": 225.000002
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": false,
@@ -82,14 +91,11 @@
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"name": "shadow",
-			"visualBounds": {
-				"top": 80,
-				"left": 100,
-				"bottom": 271,
-				"right": 445
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -103,130 +109,139 @@
 					10,
 					10
 				]
+			},
+			"name": "shadow",
+			"visualBounds": {
+				"x": 100,
+				"y": 80,
+				"width": 345,
+				"height": 191
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 4.583
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 214.000002,
-							"g": 45.319066,
-							"b": 45.319066,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 4.583
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": 24,
-						"dy": 0
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"SourceGraphic",
-							"offset"
-						]
-					},
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur-2",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 6.782
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood-2",
-						"input": [],
-						"flood-color": {
-							"r": 35.295721,
-							"g": 97.797663,
-							"b": 225.000002,
-							"a": 1
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 214.000002,
+									"g": 45.319066,
+									"b": 45.319066
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"flood-2",
-							"blur-2"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset-2",
-						"input": [
-							"composite-2"
-						],
-						"dx": 75,
-						"dy": 0
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-3",
-						"input": [
-							"offset-2",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-2",
-						"input": [
-							"composite-3",
-							"blend"
-						],
-						"mode": "multiply"
-					}
-				]
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": 24,
+							"dy": 0
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"SourceGraphic",
+								"offset"
+							]
+						},
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur-2",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 6.782
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood-2",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 35.295721,
+									"g": 97.797663,
+									"b": 225.000002
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"flood-2",
+								"blur-2"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset-2",
+							"input": [
+								"composite-2"
+							],
+							"dx": 75,
+							"dy": 0
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-3",
+							"input": [
+								"offset-2",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-2",
+							"input": [
+								"composite-3",
+								"blend"
+							],
+							"mode": "multiply"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
-		"pxToInchRatio": 144
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -237,6 +252,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgFx-shadow.psd"
+	"version": "1.0.0",
+	"name": "svgFx-shadow.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 1024
+	},
+	"rasterResolution": 144
 }

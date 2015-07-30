@@ -1,426 +1,469 @@
 {
-    "children": [
-        {
-            "id": "shape-1",
-            "type": "shape",
-            "visible": true,
-            "style": {
-                "stroke": {
-                    "type": "none"
-                },
-                "fill": {
-                    "type": "solid",
-                    "color": {
-                        "r": 0,
-                        "g": 0,
-                        "b": 0,
-                        "a": 1
-                    }
-                },
-                "mask": "mask1"
-            },
-            "children": [],
-            "name": "Rectangle 1",
-            "shapeBounds": {
-                "top": 100,
-                "left": 100,
-                "bottom": 200,
-                "right": 200
-            },
-            "shape": {
-                "type": "rect",
-                "x": 100,
-                "y": 100,
-                "width": 100,
-                "height": 100
-            }
-        },
-        {
-            "id": "shape-2",
-            "type": "shape",
-            "visible": true,
-            "style": {
-                "stroke": {
-                    "type": "none"
-                },
-                "fill": {
-                    "type": "solid",
-                    "color": {
-                        "r": 0,
-                        "g": 0,
-                        "b": 0,
-                        "a": 1
-                    }
-                },
-                "mask": "mask2"
-            },
-            "children": [],
-            "name": "Rectangle 2",
-            "shapeBounds": {
-                "top": 100,
-                "left": 100,
-                "bottom": 200,
-                "right": 200
-            },
-            "shape": {
-                "type": "rect",
-                "x": 100,
-                "y": 100,
-                "width": 100,
-                "height": 100
-            }
-        }
-    ],
-    "global": {
-        "clipPaths": {
-            "clipPath1": {
-                "children": [{
-                    "id": "shape-9",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        }
-                    },
-                    "children": [],
-                    "name": "Rectangle 9",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                }],
-                "type": "clipPath"
-            },
-            "clipPath2": {
-                "children": [{
-                    "id": "shape-10",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        }
-                    },
-                    "children": [],
-                    "name": "Rectangle 10",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                }],
-                "type": "clipPath"
-            },
-            "clipPath3": {
-                "children": [{
-                    "id": "shape-11",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        }
-                    },
-                    "children": [],
-                    "name": "Rectangle 11",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                }],
-                "type": "clipPath"
-            }
-        },
-        "filters": {},
-        "gradients": {},
-        "masks": {
-            "mask1": {
-                "children": [{
-                    "id": "shape-3",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        },
-                        "clip-path": "clipPath1"
-                    },
-                    "children": [],
-                    "name": "Rectangle 3",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                {
-                    "id": "shape-4",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        },
-                        "clip-path": "clipPath2"
-                    },
-                    "children": [],
-                    "name": "Rectangle 4",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                {
-                    "id": "shape-5",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        },
-                        "clip-path": "clipPath3"
-                    },
-                    "children": [],
-                    "name": "Rectangle 5",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                }],
-                "type": "mask"
-            },
-            "mask2": {
-                "children": [{
-                    "id": "shape-6",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        },
-                        "clip-path": "clipPath1"
-                    },
-                    "children": [],
-                    "name": "Rectangle 6",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                {
-                    "id": "shape-7",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        },
-                        "clip-path": "clipPath2"
-                    },
-                    "children": [],
-                    "name": "Rectangle 7",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                {
-                    "id": "shape-8",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "none"
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            }
-                        },
-                        "clip-path": "clipPath3"
-                    },
-                    "children": [],
-                    "name": "Rectangle 8",
-                    "shapeBounds": {
-                        "top": 100,
-                        "left": 100,
-                        "bottom": 200,
-                        "right": 200
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 100,
-                        "y": 100,
-                        "width": 100,
-                        "height": 100
-                    }
-                }],
-                "type": "mask"
-            }
-        },
-        "patterns": {},
-        "viewBox": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
-        "bounds": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
-        "pxToInchRatio": 72
-    },
-    "artboards": {},
-    "meta": {},
-    "title": "ClipPath test"
+	"children": [
+		{
+			"id": "shape-1",
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					}
+				},
+				"mask": {
+					"ref": "mask1"
+				}
+			},
+			"name": "Rectangle 1",
+			"visualBounds": {
+				"x": 100,
+				"y": 100,
+				"width": 100,
+				"height": 100
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 100,
+				"height": 100
+			}
+		},
+		{
+			"id": "shape-2",
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					}
+				},
+				"mask": {
+					"ref": "mask2"
+				}
+			},
+			"name": "Rectangle 2",
+			"visualBounds": {
+				"x": 100,
+				"y": 100,
+				"width": 100,
+				"height": 100
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 100,
+				"height": 100
+			}
+		}
+	],
+	"artboards": {},
+	"meta": {},
+	"name": "ClipPath test",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 768
+	},
+	"resources": {
+		"clipPaths": {
+			"clipPath1": {
+				"children": [
+					{
+						"id": "shape-9",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"name": "Rectangle 9",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					}
+				],
+				"type": "clipPath"
+			},
+			"clipPath2": {
+				"children": [
+					{
+						"id": "shape-10",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"name": "Rectangle 10",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					}
+				],
+				"type": "clipPath"
+			},
+			"clipPath3": {
+				"children": [
+					{
+						"id": "shape-11",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"name": "Rectangle 11",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					}
+				],
+				"type": "clipPath"
+			}
+		},
+		"filters": {},
+		"gradients": {},
+		"masks": {
+			"mask1": {
+				"children": [
+					{
+						"id": "shape-3",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							},
+							"clipPath": {
+								"ref": "clipPath1"
+							}
+						},
+						"name": "Rectangle 3",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					},
+					{
+						"id": "shape-4",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							},
+							"clipPath": {
+								"ref": "clipPath2"
+							}
+						},
+						"name": "Rectangle 4",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					},
+					{
+						"id": "shape-5",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							},
+							"clipPath": {
+								"ref": "clipPath3"
+							}
+						},
+						"name": "Rectangle 5",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					}
+				],
+				"type": "mask"
+			},
+			"mask2": {
+				"children": [
+					{
+						"id": "shape-6",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							},
+							"clipPath": {
+								"ref": "clipPath1"
+							}
+						},
+						"name": "Rectangle 6",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					},
+					{
+						"id": "shape-7",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							},
+							"clipPath": {
+								"ref": "clipPath2"
+							}
+						},
+						"name": "Rectangle 7",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					},
+					{
+						"id": "shape-8",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							},
+							"clipPath": {
+								"ref": "clipPath3"
+							}
+						},
+						"name": "Rectangle 8",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						},
+						"shape": {
+							"type": "rect",
+							"x": 100,
+							"y": 100,
+							"width": 100,
+							"height": 100
+						}
+					}
+				],
+				"type": "mask"
+			}
+		},
+		"patterns": {}
+	}
 }

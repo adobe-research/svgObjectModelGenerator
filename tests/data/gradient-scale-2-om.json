@@ -11,7 +11,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 50,
 						"y1": 100,
 						"x2": 250,
@@ -20,13 +20,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 1",
 			"visualBounds": {
-				"top": 50,
-				"left": 50,
-				"bottom": 150,
-				"right": 250
+				"x": 50,
+				"y": 50,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -47,7 +46,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 400,
 						"y1": 150,
 						"x2": 400,
@@ -56,13 +55,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 2",
 			"visualBounds": {
-				"top": 50,
-				"left": 300,
-				"bottom": 150,
-				"right": 500
+				"x": 300,
+				"y": 50,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -83,7 +81,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 550,
 						"y1": 100,
 						"x2": 750,
@@ -92,13 +90,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 3",
 			"visualBounds": {
-				"top": 50,
-				"left": 550,
-				"bottom": 150,
-				"right": 750
+				"x": 550,
+				"y": 50,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -119,7 +116,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 100,
 						"cx": 150,
 						"cy": 550,
@@ -127,13 +124,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 4",
 			"visualBounds": {
-				"top": 500,
-				"left": 50,
-				"bottom": 600,
-				"right": 250
+				"x": 50,
+				"y": 500,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -154,7 +150,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 50,
 						"cx": 400,
 						"cy": 550,
@@ -162,13 +158,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 5",
 			"visualBounds": {
-				"top": 500,
-				"left": 300,
-				"bottom": 600,
-				"right": 500
+				"x": 300,
+				"y": 500,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -189,7 +184,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 100,
 						"cx": 650,
 						"cy": 550,
@@ -197,13 +192,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 6",
 			"visualBounds": {
-				"top": 500,
-				"left": 550,
-				"bottom": 600,
-				"right": 750
+				"x": 550,
+				"y": 500,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -224,7 +218,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 400,
 						"cx": 400,
 						"cy": 300,
@@ -232,13 +226,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 10",
 			"visualBounds": {
-				"top": 200,
-				"left": 50,
-				"bottom": 300,
-				"right": 250
+				"x": 50,
+				"y": 200,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -259,7 +252,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 300,
 						"cx": 400,
 						"cy": 300,
@@ -267,13 +260,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 11",
 			"visualBounds": {
-				"top": 200,
-				"left": 300,
-				"bottom": 300,
-				"right": 500
+				"x": 300,
+				"y": 200,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -294,7 +286,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 400,
 						"cx": 400,
 						"cy": 300,
@@ -302,13 +294,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 12",
 			"visualBounds": {
-				"top": 200,
-				"left": 552,
-				"bottom": 294,
-				"right": 748
+				"x": 552,
+				"y": 200,
+				"width": 196,
+				"height": 94
 			},
 			"shape": {
 				"type": "rect",
@@ -329,7 +320,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 0,
 						"y1": 300,
 						"x2": 800,
@@ -338,13 +329,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 7",
 			"visualBounds": {
-				"top": 350,
-				"left": 50,
-				"bottom": 450,
-				"right": 250
+				"x": 50,
+				"y": 350,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -365,7 +355,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 400,
 						"y1": 600,
 						"x2": 400,
@@ -374,13 +364,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 8",
 			"visualBounds": {
-				"top": 350,
-				"left": 300,
-				"bottom": 450,
-				"right": 500
+				"x": 300,
+				"y": 350,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -401,7 +390,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 0,
 						"y1": 300,
 						"x2": 800,
@@ -410,13 +399,12 @@
 					}
 				}
 			},
-			"children": [],
 			"name": "Rectangle 9",
 			"visualBounds": {
-				"top": 350,
-				"left": 550,
-				"bottom": 450,
-				"right": 750
+				"x": 550,
+				"y": 350,
+				"width": 200,
+				"height": 100
 			},
 			"shape": {
 				"type": "rect",
@@ -427,7 +415,25 @@
 			}
 		}
 	],
-	"global": {
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
+	},
+	"name": "gradient-scale.psd",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
@@ -1189,29 +1195,6 @@
 			}
 		},
 		"masks": {},
-		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
-	},
-	"artboards": {},
-	"meta": {
-		"PS": {
-			"globalLight": {
-				"angle": 120,
-				"altitude": 30
-			}
-		}
-	},
-	"name": "gradient-scale.psd"
+		"patterns": {}
+	}
 }

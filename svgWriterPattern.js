@@ -26,10 +26,12 @@
                 patternTag,
                 offsetX = omIn.shifted ? (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0) : 0,
                 offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0,
-                name;
+                name,
+                width,
+                height;
 
-            if (ctx.svgOM.global && ctx.svgOM.global.patterns[patternRef.ref]) {
-                ctx.currentOMNode = ctx.svgOM.global.patterns[patternRef.ref];
+            if (patternRef.ref && ctx.svgOM.resources && ctx.svgOM.resources.patterns[patternRef.ref]) {
+                ctx.currentOMNode = ctx.svgOM.resources.patterns[patternRef.ref];
                 ctx.currentOMNode.transform = patternRef.transform;
                 ctx.currentOMNode.transformTX = offsetX;
                 ctx.currentOMNode.transformTY = offsetY;
@@ -41,6 +43,28 @@
                 if (!ctx.minify && name && patternID != name) {
                     patternTag.setAttribute("data-name", name);
                 }
+                ctx.omStylesheet.def(patternTag, function (def) {
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
+                });
+            }
+
+            if (typeof patternRef.href == "string") {
+                patternID = ctx.ID.getUnique("pattern");
+                width = parseFloat(patternRef.width);
+                height = parseFloat(patternRef.height);
+                patternTag = new Tag("pattern", {
+                    id: patternID,
+                    width: "100%",
+                    height: "100%",
+                    patternContentUnits: "userSpaceOnUse",
+                    preserveAspectRatio: "xMidYMid slice",
+                    viewBox: [0, 0, width, height]
+                });
+                patternTag.appendChild(new Tag("image", {
+                    "xlink:href": patternRef.href,
+                    width: width,
+                    height: height
+                }));
                 ctx.omStylesheet.def(patternTag, function (def) {
                     ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
                 });

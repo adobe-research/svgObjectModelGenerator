@@ -1,198 +1,224 @@
 {
-    "children": [
-        {
-            "type": "group",
-            "children": [
-                {
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "solid",
-                            "align": "inside",
-                            "cap": "butt",
-                            "join": "miter",
-                            "width": 3,
-                            "miter-limit": 100,
-                            "dash": [],
-                            "dash-offset": 0,
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            },
-                            "opacity": 1
-                        },
-                        "fill": {
-                            "type": "gradient",
-                            "gradient": {
-                                "gradientSpace": "userSpaceOnUse",
-                                "x1": 131.5,
-                                "y1": 227,
-                                "x2": 131.5,
-                                "y2": 62,
-                                "ref": "linear-gradient"
-                            }
-                        }
-                    },
-                    "name": "Ellipse.svg",
-                    "visualBounds": {
-                        "top": 62,
-                        "left": 49,
-                        "bottom": 227,
-                        "right": 214
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "cx": 131.5,
-                        "cy": 144.5,
-                        "r": 82.5
-                    }
-                },
-                {
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "solid",
-                            "align": "inside",
-                            "cap": "butt",
-                            "join": "miter",
-                            "width": 3,
-                            "miter-limit": 100,
-                            "dash": [],
-                            "dash-offset": 0,
-                            "color": {
-                                "r": 0,
-                                "g": 0,
-                                "b": 0,
-                                "a": 1
-                            },
-                            "opacity": 1
-                        },
-                        "fill": {
-                            "type": "gradient",
-                            "gradient": {
-                                "gradientSpace": "userSpaceOnUse",
-                                "x1": 131.5,
-                                "y1": 227,
-                                "x2": 131.5,
-                                "y2": 62,
-                                "ref": "linear-gradient"
-                            }
-                        }
-                    },
-                    "name": "Ellipse.svg",
-                    "visualBounds": {
-                        "top": 62,
-                        "left": 49,
-                        "bottom": 227,
-                        "right": 214
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "cx": 131.5,
-                        "cy": 144.5,
-                        "r": 82.5
-                    }
-                }
-            ],
-            "style": {
-                "stroke": {
-                    "type": "solid",
-                    "align": "inside",
-                    "cap": "butt",
-                    "join": "miter",
-                    "width": 3,
-                    "miter-limit": 100,
-                    "dash": [],
-                    "dash-offset": 0,
-                    "color": {
-                        "r": 0,
-                        "g": 0,
-                        "b": 0,
-                        "a": 1
-                    },
-                    "opacity": 1
-                },
-                "fill": {
-                    "type": "gradient",
-                    "gradient": {
-                        "gradientSpace": "userSpaceOnUse",
-                        "x1": 131.5,
-                        "y1": 227,
-                        "x2": 131.5,
-                        "y2": 62,
-                        "ref": "linear-gradient"
-                    }
-                }
-            }
-        }
-    ],
-    "global": {
-        "clipPaths": {},
-        "filters": {},
-        "gradients": {
-            "linear-gradient": {
-                "stops": [
-                    {
-                        "offset": 0,
-                        "color": {
-                            "r": 11.260701,
-                            "g": 1.44358,
-                            "b": 184.000004,
-                            "a": 1
-                        }
-                    },
-                    {
-                        "offset": 0.10009765625,
-                        "color": {
-                            "r": 11.260701,
-                            "g": 1.44358,
-                            "b": 184.000004
-                        }
-                    },
-                    {
-                        "offset": 0.5,
-                        "color": {
-                            "r": 253,
-                            "g": 250.054474,
-                            "b": 2.976654
-                        }
-                    },
-                    {
-                        "offset": 0.89990234375,
-                        "color": {
-                            "r": 11.035019,
-                            "g": 2,
-                            "b": 170.000005
-                        }
-                    },
-                    {
-                        "offset": 1,
-                        "color": {
-                            "r": 11.035019,
-                            "g": 2,
-                            "b": 170.000005,
-                            "a": 1
-                        }
-                    }
-                ],
-                "type": "linear"
-            }
-        },
-        "masks": {},
-        "patterns": {},
-        "bounds": {
-            "top": 0,
-            "left": 0,
-            "bottom": 288,
-            "right": 288
-        },
-        "pxToInchRatio": 72
+	"children": [
+		{
+			"type": "group",
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"align": "inside",
+					"cap": "butt",
+					"join": "miter",
+					"width": 3,
+					"dash": [],
+					"dash-offset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					},
+					"opacity": 1,
+					"miterLimit": 100
+				},
+				"fill": {
+					"type": "gradient",
+					"gradient": {
+						"gradientSpace": "userSpaceOnUse",
+						"x1": 131.5,
+						"y1": 227,
+						"x2": 131.5,
+						"y2": 62,
+						"ref": "linear-gradient"
+					}
+				}
+			},
+			"group": {
+				"children": [
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "solid",
+								"align": "inside",
+								"cap": "butt",
+								"join": "miter",
+								"width": 3,
+								"dash": [],
+								"dash-offset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								},
+								"opacity": 1,
+								"miterLimit": 100
+							},
+							"fill": {
+								"type": "gradient",
+								"gradient": {
+									"gradientSpace": "userSpaceOnUse",
+									"x1": 131.5,
+									"y1": 227,
+									"x2": 131.5,
+									"y2": 62,
+									"ref": "linear-gradient"
+								}
+							}
+						},
+						"name": "Ellipse.svg",
+						"visualBounds": {
+							"x": 49,
+							"y": 62,
+							"width": 165,
+							"height": 165
+						},
+						"shape": {
+							"type": "circle",
+							"cx": 131.5,
+							"cy": 144.5,
+							"r": 82.5
+						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "solid",
+								"align": "inside",
+								"cap": "butt",
+								"join": "miter",
+								"width": 3,
+								"dash": [],
+								"dash-offset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								},
+								"opacity": 1,
+								"miterLimit": 100
+							},
+							"fill": {
+								"type": "gradient",
+								"gradient": {
+									"gradientSpace": "userSpaceOnUse",
+									"x1": 131.5,
+									"y1": 227,
+									"x2": 131.5,
+									"y2": 62,
+									"ref": "linear-gradient"
+								}
+							}
+						},
+						"name": "Ellipse.svg",
+						"visualBounds": {
+							"x": 49,
+							"y": 62,
+							"width": 165,
+							"height": 165
+						},
+						"shape": {
+							"type": "circle",
+							"cx": 131.5,
+							"cy": 144.5,
+							"r": 82.5
+						}
+					}
+				]
+			}
+		}
+	],
+	"artboards": {},
+	"version": "0.1.0",
+	"name": "group-style",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 288,
+		"height": 288
+	},
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"linear-gradient": {
+				"stops": [
+					{
+						"offset": 0,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 11.260701,
+								"g": 1.44358,
+								"b": 184.000004
+							},
+							"alpha": 1
+						}
+					},
+					{
+						"offset": 0.10009765625,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 11.260701,
+								"g": 1.44358,
+								"b": 184.000004
+							}
+						}
+					},
+					{
+						"offset": 0.5,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 253,
+								"g": 250.054474,
+								"b": 2.976654
+							}
+						}
+					},
+					{
+						"offset": 0.89990234375,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 11.035019,
+								"g": 2,
+								"b": 170.000005
+							}
+						}
+					},
+					{
+						"offset": 1,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 11.035019,
+								"g": 2,
+								"b": 170.000005
+							},
+							"alpha": 1
+						}
+					}
+				],
+				"type": "linear"
+			}
+		},
+		"masks": {},
+		"patterns": {}
     },
-    "artboards": {},
-    "version": "0.1.0",
-    "name": "group-style"
+	"rasterResolution": 72
 }

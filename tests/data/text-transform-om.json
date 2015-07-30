@@ -11,10 +11,10 @@
 			},
 			"name": "Text.svg",
 			"visualBounds": {
-				"top": 314,
-				"left": 232,
-				"bottom": 361,
-				"right": 286
+				"x": 232,
+				"y": 314,
+				"width": 54,
+				"height": 47
 			},
 			"position": {
 				"x": 0,
@@ -24,30 +24,12 @@
 			},
 			"maxTextSize": 30,
 			"transform": {
-				"0": [
-					0.707107,
-					-0.707107,
-					0,
-					0
-				],
-				"1": [
-					0.707107,
-					0.707107,
-					0,
-					0
-				],
-				"2": [
-					0,
-					0,
-					1,
-					0
-				],
-				"3": [
-					0,
-					0,
-					0,
-					1
-				]
+				"a": 0.707107,
+				"b": -0.707107,
+				"c": 0.707107,
+				"d": 0.707107,
+				"tx": 0,
+				"ty": 0
 			},
 			"transformTX": 246.896664,
 			"transformTY": 366.186822,
@@ -61,10 +43,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 314,
-						"left": 232,
-						"bottom": 361,
-						"right": 286
+						"x": 232,
+						"y": 314,
+						"width": 54,
+						"height": 47
 					},
 					"position": {
 						"x": 0,
@@ -85,23 +67,20 @@
 					"cap": "butt",
 					"join": "miter",
 					"width": 3,
-					"miter-limit": 100,
+					"miterLimit": 100,
 					"dash": [],
-					"dash-offset": 0,
+					"dashOffset": 0,
 					"color": {
-						"r": 241.881842,
-						"g": 101.179413,
-						"b": 33.72992,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 241.881842,
+							"g": 101.179413,
+							"b": 33.72992
+						},
+						"alpha": 1
 					},
 					"opacity": 1
 				}
-			},
-			"visualBounds": {
-				"top": 275,
-				"left": 208,
-				"bottom": 396,
-				"right": 306
 			},
 			"shape": {
 				"type": "rect",
@@ -109,22 +88,21 @@
 				"y": 275,
 				"width": 98,
 				"height": 121
+			},
+			"visualBounds": {
+				"x": 208,
+				"y": 275,
+				"width": 98,
+				"height": 121
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -135,6 +113,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "text-transform.psd"
+	"version": "1.0.0",
+	"name": "text-transform.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

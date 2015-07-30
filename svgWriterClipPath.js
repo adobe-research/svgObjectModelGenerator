@@ -29,12 +29,12 @@
                 offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0,
                 name;
 
-            if (!omIn.style || !omIn.style["clip-path"]) {
+            if (!omIn.style || !omIn.style.clipPath || !omIn.style.clipPath.ref) {
                 return;
             }
-            clipPath = omIn.style["clip-path"];
-            if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
-                ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
+            clipPath = omIn.style.clipPath.ref;
+            if (ctx.svgOM.resources && ctx.svgOM.resources.clipPaths[clipPath]) {
+                ctx.currentOMNode = ctx.svgOM.resources.clipPaths[clipPath];
                 ctx.currentOMNode.transformTX = offsetX;
                 ctx.currentOMNode.transformTY = offsetY;
                 name = ctx.currentOMNode.name;

@@ -9,218 +9,235 @@
                 }
             },
             "name": "This is a Text with different paragraphs",
-            "kind": "positioned",
             "visualBounds": {
-                "top": 144,
-                "left": 74,
-                "bottom": 260,
-                "right": 358
+                "y": 144,
+                "x": 74,
+                "height": 116,
+                "width": 284
             },
-            "text-frame": {
-                "x": 215.96876799999998,
-                "y": 166.27353600000004
-            },
-            "raw-text": "This is a\rText with\rdifferent paragraphs",
-            "paragraphs": [
-                {
-                    "lines": [
-                        [
-                            {
-                                "from": 0,
-                                "to": 10,
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 0
-                                        },
-                                        "type": "solid"
-                                    },
-                                    "stroke": {
-                                        "type": "solid",
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 0
-                                        },
-                                        "width": 10
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\""
-                                    },
-                                    "text-attributes": {
-                                        "decoration": [
-                                            "underline",
-                                            "line-through"
-                                        ]
+            "text": {
+                "frame": {
+                    "type": "positioned",
+                    "x": 215.96876799999998,
+                    "y": 166.27353600000004
+                },
+                "rawText": "This is a\rText with\rdifferent paragraphs",
+                "paragraphs": [
+                    {
+                        "lines": [
+                            [
+                                {
+                                    "from": 0,
+                                    "to": 10,
+                                    "style": {
+                                        "fill": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "b": 0,
+                                                    "g": 0,
+                                                    "r": 0
+                                                }
+                                            },
+                                            "type": "solid"
+                                    	},
+                                    	"stroke": {
+                                        	"type": "solid",
+                                        	"color": {
+												"value": {
+                                            		"b": 0,
+                                            		"g": 0,
+                                            		"r": 0
+												},
+												"mode": "RGB"
+                                        	},
+											"width": 10
+										},
+                                    	"font": {
+                                        	"size": 30,
+                                        	"family": "\"Myriad Pro\""
+                                    	},
+                                        "textAttributes": {
+                                            "decoration": [
+                                                "underline",
+                                                "line-through"
+                                            ]
+                                        }
                                     }
                                 }
-                            }
-                        ]
-                    ],
-                    "style": {
-                        "text-anchor": "middle",
-                        "stroke": {
-                            "type": "none",
-                            "miter-limit": 12
+                            ]
+                        ],
+                    	"style": {
+                        	"text-anchor": "middle",
+                        	"stroke": {
+                            	"type": "none",
+                            	"miterLimit": 12
+                    		}
+						}
+					},
+                    {
+                        "lines": [
+                            [
+                                {
+                                    "from": 10,
+                                    "to": 12,
+                                    "style": {
+                                        "fill": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "b": 0,
+                                                    "g": 0,
+                                                    "r": 0
+                                                }
+                                            },
+                                            "type": "solid"
+                                        },
+                                        "font": {
+                                            "size": 30,
+                                            "family": "\"Myriad Pro\""
+                                        },
+                                        "textAttributes": {
+                                            "decoration": [
+                                                "line-through"
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "from": 12,
+                                    "to": 16,
+                                    "style": {
+                                        "fill": {
+                                            "type": "solid",
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "r": 22.0623,
+                                                    "g": 225,
+                                                    "b": 79.3541
+                                                }
+                                            }
+                                        },
+                                        "font": {
+                                            "size": 30,
+                                            "family": "\"Myriad Pro\""
+                                        }
+                                    }
+                                },
+                                {
+                                    "from": 16,
+                                    "to": 18,
+                                    "style": {
+                                        "fill": {
+                                            "type": "solid",
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "r": 22.0623,
+                                                    "g": 225,
+                                                    "b": 79.3541
+                                                }
+                                            }
+                                        },
+                                        "font": {
+                                            "size": 30,
+                                            "family": "\"Myriad Pro\""
+                                        }
+                                    }
+                                },
+                                {
+                                    "from": 18,
+                                    "to": 20,
+                                    "style": {
+                                        "fill": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "r": 0,
+                                                    "g": 0,
+                                                    "b": 0
+                                                }
+                                            },
+                                            "type": "solid"
+                                        },
+                                        "font": {
+                                            "size": 30,
+                                            "family": "\"Myriad Pro\"",
+                                            "style": "bold italic"
+                                        },
+                                        "textAttributes": {
+                                            "paragraphAfterSpacing": 10
+                                        }
+                                    }
+                                }
+                            ]
+                        ],
+                        "style": {
+                            "text-anchor": "middle"
+                        }
+                    },
+                    {
+                        "lines": [
+                            [
+                                {
+                                    "from": 20,
+                                    "to": 33,
+                                    "style": {
+                                        "fill": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "r": 0,
+                                                    "g": 0,
+                                                    "b": 0
+                                                }
+                                            },
+                                            "type": "solid"
+                                        },
+                                        "font": {
+                                            "size": 30,
+                                            "family": "\"Myriad Pro\""
+                                        }
+                                    }
+                                },
+                                {
+                                    "from": 33,
+                                    "to": 41,
+                                    "style": {
+                                        "fill": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "r": 0,
+                                                    "g": 0,
+                                                    "b": 0
+                                                }
+                                            },
+                                            "type": "solid"
+                                        },
+                                        "font": {
+                                            "size": 30,
+                                            "family": "\"Myriad Pro\""
+                                        }
+                                    }
+                                }
+                            ]
+                        ],
+                        "style": {
+                            "text-anchor": "middle"
                         }
                     }
-                },
-                {
-                    "lines": [
-                        [
-                            {
-                                "from": 10,
-                                "to": 12,
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 0
-                                        },
-                                        "type": "solid"
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\""
-                                    },
-                                    "text-attributes": {
-                                        "decoration": [
-                                            "line-through"
-                                        ]
-                                    }
-                                }
-                            },
-                            {
-                                "from": 12,
-                                "to": 16,
-                                "style": {
-                                    "fill": {
-                                        "type": "solid",
-                                        "color": {
-                                            "r": 22.0623,
-                                            "g": 225,
-                                            "b": 79.3541,
-                                            "a": 1
-                                        }
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\""
-                                    }
-                                }
-                            },
-                            {
-                                "from": 16,
-                                "to": 18,
-                                "style": {
-                                    "fill": {
-                                        "type": "solid",
-                                        "color": {
-                                            "r": 22.0623,
-                                            "g": 225,
-                                            "b": 79.3541,
-                                            "a": 1
-                                        }
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\""
-                                    }
-                                }
-                            },
-                            {
-                                "from": 18,
-                                "to": 20,
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 0
-                                        },
-                                        "type": "solid"
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\"",
-                                        "style": "bold italic"
-                                    },
-                                    "text-attributes": {
-                                        "paragraph-after-spacing": 10
-                                    }
-                                }
-                            }
-                        ]
-                    ],
-                    "style": {
-                        "text-anchor": "middle"
-                    }
-                },
-                {
-                    "lines": [
-                        [
-                            {
-                                "from": 20,
-                                "to": 33,
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 0
-                                        },
-                                        "type": "solid"
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\""
-                                    }
-                                }
-                            },
-                            {
-                                "from": 33,
-                                "to": 41,
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 0
-                                        },
-                                        "type": "solid"
-                                    },
-                                    "font": {
-                                        "size": 30,
-                                        "family": "\"Myriad Pro\""
-                                    }
-                                }
-                            }
-                        ]
-                    ],
-                    "style": {
-                        "text-anchor": "middle"
-                    }
-                }
-            ]
+                ]
+            }
         }
     ],
-    "global": {
+    "resources": {
         "clipPaths": {},
         "filters": {},
         "gradients": {},
         "masks": {},
-        "patterns": {},
-        "bounds": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
-        "pxToInchRatio": 72
+        "patterns": {}
     },
     "artboards": {},
     "meta": {
@@ -231,6 +248,13 @@
             }
         }
     },
-    "version": "0.1.0",
-    "name": "Untitled-1"
+    "version": "1.0.0",
+    "name": "Untitled-1",
+    "rasterResolution": 72,
+    "viewSource": {
+        "x": 0,
+        "y": 0,
+        "height": 768,
+        "width": 1024
+    }
 }

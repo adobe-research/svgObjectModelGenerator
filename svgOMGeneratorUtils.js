@@ -40,7 +40,11 @@
                 green = Math.abs(Math.round(255.0 * c.greenFloat));
                 blue = Math.abs(Math.round(255.0 * c.blueFloat));
             }
-            return { "r": red || 0, "g": green || 0, "b": blue || 0, "a": a };
+            return {
+                "mode": "RGB",
+                "value": { "r": red || 0, "g": green || 0, "b": blue || 0 },
+                "alpha": a
+            };
         };
 
         this.pct2px = function (dim, containerPx) {
@@ -79,6 +83,15 @@
             return parseInt(bnd, 10);
         };
 
+        this.boundsToRect = function (bounds) {
+            return {
+                x: bounds.left,
+                y: bounds.top,
+                width: bounds.right - bounds.left,
+                height: bounds.bottom - bounds.top
+            };
+        };
+
         function _addOrEditStop(stops, def, colorDefined) {
             var foundStop;
             stops.forEach(function (stp) {
@@ -88,13 +101,14 @@
             });
 
             if (foundStop) {
-
                 if (colorDefined) {
-                    foundStop.color.r = def.color.r;
-                    foundStop.color.g = def.color.g;
-                    foundStop.color.b = def.color.b;
+                    foundStop.color.value = {
+                        r: def.color.r,
+                        g: def.color.g,
+                        b: def.color.b
+                    };
                 } else {
-                    foundStop.color.a = def.color.a;
+                    foundStop.color.alpha = def.color.alpha;
                 }
             } else {
                 stops.push(def);
@@ -178,7 +192,7 @@
                     ele.offset = (ele.offset - 0.5) * scale + 0.5;
                 }
             });
-            gradientRef.gradientSpace = "userSpaceOnUse";
+            gradientRef.units = "userSpaceOnUse";
 
             if (gradient.type == "radial") {
                 angle = Math.abs(angle - 90 % 180) * Math.PI / 180;
@@ -339,9 +353,12 @@
 
                 if (stops[i].color) {
                     color = {
-                        r: stops[i].color.red,
-                        g: stops[i].color.green,
-                        b: stops[i].color.blue
+                        mode: "RGB",
+                        value: {
+                            r: stops[i].color.red,
+                            g: stops[i].color.green,
+                            b: stops[i].color.blue
+                        }
                     };
                 } else {
                     color = interpolateStop(prevStopColor, nextStopColor, prevStopOpacity, nextStopOpacity, stops[i], firstLoc, lastLoc);

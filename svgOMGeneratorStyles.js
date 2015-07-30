@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Help construct the svgOM from generator data */
+/* Help construct the AGC from generator data */
 
 (function () {
     "use strict";
@@ -34,8 +34,8 @@
                 return undefined;
             },
 
-            isPathNode = function (svgNode) {
-                return svgNode.type == "shape" && svgNode.shape.type == "path";
+            isPathNode = function (agcNode) {
+                return agcNode.type == "shape" && agcNode.shape.type == "path";
             };
 
         this.fetchBlendMode = function (layer) {
@@ -71,24 +71,24 @@
             }
         };
 
-        this.addGlobalStyle = function (svgNode, layer) {
+        this.addGlobalStyle = function (agcNode, layer) {
             var propertyFetchers = { // Properties we fetch for all layers
                     "opacity": fetchOpacity,
-                    "blend-mode": this.fetchBlendMode
+                    "blendMode": this.fetchBlendMode
                 },
                 property;
 
             for (property in propertyFetchers) {
                 var value = propertyFetchers[property](layer);
                 if (value !== undefined) {
-                    svgNode.style[property] = value;
+                    agcNode.style[property] = value;
                 }
             }
         };
 
-        this.addStroke = function (svgNode, layer, layerBounds, writer) {
+        this.addStroke = function (agcNode, layer, layerBounds, writer) {
             var dpi = writer._dpi(),
-                stroke = svgNode.style.stroke || {},
+                stroke = agcNode.style.stroke || {},
                 strokeStyle = layer.strokeStyle,
                 gradientPair,
                 toStrokeLinecap = {
@@ -107,7 +107,7 @@
                     "strokeStyleAlignCenter": "center"
                 };
 
-            svgNode.style.stroke = stroke;
+            agcNode.style.stroke = stroke;
 
             if (strokeStyle) {
                 stroke.type = !strokeStyle.strokeEnabled ? "none" : "solid";
@@ -115,38 +115,38 @@
                 stroke.cap = strokeStyle.strokeStyleLineCapType ? toStrokeLinecap[strokeStyle.strokeStyleLineCapType] : "butt";
                 stroke.join = strokeStyle.strokeStyleLineJoinType ? toStrokeLinejoin[strokeStyle.strokeStyleLineJoinType] : "miter";
                 stroke.width = strokeStyle.strokeStyleLineWidth ? omgUtils.boundInPx(strokeStyle.strokeStyleLineWidth, dpi) : 1;
-                stroke["miter-limit"] = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
+                stroke.miterLimit = strokeStyle.strokeStyleMiterLimit ? strokeStyle.strokeStyleMiterLimit : 100;
                 stroke.dash = strokeStyle.strokeStyleLineDashSet ?
                     strokeStyle.strokeStyleLineDashSet.map(function (ele) {
                     return omgUtils.boundInPx(ele, dpi) * (stroke.width || 0);
                 }) : [];
-                stroke["dash-offset"] = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
+                stroke.dashOffset = strokeStyle.strokeStyleLineDashOffset ? omgUtils.boundInPx(strokeStyle.strokeStyleLineDashOffset, dpi) : 0;
                 stroke.color = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.color ? omgUtils.toColor(strokeStyle.strokeStyleContent.color) : CONST_COLOR_BLACK;
                 stroke.opacity = strokeStyle.strokeStyleOpacity ? strokeStyle.strokeStyleOpacity.value / 100 : 1;
                 stroke.pattern = strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.pattern ? "PATTERN-PLACEHOLDER" : undefined;
                 if (strokeStyle.strokeStyleContent && strokeStyle.strokeStyleContent.gradient &&
                     omgUtils.scanForUnsupportedGradientFeatures(strokeStyle.strokeStyleContent, writer)) {
                     stroke.type = "gradient";
-                    gradientPair = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer._root.global.bounds);
+                    gradientPair = omgUtils.toGradient(strokeStyle.strokeStyleContent, layerBounds, writer.docBounds());
                     stroke.gradient = gradientPair.reference;
                     stroke.gradient.ref = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
-                    writer.global().gradients[stroke.gradient.ref] = gradientPair.gradient;
+                    writer.resources().gradients[stroke.gradient.ref] = gradientPair.gradient;
                 }
             } else {
                 stroke.type = "none";
             }
         };
 
-        this.addFillRule = function (svgNode) {
-            if (!isPathNode(svgNode)) {
+        this.addFillRule = function (agcNode) {
+            if (!isPathNode(agcNode)) {
                 return;
             }
             // evenodd is the default and only fill rule supported in PS.
-            svgNode.shape.winding = "evenodd";
+            agcNode.shape.winding = "evenodd";
         };
 
-        this.addFill = function (svgNode, layer, layerBounds, writer) {
-            var fill = svgNode.style.fill || {},
+        this.addFill = function (agcNode, layer, layerBounds, writer) {
+            var fill = agcNode.style.fill || {},
                 fillStyle = layer.fill,
                 gradientPair,
                 strokeStyle = layer.strokeStyle;
@@ -156,7 +156,7 @@
 
             var fillClass = fillStyle.class;
 
-            svgNode.style.fill = fill;
+            agcNode.style.fill = fill;
 
             if (fillClass === "solidColorLayer") {
                 fill.type = "solid";
@@ -165,10 +165,10 @@
                 if (fillStyle.gradient &&
                     omgUtils.scanForUnsupportedGradientFeatures(fillStyle, writer)) {
                     fill.type = "gradient";
-                    gradientPair = omgUtils.toGradient(fillStyle, layerBounds, writer._root.global.bounds);
+                    gradientPair = omgUtils.toGradient(fillStyle, layerBounds, writer.docBounds());
                     fill.gradient = gradientPair.reference;
                     fill.gradient.ref = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
-                    writer.global().gradients[fill.gradient.ref] = gradientPair.gradient;
+                    writer.resources().gradients[fill.gradient.ref] = gradientPair.gradient;
                 }
             } else if (fillClass === "patternLayer") {
                 fill.type = "pattern";
@@ -184,7 +184,7 @@
             }
         };
 
-        var applyStrokeFilter = function (svgNode, strokeStyle, layer, layerBounds, writer) {
+        var applyStrokeFilter = function (agcNode, strokeStyle, layer, layerBounds, writer) {
             var stroke = {},
                 gradientPair,
                 toStrokeFXAlign = {
@@ -197,7 +197,7 @@
                 return;
             }
 
-            svgNode.style.stroke = stroke;
+            agcNode.style.stroke = stroke;
 
 
             if (strokeStyle) {
@@ -208,29 +208,29 @@
                 stroke.align = strokeStyle.style ? toStrokeFXAlign[strokeStyle.style] : "inside";
                 stroke.cap = "butt";
                 stroke.join = "round";
-                stroke["miter-limit"] = 100;
+                stroke.miterLimit = 100;
                 stroke.sourceStyle = strokeStyle.style;
                 if (strokeStyle.gradient) {
                     stroke.type = "gradient";
-                    gradientPair = omgUtils.toGradient(strokeStyle, layerBounds, writer._root.global.bounds);
+                    gradientPair = omgUtils.toGradient(strokeStyle, layerBounds, writer.docBounds());
                     stroke.gradient = gradientPair.reference;
                     stroke.gradient.ref = writer.ID.getUnique(gradientPair.gradient.type + "-gradient");
-                    writer.global().gradients[stroke.gradient.ref] = gradientPair.gradient;
+                    writer.resources().gradients[stroke.gradient.ref] = gradientPair.gradient;
                 }
             } else {
                 stroke.type = "none";
             }
         };
 
-        this.addFx = function (svgNode, layer, layerBounds, writer) {
+        this.addFx = function (agcNode, layer, layerBounds, writer) {
             if (!layer.layerEffects || layer.layerEffects.masterFXSwitch === false) {
                 return;
             }
-            svgNode.style.meta = svgNode.style.meta || {};
-            svgNode.style.meta.PS = svgNode.style.meta.PS || {};
-            svgNode.style.meta.PS.fx = JSON.parse(JSON.stringify(layer.layerEffects));
+            agcNode.style.meta = agcNode.style.meta || {};
+            agcNode.style.meta.PS = agcNode.style.meta.PS || {};
+            agcNode.style.meta.PS.fx = JSON.parse(JSON.stringify(layer.layerEffects));
 
-            var fx = svgNode.style.meta.PS.fx,
+            var fx = agcNode.style.meta.PS.fx,
                 filter;
 
             function prepareEffect(effect, prepareFunction) {
@@ -278,31 +278,32 @@
 
             omgSVGFilter.scanForUnsupportedFilterFeatures(fx, writer);
 
-            filter = omgSVGFilter.createSVGFilters(svgNode, writer, fx, JSON.parse(JSON.stringify(layerBounds)), JSON.parse(JSON.stringify(writer._root.global.bounds)));
+            filter = omgSVGFilter.createSVGFilters(agcNode, writer, fx, JSON.parse(JSON.stringify(layerBounds)), JSON.parse(JSON.stringify(writer.docBounds())));
             if (filter) {
-                svgNode.style.filter = writer.ID.getUnique("filter");
-                writer.global().filters[svgNode.style.filter] = filter;
+                var reference = writer.ID.getUnique("filter");
+                agcNode.style.filters = [{ ref: reference }];
+                writer.resources().filters[reference] = filter;
             }
 
-            applyStrokeFilter(svgNode, svgNode.style.meta.PS.fx.frameFX, layer, layerBounds, writer);
+            applyStrokeFilter(agcNode, agcNode.style.meta.PS.fx.frameFX, layer, layerBounds, writer);
         };
 
-        this.addGroupStylingData = function (svgNode, layer, writer) {
-            this.addStylingData(svgNode, layer, layer.bounds, writer);
+        this.addGroupStylingData = function (agcNode, layer, writer) {
+            this.addStylingData(agcNode, layer, layer.bounds, writer);
         };
 
-        this.addStylingData = function (svgNode, layer, layerBounds, writer) {
+        this.addStylingData = function (agcNode, layer, layerBounds, writer) {
 
-            this.addGlobalStyle(svgNode, layer);
+            this.addGlobalStyle(agcNode, layer);
 
-            if (svgNode.type == "image") {
+            if (agcNode.type == "image") {
                 return;
             }
 
-            this.addStroke(svgNode, layer, layerBounds, writer);
-            this.addFill(svgNode, layer, layerBounds, writer);
-            this.addFillRule(svgNode, layer);
-            this.addFx(svgNode, layer, layerBounds, writer);
+            this.addStroke(agcNode, layer, layerBounds, writer);
+            this.addFill(agcNode, layer, layerBounds, writer);
+            this.addFillRule(agcNode, layer);
+            this.addFx(agcNode, layer, layerBounds, writer);
         };
 
         var weightMap = fontMaps.weights,
@@ -440,18 +441,18 @@
             };
         };
 
-        var addComputedTextStyle = function (svgNode) {
-            svgNode.style["font-size"] = _computeMaxFontSize(svgNode);
+        var addComputedTextStyle = function (agcNode) {
+            agcNode.style["font-size"] = _computeMaxFontSize(agcNode);
         };
 
-        this.addTextStyle = function (svgNode, layer) {
+        this.addTextStyle = function (agcNode, layer) {
             if (layer.text.textShape[0].orientation &&
                 layer.text.textShape[0].orientation == "vertical") {
-                svgNode.style["writing-mode"] = "tb";
-                svgNode.style["glyph-orientation-vertical"] = "0";
+                agcNode.style["writing-mode"] = "tb";
+                agcNode.style["glyph-orientation-vertical"] = "0";
             }
 
-            addComputedTextStyle(svgNode, layer);
+            addComputedTextStyle(agcNode, layer);
         };
     }
 

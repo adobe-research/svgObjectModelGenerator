@@ -10,10 +10,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 36.198442,
-						"g": 218.000002,
-						"b": 29.926069,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 36.198442,
+							"g": 218.000002,
+							"b": 29.926069
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -24,10 +27,13 @@
 									"enabled": true,
 									"mode": "lighten",
 									"color": {
-										"r": 212.000003,
-										"g": 31.595331,
-										"b": 31.595331,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 212.000003,
+											"g": 31.595331,
+											"b": 31.595331
+										},
+										"alpha": 1
 									},
 									"antiAlias": false,
 									"invert": false,
@@ -46,13 +52,11 @@
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"visualBounds": {
-				"top": 225,
-				"left": 200,
-				"bottom": 375,
-				"right": 500
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -60,124 +64,129 @@
 				"y": 225,
 				"width": 300,
 				"height": 150
+			},
+			"visualBounds": {
+				"x": 200,
+				"y": 225,
+				"width": 300,
+				"height": 150
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 212.000003,
-							"g": 31.595331,
-							"b": 31.595331,
-							"a": 1
-						}
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": -13.641,
-						"dy": 24.453
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset-2",
-						"input": [
-							"composite"
-						],
-						"dx": 13.641,
-						"dy": -24.453
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"offset",
-							"offset-2"
-						],
-						"operator": "xor"
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-3",
-						"input": [
-							"composite-2",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"composite-3"
-						],
-						"stdDeviation": 3.162
-					},
-					{
-						"kind": "feComponentTransfer",
-						"id": "comp",
-						"input": [
-							"blur"
-						],
-						"children": [
-							{
-								"kind": "feFuncA",
-								"type": "linear",
-								"slope": 0.7
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 212.000003,
+									"g": 31.595331,
+									"b": 31.595331
+								},
+								"alpha": 1
 							}
-						]
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-4",
-						"input": [
-							"comp",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite-4",
-							"SourceGraphic"
-						],
-						"mode": "lighten"
-					}
-				]
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": -13.641,
+							"dy": 24.453
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset-2",
+							"input": [
+								"composite"
+							],
+							"dx": 13.641,
+							"dy": -24.453
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"offset",
+								"offset-2"
+							],
+							"operator": "xor"
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-3",
+							"input": [
+								"composite-2",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"composite-3"
+							],
+							"stdDeviation": 3.162
+						},
+						{
+							"kind": "feComponentTransfer",
+							"id": "comp",
+							"input": [
+								"blur"
+							],
+							"children": [
+								{
+									"kind": "feFuncA",
+									"type": "linear",
+									"slope": 0.7
+								}
+							]
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-4",
+							"input": [
+								"comp",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite-4",
+								"SourceGraphic"
+							],
+							"mode": "lighten"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -188,6 +197,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgFx-satin.psd"
+	"version": "1.0.0",
+	"name": "svgFx-satin.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

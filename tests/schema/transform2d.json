@@ -1,32 +1,32 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/transform2d",
-    "title": "transform2d",
-    "description": "The 2D transform object",
-    "type": "object",
-    "properties": {
-        "a": {
-            "type": "number"
-        },
-        "b": {
-            "type": "number"
-        },
-        "c": {
-            "type": "number"
-        },
-        "d": {
-            "type": "number"
-        },
-        "e": {
-            "type": "number"
-        },
-        "f": {
-            "type": "number"
-        },
-        "meta": {
-            "type": "object"
-        }
-    },
-    "additionalProperties": false,
-    "required": [ "a", "b", "c", "d", "e", "f" ]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/transform2d",
+	"title": "transform2d",
+	"description": "The 2D transform object",
+	"type": "object",
+	"properties": {
+		"a": {
+			"type": "number"
+		},
+		"b": {
+			"type": "number"
+		},
+		"c": {
+			"type": "number"
+		},
+		"d": {
+			"type": "number"
+		},
+		"tx": {
+			"type": "number"
+		},
+		"ty": {
+			"type": "number"
+		},
+		"meta": {
+			"type": "object"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "a", "b", "c", "d", "tx", "ty" ]
 }

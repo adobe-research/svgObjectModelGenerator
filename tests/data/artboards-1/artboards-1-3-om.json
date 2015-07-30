@@ -8,65 +8,61 @@
 					"type": "none"
 				}
 			},
-			"name": "square",
-			"ref": "artboard",
-			"children": [
-				{
-					"type": "shape",
-					"visible": true,
-					"style": {
-						"stroke": {
-							"type": "none"
-						},
-						"fill": {
-							"type": "solid",
-							"color": {
-								"r": 0,
-								"g": 255,
-								"b": 0,
-								"a": 1
+			"artboard": {
+				"ref": "artboard",
+				"children": [
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 255,
+										"b": 0
+									},
+									"alpha": 1
+								}
 							}
+						},
+						"shape": {
+							"type": "circle",
+							"cx": 2540,
+							"cy": 2960,
+							"r": 393
+						},
+						"visualBounds": {
+							"x": 2147,
+							"y": 2567,
+							"width": 786,
+							"height": 786
 						}
-					},
-					"visualBounds": {
-						"top": 2567,
-						"left": 2147,
-						"bottom": 3353,
-						"right": 2933
-					},
-					"shape": {
-						"type": "circle",
-						"cx": 2540,
-						"cy": 2960,
-						"r": 393
 					}
-				}
-			]
+				]
+			},
+			"name": "square"
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5920,
-			"right": 5080
-		},
-		"pxToInchRatio": 326
+		"patterns": {}
 	},
 	"artboards": {
 		"artboard": {
 			"name": "square",
-			"bounds": {
-				"top": 2000,
-				"left": 2000,
-				"bottom": 3920,
-				"right": 3080
-			}
+			"x": 2000,
+			"y": 2000,
+			"width": 1080,
+			"height": 1920
 		}
 	},
 	"meta": {
@@ -77,6 +73,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "artboards-1.psd"
+	"version": "1.0.0",
+	"name": "artboards-1.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 5080,
+		"height": 5920
+	},
+	"rasterResolution": 326
 }

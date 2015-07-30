@@ -13,10 +13,10 @@
 			},
 			"name": "This is a text",
 			"visualBounds": {
-				"top": 241,
-				"left": 321,
-				"bottom": 965,
-				"right": 357
+				"x": 321,
+				"y": 241,
+				"width": 36,
+				"height": 724
 			},
 			"position": {
 				"x": 338.33593856,
@@ -34,20 +34,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 3,
-								"g": 3,
-								"b": 3,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 3,
+									"g": 3,
+									"b": 3
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "\"Minion Pro\""
 					},
 					"text": "This is a text",
 					"visualBounds": {
-						"top": 241,
-						"left": 321,
-						"bottom": 965,
-						"right": 357
+						"x": 321,
+						"y": 241,
+						"width": 36,
+						"height": 724
 					},
 					"position": {
 						"x": 338.33593856,
@@ -59,19 +62,12 @@
 			]
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
-		"pxToInchRatio": 144
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -82,6 +78,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgText-writing-mode"
+	"version": "1.0.0",
+	"name": "svgText-writing-mode",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 1024
+	},
+	"rasterResolution": 144
 }

@@ -8,66 +8,62 @@
 					"type": "none"
 				}
 			},
-			"name": "square",
-			"ref": "artboard",
-			"children": [
-				{
-					"type": "shape",
-					"visible": true,
-					"style": {
-						"stroke": {
-							"type": "none"
-						},
-						"fill": {
-							"type": "solid",
-							"color": {
-								"r": 0,
-								"g": 255,
-								"b": 0,
-								"a": 1
+			"artboard": {
+				"ref": "artboard",
+				"children": [
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 255,
+										"b": 0
+									},
+									"alpha": 1
+								}
 							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 3390,
+							"y": 2138,
+							"width": 748,
+							"height": 748
+						},
+						"visualBounds": {
+							"x": 3390,
+							"y": 2138,
+							"width": 748,
+							"height": 748
 						}
-					},
-					"visualBounds": {
-						"top": 2138,
-						"left": 3390,
-						"bottom": 2886,
-						"right": 4138
-					},
-					"shape": {
-						"type": "rect",
-						"x": 3390,
-						"y": 2138,
-						"width": 748,
-						"height": 748
 					}
-				}
-			]
+				]
+			},
+			"name": "square"
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5024,
-			"right": 5024
-		},
-		"pxToInchRatio": 326
+		"patterns": {}
 	},
 	"artboards": {
 		"artboard": {
 			"name": "square",
-			"bounds": {
-				"top": 2000,
-				"left": 3252,
-				"bottom": 3024,
-				"right": 4276
-			}
+			"x": 3252,
+			"y": 2000,
+			"width": 1024,
+			"height": 1024
 		}
 	},
 	"meta": {
@@ -78,6 +74,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "artboards-2.psd"
+	"version": "1.0.0",
+	"name": "artboards-2.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 5024,
+		"height": 5024
+	},
+	"rasterResolution": 326
 }

@@ -16,10 +16,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": true,
@@ -131,14 +134,18 @@
 						}
 					}
 				},
-				"filter": "filter"
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"name": "This is a text",
 			"visualBounds": {
-				"top": 114,
-				"left": 221,
-				"bottom": 172,
-				"right": 413
+				"x": 221,
+				"y": 114,
+				"width": 192,
+				"height": 58
 			},
 			"position": {
 				"x": 244.921872,
@@ -168,10 +175,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -179,10 +189,10 @@
 							},
 							"text": "This is a ",
 							"visualBounds": {
-								"top": 131,
-								"left": 246,
-								"bottom": 154,
-								"right": 403
+								"x": 246,
+								"y": 131,
+								"width": 157,
+								"height": 23
 							}
 						},
 						{
@@ -192,10 +202,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.0043,
-										"g": 65.251953,
-										"b": 255,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.0043,
+											"g": 65.251953,
+											"b": 255
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -203,10 +216,10 @@
 							},
 							"text": "text",
 							"visualBounds": {
-								"top": 131,
-								"left": 246,
-								"bottom": 154,
-								"right": 403
+								"x": 246,
+								"y": 131,
+								"width": 157,
+								"height": 23
 							}
 						}
 					]
@@ -214,100 +227,99 @@
 			]
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 4.243
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 4.243
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": 4,
-						"dy": 6.928
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"SourceGraphic",
-							"offset"
-						]
-					},
-					{
-						"kind": "feImage",
-						"id": "image",
-						"input": [],
-						"x": 246,
-						"y": 131,
-						"width": 157,
-						"height": 23,
-						"preserveAspectRatio": "none",
-						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE1NyIgaGVpZ2h0PSIyMyIgdmlld0JveD0iMCAwIDE1NyAyMyI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSI2Mi4wNzYiIHkxPSIyMyIgeDI9Ijk0LjkyNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjZlMDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjUiIHN0b3AtY29sb3I9IiNmZjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY2ZDAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIxNTciIGhlaWdodD0iMjMiLz4KPC9zdmc+Cg=="
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"image",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-2",
-						"input": [
-							"composite-2",
-							"blend"
-						],
-						"mode": "lighten"
-					}
-				]
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": 4,
+							"dy": 6.928
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"SourceGraphic",
+								"offset"
+							]
+						},
+						{
+							"kind": "feImage",
+							"id": "image",
+							"input": [],
+							"x": 246,
+							"y": 131,
+							"width": 157,
+							"height": 23,
+							"preserveAspectRatio": "none",
+							"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjE1NyIgaGVpZ2h0PSIyMyIgdmlld0JveD0iMCAwIDE1NyAyMyI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSI2Mi4wNzYiIHkxPSIyMyIgeDI9Ijk0LjkyNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZjZlMDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjUiIHN0b3AtY29sb3I9IiNmZjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY2ZDAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSIxNTciIGhlaWdodD0iMjMiLz4KPC9zdmc+Cg=="
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"image",
+								"SourceGraphic"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-2",
+							"input": [
+								"composite-2",
+								"blend"
+							],
+							"mode": "lighten"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -318,6 +330,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgTextFx.psd"
+	"version": "1.0.0",
+	"name": "svgTextFx.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

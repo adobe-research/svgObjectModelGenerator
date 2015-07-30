@@ -69,25 +69,25 @@
                             }
                         }
 
-                        // Need to evenly distribute colors stops from svgStop[i-1] to svgStop[j]
+                        // Need to evenly distribute colors stops from colors[i-1] to colors[j]
                         var startColor = colors[i - 1],
-                            r = startColor.r,
-                            g = startColor.g,
-                            b = startColor.b,
-                            a = startColor.a,
+                            r = startColor.value.r,
+                            g = startColor.value.g,
+                            b = startColor.value.b,
+                            a = startColor.alpha,
                             endColor = colors[j];
 
                         nSegs = j - i + 1;
-                        var dr = (endColor.r - r) / nSegs,
-                            dg = (endColor.g - g) / nSegs,
-                            db = (endColor.b - b) / nSegs,
-                            da = (endColor.a - a) / nSegs;
+                        var dr = (endColor.value.r - r) / nSegs,
+                            dg = (endColor.value.g - g) / nSegs,
+                            db = (endColor.value.b - b) / nSegs,
+                            da = (endColor.alpha - a) / nSegs;
                         while (i < j) {
                             r += dr;
                             g += dg;
                             b += db;
                             a += da;
-                            colors[i] = { r: r, g: g, b: b, a: a };
+                            colors[i] = { mode: "RGB", value: {r: r, g: g, b: b}, alpha: a };
                             i++;
                         }
                     }
@@ -109,10 +109,10 @@
                 alphaTableValues = "";
 
             colors.forEach(function (color) {
-                redTableValues += svgWriterUtils.round10k(color.r / 255) + " ";
-                greenTableValues += svgWriterUtils.round10k(color.g / 255) + " ";
-                blueTableValues += svgWriterUtils.round10k(color.b / 255) + " ";
-                alphaTableValues += color.a + " ";
+                redTableValues += svgWriterUtils.round10k(color.value.r / 255) + " ";
+                greenTableValues += svgWriterUtils.round10k(color.value.g / 255) + " ";
+                blueTableValues += svgWriterUtils.round10k(color.value.b / 255) + " ";
+                alphaTableValues += color.alpha + " ";
             });
 
             if (!String.prototype.trim) {

@@ -11,10 +11,10 @@
 			},
 			"name": "This is a text example",
 			"visualBounds": {
-				"top": 76,
-				"left": 129,
-				"bottom": 134,
-				"right": 690
+				"x": 129,
+				"y": 76,
+				"width": 561,
+				"height": 58
 			},
 			"position": {
 				"x": 128.70312959999998,
@@ -32,20 +32,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "\"Myriad Pro\""
 					},
 					"text": "This is a text example",
 					"visualBounds": {
-						"top": 76,
-						"left": 129,
-						"bottom": 134,
-						"right": 690
+						"x": 129,
+						"y": 76,
+						"width": 561,
+						"height": 58
 					},
 					"position": {
 						"x": 128.70312959999998,
@@ -67,10 +70,10 @@
 			},
 			"name": "This is a text example",
 			"visualBounds": {
-				"top": 187,
-				"left": 141,
-				"bottom": 245,
-				"right": 702
+				"x": 141,
+				"y": 187,
+				"width": 561,
+				"height": 58
 			},
 			"position": {
 				"x": 140.6249984,
@@ -100,10 +103,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -111,10 +117,10 @@
 							},
 							"text": "This is a ",
 							"visualBounds": {
-								"top": 187,
-								"left": 141,
-								"bottom": 245,
-								"right": 702
+								"x": 141,
+								"y": 187,
+								"width": 561,
+								"height": 58
 							}
 						},
 						{
@@ -124,10 +130,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 56.814,
-										"g": 255,
-										"b": 2.0043,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 56.814,
+											"g": 255,
+											"b": 2.0043
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -135,10 +144,10 @@
 							},
 							"text": "text ",
 							"visualBounds": {
-								"top": 187,
-								"left": 141,
-								"bottom": 245,
-								"right": 702
+								"x": 141,
+								"y": 187,
+								"width": 561,
+								"height": 58
 							}
 						},
 						{
@@ -148,10 +157,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -159,10 +171,10 @@
 							},
 							"text": "example",
 							"visualBounds": {
-								"top": 187,
-								"left": 141,
-								"bottom": 245,
-								"right": 702
+								"x": 141,
+								"y": 187,
+								"width": 561,
+								"height": 58
 							}
 						}
 					]
@@ -180,10 +192,10 @@
 			},
 			"name": "This is a text example",
 			"visualBounds": {
-				"top": 295,
-				"left": 139,
-				"bottom": 356,
-				"right": 681
+				"x": 139,
+				"y": 295,
+				"width": 542,
+				"height": 61
 			},
 			"position": {
 				"x": 139.05468416,
@@ -213,10 +225,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -224,10 +239,10 @@
 							},
 							"text": "Thi",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -237,10 +252,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 56.814,
-										"g": 255,
-										"b": 2.0043,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 56.814,
+											"g": 255,
+											"b": 2.0043
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -248,10 +266,10 @@
 							},
 							"text": "s i",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -261,10 +279,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -272,10 +293,10 @@
 							},
 							"text": "s ",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -285,10 +306,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 255,
-										"g": 2.55255,
-										"b": 44.6199,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 2.55255,
+											"b": 44.6199
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -296,10 +320,10 @@
 							},
 							"text": "a t",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -309,10 +333,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -320,10 +347,10 @@
 							},
 							"text": "ex",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -333,10 +360,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "MyriadPro-BoldCond, \"Myriad Pro\"",
@@ -345,10 +375,10 @@
 							},
 							"text": "t e",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -358,10 +388,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Myriad Pro\"",
@@ -369,10 +402,10 @@
 							},
 							"text": "xa",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						},
 						{
@@ -382,10 +415,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -393,10 +429,10 @@
 							},
 							"text": "mple",
 							"visualBounds": {
-								"top": 295,
-								"left": 139,
-								"bottom": 356,
-								"right": 681
+								"x": 139,
+								"y": 295,
+								"width": 542,
+								"height": 61
 							}
 						}
 					]
@@ -414,10 +450,10 @@
 			},
 			"name": "This is a text example",
 			"visualBounds": {
-				"top": 395,
-				"left": 149,
-				"bottom": 608,
-				"right": 310
+				"x": 149,
+				"y": 395,
+				"width": 161,
+				"height": 213
 			},
 			"position": {
 				"x": 148.64843776,
@@ -447,10 +483,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 255,
-										"g": 2.55255,
-										"b": 44.6199,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 2.55255,
+											"b": 44.6199
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -458,10 +497,10 @@
 							},
 							"text": "This i",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						},
 						{
@@ -471,10 +510,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -482,10 +524,10 @@
 							},
 							"text": "s",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						}
 					]
@@ -510,10 +552,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.9988,
-										"g": 2.9988,
-										"b": 2.9988,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.9988,
+											"g": 2.9988,
+											"b": 2.9988
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -521,10 +566,10 @@
 							},
 							"text": "a te",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						},
 						{
@@ -534,10 +579,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 255,
-										"g": 2.55255,
-										"b": 44.6199,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 2.55255,
+											"b": 44.6199
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -545,10 +593,10 @@
 							},
 							"text": "x",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						},
 						{
@@ -558,10 +606,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.0043,
-										"g": 255,
-										"b": 162.233541,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.0043,
+											"g": 255,
+											"b": 162.233541
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -569,10 +620,10 @@
 							},
 							"text": "t",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						}
 					]
@@ -597,10 +648,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 2.0043,
-										"g": 255,
-										"b": 162.233541,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 2.0043,
+											"g": 255,
+											"b": 162.233541
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -608,10 +662,10 @@
 							},
 							"text": "exam",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						},
 						{
@@ -621,10 +675,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 255,
-										"g": 2.55255,
-										"b": 44.6199,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 2.55255,
+											"b": 44.6199
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "\"Minion Pro\"",
@@ -632,10 +689,10 @@
 							},
 							"text": "ple",
 							"visualBounds": {
-								"top": 395,
-								"left": 149,
-								"bottom": 608,
-								"right": 310
+								"x": 149,
+								"y": 395,
+								"width": 161,
+								"height": 213
 							}
 						}
 					]
@@ -643,19 +700,12 @@
 			]
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
-		"pxToInchRatio": 144
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -666,6 +716,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgText.psd"
+	"version": "1.0.0",
+	"name": "svgText.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 1024
+	},
+	"rasterResolution": 144
 }

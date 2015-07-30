@@ -1,30 +1,30 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/bounds",
-    "title": "bounds",
-    "description": "The boundaries object",
-    "type": "object",
-    "properties": {
-        "bottom": {
-            "description": "The most bottom position",
-            "type": "number"
-        },
-        "left": {
-            "description": "The most left position",
-            "type": "number"
-        },
-        "meta": {
-            "type": "object"
-        },
-        "right": {
-            "description": "The most right position",
-            "type": "number"
-        },
-        "top": {
-            "description": "The most top position",
-            "type": "number"
-        }
-    },
-    "additionalProperties": false,
-    "required": [ "bottom", "left", "right", "top" ]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/bounds",
+	"title": "bounds",
+	"description": "The boundaries object",
+	"type": "object",
+	"properties": {
+		"x": {
+			"description": "The horizontal position",
+			"type": "number"
+		},
+		"y": {
+			"description": "The vertical position",
+			"type": "number"
+		},
+		"meta": {
+			"type": "object"
+		},
+		"width": {
+			"description": "The horizontal dimension",
+			"type": "number"
+		},
+		"height": {
+			"description": "The vertical dimension",
+			"type": "number"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "width", "height" ]
 }

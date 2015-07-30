@@ -1,100 +1,112 @@
 {
-    "children": [
-        {
-            "children": [
-                {
-                    "children": [
-                        {
-                            "name": "<Rectangle>",
-                            "shape": {
-                                "height": 200,
-                                "type": "rect",
-                                "width": 200,
-                                "x": 100.788,
-                                "y": 87.8788
-                            },
-                            "style": {
-                                "fill": {
-                                    "color": {
-                                        "b": 0,
-                                        "g": 255,
-                                        "r": 0
-                                    },
-                                    "type": "solid"
-                                }
-                            },
-                            "type": "shape",
-                            "visualBounds": {
-                                "bottom": 287.879,
-                                "left": 100.788,
-                                "right": 300.788,
-                                "top": 87.8788
-                            }
-                        }
-                    ],
-                    "style": {
-                        "mask": "mask"
-                    },
-                    "type": "group"
-                }
-            ],
-            "type": "group"
-        }
-    ],
-    "desc": "Created by Adobe Illustrator",
-    "global": {
-        "bounds": {
-            "bottom": 560,
-            "left": 0,
-            "right": 960,
-            "top": 0
-        },
-        "masks": {
-            "mask": {
-                "bounds": {
-                    "bottom": 249.242,
-                    "left": 136,
-                    "right": 260.242,
-                    "top": 125
-                },
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "name": "<Path>",
-                                "shape": {
-                                    "cx": 198.121,
-                                    "cy": 187.121,
-                                    "r": 62.1212,
-                                    "type": "circle"
-                                },
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 255,
-                                            "r": 0
-                                        },
-                                        "type": "solid"
-                                    }
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": 249.242,
-                                    "left": 136,
-                                    "right": 260.242,
-                                    "top": 125
-                                }
-                            }
-                        ],
-                        "name": "<Group>",
-                        "type": "group"
-                    }
-                ],
-                "type": "mask"
-            }
-        }
-    },
-    "name": "mask",
-    "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"style": {
+							"mask": {
+								"ref": "mask"
+							}
+						},
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Rectangle>",
+									"shape": {
+										"height": 200,
+										"type": "rect",
+										"width": 200,
+										"x": 100.788,
+										"y": 87.8788
+									},
+									"style": {
+										"fill": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 0,
+													"g": 255,
+													"b": 0
+												}
+											},
+											"type": "solid"
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 100.788,
+										"y": 87.8788,
+										"width": 200,
+										"height": 200.0002
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"name": "mask",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {
+		"masks": {
+			"mask": {
+				"x": 136,
+				"y": 125,
+				"width": 124.242,
+				"height": 124.242,
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"cx": 198.121,
+										"cy": 187.121,
+										"r": 62.1212,
+										"type": "circle"
+									},
+									"style": {
+										"fill": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 0,
+													"g": 255,
+													"b": 0
+												}
+											},
+											"type": "solid"
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 136,
+										"y": 125,
+										"width": 124.24200000000002,
+										"height": 124.24199999999999
+									}
+								}
+							]
+						}
+					}
+				],
+				"type": "mask"
+			}
+		}
+	}
 }

@@ -10,10 +10,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 252.970012,
-						"g": 197.757364,
-						"b": 137.454736,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 252.970012,
+							"g": 197.757364,
+							"b": 137.454736
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -28,59 +31,80 @@
 											{
 												"offset": 0,
 												"color": {
-													"r": 255,
-													"g": 0.003891,
-													"b": 0.003891,
-													"a": 1
+													"mode": "RGB",
+													"value": {
+														"r": 255,
+														"g": 0.003891,
+														"b": 0.003891
+													},
+													"alpha": 1
 												}
 											},
 											{
 												"offset": 15.9912109375,
 												"color": {
-													"r": 255,
-													"g": 255,
-													"b": 0
+													"mode": "RGB",
+													"value": {
+														"r": 255,
+														"g": 255,
+														"b": 0
+													}
 												}
 											},
 											{
 												"offset": 33.0078125,
 												"color": {
-													"r": 0,
-													"g": 255,
-													"b": 0
+													"mode": "RGB",
+													"value": {
+														"r": 0,
+														"g": 255,
+														"b": 0
+													}
 												}
 											},
 											{
 												"offset": 51.0009765625,
 												"color": {
-													"r": 0,
-													"g": 255,
-													"b": 255
+													"mode": "RGB",
+													"value": {
+														"r": 0,
+														"g": 255,
+														"b": 255
+													}
 												}
 											},
 											{
 												"offset": 66.9921875,
 												"color": {
-													"r": 0,
-													"g": 0,
-													"b": 255
+													"mode": "RGB",
+													"value": {
+														"r": 0,
+														"g": 0,
+														"b": 255
+													}
 												}
 											},
 											{
 												"offset": 85.009765625,
 												"color": {
-													"r": 255,
-													"g": 0,
-													"b": 255
+													"mode": "RGB",
+													"value": {
+														"r": 255,
+														"g": 0,
+														"b": 255
+													}
 												}
 											},
 											{
 												"offset": 100,
 												"color": {
-													"r": 255,
-													"g": 0.003891,
-													"b": 0.003891,
-													"a": 1
+													"mode": "RGB",
+													"value": {
+														"r": 255,
+														"g": 0.003891,
+														"b": 0.003891
+													},
+													"alpha": 1
 												}
 											}
 										]
@@ -111,16 +135,20 @@
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"visualBounds": {
-				"top": 200,
-				"left": 150,
-				"bottom": 400,
-				"right": 350
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
+				"x": 150,
+				"y": 200,
+				"width": 200,
+				"height": 200
+			},
+			"visualBounds": {
 				"x": 150,
 				"y": 200,
 				"width": 200,
@@ -137,10 +165,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 252.970012,
-						"g": 197.757364,
-						"b": 137.454736,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 252.970012,
+							"g": 197.757364,
+							"b": 137.454736
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -151,10 +182,13 @@
 									"enabled": true,
 									"mode": "darken",
 									"color": {
-										"r": 189.996113,
-										"g": 200.708164,
-										"b": 255,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 189.996113,
+											"g": 200.708164,
+											"b": 255
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"glowTechnique": "softMatte",
@@ -182,13 +216,11 @@
 						}
 					}
 				},
-				"filter": "filter-2"
-			},
-			"visualBounds": {
-				"top": 200,
-				"left": 450,
-				"bottom": 400,
-				"right": 650
+				"filters": [
+					{
+						"ref": "filter-2"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -196,224 +228,232 @@
 				"y": 200,
 				"width": 200,
 				"height": 200
+			},
+			"visualBounds": {
+				"x": 450,
+				"y": 200,
+				"width": 200,
+				"height": 200
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 12.667
-					},
-					{
-						"kind": "feColorMatrix",
-						"id": "color",
-						"input": [
-							"blur"
-						],
-						"type": "matrix",
-						"values": [
-							-1,
-							0,
-							0,
-							0,
-							1,
-							0,
-							-1,
-							0,
-							0,
-							1,
-							0,
-							0,
-							-1,
-							0,
-							1,
-							0,
-							0,
-							0,
-							1,
-							0
-						]
-					},
-					{
-						"kind": "feColorMatrix",
-						"id": "color-2",
-						"input": [
-							"color"
-						],
-						"type": "matrix",
-						"values": [
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0
-						]
-					},
-					{
-						"kind": "feColorMatrix",
-						"id": "color-3",
-						"input": [
-							"color-2"
-						],
-						"type": "matrix",
-						"values": [
-							-1,
-							0,
-							0,
-							0,
-							1,
-							0,
-							-1,
-							0,
-							0,
-							1,
-							0,
-							0,
-							-1,
-							0,
-							1,
-							0,
-							0,
-							0,
-							1,
-							0
-						]
-					},
-					{
-						"kind": "feComponentTransfer",
-						"id": "comp",
-						"input": [
-							"color-3"
-						],
-						"color-interpolation-filters": "sRGB",
-						"children": [
-							{
-								"kind": "feFuncR",
-								"input": [],
-								"type": "table",
-								"tableValues": "1 1 1 1 1 1 0.8333 0.6667 0.5 0.3333 0.1667 0 0 0 0 0 0 0 0 0 0 0 0 0.1667 0.3333 0.5 0.6667 0.8333 1 1 1 1 1 1"
-							},
-							{
-								"kind": "feFuncG",
-								"input": [],
-								"type": "table",
-								"tableValues": "0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0 0 0 0 0 0 0 0 0 0 0 0"
-							},
-							{
-								"kind": "feFuncB",
-								"input": [],
-								"type": "table",
-								"tableValues": "0 0 0 0 0 0 0 0 0 0 0 0 0.1667 0.3333 0.5 0.6667 0.8333 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0"
-							}
-						]
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"comp",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite",
-							"SourceGraphic"
-						],
-						"mode": "lighten"
-					}
-				]
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 12.667
+						},
+						{
+							"kind": "feColorMatrix",
+							"id": "color",
+							"input": [
+								"blur"
+							],
+							"type": "matrix",
+							"values": [
+								-1,
+								0,
+								0,
+								0,
+								1,
+								0,
+								-1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								-1,
+								0,
+								1,
+								0,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						{
+							"kind": "feColorMatrix",
+							"id": "color-2",
+							"input": [
+								"color"
+							],
+							"type": "matrix",
+							"values": [
+								0,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						{
+							"kind": "feColorMatrix",
+							"id": "color-3",
+							"input": [
+								"color-2"
+							],
+							"type": "matrix",
+							"values": [
+								-1,
+								0,
+								0,
+								0,
+								1,
+								0,
+								-1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								-1,
+								0,
+								1,
+								0,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						{
+							"kind": "feComponentTransfer",
+							"id": "comp",
+							"input": [
+								"color-3"
+							],
+							"color-interpolation-filters": "sRGB",
+							"children": [
+								{
+									"kind": "feFuncR",
+									"input": [],
+									"type": "table",
+									"tableValues": "1 1 1 1 1 1 0.8333 0.6667 0.5 0.3333 0.1667 0 0 0 0 0 0 0 0 0 0 0 0 0.1667 0.3333 0.5 0.6667 0.8333 1 1 1 1 1 1"
+								},
+								{
+									"kind": "feFuncG",
+									"input": [],
+									"type": "table",
+									"tableValues": "0 0.2 0.4 0.6 0.8 1 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0 0 0 0 0 0 0 0 0 0 0 0"
+								},
+								{
+									"kind": "feFuncB",
+									"input": [],
+									"type": "table",
+									"tableValues": "0 0 0 0 0 0 0 0 0 0 0 0 0.1667 0.3333 0.5 0.6667 0.8333 1 1 1 1 1 1 1 1 1 1 1 1 0.8 0.6 0.4 0.2 0"
+								}
+							]
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"comp",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite",
+								"SourceGraphic"
+							],
+							"mode": "lighten"
+						}
+					]
+				}
 			},
 			"filter-2": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 21.667
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 189.996113,
-							"g": 200.708164,
-							"b": 255,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 21.667
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"composite-2",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite",
-							"SourceGraphic"
-						],
-						"mode": "darken"
-					}
-				]
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 189.996113,
+									"g": 200.708164,
+									"b": 255
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"composite-2",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite",
+								"SourceGraphic"
+							],
+							"mode": "darken"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -424,6 +464,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "svgFx-inner-glow.psd"
+	"version": "1.0.0",
+	"name": "svgFx-inner-glow.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

@@ -18,6 +18,7 @@
       }
     </style>
   </defs>
+  <title>generatedAsset</title>
   <ellipse class="cls-1" cx="237" cy="68" rx="57" ry="56"/>
   <text class="cls-2" transform="translate(78.818 132.105) scale(0.38 1)">This text should have fill:none</text>
 </svg>

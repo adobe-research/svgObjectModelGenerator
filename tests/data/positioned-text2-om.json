@@ -1,149 +1,161 @@
 {
-    "children": [
-        {
-            "children": [
-                {
-                    "kind": "positioned",
-                    "paragraphs": [
-                        {
-                            "lines": [
-                                [
-                                    {
-                                        "from": 0,
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 0,
-                                                    "g": 0,
-                                                    "r": 0
-                                                },
-                                                "type": "solid"
-                                            },
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            }
-                                        },
-                                        "to": 20
-                                    }
-                                ]
-                            ]
-                        },
-                        {
-                            "lines": [
-                                [
-                                    {
-                                        "from": 20,
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 0,
-                                                    "g": 0,
-                                                    "r": 0
-                                                },
-                                                "type": "solid"
-                                            },
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            }
-                                        },
-                                        "to": 40,
-                                        "x": 0,
-                                        "y": 14.3999
-                                    }
-                                ]
-                            ]
-                        },
-                        {
-                            "lines": [
-                                []
-                            ]
-                        },
-                        {
-                            "lines": [
-                                [
-                                    {
-                                        "from": 40,
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 0,
-                                                    "g": 0,
-                                                    "r": 0
-                                                },
-                                                "type": "solid"
-                                            },
-                                            "font": {
-                                                "family": "MyriadPro-Regular",
-                                                "postScript-name": "",
-                                                "size": 12,
-                                                "style": "normal",
-                                                "typeKit-id": "",
-                                                "variant": "all-caps"
-                                            }
-                                        },
-                                        "to": 60,
-                                        "x": 0,
-                                        "y": 43.2002
-                                    }
-                                ]
-                            ]
-                        }
-                    ],
-                    "raw-text": "this is the 1st linethis is the 2nd linethis is the 4th line",
-                    "text-frame": {
-                        "height": 56.2441,
-                        "path": "",
-                        "width": 90.4663
-                    },
-                    "transform": {
-                        "a": 1,
-                        "b": 0,
-                        "c": 0,
-                        "d": 1,
-                        "e": 77.9771,
-                        "f": 82.1138
-                    },
-                    "type": "text"
-                }
-            ],
-            "type": "group"
-        }
-    ],
-    "desc": "Created by Adobe Illustrator",
-    "global": {
-        "bounds": {
-            "bottom": 560,
-            "left": 0,
-            "right": 960,
-            "top": 0
-        }
-    },
-    "meta": {
-        "AI": {
-            "host": {
-                "options": {
-                    "constrainToDocBounds": false,
-                    "idType": "regular",
-                    "isResponsive": true,
-                    "minify": false,
-                    "precision": 3,
-                    "preserveAspectRatio": "xMidYMid",
-                    "trimToArtBounds": false,
-                    "usePresentationAttribute": false
-                }
-            }
-        }
-    },
-    "name": "newlines",
-    "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"text": {
+							"paragraphs": [
+								{
+									"lines": [
+										[
+											{
+												"from": 0,
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 0,
+																"b": 0
+															}
+														},
+														"type": "solid"
+													},
+													"font": {
+														"family": "MyriadPro-Regular",
+														"postscriptName": "",
+														"size": 12,
+														"style": "normal",
+														"typekitId": "",
+														"variant": "all-caps"
+													}
+												},
+												"to": 20
+											}
+										]
+									]
+								},
+								{
+									"lines": [
+										[
+											{
+												"from": 20,
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 0,
+																"b": 0
+															}
+														},
+														"type": "solid"
+													},
+													"font": {
+														"family": "MyriadPro-Regular",
+														"postscriptName": "",
+														"size": 12,
+														"style": "normal",
+														"typekitId": "",
+														"variant": "all-caps"
+													}
+												},
+												"to": 40,
+												"x": 0,
+												"y": 14.3999
+											}
+										]
+									]
+								},
+								{
+									"lines": [
+										[]
+									]
+								},
+								{
+									"lines": [
+										[
+											{
+												"from": 40,
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 0,
+																"b": 0
+															}
+														},
+														"type": "solid"
+													},
+													"font": {
+														"family": "MyriadPro-Regular",
+														"postscriptName": "",
+														"size": 12,
+														"style": "normal",
+														"typekitId": "",
+														"variant": "all-caps"
+													}
+												},
+												"to": 60,
+												"x": 0,
+												"y": 43.2002
+											}
+										]
+									]
+								}
+							],
+							"rawText": "this is the 1st linethis is the 2nd linethis is the 4th line",
+							"frame": {
+								"type": "positioned",
+								"height": 56.2441,
+								"path": "",
+								"width": 90.4663
+							}
+						},
+						"transform": {
+							"a": 1,
+							"b": 0,
+							"c": 0,
+							"d": 1,
+							"tx": 77.9771,
+							"ty": 82.1138
+						},
+						"type": "text"
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"meta": {
+		"AI": {
+			"host": {
+				"options": {
+					"constrainToDocBounds": false,
+					"idType": "regular",
+					"isResponsive": true,
+					"minify": false,
+					"precision": 3,
+					"preserveAspectRatio": "xMidYMid",
+					"trimToArtBounds": false,
+					"usePresentationAttribute": false
+				}
+			}
+		}
+	},
+	"name": "newlines",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {}
 }

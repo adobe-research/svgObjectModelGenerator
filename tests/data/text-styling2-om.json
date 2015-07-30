@@ -11,10 +11,10 @@
 			},
 			"name": "2",
 			"visualBounds": {
-				"top": 211,
-				"left": 79,
-				"bottom": 257,
-				"right": 109
+				"x": 79,
+				"y": 211,
+				"width": 30,
+				"height": 46
 			},
 			"position": {
 				"x": 86.777344,
@@ -36,10 +36,10 @@
 					},
 					"text": "2",
 					"visualBounds": {
-						"top": 211,
-						"left": 79,
-						"bottom": 257,
-						"right": 109
+						"x": 79,
+						"y": 211,
+						"width": 30,
+						"height": 46
 					},
 					"position": {
 						"x": 86.777344,
@@ -61,10 +61,10 @@
 			},
 			"name": "3",
 			"visualBounds": {
-				"top": 339,
-				"left": 77,
-				"bottom": 386,
-				"right": 109
+				"x": 77,
+				"y": 339,
+				"width": 32,
+				"height": 47
 			},
 			"position": {
 				"x": 86.777344,
@@ -85,10 +85,10 @@
 					},
 					"text": "3",
 					"visualBounds": {
-						"top": 339,
-						"left": 77,
-						"bottom": 386,
-						"right": 109
+						"x": 77,
+						"y": 339,
+						"width": 32,
+						"height": 47
 					},
 					"position": {
 						"x": 86.777344,
@@ -110,10 +110,10 @@
 			},
 			"name": "4",
 			"visualBounds": {
-				"top": 466,
-				"left": 77,
-				"bottom": 510,
-				"right": 113
+				"x": 77,
+				"y": 466,
+				"width": 36,
+				"height": 44
 			},
 			"position": {
 				"x": 86.777344,
@@ -135,10 +135,10 @@
 					},
 					"text": "4",
 					"visualBounds": {
-						"top": 466,
-						"left": 77,
-						"bottom": 510,
-						"right": 113
+						"x": 77,
+						"y": 466,
+						"width": 36,
+						"height": 44
 					},
 					"position": {
 						"x": 86.777344,
@@ -160,10 +160,10 @@
 			},
 			"name": "5",
 			"visualBounds": {
-				"top": 597,
-				"left": 76,
-				"bottom": 643,
-				"right": 111
+				"x": 76,
+				"y": 597,
+				"width": 35,
+				"height": 46
 			},
 			"position": {
 				"x": 86.777344,
@@ -185,10 +185,10 @@
 					},
 					"text": "5",
 					"visualBounds": {
-						"top": 597,
-						"left": 76,
-						"bottom": 643,
-						"right": 111
+						"x": 76,
+						"y": 597,
+						"width": 35,
+						"height": 46
 					},
 					"position": {
 						"x": 86.777344,
@@ -210,10 +210,10 @@
 			},
 			"name": "6",
 			"visualBounds": {
-				"top": 721,
-				"left": 76,
-				"bottom": 768,
-				"right": 112
+				"x": 76,
+				"y": 721,
+				"width": 36,
+				"height": 47
 			},
 			"position": {
 				"x": 86.777344,
@@ -235,10 +235,10 @@
 					},
 					"text": "6",
 					"visualBounds": {
-						"top": 721,
-						"left": 76,
-						"bottom": 768,
-						"right": 112
+						"x": 76,
+						"y": 721,
+						"width": 36,
+						"height": 47
 					},
 					"position": {
 						"x": 86.777344,
@@ -260,10 +260,10 @@
 			},
 			"name": "7",
 			"visualBounds": {
-				"top": 846,
-				"left": 84,
-				"bottom": 890,
-				"right": 119
+				"x": 84,
+				"y": 846,
+				"width": 35,
+				"height": 44
 			},
 			"position": {
 				"x": 86.777344,
@@ -286,10 +286,10 @@
 					},
 					"text": "7",
 					"visualBounds": {
-						"top": 846,
-						"left": 84,
-						"bottom": 890,
-						"right": 119
+						"x": 84,
+						"y": 846,
+						"width": 35,
+						"height": 44
 					},
 					"position": {
 						"x": 86.777344,
@@ -311,10 +311,10 @@
 			},
 			"name": "1 copy",
 			"visualBounds": {
-				"top": 76,
-				"left": 84,
-				"bottom": 120,
-				"right": 97
+				"x": 84,
+				"y": 76,
+				"width": 13,
+				"height": 44
 			},
 			"position": {
 				"x": 86.777344,
@@ -336,10 +336,10 @@
 					},
 					"text": "1",
 					"visualBounds": {
-						"top": 76,
-						"left": 84,
-						"bottom": 120,
-						"right": 97
+						"x": 84,
+						"y": 76,
+						"width": 13,
+						"height": 44
 					},
 					"position": {
 						"x": 86.777344,
@@ -361,10 +361,10 @@
 			},
 			"name": "thin ultrathin thin italic medium light oblique book slanted",
 			"visualBounds": {
-				"top": 76,
-				"left": 381,
-				"bottom": 897,
-				"right": 784
+				"x": 381,
+				"y": 76,
+				"width": 403,
+				"height": 821
 			},
 			"position": {
 				"x": 369.77734656,
@@ -385,10 +385,10 @@
 					},
 					"text": "thin",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -408,10 +408,10 @@
 					},
 					"text": "ultrathin",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -432,10 +432,10 @@
 					},
 					"text": "thin italic",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -455,10 +455,10 @@
 					},
 					"text": "medium",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -479,10 +479,10 @@
 					},
 					"text": "light oblique",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -501,10 +501,10 @@
 					},
 					"text": "book",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -524,10 +524,10 @@
 					},
 					"text": "slanted",
 					"visualBounds": {
-						"top": 76,
-						"left": 381,
-						"bottom": 897,
-						"right": 784
+						"x": 381,
+						"y": 76,
+						"width": 403,
+						"height": 821
 					},
 					"position": {
 						"x": 369.77734656,
@@ -539,19 +539,12 @@
 			]
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1024,
-			"right": 1024
-		},
-		"pxToInchRatio": 144
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -562,6 +555,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "/Users/baranovs/Desktop/texts.psd"
+	"version": "1.0.0",
+	"name": "/Users/baranovs/Desktop/texts.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 1024
+	},
+	"rasterResolution": 144
 }

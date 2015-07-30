@@ -1,1 +1,90 @@
-{"children":[{"children":[{"kind":"positioned","paragraphs":[{"lines":[[{"from":0,"style":{"fill":{"color":{"b":0,"g":0,"r":0},"type":"solid"},"font":{"family":"System Font","postScript-name":"","size":24,"style":"regular","typeKit-id":"","variant":"all-caps"}},"to":14}]]}],"raw-text":"nothing \b\b new","text-frame":{"height":45.8369,"path":"","width":328.723},"transform":{"a":1,"b":0,"c":0,"d":1,"e":76.3193,"f":80.9771},"type":"text"}],"name":"Layer 1","type":"group"}],"desc":"Created by Adobe Illustrator","global":{"bounds":{"bottom":560,"left":0,"right":960,"top":0}},"meta":{"AI":{"host":{"options":{"constrainToDocBounds":false,"idType":"regular","isResponsive":true,"minify":false,"precision":2,"preserveAspectRatio":"xMidYMid","styling":"class","trimToArtBounds":false}}}},"name":"TestUnicode","version":"0.1.0"}
+{
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"text": {
+							"paragraphs": [
+								{
+									"lines": [
+										[
+											{
+												"from": 0,
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 0,
+																"b": 0
+															}
+														},
+														"type": "solid"
+													},
+													"font": {
+														"family": "System Font",
+														"postscriptName": "",
+														"size": 24,
+														"style": "regular",
+														"typekit-id": "",
+														"variant": "all-caps"
+													}
+												},
+												"to": 14
+											}
+										]
+									]
+								}
+							],
+							"rawText": "nothing \b\b new",
+							"frame": {
+								"type": "positioned",
+								"height": 45.8369,
+								"path": "",
+								"width": 328.723
+							}
+						},
+						"transform": {
+							"a": 1,
+							"b": 0,
+							"c": 0,
+							"d": 1,
+							"tx": 76.3193,
+							"ty": 80.9771
+						},
+						"type": "text"
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"meta": {
+		"AI": {
+			"host": {
+				"options": {
+					"constrainToDocBounds": false,
+					"idType": "regular",
+					"isResponsive": true,
+					"minify": false,
+					"precision": 2,
+					"preserveAspectRatio": "xMidYMid",
+					"styling": "class",
+					"trimToArtBounds": false
+				}
+			}
+		}
+	},
+	"name": "TestUnicode",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {}
+}

@@ -37,6 +37,18 @@
             bounds.bottom += delta;
         };
 
+        self.rectToBounds = function (rect) {
+            if (rect.left) {
+                return rect;
+            }
+            return {
+                left: rect.x,
+                top: rect.y,
+                right: rect.x + rect.width,
+                bottom: rect.y + rect.height
+            };
+        };
+
         self.write = function (ctx, sOut) {
             if (!ctx.stream) {
                 ctx.sOut += sOut;
@@ -111,13 +123,16 @@
                 color = val;
             }
             if (typeof val == "object") {
-                if (val.ref && ctx && ctx.svgOM.global && ctx.svgOM.global.colors && ctx.svgOM.global.colors[val.ref]) {
-                    val = ctx.svgOM.global.colors[val.ref];
+                if (val.ref && ctx && ctx.svgOM.resources && ctx.svgOM.resources.colors && ctx.svgOM.resources.colors[val.ref]) {
+                    val = ctx.svgOM.resources.colors[val.ref];
                 }
-                if (val.hasOwnProperty("a") && val.a != 1) {
-                    return "rgba(" + Utils.roundUp(val.r) + "," + Utils.roundUp(val.g) + "," + Utils.roundUp(val.b) + "," + Utils.round2(val.a) + ")";
+                var rgb = val.value ? val.value : val;
+                if (isFinite(val.alpha) && val.alpha != 1) {
+                    return "rgba(" + Utils.roundUp(rgb.r) + "," + Utils.roundUp(rgb.g) + "," + Utils.roundUp(rgb.b) + "," + Utils.round2(val.alpha) + ")";
+                } else if (isFinite(val.a) && val.a != 1) {
+                    return "rgba(" + Utils.roundUp(rgb.r) + "," + Utils.roundUp(rgb.g) + "," + Utils.roundUp(rgb.b) + "," + Utils.round2(val.a) + ")";
                 } else {
-                    color = self.rgbToHex(val.r, val.g, val.b);
+                    color = self.rgbToHex(rgb.r, rgb.g, rgb.b);
                 }
             }
             if (colorNames[color.toLowerCase()]) {
@@ -220,7 +235,7 @@
         self.extend = Utils.extend;
 
         self.hasFx = function (ctx) {
-            return ctx.currentOMNode.style && ctx.currentOMNode.style.filter;
+            return ctx.currentOMNode.style && ctx.currentOMNode.style.filters;
         };
     }
 

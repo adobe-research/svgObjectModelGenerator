@@ -22,5 +22,6 @@
       <path id="Rectangle_1-2" data-name="Rectangle 1" class="cls-1" d="M50,50H250V250H50Z"/>
     </clipPath>
   </defs>
+  <title>ClipPath test</title>
   <rect id="Rectangle_1-3" data-name="Rectangle 1" class="cls-3" width="300" height="300"/>
 </svg>

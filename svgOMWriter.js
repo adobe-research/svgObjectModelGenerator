@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Help construct the svgOM */
+/* Help construct the AGC */
 
 (function () {
     "use strict";
@@ -22,7 +22,7 @@
 
         var _root = {
                 children: [],
-                global: {
+                resources: {
                     clipPaths: {},
                     filters: {},
                     gradients: {},
@@ -33,9 +33,15 @@
                 meta: {
                     PS: {}
                 },
-                version: "0.1.0"
+                version: "1.0.0"
             },
-            _currentNodeStack = [];
+            _currentNodeStack = [],
+            _docBounds,
+            _oldText = {
+                "text": true,
+                "tspan": true,
+                "textPath": true
+            };
 
         this._root = _root;
 
@@ -44,7 +50,7 @@
         this.ID = new ID();
 
         this._dpi = function () {
-            return _root && _root.global.pxToInchRatio ? _root.global.pxToInchRatio : 72;
+            return _root && _root.rasterResolution ? _root.rasterResolution : 72;
         };
 
         this.peekCurrent = function () {
@@ -61,12 +67,22 @@
         };
         this.pushCurrent(_root);
 
-        this.global = function () {
-            return _root.global;
+        this.resources = function () {
+            return _root.resources;
+        };
+
+        this.docBounds = function () {
+            return _docBounds;
         };
 
         this.setDocBounds = function (bounds) {
-            _root.global.bounds = bounds;
+            _docBounds = bounds;
+            _root.viewSource = {
+                x: bounds.left,
+                y: bounds.top,
+                width: bounds.right - bounds.left,
+                height: bounds.bottom - bounds.top
+            };
         };
 
         this.setDocTitle = function (name) {
@@ -74,13 +90,16 @@
         };
 
         this.setDocPxToInchRatio = function (pxToInchRatio) {
-            _root.global.pxToInchRatio = pxToInchRatio;
+            _root.rasterResolution = pxToInchRatio;
         };
 
         this.setArtboard = function (id, name, bounds) {
             _root.artboards[id] = {
                 name: name,
-                bounds: bounds
+                x: bounds.left,
+                y: bounds.top,
+                width: bounds.right - bounds.left,
+                height: bounds.bottom - bounds.top
             };
         };
 
@@ -88,17 +107,31 @@
             _root.meta.PS.globalLight = globalLight;
         };
 
-        this.addSVGNode = function (nodeType, nodeVisible) {
-            var n = {
-                type: nodeType,
-                visible: nodeVisible,
-                style: {}
-            };
-            if (!this.peekCurrent().children) {
-                this.peekCurrent().children = [];
+        this.addChild = function (agcNode) {
+            var parent = this.peekCurrent(),
+                children;
+            if (parent.type && !_oldText[parent.type]) {
+                parent[parent.type].children = parent[parent.type].children || [];
+                children = parent[parent.type].children;
+            } else {
+                parent.children = parent.children || [];
+                children = parent.children;
             }
-            this.peekCurrent().children.push(n);
-            return n;
+            children.push(agcNode);
+        };
+
+        this.addAGCNode = function (nodeType, nodeVisible) {
+            var agcNode = {
+                    type: nodeType,
+                    visible: nodeVisible,
+                    style: {}
+                };
+            // FIXME: We do that as long as text doesn't follow AGC.
+            if (!_oldText[nodeType]) {
+                agcNode[nodeType] = {};
+            }
+            this.addChild(agcNode);
+            return agcNode;
         };
 
         this.addFontRule = function () {
@@ -114,7 +147,7 @@
         };
 
 
-        this.toSVGOM = function () {
+        this.toAGC = function () {
             return _root;
         };
     }

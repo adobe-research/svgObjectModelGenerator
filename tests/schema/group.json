@@ -1,53 +1,68 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/group",
-    "title": "group",
-    "description": "A group graphics object",
-    "type": "object",
-    "properties": {
-        "children": {
-            "description": "A list of graphics object nested in the current group",
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    { "$ref": "/rect" },
-                    { "$ref": "/circle" },
-                    { "$ref": "/ellipse" },
-                    { "$ref": "/line" },
-                    { "$ref": "/path" },
-                    { "$ref": "/polyline" },
-                    { "$ref": "/polygon" },
-                    { "$ref": "/text" },
-                    { "$ref": "/image" },
-                    { "$ref": "/reference" },
-                    { "$ref": "/group" }
-                ]
-            }
-        },
-        "meta": {
-            "type": "object"
-        },
-        "name": {
-            "description": "The user specified name of the graphics object",
-            "type": "string"
-        },
-        "style": { "$ref": "/style" },
-        "transform": {
-            "oneOf": [
-                { "$ref": "/transform2d" },
-                { "$ref": "/transform3d" }
-            ]
-        },
-        "type": {
-            "description": "The type of the graphics object",
-            "enum": [ "group" ]
-        },
-        "visible": {
-            "description": "Whether the graphics object is visible or not",
-            "type": "boolean"
-        },
-        "visualBounds": { "$ref": "/bounds" }
-    },
-    "additionalProperties": false,
-    "required": [ "children", "type" ]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/group",
+	"title": "group",
+	"description": "A group graphics object",
+	"type": "object",
+	"properties": {
+		"group": {
+			"description": "Group specific properties",
+			"type": "object",
+			"properties": {
+				"children": {
+					"description": "A list of graphics object nested in the current group",
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{ "$ref": "/rect" },
+							{ "$ref": "/circle" },
+							{ "$ref": "/ellipse" },
+							{ "$ref": "/line" },
+							{ "$ref": "/path" },
+							{ "$ref": "/polyline" },
+							{ "$ref": "/polygon" },
+							{ "$ref": "/text" },
+							{ "$ref": "/image" },
+							{ "$ref": "/reference" },
+							{ "$ref": "/group" }
+						]
+					}
+				},
+				"meta": {
+					"type": "object"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "children" ]
+		},
+		"id": {
+			"description": "A unique identifier with the document",
+			"type": "string"
+		},
+		"meta": {
+			"type": "object"
+		},
+		"name": {
+			"description": "The user specified name of the graphics object",
+			"type": "string"
+		},
+		"style": { "$ref": "/style" },
+		"transform": {
+			"oneOf": [
+				{ "$ref": "/transform2d" },
+				{ "$ref": "/transform3d" }
+			]
+		},
+		"type": {
+			"description": "The type of the graphics object",
+			"enum": [ "group" ]
+		},
+		"visible": {
+			"description": "Whether the graphics object is visible or not",
+			"type": "boolean"
+		},
+		"visualBounds": { "$ref": "/bounds" }
+	},
+	"additionalProperties": false,
+	"required": [ "group", "type" ]
 }

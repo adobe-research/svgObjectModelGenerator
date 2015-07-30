@@ -28,6 +28,7 @@
         utils = require("./utils.js"),
         ID = require("./idGenerator.js"),
         fontMaps = require("./fontMaps.json"),
+        rectToBounds = require("./svgWriterUtils.js").rectToBounds,
         globalStyles = {};
 
     function SVGWriterPreprocessor() {
@@ -37,7 +38,7 @@
          **/
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                global = ctx.svgOM.global,
+                resources = ctx.svgOM.resources,
                 fingerprint,
                 ref,
                 styleBlock,
@@ -46,8 +47,8 @@
                 weightMap = fontMaps.weights,
                 italicMap = fontMaps.italics;
 
-            if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
-                utils.merge(omIn.style, global.styles[omIn.style.ref]);
+            if (omIn.style && omIn.style.ref && resources.styles && resources.styles[omIn.style.ref]) {
+                utils.merge(omIn.style, resources.styles[omIn.style.ref]);
             }
             if (omIn.style) {
                 delete omIn.style.ref;
@@ -57,7 +58,7 @@
 
             if (globalStyles[fingerprint]) {
                 ref = globalStyles[fingerprint];
-                style = global.styles[ref];
+                style = resources.styles[ref];
                 if (style) {
                     omIn.className = ref;
                     fakeNode = {
@@ -118,14 +119,14 @@
                 }
             }
 
-            if (omIn.style["text-attributes"]) {
-                if (omIn.style["text-attributes"].decoration) {
-                    styleBlock.addRule("text-decoration", omIn.style["text-attributes"].decoration.join(" "));
+            if (omIn.style.textAttributes) {
+                if (omIn.style.textAttributes.decoration) {
+                    styleBlock.addRule("text-decoration", omIn.style.textAttributes.decoration.join(" "));
                 }
-                if (omIn.style["text-attributes"]["letter-spacing"]) {
-                    styleBlock.addRule("letter-spacing", omIn.style["text-attributes"]["letter-spacing"] + "px");
+                if (omIn.style.textAttributes.letterSpacing) {
+                    styleBlock.addRule("letter-spacing", omIn.style.textAttributes.letterSpacing + "px");
                 }
-                if (omIn.style["text-attributes"].glyphOrientation == "sideways-right") {
+                if (omIn.style.textAttributes.glyphOrientation == "sideways-right") {
                     styleBlock.addRule("text-orientation", "sideways-right");
                 }
             }
@@ -136,18 +137,18 @@
                 }
                 // fill, stroke, mask and fx are handled above.
                 if (property == "fill" || property == "stroke" ||
-                    property == "filter" || property == "meta" ||
-                    property == "mask" || property == "clip-path" ||
+                    property == "filters" || property == "meta" ||
+                    property == "mask" || property == "clipPath" ||
                     property == "name" ||
                     property == "font" && typeof omIn.style[property] == "object" ||
-                    property == "text-attributes") {
+                    property == "textAttributes") {
                     return;
                 }
                 if (property == "font-size") {
                     styleBlock.addRule(property, omIn.style[property] + "px");
                     return;
                 }
-                if (property == "blend-mode") {
+                if (property == "blendMode") {
                     styleBlock.addRule("mix-blend-mode", omIn.style[property]);
                     return;
                 }
@@ -160,15 +161,20 @@
 
         var recordBounds = function (ctx, omIn) {
                 var bnds = ctx.contentBounds,
-                    bndsIn = omIn.visualBounds,
+                    bndsIn,
                     width = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                                 omIn.style.stroke.width || 0,
                     expand = width / 2;
 
+                if (omIn.visualBounds) {
+                    bndsIn = rectToBounds(omIn.visualBounds);
+                }
+
                 // Objects of type "artboard" have the special behavior
                 // that we take the bounds of the artboard and not the children.
                 if (omIn.type == "artboard") {
-                    bndsIn = ctx.svgOM.artboards[omIn.ref].bounds;
+                    var artboard = ctx.svgOM.artboards[(omIn.artboard || omIn).ref];
+                    bndsIn = rectToBounds(artboard);
                 }
 
                 utils.unionRect(bnds, bndsIn, expand);
@@ -184,7 +190,7 @@
                     } else {
                         if (omIn._parentIsRoot) {
                             if ((omIn.style["text-anchor"] == "middle" || omIn.style["text-anchor"] == "end") && !omIn._hasParentTXFM) {
-                                omIn.position.x -= omIn.visualBounds.left;
+                                omIn.position.x -= omIn.visualBounds.x;
                             } else {
                                 omIn.position.x = 0;
                             }
@@ -210,15 +216,12 @@
                 }
             },
             shiftTextBounds = function (ctx, omIn, nested) {
-                var frame = omIn["text-frame"],
-                    rawText = omIn["raw-text"],
+                var text = omIn.text,
                     offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
                     offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
 
-                if (omIn.transform || omIn.kind == "path") {
+                if (omIn.transform || text && text.frame && text.frame.type == "path") {
                     omIn.transform = omIn.transform || matrix.createMatrix();
-                    // FIXME: Old text code used `+=`. However, for new code transformTX/transformTY
-                    // are not set. Replace with `=` once we remove the old code.
                     omIn.transformTX = (omIn.transformTX || 0) + ctx._shiftContentX;
                     omIn.transformTY = (omIn.transformTY || 0) + ctx._shiftContentY;
 
@@ -234,14 +237,16 @@
                     return;
                 }
 
-                if (rawText) {
+                if (text) {
+                    var frame = text.frame,
+                        rawText = text.rawText;
                     if (frame) {
                         frame.x = (frame.x || 0) + offsetX;
                         frame.y = (frame.y || 0) + offsetY;
                     }
-                    if (omIn.paragraphs && omIn.paragraphs.length) {
-                        for (var i = 0; i < omIn.paragraphs.length; i++) {
-                            var paragraph = omIn.paragraphs[i];
+                    if (text.paragraphs && text.paragraphs.length) {
+                        for (var i = 0; i < text.paragraphs.length; i++) {
+                            var paragraph = text.paragraphs[i];
                             if (!paragraph.lines || !paragraph.lines.length) {
                                 continue;
                             }
@@ -299,9 +304,13 @@
             },
             shiftShapeOrGroupPosition = function (ctx, omIn) {
                 var shape = omIn.shape,
-                    bnds = omIn.visualBounds,
+                    bnds,
                     offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
                     offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
+
+                if (omIn.visualBounds) {
+                    bnds = rectToBounds(omIn.visualBounds);
+                }
 
                 // The bounds shift here is still necessary for gradient overlays.
                 // FIXME: Is there a way to get rid of the bounds shifting?
@@ -373,14 +382,10 @@
                     ctx._transformOnNode = true;
                     return;
                 }
-
-                if (omIn.bounds) {
-                    omIn.bounds.left += offsetX;
-                    omIn.bounds.top += offsetY;
-                    omIn.bounds.right += offsetX;
-                    omIn.bounds.bottom += offsetY;
-                    omIn.shifted = true;
-                }
+                var typeObject = omIn.reference || omIn.image || omIn;
+                typeObject.x = (typeObject.x || 0) + offsetX;
+                typeObject.y = (typeObject.y || 0) + offsetY;
+                omIn.shifted = true;
             },
             // Shift the bounds recorded in recordBounds.
             shiftBounds = function (ctx, omIn, nested, sibling) {
@@ -404,7 +409,7 @@
             },
             preprocessSVGNode = function (ctx) {
                 var omIn = ctx.currentOMNode,
-                    children = omIn.children;
+                    children = (omIn.artboard || omIn.group || omIn).children;
 
                 // Do not process style of element if it is not visible.
                 if (!isVisible(ctx, omIn)) {
@@ -528,7 +533,7 @@
 
         this.processSVGNode = function (genID, ctx, noShifting, nested, sibling) {
             var omIn = ctx.currentOMNode,
-                children = omIn.children,
+                children = (omIn.artboard || omIn.group || omIn).children,
                 state = ctx._transformOnNode;
 
             // Give every element a unique id for processing.
@@ -561,8 +566,8 @@
             omIn.processed = true;
 
             // We should process mask before masked element
-            if (omIn.style && omIn.style.mask && ctx.svgOM.global.masks) {
-                ctx.currentOMNode = ctx.svgOM.global.masks[omIn.style.mask];
+            if (omIn.style && omIn.style.mask && omIn.style.mask.ref && ctx.svgOM.resources.masks) {
+                ctx.currentOMNode = ctx.svgOM.resources.masks[omIn.style.mask.ref];
                 this.processSVGNode(genID, ctx, noShifting, nested, sibling);
                 ctx.currentOMNode = omIn;
             }
@@ -575,9 +580,9 @@
                     this.processSVGNode(genID, ctx, noShifting, omIn !== ctx.svgOM, ind);
                 }, this);
             }
-            if (omIn.paragraphs) {
+            if (omIn.text && omIn.text.paragraphs) {
                 var style = omIn.style;
-                omIn.paragraphs.forEach(function (paragraph, pInd) {
+                omIn.text.paragraphs.forEach(function (paragraph, pInd) {
                     ctx.currentOMNode = paragraph;
                     utils.merge(paragraph.style, style);
                     this.processSVGNode(genID, ctx, noShifting, true, pInd);
@@ -600,16 +605,16 @@
         this.processSVGOM = function (ctx) {
             var omSave = ctx.currentOMNode,
                 self = this,
-                global = ctx.svgOM.global,
+                resources = ctx.svgOM.resources || {},
                 cropRect = ctx.config.cropRect,
                 w,
                 h,
                 scale = ctx.config.scale || 1,
                 genID = new ID();
 
-            if (global.styles) {
-                for (var name in global.styles) {
-                    globalStyles[JSON.stringify(global.styles[name])] = name;
+            if (resources.styles) {
+                for (var name in resources.styles) {
+                    globalStyles[JSON.stringify(resources.styles[name])] = name;
                 }
             }
 
@@ -655,20 +660,20 @@
 
             // Preprocess the content of the resources,
             // since they are not a part of the tree
-            Object.keys(global.masks || {}).forEach(function (key) {
-                ctx.currentOMNode = global.masks[key];
+            Object.keys(resources.masks || {}).forEach(function (key) {
+                ctx.currentOMNode = resources.masks[key];
                 self.processSVGNode(genID, ctx, true);
             });
-            Object.keys(global.clipPaths || {}).forEach(function (key) {
-                ctx.currentOMNode = global.clipPaths[key];
+            Object.keys(resources.clipPaths || {}).forEach(function (key) {
+                ctx.currentOMNode = resources.clipPaths[key];
                 self.processSVGNode(genID, ctx, true);
             });
-            Object.keys(global.patterns || {}).forEach(function (key) {
-                ctx.currentOMNode = global.patterns[key];
+            Object.keys(resources.patterns || {}).forEach(function (key) {
+                ctx.currentOMNode = resources.patterns[key];
                 self.processSVGNode(genID, ctx, true);
             });
-            Object.keys(global.symbols || {}).forEach(function (key) {
-                ctx.currentOMNode = global.symbols[key];
+            Object.keys(resources.symbols || {}).forEach(function (key) {
+                ctx.currentOMNode = resources.symbols[key];
                 self.processSVGNode(genID, ctx, true);
             });
             ctx.currentOMNode = omSave;

@@ -1,78 +1,84 @@
 {
 	"children": [
 		{
-			"children": [
-				{
-					"kind": "positioned",
-					"paragraphs": [
-						{
-							"lines": [
-								[
-									{
-										"from": 0,
-										"style": {
-											"fill": {
-												"color": {
-													"b": 0,
-													"g": 0,
-													"r": 0
+			"group": {
+				"children": [
+					{
+						"text": {
+							"paragraphs": [
+								{
+									"lines": [
+										[
+											{
+												"from": 0,
+												"style": {
+													"fill": {
+														"color": {
+															"value": {
+																"b": 0,
+																"g": 0,
+																"r": 0
+															},
+															"mode": "RGB"
+														},
+														"type": "solid"
+													},
+													"font": {
+														"family": "Myriad Pro",
+														"size": 24,
+														"style": "regular"
+													},
+													"textAttributes": {
+														"letterSpacing": 96
+													}
 												},
-												"type": "solid"
-											},
-											"font": {
-												"family": "Myriad Pro",
-												"size": 24,
-												"style": "regular"
-											},
-											"text-attributes": {
-												"letter-spacing": 96
+												"to": 8
 											}
-										},
-										"to": 8
+										]
+									],
+									"style": {
+										"font": {
+											"size": 12
+										}
 									}
-								]
-							],
-							"style": {
-								"font": {
-									"size": 12
 								}
+							],
+							"rawText": "Tracking",
+							"frame": {
+								"type": "positioned",
+								"height": 26.0874,
+								"path": "",
+								"width": 853.727
 							}
+						},
+						"transform": {
+							"a": 1,
+							"b": 0,
+							"c": 0,
+							"d": 1,
+							"tx": 66.9976,
+							"ty": 294.503
+						},
+						"type": "text",
+						"visualBounds": {
+							"height": 26.087,
+							"x": 66.9736,
+							"width": 853.7264,
+							"y": 274.416
 						}
-					],
-					"raw-text": "Tracking",
-					"text-frame": {
-						"height": 26.0874,
-						"path": "",
-						"width": 853.727
-					},
-					"transform": {
-						"a": 1,
-						"b": 0,
-						"c": 0,
-						"d": 1,
-						"e": 66.9976,
-						"f": 294.503
-					},
-					"type": "text",
-					"visualBounds": {
-						"bottom": 300.503,
-						"left": 66.9736,
-						"right": 920.7,
-						"top": 274.416
 					}
-				}
-			],
+				]
+			},
 			"type": "group"
 		}
 	],
+	"resources": {},
 	"desc": "Created by Adobe Illustrator",
-	"global": {
-		"bounds": {
-			"bottom": 560,
-			"left": 0,
-			"right": 960,
-			"top": 0
-		}
+	"viewSource": {
+		"height": 560,
+		"x": 0,
+		"width": 960,
+		"y": 0
 	},
 	"name": "Tracking2",
 	"version": "0.1.0"

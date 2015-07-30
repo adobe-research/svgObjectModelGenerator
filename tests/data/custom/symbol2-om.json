@@ -1,108 +1,115 @@
 {
-    "children": [
-        {
-            "children": [
-                {
-                    "bounds": {
-                        "bottom": 5.88942,
-                        "left": -9.01442,
-                        "right": 9.01442,
-                        "top": -5.88942
-                    },
-                    "name": "Red rect",
-                    "ref": "Red rect",
-                    "transform": {
-                        "a": 7.64667,
-                        "b": 0,
-                        "c": 0,
-                        "d": -4.93878,
-                        "e": 83.6947,
-                        "f": 43.2788
-                    },
-                    "type": "reference",
-                    "visualBounds": {
-                        "bottom": 72.3654,
-                        "left": 14.7644,
-                        "right": 152.625,
-                        "top": 14.1923
-                    }
-                }
-            ],
-            "type": "group"
-        }
-    ],
-    "desc": "Created by Adobe Illustrator",
-    "global": {
-        "bounds": {
-            "bottom": 200,
-            "left": 0,
-            "right": 200,
-            "top": 0
-        },
-        "symbols": {
-            "Red rect": {
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "name": "<Rectangle>",
-                                "shape": {
-                                    "height": 11.7788,
-                                    "type": "rect",
-                                    "width": 18.0288,
-                                    "x": -9.01442,
-                                    "y": -5.88942
-                                },
-                                "style": {
-                                    "fill": {
-                                        "color": {
-                                            "b": 71,
-                                            "g": 63,
-                                            "r": 175
-                                        },
-                                        "type": "solid"
-                                    }
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": -5.88942,
-                                    "left": -9.01442,
-                                    "right": 9.01442,
-                                    "top": 5.88942
-                                }
-                            }
-                        ],
-                        "name": "<Group>",
-                        "type": "group"
-                    }
-                ],
-                "name": "Red rect",
-                "type": "symbol",
-                "viewBox": {
-                    "bottom": 11.7788,
-                    "left": -9.01442,
-                    "right": 18.0288,
-                    "top": -5.88942
-                }
-            }
-        }
-    },
-    "meta": {
-        "AI": {
-            "host": {
-                "options": {
-                    "constrainToDocBounds": false,
-                    "idType": "regular",
-                    "isResponsive": true,
-                    "minify": false,
-                    "precision": 3,
-                    "preserveAspectRatio": "xMidYMid",
-                    "trimToArtBounds": true,
-                    "usePresentationAttribute": false
-                }
-            }
-        }
-    },
-    "name": "Untitled-1",
-    "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"name": "Red rect",
+						"transform": {
+							"a": 7.64667,
+							"b": 0,
+							"c": 0,
+							"d": -4.93878,
+							"tx": 83.6947,
+							"ty": 43.2788
+						},
+						"type": "reference",
+						"visualBounds": {
+							"x": 14.7644,
+							"y": 14.1923,
+							"width": 137.8606,
+							"height": 58.17309999999999
+						},
+						"reference": {
+							"ref": "Red rect",
+							"x": -9.01442,
+							"y": -5.88942,
+							"width": 18.02884,
+							"height": 11.77884
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"meta": {
+		"AI": {
+			"host": {
+				"options": {
+					"constrainToDocBounds": false,
+					"idType": "regular",
+					"isResponsive": true,
+					"minify": false,
+					"precision": 3,
+					"preserveAspectRatio": "xMidYMid",
+					"trimToArtBounds": true,
+					"usePresentationAttribute": false
+				}
+			}
+		}
+	},
+	"name": "Untitled-1",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 200,
+		"height": 200
+	},
+	"resources": {
+		"symbols": {
+			"Red rect": {
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Rectangle>",
+									"shape": {
+										"height": 11.7788,
+										"type": "rect",
+										"width": 18.0288,
+										"x": -9.01442,
+										"y": -5.88942
+									},
+									"style": {
+										"fill": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 175,
+													"g": 63,
+													"b": 71
+												}
+											},
+											"type": "solid"
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": -9.01442,
+										"y": 5.88942,
+										"width": 18.02884,
+										"height": -11.77884
+									}
+								}
+							]
+						}
+					}
+				],
+				"name": "Red rect",
+				"type": "symbol",
+				"viewBox": {
+					"x": -9.01442,
+					"y": -5.88942,
+					"width": 18.0288,
+					"height": 11.7788
+				}
+			}
+		}
+	}
 }

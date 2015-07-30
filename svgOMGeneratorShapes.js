@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Help construct the svgOM */
+/* Help construct the AGC */
 
 (function () {
     "use strict";
 
     var omgStyles = require("./svgOMGeneratorStyles.js"),
+        boundsToRect = require("./SVGOMGeneratorUtils.js").boundsToRect,
         Utils = require("./utils.js"),
         round2 = Utils.round2,
         offsetX = 0,
@@ -93,7 +94,7 @@
             return pathData;
         }
 
-        this.inferTransformForShape = function (svgNode, layer, points, type) {
+        this.inferTransformForShape = function (agcNode, layer, points, type) {
 
             var unshiftedRectBounds = [[layer.bounds.left, layer.bounds.top],
                                        [layer.bounds.right, layer.bounds.top],
@@ -143,22 +144,22 @@
         };
 
 
-        this.addEllipse = function (svgNode, layer, writer) {
+        this.addEllipse = function (agcNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 var newBounds;
                 if (origin.type === "ellipse") {
 
                     if (component.subpathListKey && component.subpathListKey[0] && component.subpathListKey[0].points) {
-                        newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, origin.type);
+                        newBounds = this.inferTransformForShape(agcNode, layer, component.subpathListKey[0].points, origin.type);
                         if (!newBounds) {
                             //be a path if we can't be an ellipse
                             return false;
                         }
                     }
 
-                    svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
+                    agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
 
-                    svgNode.shape = {
+                    agcNode.shape = {
                         type: "ellipse",
                         cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
                         cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
@@ -166,7 +167,7 @@
                         ry: (origin.bounds.bottom - origin.bounds.top) / 2
                     };
 
-                    omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
+                    omgStyles.addStylingData(agcNode, layer, origin.bounds, writer);
 
                     return true;
                 }
@@ -174,7 +175,7 @@
             }.bind(this));
         };
 
-        this.addCircle = function (svgNode, layer, writer) {
+        this.addCircle = function (agcNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
                 if (origin.type === "ellipse") {
 
@@ -182,15 +183,15 @@
                         h = parseInt(origin.bounds.bottom, 10) - parseInt(origin.bounds.top, 10);
 
                     if (w == h) {
-                        svgNode.visualBounds = origin.boundsWithFX || origin.bounds;
+                        agcNode.visualBounds = boundsToRect(origin.boundsWithFX || origin.bounds);
 
-                        svgNode.shape = {
+                        agcNode.shape = {
                             type: "circle",
                             cx: origin.bounds.left + (origin.bounds.right - origin.bounds.left) / 2,
                             cy: origin.bounds.top + (origin.bounds.bottom - origin.bounds.top) / 2,
                             r: (origin.bounds.right - origin.bounds.left) / 2
                         };
-                        omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
+                        omgStyles.addStylingData(agcNode, layer, origin.bounds, writer);
                         return true;
                     }
                 }
@@ -198,7 +199,7 @@
             });
         };
 
-        this.addRect = function (svgNode, layer, writer) {
+        this.addRect = function (agcNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (path, component, origin) {
 
                 var newBounds,
@@ -207,21 +208,21 @@
                 if (origin.type === "rect" || origin.type === "roundedRect") {
 
                     if (component.subpathListKey && component.subpathListKey[0] && component.subpathListKey[0].points) {
-                        newBounds = this.inferTransformForShape(svgNode, layer, component.subpathListKey[0].points, origin.type);
+                        newBounds = this.inferTransformForShape(agcNode, layer, component.subpathListKey[0].points, origin.type);
                         if (!newBounds) {
                             //be a path if we can't be a rect
                             return false;
                         }
                     }
 
-                    svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
+                    agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
                     shapeRadii = origin.radii;
                     if (shapeRadii) {
                         shapeRadii = shapeRadii.slice();
                         shapeRadii.unshift(shapeRadii.pop());
                     }
 
-                    svgNode.shape = {
+                    agcNode.shape = {
                         type: "rect",
                         x: origin.bounds.left,
                         y: origin.bounds.top,
@@ -230,7 +231,7 @@
                         r: shapeRadii
                     };
 
-                    omgStyles.addStylingData(svgNode, layer, origin.bounds, writer);
+                    omgStyles.addStylingData(agcNode, layer, origin.bounds, writer);
 
                     return true;
                 }
@@ -238,13 +239,13 @@
             }.bind(this));
         };
 
-        this.addPath = function (svgNode, layer, writer) {
+        this.addPath = function (agcNode, layer, writer) {
             var path = layer.path,
                 pathData = layer.path.rawPathData;
 
             if (path && pathData) {
 
-                svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
+                agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
 
                 // If the path is on an artboard, it is relative to it and we
                 // need to apply the offset of the artboard.
@@ -256,23 +257,23 @@
                     offsetY = 0;
                 }
 
-                svgNode.shape = {
+                agcNode.shape = {
                     type: "path",
                     path: generateSVGPathStream(path)
                 };
 
-                omgStyles.addStylingData(svgNode, layer, path.bounds, writer);
+                omgStyles.addStylingData(agcNode, layer, path.bounds, writer);
 
                 return true;
             }
             return false;
         };
 
-        this.addShapeData = function (svgNode, layer, writer) {
-            if (this.addCircle(svgNode, layer, writer) ||
-                this.addEllipse(svgNode, layer, writer) ||
-                this.addRect(svgNode, layer, writer) ||
-                this.addPath(svgNode, layer, writer)) {
+        this.addShapeData = function (agcNode, layer, writer) {
+            if (this.addCircle(agcNode, layer, writer) ||
+                this.addEllipse(agcNode, layer, writer) ||
+                this.addRect(agcNode, layer, writer) ||
+                this.addPath(agcNode, layer, writer)) {
                 return true;
             }
             console.log("Error: No shape data added for " + JSON.stringify(layer));
