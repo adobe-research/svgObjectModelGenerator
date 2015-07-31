@@ -10,9 +10,9 @@
       }
 
       .cls-3 {
+        stroke-width: 20px;
         fill: url(#pattern);
         stroke: url(#pattern-2);
-        stroke-width: 20px;
       }
 
       .cls-4 {

@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="612" height="792" viewBox="0 0 612 792">
   <defs>
     <style>
-      .cls-1 {
-        fill: url(#radial-gradient);
-      }
-
       .cls-1, .cls-11, .cls-3, .cls-5, .cls-7 {
         stroke: #1c75bc;
         stroke-dasharray: 12;
@@ -13,6 +9,10 @@
       .cls-1, .cls-10, .cls-11, .cls-3, .cls-5, .cls-7, .cls-9 {
         stroke-miterlimit: 10;
         stroke-width: 12px;
+      }
+
+      .cls-1 {
+        fill: url(#radial-gradient);
       }
 
       .cls-2 {

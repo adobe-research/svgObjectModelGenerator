@@ -2,8 +2,8 @@
   <defs>
     <style>
       .cls-1 {
-        fill: url(#linear-gradient);
         fill-rule: evenodd;
+        fill: url(#linear-gradient);
       }
     </style>
 

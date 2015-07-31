@@ -10,9 +10,9 @@
       }
 
       .cls-3, .cls-4 {
-        fill: url(#New_Pattern_Swatch_2);
         stroke: #000;
         stroke-miterlimit: 10;
+        fill: url(#New_Pattern_Swatch_2);
       }
 
       .cls-3 {

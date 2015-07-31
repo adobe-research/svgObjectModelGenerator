@@ -22,10 +22,8 @@
     module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
-                fingerprint = "",
                 clipPath,
                 clipPathID,
-                styleBlock,
                 clipPathTag,
                 name;
 
@@ -38,18 +36,15 @@
                 name = ctx.currentOMNode.name;
                 clipPathID = ctx.ID.getUnique("clip-path", name);
                 clipPathTag = Tag.make(ctx);
-                fingerprint = clipPathTag.toString();
                 ctx.currentOMNode = omIn;
                 clipPathTag.setAttribute("id", clipPathID);
                 if (!ctx.minify && name && clipPathID != name) {
                     clipPathTag.setAttribute("data-name", name);
                 }
-                ctx.omStylesheet.define("clip-path", omIn.id, clipPathID, clipPathTag, fingerprint);
+                ctx.omStylesheet.def(clipPathTag, function (def) {
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule("clip-path", "url(#" + def.getAttribute("id") + ")");
+                });
             }
-
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            clipPathID = ctx.omStylesheet.getDefine(omIn.id, "clip-path").defnId;
-            styleBlock.addRule("clip-path", "url(#" + clipPathID + ")");
         },
 
         // Create a clipping area for the root document.
@@ -74,9 +69,7 @@
             }
             clipPathTag.children = rects;
 
-            ctx.omStylesheet.define("clip-path", "svg-root", clipPathID, clipPathTag, JSON.stringify({
-                bounds: bounds
-            }));
+            ctx.omStylesheet.def(clipPathTag);
 
             ctx._contentClipPathID = clipPathID;
         }

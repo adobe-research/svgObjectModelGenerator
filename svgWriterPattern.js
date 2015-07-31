@@ -22,9 +22,7 @@
     module.exports = {
         writePattern: function (ctx, patternRef, flavor) {
             var omIn = ctx.currentOMNode,
-                fingerprint = "",
                 patternID,
-                styleBlock,
                 patternTag,
                 name;
 
@@ -34,18 +32,15 @@
                 name = ctx.currentOMNode.name;
                 patternID = ctx.ID.getUnique("pattern", name);
                 patternTag = Tag.make(ctx);
-                fingerprint = patternTag.toString();
                 ctx.currentOMNode = omIn;
                 patternTag.setAttribute("id", patternID);
                 if (!ctx.minify && name && patternID != name) {
                     patternTag.setAttribute("data-name", name);
                 }
-                ctx.omStylesheet.define("pattern-" + flavor, omIn.id, patternID, patternTag, fingerprint);
+                ctx.omStylesheet.def(patternTag, function (def) {
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
+                });
             }
-
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            patternID = ctx.omStylesheet.getDefine(omIn.id, "pattern-" + flavor).defnId;
-            styleBlock.addRule(flavor, "url(#" + patternID + ")");
         }
     };
 }());

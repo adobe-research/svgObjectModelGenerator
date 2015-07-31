@@ -22,10 +22,8 @@
     module.exports = {
         externalizeStyles: function (ctx) {
             var omIn = ctx.currentOMNode,
-                fingerprint = "",
                 mask,
                 maskID,
-                styleBlock,
                 maskTag,
                 name;
 
@@ -38,18 +36,15 @@
                 name = ctx.currentOMNode.name;
                 maskID = ctx.ID.getUnique("mask", name);
                 maskTag = Tag.make(ctx);
-                fingerprint = maskTag.toString();
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
                 if (!ctx.minify && name && maskID != name) {
                     maskTag.setAttribute("data-name", name);
                 }
-                ctx.omStylesheet.define("mask", omIn.id, maskID, maskTag, fingerprint);
+                ctx.omStylesheet.def(maskTag, function (def) {
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule("mask", "url(#" + def.getAttribute("id") + ")");
+                });
             }
-
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            maskID = ctx.omStylesheet.getDefine(omIn.id, "mask").defnId;
-            styleBlock.addRule("mask", "url(#" + maskID + ")");
         }
     };
 }());

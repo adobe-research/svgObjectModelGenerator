@@ -68,10 +68,8 @@
 
         this.externalizeStyles = function (ctx) {
             var omIn = ctx.currentOMNode,
-                fingerprint = "",
                 filter,
                 filterID,
-                styleBlock,
                 filterTag;
 
             if (!omIn.style || !omIn.style.filter) {
@@ -81,17 +79,14 @@
             if (ctx.svgOM.global && ctx.svgOM.global.filters[filter]) {
                 ctx.currentOMNode = ctx.svgOM.global.filters[filter];
                 filterID = ctx.ID.getUnique("filter", ctx.currentOMNode.name);
-                fingerprint = JSON.stringify(ctx.currentOMNode.children);
                 ctx.currentOMNode.kind = "filter";
                 filterTag = writeFilter(ctx, ctx.currentOMNode);
                 ctx.currentOMNode = omIn;
                 filterTag.setAttribute("id", filterID);
-                ctx.omStylesheet.define("filter", omIn.id, filterID, filterTag, fingerprint);
+                ctx.omStylesheet.def(filterTag, function (def) {
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule("filter", "url(#" + def.getAttribute("id") + ")");
+                });
             }
-
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            filterID = ctx.omStylesheet.getDefine(omIn.id, "filter").defnId;
-            styleBlock.addRule("filter", "url(#" + filterID + ")");
         };
     }
 

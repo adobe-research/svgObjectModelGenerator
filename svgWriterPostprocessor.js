@@ -167,6 +167,48 @@
                 for (name in common) {
                     tagStyle.addRule(name, common[name]);
                 }
+            },
+            function useTrick(tag, ctx, parents) {
+                if (!tag.trick) {
+                    return;
+                }
+                var mum = parents[parents.length - 1],
+                    stroke = tag.getAttribute("stroke"),
+                    fill = tag.getAttribute("fill"),
+                    filter = tag.getAttribute("filter"),
+                    id = tag.getAttribute("id") || ctx.ID.getUnique(tag.name),
+                    list = new Tag(),
+                    g = new Tag("g"),
+                    use = new Tag("use", {"xlink:href": "#" + id});
+                tag.setAttribute("id", id);
+                list.appendChild(g, use);
+                g.appendChild(tag);
+                if (ctx.styling) {
+                    g.setAttributes({
+                        fill: fill,
+                        filter: filter
+                    });
+                    tag.setAttributes({
+                        stroke: "inherit",
+                        filter: "none",
+                        fill: "inherit"
+                    });
+                    use.setAttributes({
+                        stroke: stroke,
+                        fill: "none",
+                        filter: "none"
+                    });
+                } else {
+                    g.setAttribute("style", "fill: " + fill + "; filter: " + filter);
+                    tag.setAttribute("style", "stroke: inherit; filter: none; fill: inherit");
+                    use.setAttribute("style", "stroke: " + stroke + "; filter: none; fill: none");
+                }
+                tag.tricked = true;
+                for (var i = 0; i < mum.children.length; i++) {
+                    if (mum.children[i] == tag) {
+                        mum.children.splice(i, 1, list);
+                    }
+                }
             }
         ];
 

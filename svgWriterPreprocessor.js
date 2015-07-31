@@ -23,9 +23,7 @@
         svgWriterFx = require("./svgWriterFx.js"),
         svgWriterMask = require("./svgWriterMask.js"),
         svgWriterClipPath = require("./svgWriterClipPath.js"),
-        svgWriterSymbol = require("./svgWriterSymbol.js"),
         svgWriterUtils = require("./svgWriterUtils.js"),
-        svgWriterTextPath = require("./svgWriterTextPath.js"),
         matrix = require("./matrix.js"),
         utils = require("./utils.js"),
         ID = require("./idGenerator.js"),
@@ -487,10 +485,6 @@
                 return;
             }
 
-            if (omIn.type == "reference") {
-                svgWriterSymbol.writeSymbol(ctx, omIn.ref);
-            }
-
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {
@@ -513,10 +507,6 @@
             }
 
             this.externalizeStyles(ctx);
-
-            if (omIn.type === "textPath") {
-                svgWriterTextPath.writeTextPath(ctx, omIn.pathData);
-            }
 
             if (children) {
                 children.forEach(function (childNode, ind) {

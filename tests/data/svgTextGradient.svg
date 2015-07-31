@@ -2,8 +2,8 @@
   <defs>
     <style>
       .cls-1 {
-        filter: url(#filter);
         font-size: 63.635px;
+        filter: url(#filter);
         fill: #696969;
         font-family: "Myriad Pro";
       }

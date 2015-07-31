@@ -2,9 +2,9 @@
   <defs>
     <style>
       .cls-1 {
-        filter: url(#filter);
         opacity: 0.35;
         mix-blend-mode: multiply;
+        filter: url(#filter);
       }
 
       .cls-2, .cls-3 {
@@ -14,8 +14,8 @@
       }
 
       .cls-3 {
-        filter: url(#filter-2);
         opacity: 0.75;
+        filter: url(#filter-2);
       }
     </style>
 

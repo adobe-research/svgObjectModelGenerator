@@ -2,9 +2,9 @@
   <defs>
     <style>
       .cls-1 {
+        stroke-width: 10px;
         fill: url(#linear-gradient);
         stroke: url(#linear-gradient-2);
-        stroke-width: 10px;
       }
     </style>
 

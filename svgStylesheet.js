@@ -23,8 +23,7 @@
         SVGWriterContext = require("./svgWriterContext.js"),
         writeln = svgWriterUtils.writeln,
         indent = svgWriterUtils.indent,
-        undent = svgWriterUtils.undent,
-        ONLY_EXTERNALIZE_CONSOLIDATED = false;
+        undent = svgWriterUtils.undent;
 
     function CSSStyleBlock(cls) {
         if (cls && cls.splice) {
@@ -133,58 +132,35 @@
 
     (function (proto) {
         proto.hasDefines = function () {
-            var hasDefines = false,
-                defn;
-
-            for (defn in this.defines) {
-                if (this.defines.hasOwnProperty(defn)) {
-                    if (this.defines[defn] && !this.defines[defn].written) {
-                        hasDefines = true;
-                        break;
-                    }
-                }
+            if (this.defs) {
+                return !!Object.keys(this.defs).length;
             }
-
-            return hasDefines;
+            return false;
         };
 
-        proto.getDefines = function (elId) {
-            return this.eleDefines[elId];
-        };
-
-        proto.getDefine = function (elId, type) {
-            var aEl = this.getDefines(elId),
-                i;
-
-            for (i = 0; aEl && i < aEl.length; i++) {
-                if (aEl[i].type === type) {
-                    return aEl[i];
-                }
+        proto.def = function (tag, appliedAs, fingerprint) {
+            this.defs = this.defs || {};
+            if (fingerprint == null) {
+                var id = tag.getAttribute("id"),
+                    name = tag.getAttribute("data-name");
+                tag.setAttributes({
+                    id: "",
+                    "data-name": ""
+                });
+                fingerprint = tag.toString();
+                tag.setAttributes({
+                    id: id,
+                    "data-name": name
+                });
             }
-            return null;
-        };
-
-        proto.define = function (type, elId, defnId, defnOut, defnFingerprint) {
-
-            this.defines[defnId] = {
-                type: type,
-                defnId: defnId,
-                fingerprint: defnFingerprint,
-                out: defnOut,
-                elements: [elId],
-                written: false
-            };
-
-            this.addElementDefn(this.eleDefines, elId, this.defines[defnId]);
-        };
-
-        proto.addElementDefn = function (eleList, elId, defn) {
-            eleList[elId] = eleList[elId] || [];
-            eleList[elId].push(defn);
-
-            // Always consolidate all defines to remove
-            // duplicates right away.
-            this.consolidateDefines();
+            if (this.defs[fingerprint]) {
+                appliedAs && this.defs[fingerprint].as.push(appliedAs);
+            } else {
+                this.defs[fingerprint] = {
+                    tag: tag,
+                    as: appliedAs ? [appliedAs] : []
+                };
+            }
         };
 
         proto.getDefsTag = function () {
@@ -196,15 +172,18 @@
 
             defs.children.push(this.getStyleTag());
             svgWriterGradient.gradientStopsReset();
-            for (defnId in this.defines) {
-                if (this.defines.hasOwnProperty(defnId)) {
-                    defn = this.defines[defnId];
 
-                    if (!ONLY_EXTERNALIZE_CONSOLIDATED || ONLY_EXTERNALIZE_CONSOLIDATED && defn.consolidated) {
-                        defs.children.push(defn.out);
+            if (this.defs) {
+                for (defnId in this.defs) {
+                    defn = this.defs[defnId];
+                    defs.children.push(defn.tag);
+                    for (var i = 0; i < defn.as.length; i++) {
+                        defn.as[i](defn.tag);
                     }
                 }
             }
+
+
             var write = defs.write;
             defs.write = defs.toString = function (ctx) {
                 var hasRules = !ctx.styling && sheet.hasRules(),
@@ -215,61 +194,6 @@
                 return "";
             };
             return defs;
-        };
-
-        proto.removeElementDefn = function (elId, defnId) {
-            var aDef = this.eleDefines[elId],
-                i;
-
-            for (i = 0; aDef && i < aDef.length; i++) {
-                if (aDef[i].defnId === defnId) {
-                    aDef.splice(i, 1);
-                    this.eleDefines[elId] = aDef;
-                    break;
-                }
-            }
-
-            delete this.defines[defnId];
-        };
-
-        proto.consolidateDefines = function () {
-
-            //find dupes and make em shared...
-            var dupTable = {},
-                defnId,
-                defn,
-                i,
-                aDups,
-                dup,
-                dupElId,
-                fingerprint;
-
-            for (defnId in this.defines) {
-                if (this.defines.hasOwnProperty(defnId)) {
-                    defn = this.defines[defnId];
-
-                    dupTable[defn.fingerprint] = dupTable[defn.fingerprint] || [];
-                    dupTable[defn.fingerprint].push(defn);
-                }
-            }
-
-            //migrate any eleDefines to re-point
-            for (fingerprint in dupTable) {
-                if (dupTable.hasOwnProperty(fingerprint)) {
-                    aDups = dupTable[fingerprint];
-                    if (aDups && aDups.length > 1) {
-                        for (i = 1; i < aDups.length; i++) {
-                            dup = aDups[i];
-                            dupElId = dup.elements[0];
-
-                            this.removeElementDefn(dupElId, dup.defnId);
-                            this.addElementDefn(this.eleDefines, dupElId, aDups[0]);
-                            aDups[0].elements.push(dupElId);
-                            aDups[0].consolidated = true;
-                        }
-                    }
-                }
-            }
         };
 
         proto.hasRules = function () {

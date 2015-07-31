@@ -10,10 +10,10 @@
       }
 
       .cls-3 {
-        fill: url(#pattern);
         stroke: #000;
         stroke-miterlimit: 10;
         stroke-width: 1px;
+        fill: url(#pattern);
       }
     </style>
 
