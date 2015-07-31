@@ -37,36 +37,15 @@ describe("SVGStylesheet", function () {
 
 
         it("knows whether it has defines to write", function () {
-            var sheet = new SVGStylesheet,
-                defn;
-
-            expect(sheet.hasDefines()).to.equal(false);
-
-            sheet.define("defineable-type", "ele-id", "defineable-type-1", "<filter id=\"defineable-type-1\"></filter>", "{className: \"clsTest\" }");
-
-            expect(sheet.hasDefines()).to.equal(true);
-
-            defn = sheet.getDefine("ele-id", "defineable-type");
-            expect(defn === null).to.equal(false);
-            defn.written = true;
-            expect(sheet.hasDefines()).to.equal(false);
-        });
-
-        it("combines like defines", function () {
             var sheet = new SVGStylesheet;
 
             expect(sheet.hasDefines()).to.equal(false);
 
-            sheet.define("defineable-type", "ele-id", "defineable-type-1", "<filter id=\"defineable-type-1\"></filter>", "fingerprint");
-            sheet.define("defineable-type", "ele-id2", "defineable-type-2", "<filter id=\"defineable-type-2\"></filter>", "fingerprint");
-
-            sheet.consolidateDefines();
+            sheet.def("testing…", function () {}, "fingerprint");
 
             expect(sheet.hasDefines()).to.equal(true);
-
-            expect(sheet.getDefine("ele-id", "defineable-type").out).to.equal(sheet.getDefine("ele-id2", "defineable-type").out);
-
         });
+
 
         it("knows how to extract similar rules from 2 blocks", function () {
 

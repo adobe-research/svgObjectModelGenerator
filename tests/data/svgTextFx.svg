@@ -2,8 +2,8 @@
   <defs>
     <style>
       .cls-1 {
-        filter: url(#filter);
         font-size: 31.818px;
+        filter: url(#filter);
         fill: #030303;
         font-family: "Minion Pro";
       }

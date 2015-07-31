@@ -371,41 +371,8 @@
         }
     };
     Tag.prototype.useTrick = function (ctx) {
-        if (this.tricked || !hasFx(ctx) || !hasStroke(ctx)) {
-            return this;
-        }
-        var stroke = this.getAttribute("stroke"),
-            fill = this.getAttribute("fill"),
-            filter = this.getAttribute("filter"),
-            id = ctx.ID.getUnique(this.name),
-            list = new Tag(),
-            g = new Tag("g"),
-            use = new Tag("use", {"xlink:href": "#" + id});
-        this.setAttribute("id", id);
-        list.appendChild(g, use);
-        g.appendChild(this);
-        if (ctx.styling) {
-            g.setAttributes({
-                fill: fill,
-                filter: filter
-            });
-            this.setAttributes({
-                stroke: "inherit",
-                filter: "none",
-                fill: "inherit"
-            });
-            use.setAttributes({
-                stroke: stroke,
-                fill: "none",
-                filter: "none"
-            });
-        } else {
-            g.setAttribute("style", "fill: " + fill + "; filter: " + filter);
-            this.setAttribute("style", "stroke: inherit; filter: none; fill: inherit");
-            use.setAttribute("style", "stroke: " + stroke + "; filter: none; fill: none");
-        }
-        this.tricked = true;
-        return list;
+        this.trick = hasFx(ctx) && hasStroke(ctx);
+        return this;
     };
     function roundRectPath(x, y, width, height, r) {
         var top, bottom, left, right, ok,
@@ -527,7 +494,7 @@
             "color-interpolation-filters": "sRGB"
         });
         maskFilters[name](filter);
-        ctx.omStylesheet.define("filter", null, filterID, filter, filter.toString());
+        ctx.omStylesheet.def(filter);
         return filterID;
     }
     var factory = {
@@ -717,16 +684,18 @@
         },
         textPath: function (ctx, node) {
             var offset = 0,
-                tag = new Tag("textPath", {}, ctx);
+                tag = new Tag("textPath", {"xlink:href": ""}, ctx);
 
-            if (!ctx.hasWritten(node, "text-path-attr")) {
-                ctx.didWrite(node, "text-path-attr");
-                var textPathDefn = ctx.omStylesheet.getDefine(node.id, "text-path");
-                if (textPathDefn) {
-                    tag.setAttribute("xlink:href", "#" + textPathDefn.defnId);
-                } else {
-                    console.warn("text-path with no def found");
-                }
+            if (node.pathData) {
+                var textPath = new Tag("path", {
+                        id: ctx.ID.getUnique("text-path"),
+                        d: util.optimisePath(node.pathData, ctx.precision)
+                    });
+                ctx.omStylesheet.def(textPath, function (def) {
+                    tag.setAttribute("xlink:href", "#" + def.getAttribute("id"));
+                });
+            } else {
+                console.warn("text-path with no def found");
             }
             offset = {middle: 50, end: 100}[tag.getAttribute("text-anchor")] || 0;
             tag.setAttribute("startOffset", offset + "%");
@@ -784,8 +753,22 @@
             return tag.useTrick(ctx);
         },
         reference: function (ctx, node) {
+            var symbol = ctx.svgOM.global.symbols[node.ref],
+                use = new Tag("use", {}, ctx);
+            if (symbol) {
+                var name = symbol.name,
+                    symbolID = ctx.ID.getUnique("symbol", name),
+                    symbolTag = Tag.make(ctx, symbol);
+                symbolTag.setAttribute("id", symbolID);
+                if (!ctx.minify && name && symbolID != name) {
+                    symbolTag.setAttribute("data-name", name);
+                }
+                ctx.omStylesheet.def(symbolTag, function (def) {
+                    use.setAttribute("xlink:href", "#" + def.getAttribute("id"));
+                });
+            }
             var attr = {
-                "xlink:href": "#" + ctx.omStylesheet.getDefine(node.ref, "symbol").defnId,
+                "xlink:href": "",
                 transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
             };
             if (node.bounds) {
@@ -799,7 +782,8 @@
                     attr.height = node.bounds.bottom - node.bounds.top;
                 }
             }
-            return new Tag("use", attr, ctx);
+            use.setAttributes(attr);
+            return use;
         },
         symbol: function (ctx, node) {
             var attr = {},

@@ -13,13 +13,13 @@
       }
 
       .cls-2 {
-        stroke: url(#linear-gradient);
         stroke-opacity: 0.8;
+        stroke: url(#linear-gradient);
       }
 
       .cls-3 {
-        stroke: url(#linear-gradient-2);
         stroke-opacity: 0.1;
+        stroke: url(#linear-gradient-2);
       }
 
       .cls-4 {

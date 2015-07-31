@@ -5,12 +5,12 @@
         fill: #fff200;
       }
 
-      .cls-1 {
-        filter: url(#filter);
-      }
-
       .cls-1, .cls-2, .cls-4, .cls-5 {
         fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        filter: url(#filter);
       }
 
       .cls-2 {

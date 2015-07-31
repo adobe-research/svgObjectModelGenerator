@@ -5,13 +5,13 @@
         fill: none;
       }
 
-      .cls-2 {
-        fill: url(#Summer);
-      }
-
       .cls-2, .cls-3, .cls-4 {
         stroke: #000;
         stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: url(#Summer);
       }
 
       .cls-3 {

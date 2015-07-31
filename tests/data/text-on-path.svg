@@ -43,11 +43,11 @@
   <text class="cls-1"><textPath xlink:href="#text-path-3"><tspan class="cls-2">Text path</tspan></textPath></text>
   <text class="cls-1"><textPath xlink:href="#text-path-4"><tspan class="cls-2">Text</tspan></textPath></text>
   <text class="cls-3"><textPath xlink:href="#text-path-5"><tspan class="cls-2">Text on path</tspan></textPath></text>
-  <text class="cls-4"><textPath xlink:href="#text-path-6" startOffset="100%"><tspan class="cls-5" x="0">Text path</tspan></textPath></text>
+  <text class="cls-4"><textPath startOffset="100%" xlink:href="#text-path-6"><tspan class="cls-5" x="0">Text path</tspan></textPath></text>
   <text class="cls-3"><textPath xlink:href="#text-path-7"><tspan class="cls-2">Text path</tspan></textPath></text>
   <text class="cls-1"><textPath xlink:href="#text-path-8"><tspan class="cls-2">Text path</tspan></textPath></text>
-  <text class="cls-6"><textPath xlink:href="#text-path-9" startOffset="100%"><tspan class="cls-5" x="0">Text path</tspan></textPath></text>
-  <text class="cls-7"><textPath xlink:href="#text-path-10" startOffset="50%"><tspan class="cls-8" x="0">Text path</tspan></textPath></text>
+  <text class="cls-6"><textPath startOffset="100%" xlink:href="#text-path-9"><tspan class="cls-5" x="0">Text path</tspan></textPath></text>
+  <text class="cls-7"><textPath startOffset="50%" xlink:href="#text-path-10"><tspan class="cls-8" x="0">Text path</tspan></textPath></text>
   <text class="cls-1"><textPath xlink:href="#text-path-11"><tspan class="cls-2">Text path</tspan></textPath></text>
   <text class="cls-1"><textPath xlink:href="#text-path-12"><tspan class="cls-2">Text path</tspan></textPath></text>
 </svg>

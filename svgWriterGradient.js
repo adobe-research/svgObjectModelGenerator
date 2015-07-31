@@ -203,10 +203,9 @@
                 gradientSpace: gradientSpace
             });
 
-            ctx.omStylesheet.define(gradient.type + "-gradient-" + flavor, omIn.id, gradientID, tag, fingerprint);
-            styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
-            gradientID = ctx.omStylesheet.getDefine(omIn.id, gradient.type + "-gradient-" + flavor).defnId;
-            styleBlock.addRule(flavor, "url(#" + gradientID + ")");
+            ctx.omStylesheet.def(tag, function (def) {
+                ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
+            }, fingerprint);
         }
     };
 

@@ -46,12 +46,12 @@
         stroke-dasharray: 0.001 12 9;
       }
 
-      .cls-5 {
-        stroke: url(#linear-gradient);
-      }
-
       .cls-5, .cls-6 {
         stroke-dasharray: 0.001 40 30;
+      }
+
+      .cls-5 {
+        stroke: url(#linear-gradient);
       }
 
       .cls-6 {
@@ -59,13 +59,13 @@
         stroke: url(#radial-gradient-2);
       }
 
-      .cls-7 {
-        stroke: url(#linear-gradient-2);
-        stroke-dasharray: 0.001 40;
-      }
-
       .cls-7, .cls-8 {
         stroke-width: 20px;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0.001 40;
+        stroke: url(#linear-gradient-2);
       }
 
       .cls-8 {

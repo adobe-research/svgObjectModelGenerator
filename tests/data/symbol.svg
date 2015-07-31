@@ -16,7 +16,7 @@
   </defs>
   <title>svgFill.psd</title>
   <use xlink:href="#symbol"/>
-  <use xlink:href="#symbol" x="200" width="200"/>
-  <use xlink:href="#_A_damn_cool_circle_" y="200" width="200" height="200"/>
-  <use xlink:href="#_A_damn_cool_circle_" x="200" y="200"/>
+  <use x="200" width="200" xlink:href="#symbol"/>
+  <use y="200" width="200" height="200" xlink:href="#_A_damn_cool_circle_"/>
+  <use x="200" y="200" xlink:href="#_A_damn_cool_circle_"/>
 </svg>
