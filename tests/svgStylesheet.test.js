@@ -35,7 +35,6 @@ describe("SVGStylesheet", function () {
             expect(sheet.hasRules()).to.equal(true);
         });
 
-
         it("knows whether it has defines to write", function () {
             var sheet = new SVGStylesheet;
 
@@ -45,7 +44,6 @@ describe("SVGStylesheet", function () {
 
             expect(sheet.hasDefines()).to.equal(true);
         });
-
 
         it("knows how to extract similar rules from 2 blocks", function () {
 
@@ -144,8 +142,5 @@ describe("SVGStylesheet", function () {
             });
             expect(blocks.join("")).to.equal(".clsTest1, .clsTest2, .clsTest3, .clsTest4 {\n  stroke: #fff;\n}\n.clsTest1, .clsTest2 {\n  opacity: 0.5;\n}\n.clsTest1, .clsTest4 {\n  fill-opacity: 0.25;\n}\n.clsTest2, .clsTest3 {\n  stroke-opacity: 0.25;\n}\n.clsTest3 {\n  opacity: 0.25;\n  filter: url(#filter);\n}\n.clsTest4 {\n  opacity: 0.75;\n}\n");
         });
-
-
-
     });
 });
