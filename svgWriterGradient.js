@@ -139,6 +139,7 @@
                 name = gradient.name && gradient.name.substr(0, 7) != "Unnamed" ? gradient.name : undefined, // FIXME: Hack until we know how to identify unnamed gradients in Ai.
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient", name),
                 stops = gradient.stops,
+                color,
                 gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
                 fingerprint = "",
                 stp,
@@ -172,11 +173,11 @@
 
             for (var i = 0, ii = stops.length; i < ii; ++i) {
                 stp = stops[i];
+                color = {r: stp.color.r, g: stp.color.g, b: stp.color.b};
                 alpha = isFinite(stp.color.a) ? stp.color.a : 1;
-                stp.color.a = 1;
                 lines.push(new Tag("stop", {
                     offset: stp.offset,
-                    "stop-color": svgWriterUtils.writeColor(stp.color, ctx),
+                    "stop-color": svgWriterUtils.writeColor(color, ctx),
                     "stop-opacity": alpha
                 }));
             }

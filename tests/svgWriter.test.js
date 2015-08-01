@@ -781,6 +781,15 @@ describe("svgWriter", function () {
     });
 
     /**
+     * Generic gradient tests
+     **/
+    describe("Test correct behavior of gradients", function () {
+        it("Test that multiple reference of gradients with stop opacity work.", function () {
+            compareResults("gradient-with-stop-opacity", "gradient");
+        });
+    });
+
+    /**
      * Test that attributes of referencing gradient get overridden
      **/
     describe("Test that attributes of referencing gradient get overridden", function () {
