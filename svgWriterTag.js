@@ -647,6 +647,7 @@
                 if (textFrame.direction && textFrame.direction.substring(0, 8) == "vertical") {
                     tag.styleBlock.addRule("writing-mode", "tb");
                     tag.styleBlock.addRule("glyph-orientation-vertical", 0);
+                    tag.styleBlock.addRule("text-orientation", "upright");
                 }
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
