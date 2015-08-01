@@ -186,7 +186,9 @@
                       .replace(/</g, "&lt;")
                       .replace(/>/g, "&gt;")
                       .replace(/"/g, "&quot;")
-                      .replace(/'/g, "&apos;");
+                      .replace(/'/g, "&apos;")
+                      // XML char: #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+                      .replace(/[^\u0009\u000A\u000D\u0020-\uD7FF\uE000-\uFFFD\u10000-\u10FFFF]/g, "");
         };
 
         self.extend = Utils.extend;
