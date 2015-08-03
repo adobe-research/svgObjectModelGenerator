@@ -1,0 +1,149 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "shape": {
+            "height": 177.509,
+            "type": "rect",
+            "width": 186.851,
+            "x": 6.57439,
+            "y": 11.2457
+          },
+          "style": {
+            "fill": {
+              "gradient": {
+                "gradientSpace": "userSpaceOnUse",
+                "ref": "RedTranspBlue",
+                "x1": 6.57439,
+                "x2": 193.426,
+                "y1": 100,
+                "y2": 100
+              },
+              "type": "gradient"
+            },
+            "stroke": {
+              "color": {
+                "b": 32,
+                "g": 31,
+                "r": 35
+              },
+              "miter-limit": 10,
+              "type": "solid"
+            }
+          },
+          "type": "shape",
+          "visualBounds": {
+            "bottom": 189.254,
+            "left": 6.07439,
+            "right": 193.926,
+            "top": 10.7457
+          }
+        },
+        {
+          "shape": {
+            "height": 43.5986,
+            "type": "rect",
+            "width": 45.3287,
+            "x": 59.3391,
+            "y": 2.3045
+          },
+          "style": {
+            "fill": {
+              "gradient": {
+                "gradientSpace": "userSpaceOnUse",
+                "ref": "RedTranspBlue",
+                "x1": 82.0035,
+                "x2": 82.0035,
+                "y1": 45.9031,
+                "y2": 2.3045
+              },
+              "type": "gradient"
+            },
+            "stroke": {
+              "color": {
+                "b": 32,
+                "g": 31,
+                "r": 35
+              },
+              "miter-limit": 10,
+              "type": "solid"
+            }
+          },
+          "type": "shape",
+          "visualBounds": {
+            "bottom": 46.4031,
+            "left": 58.8391,
+            "right": 105.168,
+            "top": 1.8045
+          }
+        }
+      ],
+      "name": "Layer 1",
+      "type": "group"
+    }
+  ],
+  "desc": "Created by Adobe Illustrator",
+  "global": {
+    "bounds": {
+      "bottom": 200,
+      "left": 0,
+      "right": 200,
+      "top": 0
+    },
+    "gradients": {
+      "RedTranspBlue": {
+        "name": "RedTranspBlue",
+        "stops": [
+          {
+            "color": {
+              "b": 0,
+              "g": 0,
+              "r": 255
+            },
+            "midpoint": 0.5,
+            "offset": 0
+          },
+          {
+            "color": {
+              "a": 0.2,
+              "b": 226,
+              "g": 65,
+              "r": 36
+            },
+            "midpoint": 0.5,
+            "offset": 0.55
+          },
+          {
+            "color": {
+              "b": 255,
+              "g": 0,
+              "r": 0
+            },
+            "midpoint": 0.5,
+            "offset": 1
+          }
+        ],
+        "type": "linear"
+      }
+    }
+  },
+  "meta": {
+    "AI": {
+      "host": {
+        "options": {
+          "constrainToDocBounds": false,
+          "idType": "regular",
+          "isResponsive": true,
+          "minify": false,
+          "precision": 3,
+          "preserveAspectRatio": "xMidYMid",
+          "trimToArtBounds": false,
+          "usePresentationAttribute": false
+        }
+      }
+    }
+  },
+  "name": "shape-style-fill-linear-gradient",
+  "version": "0.1.0"
+}

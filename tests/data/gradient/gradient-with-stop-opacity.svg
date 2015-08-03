@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1 {
+        fill: url(#RedTranspBlue);
+      }
+
+      .cls-2 {
+        fill: url(#RedTranspBlue-2);
+      }
+    </style>
+
+    <linearGradient id="RedTranspBlue" x1="6.574" y1="100" x2="193.426" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="red"/>
+      <stop offset="0.55" stop-color="#2441e2" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="blue"/>
+    </linearGradient>
+    <linearGradient id="RedTranspBlue-2" data-name="RedTranspBlue" x1="82.004" y1="45.903" x2="82.004" y2="2.304" xlink:href="#RedTranspBlue"/>
+  </defs>
+  <title>shape-style-fill-linear-gradient</title>
+  <desc>Created by Adobe Illustrator</desc>
+  <g id="Layer_1" data-name="Layer 1">
+    <rect class="cls-1" x="6.574" y="11.246" width="186.851" height="177.509"/>
+    <rect class="cls-2" x="59.339" y="2.304" width="45.329" height="43.599"/>
+  </g>
+</svg>
