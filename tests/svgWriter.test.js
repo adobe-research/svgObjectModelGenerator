@@ -750,6 +750,15 @@ describe("svgWriter", function () {
     });
 
     /**
+     * Test validity of characters
+     **/
+    describe("Test validity of characters", function () {
+        it("Test that invalid chars in text nodes get removed", function () {
+            compareResults("invalid-XML-char", "custom");
+        });
+    });
+
+    /**
      * Test that name is not part of a style
      **/
     describe("Test M, L, C, Z restricted path data", function () {
