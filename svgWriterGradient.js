@@ -112,11 +112,20 @@
             }
 
             if (link) {
-                attr["xlink:href"] = "#" + link.id;
+                // fx/fy are special because if not set, they fallback to cx/cy. Since
+                // we always just have one link reference (not more than one jump) we
+                // just need to check if we have cx or cy set.
+                if (isFinite(link.fx) && !isFinite(attr.fx) && isFinite(attr.cx)) {
+                    attr.fx = attr.cx;
+                }
+                if (isFinite(link.fy) && !isFinite(attr.fy) && isFinite(attr.cy)) {
+                    attr.fy = attr.cy;
+                }
                 // Override transforms of referenced gradients.
                 if (link.gradientTransform && !attr.gradientTransform) {
                     attr.gradientTransform = "matrix(1, 0, 0, 1, 0, 0)";
                 }
+                attr["xlink:href"] = "#" + link.id;
                 tag.setAttributes(attr);
             } else {
                 gradientStops[lines] = {
