@@ -118,7 +118,7 @@
                 if (isFinite(link.fx) && !isFinite(attr.fx) && isFinite(attr.cx)) {
                     attr.fx = attr.cx;
                 }
-                if (isFinite(link.fy) && !isFinite(link.fy) && isFinite(attr.cy)) {
+                if (isFinite(link.fy) && !isFinite(attr.fy) && isFinite(attr.cy)) {
                     attr.fy = attr.cy;
                 }
                 // Override transforms of referenced gradients.
