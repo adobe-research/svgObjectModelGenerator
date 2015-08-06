@@ -636,24 +636,6 @@ describe("svgWriter", function () {
     });
 
     /**
-     * Test gradient objectBoundingBox
-     **/
-    describe("Test gradient objectBoundingBox", function () {
-        var options = {
-                cropRect: {
-                    width: 300,
-                    height: 300
-                },
-                trimToArtBounds: true,
-                constrainToDocBounds: true
-            };
-
-        it("Test cropping on ellipse exceeding document bounds 1", function () {
-            compareResults("gradient-obb", "gradient", options);
-        });
-    });
-
-    /**
      * Test cropping
      **/
     describe("Test cropping", function () {
@@ -793,8 +775,24 @@ describe("svgWriter", function () {
      * Generic gradient tests
      **/
     describe("Test correct behavior of gradients", function () {
+        it("Test cropping on ellipse exceeding document bounds 1", function () {
+            var options = {
+                cropRect: {
+                    width: 300,
+                    height: 300
+                },
+                trimToArtBounds: true,
+                constrainToDocBounds: true
+            };
+            compareResults("gradient-obb", "gradient", options);
+        });
+
         it("Test that multiple reference of gradients with stop opacity work.", function () {
             compareResults("gradient-with-stop-opacity", "gradient");
+        });
+
+        it("Test that focal points get overridden", function () {
+            compareResults("focal-point-override", "gradient");
         });
     });
 
