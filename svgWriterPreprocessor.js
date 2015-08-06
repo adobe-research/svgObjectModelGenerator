@@ -202,6 +202,15 @@
                 }
             },
             shiftTextBounds = function (ctx, omIn, nested) {
+                // Translate AGC text with a transform for now.
+                // FIXME: Propagate translation into the tspans in the future.
+                if (omIn["raw-text"] && omIn.transform && !matrix.createMatrix(omIn.transform).isIdentity()) {
+                    omIn.transformTX = ctx._shiftContentX;
+                    omIn.transformTY = ctx._shiftContentY;
+                    return;
+                }
+
+                // FIXME: Remove old text code when PS transitioned to AGC text.
                 if (omIn.transform) {
                     omIn.transformTX += ctx._shiftContentX;
                     omIn.transformTY += ctx._shiftContentY;
