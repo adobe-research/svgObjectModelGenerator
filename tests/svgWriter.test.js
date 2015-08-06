@@ -775,7 +775,7 @@ describe("svgWriter", function () {
      * Generic gradient tests
      **/
     describe("Test correct behavior of gradients", function () {
-        it("Test cropping on ellipse exceeding document bounds 1", function () {
+        it("Test object bounding box on gradients", function () {
             var options = {
                 cropRect: {
                     width: 300,
