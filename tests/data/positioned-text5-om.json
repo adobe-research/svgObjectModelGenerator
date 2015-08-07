@@ -1,0 +1,71 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "positioned",
+          "paragraphs": [
+            {
+              "lines": [
+                [
+                  {
+                    "from": 0,
+                    "style": {
+                      "fill": {
+                        "color": {
+                          "b": 255,
+                          "g": 0,
+                          "r": 0
+                        },
+                        "type": "solid"
+                      },
+                      "font": {
+                        "family": "Courier New",
+                        "size": 40,
+                        "style": "bold"
+                      }
+                    },
+                    "to": 11
+                  }
+                ]
+              ],
+              "style": {
+                "font": {
+                  "size": 12
+                }
+              }
+            }
+          ],
+          "raw-text": "Sample text",
+          "text-frame": {
+            "height": 60.2539,
+            "path": "",
+            "width": 264.043,
+            "x": 127.114,
+            "y": 108.25
+          },
+          "type": "text",
+          "visualBounds": {
+            "bottom": 136.668,
+            "left": 127.114,
+            "right": 391.157,
+            "top": 76.4141
+          }
+        }
+      ],
+      "name": "Layer 1",
+      "type": "group"
+    }
+  ],
+  "desc": "Created by Adobe Illustrator",
+  "global": {
+    "bounds": {
+      "bottom": 560,
+      "left": 0,
+      "right": 960,
+      "top": 0
+    }
+  },
+  "name": "sample_text",
+  "version": "0.1.0"
+}
