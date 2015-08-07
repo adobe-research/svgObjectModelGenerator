@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #009245;
+      }
+
+      .cls-3 {
+        stroke-miterlimit: 10;
+        stroke-width: 120px;
+        fill: url(#New_Pattern2);
+        stroke: url(#New_Pattern2);
+      }
+    </style>
+
+    <pattern id="New_Pattern2" data-name="New Pattern2" width="28.549" height="37.47" viewBox="0 -37.47 28.549 37.47" patternUnits="userSpaceOnUse">
+      <g>
+        <rect class="cls-1" y="-37.47" width="28.549" height="37.47"/>
+        <g>
+          <circle id="circle" class="cls-2" cx="4.135" cy="-17.955" r="2.632" transform="translate(12.683 -1.633) rotate(-40.612)"/>
+          <path class="cls-2" d="M10.316-9.384L7.687-11.638a9.422,9.422,0,0,0,2.149-6.754A9.372,9.372,0,0,0,6.7-24.731l2.246-2.62A12.935,12.935,0,0,1,10.316-9.384h0Z"/>
+          <path class="cls-2" d="M15.431-5L12.808-7.247a16.226,16.226,0,0,0-1.708-22.6l2.246-2.62A19.683,19.683,0,0,1,15.431-5h0Z"/>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <title>pattern-rotated-rect-as-fill-and-stroke-same-pattern</title>
+  <desc>Created by Adobe Illustrator</desc>
+  <g id="Layer_1" data-name="Layer 1">
+    <polygon class="cls-3" points="644.554 65.138 642.808 445.689 436.329 444.742 438.075 64.19 644.554 65.138"/>
+  </g>
+</svg>

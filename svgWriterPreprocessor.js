@@ -205,8 +205,8 @@
                 // Translate AGC text with a transform for now.
                 // FIXME: Propagate translation into the tspans in the future.
                 if (omIn["raw-text"] && omIn.transform && !matrix.createMatrix(omIn.transform).isIdentity()) {
-                    omIn.transformTX = ctx._shiftContentX;
-                    omIn.transformTY = ctx._shiftContentY;
+                    omIn.transform.e += ctx._shiftContentX;
+                    omIn.transform.f += ctx._shiftContentY;
                     return;
                 }
 
