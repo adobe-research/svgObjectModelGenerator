@@ -282,7 +282,7 @@
                 [0.027, 0.189, 0.441, 0.343],
                 [0.008, 0.096, 0.384, 0.512],
                 [0.001, 0.027, 0.243, 0.729],
-                [0, 0, 3.3306690738754686e-16, 1]
+                [0, 0, 0, 1]
             ];
         function findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, t) {
             var a = dotAtBezierSegment[t];
@@ -295,7 +295,7 @@
             var m = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, 5),
                 arc = arc3(p1x, p1y, m.x, m.y, p2x, p2y);
             if (arc && arc.r) {
-                var sigma = Math.min(.1, arc.r / 100 * 5); // 5% of radius or 0.1
+                var sigma = Math.min(.05, arc.r / 100 * 5); // 5% of radius or 0.05
                 for (var i = 1; i < 10; i++) {
                     if (i != 5) {
                         var dot = findDotAtBezierSegment(p1x, p1y, c1x, c1y, c2x, c2y, p2x, p2y, i);
@@ -698,6 +698,9 @@
                     seg.rel.shift();
                 }
             }
+            Math.sign = Math.sign || function (val) {
+                return val / Math.abs(val);
+            };
             function c2a(segp, seg) {
                 if (seg.cmd == "c") {
                     var rest = seg.abs,
@@ -707,7 +710,7 @@
                         Y = rest[5],
                         arc = asArc(x, y, rest[0], rest[1], rest[2], rest[3], X, Y);
                     if (arc && arc.r && arc.r < len(x, y, X, Y) * 10) {
-                        if (segp.r && areCloseEnough(segp.r, arc.r) && areCloseEnough(segp.cx, arc.cx) && areCloseEnough(segp.cy, arc.cy)) {
+                        if (segp.a && Math.sign(segp.a) == Math.sign(arc.a) && areCloseEnough(segp.r, arc.r) && areCloseEnough(segp.cx, arc.cx) && areCloseEnough(segp.cy, arc.cy)) {
                             segp.a += arc.a;
                             if (!number(Math.abs(X - segp.x)) && !number(Math.abs(Y - segp.y))) {
                                 seg.cmd = "a";
