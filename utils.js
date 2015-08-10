@@ -699,7 +699,8 @@
                 }
             }
             Math.sign = Math.sign || function (val) {
-                return val / Math.abs(val);
+                val = +val;
+                return val ? val / Math.abs(val) : val;
             };
             function c2a(segp, seg) {
                 if (seg.cmd == "c") {
