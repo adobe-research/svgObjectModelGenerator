@@ -830,5 +830,8 @@ describe("svgWriter", function () {
         it("Test trimToArtBounds", function () {
             compareResults("positioned-text4", "", {trimToArtBounds: true});
         });
+        it("Test trimToArtBounds positioned text", function () {
+            compareResults("positioned-text5", "", {trimToArtBounds: true});
+        });
     });
 });

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="264.043" height="60.254" viewBox="0 0 264.043 60.254">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 40px;
+        fill: blue;
+        font-family: Courier New;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <title>sample_text</title>
+  <desc>Created by Adobe Illustrator</desc>
+  <g id="Layer_1" data-name="Layer 1">
+    <text class="cls-1" x="127.114" y="108.25" transform="translate(-127.114 -76.414)">Sample text</text>
+  </g>
+</svg>
