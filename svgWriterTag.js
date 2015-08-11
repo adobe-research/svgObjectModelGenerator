@@ -62,14 +62,18 @@
             }
             this.setStyleBlock(ctx, node);
         }
+        if (root.ctx.tick) {
+            root.ctx.tagCounter++;
+        }
     }
     function hasStroke(ctx) {
         var omIn = ctx.currentOMNode;
         return omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none";
     }
-    Tag.resetRoot = function (svgOM) {
-        var bounds = svgOM.global.bounds || {};
+    Tag.resetRoot = function (ctx) {
+        var bounds = ctx.svgOM.global.bounds || {};
         root = {
+            ctx: ctx,
             all: {},
             ids: {},
             x: bounds.left,
@@ -93,6 +97,9 @@
             return null;
         }
         return root.ids[id] || null;
+    };
+    Tag.getID = function () {
+        return tagid;
     };
     Tag.prototype.getRootBounds = function () {
         return {
@@ -260,10 +267,12 @@
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
+                ctx.tick && ctx.tick("write");
                 return ctx.sOut;
             }
             if (tag.name == "#comment") {
                 writeln(ctx, ctx.currentIndent + "<!-- " + encodedText(tag.text) + " -->");
+                ctx.tick && ctx.tick("write");
                 return ctx.sOut;
             }
             var ind = ctx.currentIndent;
@@ -327,6 +336,7 @@
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</" + tag.name + ">");
         }
+        ctx.tick && ctx.tick("write");
         return ctx.sOut;
     };
     Tag.prototype.setStyleBlock = function (ctx, node) {
@@ -530,7 +540,7 @@
         },
         path: function (ctx, node) {
             var tag = new Tag("path", {
-                d: util.optimisePath(node.shape.path, ctx.precision, ctx.preparedPath),
+                d: ctx.config.turnOffPathOptimisation ? node.shape.path : util.optimisePath(node.shape.path, ctx.precision, ctx.preparedPath),
                 transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision, true)
             }, ctx);
             return tag.useTrick(ctx);
@@ -614,7 +624,7 @@
                 });
                 if (r[0] != r[1] || r[1] != r[2] || r[2] != r[3]) {
                     tag = new Tag("path", {
-                        d: util.optimisePath(roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r), ctx.precision),
+                        d: ctx.config.turnOffPathOptimisation ? roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r) : util.optimisePath(roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r), ctx.precision),
                         transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                     }, ctx);
                     return tag.useTrick(ctx);
@@ -690,7 +700,7 @@
             if (node.pathData) {
                 var textPath = new Tag("path", {
                         id: ctx.ID.getUnique("text-path"),
-                        d: util.optimisePath(node.pathData, ctx.precision)
+                    d: ctx.config.turnOffPathOptimisation ? node.pathData : util.optimisePath(node.pathData, ctx.precision)
                     });
                 ctx.omStylesheet.def(textPath, function (def) {
                     tag.setAttribute("xlink:href", "#" + def.getAttribute("id"));
@@ -821,6 +831,9 @@
             f,
             id;
         if (node == ctx.svgOM) {
+            if (ctx.tick) {
+                ctx.tick("pre");
+            }
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
             if (ctx.svgOM.name && ctx.svgOM.name.length) {
@@ -843,6 +856,7 @@
             if (node.hasOwnProperty("visible") && !node.visible) {
                 return;
             }
+            ctx.tick && ctx.tick("tag");
             if (node.type == "shape") {
                 f = factory[node.shape.type];
                 if (!f) {

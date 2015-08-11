@@ -19,6 +19,7 @@
 
     var ID = require("./idGenerator.js");
 
+
     function SVGWriterContext(svgOM, stream, config, errors) {
         this.minify = false;
 
@@ -36,6 +37,47 @@
             };
             this.styling = stylingMap[config.styling];
             this.precision = Math.round(this.config.precision);
+            if (this.config.callback) {
+                this.tagCounter = 0;
+                this.nodeCounter = 0;
+                var tagMade = 0,
+                    tagWritten = 0,
+                    tagProcessed = 0,
+                    preprocessed = 0,
+                    percent = 0,
+                    percentSent = 0,
+                    per = [0, 0, 0, 0];
+                this.tick = function tick(type) {
+                    switch (type) {
+                        case "pre":
+                            preprocessed++;
+                            per[0] = 7;
+                            break;
+                        case "tag":
+                            tagMade++;
+                            per[1] = tagMade * 31 / this.nodeCounter;
+                            break;
+                        case "post":
+                            tagProcessed++;
+                            per[2] = tagProcessed * 31 / this.tagCounter;
+                            break;
+                        case "write":
+                            tagWritten++;
+                            per[3] = tagWritten * 31 / this.tagCounter;
+                            break;
+                        case "end":
+                            this.config.callback(100);
+                            return;
+                        case "start":
+                            this.config.callback(0);
+                            return;
+                    }
+                    percent = Math.round(per[0] + per[1] + per[2] + per[3]);
+                    if (percent > percentSent) {
+                        this.config.callback(percentSent = percent);
+                    }
+                }
+            }
         }
         if (!isFinite(this.precision)) {
             this.precision = 3;
