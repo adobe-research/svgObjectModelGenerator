@@ -700,7 +700,7 @@
             if (node.pathData) {
                 var textPath = new Tag("path", {
                         id: ctx.ID.getUnique("text-path"),
-                    d: ctx.config.turnOffPathOptimisation ? node.pathData : util.optimisePath(node.pathData, ctx.precision)
+                        d: ctx.config.turnOffPathOptimisation ? node.pathData : util.optimisePath(node.pathData, ctx.precision)
                     });
                 ctx.omStylesheet.def(textPath, function (def) {
                     tag.setAttribute("xlink:href", "#" + def.getAttribute("id"));

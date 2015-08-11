@@ -482,7 +482,6 @@
                 children = omIn.children,
                 state = ctx._transformOnNode;
 
-
             // Give every element a unique id for processing.
             omIn.id = genID.getUnique("");
 
