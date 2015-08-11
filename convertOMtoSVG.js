@@ -12,7 +12,31 @@ if (optFile) {
     outFile = process.argv[4];
     optFile = process.argv[3];
 }
-var svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
+
+function progress(total, len) {
+    total = total || 100;
+    len = len || 10;
+    var oct = " \u258f\u258e\u258d\u258c\u258b\u258a\u2589\u2588",
+        steps = oct.length - 1;
+
+    function write(val) {
+        var x = ~~(val * len * steps / total),
+            full = ~~(x / steps),
+            rest = x % steps,
+            str = new Array(full + 1).join(oct[steps]);
+        if (rest) {
+            str += oct[rest];
+        }
+        str += new Array(len - str.length + 1).join(oct[0]);
+        process.stdout.write(new Array(total + 1).join("\u0008") + "[\033[32m" + str + "\033[0m] " + val + "%");
+    }
+    return function (val) {
+        write(val);
+    };
+}
+
+var prog = progress(100, 20),
+    svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
     options = optFile ? JSON.parse(fs.readFileSync(optFile, {encoding: "utf8", flag: "r"})) : {
         trimToArtBounds: true,
         preserveAspectRatio: "xMidYMid",
@@ -32,6 +56,11 @@ if ("layers" in svgOM) {
     svgOM = OMG.extractSVGOM(svgOM, opt);
 }
 
+prog(0);
+options.callback = function (percent) {
+    prog(percent);
+};
+
 var svgWriter = require("./svgWriter.js"),
     svgWriterErrors = [],
     svgOut = svgWriter.printSVG(svgOM, options, svgWriterErrors);
@@ -41,5 +70,5 @@ for (i = 0; i < svgWriterErrors.length; i++) {
 }
 
 fs.writeFileSync(outFile, svgOut);
-console.log("<···Done···>");
+console.log(new Array(100).join("\u0008") + "<···Done···>               ");
 console.log("Check out the result: " + outFile);

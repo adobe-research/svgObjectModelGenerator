@@ -22,7 +22,7 @@
         insertArrayAt = function (array, index, arrayToInsert) {
             Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
         },
-        removeChains = function (children) {
+        removeChains = function (ctx, children) {
             var pass,
                 name,
                 i;
@@ -49,8 +49,11 @@
                         break;
                     }
                     children[i].children = children[i].children.concat(children[i + 1].children);
-                    removeChains(children[i].children);
+                    removeChains(ctx, children[i].children);
                     children.splice(i + 1, 1);
+                    if (ctx.tick) {
+                        ctx.tagCounter--;
+                    }
                 }
             }
         },
@@ -69,6 +72,9 @@
                     mum.children.splice(num, 1);
                     if (tag.children.length) {
                         insertArrayAt(mum.children, num, tag.children);
+                    }
+                    if (ctx.tick) {
+                        ctx.tagCounter--;
                     }
                 }
             },
@@ -112,7 +118,7 @@
                     }
                 }
             },
-            function collapseTspanClasses(tag) {
+            function collapseTspanClasses(tag, ctx) {
                 if (tag.name != "tspan" && tag.name != "text") {
                     return;
                 }
@@ -160,10 +166,13 @@
                         }
                     }
                 }
+                if (ctx.tick) {
+                    ctx.tagCounter -= toCollapse.length;
+                }
                 for (i = 0; i < toCollapse.length; i++) {
                     tag.collapseChild(toCollapse[i]);
                 }
-                removeChains(tag.children);
+                removeChains(ctx, tag.children);
                 for (name in common) {
                     tagStyle.addRule(name, common[name]);
                 }
@@ -213,6 +222,7 @@
         ];
 
     function process(tag, ctx, parents, num) {
+        ctx.tick && ctx.tick("post");
         processFunctions.forEach(function (item) {
             item(tag, ctx, parents, num);
         });

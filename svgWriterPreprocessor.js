@@ -495,6 +495,9 @@
                 return;
             }
 
+            if (ctx.tick) {
+                ctx.nodeCounter++;
+            }
             // If these bounds shifted is not 0 then shift children to be relative to this text block...
             if (omIn.type === "text" && omIn.children) {
                 omIn.children.forEach(function (chld) {

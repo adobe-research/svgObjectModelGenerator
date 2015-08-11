@@ -31,7 +31,8 @@
     function stream(svgOM, writable, opt, errors) {
         var ctx = getFormatContext(svgOM, writable, opt || {}, errors);
         try {
-            Tag.resetRoot(svgOM);
+            ctx.tick && ctx.tick("start");
+            Tag.resetRoot(ctx);
             svgWriterPreprocessor.processSVGOM(ctx);
             var svg = Tag.make(ctx, svgOM),
                 hasRules = !ctx.styling && ctx.omStylesheet.hasRules(),
@@ -41,6 +42,7 @@
             }
             postProcess(svg, ctx);
             svg.write(ctx);
+            ctx.tick && ctx.tick("end");
         } catch (ex) {
             console.error("Ex: " + ex);
             console.log(ex.stack);
