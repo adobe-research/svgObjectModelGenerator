@@ -35,7 +35,7 @@ function progress(total, len) {
     };
 }
 
-var prog = progress(100, 20);
+var prog = progress(100, 20),
     svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
     options = optFile ? JSON.parse(fs.readFileSync(optFile, {encoding: "utf8", flag: "r"})) : {
         trimToArtBounds: true,
