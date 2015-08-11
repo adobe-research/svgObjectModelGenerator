@@ -16,7 +16,7 @@ if (optFile) {
 function progress(total, len) {
     total = total || 100;
     len = len || 10;
-    var oct = " ▏▎▍▌▋▊▉█",
+    var oct = " \u258f\u258e\u258d\u258c\u258b\u258a\u2589\u2588",
         steps = oct.length - 1;
 
     function write(val) {
