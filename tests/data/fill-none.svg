@@ -1,12 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="120" height="118" viewBox="177 9 120 118">
   <defs>
     <style>
-      .cls-1 {
+      .cls-1, .cls-2 {
         fill: none;
         stroke: red;
+      }
+
+      .cls-1 {
         stroke-width: 14.47px;
+      }
+
+      .cls-2 {
+        font-size: 98.377px;
+        stroke-miterlimit: 10;
+        font-family: Courier New;
+        font-weight: 700;
       }
     </style>
   </defs>
   <ellipse class="cls-1" cx="237" cy="68" rx="57" ry="56"/>
+  <text class="cls-2" transform="translate(78.818 132.105) scale(0.38 1)">This text should have fill:none</text>
 </svg>

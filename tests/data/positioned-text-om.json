@@ -29,6 +29,14 @@
                                 "from": 0,
                                 "to": 10,
                                 "style": {
+                                    "fill": {
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 0
+                                        },
+                                        "type": "solid"
+                                    },
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\""
@@ -54,6 +62,14 @@
                                 "from": 10,
                                 "to": 12,
                                 "style": {
+                                    "fill": {
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 0
+                                        },
+                                        "type": "solid"
+                                    },
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\""
@@ -107,6 +123,14 @@
                                 "from": 18,
                                 "to": 20,
                                 "style": {
+                                    "fill": {
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 0
+                                        },
+                                        "type": "solid"
+                                    },
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\"",
@@ -130,6 +154,14 @@
                                 "from": 20,
                                 "to": 33,
                                 "style": {
+                                    "fill": {
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 0
+                                        },
+                                        "type": "solid"
+                                    },
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\""
@@ -140,6 +172,14 @@
                                 "from": 33,
                                 "to": 41,
                                 "style": {
+                                    "fill": {
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 0
+                                        },
+                                        "type": "solid"
+                                    },
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\""
