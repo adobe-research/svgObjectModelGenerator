@@ -528,12 +528,23 @@
                 }, this);
             }
             if (omIn.paragraphs) {
+                var style = omIn.style;
                 omIn.paragraphs.forEach(function (paragraph, pInd) {
                     ctx.currentOMNode = paragraph;
+                    for (var key in style) {
+                        if (!(key in paragraph.style)) {
+                            paragraph.style[key] = style[key];
+                        }
+                    }
                     this.processSVGNode(genID, ctx, true, pInd);
                     if (paragraph.lines) {
                         paragraph.lines.forEach(function (line) {
                             line.forEach(function (glyphrun, lInd) {
+                                for (var key in paragraph.style) {
+                                    if (!(key in glyphrun.style)) {
+                                        glyphrun.style[key] = paragraph.style[key];
+                                    }
+                                }
                                 ctx.currentOMNode = glyphrun;
                                 this.processSVGNode(genID, ctx, true, lInd);
                             }, this);

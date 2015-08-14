@@ -39,6 +39,67 @@
                     }
                 }
             }
+        },
+        {
+            "kind": "positioned",
+            "paragraphs": [
+                {
+                    "lines": [
+                        [
+                            {
+                                "from": 0,
+                                "scale": [
+                                    0.379665,
+                                    1
+                                ],
+                                "style": {
+                                    "font": {
+                                        "family": "Courier New",
+                                        "size": 98.3769,
+                                        "style": "bold"
+                                    },
+                                    "stroke": {
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 255
+                                        },
+                                        "miter-limit": 10,
+                                        "type": "solid"
+                                    }
+                                },
+                                "to": 31
+                            }
+                        ]
+                    ],
+                    "style": {
+                        "font": {
+                            "size": 12
+                        }
+                    }
+                }
+            ],
+            "raw-text": "This text should have fill:none",
+            "text-frame": {
+                "height": 149.189,
+                "path": "",
+                "width": 695.826
+            },
+            "transform": {
+                "a": 0.379665,
+                "b": 0,
+                "c": 0,
+                "d": 1,
+                "e": 78.8184,
+                "f": 132.105
+            },
+            "type": "text",
+            "visualBounds": {
+                "bottom": 202.497,
+                "left": 78.3184,
+                "right": 774.145,
+                "top": 53.3076
+            }
         }
     ]
 }

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-4 {
+        stroke: blue;
+        stroke-width: 0.5;
+        font-size: 12px;
+        font-family: MyriadPro-Regular;
+        text-decoration: underline;
+      }
+
+      .cls-2 {
+        fill: blue;
+      }
+
+      .cls-3 {
+        fill: red;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title>1st</title>
+  <desc>Created by Adobe Illustrator</desc>
+  <g id="Layer_1" data-name="Layer 1">
+    <text class="cls-1" transform="translate(50 30)">this is a text (<tspan class="cls-2">duuuh</tspan><tspan class="cls-3">)</tspan></text>
+    <text class="cls-4" transform="translate(50 50)">this is a none (<tspan class="cls-2">duuuh</tspan>)</text>
+  </g>
+</svg>

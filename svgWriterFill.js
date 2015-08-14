@@ -30,7 +30,7 @@
                 styleBlock = ctx.omStylesheet.getStyleBlock(omIn);
 
             if (!omIn.style || !omIn.style.fill) {
-                if (omIn.type == "shape") {
+                if (omIn.type == "shape" || "from" in omIn && "to" in omIn) {
                     styleBlock.addRule("fill", "none");
                 }
                 return;
