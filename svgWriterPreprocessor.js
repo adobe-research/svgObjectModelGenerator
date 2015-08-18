@@ -47,7 +47,7 @@
                 italicMap = fontMaps.italics;
 
             if (omIn.style && omIn.style.ref && global.styles && global.styles[omIn.style.ref]) {
-                omIn.style = utils.merge(omIn.style, global.styles[omIn.style.ref]);
+                utils.merge(omIn.style, global.styles[omIn.style.ref]);
             }
             if (omIn.style) {
                 delete omIn.style.ref;
@@ -536,20 +536,12 @@
                 var style = omIn.style;
                 omIn.paragraphs.forEach(function (paragraph, pInd) {
                     ctx.currentOMNode = paragraph;
-                    for (var key in style) {
-                        if (!(key in paragraph.style)) {
-                            paragraph.style[key] = style[key];
-                        }
-                    }
+                    utils.merge(paragraph.style, style);
                     this.processSVGNode(genID, ctx, true, pInd);
                     if (paragraph.lines) {
                         paragraph.lines.forEach(function (line) {
                             line.forEach(function (glyphrun, lInd) {
-                                for (var key in paragraph.style) {
-                                    if (!(key in glyphrun.style)) {
-                                        glyphrun.style[key] = paragraph.style[key];
-                                    }
-                                }
+                                utils.merge(glyphrun.style, paragraph.style);
                                 ctx.currentOMNode = glyphrun;
                                 this.processSVGNode(genID, ctx, true, lInd);
                             }, this);

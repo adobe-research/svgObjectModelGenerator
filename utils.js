@@ -956,17 +956,15 @@
             return out;
         };
         self.merge = function (o1, o2) {
-            var out = self.clone(o1);
             for (var key in o2) {
-                if (!(key in out)) {
-                    out[key] = o2[key];
+                if (!(key in o1)) {
+                    o1[key] = o2[key];
                 } else {
-                    if (Object(out[key]) === out[key] && Object(o2[key]) === o2[key]) {
-                        out[key] = self.merge(out[key], o2[key]);
+                    if (Object(o1[key]) === o1[key] && Object(o2[key]) === o2[key]) {
+                        self.merge(o1[key], o2[key]);
                     }
                 }
             }
-            return out;
         };
     }
 

@@ -37,6 +37,15 @@
                                         },
                                         "type": "solid"
                                     },
+                                    "stroke": {
+                                        "type": "solid",
+                                        "color": {
+                                            "b": 0,
+                                            "g": 0,
+                                            "r": 0
+                                        },
+                                        "width": 10
+                                    },
                                     "font": {
                                         "size": 30,
                                         "family": "\"Myriad Pro\""
@@ -52,7 +61,11 @@
                         ]
                     ],
                     "style": {
-                        "text-anchor": "middle"
+                        "text-anchor": "middle",
+                        "stroke": {
+                            "type": "none",
+                            "miter-limit": 12
+                        }
                     }
                 },
                 {
