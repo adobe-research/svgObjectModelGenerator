@@ -504,10 +504,6 @@
             filterID = ctx.ID.getUnique("filter", name);
         root[name] = filter = new Tag("filter", {
             id: filterID,
-            x: 0,
-            y: 0,
-            width: "100%",
-            height: "100%",
             filterUnits: "userSpaceOnUse",
             "color-interpolation-filters": "sRGB"
         });

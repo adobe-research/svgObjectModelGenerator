@@ -86,7 +86,7 @@
         <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="276.962" cy="109.731" r="49.679"/>
       </g>
     </mask>
-    <filter id="luminosity-noclip" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="luminosity-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="SourceGraphic" in2="bg"/>
     </filter>
@@ -95,7 +95,7 @@
         <circle id="_Path_-2" data-name="&lt;Path&gt;" class="cls-3" cx="276.962" cy="280.885" r="49.679"/>
       </g>
     </mask>
-    <filter id="luminosity-invert" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="luminosity-invert" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
     </filter>
     <mask id="mask-3" x="408.782" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse">
@@ -103,7 +103,7 @@
         <circle id="_Path_-3" data-name="&lt;Path&gt;" class="cls-5" cx="464.462" cy="109.731" r="49.679"/>
       </g>
     </mask>
-    <filter id="luminosity-invert-noclip" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="luminosity-invert-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0" result="invert"/>
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="invert" in2="bg"/>
