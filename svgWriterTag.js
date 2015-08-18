@@ -349,13 +349,14 @@
         omStyleBlock.tags = omStyleBlock.tags ? omStyleBlock.tags.concat(this.id) : [this.id];
     };
     Tag.prototype.setClass = function (ctx) {
-        var omStyleBlock = this.styleBlock;
+        var omStyleBlock = this.styleBlock,
+            style = "",
+            key;
         if (!omStyleBlock || !omStyleBlock.hasRules()) {
             return;
         }
         // Use class attribute
         if (!ctx.styling) {
-            var style = "";
             for (var i = 0, ii = omStyleBlock.class.length; i < ii; i++) {
                 style += " " + omStyleBlock.class[i].replace(/\s+/g, "-");
             }
@@ -364,18 +365,25 @@
         }
         // Use style attribute
         if (ctx.styling == 1) {
-            style = "";
-            for (var key in omStyleBlock.rules) {
+            for (key in omStyleBlock.rules) {
                 style += key + ":" + ctx.space + omStyleBlock.rules[key] + ";";
             }
-            style = style.substring(0, style.length - 1);
-            this.setAttribute("style", style);
+            this.setAttribute("style", style.substring(0, style.length - 1));
             return;
         }
         // Use presentation attributes
         if (ctx.styling == 2) {
             for (key in omStyleBlock.rules) {
+                // List or CSS properties without presentation attribute equivalent. 
+                if (key == "mix-blend-mode" ||
+                    key == "text-orientation") {
+                    style += key + ":" + ctx.space + omStyleBlock.rules[key] + ";";
+                    continue;
+                }
                 this.setAttribute(key, omStyleBlock.rules[key]);
+            }
+            if (style.length) {
+                this.setAttribute("style", style.substring(0, style.length - 1));
             }
             return;
         }

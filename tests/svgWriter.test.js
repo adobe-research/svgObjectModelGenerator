@@ -424,6 +424,12 @@ describe("svgWriter", function () {
 
             compareResultsWidthOM(svgOM, "stroke-fx-pres-attr", "", { styling: "attribute" });
         });
+
+        it("Test minification of SVG output with mix-blend-mode", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-om.json"));
+
+            compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute" });
+        });
     });
 
     /**
