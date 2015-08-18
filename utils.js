@@ -309,12 +309,19 @@
         function cleanNumbers(str) {
             return str.replace(/([^\d.]\d+\.\d+),(-?)0\./, "$1$2.").replace(/([^\d.]\d+,-?)0\./, "$1.");
         }
-        self.precision = function (arg) {
-            return isFinite(arg) && arg >= 0 ? arg : 3;
+        self.precision = function (arg, noLimitation) {
+            if (isFinite(arg) && arg >= 0) {
+                if (noLimitation) {
+                    return arg;
+                }
+                // Allow no precisions to be smaller than 2.
+                return arg < 2 ? 2 : arg;
+            }
+            return 3;
         };
 
         self.pointsToString = function (points, precision) {
-            precision = self.precision(precision);
+            precision = self.precision(precision, true);
             return points.map(function (item) {
                 return +item.x.toFixed(precision) + " " + +item.y.toFixed(precision);
             }).join();
@@ -579,7 +586,7 @@
         };
 
         self.optimisePath = function (path, precision, preparedPath) {
-            precision = self.precision(precision);
+            precision = self.precision(precision, true);
             var res = "",
                 args = {
                     abs: "",
