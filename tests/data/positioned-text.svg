@@ -8,6 +8,9 @@
       }
 
       .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 12;
+        stroke-width: 10px;
         text-decoration: underline line-through;
       }
 
