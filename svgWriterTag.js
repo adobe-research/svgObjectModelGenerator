@@ -140,7 +140,6 @@
         }
     };
     function parseNumber(value, isAttr, precision) {
-        precision = util.precision(precision);
         function round(x) {
             return +(+x).toFixed(precision);
         }
@@ -175,7 +174,7 @@
     };
     Tag.getValue = function (tagname, attrname, value, ctx) {
         var desc = getDesc(tagname, attrname),
-            prec = util.precision(ctx && ctx.precision);
+            prec = util.precision(ctx && ctx.precision, desc[2]);
         switch (desc[1]) {
             case "number":
                 value = parseNumber(value, tagname != "*", prec);

@@ -4,8 +4,8 @@
       .cls-1 {
         fill: #dd3c3c;
         stroke: #20f20f;
-        stroke-miterlimit: 11;
-        stroke-width: 6px;
+        stroke-miterlimit: 10.56;
+        stroke-width: 5.56px;
       }
 
       .cls-2 {

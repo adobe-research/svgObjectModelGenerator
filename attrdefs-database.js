@@ -49,15 +49,15 @@ module.exports = {
         "clipPathUnits": ["userSpaceOnUse", "string"]
     },
     "circle": {
-        "cx": [0, "number"],
-        "cy": [0, "number"],
-        "r": [0, "number"]
+        "cx": [0, "number", true],
+        "cy": [0, "number", true],
+        "r": [0, "number", true]
     },
     "ellipse": {
-        "cx": [0, "number"],
-        "cy": [0, "number"],
-        "rx": [0, "number"],
-        "ry": [0, "number"]
+        "cx": [0, "number", true],
+        "cy": [0, "number", true],
+        "rx": [0, "number", true],
+        "ry": [0, "number", true]
     },
     "feImage": {
         "x": ["0%", "string"],
@@ -78,18 +78,18 @@ module.exports = {
         "dy": [0, "number"]
     },
     "text": {
-        "dx": [0, "number-sequence"],
-        "dy": [0, "number-sequence"],
+        "dx": [0, "number-sequence", true],
+        "dy": [0, "number-sequence", true],
         "lengthAdjust": ["spacing", "string"],
-        "rotate": [0, "number-sequence"]
+        "rotate": [0, "number-sequence", true]
     },
     "tspan": {
-        "dx": [0, "number-sequence"],
-        "dy": [0, "number-sequence"],
+        "dx": [0, "number-sequence", true],
+        "dy": [0, "number-sequence", true],
         "lengthAdjust": ["spacing", "string"],
-        "rotate": [0, "number-sequence"],
-        "x": ["", "number"],
-        "y": ["", "number"]
+        "rotate": [0, "number-sequence", true],
+        "x": ["", "number", true],
+        "y": ["", "number", true]
     },
     "filter": {
         "filterRes": [null, "number-sequence"],
@@ -97,8 +97,8 @@ module.exports = {
         "primitiveUnits": ["userSpaceOnUse", "string"]
     },
     "svg": {
-        "height": ["100%", "number"],
-        "width": ["100%", "number"]
+        "height": ["100%", "number", true],
+        "width": ["100%", "number", true]
     },
     "feComposite": {
         "k1": [0, "number"],
@@ -111,7 +111,7 @@ module.exports = {
         "lengthAdjust": ["spacing", "string"],
         "method": ["align", "string"],
         "spacing": ["exact", "string"],
-        "startOffset": [0, "number"]
+        "startOffset": [0, "number", true]
     },
     "marker": {
         "markerHeight": [3, "number"],
@@ -144,8 +144,8 @@ module.exports = {
         "z": [0, "number"]
     },
     "rect": {
-        "rx": [0, "number"],
-        "ry": [0, "number"]
+        "rx": [0, "number", true],
+        "ry": [0, "number", true]
     },
     "feDisplacementMap": {
         "scale": [0, "number"],
@@ -167,10 +167,10 @@ module.exports = {
         "values": ["", "number-sequence"]
     },
     "line": {
-        "x1": [0, "number"],
-        "x2": [0, "number"],
-        "y1": [0, "number"],
-        "y2": [0, "number"]
+        "x1": [0, "number", true],
+        "x2": [0, "number", true],
+        "y1": [0, "number", true],
+        "y2": [0, "number", true]
     },
     "linearGradient": {
         "x1": [0, "number"],
@@ -183,15 +183,15 @@ module.exports = {
     },
     "*": {
         "height": [0, "number"],
-        "points": ["", "number-sequence"],
+        "points": ["", "number-sequence", true],
         "preserveAspectRatio": ["meet", "string"],
         "spreadMethod": ["pad", "string"],
         "surfaceScale": [1, "number"],
         "tableValues": ["", "number-sequence"],
-        "viewBox": ["", "number-sequence"],
-        "width": [0, "number"],
-        "x": [0, "number"],
-        "y": [0, "number"],
+        "viewBox": ["", "number-sequence", true],
+        "width": [0, "number", true],
+        "x": [0, "number", true],
+        "y": [0, "number", true],
         // presentation attributes.
         "alignment-baseline": ["auto", "string"],
         "baseline-shift": ["baseline", "string"],
