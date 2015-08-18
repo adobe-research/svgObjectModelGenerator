@@ -218,7 +218,7 @@ module.exports = {
         "font-weight": ["400", "string"],
         "image-rendering": ["auto", "string"],
         "kerning": ["auto", "string"],
-        "letter-spacing": ["normal", "string"],
+        "letter-spacing": [0, "number"], // letter-spacing could be string in CSS but OMG doesn't accept strings.
         "lighting-color": ["#fff", "color"],
         "marker-end": ["none", "string"],
         "marker-mid": ["none", "string"],

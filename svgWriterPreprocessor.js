@@ -118,8 +118,13 @@
                 }
             }
 
-            if (omIn.style["text-attributes"] && omIn.style["text-attributes"].decoration) {
-                styleBlock.addRule("text-decoration", omIn.style["text-attributes"].decoration.join(" "));
+            if (omIn.style["text-attributes"]) {
+                if (omIn.style["text-attributes"].decoration) {
+                    styleBlock.addRule("text-decoration", omIn.style["text-attributes"].decoration.join(" "));
+                }
+                if (omIn.style["text-attributes"]["letter-spacing"]) {
+                    styleBlock.addRule("letter-spacing", omIn.style["text-attributes"]["letter-spacing"] + "px");
+                }
             }
 
             Object.keys(omIn.style).forEach(function (property) {

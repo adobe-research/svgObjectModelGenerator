@@ -848,5 +848,8 @@ describe("svgWriter", function () {
         it("Test vertical text", function () {
             compareResults("positioned-text6");
         });
+        it("Test letter-spacing", function () {
+            compareResults("positioned-text7");
+        });
     });
 });

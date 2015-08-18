@@ -1,0 +1,80 @@
+{
+	"children": [
+		{
+			"children": [
+				{
+					"kind": "positioned",
+					"paragraphs": [
+						{
+							"lines": [
+								[
+									{
+										"from": 0,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "Myriad Pro",
+												"size": 24,
+												"style": "regular"
+											},
+											"text-attributes": {
+												"letter-spacing": 96
+											}
+										},
+										"to": 8
+									}
+								]
+							],
+							"style": {
+								"font": {
+									"size": 12
+								}
+							}
+						}
+					],
+					"raw-text": "Tracking",
+					"text-frame": {
+						"height": 26.0874,
+						"path": "",
+						"width": 853.727
+					},
+					"transform": {
+						"a": 1,
+						"b": 0,
+						"c": 0,
+						"d": 1,
+						"e": 66.9976,
+						"f": 294.503
+					},
+					"type": "text",
+					"visualBounds": {
+						"bottom": 300.503,
+						"left": 66.9736,
+						"right": 920.7,
+						"top": 274.416
+					}
+				}
+			],
+			"name": "Layer 1",
+			"type": "group"
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"global": {
+		"bounds": {
+			"bottom": 560,
+			"left": 0,
+			"right": 960,
+			"top": 0
+		}
+	},
+	"name": "Tracking2",
+	"version": "0.1.0"
+}
