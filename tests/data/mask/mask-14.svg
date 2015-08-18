@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="612" height="792" viewBox="0 0 612 792">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#luminosity-noclip);
+      }
+
+      .cls-2 {
+        fill: #01c47d;
+      }
+
+      .cls-3 {
+        mask: url(#mask);
+      }
+
+      .cls-4 {
+        fill: #0f52a0;
+      }
+    </style>
+
+    <filter id="luminosity-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask" maskUnits="userSpaceOnUse">
+      <g id="_Group_" data-name="&lt;Group&gt;" class="cls-1">
+        <rect id="_Path_" data-name="&lt;Path&gt;" class="cls-2" width="612" height="792"/>
+      </g>
+    </mask>
+  </defs>
+  <title>CompoundPathWithOpacityMask</title>
+  <desc>Created by Adobe Illustrator</desc>
+  <g id="Layer_1" data-name="Layer 1">
+    <g class="cls-3">
+      <g id="Compound_Path" data-name="Compound Path">
+        <rect id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" x="18" y="13" width="585.415" height="772.335" rx="40.566" ry="40.566"/>
+      </g>
+    </g>
+  </g>
+</svg>
