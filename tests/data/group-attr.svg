@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <filter id="filter" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="5.196" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feOffset result="offset" dx="10.103" dy="8.181"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="4.583" in="SourceAlpha"/>
+      <feFlood result="flood" flood-color="#0036ff" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dx="7.5" dy="12.99"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <title>group.psd</title>
+  <g id="Group" opacity="0.35" filter="url(#filter)" style="mix-blend-mode: multiply">
+    <rect x="100" y="100" width="200" height="200" fill="#2ccf26" stroke="#f26522" stroke-width="3"/>
+    <g fill="#2ccf26" filter="url(#filter-2)">
+      <rect id="rect" x="200" y="200" width="200" height="200" stroke="#f26522" filter="url(#filter-2)" fill="#2ccf26" stroke-width="3" opacity="0.75"/>
+    </g>
+    <use xlink:href="#rect" stroke="#f26522" fill="none"/>
+  </g>
+</svg>

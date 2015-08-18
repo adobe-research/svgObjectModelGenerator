@@ -424,6 +424,18 @@ describe("svgWriter", function () {
 
             compareResultsWidthOM(svgOM, "stroke-fx-pres-attr", "", { styling: "attribute" });
         });
+
+        it("Test that mix-blend-mode is not written as attribute", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-om.json"));
+
+            compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute" });
+        });
+
+        it("Test that text-orientation is not written as attribute", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/positioned-text3-om.json"));
+
+            compareResultsWidthOM(svgOM, "positioned-text3-attr", "", { styling: "attribute" });
+        });
     });
 
     /**
