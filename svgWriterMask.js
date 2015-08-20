@@ -42,8 +42,7 @@
                 if (omIn.shifted && (offsetX || offsetY)) {
                     var g = new Tag("g", {transform: getTransform(null, offsetX, offsetY, ctx.precision, true)});
                     g.children = maskTag.children;
-                    maskTag.children = [];
-                    maskTag.appendChild(g);
+                    maskTag.children = [g];
                 }
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
