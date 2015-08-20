@@ -17,7 +17,8 @@
 (function () {
     "use strict";
 
-    var Tag = require("./svgWriterTag.js");
+    var Tag = require("./svgWriterTag.js"),
+        getTransform = require("./svgWriterUtils").getTransform;
 
     module.exports = {
         externalizeStyles: function (ctx) {
@@ -25,7 +26,9 @@
                 mask,
                 maskID,
                 maskTag,
-                name;
+                name,
+                offsetX = omIn.shifted ? (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0) : 0,
+                offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0;
 
             if (!omIn.style || !omIn.style.mask) {
                 return;
@@ -36,6 +39,11 @@
                 name = ctx.currentOMNode.name;
                 maskID = ctx.ID.getUnique("mask", name);
                 maskTag = Tag.make(ctx);
+                if (omIn.shifted && (offsetX || offsetY)) {
+                    var g = new Tag("g", {transform: getTransform(null, offsetX, offsetY, ctx.precision, true)});
+                    g.children = maskTag.children;
+                    maskTag.children = [g];
+                }
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
                 if (!ctx.minify && name && maskID != name) {

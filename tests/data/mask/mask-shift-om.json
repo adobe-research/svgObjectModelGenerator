@@ -1,0 +1,103 @@
+{
+    "children": [
+        {
+            "type": "shape",
+            "style": {
+                "fill": {
+                    "type": "solid",
+                    "color": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 127,
+                        "a": 0.5
+                    }
+                },
+                "mask": "mask1"
+            },
+            "visualBounds": {
+                "top": 50,
+                "left": 50,
+                "bottom": 200,
+                "right": 200
+            },
+            "shape": {
+                "type": "rect",
+                "x": 50,
+                "y": 50,
+                "width": 100,
+                "height": 100
+            }
+        },
+        {
+            "type": "shape",
+            "style": {
+                "fill": {
+                    "type": "solid",
+                    "color": {
+                        "r": 0,
+                        "g": 127,
+                        "b": 0,
+                        "a": 0.5
+                    }
+                },
+                "mask": "mask1"
+            },
+            "visualBounds": {
+                "top": 50,
+                "left": 50,
+                "bottom": 200,
+                "right": 200
+            },
+            "shape": {
+                "type": "path",
+                "path": "M50,50 L150,50 L150,150 L50,150 z"
+            }
+        }
+    ],
+    "global": {
+        "masks": {
+            "mask1": {
+                "children": [{
+                    "type": "shape",
+                    "visualBounds": {
+                        "top": 50,
+                        "left": 50,
+                        "bottom": 150,
+                        "right": 150
+                    },
+                    "style": {
+                        "fill": {
+                            "type": "solid",
+                            "color": {
+                                "r": 255,
+                                "g": 255,
+                                "b": 255
+                            }
+                        }
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "cx": 100,
+                        "cy": 100,
+                        "r": 50
+                    }
+                }],
+                "type": "mask"
+            }
+        },
+        "viewBox": {
+            "top": 0,
+            "left": 0,
+            "bottom": 768,
+            "right": 1024
+        },
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "bottom": 768,
+            "right": 1024
+        },
+        "pxToInchRatio": 72
+    },
+    "artboards": {}
+}

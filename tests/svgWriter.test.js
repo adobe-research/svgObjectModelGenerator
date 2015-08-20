@@ -781,6 +781,15 @@ describe("svgWriter", function () {
         it("Test that images get shifted.", function () {
             compareResults("image", "custom", options);
         });
+        it("Test that patterns get shifted.", function () {
+            compareResults("pattern-shift", "pattern", options);
+        });
+        it("Test that clipPaths get shifted.", function () {
+            compareResults("clipPath-shift", "clipPath", options);
+        });
+        it("Test that masks get shifted.", function () {
+            compareResults("mask-shift", "mask", options);
+        });
     });
 
     /**

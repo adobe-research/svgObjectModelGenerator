@@ -592,25 +592,23 @@
         },
         clipPath: function (ctx, node) {
             return new Tag("clipPath", {
-                clipPathUnits: node.clipPathUnits
+                clipPathUnits: node.clipPathUnits,
+                transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision, true)
             }, ctx);
         },
         pattern: function (ctx, node) {
             // FIXME: We might need special casing for objectBoundingBox.
-            var attr = {},
-                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
-                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0),
-                t = getTransform(node.transform, offsetX, offsetY, ctx.precision);
+            var attr = {};
             if (node.bounds) {
-                attr.x = node.bounds.left + (t ? 0 : offsetX);
-                attr.y = node.bounds.top + (t ? 0 : offsetY);
+                attr.x = node.bounds.left + (node.transform ? 0 : node.transformTX || 0);
+                attr.y = node.bounds.top + (node.transform ? 0 : node.transformTY || 0);
                 attr.width = node.bounds.right - node.bounds.left;
                 attr.height = node.bounds.bottom - node.bounds.top;
             }
             if (node.viewBox) {
-                attr.viewBox = [node.viewBox.left + (t ? 0 : offsetX), node.viewBox.top + (t ? 0 : offsetY), node.viewBox.right, node.viewBox.bottom];
+                attr.viewBox = [node.viewBox.left, node.viewBox.top, node.viewBox.right, node.viewBox.bottom];
             }
-            attr.patternTransform = t;
+            attr.patternTransform = getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision);
             attr.patternUnits = node.patternUnits || "userSpaceOnUse";
             if (!node.bounds && !node.patternUnits) {
                 delete attr.patternUnits;

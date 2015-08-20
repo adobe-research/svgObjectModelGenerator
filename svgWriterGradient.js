@@ -169,11 +169,11 @@
             // case.
             offsetX = 0;
             offsetY = 0;
-            if (omIn.type == "shape" && omIn.shape.type != "path" &&
-                gradientSpace == "userSpaceOnUse") {
+            if (omIn.shifted && gradientSpace == "userSpaceOnUse") {
                 offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0);
                 offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
             }
+
 
             if (!stops) {
                 console.warn("encountered gradient with no stops");

@@ -25,6 +25,8 @@
                 clipPath,
                 clipPathID,
                 clipPathTag,
+                offsetX = omIn.shifted ? (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0) : 0,
+                offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0,
                 name;
 
             if (!omIn.style || !omIn.style["clip-path"]) {
@@ -33,6 +35,8 @@
             clipPath = omIn.style["clip-path"];
             if (ctx.svgOM.global && ctx.svgOM.global.clipPaths[clipPath]) {
                 ctx.currentOMNode = ctx.svgOM.global.clipPaths[clipPath];
+                ctx.currentOMNode.transformTX = offsetX;
+                ctx.currentOMNode.transformTY = offsetY;
                 name = ctx.currentOMNode.name;
                 clipPathID = ctx.ID.getUnique("clip-path", name);
                 clipPathTag = Tag.make(ctx);
