@@ -6,7 +6,9 @@
       }
     </style>
 
-    <mask id="mask" style="mask-type:alpha"/>
+    <mask id="mask" style="mask-type:alpha">
+      <g transform="translate(-100 -100)"/>
+    </mask>
   </defs>
   <rect class="cls-1" width="200" height="200"/>
 </svg>

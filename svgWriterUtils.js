@@ -151,7 +151,7 @@
 
         self.getTransform = function (val, tX, tY, precision, keepTranslation) {
             if (!val) {
-                // So far paths are the only consumers of getTransform with keepTranslation.
+                // So far paths, masks and clipPaths are the only consumers of getTransform with keepTranslation.
                 // Elsewhere we are able to bake in tX and tY otherwise.
                 if (keepTranslation && (tX || tY)) {
                     return !tY ? "translate(" + Utils.roundP(tX, precision) + ")" :

@@ -216,6 +216,7 @@
                     return;
                 }
 
+                omIn.shifted = true;
                 // FIXME: Remove old text code when PS transitioned to AGC text.
                 if (omIn.transform) {
                     omIn.transformTX += ctx._shiftContentX;
@@ -284,6 +285,7 @@
                     return;
                 }
                 if (!shape) {
+                    omIn.shifted = true;
                     return;
                 }
 
@@ -292,12 +294,14 @@
                 case "ellipse":
                     shape.cx += offsetX;
                     shape.cy += offsetY;
+                    omIn.shifted = true;
                     break;
                 case "line":
                     shape.x1 += offsetX;
                     shape.y1 += offsetY;
                     shape.x2 += offsetX;
                     shape.y2 += offsetY;
+                    omIn.shifted = true;
                     break;
                 case "path":
                     omIn.transformTX = offsetX;
@@ -310,10 +314,12 @@
                         item.x += offsetX;
                         item.y += offsetY;
                     });
+                    omIn.shifted = true;
                     break;
                 case "rect":
                     shape.x += offsetX;
                     shape.y += offsetY;
+                    omIn.shifted = true;
                     break;
                 }
             },
@@ -337,6 +343,7 @@
                     omIn.bounds.top += offsetY;
                     omIn.bounds.right += offsetX;
                     omIn.bounds.bottom += offsetY;
+                    omIn.shifted = true;
                 }
             },
             // Shift the bounds recorded in recordBounds.
@@ -483,7 +490,7 @@
                 }
             };
 
-        this.processSVGNode = function (genID, ctx, nested, sibling) {
+        this.processSVGNode = function (genID, ctx, noShifting, nested, sibling) {
             var omIn = ctx.currentOMNode,
                 children = omIn.children,
                 state = ctx._transformOnNode;
@@ -511,7 +518,7 @@
                 });
             }
 
-            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM) {
+            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM && !noShifting) {
                 shiftBounds(ctx, omIn, nested, sibling);
             }
 
@@ -520,7 +527,7 @@
             // We should process mask before masked element
             if (omIn.style && omIn.style.mask && ctx.svgOM.global.masks) {
                 ctx.currentOMNode = ctx.svgOM.global.masks[omIn.style.mask];
-                this.processSVGNode(genID, ctx);
+                this.processSVGNode(genID, ctx, noShifting, nested, sibling);
                 ctx.currentOMNode = omIn;
             }
 
@@ -529,7 +536,7 @@
             if (children) {
                 children.forEach(function (childNode, ind) {
                     ctx.currentOMNode = childNode;
-                    this.processSVGNode(genID, ctx, omIn !== ctx.svgOM, ind);
+                    this.processSVGNode(genID, ctx, noShifting, omIn !== ctx.svgOM, ind);
                 }, this);
             }
             if (omIn.paragraphs) {
@@ -537,13 +544,13 @@
                 omIn.paragraphs.forEach(function (paragraph, pInd) {
                     ctx.currentOMNode = paragraph;
                     utils.merge(paragraph.style, style);
-                    this.processSVGNode(genID, ctx, true, pInd);
+                    this.processSVGNode(genID, ctx, noShifting, true, pInd);
                     if (paragraph.lines) {
                         paragraph.lines.forEach(function (line) {
                             line.forEach(function (glyphrun, lInd) {
                                 utils.merge(glyphrun.style, paragraph.style);
                                 ctx.currentOMNode = glyphrun;
-                                this.processSVGNode(genID, ctx, true, lInd);
+                                this.processSVGNode(genID, ctx, noShifting, true, lInd);
                             }, this);
                         }, this);
                     }
@@ -614,15 +621,15 @@
             // since they are not a part of the tree
             Object.keys(global.masks || {}).forEach(function (key) {
                 ctx.currentOMNode = global.masks[key];
-                self.processSVGNode(genID, ctx);
+                self.processSVGNode(genID, ctx, true);
             });
             Object.keys(global.clipPaths || {}).forEach(function (key) {
                 ctx.currentOMNode = global.clipPaths[key];
-                self.processSVGNode(genID, ctx);
+                self.processSVGNode(genID, ctx, true);
             });
             Object.keys(global.patterns || {}).forEach(function (key) {
                 ctx.currentOMNode = global.patterns[key];
-                self.processSVGNode(genID, ctx);
+                self.processSVGNode(genID, ctx, true);
             });
             Object.keys(global.symbols || {}).forEach(function (key) {
                 ctx.currentOMNode = global.symbols[key];

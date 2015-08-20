@@ -11,8 +11,10 @@
     </style>
 
     <mask id="mask" x="35.212" y="37.121" width="124.242" height="124.242" maskUnits="userSpaceOnUse">
-      <g id="_Group_" data-name="&lt;Group&gt;">
-        <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="97.333" cy="99.242" r="62.121"/>
+      <g transform="translate(-100.788 -87.879)">
+        <g id="_Group_" data-name="&lt;Group&gt;">
+          <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="198.121" cy="187.121" r="62.121"/>
+        </g>
       </g>
     </mask>
   </defs>

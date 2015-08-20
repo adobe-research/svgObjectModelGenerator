@@ -24,11 +24,15 @@
             var omIn = ctx.currentOMNode,
                 patternID,
                 patternTag,
+                offsetX = omIn.shifted ? (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0) : 0,
+                offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0,
                 name;
 
             if (ctx.svgOM.global && ctx.svgOM.global.patterns[patternRef.ref]) {
                 ctx.currentOMNode = ctx.svgOM.global.patterns[patternRef.ref];
                 ctx.currentOMNode.transform = patternRef.transform;
+                ctx.currentOMNode.transformTX = offsetX;
+                ctx.currentOMNode.transformTY = offsetY;
                 name = ctx.currentOMNode.name;
                 patternID = ctx.ID.getUnique("pattern", name);
                 patternTag = Tag.make(ctx);

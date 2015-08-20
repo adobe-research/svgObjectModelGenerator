@@ -23,7 +23,7 @@
       }
     </style>
 
-    <radialGradient id="Summer" cx="39.515" cy="-16899.8" r="40.363" gradientTransform="matrix(1, 0, 0, -1, -69.227, -16987.712)" gradientUnits="userSpaceOnUse">
+    <radialGradient id="Summer" cx="39.515" cy="-16899.8" r="40.363" gradientTransform="matrix(1, 0, 0, -1, 0, -16942)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="0.085" stop-color="#ffedd8"/>
       <stop offset="0.208" stop-color="#ffd5a7"/>
@@ -34,10 +34,10 @@
       <stop offset="0.857" stop-color="#ff9522"/>
       <stop offset="1" stop-color="#ff931e"/>
     </radialGradient>
-    <pattern id="New_Pattern_3" data-name="New Pattern 3" x="-69.227" y="-45.712" width="79.03" height="84.333" viewBox="-69.227 -130.045 79.03 84.333" patternUnits="userSpaceOnUse">
+    <pattern id="New_Pattern_3" data-name="New Pattern 3" x="-69.227" y="-45.712" width="79.03" height="84.333" viewBox="0 -84.333 79.03 84.333" patternUnits="userSpaceOnUse">
       <g>
-        <rect class="cls-1" x="-69.227" y="-130.045" width="79.03" height="84.333"/>
-        <rect class="cls-2" x="-68.727" y="-129.545" width="78.03" height="83.333"/>
+        <rect class="cls-1" y="-84.333" width="79.03" height="84.333"/>
+        <rect class="cls-2" x="0.5" y="-83.833" width="78.03" height="83.333"/>
       </g>
     </pattern>
     <radialGradient id="Summer-2" data-name="Summer" cx="39.515" cy="42.167" r="40.363" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#Summer"/>
