@@ -74,10 +74,9 @@
                 if (tag.children.length) {
                     insertArrayAt(mum.children, num, tag.children);
                 }
-                    // if (ctx.tick) {
-                    //     ctx.tagCounter--;
-                    // }
-                // }
+                if (ctx.tick) {
+                    ctx.tagCounter--;
+                }
             },
             function clipRule(tag, ctx, parents) {
                 var fillRule = tag.styleBlock && tag.styleBlock.getPropertyValue("fill-rule");
