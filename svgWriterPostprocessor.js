@@ -59,23 +59,23 @@
         },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
-                var mum = parents[parents.length - 1];
-                if (tag.name == "g" &&
-                    !tag.isArtboard &&
-                    (!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
+                var mom = parents[parents.length - 1];
+                if (tag.name != "g" || tag.isArtboard || tag.children.length > 1 && !ctx.minify) {
+                    return;
+                }
+                if (tag.children.length &&
+                    !((!tag.styleBlock || !tag.styleBlock.hasRules()) &&
                     tag.getAttribute("transform") == "" &&
-                    tag.getAttribute("id") == "" &&
-                    (tag.children.length < 2 || ctx.minify)) {
-                    if (Object.keys(tag.attrs).length) {
-                        return;
-                    }
-                    mum.children.splice(num, 1);
-                    if (tag.children.length) {
-                        insertArrayAt(mum.children, num, tag.children);
-                    }
-                    if (ctx.tick) {
-                        ctx.tagCounter--;
-                    }
+                    tag.getAttribute("clip-path") == "" && // Artboards set the attribute directly.
+                    tag.getAttribute("id") == "")) {
+                    return;
+                }
+                mom.children.splice(num, 1);
+                if (tag.children.length) {
+                    insertArrayAt(mom.children, num, tag.children);
+                }
+                if (ctx.tick) {
+                    ctx.tagCounter--;
                 }
             },
             function clipRule(tag, ctx, parents) {
@@ -181,7 +181,7 @@
                 if (!tag.trick) {
                     return;
                 }
-                var mum = parents[parents.length - 1],
+                var mom = parents[parents.length - 1],
                     stroke = tag.getAttribute("stroke"),
                     fill = tag.getAttribute("fill"),
                     filter = tag.getAttribute("filter"),
@@ -213,9 +213,9 @@
                     use.setAttribute("style", "stroke: " + stroke + "; filter: none; fill: none");
                 }
                 tag.tricked = true;
-                for (var i = 0; i < mum.children.length; i++) {
-                    if (mum.children[i] == tag) {
-                        mum.children.splice(i, 1, list);
+                for (var i = 0; i < mom.children.length; i++) {
+                    if (mom.children[i] == tag) {
+                        mom.children.splice(i, 1, list);
                     }
                 }
             }
@@ -242,7 +242,7 @@
         parents = parents || [];
         parents.push(tag);
         if (tag.children) {
-            for (var i = 0; i < tag.children.length; i++) {
+            for (var i = tag.children.length - 1; i >= 0; i--) {
                 postProcess(tag.children[i], ctx, parents.slice(0), i);
             }
         }

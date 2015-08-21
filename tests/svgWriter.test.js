@@ -540,6 +540,10 @@ describe("svgWriter", function () {
         it("Test carriage return on radial-gradient-focal", function () {
             compareCarriageResults("radial-gradient-focal");
         });
+
+        it("Test minify of empty groups", function () {
+            compareResults("group-minify", "custom", { minify: true });
+        });
     });
 
     /**
@@ -577,6 +581,9 @@ describe("svgWriter", function () {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/empty-group-om.json"));
 
             expect(svgWriter.printSVG(svgOM)).to.not.equal("");
+        });
+        it("Groups with empty groups get removed", function () {
+            compareResults("empty-group-2", "custom");
         });
     });
 
