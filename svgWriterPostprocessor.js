@@ -64,7 +64,7 @@
                     return;
                 }
                 if (tag.children.length &&
-                    !((!tag.styleBlock || tag.styleBlock && !tag.styleBlock.hasRules()) &&
+                    !((!tag.styleBlock || !tag.styleBlock.hasRules()) &&
                     tag.getAttribute("transform") == "" &&
                     tag.getAttribute("clip-path") == "" && // Artboards set the attribute directly.
                     tag.getAttribute("id") == "")) {
