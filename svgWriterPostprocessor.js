@@ -59,8 +59,8 @@
         },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
-                var mum = parents[parents.length - 1];
-                if (tag.name != "g" || tag.isArtboard || (tag.children.length) > 1 && !ctx.minify) {
+                var mom = parents[parents.length - 1];
+                if (tag.name != "g" || tag.isArtboard || tag.children.length > 1 && !ctx.minify) {
                     return;
                 }
                 if (tag.children.length &&
@@ -70,9 +70,9 @@
                     tag.getAttribute("id") == "")) {
                     return;
                 }
-                mum.children.splice(num, 1);
+                mom.children.splice(num, 1);
                 if (tag.children.length) {
-                    insertArrayAt(mum.children, num, tag.children);
+                    insertArrayAt(mom.children, num, tag.children);
                 }
                 if (ctx.tick) {
                     ctx.tagCounter--;
@@ -181,7 +181,7 @@
                 if (!tag.trick) {
                     return;
                 }
-                var mum = parents[parents.length - 1],
+                var mom = parents[parents.length - 1],
                     stroke = tag.getAttribute("stroke"),
                     fill = tag.getAttribute("fill"),
                     filter = tag.getAttribute("filter"),
@@ -213,9 +213,9 @@
                     use.setAttribute("style", "stroke: " + stroke + "; filter: none; fill: none");
                 }
                 tag.tricked = true;
-                for (var i = 0; i < mum.children.length; i++) {
-                    if (mum.children[i] == tag) {
-                        mum.children.splice(i, 1, list);
+                for (var i = 0; i < mom.children.length; i++) {
+                    if (mom.children[i] == tag) {
+                        mom.children.splice(i, 1, list);
                     }
                 }
             }
