@@ -14,9 +14,9 @@
     </style>
 
     <clipPath id="clip-path-1">
-      <rect x="130" y="67" width="179" height="179" class="cls-1"/>
+      <rect class="cls-1" x="130" y="67" width="179" height="179"/>
     </clipPath>
   </defs>
-  <rect x="130" y="66" width="179" height="179" class="cls-1"/>
-  <circle cx="309" cy="245" r="94" class="cls-2"/>
+  <rect class="cls-1" x="130" y="66" width="179" height="179"/>
+  <circle class="cls-2" cx="309" cy="245" r="94"/>
 </svg>

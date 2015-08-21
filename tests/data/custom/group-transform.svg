@@ -13,7 +13,7 @@
     </style>
   </defs>
   <g transform="translate(-121.622 141.921) rotate(-45)">
-    <rect width="152" height="151" transform="translate(86 86)" class="cls-1"/>
-    <rect width="200" height="199" transform="translate(162 162)" class="cls-2"/>
+    <rect class="cls-1" width="152" height="151" transform="translate(86 86)"/>
+    <rect class="cls-2" width="200" height="199" transform="translate(162 162)"/>
   </g>
 </svg>

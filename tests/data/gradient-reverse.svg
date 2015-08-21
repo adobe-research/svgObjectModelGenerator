@@ -77,10 +77,10 @@
       <stop offset="1" stop-color="red"/>
     </linearGradient>
   </defs>
-  <rect x="50" y="50" width="200" height="100" class="cls-1"/>
-  <rect x="300" y="50" width="200" height="100" class="cls-2"/>
-  <rect x="550" y="50" width="200" height="100" class="cls-3"/>
-  <rect x="50" y="200" width="200" height="100" class="cls-4"/>
-  <rect x="300" y="200" width="200" height="100" class="cls-5"/>
-  <rect x="552" y="200" width="196" height="94" class="cls-6"/>
+  <rect class="cls-1" x="50" y="50" width="200" height="100"/>
+  <rect class="cls-2" x="300" y="50" width="200" height="100"/>
+  <rect class="cls-3" x="550" y="50" width="200" height="100"/>
+  <rect class="cls-4" x="50" y="200" width="200" height="100"/>
+  <rect class="cls-5" x="300" y="200" width="200" height="100"/>
+  <rect class="cls-6" x="552" y="200" width="196" height="94"/>
 </svg>

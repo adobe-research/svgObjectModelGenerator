@@ -7,11 +7,11 @@
       }
     </style>
 
-    <symbol viewBox="0 0 200 200" id="symbol-1">
-      <rect width="200" height="200" class="cls-1"/>
+    <symbol id="symbol-1" viewBox="0 0 200 200">
+      <rect class="cls-1" width="200" height="200"/>
     </symbol>
     <symbol id="a_damn_cool_circle_-1">
-      <circle cx="100" cy="100" r="100" class="cls-1"/>
+      <circle class="cls-1" cx="100" cy="100" r="100"/>
     </symbol>
   </defs>
   <use xlink:href="#symbol-1"/>

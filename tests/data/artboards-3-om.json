@@ -1,7 +1,6 @@
 {
 	"children": [
 		{
-			"name": "Artboard 1",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -9,10 +8,10 @@
 					"type": "none"
 				}
 			},
+			"name": "Artboard 1",
 			"ref": "artboard-1",
 			"children": [
 				{
-					"name": "Rectangle 2",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -45,6 +44,7 @@
 							}
 						}
 					},
+					"name": "Rectangle 2",
 					"visualBounds": {
 						"top": 2212,
 						"left": 2212,
@@ -60,7 +60,6 @@
 			]
 		},
 		{
-			"name": "Artboard 2",
 			"type": "artboard",
 			"visible": true,
 			"style": {
@@ -68,10 +67,10 @@
 					"type": "none"
 				}
 			},
+			"name": "Artboard 2",
 			"ref": "artboard-2",
 			"children": [
 				{
-					"name": "Rectangle 1",
 					"type": "shape",
 					"visible": true,
 					"style": {
@@ -104,6 +103,7 @@
 							}
 						}
 					},
+					"name": "Rectangle 1",
 					"visualBounds": {
 						"top": 2212,
 						"left": 4000,

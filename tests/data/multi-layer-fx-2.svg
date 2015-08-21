@@ -7,7 +7,7 @@
       }
     </style>
 
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feFlood result="flood-1" flood-color="#61b18e" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend-1" mode="multiply" in2="SourceGraphic"/>
@@ -16,5 +16,5 @@
       <feBlend result="blend-2" mode="multiply" in2="blend-1"/>
     </filter>
   </defs>
-  <rect x="224" y="204" width="200" height="200" class="cls-1"/>
+  <rect class="cls-1" x="224" y="204" width="200" height="200"/>
 </svg>

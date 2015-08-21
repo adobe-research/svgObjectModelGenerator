@@ -15,11 +15,11 @@
       }
     </style>
 
-    <mask style="mask-type:alpha" id="mask-1">
-      <rect x="130" y="67" width="179" height="179" class="cls-1"/>
+    <mask id="mask-1" style="mask-type:alpha">
+      <rect class="cls-1" x="130" y="67" width="179" height="179"/>
     </mask>
   </defs>
-  <rect x="130" y="66" width="179" height="179" class="cls-2"/>
-  <rect x="130" y="66" width="179" height="179" class="cls-2"/>
-  <rect x="130" y="66" width="179" height="179" class="cls-2"/>
+  <rect class="cls-2" x="130" y="66" width="179" height="179"/>
+  <rect class="cls-2" x="130" y="66" width="179" height="179"/>
+  <rect class="cls-2" x="130" y="66" width="179" height="179"/>
 </svg>

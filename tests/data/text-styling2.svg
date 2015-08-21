@@ -63,12 +63,12 @@
       }
     </style>
   </defs>
-  <text x="86.777" y="285.703" class="cls-1"><tspan x="86.777" class="cls-2">2</tspan></text>
-  <text x="86.777" y="413.703" class="cls-1"><tspan x="86.777" class="cls-3">3</tspan></text>
-  <text x="86.777" y="538.703" class="cls-1"><tspan x="86.777" class="cls-4">4</tspan></text>
-  <text x="86.777" y="669.703" class="cls-1"><tspan x="86.777" class="cls-5">5</tspan></text>
-  <text x="86.777" y="794.703" class="cls-1"><tspan x="86.777" class="cls-6">6</tspan></text>
-  <text x="86.777" y="919.703" class="cls-1"><tspan x="86.777" class="cls-7">7</tspan></text>
-  <text x="86.777" y="149.703" class="cls-1"><tspan x="86.777" class="cls-8">1</tspan></text>
-  <text x="369.777" y="127.703" class="cls-9"><tspan class="cls-10">thin</tspan><tspan dy="1.542em" x="369.777" class="cls-11">ultrathin</tspan><tspan dy="1.542em" x="369.777" class="cls-12">thin italic</tspan><tspan dy="1.542em" x="369.777" class="cls-13">medium</tspan><tspan dy="1.542em" x="369.777" class="cls-14">light oblique</tspan><tspan dy="1.542em" x="369.777" class="cls-15">book</tspan><tspan dy="1.542em" x="369.777" class="cls-16">slanted</tspan></text>
+  <text class="cls-1" x="86.777" y="285.703"><tspan class="cls-2" x="86.777">2</tspan></text>
+  <text class="cls-1" x="86.777" y="413.703"><tspan class="cls-3" x="86.777">3</tspan></text>
+  <text class="cls-1" x="86.777" y="538.703"><tspan class="cls-4" x="86.777">4</tspan></text>
+  <text class="cls-1" x="86.777" y="669.703"><tspan class="cls-5" x="86.777">5</tspan></text>
+  <text class="cls-1" x="86.777" y="794.703"><tspan class="cls-6" x="86.777">6</tspan></text>
+  <text class="cls-1" x="86.777" y="919.703"><tspan class="cls-7" x="86.777">7</tspan></text>
+  <text class="cls-1" x="86.777" y="149.703"><tspan class="cls-8" x="86.777">1</tspan></text>
+  <text class="cls-9" x="369.777" y="127.703"><tspan class="cls-10">thin</tspan><tspan class="cls-11" dy="1.542em" x="369.777">ultrathin</tspan><tspan class="cls-12" dy="1.542em" x="369.777">thin italic</tspan><tspan class="cls-13" dy="1.542em" x="369.777">medium</tspan><tspan class="cls-14" dy="1.542em" x="369.777">light oblique</tspan><tspan class="cls-15" dy="1.542em" x="369.777">book</tspan><tspan class="cls-16" dy="1.542em" x="369.777">slanted</tspan></text>
 </svg>

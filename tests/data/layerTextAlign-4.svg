@@ -13,5 +13,5 @@
       }
     </style>
   </defs>
-  <text x="229.617" y="27.742" class="cls-1"><tspan x="229.617" class="cls-2">right aligned</tspan></text>
+  <text class="cls-1" x="229.617" y="27.742"><tspan class="cls-2" x="229.617">right aligned</tspan></text>
 </svg>

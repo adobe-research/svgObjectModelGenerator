@@ -34,16 +34,16 @@
       <stop offset="0.857" stop-color="#ff9522"/>
       <stop offset="1" stop-color="#ff931e"/>
     </radialGradient>
-    <pattern x="-69.227" y="-45.712" width="79.03" height="84.333" viewBox="-69.227 -130.045 79.03 84.333" patternUnits="userSpaceOnUse" id="new_pattern_3-1">
+    <pattern id="new_pattern_3-1" x="-69.227" y="-45.712" width="79.03" height="84.333" viewBox="-69.227 -130.045 79.03 84.333" patternUnits="userSpaceOnUse">
       <g>
-        <rect x="-69.227" y="-130.045" width="79.03" height="84.333" class="cls-1"/>
-        <rect x="-68.727" y="-129.545" width="78.03" height="83.333" class="cls-2"/>
+        <rect class="cls-1" x="-69.227" y="-130.045" width="79.03" height="84.333"/>
+        <rect class="cls-2" x="-68.727" y="-129.545" width="78.03" height="83.333"/>
       </g>
     </pattern>
     <radialGradient id="radial-gradient-2" cx="39.515" cy="42.167" r="40.363" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#radial-gradient-1"/>
   </defs>
   <g>
-    <rect x="291.409" y="161.864" width="259.848" height="259.848" class="cls-3"/>
-    <rect x="0.5" y="0.5" width="78.03" height="83.333" class="cls-4"/>
+    <rect class="cls-3" x="291.409" y="161.864" width="259.848" height="259.848"/>
+    <rect class="cls-4" x="0.5" y="0.5" width="78.03" height="83.333"/>
   </g>
 </svg>

@@ -7,7 +7,7 @@
       }
     </style>
 
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feFlood result="flood-1" flood-color="#d42020"/>
       <feComposite result="composite-1" operator="in" in2="SourceAlpha"/>
       <feOffset result="offset-1" dx="-13.641" dy="24.453"/>
@@ -22,5 +22,5 @@
       <feBlend result="blend-1" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <rect x="200" y="225" width="300" height="150" class="cls-1"/>
+  <rect class="cls-1" x="200" y="225" width="300" height="150"/>
 </svg>

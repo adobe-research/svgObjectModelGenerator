@@ -19,14 +19,14 @@
       }
     </style>
 
-    <filter filterUnits="userSpaceOnUse" id="filter-1">
+    <filter id="filter-1" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="5.196" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="in" in2="blur-1"/>
       <feOffset result="offset-1" dx="10.103" dy="8.181"/>
       <feBlend result="blend-1" in="SourceGraphic"/>
     </filter>
-    <filter filterUnits="userSpaceOnUse" id="filter-2">
+    <filter id="filter-2" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur-1" stdDeviation="4.583" in="SourceAlpha"/>
       <feFlood result="flood-1" flood-color="#0036ff" flood-opacity="0.75"/>
       <feComposite result="composite-1" operator="out" in2="blur-1"/>
@@ -36,9 +36,9 @@
     </filter>
   </defs>
   <g class="cls-1">
-    <rect x="100" y="100" width="200" height="200" class="cls-2"/>
+    <rect class="cls-2" x="100" y="100" width="200" height="200"/>
     <g style="fill: #2ccf26; filter: url(#filter-2)">
-      <rect x="200" y="200" width="200" height="200" id="rect-1" style="stroke: inherit; filter: none; fill: inherit" class="cls-3"/>
+      <rect id="rect-1" class="cls-3" x="200" y="200" width="200" height="200" style="stroke: inherit; filter: none; fill: inherit"/>
     </g>
     <use xlink:href="#rect-1" style="stroke: #f26522; filter: none; fill: none"/>
   </g>

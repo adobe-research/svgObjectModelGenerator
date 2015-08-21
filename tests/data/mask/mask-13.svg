@@ -72,103 +72,103 @@
     <radialGradient id="radial-gradient-3" cx="464.462" r="49.679" xlink:href="#radial-gradient-1"/>
     <radialGradient id="radial-gradient-4" cx="104.526" cy="280.885" r="49.679" xlink:href="#radial-gradient-1"/>
     <radialGradient id="radial-gradient-5" cx="104.526" r="49.679" xlink:href="#radial-gradient-1"/>
-    <mask x="221.282" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse" id="mask-1">
-      <circle cx="276.962" cy="109.731" r="49.679" class="cls-1"/>
+    <mask id="mask-1" x="221.282" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse">
+      <circle class="cls-1" cx="276.962" cy="109.731" r="49.679"/>
     </mask>
     <filter id="luminosity-noclip-1" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="SourceGraphic" in2="bg"/>
     </filter>
-    <mask maskUnits="userSpaceOnUse" id="mask-2">
-      <circle cx="276.962" cy="280.885" r="49.679" class="cls-2"/>
+    <mask id="mask-2" maskUnits="userSpaceOnUse">
+      <circle class="cls-2" cx="276.962" cy="280.885" r="49.679"/>
     </mask>
     <filter id="luminosity-invert-1" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
     </filter>
-    <mask x="408.782" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse" id="mask-3">
-      <circle cx="464.462" cy="109.731" r="49.679" class="cls-3"/>
+    <mask id="mask-3" x="408.782" y="54.051" width="111.359" height="111.359" maskUnits="userSpaceOnUse">
+      <circle class="cls-3" cx="464.462" cy="109.731" r="49.679"/>
     </mask>
     <filter id="luminosity-invert-noclip-1" width="100%" height="100%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0" result="invert"/>
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="invert" in2="bg"/>
     </filter>
-    <mask maskUnits="userSpaceOnUse" id="mask-4">
-      <circle cx="104.526" cy="280.885" r="49.679" class="cls-4"/>
+    <mask id="mask-4" maskUnits="userSpaceOnUse">
+      <circle class="cls-4" cx="104.526" cy="280.885" r="49.679"/>
     </mask>
   </defs>
   <g>
     <g>
-      <rect x="29.846" y="35.051" width="149.359" height="149.359" class="cls-5"/>
+      <rect class="cls-5" x="29.846" y="35.051" width="149.359" height="149.359"/>
       <g>
-        <polyline points="179.205 178.41 179.205 184.41 173.205 184.41" class="cls-6"/>
-        <line x1="160.718" y1="184.41" x2="42.09" y2="184.41" class="cls-7"/>
-        <polyline points="35.846 184.41 29.846 184.41 29.846 178.41" class="cls-6"/>
-        <line x1="29.846" y1="165.923" x2="29.846" y2="47.295" class="cls-7"/>
-        <polyline points="29.846 41.051 29.846 35.051 35.846 35.051" class="cls-6"/>
-        <line x1="48.333" y1="35.051" x2="166.962" y2="35.051" class="cls-7"/>
-        <polyline points="173.205 35.051 179.205 35.051 179.205 41.051" class="cls-6"/>
-        <line x1="179.205" y1="53.538" x2="179.205" y2="172.167" class="cls-7"/>
+        <polyline class="cls-6" points="179.205 178.41 179.205 184.41 173.205 184.41"/>
+        <line class="cls-7" x1="160.718" y1="184.41" x2="42.09" y2="184.41"/>
+        <polyline class="cls-6" points="35.846 184.41 29.846 184.41 29.846 178.41"/>
+        <line class="cls-7" x1="29.846" y1="165.923" x2="29.846" y2="47.295"/>
+        <polyline class="cls-6" points="29.846 41.051 29.846 35.051 35.846 35.051"/>
+        <line class="cls-7" x1="48.333" y1="35.051" x2="166.962" y2="35.051"/>
+        <polyline class="cls-6" points="173.205 35.051 179.205 35.051 179.205 41.051"/>
+        <line class="cls-7" x1="179.205" y1="53.538" x2="179.205" y2="172.167"/>
       </g>
     </g>
-    <circle cx="104.526" cy="109.731" r="49.679" class="cls-8"/>
+    <circle class="cls-8" cx="104.526" cy="109.731" r="49.679"/>
     <g class="cls-9">
       <g>
-        <rect x="202.282" y="35.051" width="149.359" height="149.359" class="cls-5"/>
+        <rect class="cls-5" x="202.282" y="35.051" width="149.359" height="149.359"/>
         <g>
-          <polyline points="351.641 178.41 351.641 184.41 345.641 184.41" class="cls-6"/>
-          <line x1="333.154" y1="184.41" x2="214.526" y2="184.41" class="cls-7"/>
-          <polyline points="208.282 184.41 202.282 184.41 202.282 178.41" class="cls-6"/>
-          <line x1="202.282" y1="165.923" x2="202.282" y2="47.295" class="cls-7"/>
-          <polyline points="202.282 41.051 202.282 35.051 208.282 35.051" class="cls-6"/>
-          <line x1="220.769" y1="35.051" x2="339.397" y2="35.051" class="cls-7"/>
-          <polyline points="345.641 35.051 351.641 35.051 351.641 41.051" class="cls-6"/>
-          <line x1="351.641" y1="53.538" x2="351.641" y2="172.167" class="cls-7"/>
+          <polyline class="cls-6" points="351.641 178.41 351.641 184.41 345.641 184.41"/>
+          <line class="cls-7" x1="333.154" y1="184.41" x2="214.526" y2="184.41"/>
+          <polyline class="cls-6" points="208.282 184.41 202.282 184.41 202.282 178.41"/>
+          <line class="cls-7" x1="202.282" y1="165.923" x2="202.282" y2="47.295"/>
+          <polyline class="cls-6" points="202.282 41.051 202.282 35.051 208.282 35.051"/>
+          <line class="cls-7" x1="220.769" y1="35.051" x2="339.397" y2="35.051"/>
+          <polyline class="cls-6" points="345.641 35.051 351.641 35.051 351.641 41.051"/>
+          <line class="cls-7" x1="351.641" y1="53.538" x2="351.641" y2="172.167"/>
         </g>
       </g>
     </g>
     <g class="cls-10">
       <g>
-        <rect x="202.282" y="206.205" width="149.359" height="149.359" class="cls-5"/>
+        <rect class="cls-5" x="202.282" y="206.205" width="149.359" height="149.359"/>
         <g>
-          <polyline points="351.641 349.564 351.641 355.564 345.641 355.564" class="cls-6"/>
-          <line x1="333.154" y1="355.564" x2="214.526" y2="355.564" class="cls-7"/>
-          <polyline points="208.282 355.564 202.282 355.564 202.282 349.564" class="cls-6"/>
-          <line x1="202.282" y1="337.077" x2="202.282" y2="218.449" class="cls-7"/>
-          <polyline points="202.282 212.205 202.282 206.205 208.282 206.205" class="cls-6"/>
-          <line x1="220.769" y1="206.205" x2="339.397" y2="206.205" class="cls-7"/>
-          <polyline points="345.641 206.205 351.641 206.205 351.641 212.205" class="cls-6"/>
-          <line x1="351.641" y1="224.692" x2="351.641" y2="343.32" class="cls-7"/>
+          <polyline class="cls-6" points="351.641 349.564 351.641 355.564 345.641 355.564"/>
+          <line class="cls-7" x1="333.154" y1="355.564" x2="214.526" y2="355.564"/>
+          <polyline class="cls-6" points="208.282 355.564 202.282 355.564 202.282 349.564"/>
+          <line class="cls-7" x1="202.282" y1="337.077" x2="202.282" y2="218.449"/>
+          <polyline class="cls-6" points="202.282 212.205 202.282 206.205 208.282 206.205"/>
+          <line class="cls-7" x1="220.769" y1="206.205" x2="339.397" y2="206.205"/>
+          <polyline class="cls-6" points="345.641 206.205 351.641 206.205 351.641 212.205"/>
+          <line class="cls-7" x1="351.641" y1="224.692" x2="351.641" y2="343.32"/>
         </g>
       </g>
     </g>
     <g class="cls-11">
       <g>
-        <rect x="389.782" y="35.051" width="149.359" height="149.359" class="cls-5"/>
+        <rect class="cls-5" x="389.782" y="35.051" width="149.359" height="149.359"/>
         <g>
-          <polyline points="539.141 178.41 539.141 184.41 533.141 184.41" class="cls-6"/>
-          <line x1="520.654" y1="184.41" x2="402.026" y2="184.41" class="cls-7"/>
-          <polyline points="395.782 184.41 389.782 184.41 389.782 178.41" class="cls-6"/>
-          <line x1="389.782" y1="165.923" x2="389.782" y2="47.295" class="cls-7"/>
-          <polyline points="389.782 41.051 389.782 35.051 395.782 35.051" class="cls-6"/>
-          <line x1="408.269" y1="35.051" x2="526.897" y2="35.051" class="cls-7"/>
-          <polyline points="533.141 35.051 539.141 35.051 539.141 41.051" class="cls-6"/>
-          <line x1="539.141" y1="53.538" x2="539.141" y2="172.167" class="cls-7"/>
+          <polyline class="cls-6" points="539.141 178.41 539.141 184.41 533.141 184.41"/>
+          <line class="cls-7" x1="520.654" y1="184.41" x2="402.026" y2="184.41"/>
+          <polyline class="cls-6" points="395.782 184.41 389.782 184.41 389.782 178.41"/>
+          <line class="cls-7" x1="389.782" y1="165.923" x2="389.782" y2="47.295"/>
+          <polyline class="cls-6" points="389.782 41.051 389.782 35.051 395.782 35.051"/>
+          <line class="cls-7" x1="408.269" y1="35.051" x2="526.897" y2="35.051"/>
+          <polyline class="cls-6" points="533.141 35.051 539.141 35.051 539.141 41.051"/>
+          <line class="cls-7" x1="539.141" y1="53.538" x2="539.141" y2="172.167"/>
         </g>
       </g>
     </g>
     <g class="cls-12">
       <g>
-        <rect x="29.846" y="206.205" width="149.359" height="149.359" class="cls-5"/>
+        <rect class="cls-5" x="29.846" y="206.205" width="149.359" height="149.359"/>
         <g>
-          <polyline points="179.205 349.564 179.205 355.564 173.205 355.564" class="cls-6"/>
-          <line x1="160.718" y1="355.564" x2="42.09" y2="355.564" class="cls-7"/>
-          <polyline points="35.846 355.564 29.846 355.564 29.846 349.564" class="cls-6"/>
-          <line x1="29.846" y1="337.077" x2="29.846" y2="218.449" class="cls-7"/>
-          <polyline points="29.846 212.205 29.846 206.205 35.846 206.205" class="cls-6"/>
-          <line x1="48.333" y1="206.205" x2="166.962" y2="206.205" class="cls-7"/>
-          <polyline points="173.205 206.205 179.205 206.205 179.205 212.205" class="cls-6"/>
-          <line x1="179.205" y1="224.692" x2="179.205" y2="343.32" class="cls-7"/>
+          <polyline class="cls-6" points="179.205 349.564 179.205 355.564 173.205 355.564"/>
+          <line class="cls-7" x1="160.718" y1="355.564" x2="42.09" y2="355.564"/>
+          <polyline class="cls-6" points="35.846 355.564 29.846 355.564 29.846 349.564"/>
+          <line class="cls-7" x1="29.846" y1="337.077" x2="29.846" y2="218.449"/>
+          <polyline class="cls-6" points="29.846 212.205 29.846 206.205 35.846 206.205"/>
+          <line class="cls-7" x1="48.333" y1="206.205" x2="166.962" y2="206.205"/>
+          <polyline class="cls-6" points="173.205 206.205 179.205 206.205 179.205 212.205"/>
+          <line class="cls-7" x1="179.205" y1="224.692" x2="179.205" y2="343.32"/>
         </g>
       </g>
     </g>

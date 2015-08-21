@@ -18,5 +18,5 @@
 
     <path id="text-path-1" d="M145.08,123.12c31.613,0,57.24,17.568,57.24,39.24s-25.627,39.24-57.24,39.24-57.24-17.568-57.24-39.24Z"/>
   </defs>
-  <text class="cls-1"><textPath xlink:href="#text-path-1" startOffset="100%" class="cls-2"><tspan class="cls-3">Text on Path</tspan></textPath></text>
+  <text class="cls-1"><textPath class="cls-2" xlink:href="#text-path-1" startOffset="100%"><tspan class="cls-3">Text on Path</tspan></textPath></text>
 </svg>
