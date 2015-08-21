@@ -633,7 +633,7 @@
             });
             Object.keys(global.symbols || {}).forEach(function (key) {
                 ctx.currentOMNode = global.symbols[key];
-                self.processSVGNode(genID, ctx);
+                self.processSVGNode(genID, ctx, true);
             });
             ctx.currentOMNode = omSave;
             this.processSVGNode(genID, ctx);

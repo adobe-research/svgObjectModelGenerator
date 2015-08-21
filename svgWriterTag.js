@@ -798,11 +798,9 @@
             return use;
         },
         symbol: function (ctx, node) {
-            var attr = {},
-                offsetX = (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0),
-                offsetY = (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
+            var attr = {};
             if (node.viewBox) {
-                attr.viewBox = [node.viewBox.left + offsetX, node.viewBox.top + offsetY, node.viewBox.right, node.viewBox.bottom];
+                attr.viewBox = [node.viewBox.left || 0, node.viewBox.top || 0, node.viewBox.right, node.viewBox.bottom];
             }
             return new Tag("symbol", attr, ctx);
         },
