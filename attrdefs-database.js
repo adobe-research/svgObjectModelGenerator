@@ -216,6 +216,8 @@ module.exports = {
         "font-style": ["normal", "string"],
         "font-variant": ["normal", "string"],
         "font-weight": ["400", "string"],
+        "glyph-orientation-horizontal": ["auto", "string"],
+        "glyph-orientation-vertical": ["auto", "string"],
         "image-rendering": ["auto", "string"],
         "kerning": ["auto", "string"],
         "letter-spacing": [0, "number"], // letter-spacing could be string in CSS but OMG doesn't accept strings.
@@ -240,6 +242,7 @@ module.exports = {
         "stroke": ["none", "color"],
         "text-anchor": ["start", "string"],
         "text-decoration": ["none", "string"],
+        "text-orientation": ["mixed", "string"],
         "text-rendering": ["auto", "string"],
         "unicode-bidi": ["normal", "string"],
         "visibility": ["visible", "string"],

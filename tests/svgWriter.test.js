@@ -867,5 +867,8 @@ describe("svgWriter", function () {
         it("Test letter-spacing", function () {
             compareResults("positioned-text7");
         });
+        it("Test glyph orientation", function () {
+            compareResults("positioned-text8");
+        });
     });
 });
