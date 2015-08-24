@@ -657,8 +657,12 @@
                     paraLen = node.paragraphs && node.paragraphs.length;
                 if (textFrame.direction && textFrame.direction.substring(0, 8) == "vertical") {
                     tag.styleBlock.addRule("writing-mode", "tb");
-                    tag.styleBlock.addRule("glyph-orientation-vertical", 0);
-                    tag.styleBlock.addRule("text-orientation", "upright");
+                    // ATE does not support "sideways" on horizontal text. Skip support
+                    // for it here as well for now.
+                    if (textFrame.glyphOrientation != "sideways") {
+                        tag.styleBlock.addRule("glyph-orientation-vertical", 0);
+                        tag.styleBlock.addRule("text-orientation", "upright");
+                    }
                 }
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],

@@ -1,0 +1,361 @@
+{
+	"children": [
+		{
+			"children": [
+				{
+					"kind": "positioned",
+					"paragraphs": [
+						{
+							"lines": [
+								[
+									{
+										"from": 0,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 7
+									},
+									{
+										"from": 7,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 9,
+										"x": 0.0000305176,
+										"y": 84
+									},
+									{
+										"from": 9,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 13,
+										"x": 0,
+										"y": 89.0879
+									}
+								]
+							]
+						}
+					],
+					"raw-text": "Upright  text",
+					"text-frame": {
+						"direction": "vertical-rl",
+						"glyphOrientation": "upright",
+						"height": 137.088,
+						"path": "",
+						"width": 12
+					},
+					"transform": {
+						"a": 1,
+						"b": 0,
+						"c": 0,
+						"d": 1,
+						"e": 174.316,
+						"f": 189.403
+					},
+					"type": "text"
+				},
+				{
+					"kind": "positioned",
+					"paragraphs": [
+						{
+							"lines": [
+								[
+									{
+										"from": 0,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 4
+									},
+									{
+										"from": 4,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 5,
+										"x": 0,
+										"y": 21.5039
+									},
+									{
+										"from": 5,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 6,
+										"x": 0,
+										"y": 30.2876
+									},
+									{
+										"from": 6,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 7,
+										"x": 0,
+										"y": 35.9756
+									},
+									{
+										"from": 7,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 10,
+										"x": 0,
+										"y": 41.5557
+									},
+									{
+										"from": 10,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 11,
+										"x": 0,
+										"y": 51.3955
+									},
+									{
+										"from": 11,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 12,
+										"x": 0,
+										"y": 55.2954
+									},
+									{
+										"from": 12,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 13,
+										"x": 0,
+										"y": 61.2715
+									},
+									{
+										"from": 13,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 14,
+										"x": 0,
+										"y": 66.9829
+									}
+								]
+							]
+						}
+					],
+					"raw-text": "Sideways  text",
+					"text-frame": {
+						"direction": "vertical-rl",
+						"height": 70.9551,
+						"path": "",
+						"width": 12.6958,
+						"glyphOrientation": "sideways"
+					},
+					"transform": {
+						"a": 1,
+						"b": 0,
+						"c": 0,
+						"d": 1,
+						"e": 267.298,
+						"f": 189.403
+					},
+					"type": "text"
+				}
+			],
+			"name": "Layer 1",
+			"type": "group"
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"global": {
+		"bounds": {
+			"bottom": 720,
+			"left": 0,
+			"right": 720,
+			"top": 0
+		}
+	},
+	"name": "Untitled-1",
+	"version": "0.1.0"
+}
