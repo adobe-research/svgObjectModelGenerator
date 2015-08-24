@@ -207,25 +207,57 @@
                 }
             },
             shiftTextBounds = function (ctx, omIn, nested) {
-                // Translate AGC text with a transform for now.
-                // FIXME: Propagate translation into the tspans in the future.
-                if (omIn["raw-text"]) {
-                    omIn.transform = omIn.transform || matrix.createMatrix();
-                    omIn.transformTX = ctx._shiftContentX;
-                    omIn.transformTY = ctx._shiftContentY;
-                    return;
-                }
+                var frame = omIn["text-frame"],
+                    rawText = omIn["raw-text"],
+                    offsetX = ctx._shiftContentX + (ctx._shiftCropRectX || 0),
+                    offsetY = ctx._shiftContentY + (ctx._shiftCropRectY || 0);
 
-                omIn.shifted = true;
-                // FIXME: Remove old text code when PS transitioned to AGC text.
-                if (omIn.transform) {
-                    omIn.transformTX += ctx._shiftContentX;
-                    omIn.transformTY += ctx._shiftContentY;
+                if (omIn.transform || omIn.kind == "path") {
+                    omIn.transform = omIn.transform || matrix.createMatrix();
+                    // FIXME: Old text code used `+=`. However, for new code transformTX/transformTY
+                    // are not set. Replace with `=` once we remove the old code.
+                    omIn.transformTX = (omIn.transformTX || 0) + ctx._shiftContentX;
+                    omIn.transformTY = (omIn.transformTY || 0) + ctx._shiftContentY;
 
                     if (omIn.children) {
                         omIn.children.forEach(function (chld) {
                             chld._hasParentTXFM = true;
                         });
+                    }
+                    return;
+                }
+
+                if (rawText) {
+                    if (frame) {
+                        if (isFinite(frame.x)) {
+                            frame.x += offsetX;
+                        }
+                        if (isFinite(frame.y)) {
+                            frame.y += offsetY;
+                        }
+                    }
+                    if (omIn.paragraphs && omIn.paragraphs.length) {
+                        for (var i = 0; i < omIn.paragraphs.length; i++) {
+                            var paragraph = omIn.paragraphs[i];
+                            if (!paragraph.lines || !paragraph.lines.length) {
+                                continue;
+                            }
+                            for (var j = 0; j < paragraph.lines.length; j++) {
+                                var line = paragraph.lines[j];
+                                if (!line || !line.length) {
+                                    continue;
+                                }
+                                for (var k = 0; k < line.length; k++) {
+                                    var glyphRun = line[k];
+                                    if (isFinite(glyphRun.x)) {
+                                        glyphRun.x += offsetX;
+                                    }
+                                    if (isFinite(glyphRun.y)) {
+                                        glyphRun.y += offsetY;
+                                    }
+                                }
+                            }
+                        }
                     }
                 } else if (omIn.position) {
                     if (!nested) {
@@ -260,6 +292,7 @@
                         }
                     }
                 }
+                omIn.shifted = true;
             },
             shiftShapeOrGroupPosition = function (ctx, omIn) {
                 var shape = omIn.shape,
