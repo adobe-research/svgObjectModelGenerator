@@ -227,14 +227,14 @@
                     return;
                 }
 
+                if (!offsetX && !offsetY) {
+                    return;
+                }
+
                 if (rawText) {
                     if (frame) {
-                        if (isFinite(frame.x)) {
-                            frame.x += offsetX;
-                        }
-                        if (isFinite(frame.y)) {
-                            frame.y += offsetY;
-                        }
+                        frame.x = (frame.x || 0) + offsetX;
+                        frame.y = (frame.y || 0) + offsetY;
                     }
                     if (omIn.paragraphs && omIn.paragraphs.length) {
                         for (var i = 0; i < omIn.paragraphs.length; i++) {
