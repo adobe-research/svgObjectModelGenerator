@@ -3,8 +3,8 @@
     <style>
       .cls-1 {
         writing-mode: tb;
-        glyph-orientation-vertical: 0;
         text-orientation: upright;
+        glyph-orientation-vertical: 0deg;
         font-size: 12px;
         font-family: Comic Sans MS;
       }

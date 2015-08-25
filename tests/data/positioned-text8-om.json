@@ -6,6 +6,11 @@
 					"kind": "positioned",
 					"paragraphs": [
 						{
+							"style": {
+								"text-attributes": {
+									"glyphOrientation": "upright"
+								}
+							},
 							"lines": [
 								[
 									{
@@ -65,6 +70,90 @@
 												},
 												"type": "solid"
 											},
+											"text-attributes": {
+												"glyphOrientation": "sideways-right"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 10,
+										"x": 0.0000305176,
+										"y": 89.0879
+									},
+									{
+										"from": 10,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"text-attributes": {
+												"glyphOrientation": "sideways-right"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 11,
+										"x": 0.0000305176,
+										"y": 92.9878
+									},
+									{
+										"from": 11,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"text-attributes": {
+												"glyphOrientation": "sideways-right"
+											},
+											"font": {
+												"family": "MyriadPro-Regular",
+												"postScript-name": "",
+												"size": 12,
+												"style": "normal",
+												"typeKit-id": "",
+												"variant": "all-caps"
+											}
+										},
+										"to": 12,
+										"x": 0.0000305176,
+										"y": 98.9639
+									},
+									{
+										"from": 12,
+										"style": {
+											"fill": {
+												"color": {
+													"b": 0,
+													"g": 0,
+													"r": 0
+												},
+												"type": "solid"
+											},
+											"text-attributes": {
+												"glyphOrientation": "sideways-right"
+											},
 											"font": {
 												"family": "MyriadPro-Regular",
 												"postScript-name": "",
@@ -75,8 +164,8 @@
 											}
 										},
 										"to": 13,
-										"x": 0,
-										"y": 89.0879
+										"x": 0.0000305176,
+										"y": 104.676
 									}
 								]
 							]
@@ -85,8 +174,7 @@
 					"raw-text": "Upright  text",
 					"text-frame": {
 						"direction": "vertical-rl",
-						"glyphOrientation": "upright",
-						"height": 137.088,
+						"height": 108.647,
 						"path": "",
 						"width": 12
 					},
@@ -104,6 +192,11 @@
 					"kind": "positioned",
 					"paragraphs": [
 						{
+							"style": {
+								"text-attributes": {
+									"glyphOrientation": "sideways-right"
+								}
+							},
 							"lines": [
 								[
 									{
@@ -235,77 +328,8 @@
 												},
 												"type": "solid"
 											},
-											"font": {
-												"family": "MyriadPro-Regular",
-												"postScript-name": "",
-												"size": 12,
-												"style": "normal",
-												"typeKit-id": "",
-												"variant": "all-caps"
-											}
-										},
-										"to": 11,
-										"x": 0,
-										"y": 51.3955
-									},
-									{
-										"from": 11,
-										"style": {
-											"fill": {
-												"color": {
-													"b": 0,
-													"g": 0,
-													"r": 0
-												},
-												"type": "solid"
-											},
-											"font": {
-												"family": "MyriadPro-Regular",
-												"postScript-name": "",
-												"size": 12,
-												"style": "normal",
-												"typeKit-id": "",
-												"variant": "all-caps"
-											}
-										},
-										"to": 12,
-										"x": 0,
-										"y": 55.2954
-									},
-									{
-										"from": 12,
-										"style": {
-											"fill": {
-												"color": {
-													"b": 0,
-													"g": 0,
-													"r": 0
-												},
-												"type": "solid"
-											},
-											"font": {
-												"family": "MyriadPro-Regular",
-												"postScript-name": "",
-												"size": 12,
-												"style": "normal",
-												"typeKit-id": "",
-												"variant": "all-caps"
-											}
-										},
-										"to": 13,
-										"x": 0,
-										"y": 61.2715
-									},
-									{
-										"from": 13,
-										"style": {
-											"fill": {
-												"color": {
-													"b": 0,
-													"g": 0,
-													"r": 0
-												},
-												"type": "solid"
+											"text-attributes": {
+												"glyphOrientation": "upright"
 											},
 											"font": {
 												"family": "MyriadPro-Regular",
@@ -317,8 +341,8 @@
 											}
 										},
 										"to": 14,
-										"x": 0,
-										"y": 66.9829
+										"x": -0.0000305176,
+										"y": 51.3955
 									}
 								]
 							]
@@ -327,10 +351,9 @@
 					"raw-text": "Sideways  text",
 					"text-frame": {
 						"direction": "vertical-rl",
-						"height": 70.9551,
+						"height": 99.3955,
 						"path": "",
-						"width": 12.6958,
-						"glyphOrientation": "sideways"
+						"width": 12.6958
 					},
 					"transform": {
 						"a": 1,
@@ -347,7 +370,6 @@
 			"type": "group"
 		}
 	],
-	"desc": "Created by Adobe Illustrator",
 	"global": {
 		"bounds": {
 			"bottom": 720,
@@ -356,6 +378,5 @@
 			"top": 0
 		}
 	},
-	"name": "Untitled-1",
 	"version": "0.1.0"
 }
