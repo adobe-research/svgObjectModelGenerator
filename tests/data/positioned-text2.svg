@@ -9,7 +9,5 @@
   </defs>
   <title>newlines</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <text class="cls-1" transform="translate(77.977 82.114)">this is the 1st line<tspan x="0" y="14.4">this is the 2nd line</tspan><tspan x="0" y="43.2">this is the 4th line</tspan></text>
-  </g>
+  <text class="cls-1" transform="translate(77.977 82.114)">this is the 1st line<tspan x="0" y="14.4">this is the 2nd line</tspan><tspan x="0" y="43.2">this is the 4th line</tspan></text>
 </svg>

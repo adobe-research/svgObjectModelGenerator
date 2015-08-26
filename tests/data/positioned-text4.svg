@@ -11,7 +11,5 @@
   </defs>
   <title>sample_text</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <text class="cls-1" transform="translate(0 31.836)">Sample text</text>
-  </g>
+  <text class="cls-1" transform="translate(0 31.836)">Sample text</text>
 </svg>
