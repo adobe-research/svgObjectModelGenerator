@@ -125,6 +125,9 @@
                 if (omIn.style["text-attributes"]["letter-spacing"]) {
                     styleBlock.addRule("letter-spacing", omIn.style["text-attributes"]["letter-spacing"] + "px");
                 }
+                if (omIn.style["text-attributes"].glyphOrientation == "sideways-right") {
+                    styleBlock.addRule("text-orientation", "sideways-right");
+                }
             }
 
             Object.keys(omIn.style).forEach(function (property) {

@@ -647,6 +647,21 @@
             return tag.useTrick(ctx);
         },
         text: function (ctx, node) {
+            function setGlyphOrientation(tag, isVertical) {
+                var style = tag.styleBlock;
+                // ATE does not support "sideways" on horizontal text. Skip support
+                // for it here as well for now.
+                if (!isVertical) {
+                    style.removeRule("text-orientation");
+                    return;
+                }
+                if (style.getPropertyValue("text-orientation") != "sideways-right") {
+                    style.addRule("text-orientation", "upright");
+                    style.addRule("glyph-orientation-vertical", "0deg");
+                } else {
+                    style.addRule("glyph-orientation-vertical", "90deg");
+                }
+            }
             var textFrame = node["text-frame"];
             if (node.kind == "positioned") {
                 var tag = new Tag("text", {
@@ -654,19 +669,17 @@
                         y: textFrame.y,
                         transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                     }, ctx),
-                    paraLen = node.paragraphs && node.paragraphs.length;
+                    paraLen = node.paragraphs && node.paragraphs.length,
+                    isVertical = false;
                 if (textFrame.direction && textFrame.direction.substring(0, 8) == "vertical") {
                     tag.styleBlock.addRule("writing-mode", "tb");
-                    // ATE does not support "sideways" on horizontal text. Skip support
-                    // for it here as well for now.
-                    if (textFrame.glyphOrientation != "sideways") {
-                        tag.styleBlock.addRule("glyph-orientation-vertical", 0);
-                        tag.styleBlock.addRule("text-orientation", "upright");
-                    }
+                    isVertical = true;
                 }
+                setGlyphOrientation(tag, isVertical);
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);
+                        setGlyphOrientation(p, isVertical);
                     for (var j = 0; j < para.lines.length; j++) {
                         var lineNode = para.lines[j];
                         for (var k = 0; k < lineNode.length; k++) {
@@ -678,6 +691,7 @@
                                     rotate: glyph.rotate
                                 }, ctx, glyph);
                             glyphRun.appendChild(new Tag("#text", glyphText));
+                            setGlyphOrientation(glyphRun, isVertical);
                             p.appendChild(glyphRun);
                         }
                     }

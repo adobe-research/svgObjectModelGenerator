@@ -2,6 +2,6 @@
   <title>vertical</title>
   <desc>Created by Adobe Illustrator</desc>
   <g id="Layer_1" data-name="Layer 1">
-    <text transform="translate(208.659 107.114)" writing-mode="tb" glyph-orientation-vertical="0" font-size="12" font-family="Comic Sans MS" style="text-orientation: upright">Vertical<tspan x="0" y="96"> </tspan><tspan x="0" y="99.586">text</tspan></text>
+    <text transform="translate(208.659 107.114)" writing-mode="tb" glyph-orientation-vertical="0deg" font-size="12" font-family="Comic Sans MS" style="text-orientation: upright">Vertical<tspan x="0" y="96"> </tspan><tspan x="0" y="99.586">text</tspan></text>
   </g>
 </svg>
