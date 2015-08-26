@@ -59,10 +59,14 @@
         },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
-                var mom = parents[parents.length - 1];
-                if (tag.name != "g" || tag.isArtboard || tag.children.length > 1 && !ctx.minify) {
+                var mom = parents[parents.length - 1],
+                    isSubTree = mom && mom.name && mom.children && mom.children.length == 1 &&
+                        (mom.name == "pattern" || mom.name == "symbol" || mom.name == "mask");
+                
+                if (tag.name != "g" || tag.isArtboard || tag.children.length > 1 && !ctx.minify && !isSubTree) {
                     return;
                 }
+
                 if (tag.children.length &&
                     !((!tag.styleBlock || !tag.styleBlock.hasRules()) &&
                     tag.getAttribute("transform") == "" &&
