@@ -13,7 +13,6 @@
         fill: url(#linear-gradient-3);
       }
     </style>
-
     <linearGradient id="linear-gradient" x1="350" y1="150" x2="450" y2="50" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.15" stop-color="#f0f"/>

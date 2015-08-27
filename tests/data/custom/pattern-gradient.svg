@@ -22,7 +22,6 @@
         fill: url(#Summer-2);
       }
     </style>
-
     <radialGradient id="Summer" cx="39.515" cy="-16899.8" r="40.363" gradientTransform="matrix(1, 0, 0, -1, 0, -16942)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="0.085" stop-color="#ffedd8"/>

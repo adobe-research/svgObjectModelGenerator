@@ -328,7 +328,6 @@
 
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
-            this.hasDefines() && writeln(ctx);
         };
 
         proto.extract = function (blocks) {

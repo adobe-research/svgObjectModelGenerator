@@ -21,7 +21,6 @@
         mask: url(#mask-2);
       }
     </style>
-
     <mask id="mask" style="mask-type:alpha">
       <circle id="Circle" class="cls-1" cx="215" cy="245" r="94"/>
     </mask>

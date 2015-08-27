@@ -37,7 +37,6 @@
         filter: url(#filter-7);
       }
     </style>
-
     <filter id="filter" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" in="SourceAlpha"/>
       <feFlood result="flood" flood-color="lime"/>

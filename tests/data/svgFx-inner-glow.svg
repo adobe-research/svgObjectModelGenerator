@@ -13,7 +13,6 @@
         filter: url(#filter-2);
       }
     </style>
-
     <filter id="filter" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="12.667" in="SourceAlpha"/>
       <feColorMatrix result="color" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>

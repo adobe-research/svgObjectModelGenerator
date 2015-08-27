@@ -16,7 +16,6 @@
         mask: url(#mask);
       }
     </style>
-
     <filter id="luminosity-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="SourceGraphic" in2="bg"/>

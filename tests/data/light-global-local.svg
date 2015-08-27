@@ -25,7 +25,6 @@
         filter: url(#filter-4);
       }
     </style>
-
     <filter id="filter" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood" flood-opacity="0.75"/>

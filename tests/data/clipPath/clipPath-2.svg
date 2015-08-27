@@ -17,7 +17,6 @@
         clip-path: url(#clip-path);
       }
     </style>
-
     <clipPath id="clip-path">
       <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="309" cy="245" r="94"/>
     </clipPath>

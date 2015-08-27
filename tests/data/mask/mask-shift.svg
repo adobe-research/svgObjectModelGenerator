@@ -15,7 +15,6 @@
         mask: url(#mask-2);
       }
     </style>
-
     <mask id="mask">
       <g transform="translate(-50 -50)">
         <circle class="cls-1" cx="100" cy="100" r="50"/>
