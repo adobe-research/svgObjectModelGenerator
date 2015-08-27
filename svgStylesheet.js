@@ -53,6 +53,23 @@
             }
         };
 
+        proto.reduceToGroupRules = function () {
+            var self = this;
+            Object.keys(self.rules).forEach(function(key) {
+                switch (key) {
+                    case "mix-blend-mode":
+                    case "isolation":
+                    case "clip-path":
+                    case "filter":
+                    case "mask":
+                    case "opacity":
+                        return;
+                    default:
+                        delete self.rules[key];
+                }
+            });
+        };
+
         proto.clone = function () {
             var clone = new CSSStyleBlock;
             clone.class = this.class.slice(0);
@@ -108,6 +125,9 @@
         };
 
         proto.isEqual = function (block) {
+            if (!block) {
+                return false;
+            }
             for (var key in this.rules) {
                 if (block.rules[key] != this.rules[key]) {
                     return false;

@@ -456,6 +456,10 @@ describe("svgWriter", function () {
         it("group has opacity", function () {
             compareResults("group-opacity");
         });
+
+        it("group has irrelevant styles and gets removed", function () {
+            compareResults("group-style", "custom");
+        });
     });
 
     /**
