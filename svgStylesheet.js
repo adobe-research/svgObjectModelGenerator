@@ -65,7 +65,7 @@
                     case "opacity":
                         return;
                     default:
-                        delete self.rules[key];
+                        delete self.removeRule(key);
                 }
             });
         };
