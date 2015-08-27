@@ -219,6 +219,7 @@ describe("svgWriter", function () {
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     constrainToDocBounds: true,
+                    fillFilter: true,
                     preparedPath: true
                 };
 
@@ -283,6 +284,7 @@ describe("svgWriter", function () {
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     constrainToDocBounds: true,
+                    fillFilter: true,
                     preparedPath: true
                 };
 
@@ -372,14 +374,14 @@ describe("svgWriter", function () {
         function runCompleteOMToSVGExtractionTest(name, desc, skipTest, isLastTest) {
             if (skipTest) {
                 it.skip("Entire OM ⇒ SVG for " + name, function () {
-                    compareResults(name);
+                    compareResults(name, "", { fillFilter: true });
                     if (isLastTest) {
                         _isLastTest = true;
                     }
                 });
             } else {
                 it("Entire OM ⇒ SVG for " + name, function () {
-                    compareResults(name);
+                    compareResults(name, "", { fillFilter: true });
                     if (isLastTest) {
                         _isLastTest = true;
                     }
@@ -428,7 +430,7 @@ describe("svgWriter", function () {
         it("Test that mix-blend-mode is not written as attribute", function () {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-om.json"));
 
-            compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute" });
+            compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute", fillFilter: true });
         });
 
         it("Test that text-orientation is not written as attribute", function () {

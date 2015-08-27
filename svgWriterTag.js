@@ -388,7 +388,7 @@
         }
     };
     Tag.prototype.useTrick = function (ctx) {
-        this.trick = hasFx(ctx) && hasStroke(ctx);
+        this.trick = ctx.config && ctx.config.fillFilter && hasFx(ctx) && hasStroke(ctx);
         return this;
     };
     function roundRectPath(x, y, width, height, r) {

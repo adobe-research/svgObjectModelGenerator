@@ -218,6 +218,7 @@
                                     cropRect: cropRect,
                                     clipToArtboardBounds: clipToArtboardBounds,
                                     isResponsive: isResponsive,
+                                    fillFilter: true,
                                     artboardBounds: artboardBounds,
                                     isArtboard: isArtboard
                                 }, svgWriterErrors);
