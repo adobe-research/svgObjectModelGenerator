@@ -15,7 +15,6 @@
         clip-path: url(#clip-path-2);
       }
     </style>
-
     <clipPath id="clip-path" transform="translate(-50 -50)">
       <circle class="cls-1" cx="100" cy="100" r="50"/>
     </clipPath>

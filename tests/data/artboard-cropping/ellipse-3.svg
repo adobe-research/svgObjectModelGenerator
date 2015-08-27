@@ -5,7 +5,6 @@
         fill: url(#radial-gradient);
       }
     </style>
-
     <clipPath id="clip-path">
       <rect x="100" y="-200" width="400" height="400"/>
     </clipPath>

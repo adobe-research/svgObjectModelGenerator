@@ -21,7 +21,6 @@
         clip-path: url(#clip-path-2);
       }
     </style>
-
     <clipPath id="clip-path" clipPathUnits="objectBoundingBox">
       <circle id="Circle" class="cls-2" cx="0.25" cy="0.5" r="0.4"/>
     </clipPath>

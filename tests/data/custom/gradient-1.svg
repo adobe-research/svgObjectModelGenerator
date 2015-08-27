@@ -9,7 +9,6 @@
         fill: url(#gradient-2);
       }
     </style>
-
     <linearGradient id="gradient" x1="100" y1="100" x2="200" y2="200" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="1" stop-color="#ff931e"/>

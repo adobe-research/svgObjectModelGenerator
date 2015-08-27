@@ -72,7 +72,6 @@
         stroke: url(#linear-gradient-3);
       }
     </style>
-
     <linearGradient id="linear-gradient" x1="328.593" y1="300" x2="471.407" y2="200" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>

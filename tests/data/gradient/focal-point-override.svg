@@ -28,7 +28,6 @@
         fill: url(#New_Gradient_Swatch_4-2);
       }
     </style>
-
     <linearGradient id="New_Gradient_Swatch_5" data-name="New Gradient Swatch 5" x1="214.96" y1="280" x2="348.338" y2="280" gradientUnits="userSpaceOnUse">
       <stop offset="0"/>
       <stop offset="1" stop-opacity="0"/>

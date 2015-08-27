@@ -19,7 +19,6 @@
         fill: url(#pattern-3);
       }
     </style>
-
     <pattern id="pattern" width="55" height="55" patternUnits="userSpaceOnUse">
       <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" width="50" height="50"/>
     </pattern>

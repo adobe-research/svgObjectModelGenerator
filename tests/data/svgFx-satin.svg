@@ -6,7 +6,6 @@
         filter: url(#filter);
       }
     </style>
-
     <filter id="filter" filterUnits="userSpaceOnUse">
       <feFlood result="flood" flood-color="#d42020"/>
       <feComposite result="composite" operator="in" in2="SourceAlpha"/>
