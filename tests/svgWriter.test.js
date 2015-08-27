@@ -428,7 +428,7 @@ describe("svgWriter", function () {
         });
 
         it("Test that mix-blend-mode is not written as attribute", function () {
-            var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-om.json"));
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-2-om.json"));
 
             compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute", fillFilter: true });
         });
