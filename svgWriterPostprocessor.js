@@ -62,7 +62,6 @@
             if (!style) {
                 return false;
             }
-            style.reduceToGroupRules();
             return style.hasProperty("mix-blend-mode") && style.getPropertyValue("mix-blend-mode") != "normal" ||
                 style.hasProperty("isolation") ||
                 style.hasProperty("clip-path") && style.getPropertyValue("clip-path") != "none" ||
@@ -113,20 +112,20 @@
                     isSVGRootGroup = true;
                 }
 
+                // If the group has styles, transforms or clip-paths keep them.
+                if (hasRelevantGroupStyle(tag) ||
+                    tag.getAttribute("transform") != "" ||
+                    tag.getAttribute("clip-path") != "" || // Clip areas caused by artboards set the attribute directly.
+                    tag.getAttribute("id") != "" && !isSVGRootGroup) {
+                    return;
+                }
+
                 // Groups may have more than one child. Just remove those groups when we know
                 // for sure that they are superfluous:
                 // 1) group is the only direct child of resources,
                 // 2) group is the only direct child of SVG roots,
                 // 3) or when we minify.
                 if (tag.children.length > 1 && !ctx.minify && !isResourceGroup && !isSVGRootGroup) {
-                    return;
-                }
-
-                // If the group has styles, transforms or clip-paths keep them.
-                if (hasRelevantGroupStyle(tag) ||
-                    tag.getAttribute("transform") != "" ||
-                    tag.getAttribute("clip-path") != "" || // Clip areas caused by artboards set the attribute directly.
-                    tag.getAttribute("id") != "" && !isSVGRootGroup) {
                     return;
                 }
 
