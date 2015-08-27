@@ -18,8 +18,6 @@
       }
     </style>
   </defs>
-  <g id="Layer_1" data-name="Layer 1">
-    <text class="cls-1" transform="translate(174.316 189.403)">Upright<tspan x="0" y="84">  </tspan><tspan class="cls-2" x="0" y="89.088">t</tspan><tspan class="cls-2" x="0" y="92.988">e</tspan><tspan class="cls-2" x="0" y="98.964">x</tspan><tspan class="cls-2" x="0" y="104.676">t</tspan></text>
-    <text class="cls-3" transform="translate(267.298 189.403)">Side<tspan x="0" y="21.504">w</tspan><tspan x="0" y="30.288">a</tspan><tspan x="0" y="35.976">y</tspan><tspan x="0" y="41.556">s  </tspan><tspan class="cls-4" x="0" y="51.395">text</tspan></text>
-  </g>
+  <text class="cls-1" transform="translate(174.316 189.403)">Upright<tspan x="0" y="84">  </tspan><tspan class="cls-2" x="0" y="89.088">t</tspan><tspan class="cls-2" x="0" y="92.988">e</tspan><tspan class="cls-2" x="0" y="98.964">x</tspan><tspan class="cls-2" x="0" y="104.676">t</tspan></text>
+  <text class="cls-3" transform="translate(267.298 189.403)">Side<tspan x="0" y="21.504">w</tspan><tspan x="0" y="30.288">a</tspan><tspan x="0" y="35.976">y</tspan><tspan x="0" y="41.556">s  </tspan><tspan class="cls-4" x="0" y="51.395">text</tspan></text>
 </svg>

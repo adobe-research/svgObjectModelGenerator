@@ -28,8 +28,6 @@
   </defs>
   <title>1st</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <text class="cls-1" transform="translate(50 30)">this is a text (<tspan class="cls-2">duuuh</tspan><tspan class="cls-3">)</tspan></text>
-    <text class="cls-4" transform="translate(50 50)">this is a none (<tspan class="cls-2">duuuh</tspan>)</text>
-  </g>
+  <text class="cls-1" transform="translate(50 30)">this is a text (<tspan class="cls-2">duuuh</tspan><tspan class="cls-3">)</tspan></text>
+  <text class="cls-4" transform="translate(50 50)">this is a none (<tspan class="cls-2">duuuh</tspan>)</text>
 </svg>

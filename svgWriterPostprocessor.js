@@ -57,23 +57,88 @@
                 }
             }
         },
+        hasRelevantGroupStyle = function (tag) {
+            var style = tag.styleBlock;
+            if (!style) {
+                return false;
+            }
+            return style.hasProperty("mix-blend-mode") && style.getPropertyValue("mix-blend-mode") != "normal" ||
+                style.hasProperty("isolation") ||
+                style.hasProperty("clip-path") && style.getPropertyValue("clip-path") != "none" ||
+                style.hasProperty("filter") && style.getPropertyValue("filter") != "none" ||
+                style.hasProperty("mask") && style.getPropertyValue("mask") != "none" ||
+                style.hasProperty("opacity") && style.getPropertyValue("opacity") != 1;
+        },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
                 var mom = parents[parents.length - 1];
-                if (tag.name != "g" || tag.isArtboard || tag.children.length > 1 && !ctx.minify) {
+
+                // Nothing to process if there is no parent or the current
+                // element is no group. Exlcude artboards from processing.
+                if (!mom || tag.name != "g" || tag.isArtboard) {
                     return;
                 }
-                if (tag.children.length &&
-                    !((!tag.styleBlock || !tag.styleBlock.hasRules()) &&
-                    tag.getAttribute("transform") == "" &&
-                    tag.getAttribute("clip-path") == "" && // Artboards set the attribute directly.
-                    tag.getAttribute("id") == "")) {
+
+                // Remove all empty groups without further checking.
+                if (!tag.children.length) {
+                    mom.children.splice(num, 1);
                     return;
                 }
+
+                // Resources may add a superflous group as first and only direct child.
+                // Those need to be removed if and only if they have no information at all.
+                var isResourceGroup = mom.children.length == 1 &&
+                        (mom.name == "pattern" || mom.name == "symbol" || mom.name == "mask");
+
+                // Root SVG elements may be in a single layer but group the whole content.
+                // Remove those groups if the only information is the layer name and put the
+                // name on the SVG root element itself.
+                var isSVGRootGroup = false;
+                if (mom.name == "svg") {
+                    // SVG root elements may also have the elements:
+                    // <defs>, <title>, <desc> or comments. Skip those.
+                    for (var i = 0; i < mom.children.length; i++) {
+                        // Skip current element.
+                        if (i == num) {
+                            continue;
+                        }
+                        if (mom.children[i].name &&
+                            mom.children[i].name != "defs" &&
+                            mom.children[i].name != "title" &&
+                            mom.children[i].name != "desc") {
+                            break;
+                        }
+                    }
+                    isSVGRootGroup = true;
+                }
+
+                // If the group has styles, transforms or clip-paths keep them.
+                if (hasRelevantGroupStyle(tag) ||
+                    tag.getAttribute("transform") != "" ||
+                    tag.getAttribute("clip-path") != "" || // Clip areas caused by artboards set the attribute directly.
+                    tag.getAttribute("id") != "" && !isSVGRootGroup) {
+                    return;
+                }
+
+                // Groups may have more than one child. Just remove those groups when we know
+                // for sure that they are superfluous:
+                // 1) group is the only direct child of resources,
+                // 2) group is the only direct child of SVG roots,
+                // 3) or when we minify.
+                if (tag.children.length > 1 && !ctx.minify && !isResourceGroup && !isSVGRootGroup) {
+                    return;
+                }
+
+                // Preserve single layer information on SVG root element.
+                if (isSVGRootGroup) {
+                    mom.setAttribute("id", tag.getAttribute("id"));
+                    mom.setAttribute("data-name", tag.getAttribute("data-name"));
+                }
+
+                // Replace the current group with its children.
                 mom.children.splice(num, 1);
-                if (tag.children.length) {
-                    insertArrayAt(mom.children, num, tag.children);
-                }
+                insertArrayAt(mom.children, num, tag.children);
+
                 if (ctx.tick) {
                     ctx.tagCounter--;
                 }

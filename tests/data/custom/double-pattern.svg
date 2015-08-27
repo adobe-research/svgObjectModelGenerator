@@ -37,8 +37,6 @@
   </defs>
   <title>incorrect_classes</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <ellipse id="_Path_-7" data-name="&lt;Path&gt;" class="cls-3" cx="70.018" cy="287.898" rx="69.018" ry="207.94"/>
-    <polygon id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" points="484.491 79.958 484.491 495.838 274.191 495.838 274.191 79.958 484.491 79.958"/>
-  </g>
+  <ellipse id="_Path_-7" data-name="&lt;Path&gt;" class="cls-3" cx="70.018" cy="287.898" rx="69.018" ry="207.94"/>
+  <polygon id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" points="484.491 79.958 484.491 495.838 274.191 495.838 274.191 79.958 484.491 79.958"/>
 </svg>

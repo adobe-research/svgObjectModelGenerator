@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="348" height="467" viewBox="53 -66 348 467">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="348" height="467" viewBox="53 -66 348 467">
   <defs>
     <style>
       .cls-1 {
@@ -16,8 +16,6 @@
   </defs>
   <title>pattern-fill-ellipse</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="253" cy="266" r="198" transform="translate(2 234) rotate(45)"/>
-    <path id="Shape_1" data-name="Shape 1" class="cls-2" d="M201,201L300,10V500" transform="matrix(0.25, 0.35, -0.43, 0.15, 1.14, 234.45)"/>
-  </g>
+  <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="253" cy="266" r="198" transform="translate(2 234) rotate(45)"/>
+  <path id="Shape_1" data-name="Shape 1" class="cls-2" d="M201,201L300,10V500" transform="matrix(0.25, 0.35, -0.43, 0.15, 1.14, 234.45)"/>
 </svg>

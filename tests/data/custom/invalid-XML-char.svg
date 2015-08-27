@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
   <defs>
     <style>
       .cls-1 {
@@ -9,7 +9,5 @@
   </defs>
   <title>TestUnicode</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <text class="cls-1" transform="translate(76.319 80.977)">nothing  new</text>
-  </g>
+  <text class="cls-1" transform="translate(76.319 80.977)">nothing  new</text>
 </svg>

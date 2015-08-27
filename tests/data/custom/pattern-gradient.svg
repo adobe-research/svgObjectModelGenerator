@@ -35,17 +35,13 @@
       <stop offset="1" stop-color="#ff931e"/>
     </radialGradient>
     <pattern id="New_Pattern_3" data-name="New Pattern 3" x="-69.227" y="-45.712" width="79.03" height="84.333" viewBox="0 -84.333 79.03 84.333" patternUnits="userSpaceOnUse">
-      <g>
-        <rect class="cls-1" y="-84.333" width="79.03" height="84.333"/>
-        <rect class="cls-2" x="0.5" y="-83.833" width="78.03" height="83.333"/>
-      </g>
+      <rect class="cls-1" y="-84.333" width="79.03" height="84.333"/>
+      <rect class="cls-2" x="0.5" y="-83.833" width="78.03" height="83.333"/>
     </pattern>
     <radialGradient id="Summer-2" data-name="Summer" cx="39.515" cy="42.167" r="40.363" gradientTransform="matrix(1, 0, 0, 1, 0, 0)" xlink:href="#Summer"/>
   </defs>
   <title>pattern-gradient</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <rect class="cls-3" x="291.409" y="161.864" width="259.848" height="259.848"/>
-    <rect class="cls-4" x="0.5" y="0.5" width="78.03" height="83.333"/>
-  </g>
+  <rect class="cls-3" x="291.409" y="161.864" width="259.848" height="259.848"/>
+  <rect class="cls-4" x="0.5" y="0.5" width="78.03" height="83.333"/>
 </svg>

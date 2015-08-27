@@ -30,11 +30,9 @@
   </defs>
   <title>CompoundPathWithOpacityMask</title>
   <desc>Created by Adobe Illustrator</desc>
-  <g id="Layer_1" data-name="Layer 1">
-    <g class="cls-3">
-      <g id="Compound_Path" data-name="Compound Path">
-        <rect id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" x="18" y="13" width="585.415" height="772.335" rx="40.566" ry="40.566"/>
-      </g>
+  <g class="cls-3">
+    <g id="Compound_Path" data-name="Compound Path">
+      <rect id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" x="18" y="13" width="585.415" height="772.335" rx="40.566" ry="40.566"/>
     </g>
   </g>
 </svg>
