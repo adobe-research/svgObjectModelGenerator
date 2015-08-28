@@ -18,7 +18,11 @@
     "use strict";
 
     var Utils = require("./utils.js"),
-        Matrix = require("./matrix.js");
+        Matrix = require("./matrix.js"),
+        inch = 1/72,
+        mm = inch * 25.4,
+        cm = inch * 2.54,
+        pica = inch * 6;
 
     function SVGWriterUtils() {
 
@@ -183,16 +187,16 @@
             }
             switch (ctx.config.documentUnits) {
                 case "mm":
-                    length *= 0.352777778;
+                    length *= mm;
                     break;
                 case "cm":
-                    length *= 0.035277778;
+                    length *= cm;
                     break;
                 case "in":
-                    length /= 72;
+                    length *= inch;
                     break;
                 case "pc":
-                    length *= 0.083333333;
+                    length *= pica;
                     break;
                 default:
                     return length;
