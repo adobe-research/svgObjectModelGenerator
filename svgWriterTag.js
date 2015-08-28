@@ -737,6 +737,7 @@
             if (!node.bounds) {
                 return;
             }
+            ctx.xlinkRequired = true;
             var top = parseFloat(node.bounds.top),
                 right = parseFloat(node.bounds.right),
                 bottom = parseFloat(node.bounds.bottom),
@@ -787,6 +788,7 @@
         reference: function (ctx, node) {
             var symbol = ctx.svgOM.global.symbols[node.ref],
                 use = new Tag("use", {}, ctx);
+            ctx.xlinkRequired = true;
             if (symbol) {
                 var name = symbol.name,
                     symbolID = ctx.ID.getUnique("symbol", name),

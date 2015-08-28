@@ -40,6 +40,9 @@
             if (hasRules || hasDefines) {
                 svg.children.unshift(ctx.omStylesheet.getDefsTag());
             }
+            if (!hasDefines && !ctx.xlinkRequired) {
+                delete svg.attrs["xmlns:xlink"];
+            }
             postProcess(svg, ctx);
             svg.write(ctx);
             ctx.tick && ctx.tick("end");
