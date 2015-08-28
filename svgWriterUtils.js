@@ -18,7 +18,11 @@
     "use strict";
 
     var Utils = require("./utils.js"),
-        Matrix = require("./matrix.js");
+        Matrix = require("./matrix.js"),
+        inch = 1/72,
+        mm = inch * 25.4,
+        cm = inch * 2.54,
+        pica = inch * 6;
 
     function SVGWriterUtils() {
 
@@ -175,6 +179,29 @@
         self.indentify = function (indent, buf) {
             var out = indent + buf.replace(/(\n)/g, "\n" + indent);
             return out.substr(0, out.length - indent.length);
+        };
+
+        self.toDocumentUnits = function (ctx, length) {
+            if (!ctx.config || !ctx.config.documentUnits) {
+                return length;
+            }
+            switch (ctx.config.documentUnits) {
+                case "mm":
+                    length *= mm;
+                    break;
+                case "cm":
+                    length *= cm;
+                    break;
+                case "in":
+                    length *= inch;
+                    break;
+                case "pc":
+                    length *= pica;
+                    break;
+                default:
+                    return length;
+            }
+            return length + ctx.config.documentUnits;
         };
 
         self.toString = function (ctx) {

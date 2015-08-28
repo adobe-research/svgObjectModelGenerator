@@ -831,6 +831,36 @@ describe("svgWriter", function () {
     });
 
     /**
+     * Test document units export
+     **/
+     describe("Test document units export", function () {
+        it("Test document units 'mm'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-mm", "custom", { documentUnits: "mm" });
+        });
+
+        it("Test document units 'cm'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-cm", "custom", { documentUnits: "cm" });
+        });
+
+        it("Test document units 'in'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-in", "custom", { documentUnits: "in" });
+        });
+
+        it("Test document units 'pc'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-pc", "custom", { documentUnits: "pc" });
+        });
+
+        it("Test document units 'nonsense'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-nonsense", "custom", { documentUnits: "nonsense" });
+        });
+     });
+
+    /**
      * Test that attributes of referencing gradient get overridden
      **/
     describe("Test that attributes of referencing gradient get overridden", function () {

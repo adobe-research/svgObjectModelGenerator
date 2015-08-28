@@ -28,6 +28,7 @@
         getTransform = svgWriterUtils.getTransform,
         encodedText = svgWriterUtils.encodedText,
         hasFx = svgWriterUtils.hasFx,
+        toDocumentUnits = svgWriterUtils.toDocumentUnits,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
         root,
@@ -831,8 +832,8 @@
             };
 
             if (!ctx.config.isResponsive) {
-                attr.width = ctx._width;
-                attr.height = ctx._height;
+                attr.width = toDocumentUnits(ctx, ctx._width);
+                attr.height = toDocumentUnits(ctx, ctx._height);
             }
             attr.viewBox = ctx._viewBox;
 
