@@ -177,6 +177,29 @@
             return out.substr(0, out.length - indent.length);
         };
 
+        self.toDocumentUnits = function (ctx, length) {
+            if (!ctx.config || !ctx.config.documentUnits) {
+                return length;
+            }
+            switch (ctx.config.documentUnits) {
+                case "mm":
+                    length *= 0.352777778;
+                    break;
+                case "cm":
+                    length *= 0.035277778;
+                    break;
+                case "in":
+                    length /= 72;
+                    break;
+                case "pc":
+                    length *= 0.083333333;
+                    break;
+                default:
+                    return length;
+            }
+            return length + ctx.config.documentUnits;
+        };
+
         self.toString = function (ctx) {
             return ctx.sOut;
         };
