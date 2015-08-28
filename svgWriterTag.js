@@ -374,7 +374,8 @@
         if (ctx.styling == 2) {
             for (key in omStyleBlock.rules) {
                 // List or CSS properties without presentation attribute equivalent. 
-                if (key == "mix-blend-mode" ||
+                if (key == "isolation" ||
+                    key == "mix-blend-mode" ||
                     key == "text-orientation") {
                     style += key + ":" + ctx.space + omStyleBlock.rules[key] + ";";
                     continue;
