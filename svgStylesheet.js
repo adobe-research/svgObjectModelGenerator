@@ -55,7 +55,7 @@
 
         proto.reduceToGroupRules = function () {
             var self = this;
-            Object.keys(self.rules).forEach(function(key) {
+            Object.keys(self.rules).forEach(function (key) {
                 switch (key) {
                     case "mix-blend-mode":
                     case "isolation":

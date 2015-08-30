@@ -833,7 +833,7 @@ describe("svgWriter", function () {
     /**
      * Test document units export
      **/
-     describe("Test document units export", function () {
+    describe("Test document units export", function () {
         it("Test document units 'mm'", function () {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
             compareResultsWidthOM(svgOM, "document-size-mm", "custom", { documentUnits: "mm" });
@@ -858,7 +858,7 @@ describe("svgWriter", function () {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
             compareResultsWidthOM(svgOM, "document-size-nonsense", "custom", { documentUnits: "nonsense" });
         });
-     });
+    });
 
     /**
      * Test that attributes of referencing gradient get overridden

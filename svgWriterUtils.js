@@ -19,7 +19,7 @@
 
     var Utils = require("./utils.js"),
         Matrix = require("./matrix.js"),
-        inch = 1/72,
+        inch = 1 / 72,
         mm = inch * 25.4,
         cm = inch * 2.54,
         pica = inch * 6;

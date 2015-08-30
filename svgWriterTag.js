@@ -374,7 +374,7 @@
         // Use presentation attributes
         if (ctx.styling == 2) {
             for (key in omStyleBlock.rules) {
-                // List or CSS properties without presentation attribute equivalent. 
+                // List or CSS properties without presentation attribute equivalent.
                 if (key == "isolation" ||
                     key == "mix-blend-mode" ||
                     key == "text-orientation") {
@@ -681,7 +681,7 @@
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);
-                        setGlyphOrientation(p, isVertical);
+                    setGlyphOrientation(p, isVertical);
                     for (var j = 0; j < para.lines.length; j++) {
                         var lineNode = para.lines[j];
                         for (var k = 0; k < lineNode.length; k++) {
