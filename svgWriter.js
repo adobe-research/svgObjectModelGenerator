@@ -41,6 +41,9 @@
                 svg.children.unshift(ctx.omStylesheet.getDefsTag());
             }
             postProcess(svg, ctx);
+            if (!hasDefines && !ctx.xlinkRequired) {
+                delete svg.attrs["xmlns:xlink"];
+            }
             svg.write(ctx);
             ctx.tick && ctx.tick("end");
         } catch (ex) {
