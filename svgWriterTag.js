@@ -777,19 +777,19 @@
                     matrix = getMatrix(node.transform, node.transformTX, node.transformTY);
                 matrix.scale(sx, sy, 1);
                 tag = new Tag("use", {
-                    "xlink:href": "#" + id,
                     x: left / sx,
                     y: top / sy,
-                    transform: getTransform(matrix, 0, 0, ctx.precision)
+                    transform: getTransform(matrix, 0, 0, ctx.precision),
+                    "xlink:href": "#" + id
                 }, ctx);
             } else {
                 tag = new Tag("image", {
-                    "xlink:href": node.href,
                     x: left,
                     y: top,
                     width: w,
                     height: h,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision),
+                    "xlink:href": node.href
                 }, ctx);
                 root.images[node.href] = tag;
             }
