@@ -781,7 +781,7 @@
                     x: left / sx,
                     y: top / sy,
                     transform: getTransform(matrix, 0, 0, ctx.precision)
-                });
+                }, ctx);
             } else {
                 tag = new Tag("image", {
                     "xlink:href": node.href,
