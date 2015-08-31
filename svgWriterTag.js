@@ -248,6 +248,9 @@
             }
         }
         if (toWrite) {
+            if (name == "data-name") {
+                value = encodedText(value);
+            }
             out = " " + name + '="' + value + '"';
             if (ctx) {
                 write(ctx, out);
@@ -257,6 +260,37 @@
         }
         return "";
     };
+    var attrWeight = {
+        id: -21,
+        "data-name": -20,
+        class: -19,
+        xmlns: -18,
+        "xmlns:xlink": -17,
+        preserveAspectRatio: -16,
+        x: -15,
+        y: -14,
+        x1: -13,
+        x2: -12,
+        y1: -11,
+        y2: -10,
+        fx: -9,
+        fy: -8,
+        width: -7,
+        height: -6,
+        cx: -5,
+        cy: -4,
+        r: -3,
+        rx: -2,
+        ry: -1,
+        viewBox: 10,
+        "xlink:href": 99,
+        style: 100
+    };
+    function sortAttr(attr1, attr2) {
+        var weight1 = attrWeight[attr1] || 0,
+            weight2 = attrWeight[attr2] || 0;
+        return weight1 - weight2;
+    }
     Tag.prototype.write = Tag.prototype.toString = function (ctx) {
         var tag = this,
             noctx,
@@ -283,27 +317,17 @@
                 ind = "";
             }
             write(ctx, ind + "<" + tag.name);
-            if ("id" in tag.attrs && !noctx) {
-                tag.writeAttribute(ctx, "id");
-            }
-            if ("data-name" in tag.attrs && !noctx) {
-                tag.writeAttribute(ctx, "data-name", encodedText(tag.attrs["data-name"]));
-            }
-            if ("class" in tag.attrs) {
-                tag.writeAttribute(ctx, "class");
-            }
-            for (var name in tag.attrs) {
-                if (name != "class" && name != "id" && name != "data-name" && name != "style") {
-                    tag.writeAttribute(ctx, name);
+            var attrs = Object.keys(tag.attrs);
+            attrs.sort(sortAttr);
+            for (var i = 0; i < attrs.length; i++) {
+                if (!noctx || attrs[i] != "id" && attrs[i] != "data-name") {
+                    tag.writeAttribute(ctx, attrs[i]);
                 }
-            }
-            if ("style" in tag.attrs) {
-                tag.writeAttribute(ctx, "style");
             }
             if (noctx) {
                 var omStyleBlock = tag.styleBlock;
                 if (omStyleBlock) {
-                    for (name in omStyleBlock.rules) {
+                    for (var name in omStyleBlock.rules) {
                         tag.writeAttribute(ctx, name, omStyleBlock.rules[name]);
                     }
                 }
