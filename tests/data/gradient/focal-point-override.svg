@@ -32,13 +32,13 @@
       <stop offset="0"/>
       <stop offset="1" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="New_Gradient_Swatch_4" data-name="New Gradient Swatch 4" cx="323.969" cy="312.31" r="24.125" fx="331.587" gradientUnits="userSpaceOnUse">
+    <radialGradient id="New_Gradient_Swatch_4" data-name="New Gradient Swatch 4" cx="323.969" cy="312.31" fx="331.587" r="24.125" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="0.283" stop-color="#fff" stop-opacity="0.731"/>
       <stop offset="0.937" stop-color="#fff" stop-opacity="0.065"/>
       <stop offset="1" stop-color="#fff" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="New_Gradient_Swatch_4-2" cx="241.873" cy="311.949" r="24.126" fy="298.695" fx="241.873" xlink:href="#New_Gradient_Swatch_4"/>
+    <radialGradient id="New_Gradient_Swatch_4-2" cx="241.873" cy="311.949" fx="241.873" fy="298.695" r="24.126" xlink:href="#New_Gradient_Swatch_4"/>
   </defs>
   <title>TestExportGradient</title>
   <desc>Created by Adobe Illustrator</desc>
