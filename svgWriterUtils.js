@@ -180,14 +180,7 @@
                     f: 0
                 };
             }
-            return Matrix.createMatrix({
-                a: val.a,
-                b: val.b,
-                c: val.c,
-                d: val.d,
-                e: val.e + (tX || 0),
-                f: val.f + (tY || 0)
-            });
+            return Matrix.createMatrix(val).translate3d(tX || 0, tY || 0, 0);
         };
 
         self.round2 = Utils.round2;
