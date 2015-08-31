@@ -10,7 +10,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 50,
 						"cx": 150,
 						"cy": 100,
@@ -18,14 +18,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 50,
-				"left": 50,
-				"bottom": 150,
-				"right": 250
-			},
 			"shape": {
 				"type": "rect",
+				"x": 50,
+				"y": 50,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 50,
 				"y": 50,
 				"width": 200,
@@ -42,7 +42,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 70.71067811865474,
 						"cx": 400,
 						"cy": 100,
@@ -50,14 +50,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 50,
-				"left": 300,
-				"bottom": 150,
-				"right": 500
-			},
 			"shape": {
 				"type": "rect",
+				"x": 300,
+				"y": 50,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 300,
 				"y": 50,
 				"width": 200,
@@ -74,7 +74,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 100,
 						"cx": 650,
 						"cy": 100,
@@ -82,14 +82,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 50,
-				"left": 550,
-				"bottom": 150,
-				"right": 750
-			},
 			"shape": {
 				"type": "rect",
+				"x": 550,
+				"y": 50,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 550,
 				"y": 50,
 				"width": 200,
@@ -106,7 +106,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 70.71067811865476,
 						"cx": 150,
 						"cy": 250,
@@ -114,14 +114,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 200,
-				"left": 50,
-				"bottom": 300,
-				"right": 250
-			},
 			"shape": {
 				"type": "rect",
+				"x": 50,
+				"y": 200,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 50,
 				"y": 200,
 				"width": 200,
@@ -138,7 +138,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 50,
 						"cx": 400,
 						"cy": 250,
@@ -146,14 +146,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 200,
-				"left": 300,
-				"bottom": 300,
-				"right": 500
-			},
 			"shape": {
 				"type": "rect",
+				"x": 300,
+				"y": 200,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 300,
 				"y": 200,
 				"width": 200,
@@ -170,7 +170,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 70.71067811865474,
 						"cx": 650,
 						"cy": 250,
@@ -178,14 +178,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 200,
-				"left": 550,
-				"bottom": 300,
-				"right": 750
-			},
 			"shape": {
 				"type": "rect",
+				"x": 550,
+				"y": 200,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 550,
 				"y": 200,
 				"width": 200,
@@ -202,7 +202,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 100,
 						"cx": 150,
 						"cy": 400,
@@ -210,14 +210,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 350,
-				"left": 50,
-				"bottom": 450,
-				"right": 250
-			},
 			"shape": {
 				"type": "rect",
+				"x": 50,
+				"y": 350,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 50,
 				"y": 350,
 				"width": 200,
@@ -234,7 +234,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 70.71067811865474,
 						"cx": 400,
 						"cy": 400,
@@ -242,14 +242,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 350,
-				"left": 300,
-				"bottom": 450,
-				"right": 500
-			},
 			"shape": {
 				"type": "rect",
+				"x": 300,
+				"y": 350,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 300,
 				"y": 350,
 				"width": 200,
@@ -266,7 +266,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 97,
 						"cx": 653,
 						"cy": 402,
@@ -274,14 +274,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 353,
-				"left": 556,
-				"bottom": 451,
-				"right": 750
-			},
 			"shape": {
 				"type": "rect",
+				"x": 556,
+				"y": 353,
+				"width": 194,
+				"height": 98
+			},
+			"visualBounds": {
 				"x": 556,
 				"y": 353,
 				"width": 194,
@@ -298,7 +298,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 50,
 						"cx": 150,
 						"cy": 550,
@@ -306,14 +306,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 500,
-				"left": 50,
-				"bottom": 600,
-				"right": 250
-			},
 			"shape": {
 				"type": "rect",
+				"x": 50,
+				"y": 500,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 50,
 				"y": 500,
 				"width": 200,
@@ -330,7 +330,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 100,
 						"cx": 400,
 						"cy": 550,
@@ -338,14 +338,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 500,
-				"left": 300,
-				"bottom": 600,
-				"right": 500
-			},
 			"shape": {
 				"type": "rect",
+				"x": 300,
+				"y": 500,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 300,
 				"y": 500,
 				"width": 200,
@@ -362,7 +362,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 50,
 						"cx": 650,
 						"cy": 550,
@@ -370,14 +370,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 500,
-				"left": 550,
-				"bottom": 600,
-				"right": 750
-			},
 			"shape": {
 				"type": "rect",
+				"x": 550,
+				"y": 500,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 550,
 				"y": 500,
 				"width": 200,
@@ -385,7 +385,7 @@
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
@@ -394,59 +394,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -457,59 +478,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -520,59 +562,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -583,59 +646,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -646,59 +730,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -709,59 +814,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -772,59 +898,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -835,59 +982,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -898,59 +1066,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -961,59 +1150,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -1024,59 +1234,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -1087,59 +1318,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -1147,14 +1399,7 @@
 			}
 		},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -1165,6 +1410,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "radial-gradient-angle-layer.psd"
+	"version": "1.0.0",
+	"name": "radial-gradient-angle-layer.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

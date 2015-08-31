@@ -10,10 +10,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -22,
-				"bottom": 6,
-				"left": 1.009064,
-				"right": 120.060745
+				"x": 1.009064,
+				"y": -22,
+				"width": 119.051681,
+				"height": 28
 			},
 			"position": {
 				"x": 0,
@@ -36,20 +36,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 53,
-								"left": 46,
-								"bottom": 81,
-								"right": 166
+								"x": 46,
+								"y": 53,
+								"width": 120,
+								"height": 28
 							},
 							"position": {
 								"x": 0,
@@ -73,10 +76,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -11.840942,
-				"bottom": 35.680756,
-				"left": -14.847122,
-				"right": 77.570663
+				"x": -14.847122,
+				"y": -11.840942,
+				"width": 92.417785,
+				"height": 47.521698
 			},
 			"position": {
 				"x": 0,
@@ -99,20 +102,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 244,
-								"left": 40,
-								"bottom": 293,
-								"right": 133
+								"x": 40,
+								"y": 244,
+								"width": 93,
+								"height": 49
 							},
 							"position": {
 								"x": 0,
@@ -136,10 +142,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -15.915802,
-				"bottom": 39.18768299999999,
-				"left": -6.852493000000001,
-				"right": 109.250168
+				"x": -6.852493000000001,
+				"y": -15.915802,
+				"width": 116.102661,
+				"height": 55.10348499999999
 			},
 			"position": {
 				"x": 0,
@@ -162,20 +168,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 329,
-								"left": 34,
-								"bottom": 385,
-								"right": 150
+								"x": 34,
+								"y": 329,
+								"width": 116,
+								"height": 56
 							},
 							"position": {
 								"x": 0,
@@ -199,10 +208,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -22,
-				"bottom": 0,
-				"left": 66.054947,
-				"right": 119.738785
+				"x": 66.054947,
+				"y": -22,
+				"width": 53.683837999999994,
+				"height": 22
 			},
 			"position": {
 				"x": 0,
@@ -225,20 +234,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text",
 							"visualBounds": {
-								"top": 425,
-								"left": 102,
-								"bottom": 447,
-								"right": 157
+								"x": 102,
+								"y": 425,
+								"width": 55,
+								"height": 22
 							},
 							"position": {
 								"x": 0,
@@ -264,10 +276,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": 9.578139999999998,
-				"bottom": 293.951904,
-				"left": -3.489502,
-				"right": 72.108093
+				"x": -3.489502,
+				"y": 9.578139999999998,
+				"width": 75.597595,
+				"height": 284.373764
 			},
 			"position": {
 				"x": 0,
@@ -290,20 +302,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text on path",
 							"visualBounds": {
-								"top": 75,
-								"left": 644,
-								"bottom": 360,
-								"right": 721
+								"x": 644,
+								"y": 75,
+								"width": 77,
+								"height": 285
 							},
 							"position": {
 								"x": 0,
@@ -327,10 +342,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -22,
-				"bottom": 6,
-				"left": 67.254761,
-				"right": 186.30645800000002
+				"x": 67.254761,
+				"y": -22,
+				"width": 119.05169700000002,
+				"height": 28
 			},
 			"position": {
 				"x": 0,
@@ -355,20 +370,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 56,
-								"left": 349,
-								"bottom": 84,
-								"right": 469
+								"x": 349,
+								"y": 56,
+								"width": 120,
+								"height": 28
 							},
 							"position": {
 								"x": 0,
@@ -394,10 +412,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -8.837402,
-				"bottom": 8.162598,
-				"left": 19.167725,
-				"right": 131.190338
+				"x": 19.167725,
+				"y": -8.837402,
+				"width": 112.02261299999999,
+				"height": 17
 			},
 			"position": {
 				"x": 0,
@@ -420,20 +438,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 211,
-								"left": 315,
-								"bottom": 229,
-								"right": 428
+								"x": 315,
+								"y": 211,
+								"width": 113,
+								"height": 18
 							},
 							"position": {
 								"x": 0,
@@ -457,10 +478,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -21.067017,
-				"bottom": 46.151703,
-				"left": -1.225311,
-				"right": 117.055603
+				"x": -1.225311,
+				"y": -21.067017,
+				"width": 118.28091400000001,
+				"height": 67.21871999999999
 			},
 			"position": {
 				"x": 0,
@@ -483,20 +504,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 286,
-								"left": 308,
-								"bottom": 354,
-								"right": 428
+								"x": 308,
+								"y": 286,
+								"width": 120,
+								"height": 68
 							},
 							"position": {
 								"x": 0,
@@ -522,10 +546,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -8.837402,
-				"bottom": 8.162598,
-				"left": 67.744385,
-				"right": 179.745209
+				"x": 67.744385,
+				"y": -8.837402,
+				"width": 112.000824,
+				"height": 17
 			},
 			"position": {
 				"x": 0,
@@ -550,20 +574,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 440,
-								"left": 380,
-								"bottom": 458,
-								"right": 492
+								"x": 380,
+								"y": 440,
+								"width": 112,
+								"height": 18
 							},
 							"position": {
 								"x": 0,
@@ -587,10 +614,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -22,
-				"bottom": 6,
-				"left": 46.466156,
-				"right": 165.542023
+				"x": 46.466156,
+				"y": -22,
+				"width": 119.075867,
+				"height": 28
 			},
 			"position": {
 				"x": 0,
@@ -615,20 +642,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 111,
-								"left": 319,
-								"bottom": 139,
-								"right": 439
+								"x": 319,
+								"y": 111,
+								"width": 120,
+								"height": 28
 							},
 							"position": {
 								"x": 0,
@@ -652,10 +682,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -6,
-				"bottom": 22,
-				"left": 24.93924,
-				"right": 144.00975
+				"x": 24.93924,
+				"y": -6,
+				"width": 119.07051,
+				"height": 28
 			},
 			"position": {
 				"x": 0,
@@ -678,20 +708,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 121,
-								"left": 71,
-								"bottom": 149,
-								"right": 191
+								"x": 71,
+								"y": 121,
+								"width": 120,
+								"height": 28
 							},
 							"position": {
 								"x": 0,
@@ -715,10 +748,10 @@
 				}
 			},
 			"visualBounds": {
-				"top": -22,
-				"bottom": 6,
-				"left": 4.047623,
-				"right": 123.090256
+				"x": 4.047623,
+				"y": -22,
+				"width": 119.042633,
+				"height": 28
 			},
 			"position": {
 				"x": 0,
@@ -741,20 +774,23 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 0.12495,
-										"g": 2.9988,
-										"b": 0.02295,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0.12495,
+											"g": 2.9988,
+											"b": 0.02295
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Arial"
 							},
 							"text": "Text path",
 							"visualBounds": {
-								"top": 167,
-								"left": 55,
-								"bottom": 195,
-								"right": 175
+								"x": 55,
+								"y": 167,
+								"width": 120,
+								"height": 28
 							},
 							"position": {
 								"x": 0,
@@ -769,19 +805,12 @@
 			"maxTextSize": 30
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -792,6 +821,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "text-on-path.psd"
+	"version": "1.0.0",
+	"name": "text-on-path.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

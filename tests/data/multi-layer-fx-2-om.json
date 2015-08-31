@@ -10,24 +10,30 @@
 					"cap": "butt",
 					"join": "miter",
 					"width": 12.5,
-					"miter-limit": 100,
+					"miterLimit": 100,
 					"dash": [],
-					"dash-offset": 0,
+					"dashOffset": 0,
 					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
 					},
 					"opacity": 1
 				},
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 255,
-						"g": 255,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -40,10 +46,13 @@
 									"showInDialog": true,
 									"mode": "multiply",
 									"color": {
-										"r": 97.178987,
-										"g": 177.000005,
-										"b": 142.252921,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 97.178987,
+											"g": 177.000005,
+											"b": 142.252921
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75
 								},
@@ -53,10 +62,13 @@
 									"showInDialog": true,
 									"mode": "multiply",
 									"color": {
-										"r": 213.000003,
-										"g": 133.649803,
-										"b": 133.649803,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 213.000003,
+											"g": 133.649803,
+											"b": 133.649803
+										},
+										"alpha": 1
 									},
 									"opacity": 1
 								}
@@ -64,13 +76,11 @@
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"visualBounds": {
-				"top": 204,
-				"left": 224,
-				"bottom": 404,
-				"right": 424
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -78,88 +88,96 @@
 				"y": 204,
 				"width": 200,
 				"height": 200
+			},
+			"visualBounds": {
+				"x": 224,
+				"y": 204,
+				"width": 200,
+				"height": 200
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 97.178987,
-							"g": 177.000005,
-							"b": 142.252921,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 97.178987,
+									"g": 177.000005,
+									"b": 142.252921
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite",
-							"SourceGraphic"
-						],
-						"mode": "multiply"
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood-2",
-						"input": [],
-						"flood-color": {
-							"r": 213.000003,
-							"g": 133.649803,
-							"b": 133.649803,
-							"a": 1
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"SourceGraphic"
+							],
+							"operator": "in"
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"flood-2",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-2",
-						"input": [
-							"composite-2",
-							"blend"
-						],
-						"mode": "multiply"
-					}
-				]
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite",
+								"SourceGraphic"
+							],
+							"mode": "multiply"
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood-2",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 213.000003,
+									"g": 133.649803,
+									"b": 133.649803
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"flood-2",
+								"SourceGraphic"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-2",
+							"input": [
+								"composite-2",
+								"blend"
+							],
+							"mode": "multiply"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
-		"pxToInchRatio": 300
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -170,6 +188,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "multi-layer-fx-2.psd"
+	"version": "1.0.0",
+	"name": "multi-layer-fx-2.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2100,
+		"height": 1500
+	},
+	"rasterResolution": 300
 }

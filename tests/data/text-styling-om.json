@@ -11,10 +11,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 55,
-				"left": 64,
-				"bottom": 99,
-				"right": 171
+				"x": 64,
+				"y": 55,
+				"width": 107,
+				"height": 44
 			},
 			"position": {
 				"x": 56.75,
@@ -32,10 +32,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -43,10 +46,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 55,
-						"left": 64,
-						"bottom": 99,
-						"right": 171
+						"x": 64,
+						"y": 55,
+						"width": 107,
+						"height": 44
 					},
 					"position": {
 						"x": 56.75,
@@ -68,10 +71,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 143,
-				"left": 65,
-				"bottom": 187,
-				"right": 183
+				"x": 65,
+				"y": 143,
+				"width": 118,
+				"height": 44
 			},
 			"position": {
 				"x": 64.359376,
@@ -89,10 +92,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -100,10 +106,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 143,
-						"left": 65,
-						"bottom": 187,
-						"right": 183
+						"x": 65,
+						"y": 143,
+						"width": 118,
+						"height": 44
 					},
 					"position": {
 						"x": 64.359376,
@@ -125,10 +131,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 230,
-				"left": 71,
-				"bottom": 274,
-				"right": 190
+				"x": 71,
+				"y": 230,
+				"width": 119,
+				"height": 44
 			},
 			"position": {
 				"x": 64.437504,
@@ -146,10 +152,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -158,10 +167,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 230,
-						"left": 71,
-						"bottom": 274,
-						"right": 190
+						"x": 71,
+						"y": 230,
+						"width": 119,
+						"height": 44
 					},
 					"position": {
 						"x": 64.437504,
@@ -183,10 +192,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 306,
-				"left": 64,
-				"bottom": 365,
-				"right": 175
+				"x": 64,
+				"y": 306,
+				"width": 111,
+				"height": 59
 			},
 			"position": {
 				"x": 64.328128,
@@ -204,10 +213,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -215,10 +227,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 306,
-						"left": 64,
-						"bottom": 365,
-						"right": 175
+						"x": 64,
+						"y": 306,
+						"width": 111,
+						"height": 59
 					},
 					"position": {
 						"x": 64.328128,
@@ -240,10 +252,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 397,
-				"left": 56,
-				"bottom": 441,
-				"right": 167
+				"x": 56,
+				"y": 397,
+				"width": 111,
+				"height": 44
 			},
 			"position": {
 				"x": 56.617183999999995,
@@ -261,10 +273,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -272,10 +287,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 397,
-						"left": 56,
-						"bottom": 441,
-						"right": 167
+						"x": 56,
+						"y": 397,
+						"width": 111,
+						"height": 44
 					},
 					"position": {
 						"x": 56.617183999999995,
@@ -297,10 +312,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 482,
-				"left": 63,
-				"bottom": 525,
-				"right": 180
+				"x": 63,
+				"y": 482,
+				"width": 117,
+				"height": 43
 			},
 			"position": {
 				"x": 62.195312,
@@ -318,10 +333,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -329,10 +347,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 482,
-						"left": 63,
-						"bottom": 525,
-						"right": 180
+						"x": 63,
+						"y": 482,
+						"width": 117,
+						"height": 43
 					},
 					"position": {
 						"x": 62.195312,
@@ -354,10 +372,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 56,
-				"left": 332,
-				"bottom": 99,
-				"right": 484
+				"x": 332,
+				"y": 56,
+				"width": 152,
+				"height": 43
 			},
 			"position": {
 				"x": 331.062496,
@@ -375,10 +393,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -386,10 +407,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 56,
-						"left": 332,
-						"bottom": 99,
-						"right": 484
+						"x": 332,
+						"y": 56,
+						"width": 152,
+						"height": 43
 					},
 					"position": {
 						"x": 331.062496,
@@ -411,10 +432,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 161,
-				"left": 332,
-				"bottom": 186,
-				"right": 396
+				"x": 332,
+				"y": 161,
+				"width": 64,
+				"height": 25
 			},
 			"position": {
 				"x": 331.695312,
@@ -432,10 +453,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -443,10 +467,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 161,
-						"left": 332,
-						"bottom": 186,
-						"right": 396
+						"x": 332,
+						"y": 161,
+						"width": 64,
+						"height": 25
 					},
 					"position": {
 						"x": 331.695312,
@@ -468,10 +492,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 262,
-				"left": 333,
-				"bottom": 287,
-				"right": 398
+				"x": 333,
+				"y": 262,
+				"width": 65,
+				"height": 25
 			},
 			"position": {
 				"x": 333.445312,
@@ -489,10 +513,13 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial",
@@ -500,10 +527,10 @@
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 262,
-						"left": 333,
-						"bottom": 287,
-						"right": 398
+						"x": 333,
+						"y": 262,
+						"width": 65,
+						"height": 25
 					},
 					"position": {
 						"x": 333.445312,
@@ -525,10 +552,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 320,
-				"left": 330,
-				"bottom": 365,
-				"right": 445
+				"x": 330,
+				"y": 320,
+				"width": 115,
+				"height": 45
 			},
 			"position": {
 				"x": 329.078128,
@@ -546,20 +573,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 320,
-						"left": 330,
-						"bottom": 365,
-						"right": 445
+						"x": 330,
+						"y": 320,
+						"width": 115,
+						"height": 45
 					},
 					"position": {
 						"x": 329.078128,
@@ -581,10 +611,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 396,
-				"left": 332,
-				"bottom": 440,
-				"right": 550
+				"x": 332,
+				"y": 396,
+				"width": 218,
+				"height": 44
 			},
 			"position": {
 				"x": 329.960936,
@@ -602,20 +632,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 396,
-						"left": 332,
-						"bottom": 440,
-						"right": 550
+						"x": 332,
+						"y": 396,
+						"width": 218,
+						"height": 44
 					},
 					"position": {
 						"x": 329.960936,
@@ -637,10 +670,10 @@
 			},
 			"name": "Text",
 			"visualBounds": {
-				"top": 482,
-				"left": 328,
-				"bottom": 569,
-				"right": 546
+				"x": 328,
+				"y": 482,
+				"width": 218,
+				"height": 87
 			},
 			"position": {
 				"x": 326.195312,
@@ -658,20 +691,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Text",
 					"visualBounds": {
-						"top": 482,
-						"left": 328,
-						"bottom": 569,
-						"right": 546
+						"x": 328,
+						"y": 482,
+						"width": 218,
+						"height": 87
 					},
 					"position": {
 						"x": 326.195312,
@@ -693,10 +729,10 @@
 			},
 			"name": "Test",
 			"visualBounds": {
-				"top": 41,
-				"left": 625,
-				"bottom": 85,
-				"right": 734
+				"x": 625,
+				"y": 41,
+				"width": 109,
+				"height": 44
 			},
 			"position": {
 				"x": 623.656248,
@@ -714,20 +750,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Test",
 					"visualBounds": {
-						"top": 41,
-						"left": 625,
-						"bottom": 85,
-						"right": 734
+						"x": 625,
+						"y": 41,
+						"width": 109,
+						"height": 44
 					},
 					"position": {
 						"x": 623.656248,
@@ -749,10 +788,10 @@
 			},
 			"name": "Test",
 			"visualBounds": {
-				"top": 152,
-				"left": 627,
-				"bottom": 196,
-				"right": 772
+				"x": 627,
+				"y": 152,
+				"width": 145,
+				"height": 44
 			},
 			"position": {
 				"x": 625.914064,
@@ -770,20 +809,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Test",
 					"visualBounds": {
-						"top": 152,
-						"left": 627,
-						"bottom": 196,
-						"right": 772
+						"x": 627,
+						"y": 152,
+						"width": 145,
+						"height": 44
 					},
 					"position": {
 						"x": 625.914064,
@@ -805,10 +847,10 @@
 			},
 			"name": "Test",
 			"visualBounds": {
-				"top": 240,
-				"left": 628,
-				"bottom": 284,
-				"right": 719
+				"x": 628,
+				"y": 240,
+				"width": 91,
+				"height": 44
 			},
 			"position": {
 				"x": 626.64844,
@@ -826,20 +868,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Test",
 					"visualBounds": {
-						"top": 240,
-						"left": 628,
-						"bottom": 284,
-						"right": 719
+						"x": 628,
+						"y": 240,
+						"width": 91,
+						"height": 44
 					},
 					"position": {
 						"x": 626.64844,
@@ -861,10 +906,10 @@
 			},
 			"name": "Test",
 			"visualBounds": {
-				"top": 370,
-				"left": 622,
-				"bottom": 414,
-				"right": 738
+				"x": 622,
+				"y": 370,
+				"width": 116,
+				"height": 44
 			},
 			"position": {
 				"x": 620.625,
@@ -882,20 +927,23 @@
 						"fill": {
 							"type": "solid",
 							"color": {
-								"r": 2.9988,
-								"g": 2.9988,
-								"b": 2.9988,
-								"a": 1
+								"mode": "RGB",
+								"value": {
+									"r": 2.9988,
+									"g": 2.9988,
+									"b": 2.9988
+								},
+								"alpha": 1
 							}
 						},
 						"font-family": "Arial"
 					},
 					"text": "Test",
 					"visualBounds": {
-						"top": 370,
-						"left": 622,
-						"bottom": 414,
-						"right": 738
+						"x": 622,
+						"y": 370,
+						"width": 116,
+						"height": 44
 					},
 					"position": {
 						"x": 620.625,
@@ -907,19 +955,12 @@
 			]
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 144
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -930,6 +971,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "text-styling.psd"
+	"version": "1.0.0",
+	"name": "text-styling.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 144
 }

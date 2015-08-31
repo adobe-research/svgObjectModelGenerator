@@ -298,7 +298,7 @@
     function processStyle(ctx, blocks) {
         var id = new ID(ctx.idType);
         for (var i in blocks) {
-            if (blocks[i].tags && blocks[i].tags.length && blocks[i].hasRules() && (!ctx.svgOM.global.styles || !ctx.svgOM.global.styles[blocks[i].class[0]])) {
+            if (blocks[i].tags && blocks[i].tags.length && blocks[i].hasRules() && (!ctx.svgOM.resources.styles || !ctx.svgOM.resources.styles[blocks[i].class[0]])) {
                 blocks[i].class[0] = id.getUnique("cls");
             }
         }

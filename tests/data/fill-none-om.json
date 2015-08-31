@@ -1,29 +1,16 @@
 {
-    "title": "generatedAsset",
-    "version": "0.1.0",
-    "global": {
-        "bounds": {
-            "top": 9.00,
-            "left": 177.00,
-            "bottom": 127.00,
-            "right": 297.00
-        },
-        "viewBox": {
-            "top": 9.00,
-            "left": 177.00,
-            "bottom": 127.00,
-            "right": 297.00
-        }
-    },
+    "name": "generatedAsset",
+    "version": "1.0.0",
+    "resources": {},
     "children": [
         {
             "type": "shape",
             "shape": {
                 "type": "ellipse",
-                "cx": 237.00,
-                "cy": 68.00,
-                "ry": 56.00,
-                "rx": 57.00
+                "cx": 237,
+                "cy": 68,
+                "ry": 56,
+                "rx": 57
             },
             "style": {
                 "fill": {
@@ -33,73 +20,87 @@
                     "width": 14.47,
                     "type": "solid",
                     "color": {
-                        "r": 255.00,
-                        "g": 0.00,
-                        "b": 0.00
+                        "mode": "RGB",
+                        "value": {
+                            "r": 255,
+                            "g": 0,
+                            "b": 0
+                        }
                     }
                 }
             }
         },
         {
-            "kind": "positioned",
-            "paragraphs": [
-                {
-                    "lines": [
-                        [
-                            {
-                                "from": 0,
-                                "scale": [
-                                    0.379665,
-                                    1
-                                ],
-                                "style": {
-                                    "font": {
-                                        "family": "Courier New",
-                                        "size": 98.3769,
-                                        "style": "bold"
-                                    },
-                                    "stroke": {
-                                        "color": {
-                                            "b": 0,
-                                            "g": 0,
-                                            "r": 255
+            "text": {
+                "paragraphs": [
+                    {
+                        "lines": [
+                            [
+                                {
+                                    "from": 0,
+                                    "scale": [
+                                        0.379665,
+                                        1
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "family": "Courier New",
+                                            "size": 98.3769,
+                                            "style": "bold"
                                         },
-                                        "miter-limit": 10,
-                                        "type": "solid"
-                                    }
-                                },
-                                "to": 31
+                                        "stroke": {
+                                            "color": {
+                                                "mode": "RGB",
+                                                "value": {
+                                                    "b": 0,
+                                                    "g": 0,
+                                                    "r": 255
+                                                }
+                                            },
+                                            "miterLimit": 10,
+                                            "type": "solid"
+                                        }
+                                    },
+                                    "to": 31
+                                }
+                            ]
+                        ],
+                        "style": {
+                            "font": {
+                                "size": 12
                             }
-                        ]
-                    ],
-                    "style": {
-                        "font": {
-                            "size": 12
                         }
                     }
+                ],
+                "rawText": "This text should have fill:none",
+                "frame": {
+                    "type": "positioned",
+                    "height": 149.189,
+                    "path": "",
+                    "width": 695.826
                 }
-            ],
-            "raw-text": "This text should have fill:none",
-            "text-frame": {
-                "height": 149.189,
-                "path": "",
-                "width": 695.826
             },
             "transform": {
                 "a": 0.379665,
                 "b": 0,
                 "c": 0,
                 "d": 1,
-                "e": 78.8184,
-                "f": 132.105
+                "tx": 78.8184,
+                "ty": 132.105
             },
             "type": "text",
             "visualBounds": {
-                "bottom": 202.497,
-                "left": 78.3184,
-                "right": 774.145,
-                "top": 53.3076
+                "x": 78.3184,
+                "y": 53.3076,
+                "height": 149.1894,
+                "width": 695.8266
             }
         }
-    ]
+    ],
+    "viewSource": {
+        "x": 177,
+        "y": 9,
+        "width": 120,
+        "height": 118
+    }
 }

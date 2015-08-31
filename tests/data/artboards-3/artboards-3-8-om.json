@@ -10,21 +10,24 @@
 					"cap": "butt",
 					"join": "miter",
 					"width": 13.583333333333332,
-					"miter-limit": 100,
+					"miterLimit": 100,
 					"dash": [],
-					"dash-offset": 0,
+					"dashOffset": 0,
 					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
 					},
 					"opacity": 1
 				},
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 0,
 						"y1": 2512,
 						"x2": 5924,
@@ -33,20 +36,20 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 2212,
-				"left": 2212,
-				"bottom": 2812,
-				"right": 2812
-			},
 			"shape": {
 				"type": "path",
 				"path": "M2212 2212 C2212 2212 2812 2212 2812 2212 C2812 2212 2812 2812 2812 2812 C2812 2812 2212 2812 2212 2812 C2212 2812 2212 2212 2212 2212Z",
 				"winding": "evenodd"
+			},
+			"visualBounds": {
+				"x": 2212,
+				"y": 2212,
+				"width": 600,
+				"height": 600
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
@@ -55,51 +58,69 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 249,
-							"g": 229.99611,
-							"b": 0,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 249,
+								"g": 229.99611,
+								"b": 0
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.050048828125,
 						"color": {
-							"r": 249,
-							"g": 229.99611,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 249,
+								"g": 229.99611,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.35009765625,
 						"color": {
-							"r": 111.003892,
-							"g": 21.003892,
-							"b": 108.000001
+							"mode": "RGB",
+							"value": {
+								"r": 111.003892,
+								"g": 21.003892,
+								"b": 108.000001
+							}
 						}
 					},
 					{
 						"offset": 0.64990234375,
 						"color": {
-							"r": 253,
-							"g": 124,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 253,
+								"g": 124,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.949951171875,
 						"color": {
-							"r": 0,
-							"g": 40.000001,
-							"b": 116.000001
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 40.000001,
+								"b": 116.000001
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 0,
-							"g": 40.000001,
-							"b": 116.000001,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 40.000001,
+								"b": 116.000001
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -107,14 +128,7 @@
 			}
 		},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5024,
-			"right": 5924
-		},
-		"pxToInchRatio": 326
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -125,6 +139,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "Untitled-1"
+	"version": "1.0.0",
+	"name": "Untitled-1",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 5924,
+		"height": 5024
+	},
+	"rasterResolution": 326
 }

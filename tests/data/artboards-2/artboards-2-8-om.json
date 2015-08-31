@@ -10,18 +10,15 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 0,
-						"g": 255,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						},
+						"alpha": 1
 					}
 				}
-			},
-			"visualBounds": {
-				"top": 2138,
-				"left": 3390,
-				"bottom": 2886,
-				"right": 4138
 			},
 			"shape": {
 				"type": "rect",
@@ -29,22 +26,21 @@
 				"y": 2138,
 				"width": 748,
 				"height": 748
+			},
+			"visualBounds": {
+				"x": 3390,
+				"y": 2138,
+				"width": 748,
+				"height": 748
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5024,
-			"right": 5024
-		},
-		"pxToInchRatio": 326
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -55,6 +51,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "artboards-2.psd"
+	"version": "1.0.0",
+	"name": "artboards-2.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 5024,
+		"height": 5024
+	},
+	"rasterResolution": 326
 }

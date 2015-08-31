@@ -1,42 +1,51 @@
 {
 	"children": [
 		{
-			"children": [
-				{
-					"children": [
-						{
-							"children": [],
-							"name": "Home",
-							"type": "group"
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"name": "Button_over",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "Home",
+									"type": "group",
+									"group": {
+										"children": []
+									}
+								}
+							]
 						}
-					],
-					"name": "Button_over",
-					"type": "group"
-				},
-				{
-					"children": [
-						{
-							"children": [],
-							"name": "Home2",
-							"type": "group"
+					},
+					{
+						"name": "Button_over2",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "Home2",
+									"type": "group",
+									"group": {
+										"children": []
+									}
+								}
+							]
 						}
-					],
-					"name": "Button_over2",
-					"type": "group"
-				}
-			],
-			"type": "group"
+					}
+				]
+			}
 		}
 	],
 	"desc": "Created by Adobe Illustrator",
-	"global": {
-		"bounds": {
-			"bottom": 560,
-			"left": 0,
-			"right": 960,
-			"top": 0
-		}
-	},
 	"name": "ExpandDeletedSymbol2",
-	"version": "0.1.0"
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {}
 }

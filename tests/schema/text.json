@@ -1,37 +1,169 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/text",
-    "title": "text",
-    "description": "A text shape graphics object",
-    "type": "object",
-    "properties": {
-        "meta": {
-            "type": "object"
-        },
-        "name": {
-            "description": "The user specified name of the graphics object",
-            "type": "string"
-        },
-        "shape": {
-            "type": "object",
-            "description": "A representation of a text"
-        },
-        "style": { "$ref": "/style" },
-        "transform": {
-            "oneOf": [
-                { "$ref": "/transform2d" },
-                { "$ref": "/transform3d" }
-            ]
-        },
-        "type": {
-            "description": "The type of the graphics object",
-            "enum": [ "text" ]
-        },
-        "visible": {
-            "description": "Whether the graphics object is visible or not",
-            "type": "boolean"
-        },
-        "visualBounds": { "$ref": "/bounds" }
-    },
-    "required": ["type"]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/text",
+	"title": "text",
+	"description": "A text shape graphics object",
+	"type": "object",
+	"properties": {
+		"children": {
+			"description": "DEPRECATED",
+			"type": "array",
+			"items": {
+				"type": "object"
+			}
+		},
+		"id": {
+			"description": "A unique identifier with the document",
+			"type": "string"
+		},
+		"meta": {
+			"type": "object"
+		},
+		"maxTextSize": {
+			"description": "DEPRECATED",
+			"type": "number"
+		},
+		"name": {
+			"description": "The user specified name of the graphics object",
+			"type": "string"
+		},
+		"position": {
+			"description": "DEPRECATED",
+			"type": "object"
+		},
+		"style": { "$ref": "/style" },
+		"text": {
+			"type": "object",
+			"properties": {
+				"frame": {
+					"type": "object",
+					"properties": {
+						 "type": {
+							"description": "The text type for this text frame",
+							"enum": [ "positioned", "area", "path" ]
+						},
+						"x": {
+							"description": "type dependent defintion",
+							"type": "number"
+						},
+						"y": {
+							"description": "type dependent defintion",
+							"type": "number"
+						},
+						"width": {
+							"description": "The horizontal dimension of the text bounding box",
+							"type": "number"
+						},
+						"height": {
+							"description": "The vertical dimension of the text bounding box",
+							"type": "number"
+						},
+						"path": {
+							"description": "A SVG path data string",
+							"type": "string"
+						}
+					},
+					"additionalProperties": false,
+					"required": [ "type" ]
+				},
+				"orientation": {
+					"enum": [ "horizontal-tb", "vertical-rl", "vertical-lr" ]
+				},
+				"paragraphs": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"lines": {
+								"type": "array",
+								"items": {
+									"type": "array",
+									"items": {
+										"description": "A list of characters with specific styling information",
+										"type": "object",
+										"properties": {
+											"from": {
+												"description": "Start of text range defined by rawText",
+												"type": "number",
+												"minimum": 0
+											},
+											"to": {
+												"description": "End of text range defined by rawText",
+												"type": "number",
+												"minimum": 0
+											},
+											"dx": {
+												"description": "The horizontal offset relative to the previous glyph run",
+												"type": "number"
+											},
+											"dy": {
+												"description": "The vertical offset relative to the previous glyph run",
+												"type": "number"
+											},
+											"x": {
+												"description": "The horizontal start offset of the current glyph run",
+												"type": "number"
+											},
+											"y": {
+												"description": "The vertical start offset of the current glyph run",
+												"type": "number"
+											},
+											"rotate": {
+												"description": "The rotation of the letter in degrees",
+												"type": "number"
+											},
+											"style": { "$ref": "/style" },
+											"scale": {
+												"type": "array",
+												"items": {
+													"type": "number"
+												},
+												"minItems": 1,
+												"maxItems": 2
+											}
+										},
+										"additionalProperties": false,
+										"required": [ "from", "to" ]
+									}
+								}
+							},
+							"style": { "$ref": "/style" }
+						},
+						"additionalProperties": false,
+						"required": [ "lines" ]
+					}
+				},
+				"rawText": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "frame", "rawText" ]
+		},
+		"transform": {
+			"oneOf": [
+				{ "$ref": "/transform2d" },
+				{ "$ref": "/transform3d" }
+			]
+		},
+		"transformTX": {
+			"description": "DEPRECATED",
+			"type": "number"
+		},
+		"transformTY": {
+			"description": "DEPRECATED",
+			"type": "number"
+		},
+		"type": {
+			"description": "The type of the graphics object",
+			"enum": [ "text" ]
+		},
+		"visible": {
+			"description": "Whether the graphics object is visible or not",
+			"type": "boolean"
+		},
+		"visualBounds": { "$ref": "/bounds" }
+	},
+	"additionalProperties": false,
+	"required": ["type"]
 }

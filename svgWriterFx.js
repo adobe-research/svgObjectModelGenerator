@@ -72,12 +72,24 @@
                 filterID,
                 filterTag;
 
-            if (!omIn.style || !omIn.style.filter) {
+            if (!omIn.style || !omIn.style.filters || !omIn.style.filters.length) {
                 return;
             }
-            filter = omIn.style.filter;
-            if (ctx.svgOM.global && ctx.svgOM.global.filters[filter]) {
-                ctx.currentOMNode = ctx.svgOM.global.filters[filter];
+            for (var i = 0; i < omIn.style.filters.length; i++) {
+                filter = omIn.style.filters[i];
+                if (filter.ref) {
+                    if (!ctx.svgOM.resources || !ctx.svgOM.resources.filters[filter.ref]) {
+                        continue;
+                    }
+                    filter = ctx.svgOM.resources.filters[filter.ref];
+                }
+                if (filter.type != "svgFilter") {
+                    continue;
+                }
+                if (!filter.params) {
+                    continue;
+                }
+                ctx.currentOMNode = filter.params;
                 filterID = ctx.ID.getUnique("filter", ctx.currentOMNode.name);
                 ctx.currentOMNode.kind = "filter";
                 filterTag = writeFilter(ctx, ctx.currentOMNode);
@@ -86,6 +98,7 @@
                 ctx.omStylesheet.def(filterTag, function (def) {
                     ctx.omStylesheet.getStyleBlock(omIn).addRule("filter", "url(#" + def.getAttribute("id") + ")");
                 });
+                break;
             }
         };
     }

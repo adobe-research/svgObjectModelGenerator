@@ -18,6 +18,7 @@
     "use strict";
 
     var svgWriterUtils = require("./svgWriterUtils.js"),
+        utils = require("./utils.js"),
         Tag = require("./svgWriterTag.js"),
         round10k = svgWriterUtils.round10k,
         gradientStops = {},
@@ -40,11 +41,11 @@
         },
         getLinearGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
             var t = getTransform(gradientRef.transform, offsetX, offsetY, ctx.precision),
-            x1 = gradientRef.x1 + (t ? 0 : offsetX),
+                x1 = gradientRef.x1 + (t ? 0 : offsetX),
                 x2 = gradientRef.x2 + (t ? 0 : offsetX),
                 y1 = gradientRef.y1 + (t ? 0 : offsetY),
                 y2 = gradientRef.y2 + (t ? 0 : offsetY),
-                gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
+                gradientSpace = gradientRef.units || "userSpaceOnUse",
                 attr = {
                     x1: x1,
                     y1: y1,
@@ -80,7 +81,7 @@
                 fx = gradientRef.fx ? gradientRef.fx + (t ? 0 : offsetX) : cx,
                 fy = gradientRef.fy ? gradientRef.fy + (t ? 0 : offsetY) : cy,
                 r = gradientRef.r,
-                gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
+                gradientSpace = gradientRef.units || "userSpaceOnUse",
                 attr = {
                     cx: cx,
                     cy: cy,
@@ -144,12 +145,12 @@
         },
         writeGradient: function (ctx, styleBlock, gradientRef, flavor) {
             var omIn = ctx.currentOMNode,
-                gradient = ctx.svgOM.global.gradients[gradientRef.ref],
+                gradient = ctx.svgOM.resources.gradients[gradientRef.ref],
                 name = gradient.name && gradient.name.substr(0, 7) != "Unnamed" ? gradient.name : undefined, // FIXME: Hack until we know how to identify unnamed gradients in Ai.
                 gradientID = ctx.ID.getUnique(gradient.type + "-gradient", name),
                 stops = gradient.stops,
                 color,
-                gradientSpace = gradientRef.gradientSpace || "userSpaceOnUse",
+                gradientSpace = gradientRef.units || "userSpaceOnUse",
                 fingerprint = "",
                 stp,
                 lines = [],
@@ -182,8 +183,9 @@
 
             for (var i = 0, ii = stops.length; i < ii; ++i) {
                 stp = stops[i];
-                color = {r: stp.color.r, g: stp.color.g, b: stp.color.b};
-                alpha = isFinite(stp.color.a) ? stp.color.a : 1;
+                color = utils.clone(stp.color);
+                delete color.alpha;
+                alpha = isFinite(stp.color.alpha) ? stp.color.alpha : 1;
                 lines.push(new Tag("stop", {
                     offset: stp.offset,
                     "stop-color": svgWriterUtils.writeColor(color, ctx),

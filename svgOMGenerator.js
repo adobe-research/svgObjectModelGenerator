@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /*
- * Generate an abstract svgOM from the Generator JSON
+ * Generate an abstract AGC from the Generator JSON
  * Loosely based on the CSSON work for generator-css
 */
 
@@ -33,7 +33,7 @@
             layer: "image"
         };
 
-    function getSVGLayerType(layer) {
+    function getAGCLayerType(layer) {
         if (!layerTypeMap[layer.type]) {
             console.log("[svgOMGenerator] skip '" + layer.type + "' - consider adding");
         }
@@ -41,7 +41,7 @@
         return layer.artboard ? "artboard" : layerTypeMap[layer.type];
     }
 
-    function getSVGLayerName(type, layer) {
+    function getAGCNodeName(type, layer) {
         if (!layer.name && !layer.name.length) {
             return;
         }
@@ -79,7 +79,7 @@
     }
 
     function layerShouldBeRasterized(layer, aErrors) {
-        var layerType = getSVGLayerType(layer),
+        var layerType = getAGCLayerType(layer),
             imageType = layerType === "image" && layer.bounds.right - layer.bounds.left > 0 && layer.bounds.bottom - layer.bounds.top > 0;
 
         if (!imageType) {
@@ -95,7 +95,7 @@
         return imageType;
     }
 
-    function extractSVGOM(psd, opts) {
+    function extractAGC(psd, opts) {
         var layers = psd.layers,
             writer = new SVGOMWriter(opts.errors),
             iL,
@@ -103,9 +103,9 @@
             layerSpec = opts.layerSpec,
             layerSpecFound = !layerSpecActive(layerSpec);
 
-        function extractLayerSVG(layer) {
+        function extractLayerToAGC(layer) {
             var layerType,
-                svgNode,
+                agcNode,
                 i,
                 childLyr,
                 justTraverse = false,
@@ -127,7 +127,7 @@
                 layerVisible = false;
             }
 
-            layerType = getSVGLayerType(layer);
+            layerType = getAGCLayerType(layer);
             // Don't process empty nodes.
             if (layer.bounds &&
                 layer.bounds.left == layer.bounds.right &&
@@ -136,32 +136,32 @@
                 return;
             }
             if (!justTraverse && layerType != "background") {
-                svgNode = writer.addSVGNode(layerType, layerVisible);
-                svgNode.name = getSVGLayerName(layerType, layer);
+                agcNode = writer.addAGCNode(layerType, layerVisible);
+                agcNode.name = getAGCNodeName(layerType, layer);
             }
 
             switch (layerType) {
                 case "shape":
                     if (!justTraverse) {
-                        omgShapes.addShapeData(svgNode, layer, writer);
+                        omgShapes.addShapeData(agcNode, layer, writer);
                     }
                     break;
                 case "text":
                     if (!justTraverse) {
-                        omgText.addTextData(svgNode, layer, writer);
+                        omgText.addTextData(agcNode, layer, writer);
                     }
                     break;
                 case "image":
                     if (!justTraverse) {
                         // FIXME: Could also be an empty layer or a gradient layer.
                         // Treat all of them as image for now.
-                        omgImage.addImageData(svgNode, layer, writer);
+                        omgImage.addImageData(agcNode, layer, writer);
                     }
                     break;
                 case "artboard":
                     if (!justTraverse) {
-                        svgNode.ref = writer.ID.getUnique("artboard");
-                        writer.setArtboard(svgNode.ref, svgNode.name, layer.artboard.artboardRect);
+                        agcNode.artboard.ref = writer.ID.getUnique("artboard");
+                        writer.setArtboard(agcNode.artboard.ref, agcNode.name, layer.artboard.artboardRect);
                     }
                     // Either all layers are descendants of artboards or there are
                     // no artboards. Use this for path shapes.
@@ -172,14 +172,13 @@
                     // falls through
                 case "group":
                     if (!justTraverse) {
-
-                        omgStyles.addGroupStylingData(svgNode, layer, writer);
-                        writer.pushCurrent(svgNode);
+                        omgStyles.addGroupStylingData(agcNode, layer, writer);
+                        writer.pushCurrent(agcNode);
                     }
                     if (layer.layers) {
                         for (i = layer.layers.length - 1; i >= 0; i--) {
                             childLyr = layer.layers[i];
-                            extractLayerSVG(childLyr);
+                            extractLayerToAGC(childLyr);
                         }
                     }
                     if (!justTraverse) {
@@ -200,16 +199,16 @@
         if (layers) {
             for (iL = layers.length - 1; iL >= 0; iL--) {
                 lyr = layers[iL];
-                extractLayerSVG(lyr);
+                extractLayerToAGC(lyr);
             }
         }
 
-        return writer.toSVGOM();
+        return writer.toAGC();
     }
 
-    module.exports.extractSVGOM = extractSVGOM;
+    module.exports.extractSVGOM = extractAGC;
     module.exports.layerShouldBeRasterized = layerShouldBeRasterized;
-    module.exports._getSVGLayerType = getSVGLayerType;
+    module.exports._getSVGLayerType = getAGCLayerType;
     module.exports._layerSpecActive = layerSpecActive;
     module.exports._layerSpecMatches = layerSpecMatches;
 }());

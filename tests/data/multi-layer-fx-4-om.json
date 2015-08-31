@@ -10,24 +10,30 @@
 					"cap": "butt",
 					"join": "miter",
 					"width": 12.5,
-					"miter-limit": 100,
+					"miterLimit": 100,
 					"dash": [],
-					"dash-offset": 0,
+					"dashOffset": 0,
 					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
 					},
 					"opacity": 1
 				},
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 255,
-						"g": 255,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -40,10 +46,13 @@
 									"showInDialog": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 255,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 255
+										},
+										"alpha": 1
 									},
 									"opacity": 1,
 									"useGlobalAngle": false,
@@ -69,10 +78,13 @@
 									"showInDialog": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 255,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 255,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 1,
 									"useGlobalAngle": false,
@@ -98,10 +110,13 @@
 									"showInDialog": true,
 									"mode": "multiply",
 									"color": {
-										"r": 255,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 1,
 									"useGlobalAngle": true,
@@ -125,16 +140,20 @@
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"visualBounds": {
-				"top": 132,
-				"left": 142,
-				"bottom": 632,
-				"right": 642
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
+				"x": 142,
+				"y": 132,
+				"width": 500,
+				"height": 500
+			},
+			"visualBounds": {
 				"x": 142,
 				"y": 132,
 				"width": 500,
@@ -151,24 +170,30 @@
 					"cap": "butt",
 					"join": "miter",
 					"width": 12.5,
-					"miter-limit": 100,
+					"miterLimit": 100,
 					"dash": [],
-					"dash-offset": 0,
+					"dashOffset": 0,
 					"color": {
-						"r": 0,
-						"g": 0,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
 					},
 					"opacity": 1
 				},
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 255,
-						"g": 255,
-						"b": 0,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 255,
+							"g": 255,
+							"b": 0
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -181,10 +206,13 @@
 									"showInDialog": true,
 									"mode": "normal",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 255,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 255
+										},
+										"alpha": 1
 									},
 									"opacity": 1,
 									"useGlobalAngle": false,
@@ -210,10 +238,13 @@
 									"showInDialog": true,
 									"mode": "normal",
 									"color": {
-										"r": 0,
-										"g": 255,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 255,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 1,
 									"useGlobalAngle": false,
@@ -239,10 +270,13 @@
 									"showInDialog": true,
 									"mode": "normal",
 									"color": {
-										"r": 255,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 1,
 									"useGlobalAngle": true,
@@ -266,13 +300,11 @@
 						}
 					}
 				},
-				"filter": "filter-2"
-			},
-			"visualBounds": {
-				"top": 132,
-				"left": 800,
-				"bottom": 632,
-				"right": 1300
+				"filters": [
+					{
+						"ref": "filter-2"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -280,369 +312,392 @@
 				"y": 132,
 				"width": 500,
 				"height": 500
+			},
+			"visualBounds": {
+				"x": 800,
+				"y": 132,
+				"width": 500,
+				"height": 500
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 7.071
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 255,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 7.071
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": -57.358,
-						"dy": -81.915
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"offset",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite-2",
-							"SourceGraphic"
-						],
-						"mode": "multiply"
-					},
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur-2",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 7.071
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood-2",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 255,
-							"b": 0,
-							"a": 1
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 255
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-3",
-						"input": [
-							"flood-2",
-							"blur-2"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset-2",
-						"input": [
-							"composite-3"
-						],
-						"dx": 17.678,
-						"dy": -17.678
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-4",
-						"input": [
-							"offset-2",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-2",
-						"input": [
-							"composite-4",
-							"blend"
-						],
-						"mode": "multiply"
-					},
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur-3",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 7.071
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood-3",
-						"input": [],
-						"flood-color": {
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "out"
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-5",
-						"input": [
-							"flood-3",
-							"blur-3"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset-3",
-						"input": [
-							"composite-5"
-						],
-						"dx": -17.678,
-						"dy": 17.678
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-6",
-						"input": [
-							"offset-3",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-3",
-						"input": [
-							"composite-6",
-							"blend-2"
-						],
-						"mode": "multiply"
-					}
-				]
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": -57.358,
+							"dy": -81.915
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"offset",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite-2",
+								"SourceGraphic"
+							],
+							"mode": "multiply"
+						},
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur-2",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 7.071
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood-2",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 255,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-3",
+							"input": [
+								"flood-2",
+								"blur-2"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset-2",
+							"input": [
+								"composite-3"
+							],
+							"dx": 17.678,
+							"dy": -17.678
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-4",
+							"input": [
+								"offset-2",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-2",
+							"input": [
+								"composite-4",
+								"blend"
+							],
+							"mode": "multiply"
+						},
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur-3",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 7.071
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood-3",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 255,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-5",
+							"input": [
+								"flood-3",
+								"blur-3"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset-3",
+							"input": [
+								"composite-5"
+							],
+							"dx": -17.678,
+							"dy": 17.678
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-6",
+							"input": [
+								"offset-3",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-3",
+							"input": [
+								"composite-6",
+								"blend-2"
+							],
+							"mode": "multiply"
+						}
+					]
+				}
 			},
 			"filter-2": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 7.071
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 255,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 7.071
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": -57.358,
-						"dy": -81.915
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"offset",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite-2",
-							"SourceGraphic"
-						],
-						"mode": "normal"
-					},
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur-2",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 7.071
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood-2",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 255,
-							"b": 0,
-							"a": 1
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 255
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-3",
-						"input": [
-							"flood-2",
-							"blur-2"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset-2",
-						"input": [
-							"composite-3"
-						],
-						"dx": 17.678,
-						"dy": -17.678
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-4",
-						"input": [
-							"offset-2",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-2",
-						"input": [
-							"composite-4",
-							"blend"
-						],
-						"mode": "normal"
-					},
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur-3",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 7.071
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood-3",
-						"input": [],
-						"flood-color": {
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "out"
 						},
-						"flood-opacity": 1
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-5",
-						"input": [
-							"flood-3",
-							"blur-3"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset-3",
-						"input": [
-							"composite-5"
-						],
-						"dx": -17.678,
-						"dy": 17.678
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-6",
-						"input": [
-							"offset-3",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-3",
-						"input": [
-							"composite-6",
-							"blend-2"
-						],
-						"mode": "normal"
-					}
-				]
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": -57.358,
+							"dy": -81.915
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"offset",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite-2",
+								"SourceGraphic"
+							],
+							"mode": "normal"
+						},
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur-2",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 7.071
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood-2",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 255,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-3",
+							"input": [
+								"flood-2",
+								"blur-2"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset-2",
+							"input": [
+								"composite-3"
+							],
+							"dx": 17.678,
+							"dy": -17.678
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-4",
+							"input": [
+								"offset-2",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-2",
+							"input": [
+								"composite-4",
+								"blend"
+							],
+							"mode": "normal"
+						},
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur-3",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 7.071
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood-3",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 255,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 1
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-5",
+							"input": [
+								"flood-3",
+								"blur-3"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset-3",
+							"input": [
+								"composite-5"
+							],
+							"dx": -17.678,
+							"dy": 17.678
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-6",
+							"input": [
+								"offset-3",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-3",
+							"input": [
+								"composite-6",
+								"blend-2"
+							],
+							"mode": "normal"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
-		"pxToInchRatio": 300
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -653,6 +708,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "multi-layer-fx-4.psd"
+	"version": "1.0.0",
+	"name": "multi-layer-fx-4.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2100,
+		"height": 1500
+	},
+	"rasterResolution": 300
 }

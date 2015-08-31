@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Help construct the svgOM */
+/* Help construct the AGC */
 
 (function () {
     "use strict";
@@ -22,6 +22,7 @@
         svgWriterUtils = require("./svgWriterUtils.js"),
         Matrix = require("./matrix.js"),
         round1k = svgWriterUtils.round1k,
+        boundsToRect = omgUtils.boundsToRect,
         _boundInPx = omgUtils.boundInPx;
 
     function SVGOMGeneratorText() {
@@ -84,7 +85,7 @@
             return pathData;
         };
 
-        this.addTextOnPath = function (svgNode, layer, writer) {
+        this.addTextOnPath = function (agcNode, layer, writer) {
             var self = this;
             return this.textComponentOrigin(layer, function (text) {
                 if (layer.text.textShape[0].char !== "onACurve" &&
@@ -93,14 +94,14 @@
                     return false;
                 }
 
-                var svgTextPathNode,
+                var agcTextPathNode,
                     isBoxMode = layer.text.textShape[0].char === "box",
                     boxOrientation = layer.text.textShape[0].orientation,
                     dpi = writer._dpi(),
                     maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
                 try {
 
-                    svgNode.type = "text";
+                    agcNode.type = "text";
 
                     var textBounds = {
                         top: _boundInPx(text.boundingBox.top, dpi),
@@ -108,28 +109,28 @@
                         left: _boundInPx(text.boundingBox.left, dpi),
                         right: _boundInPx(text.boundingBox.right, dpi)
                     };
-                    svgNode.visualBounds = layer.boundsWithFX || textBounds || layer.bounds;
-                    svgNode.position = {
+                    agcNode.visualBounds = boundsToRect(layer.boundsWithFX || textBounds || layer.bounds);
+                    agcNode.position = {
                         x: 0,
                         y: 0
                     };
-                    writer.pushCurrent(svgNode);
-                    svgTextPathNode = writer.addSVGNode("textPath", true);
-                    svgTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, textBounds, maxTextSize);
+                    writer.pushCurrent(agcNode);
+                    agcTextPathNode = writer.addAGCNode("textPath", true);
+                    agcTextPathNode.pathData = self._computeTextPath(layer.text.textShape[0].path.pathComponents[0].subpathListKey[0], isBoxMode, boxOrientation, textBounds, maxTextSize);
 
-                    self.addTextTransform(writer, svgNode, text, layer);
+                    self.addTextTransform(writer, agcNode, text, layer);
 
-                    if (!self.addTextChunks(svgTextPathNode, layer, text, writer, svgNode.position, layer.bounds)) {
+                    if (!self.addTextChunks(agcTextPathNode, layer, text, writer, agcNode.position, layer.bounds)) {
                         return false;
                     }
 
-                    omgStyles.addParagraphStyle(svgTextPathNode, text.paragraphStyleRange[0].paragraphStyle);
+                    omgStyles.addParagraphStyle(agcTextPathNode, text.paragraphStyleRange[0].paragraphStyle);
 
                     writer.popCurrent();
 
-                    omgStyles.addTextStyle(svgNode, layer);
+                    omgStyles.addTextStyle(agcNode, layer);
 
-                    omgStyles.addStylingData(svgNode, layer, layer.bounds, writer);
+                    omgStyles.addStylingData(agcNode, layer, layer.bounds, writer);
 
                 } catch (exter) {
                     console.warn(exter.stack);
@@ -139,40 +140,40 @@
             });
         };
 
-        this.addSimpleText = function (svgNode, layer, writer) {
+        this.addSimpleText = function (agcNode, layer, writer) {
             var self = this;
 
             return this.textComponentOrigin(layer, function (text) {
                 // FIXME: We need to differ between "paint", "path", "box" and "warp".
                 // The latter two won’t be supported sufficiently enough initially.
-                svgNode.type = "text";
-                svgNode.name = layer.name;
+                agcNode.type = "text";
+                agcNode.name = layer.name;
 
-                svgNode.visualBounds = layer.boundsWithFX || layer.bounds;
+                agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
 
                 // It seems that textClickPoint is a quite reliable global position for
                 // the initial <text> element.
                 // Values in percentage, moving to pixels so it is easier to work with te position
-                svgNode.position = {
-                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer._root.global.bounds.right - writer._root.global.bounds.left),
-                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer._root.global.bounds.bottom - writer._root.global.bounds.top),
+                agcNode.position = {
+                    x: omgUtils.pct2px(text.textClickPoint.horizontal.value, writer.docBounds().right - writer.docBounds().left),
+                    y: omgUtils.pct2px(text.textClickPoint.vertical.value, writer.docBounds().bottom - writer.docBounds().top),
                     unitX: "px",
                     unitY: "px"
                 };
 
-                self.addTextTransform(writer, svgNode, text, layer);
+                self.addTextTransform(writer, agcNode, text, layer);
 
-                return self.addTextChunks(svgNode, layer, text, writer, svgNode.position, layer.bounds);
+                return self.addTextChunks(agcNode, layer, text, writer, agcNode.position, layer.bounds);
             });
         };
 
-        this.addTextChunks = function (svgNode, layer, text, writer, position, bounds) {
+        this.addTextChunks = function (agcNode, layer, text, writer, position, bounds) {
             var textString = text.textKey,
-                svgTextChunkNode,
+                agcTextChunkNode,
                 yEMs = 0,
                 dpi = writer._dpi();
 
-            writer.pushCurrent(svgNode);
+            writer.pushCurrent(agcNode);
 
             // A paragraph is a newline added by the user. Each paragraph can
             // have a different text alignment.
@@ -183,7 +184,7 @@
                     indexTextStyleFrom,
                     indexTextStyleTo,
                     textSR = text.textStyleRange,
-                    svgParagraphNode,
+                    agcParagraphNode,
                     textContent;
 
                 // Text can consist of multiple textStyles. A textStyle
@@ -208,14 +209,14 @@
                 if (indexTextStyleFrom !== indexTextStyleTo) {
 
                     //then nest a paragraphNode...
-                    svgParagraphNode = writer.addSVGNode("tspan", true);
-                    svgParagraphNode.position = {
+                    agcParagraphNode = writer.addAGCNode("tspan", true);
+                    agcParagraphNode.position = {
                         x: position.x,
                         y: position.y,
                         unitX: position.unitX,
                         unitY: position.unitY
                     };
-                    writer.pushCurrent(svgParagraphNode);
+                    writer.pushCurrent(agcParagraphNode);
                 }
 
                 //process each text style, start at paragraph.from and end at paragraph.to
@@ -230,40 +231,40 @@
                         yEMs++;
                         continue;
                     }
-                    svgTextChunkNode = writer.addSVGNode("tspan", true);
-                    svgTextChunkNode.text = textContent;
+                    agcTextChunkNode = writer.addAGCNode("tspan", true);
+                    agcTextChunkNode.text = textContent;
 
-                    svgTextChunkNode.visualBounds = JSON.parse(JSON.stringify(bounds));
+                    agcTextChunkNode.visualBounds = boundsToRect(bounds);
 
                     //TBD: guess X based on the position assuming characters are same width (bad assumption, but it is what we have to work with)
 
                     if (indexTextStyleFrom === indexTextStyleTo) {
-                        svgTextChunkNode.position = {
+                        agcTextChunkNode.position = {
                             x: _boundInPx(position.x, dpi),
                             y: yEMs,
                             unitX: "px",
                             unitY: "em"
                         };
-                        omgStyles.addParagraphStyle(svgTextChunkNode, paragraph.paragraphStyle);
+                        omgStyles.addParagraphStyle(agcTextChunkNode, paragraph.paragraphStyle);
                     }
                     yEMs = 1;
-                    omgStyles.addTextChunkStyle(svgTextChunkNode, textSR[i], dpi);
+                    omgStyles.addTextChunkStyle(agcTextChunkNode, textSR[i], dpi);
                 }
 
                 if (indexTextStyleFrom !== indexTextStyleTo) {
-                    omgStyles.addParagraphStyle(svgParagraphNode, paragraph.paragraphStyle);
+                    omgStyles.addParagraphStyle(agcParagraphNode, paragraph.paragraphStyle);
                     writer.popCurrent();
                 }
             });
 
-            omgStyles.addTextStyle(svgNode, layer);
-            omgStyles.addStylingData(svgNode, layer, layer.bounds, writer);
+            omgStyles.addTextStyle(agcNode, layer);
+            omgStyles.addStylingData(agcNode, layer, layer.bounds, writer);
 
             writer.popCurrent();
             return true;
         };
 
-        this.addTextTransform = function (writer, svgNode, text) {
+        this.addTextTransform = function (writer, agcNode, text) {
             if (!text.transform && (!text.textShape || text.textShape.length === 0 || !text.textShape[0].transform)) {
                 return;
             }
@@ -272,25 +273,18 @@
                 inMatrix,
                 matrix4x4;
 
-            svgNode.maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
+            agcNode.maxTextSize = _boundInPx(text.textStyleRange[0].textStyle.size, dpi);
 
             if (transform) {
-                inMatrix = [
-                    [transform.xx, transform.xy, 0, 0],
-                    [transform.yx, transform.yy, 0, 0],
-                    [0, 0, 1, 0],
-                    [transform.tx, transform.ty, 0, 1]
-                ];
+                inMatrix = {a: transform.xx, b: transform.xy, c: transform.yx, d: transform.yy, tx: transform.tx, ty: transform.ty};
+                matrix4x4 = Matrix.createMatrix(inMatrix);
 
-                if (!Matrix.containsOnlyTranslate(inMatrix)) {
+                if (!Matrix.containsOnlyTranslate(matrix4x4)) {
+                    agcNode.transform = inMatrix;
+                    agcNode.transformTX = agcNode.position.x;
+                    agcNode.transformTY = agcNode.position.y;
 
-                    matrix4x4 = Matrix.createMatrix(inMatrix);
-
-                    svgNode.transform = matrix4x4;
-                    svgNode.transformTX = svgNode.position.x;
-                    svgNode.transformTY = svgNode.position.y;
-
-                    svgNode.position = {
+                    agcNode.position = {
                         x: 0,
                         y: 0,
                         unitY: "px",
@@ -300,9 +294,9 @@
             }
         };
 
-        this.addTextData = function (svgNode, layer, writer) {
-            if (this.addTextOnPath(svgNode, layer, writer) ||
-                this.addSimpleText(svgNode, layer, writer)) {
+        this.addTextData = function (agcNode, layer, writer) {
+            if (this.addTextOnPath(agcNode, layer, writer) ||
+                this.addSimpleText(agcNode, layer, writer)) {
                 scanForUnsupportedTextFeatures(writer);
                 return true;
             }

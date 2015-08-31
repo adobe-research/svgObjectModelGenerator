@@ -1,18 +1,11 @@
 {
 	"children": [],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 100,
-			"right": 100
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -23,6 +16,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "pixelImage.psd"
+	"version": "1.0.0",
+	"name": "pixelImage.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 100,
+		"height": 100
+	},
+	"rasterResolution": 72
 }

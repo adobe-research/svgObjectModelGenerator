@@ -1,0 +1,628 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/filter",
+	"title": "filter",
+	"description": "The filter object",
+	"type": "object",
+	"properties": {
+		"type": {
+			"enum": [ "svgFilter" ]
+		},
+		"params": {
+			"type": "object",
+			"properties": {
+				"filterUnits": {
+					"enum": [ "userSpaceOnUse", "objectBoundingBox" ]
+				},
+				"filterPrimitiveUnits": {
+					"enum": [ "userSpaceOnUse", "objectBoundingBox" ]
+				},
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"width": {
+					"type": "number"
+				},
+				"height": {
+					"type": "number"
+				},
+				"name": {
+					"type": "string"
+				},
+				"children": {
+					"oneOf": [
+						{ "$ref": "#feBlend" },
+						{ "$ref": "#feColorMatrix" },
+						{ "$ref": "#feComponentTransfer" },
+						{ "$ref": "#feComposite" },
+						{ "$ref": "#feConvolveMatrix" },
+						{ "$ref": "#feDiffuseLighting" },
+						{ "$ref": "#feDisplacementMap" },
+						{ "$ref": "#feDisplacementMap" },
+						{ "$ref": "#feDropShadow" },
+						{ "$ref": "#feFlood" },
+						{ "$ref": "#feImage" },
+						{ "$ref": "#feMerge" },
+						{ "$ref": "#feMorphology" },
+						{ "$ref": "#feOffset" },
+						{ "$ref": "#feSpecularLighting" },
+						{ "$ref": "#feTile" },
+						{ "$ref": "#feTurbulence" }
+					]
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "type", "params" ],
+	"definitions": {
+		"effect": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"width": {
+					"type": "number"
+				},
+				"height": {
+					"type": "number"
+				}
+			}
+		},
+		"feBlend": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 2
+				},
+				"mode": {
+					"description": "One of the blend modes in the CSS Blending W3C specification",
+					"enum": [ "normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity" ]
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "mode" ]
+		},
+		"feColorMatrix": {
+			"$ref": "#effect",
+			"properties": {
+				"type": {
+					"enum": [ "matrix", "saturate", "hueRotate", "luminanceToAlpha" ]
+				},
+				"values": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"maxItems": 20
+				},
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "type" ]
+		},
+		"feFunc": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"enum": [ "feFuncR", "feFuncG", "feFuncB", "feFuncA" ]
+				},
+				"type": {
+					"enum": [ "identity", "table", "discrete", "linear", "gamma" ]
+				},
+				"tableValue": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"slope": {
+					"type": "number"
+				},
+				"interception": {
+					"type": "number"
+				},
+				"amplitude": {
+					"type": "number"
+				},
+				"exponent": {
+					"type": "number"
+				},
+				"offset": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "name", "type" ]
+		},
+		"feComponentTransfer": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				},
+				"children": {
+					"type": "array",
+					"items": {
+						"$ref": "#feFunc"
+					},
+					"maxItems": 4
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "children" ]
+		},
+		"feComposite": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 2
+				},
+				"operator": {
+					"enum": [ "over", "in", "atop", "out", "xor", "ligther" ]
+				},
+				"k1": {
+					"type": "number"
+				},
+				"k2": {
+					"type": "number"
+				},
+				"k3": {
+					"type": "number"
+				},
+				"k4": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "operator" ]
+		},
+		"feConvolveMatrix": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				},
+				"order": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				},
+				"kernelMatrix": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1
+				},
+				"divisor": {
+					"type": "number"
+				},
+				"bias": {
+					"type": "number"
+				},
+				"targetX": {
+					"type": "integer"
+				},
+				"targetY": {
+					"type": "integer"
+				},
+				"edgeMode": {
+					"enum": [ "duplicate", "wrap", "none" ]
+				},
+				"kernelUnitLength": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				},
+				"preserveAlpha": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"feDistantLight": {
+			"type": "object",
+			"properties": {
+				"azimuth": {
+					"type": "number"
+				},
+				"elevation": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"fePointLight": {
+			"type": "object",
+			"properties": {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"z": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"feSpotLight": {
+			"type": "object",
+			"properties": {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"z": {
+					"type": "number"
+				},
+				"pointsAtX": {
+					"type": "number"
+				},
+				"pointsAtY": {
+					"type": "number"
+				},
+				"pointsAtZ": {
+					"type": "number"
+				},
+				"specularExponent": {
+					"type": "number"
+				},
+				"limitingConeAngle": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"feDiffuseLighting": {
+			"$ref": "#effect",
+			"properties": {
+				"surfaceScale": {
+					"type": "number"
+				},
+				"children": {
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{ "$ref": "#feDistantLight" },
+							{ "$ref": "#fePointLight" },
+							{ "$ref": "#feSpotLight" }
+						]
+					},
+					"minItems": 1,
+					"maxItems": 1
+				},
+				"diffuseConstant": {
+					"type": "number"
+				},
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				},
+				"kernelUnitLength": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "children" ]
+		},
+		"feDisplacementMap": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				},
+				"scale": {
+					"type": "number"
+				},
+				"xChannelSelector": {
+					"enum": [ "R", "G", "B", "A" ]
+				},
+				"yChannelSelector": {
+					"enum": [ "R", "G", "B", "A" ]
+				}
+			},
+			"additionalProperties": false
+		},
+		"feDropShadow": {
+			"$ref": "#effect",
+			"properties": {
+				"dx": {
+					"type": "number"
+				},
+				"dy": {
+					"type": "number"
+				},
+				"flood-color": {
+					"oneOf": [
+						{ "$ref": "/colorRef" },
+						{ "$ref": "/color" }
+					]
+				},
+				"flood-opacity": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1
+				},
+				"stdDeviation": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				},
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				}
+			},
+			"additionalProperties": false
+		},
+		"feFlood": {
+			"$ref": "#effect",
+			"properties": {
+				"flood-color": {
+					"oneOf": [
+						{ "$ref": "/colorRef" },
+						{ "$ref": "/color" }
+					]
+				},
+				"flood-opacity": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1
+				}
+			},
+			"additionalProperties": false
+		},
+		"feGaussianBlur": {
+			"$ref": "#effect",
+			"properties": {
+				"dx": {
+					"type": "number"
+				},
+				"dy": {
+					"type": "number"
+				},
+				"edgeMode": {
+					"enum": [ "duplicate", "wrap", "none" ]
+				},
+				"stdDeviation": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				},
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				}
+			},
+			"additionalProperties": false
+		},
+		"feImage": {
+			"$ref": "#effect",
+			"properties": {
+				"xlink:href": {
+					"type": "string"
+				},
+				"preserveAspectRatio": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"feMerge": {
+			"$ref": "#effect",
+			"properties": {
+				"children": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"input": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								},
+								"minItems": 1,
+								"maxItems": 1
+							}
+						},
+						"additionalProperties": false,
+						"required": [ "input" ]
+					},
+					"maxItems": 1
+				}
+			},
+			"additionalProperties": false,
+			"required": [ "children" ]
+		},
+		"feMorphology": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				},
+				"operator": {
+					"enum": [ "erode", "dilate" ]
+				},
+				"radius": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				}
+			},
+			"additionalProperties": false
+		},
+		"feOffset": {
+			"$ref": "#effect",
+			"properties": {
+				"dx": {
+					"type": "number"
+				},
+				"dy": {
+					"type": "number"
+				},
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				}
+			},
+			"additionalProperties": false
+		},
+		"feSpecularLighting": {
+			"$ref": "#effect",
+			"properties": {
+				"children": {
+					"type": "array",
+					"items": {
+						"oneOf": [
+							{ "$ref": "#feDistantLight" },
+							{ "$ref": "#fePointLight" },
+							{ "$ref": "#feSpotLight" }
+						]
+					}
+				},
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				},
+				"kernelUnitLength": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 1
+				},
+				"surfaceScale": {
+					"type": "number"
+				},
+				"specularConstant": {
+					"type": "number"
+				},
+				"specularExponent": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
+		"feTile": {
+			"$ref": "#effect",
+			"properties": {
+				"input": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"maxItems": 1
+				}
+			},
+			"additionalProperties": false
+		},
+		"feTurbulence": {
+			"$ref": "#effect",
+			"properties": {
+				"baseFrequency": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 1,
+					"maxItems": 2
+				},
+				"numOctaves": {
+					"type": "number"
+				},
+				"seed": {
+					"type": "number"
+				},
+				"stitchTiles": {
+					"enum": [ "stitch", "noStitch" ]
+				},
+				"type": {
+					"enum": [ "fractalNoise", "turbulence" ]
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}

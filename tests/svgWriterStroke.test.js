@@ -42,8 +42,8 @@ describe("SVGWriterStroke", function () {
                         stroke: {
                             type: "solid",
                             color: "rgb(1, 2, 3)",
-                            "miter-limit": 300,
-                            "dash-offset": 4
+                            miterLimit: 300,
+                            dashOffset: 4
                         }
                     }
                 },

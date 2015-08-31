@@ -1,63 +1,97 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "root",
-    "description": "The root of the OMG document",
-    "type": "object",
-    "properties": {
-        "artboards": {
-            "type": "object",
-            "description": "A map of artboard objects",
-            "patternProperties": {
-                "^[//W//w]+": {
-                    "description": "A artboard description",
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "description": "The user specified name of the artboard",
-                            "type": "string"
-                        },
-                        "bounds": { "$ref": "/bounds" },
-                        "required": [ "bounds" ]
-                    }
-                }
-            }
-        },
-        "children": {
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    { "$ref": "/rect" },
-                    { "$ref": "/circle" },
-                    { "$ref": "/ellipse" },
-                    { "$ref": "/line" },
-                    { "$ref": "/path" },
-                    { "$ref": "/polyline" },
-                    { "$ref": "/polygon" },
-                    { "$ref": "/text" },
-                    { "$ref": "/image" },
-                    { "$ref": "/reference" },
-                    { "$ref": "/group" },
-                    { "$ref": "/artboard" }
-                ]
-            }
-        },
-        "desc": {
-            "description": "The description of the document for accessibility purposes",
-            "type": "string"
-        },
-        "global": { "$ref": "/global" },
-        "meta": {
-            "type": "object"
-        },
-        "name": {
-            "description": "The user specified name of the document",
-            "type": "string"
-        },
-        "version": {
-            "description": "The version of the OMG schema",
-            "type": "string"
-        }
-    },
-    "additionalProperties": false,
-    "required": [ "children", "global", "version" ]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "root",
+	"description": "The root of the OMG document",
+	"type": "object",
+	"properties": {
+		"artboards": {
+			"type": "object",
+			"description": "A map of artboard objects",
+			"patternProperties": {
+				"^[//W//w]+": {
+					"description": "A artboard description",
+					"type": "object",
+					"properties": {
+						"height": {
+							"description": "The vertical dimension",
+							"type": "number"
+						},
+						"meta": {
+							"type": "object"
+						},
+						"name": {
+							"description": "The user specified name of the artboard",
+							"type": "string"
+						},
+						"width": {
+							"description": "The horizontal dimension",
+							"type": "number"
+						},
+						"x": {
+							"description": "The horizontal position",
+							"type": "number"
+						},
+						"y": {
+							"description": "The vertical position",
+							"type": "number"
+						},
+						"required": [ "x", "y", "width", "height" ]
+					}
+				}
+			}
+		},
+		"backgroundLayer": { "$ref": "/color" },
+		"children": {
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{ "$ref": "/rect" },
+					{ "$ref": "/circle" },
+					{ "$ref": "/ellipse" },
+					{ "$ref": "/line" },
+					{ "$ref": "/path" },
+					{ "$ref": "/polyline" },
+					{ "$ref": "/polygon" },
+					{ "$ref": "/text" },
+					{ "$ref": "/image" },
+					{ "$ref": "/reference" },
+					{ "$ref": "/group" },
+					{ "$ref": "/artboard" }
+				]
+			}
+		},
+		"desc": {
+			"description": "The description of the document for accessibility purposes",
+			"type": "string"
+		},
+		"meta": {
+			"type": "object"
+		},
+		"multipleLayers": {
+			"type": "boolean"
+		},
+		"name": {
+			"description": "The user specified name of the document",
+			"type": "string"
+		},
+		"colorMode": {
+			"enum": [ "sRGB" ]
+		},
+		"rasterResolution": {
+			"description": "The ratio between document pixels to an inch. In Photoshop this is `72` by default.",
+			"type": "number",
+			"minimum": 0
+		},
+		"resources": { "$ref": "/resources" },
+		"viewSource": {
+			"description": "The boundaries of the document in the application (PS/Ai).",
+			"$ref": "/bounds"
+		},
+		"version": {
+			"description": "The version of the OMG schema",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "children", "version" ]
 }

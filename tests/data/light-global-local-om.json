@@ -10,10 +10,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 3,
-						"g": 3,
-						"b": 3,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 3,
+							"g": 3,
+							"b": 3
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -24,10 +27,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": true,
@@ -52,13 +58,11 @@
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"visualBounds": {
-				"top": 64,
-				"left": 11,
-				"bottom": 253,
-				"right": 300
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -66,6 +70,12 @@
 				"y": 83,
 				"width": 250,
 				"height": 150
+			},
+			"visualBounds": {
+				"x": 11,
+				"y": 64,
+				"width": 289,
+				"height": 189
 			}
 		},
 		{
@@ -78,10 +88,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 3,
-						"g": 3,
-						"b": 3,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 3,
+							"g": 3,
+							"b": 3
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -92,10 +105,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": false,
@@ -120,13 +136,11 @@
 						}
 					}
 				},
-				"filter": "filter-2"
-			},
-			"visualBounds": {
-				"top": 50,
-				"left": 415,
-				"bottom": 239,
-				"right": 704
+				"filters": [
+					{
+						"ref": "filter-2"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -134,6 +148,12 @@
 				"y": 80,
 				"width": 250,
 				"height": 150
+			},
+			"visualBounds": {
+				"x": 415,
+				"y": 50,
+				"width": 289,
+				"height": 189
 			}
 		},
 		{
@@ -146,10 +166,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 255,
-						"g": 255,
-						"b": 255,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 255,
+							"g": 255,
+							"b": 255
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -160,10 +183,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": true,
@@ -187,16 +213,20 @@
 						}
 					}
 				},
-				"filter": "filter-3"
-			},
-			"visualBounds": {
-				"top": 350,
-				"left": 50,
-				"bottom": 500,
-				"right": 300
+				"filters": [
+					{
+						"ref": "filter-3"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
+				"x": 50,
+				"y": 350,
+				"width": 250,
+				"height": 150
+			},
+			"visualBounds": {
 				"x": 50,
 				"y": 350,
 				"width": 250,
@@ -213,10 +243,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 255,
-						"g": 255,
-						"b": 255,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 255,
+							"g": 255,
+							"b": 255
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -227,10 +260,13 @@
 									"enabled": true,
 									"mode": "multiply",
 									"color": {
-										"r": 0,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 0,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									},
 									"opacity": 0.75,
 									"useGlobalAngle": false,
@@ -254,13 +290,11 @@
 						}
 					}
 				},
-				"filter": "filter-4"
-			},
-			"visualBounds": {
-				"top": 350,
-				"left": 450,
-				"bottom": 500,
-				"right": 700
+				"filters": [
+					{
+						"ref": "filter-4"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -268,247 +302,270 @@
 				"y": 350,
 				"width": 250,
 				"height": 150
+			},
+			"visualBounds": {
+				"x": 450,
+				"y": 350,
+				"width": 250,
+				"height": 150
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 4.472
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 4.472
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": 14.142,
-						"dy": 14.142
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"SourceGraphic",
-							"offset"
-						]
-					}
-				]
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": 14.142,
+							"dy": 14.142
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"SourceGraphic",
+								"offset"
+							]
+						}
+					]
+				}
 			},
 			"filter-2": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 4.472
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 4.472
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": -16.383,
-						"dy": -11.472
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"SourceGraphic",
-							"offset"
-						]
-					}
-				]
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": -16.383,
+							"dy": -11.472
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"SourceGraphic",
+								"offset"
+							]
+						}
+					]
+				}
 			},
 			"filter-3": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 4.472
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 4.472
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": 14.142,
-						"dy": 14.142
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"offset",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite-2",
-							"SourceGraphic"
-						],
-						"mode": "multiply"
-					}
-				]
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": 14.142,
+							"dy": 14.142
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"offset",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite-2",
+								"SourceGraphic"
+							],
+							"mode": "multiply"
+						}
+					]
+				}
 			},
 			"filter-4": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feGaussianBlur",
-						"id": "blur",
-						"input": [
-							"SourceAlpha"
-						],
-						"stdDeviation": 4.472
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 0,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feGaussianBlur",
+							"id": "blur",
+							"input": [
+								"SourceAlpha"
+							],
+							"stdDeviation": 4.472
 						},
-						"flood-opacity": 0.75
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"blur"
-						],
-						"operator": "out"
-					},
-					{
-						"kind": "feOffset",
-						"id": "offset",
-						"input": [
-							"composite"
-						],
-						"dx": -16.383,
-						"dy": -11.472
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"offset",
-							"SourceAlpha"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite-2",
-							"SourceGraphic"
-						],
-						"mode": "multiply"
-					}
-				]
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 0,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.75
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"blur"
+							],
+							"operator": "out"
+						},
+						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"composite"
+							],
+							"dx": -16.383,
+							"dy": -11.472
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"offset",
+								"SourceAlpha"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite-2",
+								"SourceGraphic"
+							],
+							"mode": "multiply"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -519,6 +576,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "light-global-local.psd"
+	"version": "1.0.0",
+	"name": "light-global-local.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

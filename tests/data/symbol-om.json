@@ -2,72 +2,82 @@
 	"children": [
 		{
 			"type": "reference",
-			"ref": "symbol1",
-			"bounds": {
-				"top": 0,
-				"left": 0
-			},
 			"visualBounds": {
-				"left": 0,
-				"top": 0,
-				"right": 200,
-				"bottom": 200
+				"x": 0,
+				"y": 0,
+				"width": 200,
+				"height": 200
+			},
+			"reference": {
+				"ref": "symbol1",
+				"x": 0,
+				"y": 0
 			}
 		},
 		{
 			"type": "reference",
-			"ref": "symbol1",
-			"bounds": {
-				"top": 0,
-				"left": 200,
-				"right": 400
-			},
 			"visualBounds": {
-				"left": 200,
-				"top": 0,
-				"right": 400,
-				"bottom": 200
+				"x": 200,
+				"y": 0,
+				"width": 200,
+				"height": 200
+			},
+			"reference": {
+				"ref": "symbol1",
+				"x": 200,
+				"y": 0,
+				"width": 200
 			}
 		},
 		{
 			"type": "reference",
-			"ref": "symbol2",
-			"bounds": {
-				"top": 200,
-				"left": 0,
-				"right": 200,
-				"bottom": 400
-			},
 			"visualBounds": {
-				"left": 0,
-				"top": 200,
-				"right": 200,
-				"bottom": 400
+				"x": 0,
+				"y": 200,
+				"width": 200,
+				"height": 200
+			},
+			"reference": {
+				"ref": "symbol2",
+				"x": 0,
+				"y": 200,
+				"width": 200,
+				"height": 200
 			}
 		},
 		{
 			"type": "reference",
-			"ref": "symbol3",
-			"bounds": {
-				"top": 200,
-				"left": 200
-			},
 			"visualBounds": {
-				"left": 200,
-				"top": 200,
-				"right": 400,
-				"bottom": 400
+				"x": 200,
+				"y": 200,
+				"width": 200,
+				"height": 200
+			},
+			"reference": {
+				"ref": "symbol3",
+				"x": 200,
+				"y": 200
 			}
 		}
 	],
-	"global": {
+	"artboards": {},
+	"name": "svgFill.psd",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 400,
+		"height": 400
+	},
+	"resources": {
 		"symbols": {
 			"symbol1": {
 				"viewBox": {
-					"top": 0,
-					"left": 0,
-					"right": 200,
-					"bottom": 200
+					"x": 0,
+					"y": 0,
+					"width": 200,
+					"height": 200
 				},
 				"children": [
 					{
@@ -83,19 +93,25 @@
 							"fill": {
 								"type": "solid",
 								"color": {
-									"r": 0,
-									"g": 127,
-									"b": 0,
-									"a": 1
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 127,
+										"b": 0
+									},
+									"alpha": 1
 								}
 							},
 							"stroke": {
 								"type": "solid",
 								"color": {
-									"r": 0,
-									"g": 127,
-									"b": 0,
-									"a": 1
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 127,
+										"b": 0
+									},
+									"alpha": 1
 								}
 							}
 						}
@@ -117,19 +133,25 @@
 							"fill": {
 								"type": "solid",
 								"color": {
-									"r": 0,
-									"g": 127,
-									"b": 0,
-									"a": 1
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 127,
+										"b": 0
+									},
+									"alpha": 1
 								}
 							},
 							"stroke": {
 								"type": "solid",
 								"color": {
-									"r": 0,
-									"g": 127,
-									"b": 0,
-									"a": 1
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 127,
+										"b": 0
+									},
+									"alpha": 1
 								}
 							}
 						}
@@ -152,19 +174,25 @@
 							"fill": {
 								"type": "solid",
 								"color": {
-									"r": 0,
-									"g": 127,
-									"b": 0,
-									"a": 1
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 127,
+										"b": 0
+									},
+									"alpha": 1
 								}
 							},
 							"stroke": {
 								"type": "solid",
 								"color": {
-									"r": 0,
-									"g": 127,
-									"b": 0,
-									"a": 1
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 127,
+										"b": 0
+									},
+									"alpha": 1
 								}
 							}
 						}
@@ -177,21 +205,6 @@
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 400,
-			"right": 400
-		},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 400,
-			"right": 400
-		},
-		"pxToInchRatio": 72
-	},
-	"artboards": {},
-	"name": "svgFill.psd"
+		"patterns": {}
+	}
 }

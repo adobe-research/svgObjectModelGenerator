@@ -11,10 +11,10 @@
 			},
 			"name": "more path text.svg",
 			"visualBounds": {
-				"top": -80.8879375,
-				"bottom": 395.11535833333335,
-				"left": -82.19421249999999,
-				"right": 516.4104
+				"x": -82.19421249999999,
+				"y": -80.8879375,
+				"width": 598.6046125,
+				"height": 476.00329583333337
 			},
 			"position": {
 				"x": 0,
@@ -39,10 +39,13 @@
 								"fill": {
 									"type": "solid",
 									"color": {
-										"r": 34.412245,
-										"g": 107.000556,
-										"b": 37.821601,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 34.412245,
+											"g": 107.000556,
+											"b": 37.821601
+										},
+										"alpha": 1
 									}
 								},
 								"font-family": "Optima",
@@ -50,10 +53,10 @@
 							},
 							"text": "more path text ",
 							"visualBounds": {
-								"top": 1042,
-								"left": 1192,
-								"bottom": 1520,
-								"right": 1792
+								"x": 1192,
+								"y": 1042,
+								"width": 600,
+								"height": 478
 							},
 							"position": {
 								"x": 0,
@@ -68,19 +71,12 @@
 			"maxTextSize": 150
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
-		"pxToInchRatio": 300
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -91,6 +87,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "text-on-path-2.psd"
+	"version": "1.0.0",
+	"name": "text-on-path-2.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2100,
+		"height": 1500
+	},
+	"rasterResolution": 300
 }

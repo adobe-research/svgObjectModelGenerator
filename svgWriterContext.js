@@ -28,7 +28,6 @@
         this.svgOM = svgOM;
         this.currentOMNode = svgOM;
         if (this.config) {
-            this.preparedPath = this.config.preparedPath;
             this.minify = !!this.config.minify;
             var stylingMap = {
                 "class": 0,
@@ -98,12 +97,23 @@
             }
         }
 
-        // svgStylesheed creates new svgWriterContexts without a global object.
-        if (svgOM.global) {
-            this.docBounds = svgOM.global.bounds;
-            this.pxToInchRatio = svgOM.global.pxToInchRatio;
+        this.docBounds = {
+            left: undefined,
+            top: undefined,
+            right: undefined,
+            bottom: undefined
+        };
+
+        // FIXME: Change svgWriter internal code to x, y, width, height pattern.
+        if (svgOM.viewSource) {
+            this.docBounds.left = svgOM.viewSource.x;
+            this.docBounds.top = svgOM.viewSource.y;
+            this.docBounds.right = svgOM.viewSource.x + svgOM.viewSource.width;
+            this.docBounds.bottom = svgOM.viewSource.y + svgOM.viewSource.height;
         }
 
+        // svgStylesheed creates new svgWriterContexts without a global object.
+        this.pxToInchRatio = svgOM.rasterResolution;
 
         this.encoding = "utf-8";
         this.out = [];

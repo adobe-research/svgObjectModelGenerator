@@ -10,7 +10,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 99.99999999999994,
 						"y1": 600,
 						"x2": 700,
@@ -19,14 +19,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 50,
-				"left": 200,
-				"bottom": 150,
-				"right": 600
-			},
 			"shape": {
 				"type": "rect",
+				"x": 200,
+				"y": 50,
+				"width": 400,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 200,
 				"y": 50,
 				"width": 400,
@@ -43,7 +43,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 99.99999999999994,
 						"y1": 600,
 						"x2": 700,
@@ -52,14 +52,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 200,
-				"left": 350,
-				"bottom": 300,
-				"right": 450
-			},
 			"shape": {
 				"type": "rect",
+				"x": 350,
+				"y": 200,
+				"width": 100,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 350,
 				"y": 200,
 				"width": 100,
@@ -76,7 +76,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"x1": 99.99999999999994,
 						"y1": 600,
 						"x2": 700,
@@ -85,14 +85,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 350,
-				"left": 350,
-				"bottom": 600,
-				"right": 450
-			},
 			"shape": {
 				"type": "rect",
+				"x": 350,
+				"y": 350,
+				"width": 100,
+				"height": 250
+			},
+			"visualBounds": {
 				"x": 350,
 				"y": 350,
 				"width": 100,
@@ -100,7 +100,7 @@
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
@@ -109,59 +109,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -172,59 +193,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -235,59 +277,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -295,14 +358,7 @@
 			}
 		},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -313,6 +369,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "linear-gradient-angle-global-2.psd"
+	"version": "1.0.0",
+	"name": "linear-gradient-angle-global-2.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

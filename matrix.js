@@ -112,15 +112,15 @@
                         typeof other.b == "number" &&
                         typeof other.c == "number" &&
                         typeof other.d == "number" &&
-                        typeof other.e == "number" &&
-                        typeof other.f == "number") {
+                        typeof other.tx == "number" &&
+                        typeof other.ty == "number") {
                         this.identity();
                         this[0][0] = other.a;
                         this[0][1] = other.b;
                         this[1][0] = other.c;
                         this[1][1] = other.d;
-                        this[3][0] = other.e;
-                        this[3][1] = other.f;
+                        this[3][0] = other.tx || 0;
+                        this[3][1] = other.ty || 0;
                     } else {
                         // FIXME: We do not check if `other` is
                         // a 4x4 matrix yet.
@@ -776,8 +776,8 @@
                         roundP(txfm4x4.b, precision) + ", " +
                         roundP(txfm4x4.c, precision) + ", " +
                         roundP(txfm4x4.d, precision) + ", " +
-                        roundP(txfm4x4.e + tX, precision) + ", " +
-                        roundP(txfm4x4.f + tY, precision) + ")";
+                        roundP(txfm4x4.tx + tX, precision) + ", " +
+                        roundP(txfm4x4.ty + tY, precision) + ")";
                 }
 
                 return "matrix(" +

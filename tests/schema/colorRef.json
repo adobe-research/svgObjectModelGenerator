@@ -1,0 +1,15 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "/colorRef",
+	"title": "colorRef",
+	"description": "The color reference object",
+	"type": "object",
+	"properties": {
+		"ref": {
+			"description": "A unique identifier that references a color",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false,
+	"required": [ "ref" ]
+}

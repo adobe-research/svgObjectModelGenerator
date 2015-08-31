@@ -12,20 +12,19 @@
 					"type": "gradient",
 					"gradient": {
 						"ref": "radial-gradient-1",
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 100,
 						"cx": 900,
 						"cy": 1300
 					}
 				}
 			},
-			"children": [],
 			"name": "Ellipse 3",
 			"visualBounds": {
-				"top": 1200,
-				"left": 800,
-				"bottom": 1400,
-				"right": 1000
+				"x": 800,
+				"y": 1200,
+				"width": 200,
+				"height": 200
 			},
 			"shape": {
 				"type": "circle",
@@ -35,58 +34,6 @@
 			}
 		}
 	],
-	"global": {
-		"clipPaths": {},
-		"filters": {},
-		"gradients": {
-			"radial-gradient-1": {
-				"stops": [
-					{
-						"offset": 0,
-						"color": {
-							"r": 9.57588,
-							"g": 0.00389105,
-							"b": 178,
-							"a": 1
-						}
-					},
-					{
-						"offset": 0.5,
-						"color": {
-							"r": 255,
-							"g": 0.00389105,
-							"b": 0.0272374
-						}
-					},
-					{
-						"offset": 1,
-						"color": {
-							"r": 255,
-							"g": 251.996,
-							"b": 0.00389105,
-							"a": 1
-						}
-					}
-				],
-				"type": "radial"
-			}
-		},
-		"masks": {},
-		"patterns": {},
-		"viewBox": {
-			"top": 0,
-			"left": 0,
-			"bottom": 2200,
-			"right": 2200
-		},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 2200,
-			"right": 2200
-		},
-		"pxToInchRatio": 72
-	},
 	"artboards": {},
 	"meta": {
 		"PS": {
@@ -96,5 +43,61 @@
 			}
 		}
 	},
-	"title": "artboard-cropping.psd"
+	"name": "artboard-cropping.psd",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2200,
+		"height": 2200
+	},
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {
+			"radial-gradient-1": {
+				"stops": [
+					{
+						"offset": 0,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 9.57588,
+								"g": 0.00389105,
+								"b": 178
+							},
+							"alpha": 1
+						}
+					},
+					{
+						"offset": 0.5,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.00389105,
+								"b": 0.0272374
+							}
+						}
+					},
+					{
+						"offset": 1,
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 251.996,
+								"b": 0.00389105
+							},
+							"alpha": 1
+						}
+					}
+				],
+				"type": "radial"
+			}
+		},
+		"masks": {},
+		"patterns": {}
+	}
 }

@@ -10,10 +10,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 252.970012,
-						"g": 197.757364,
-						"b": 137.454736,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 252.970012,
+							"g": 197.757364,
+							"b": 137.454736
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -102,27 +105,34 @@
 									"mode": "normal",
 									"opacity": 0.3,
 									"color": {
-										"r": 255,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									}
 								}
 							]
 						}
 					}
 				},
-				"filter": "filter"
-			},
-			"name": "Rectangle 1.svg",
-			"visualBounds": {
-				"top": 100,
-				"left": 100,
-				"bottom": 500,
-				"right": 500
+				"filters": [
+					{
+						"ref": "filter"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 400,
+				"height": 400
+			},
+			"name": "Rectangle 1.svg",
+			"visualBounds": {
 				"x": 100,
 				"y": 100,
 				"width": 400,
@@ -139,10 +149,13 @@
 				"fill": {
 					"type": "solid",
 					"color": {
-						"r": 252.970012,
-						"g": 197.757364,
-						"b": 137.454736,
-						"a": 1
+						"mode": "RGB",
+						"value": {
+							"r": 252.970012,
+							"g": 197.757364,
+							"b": 137.454736
+						},
+						"alpha": 1
 					}
 				},
 				"meta": {
@@ -154,24 +167,24 @@
 									"mode": "normal",
 									"opacity": 0.3,
 									"color": {
-										"r": 255,
-										"g": 0,
-										"b": 0,
-										"a": 1
+										"mode": "RGB",
+										"value": {
+											"r": 255,
+											"g": 0,
+											"b": 0
+										},
+										"alpha": 1
 									}
 								}
 							]
 						}
 					}
 				},
-				"filter": "filter-2"
-			},
-			"name": "Rectangle 2.svg",
-			"visualBounds": {
-				"top": 100,
-				"left": 550,
-				"bottom": 300,
-				"right": 750
+				"filters": [
+					{
+						"ref": "filter-2"
+					}
+				]
 			},
 			"shape": {
 				"type": "rect",
@@ -179,122 +192,134 @@
 				"y": 100,
 				"width": 200,
 				"height": 200
+			},
+			"name": "Rectangle 2.svg",
+			"visualBounds": {
+				"x": 550,
+				"y": 100,
+				"width": 200,
+				"height": 200
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {
 			"filter": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feImage",
-						"id": "image",
-						"input": [],
-						"x": 100,
-						"y": 100,
-						"width": 400,
-						"height": 400,
-						"preserveAspectRatio": "none",
-						"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCA0MDAgNDAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjIwMCIgeTE9IjQwMCIgeDI9IjIwMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY3YzAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIi8+Cjwvc3ZnPgo="
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"image",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite",
-							"SourceGraphic"
-						],
-						"mode": "normal"
-					},
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feImage",
+							"id": "image",
+							"input": [],
+							"x": 100,
+							"y": 100,
+							"width": 400,
+							"height": 400,
+							"preserveAspectRatio": "none",
+							"xlink:href": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCA0MDAgNDAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjIwMCIgeTE9IjQwMCIgeDI9IjIwMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyOTBhNTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmY3YzAwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIi8+Cjwvc3ZnPgo="
 						},
-						"flood-opacity": 0.3
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite-2",
-						"input": [
-							"flood",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend-2",
-						"input": [
-							"composite-2",
-							"blend"
-						],
-						"mode": "normal"
-					}
-				]
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"image",
+								"SourceGraphic"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite",
+								"SourceGraphic"
+							],
+							"mode": "normal"
+						},
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 255,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.3
+						},
+						{
+							"kind": "feComposite",
+							"id": "composite-2",
+							"input": [
+								"flood",
+								"SourceGraphic"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend-2",
+							"input": [
+								"composite-2",
+								"blend"
+							],
+							"mode": "normal"
+						}
+					]
+				}
 			},
 			"filter-2": {
-				"filterUnits": "userSpaceOnUse",
-				"children": [
-					{
-						"kind": "feFlood",
-						"id": "flood",
-						"input": [],
-						"flood-color": {
-							"r": 255,
-							"g": 0,
-							"b": 0,
-							"a": 1
+				"type": "svgFilter",
+				"params": {
+					"filterUnits": "userSpaceOnUse",
+					"children": [
+						{
+							"kind": "feFlood",
+							"id": "flood",
+							"input": [],
+							"flood-color": {
+								"mode": "RGB",
+								"value": {
+									"r": 255,
+									"g": 0,
+									"b": 0
+								},
+								"alpha": 1
+							},
+							"flood-opacity": 0.3
 						},
-						"flood-opacity": 0.3
-					},
-					{
-						"kind": "feComposite",
-						"id": "composite",
-						"input": [
-							"flood",
-							"SourceGraphic"
-						],
-						"operator": "in"
-					},
-					{
-						"kind": "feBlend",
-						"id": "blend",
-						"input": [
-							"composite",
-							"SourceGraphic"
-						],
-						"mode": "normal"
-					}
-				]
+						{
+							"kind": "feComposite",
+							"id": "composite",
+							"input": [
+								"flood",
+								"SourceGraphic"
+							],
+							"operator": "in"
+						},
+						{
+							"kind": "feBlend",
+							"id": "blend",
+							"input": [
+								"composite",
+								"SourceGraphic"
+							],
+							"mode": "normal"
+						}
+					]
+				}
 			}
 		},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -305,6 +330,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "gradient-color-overlay.psd"
+	"version": "1.0.0",
+	"name": "gradient-color-overlay.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

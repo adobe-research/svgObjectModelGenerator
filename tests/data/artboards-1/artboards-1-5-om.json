@@ -8,66 +8,62 @@
 					"type": "none"
 				}
 			},
-			"name": "iPhone",
-			"ref": "artboard",
-			"children": [
-				{
-					"type": "shape",
-					"visible": true,
-					"style": {
-						"stroke": {
-							"type": "none"
-						},
-						"fill": {
-							"type": "solid",
-							"color": {
-								"r": 0,
-								"g": 255,
-								"b": 0,
-								"a": 1
+			"artboard": {
+				"ref": "artboard",
+				"children": [
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 255,
+										"b": 0
+									},
+									"alpha": 1
+								}
 							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 3972,
+							"y": 2811,
+							"width": 533,
+							"height": 533
+						},
+						"visualBounds": {
+							"x": 3972,
+							"y": 2811,
+							"width": 533,
+							"height": 533
 						}
-					},
-					"visualBounds": {
-						"top": 2811,
-						"left": 3972,
-						"bottom": 3344,
-						"right": 4505
-					},
-					"shape": {
-						"type": "rect",
-						"x": 3972,
-						"y": 2811,
-						"width": 533,
-						"height": 533
 					}
-				}
-			]
+				]
+			},
+			"name": "iPhone"
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 5920,
-			"right": 5080
-		},
-		"pxToInchRatio": 326
+		"patterns": {}
 	},
 	"artboards": {
 		"artboard": {
 			"name": "iPhone",
-			"bounds": {
-				"top": 2497,
-				"left": 3658,
-				"bottom": 3659,
-				"right": 4820
-			}
+			"x": 3658,
+			"y": 2497,
+			"width": 1162,
+			"height": 1162
 		}
 	},
 	"meta": {
@@ -78,6 +74,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "artboards-1.psd"
+	"version": "1.0.0",
+	"name": "artboards-1.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 5080,
+		"height": 5920
+	},
+	"rasterResolution": 326
 }

@@ -17,6 +17,7 @@
 var expect = require("chai").expect,
     OMG = require("../svgOMGenerator.js"),
     svgWriter = require("../svgWriter.js"),
+    agcValidator = require("../agcValidator.js"),
     sinon = require("sinon"),
     database = require("./test-database.js"),
     fs = require("fs");
@@ -125,7 +126,13 @@ describe("svgWriter", function () {
     function compareResultsWidthOM(svgOM, testName, testPath, options) {
         var svgOut,
             expectedOut,
-            path = "data/" + (testPath ? testPath + "/" : "") + testName;
+            path = "data/" + (testPath ? testPath + "/" : "") + testName,
+            validationResult = agcValidator.validateAGC(svgOM);
+
+        for (var i = 0; i < validationResult.errors.length; ++i) {
+            console.log(validationResult.errors[i].property + ": " + validationResult.errors[i].message);
+        }
+        expect(validationResult.valid).to.equal(true);
 
         svgOut = svgWriter.printSVG(svgOM, options || {});
 
@@ -200,7 +207,7 @@ describe("svgWriter", function () {
      * Test extraction of patterns to SVG
      **/
     describe("Test extraction of patterns to SVG", function () {
-        var database = ["pattern-1", "pattern-2", "pattern-3", "pattern-4", "pattern-5", "pattern-6"];
+        var database = ["pattern-1", "pattern-2", "pattern-3", "pattern-4", "pattern-5", "pattern-6", "pattern-7"];
 
         database.forEach(function (item) {
             it("test " + item, function () {
@@ -218,9 +225,8 @@ describe("svgWriter", function () {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
-                    constrainToDocBounds: true,
                     fillFilter: true,
-                    preparedPath: true
+                    constrainToDocBounds: true
                 };
 
             if (skipTest) {
@@ -283,9 +289,8 @@ describe("svgWriter", function () {
                     trimToArtBounds: true,
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
-                    constrainToDocBounds: true,
                     fillFilter: true,
-                    preparedPath: true
+                    constrainToDocBounds: true
                 };
 
             for (i = 0; i + 2 < aTestData.length; i = i + 3) {
@@ -397,6 +402,21 @@ describe("svgWriter", function () {
                 i == end - 1);
         }
 
+    });
+
+    /**
+     * Test minimal AGC requirements.
+     **/
+    describe("Test minimal AGC requirements", function () {
+        it("no resources", function () {
+            var AGC = {
+                    version: "1.0.0",
+                    children: []
+                },
+                svgOut = svgWriter.printSVG(AGC, {});
+
+            expect(svgOut).to.equal("<svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"/>\n");
+        });
     });
 
     /**
@@ -773,7 +793,7 @@ describe("svgWriter", function () {
      **/
     describe("Test M, L, C, Z restricted path data", function () {
         it("Test restricted path data with `preparedPath` option.", function () {
-            compareResults("prepared-path", "custom", { preparedPath: true });
+            compareResults("prepared-path", "custom");
         });
     });
 

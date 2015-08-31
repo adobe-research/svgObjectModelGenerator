@@ -9,68 +9,62 @@
 				}
 			},
 			"name": "Group 1",
-			"children": [
-				{
-					"type": "shape",
-					"visible": true,
-					"style": {
-						"stroke": {
-							"type": "none",
-							"align": "inside",
-							"cap": "butt",
-							"join": "miter",
-							"width": 12.5,
-							"miter-limit": 100,
-							"dash": [],
-							"dash-offset": 0,
-							"color": {
-								"r": 0,
-								"g": 0,
-								"b": 0,
-								"a": 1
+			"group": {
+				"children": [
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none",
+								"align": "inside",
+								"cap": "butt",
+								"join": "miter",
+								"width": 12.5,
+								"miterLimit": 100,
+								"dash": [],
+								"dashOffset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								},
+								"opacity": 1
 							},
-							"opacity": 1
-						},
-						"fill": {
-							"type": "solid",
-							"color": {
-								"r": 0,
-								"g": 255,
-								"b": 0,
-								"a": 1
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 255,
+										"b": 0
+									},
+									"alpha": 1
+								}
 							}
+						},
+						"name": "Shape 1",
+						"visualBounds": {
+							"x": 1145.75,
+							"y": 773.71875,
+							"width": 387.78125,
+							"height": 374.875
+						},
+						"shape": {
+							"type": "path",
+							"path": "M 1268.84 527.242 C 1268.84 527.242 1268.29 529.058 1267.52 528.759 C 1266.75 528.461 1267.64 477.655 1247.57 472.781 C 1247.57 472.781 1266.79 471.917 1268.84 527.242 Z",
+							"winding": "evenodd"
 						}
-					},
-					"name": "Shape 1",
-					"visualBounds": {
-						"top": 773.71875,
-						"left": 1145.75,
-						"bottom": 1148.59375,
-						"right": 1533.53125
-					},
-					"shape": {
-						"type": "path",
-						"path": "M 1268.84 527.242 C 1268.84 527.242 1268.29 529.058 1267.52 528.759 C 1266.75 528.461 1267.64 477.655 1247.57 472.781 C 1247.57 472.781 1266.79 471.917 1268.84 527.242 Z",
-						"winding": "evenodd"
 					}
-				}
-			]
+				]
+			}
 		}
 	],
-	"global": {
-		"clipPaths": {},
-		"filters": {},
-		"gradients": {},
-		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 1500,
-			"right": 2100
-		},
-		"pxToInchRatio": 300
-	},
 	"artboards": {},
 	"meta": {
 		"PS": {
@@ -80,6 +74,20 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "Untitled-3"
+	"version": "1.0.0",
+	"name": "Untitled-3",
+	"rasterResolution": 300,
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2100,
+		"height": 1500
+	},
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {}
+	}
 }

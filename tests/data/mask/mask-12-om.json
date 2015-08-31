@@ -1,154 +1,174 @@
 {
-    "children": [
-        {
-            "type": "shape",
-            "style": {
-                "stroke": {
-                    "type": "solid",
-                    "cap": "butt",
-                    "join": "miter",
-                    "width": 14,
-                    "miter-limit": 100,
-                    "dash": [],
-                    "dash-offset": 0,
-                    "color": {
-                        "r": 0,
-                        "g": 0.091882,
-                        "b": 0.102416,
-                        "a": 1
-                    },
-                    "opacity": 1
-                },
-                "fill": {
-                    "type": "solid",
-                    "color": {
-                        "r": 0,
-                        "g": 113.686632,
-                        "b": 187.776986,
-                        "a": 1
-                    }
-                }
-            },
-            "children": [],
-            "shapeBounds": {
-                "top": 66,
-                "left": 130,
-                "bottom": 245,
-                "right": 309
-            },
-            "shape": {
-                "type": "rect",
-                "x": 130,
-                "y": 66,
-                "width": 179,
-                "height": 179
-            }
-        },
-        {
-            "type": "shape",
-            "style": {
-                "stroke": {
-                    "type": "none",
-                    "cap": "butt",
-                    "join": "miter",
-                    "width": 3,
-                    "miter-limit": 100,
-                    "dash": [],
-                    "dash-offset": 0,
-                    "color": {
-                        "r": 0,
-                        "g": 0.091882,
-                        "b": 0.102416,
-                        "a": 1
-                    },
-                    "opacity": 1
-                },
-                "fill": {
-                    "type": "solid",
-                    "color": {
-                        "r": 237.272538,
-                        "g": 28.469096,
-                        "b": 36.259087,
-                        "a": 1
-                    }
-                },
-                "mask": "mask1"
-            },
-            "children": [],
-            "shape": {
-                "type": "circle",
-                "cx": 309,
-                "cy": 245,
-                "r": 94
-            }
-        }
-    ],
-    "global": {
-        "clipPaths": {},
-        "filters": {},
-        "gradients": {},
-        "masks": {
-            "mask1": {
-                "children": [{
-                    "type": "shape",
-                    "style": {
-                        "stroke": {
-                            "type": "solid",
-                            "cap": "butt",
-                            "join": "miter",
-                            "width": 14,
-                            "miter-limit": 100,
-                            "dash": [],
-                            "dash-offset": 0,
-                            "color": {
-                                "r": 0,
-                                "g": 0.091882,
-                                "b": 0.102416,
-                                "a": 1
-                            },
-                            "opacity": 1
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 113.686632,
-                                "b": 187.776986,
-                                "a": 1
-                            }
-                        }
-                    },
-                    "children": [],
-                    "shape": {
-                        "type": "rect",
-                        "x": 130,
-                        "y": 67,
-                        "width": 179,
-                        "height": 179
-                    }
-                }],
-                "type": "mask",
-                "kind": "opacity",
-                "invert": true
-            }
-        },
-        "patterns": {},
-        "bounds": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
-        "pxToInchRatio": 72
-    },
-    "artboards": {},
-    "meta": {
-        "PS": {
-            "globalLight": {
-                "angle": 120,
-                "altitude": 30
-            }
-        }
-    },
-    "name": "Untitled-1"
+	"children": [
+		{
+			"type": "shape",
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"cap": "butt",
+					"join": "miter",
+					"width": 14,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0.091882,
+							"b": 0.102416
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 113.686632,
+							"b": 187.776986
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"visualBounds": {
+				"x": 130,
+				"y": 66,
+				"width": 179,
+				"height": 179
+			},
+			"shape": {
+				"type": "rect",
+				"x": 130,
+				"y": 66,
+				"width": 179,
+				"height": 179
+			}
+		},
+		{
+			"type": "shape",
+			"style": {
+				"stroke": {
+					"type": "none",
+					"cap": "butt",
+					"join": "miter",
+					"width": 3,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0.091882,
+							"b": 0.102416
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 237.272538,
+							"g": 28.469096,
+							"b": 36.259087
+						},
+						"alpha": 1
+					}
+				},
+				"mask": {
+					"ref": "mask1"
+				}
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 309,
+				"cy": 245,
+				"r": 94
+			}
+		}
+	],
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
+	},
+	"name": "Untitled-1",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 768
+	},
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {
+			"mask1": {
+				"children": [
+					{
+						"type": "shape",
+						"style": {
+							"stroke": {
+								"type": "solid",
+								"cap": "butt",
+								"join": "miter",
+								"width": 14,
+								"miterLimit": 100,
+								"dash": [],
+								"dashOffset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0.091882,
+										"b": 0.102416
+									},
+									"alpha": 1
+								},
+								"opacity": 1
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 113.686632,
+										"b": 187.776986
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 130,
+							"y": 67,
+							"width": 179,
+							"height": 179
+						}
+					}
+				],
+				"type": "mask",
+				"kind": "opacity",
+				"invert": true
+			}
+		},
+		"patterns": {}
+	}
 }

@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Help construct the svgOM */
+/* Help construct the AGC */
 
 (function () {
     "use strict";
 
-    var omgStyles = require("./svgOMGeneratorStyles.js");
+    var omgStyles = require("./svgOMGeneratorStyles.js"),
+        boundsToRect = require("./SVGOMGeneratorUtils.js").boundsToRect;
 
     function SVGOMGeneratorImage() {
 
@@ -28,25 +29,31 @@
             return false;
         };
 
-        this.addImage = function (svgNode, layer, writer) {
+        this.addImage = function (agcNode, layer, writer) {
             return this.pathComponentOrigin(layer, function (pixel) {
-                svgNode.href = pixel;
-                svgNode.bounds = layer.bounds;
+                var bounds = layer.bounds;
 
                 if (layer.boundsWithFX) {
-                    svgNode.bounds = layer.boundsWithFX;
+                    bounds = layer.boundsWithFX;
                 }
+                agcNode.image = {
+                    href: pixel,
+                    x: bounds.left,
+                    y: bounds.top,
+                    width: bounds.right - bounds.left,
+                    height: bounds.bottom - bounds.top
+                };
 
-                svgNode.visualBounds = svgNode.bounds;
+                agcNode.visualBounds = boundsToRect(bounds);
 
-                omgStyles.addStylingData(svgNode, layer, svgNode.bounds, writer);
+                omgStyles.addStylingData(agcNode, layer, bounds, writer);
 
                 return true;
             });
         };
 
-        this.addImageData = function (svgNode, layer, writer) {
-            if (this.addImage(svgNode, layer, writer)) {
+        this.addImageData = function (agcNode, layer, writer) {
+            if (this.addImage(agcNode, layer, writer)) {
                 return true;
             }
             console.log("ERROR: No image data added for " + JSON.stringify(layer));

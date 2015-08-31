@@ -1,226 +1,253 @@
 {
-  "children": [
-    {
-      "children": [
-        {
-          "children": [
-            {
-              "children": [
-                {
-                  "shape": {
-                    "path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
-                    "type": "path"
-                  },
-                  "style": {
-                    "fill": {
-                      "color": {
-                        "b": 184,
-                        "g": 207,
-                        "r": 255
-                      },
-                      "type": "solid"
-                    }
-                  },
-                  "type": "shape",
-                  "visualBounds": {
-                    "bottom": 369.688,
-                    "left": 214.96,
-                    "right": 348.338,
-                    "top": 190.312
-                  }
-                },
-                {
-                  "shape": {
-                    "path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
-                    "type": "path"
-                  },
-                  "style": {
-                    "fill": {
-                      "gradient": {
-                        "gradientSpace": "userSpaceOnUse",
-                        "ref": "New Gradient Swatch 5",
-                        "x1": 214.96,
-                        "x2": 348.338,
-                        "y1": 280,
-                        "y2": 280
-                      },
-                      "type": "gradient"
-                    },
-                    "mix-blend-mode": "overlay",
-                    "opacity": 0.7
-                  },
-                  "type": "shape",
-                  "visualBounds": {
-                    "bottom": 369.688,
-                    "left": 214.96,
-                    "right": 348.338,
-                    "top": 190.312
-                  }
-                },
-                {
-                  "shape": {
-                    "path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
-                    "type": "path"
-                  },
-                  "style": {
-                    "fill": {
-                      "gradient": {
-                        "cx": 323.969,
-                        "cy": 312.31,
-                        "fx": 331.587,
-                        "gradientSpace": "userSpaceOnUse",
-                        "r": 24.1255,
-                        "ref": "New Gradient Swatch 4"
-                      },
-                      "type": "gradient"
-                    },
-                    "mix-blend-mode": "overlay",
-                    "opacity": 0.39
-                  },
-                  "type": "shape",
-                  "visualBounds": {
-                    "bottom": 369.688,
-                    "left": 214.96,
-                    "right": 348.338,
-                    "top": 190.312
-                  }
-                },
-                {
-                  "shape": {
-                    "path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
-                    "type": "path"
-                  },
-                  "style": {
-                    "fill": {
-                      "gradient": {
-                        "cx": 241.873,
-                        "cy": 311.949,
-                        "fy": 298.695,
-                        "gradientSpace": "userSpaceOnUse",
-                        "r": 24.1256,
-                        "ref": "New Gradient Swatch 4"
-                      },
-                      "type": "gradient"
-                    },
-                    "mix-blend-mode": "overlay",
-                    "opacity": 0.4
-                  },
-                  "type": "shape",
-                  "visualBounds": {
-                    "bottom": 369.688,
-                    "left": 214.96,
-                    "right": 348.338,
-                    "top": 190.312
-                  }
-                }
-              ],
-              "type": "group"
-            }
-          ],
-          "type": "group"
-        }
-      ],
-      "style": {
-        "isolation": "isolate"
-      },
-      "type": "group"
-    }
-  ],
-  "desc": "Created by Adobe Illustrator",
-  "global": {
-    "bounds": {
-      "bottom": 560,
-      "left": 0,
-      "right": 960,
-      "top": 0
-    },
-    "gradients": {
-      "New Gradient Swatch 4": {
-        "name": "New Gradient Swatch 4",
-        "stops": [
-          {
-            "color": {
-              "b": 255,
-              "g": 255,
-              "r": 255
-            },
-            "midpoint": 0.51379,
-            "offset": 0
-          },
-          {
-            "color": {
-              "a": 0.731379,
-              "b": 255,
-              "g": 255,
-              "r": 255
-            },
-            "offset": 0.282844
-          },
-          {
-            "color": {
-              "a": 0.0651359,
-              "b": 255,
-              "g": 255,
-              "r": 255
-            },
-            "offset": 0.937339
-          },
-          {
-            "color": {
-              "a": 0,
-              "b": 255,
-              "g": 255,
-              "r": 255
-            },
-            "midpoint": 0.5,
-            "offset": 1
-          }
-        ],
-        "type": "radial"
-      },
-      "New Gradient Swatch 5": {
-        "name": "New Gradient Swatch 5",
-        "stops": [
-          {
-            "color": {
-              "b": 0,
-              "g": 0,
-              "r": 0
-            },
-            "midpoint": 0.5,
-            "offset": 0
-          },
-          {
-            "color": {
-              "a": 0,
-              "b": 0,
-              "g": 0,
-              "r": 0
-            },
-            "midpoint": 0.5,
-            "offset": 1
-          }
-        ],
-        "type": "linear"
-      }
-    }
-  },
-  "meta": {
-    "AI": {
-      "host": {
-        "options": {
-          "constrainToDocBounds": false,
-          "idType": "regular",
-          "isResponsive": true,
-          "minify": false,
-          "precision": 3,
-          "preserveAspectRatio": "xMidYMid",
-          "styling": "class",
-          "trimToArtBounds": false
-        }
-      }
-    }
-  },
-  "name": "TestExportGradient",
-  "version": "0.1.0"
+	"children": [
+		{
+			"style": {
+				"isolation": "isolate"
+			},
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"shape": {
+													"path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
+													"type": "path"
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 207,
+																"b": 184
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 214.96,
+													"y": 190.312,
+													"width": 133.37800000000001,
+													"height": 179.37599999999998
+												}
+											},
+											{
+												"shape": {
+													"path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
+													"type": "path"
+												},
+												"style": {
+													"fill": {
+														"gradient": {
+															"gradientSpace": "userSpaceOnUse",
+															"ref": "New Gradient Swatch 5",
+															"x1": 214.96,
+															"x2": 348.338,
+															"y1": 280,
+															"y2": 280
+														},
+														"type": "gradient"
+													},
+													"blendMode": "overlay",
+													"opacity": 0.7
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 214.96,
+													"y": 190.312,
+													"width": 133.37800000000001,
+													"height": 179.37599999999998
+												}
+											},
+											{
+												"shape": {
+													"path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
+													"type": "path"
+												},
+												"style": {
+													"fill": {
+														"gradient": {
+															"cx": 323.969,
+															"cy": 312.31,
+															"fx": 331.587,
+															"gradientSpace": "userSpaceOnUse",
+															"r": 24.1255,
+															"ref": "New Gradient Swatch 4"
+														},
+														"type": "gradient"
+													},
+													"blendMode": "overlay",
+													"opacity": 0.39
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 214.96,
+													"y": 190.312,
+													"width": 133.37800000000001,
+													"height": 179.37599999999998
+												}
+											},
+											{
+												"shape": {
+													"path": "M 279.384 369.688 C 318.242 356.277 338.661 341.048 343.759 309.232 C 345.097 300.884 343.069 281.789 344.616 274.584 C 357.299 215.553 336.033 199.418 303.991 191.453 C 286.814 187.183 243.3 195.5 229.513 206.354 C 204.908 225.725 218.949 276.457 218.949 276.457 C 205.726 336.172 246.012 358.13 277.802 369.688 ",
+													"type": "path"
+												},
+												"style": {
+													"fill": {
+														"gradient": {
+															"cx": 241.873,
+															"cy": 311.949,
+															"fy": 298.695,
+															"gradientSpace": "userSpaceOnUse",
+															"r": 24.1256,
+															"ref": "New Gradient Swatch 4"
+														},
+														"type": "gradient"
+													},
+													"blendMode": "overlay",
+													"opacity": 0.4
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 214.96,
+													"y": 190.312,
+													"width": 133.37800000000001,
+													"height": 179.37599999999998
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"meta": {
+		"AI": {
+			"host": {
+				"options": {
+					"constrainToDocBounds": false,
+					"idType": "regular",
+					"isResponsive": true,
+					"minify": false,
+					"precision": 3,
+					"preserveAspectRatio": "xMidYMid",
+					"styling": "class",
+					"trimToArtBounds": false
+				}
+			}
+		}
+	},
+	"name": "TestExportGradient",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {
+		"gradients": {
+			"New Gradient Swatch 4": {
+				"name": "New Gradient Swatch 4",
+				"stops": [
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							}
+						},
+						"midpoint": 0.51379,
+						"offset": 0
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							},
+							"alpha": 0.731379
+						},
+						"offset": 0.282844
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							},
+							"alpha": 0.0651359
+						},
+						"offset": 0.937339
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							},
+							"alpha": 0
+						},
+						"midpoint": 0.5,
+						"offset": 1
+					}
+				],
+				"type": "radial"
+			},
+			"New Gradient Swatch 5": {
+				"name": "New Gradient Swatch 5",
+				"stops": [
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 0
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 0
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 0
+							},
+							"alpha": 0
+						},
+						"midpoint": 0.5,
+						"offset": 1
+					}
+				],
+				"type": "linear"
+			}
+		}
+	}
 }

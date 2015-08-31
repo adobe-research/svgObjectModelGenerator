@@ -24,6 +24,7 @@
         svgWriter = require("./svgWriter.js"),
         Utils = require("./utils.js"),
         getId,
+        boundsToRect = omgUtils.boundsToRect,
         round1k = Utils.round1k;
 
     function SVGOMGeneratorSVGFilter() {
@@ -259,7 +260,7 @@
                             width: w,
                             height: h
                         },
-                        visualBounds: layerBounds,
+                        visualBounds: boundsToRect(layerBounds),
                         style: {
                             fill: {
                                 type: "gradient",
@@ -279,7 +280,7 @@
                 omWriter.setDocBounds(docBounds);
                 omWriter.setDocPxToInchRatio(dpi);
                 omWriter.setDocGlobalLight(globalLight);
-                omWriter._root.global.gradients["gradient-1"] = gradientPair.gradient;
+                omWriter._root.resources.gradients["gradient-1"] = gradientPair.gradient;
 
                 base64 = omgUtils.toBase64(svgWriter.printSVG(omWriter._root, {
                     trimToArtBounds: true,
@@ -582,8 +583,11 @@
                 return;
             }
             return {
-                filterUnits: "userSpaceOnUse",
-                children: effects
+                type: "svgFilter",
+                params: {
+                    filterUnits: "userSpaceOnUse",
+                    children: effects
+                }
             };
         };
     }

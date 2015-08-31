@@ -1,112 +1,70 @@
 {
-	"children" : 
-	[
+	"children": [
 		{
-			"children" : 
-			[
-				{
-					"bounds" : 
-					{
-						"bottom" : 560,
-						"left" : 0,
-						"right" : 121,
-						"top" : 468
-					},
-					"id" : "id_1_1",
-					"shape" : 
-					{
-						"path" : "M0.000000,468.000000 L121.000000,468.000000 L121.000000,560.000000 L0.000000,560.000000 z",
-						"type" : "path"
-					},
-					"style" : 
-					{
-						"fill" : 
-						{
-							"color" : 
-							{
-								"a" : 1,
-								"b" : 0,
-								"g" : 255,
-								"r" : 0
-							},
-							"type" : "solid"
-						}
-					},
-					"type" : "shape",
-					"visualBounds" : 
-					{
-						"bottom" : 560,
-						"left" : 0,
-						"right" : 121,
-						"top" : 468
-					}
-				}
-			],
-			"id" : "id_1",
-			"transform" : 
-			{
-				"0" : 
-				[
-					1,
-					0,
-					0,
-					0
-				],
-				"1" : 
-				[
-					0,
-					-1,
-					0,
-					0
-				],
-				"2" : 
-				[
-					0,
-					0,
-					1,
-					0
-				],
-				"3" : 
-				[
-					0,
-					560,
-					0,
-					1
-				]
+			"id": "id_1",
+			"transform": {
+				"a": 1,
+				"b": 0,
+				"c": 0,
+				"d": -1,
+				"tx": 0,
+				"ty": 560
 			},
-			"type" : "group",
-			"visualBounds" : 
-			{
-				"bottom" : 92,
-				"left" : 0,
-				"right" : 121,
-				"top" : 0
+			"type": "group",
+			"visualBounds": {
+				"x": 0,
+				"y": 0,
+				"width": 121,
+				"height": 92
+			},
+			"group": {
+				"children": [
+					{
+						"id": "id_1_1",
+						"shape": {
+							"path": "M0.000000,468.000000 L121.000000,468.000000 L121.000000,560.000000 L0.000000,560.000000 z",
+							"type": "path"
+						},
+						"style": {
+							"fill": {
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 255,
+										"b": 0
+									},
+									"alpha": 1
+								},
+								"type": "solid"
+							}
+						},
+						"type": "shape",
+						"visualBounds": {
+							"x": 0,
+							"y": 468,
+							"width": 121,
+							"height": 92
+						}
+					}
+				]
 			}
 		}
 	],
-	"global" : 
-	{
-		"bounds" : 
-		{
-			"bottom" : 560,
-			"left" : 0,
-			"right" : 960,
-			"top" : 0
-		},
-		"colorMode" : "rgb",
-		"gradients" : {},
-		"masks" : {},
-		"patterns" : {},
-		"pxToInchRatio" : 72,
-		"styles" : {},
-		"viewBox" : 
-		{
-			"bottom" : 560,
-			"left" : 0,
-			"right" : 960,
-			"top" : 0
-		}
+	"name": "Group transform",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
 	},
-	"title" : "Group transform",
-	"version" : "0.1.0"
+	"colorMode": "sRGB",
+	"resources": {
+		"gradients": {},
+		"masks": {},
+		"patterns": {},
+		"styles": {}
+	}
 }

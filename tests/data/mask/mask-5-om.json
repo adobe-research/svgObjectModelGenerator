@@ -1,226 +1,246 @@
 {
-    "children": [
-        {
-            "id": "shape-1",
-            "type": "shape",
-            "visible": true,
-            "style": {
-                "stroke": {
-                    "type": "solid",
-                    "cap": "butt",
-                    "join": "miter",
-                    "width": 14,
-                    "miter-limit": 100,
-                    "dash": [],
-                    "dash-offset": 0,
-                    "color": {
-                        "r": 0,
-                        "g": 0.091882,
-                        "b": 0.102416,
-                        "a": 1
-                    },
-                    "opacity": 1
-                },
-                "fill": {
-                    "type": "solid",
-                    "color": {
-                        "r": 0,
-                        "g": 113.686632,
-                        "b": 187.776986,
-                        "a": 1
-                    }
-                }
-            },
-            "children": [],
-            "name": "Rectangle 1",
-            "shapeBounds": {
-                "top": 66,
-                "left": 130,
-                "bottom": 245,
-                "right": 309
-            },
-            "shape": {
-                "type": "rect",
-                "x": 130,
-                "y": 66,
-                "width": 179,
-                "height": 179
-            }
-        },
-        {
-            "id": "shape-2",
-            "type": "shape",
-            "visible": true,
-            "style": {
-                "stroke": {
-                    "type": "none",
-                    "cap": "butt",
-                    "join": "miter",
-                    "width": 3,
-                    "miter-limit": 100,
-                    "dash": [],
-                    "dash-offset": 0,
-                    "color": {
-                        "r": 0,
-                        "g": 0.091882,
-                        "b": 0.102416,
-                        "a": 1
-                    },
-                    "opacity": 1
-                },
-                "fill": {
-                    "type": "solid",
-                    "color": {
-                        "r": 237.272538,
-                        "g": 28.469096,
-                        "b": 36.259087,
-                        "a": 1
-                    }
-                },
-                "mask": "mask1"
-            },
-            "children": [],
-            "name": "Ellipse 1",
-            "shapeBounds": {
-                "top": 151,
-                "left": 215,
-                "bottom": 339,
-                "right": 403
-            },
-            "shape": {
-                "type": "circle",
-                "cx": 309,
-                "cy": 245,
-                "r": 94
-            }
-        }
-    ],
-    "global": {
-        "clipPaths": {},
-        "filters": {},
-        "gradients": {},
-        "masks": {
-            "mask1": {
-                "children": [{
-                    "id": "shape-3",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "solid",
-                            "cap": "butt",
-                            "join": "miter",
-                            "width": 14,
-                            "miter-limit": 100,
-                            "dash": [],
-                            "dash-offset": 0,
-                            "color": {
-                                "r": 0,
-                                "g": 0.091882,
-                                "b": 0.102416,
-                                "a": 1
-                            },
-                            "opacity": 0.5
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 113.686632,
-                                "b": 187.776986,
-                                "a": 1
-                            }
-                        }
-                    },
-                    "children": [],
-                    "name": "Rectangle 1",
-                    "shapeBounds": {
-                        "top": 67,
-                        "left": 130,
-                        "bottom": 245,
-                        "right": 177
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 130,
-                        "y": 67,
-                        "width": 110,
-                        "height": 179
-                    }
-                },{
-                    "id": "shape-4",
-                    "type": "shape",
-                    "visible": true,
-                    "style": {
-                        "stroke": {
-                            "type": "solid",
-                            "cap": "butt",
-                            "join": "miter",
-                            "width": 14,
-                            "miter-limit": 100,
-                            "dash": [],
-                            "dash-offset": 0,
-                            "color": {
-                                "r": 0,
-                                "g": 0.091882,
-                                "b": 0.102416,
-                                "a": 1
-                            },
-                            "opacity": 0.5
-                        },
-                        "fill": {
-                            "type": "solid",
-                            "color": {
-                                "r": 0,
-                                "g": 113.686632,
-                                "b": 187.776986,
-                                "a": 1
-                            }
-                        }
-                    },
-                    "children": [],
-                    "name": "Rectangle 1",
-                    "shapeBounds": {
-                        "top": 67,
-                        "left": 270,
-                        "bottom": 245,
-                        "right": 309
-                    },
-                    "shape": {
-                        "type": "rect",
-                        "x": 270,
-                        "y": 67,
-                        "width": 39,
-                        "height": 179
-                    }
-                }],
-                "type": "mask",
-                "kind": "opacity"
-            }
-        },
-        "patterns": {},
-        "viewBox": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
-        "bounds": {
-            "top": 0,
-            "left": 0,
-            "bottom": 768,
-            "right": 1024
-        },
-        "pxToInchRatio": 72
-    },
-    "artboards": {},
-    "meta": {
-        "PS": {
-            "globalLight": {
-                "angle": 120,
-                "altitude": 30
-            }
-        }
-    },
-    "title": "Untitled-1"
+	"children": [
+		{
+			"id": "shape-1",
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"cap": "butt",
+					"join": "miter",
+					"width": 14,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0.091882,
+							"b": 0.102416
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 113.686632,
+							"b": 187.776986
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"name": "Rectangle 1",
+			"visualBounds": {
+				"x": 130,
+				"y": 66,
+				"width": 179,
+				"height": 179
+			},
+			"shape": {
+				"type": "rect",
+				"x": 130,
+				"y": 66,
+				"width": 179,
+				"height": 179
+			}
+		},
+		{
+			"id": "shape-2",
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none",
+					"cap": "butt",
+					"join": "miter",
+					"width": 3,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0.091882,
+							"b": 0.102416
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 237.272538,
+							"g": 28.469096,
+							"b": 36.259087
+						},
+						"alpha": 1
+					}
+				},
+				"mask": {
+					"ref": "mask1"
+				}
+			},
+			"name": "Ellipse 1",
+			"visualBounds": {
+				"x": 215,
+				"y": 151,
+				"width": 188,
+				"height": 188
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 309,
+				"cy": 245,
+				"r": 94
+			}
+		}
+	],
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 120,
+				"altitude": 30
+			}
+		}
+	},
+	"name": "Untitled-1",
+	"rasterResolution": 72,
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1024,
+		"height": 768
+	},
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {
+			"mask1": {
+				"children": [
+					{
+						"id": "shape-3",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "solid",
+								"cap": "butt",
+								"join": "miter",
+								"width": 14,
+								"miterLimit": 100,
+								"dash": [],
+								"dashOffset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0.091882,
+										"b": 0.102416
+									},
+									"alpha": 1
+								},
+								"opacity": 0.5
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 113.686632,
+										"b": 187.776986
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"name": "Rectangle 1",
+						"visualBounds": {
+							"x": 130,
+							"y": 67,
+							"width": 47,
+							"height": 178
+						},
+						"shape": {
+							"type": "rect",
+							"x": 130,
+							"y": 67,
+							"width": 110,
+							"height": 179
+						}
+					},
+					{
+						"id": "shape-4",
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "solid",
+								"cap": "butt",
+								"join": "miter",
+								"width": 14,
+								"miterLimit": 100,
+								"dash": [],
+								"dashOffset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0.091882,
+										"b": 0.102416
+									},
+									"alpha": 1
+								},
+								"opacity": 0.5
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 113.686632,
+										"b": 187.776986
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"name": "Rectangle 1",
+						"visualBounds": {
+							"x": 270,
+							"y": 67,
+							"width": 39,
+							"height": 178
+						},
+						"shape": {
+							"type": "rect",
+							"x": 270,
+							"y": 67,
+							"width": 39,
+							"height": 179
+						}
+					}
+				],
+				"type": "mask",
+				"kind": "opacity"
+			}
+		},
+		"patterns": {}
+	}
 }

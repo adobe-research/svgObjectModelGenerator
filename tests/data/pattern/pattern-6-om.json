@@ -1,212 +1,225 @@
 {
-    "children": [
-        {
-            "children": [
-                {
-                    "shape": {
-                        "points": [
-                            {
-                                "x": 644.554,
-                                "y": 65.1376
-                            },
-                            {
-                                "x": 642.808,
-                                "y": 445.689
-                            },
-                            {
-                                "x": 436.329,
-                                "y": 444.742
-                            },
-                            {
-                                "x": 438.075,
-                                "y": 64.1902
-                            },
-                            {
-                                "x": 644.554,
-                                "y": 65.1376
-                            }
-                        ],
-                        "type": "polygon"
-                    },
-                    "style": {
-                        "fill": {
-                            "pattern": {
-                                "ref": "New Pattern2"
-                            },
-                            "type": "pattern"
-                        },
-                        "stroke": {
-                            "miter-limit": 10,
-                            "pattern": {
-                                "ref": "New Pattern2"
-                            },
-                            "type": "pattern",
-                            "width": 120
-                        }
-                    },
-                    "type": "shape",
-                    "visualBounds": {
-                        "bottom": 505.964,
-                        "left": 376.054,
-                        "right": 704.829,
-                        "top": 3.91555
-                    }
-                }
-            ],
-            "type": "group"
-        }
-    ],
-    "desc": "Created by Adobe Illustrator",
-    "global": {
-        "bounds": {
-            "bottom": 560,
-            "left": 0,
-            "right": 960,
-            "top": 0
-        },
-        "patterns": {
-            "New Pattern2": {
-                "bounds": {
-                    "bottom": 37.4699,
-                    "left": 0,
-                    "right": 28.5485,
-                    "top": 0
-                },
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "shape": {
-                                    "height": 37.4699,
-                                    "type": "rect",
-                                    "width": 28.5485,
-                                    "x": 0,
-                                    "y": -37.4699
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": -37.4699,
-                                    "left": 0,
-                                    "right": 28.5485,
-                                    "top": 0
-                                }
-                            },
-                            {
-                                "children": [
-                                    {
-                                        "name": "circle",
-                                        "shape": {
-                                            "cx": 4.1345,
-                                            "cy": -17.9546,
-                                            "r": 2.63184,
-                                            "type": "circle"
-                                        },
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 69,
-                                                    "g": 146,
-                                                    "r": 0
-                                                },
-                                                "type": "solid"
-                                            }
-                                        },
-                                        "transform": {
-                                            "a": 0.759138,
-                                            "b": -0.65093,
-                                            "c": 0.65093,
-                                            "d": 0.759138,
-                                            "e": 12.683,
-                                            "f": -1.63332
-                                        },
-                                        "type": "shape",
-                                        "visualBounds": {
-                                            "bottom": -20.5848,
-                                            "left": 1.50347,
-                                            "right": 6.76578,
-                                            "top": -15.3225
-                                        }
-                                    },
-                                    {
-                                        "shape": {
-                                            "path": "M 10.316 -9.384 L 7.6868 -11.6384 C 9.26 -13.5422 10.0225 -15.9346 9.836 -18.3921 C 9.6498 -20.8544 8.5402 -23.098 6.7042 -24.7314 L 8.9507 -27.3514 C 14.187 -22.7373 14.7944 -14.7508 10.316 -9.384 L 10.316 -9.384 Z",
-                                            "type": "path"
-                                        },
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 69,
-                                                    "g": 146,
-                                                    "r": 0
-                                                },
-                                                "type": "solid"
-                                            }
-                                        },
-                                        "type": "shape",
-                                        "visualBounds": {
-                                            "bottom": -27.3514,
-                                            "left": 6.70424,
-                                            "right": 13.3138,
-                                            "top": -9.38401
-                                        }
-                                    },
-                                    {
-                                        "shape": {
-                                            "path": "M 15.4313 -4.9979 L 12.8084 -7.2469 C 18.4673 -13.9935 17.7071 -24.058 11.1007 -29.8482 L 13.3468 -32.4678 C 21.399 -25.436 22.3285 -13.1886 15.4313 -4.9979 L 15.4313 -4.9979 Z",
-                                            "type": "path"
-                                        },
-                                        "style": {
-                                            "fill": {
-                                                "color": {
-                                                    "b": 69,
-                                                    "g": 146,
-                                                    "r": 0
-                                                },
-                                                "type": "solid"
-                                            }
-                                        },
-                                        "type": "shape",
-                                        "visualBounds": {
-                                            "bottom": -32.4678,
-                                            "left": 11.1007,
-                                            "right": 20.052,
-                                            "top": -4.99786
-                                        }
-                                    }
-                                ],
-                                "type": "group"
-                            }
-                        ],
-                        "type": "group"
-                    }
-                ],
-                "name": "New Pattern2",
-                "type": "pattern",
-                "viewBox": {
-                    "bottom": 37.4699,
-                    "left": 0,
-                    "right": 28.5485,
-                    "top": -37.4699
-                }
-            }
-        }
-    },
-    "meta": {
-        "AI": {
-            "host": {
-                "options": {
-                    "constrainToDocBounds": false,
-                    "idType": "regular",
-                    "isResponsive": true,
-                    "minify": false,
-                    "precision": 3,
-                    "preserveAspectRatio": "xMidYMid",
-                    "trimToArtBounds": false,
-                    "usePresentationAttribute": false
-                }
-            }
-        }
-    },
-    "name": "pattern-rotated-rect-as-fill-and-stroke-same-pattern",
-    "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"shape": {
+							"points": [
+								{
+									"x": 644.554,
+									"y": 65.1376
+								},
+								{
+									"x": 642.808,
+									"y": 445.689
+								},
+								{
+									"x": 436.329,
+									"y": 444.742
+								},
+								{
+									"x": 438.075,
+									"y": 64.1902
+								},
+								{
+									"x": 644.554,
+									"y": 65.1376
+								}
+							],
+							"type": "polygon"
+						},
+						"style": {
+							"fill": {
+								"pattern": {
+									"ref": "New Pattern2"
+								},
+								"type": "pattern"
+							},
+							"stroke": {
+								"miterLimit": 10,
+								"pattern": {
+									"ref": "New Pattern2"
+								},
+								"type": "pattern",
+								"width": 120
+							}
+						},
+						"type": "shape",
+						"visualBounds": {
+							"x": 376.054,
+							"y": 3.91555,
+							"width": 328.775,
+							"height": 502.04845
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"meta": {
+		"AI": {
+			"host": {
+				"options": {
+					"constrainToDocBounds": false,
+					"idType": "regular",
+					"isResponsive": true,
+					"minify": false,
+					"precision": 3,
+					"preserveAspectRatio": "xMidYMid",
+					"trimToArtBounds": false,
+					"usePresentationAttribute": false
+				}
+			}
+		}
+	},
+	"name": "pattern-rotated-rect-as-fill-and-stroke-same-pattern",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"resources": {
+		"patterns": {
+			"New Pattern2": {
+				"x": 0,
+				"y": 0,
+				"width": 28.5485,
+				"height": 37.4699,
+				"children": [
+					{
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"shape": {
+										"height": 37.4699,
+										"type": "rect",
+										"width": 28.5485,
+										"x": 0,
+										"y": -37.4699
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 0,
+										"y": 0,
+										"width": 28.5485,
+										"height": -37.4699
+									}
+								},
+								{
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "circle",
+												"shape": {
+													"cx": 4.1345,
+													"cy": -17.9546,
+													"r": 2.63184,
+													"type": "circle"
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 146,
+																"b": 69
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"transform": {
+													"a": 0.759138,
+													"b": -0.65093,
+													"c": 0.65093,
+													"d": 0.759138,
+													"tx": 12.683,
+													"ty": -1.63332
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 1.50347,
+													"y": -15.3225,
+													"width": 5.26231,
+													"height": -5.2623000000000015
+												}
+											},
+											{
+												"shape": {
+													"path": "M 10.316 -9.384 L 7.6868 -11.6384 C 9.26 -13.5422 10.0225 -15.9346 9.836 -18.3921 C 9.6498 -20.8544 8.5402 -23.098 6.7042 -24.7314 L 8.9507 -27.3514 C 14.187 -22.7373 14.7944 -14.7508 10.316 -9.384 L 10.316 -9.384 Z",
+													"type": "path"
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 146,
+																"b": 69
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 6.70424,
+													"y": -9.38401,
+													"width": 6.60956,
+													"height": -17.96739
+												}
+											},
+											{
+												"shape": {
+													"path": "M 15.4313 -4.9979 L 12.8084 -7.2469 C 18.4673 -13.9935 17.7071 -24.058 11.1007 -29.8482 L 13.3468 -32.4678 C 21.399 -25.436 22.3285 -13.1886 15.4313 -4.9979 L 15.4313 -4.9979 Z",
+													"type": "path"
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 0,
+																"g": 146,
+																"b": 69
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 11.1007,
+													"y": -4.99786,
+													"width": 8.9513,
+													"height": -27.469939999999998
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				],
+				"name": "New Pattern2",
+				"type": "pattern",
+				"viewBox": {
+					"x": 0,
+					"y": -37.4699,
+					"width": 28.5485,
+					"height": 37.4699
+				}
+			}
+		}
+	}
 }

@@ -1,120 +1,131 @@
 {
-  "children": [
-    {
-      "children": [
-        {
-          "children": [
-            {
-              "children": [
-                {
-                  "name": "<Rectangle>",
-                  "shape": {
-                    "height": 772.335,
-                    "r": [
-                      40.566,
-                      40.566,
-                      40.566,
-                      40.566
-                    ],
-                    "type": "rect",
-                    "width": 585.415,
-                    "x": 18,
-                    "y": 13.0001
-                  },
-                  "style": {
-                    "fill": {
-                      "color": {
-                        "b": 160,
-                        "g": 82,
-                        "r": 15
-                      },
-                      "type": "solid"
-                    }
-                  },
-                  "type": "shape",
-                  "visualBounds": {
-                    "bottom": 785.335,
-                    "left": 18,
-                    "right": 603.415,
-                    "top": 13.0001
-                  }
-                }
-              ],
-              "name": "Compound Path",
-              "type": "group"
-            }
-          ],
-          "style": {
-            "mask": "mask"
-          },
-          "type": "group"
-        }
-      ],
-      "type": "group"
-    }
-  ],
-  "desc": "Created by Adobe Illustrator",
-  "global": {
-    "bounds": {
-      "bottom": 792,
-      "left": 0,
-      "right": 612,
-      "top": 0
-    },
-    "colors": {
-      "Spot4": {
-        "b": 125,
-        "g": 196,
-        "name": "Spot4",
-        "r": 1
-      }
-    },
-    "masks": {
-      "mask": {
-        "bounds": {
-          "bottom": 792,
-          "left": 0,
-          "right": 612,
-          "top": 0
-        },
-        "children": [
-          {
-            "children": [
-              {
-                "name": "<Path>",
-                "shape": {
-                  "height": 792,
-                  "type": "rect",
-                  "width": 612,
-                  "x": 0,
-                  "y": 0
-                },
-                "style": {
-                  "fill": {
-                    "color": {
-                      "ref": "Spot4"
-                    },
-                    "type": "solid"
-                  }
-                },
-                "type": "shape",
-                "visualBounds": {
-                  "bottom": 792,
-                  "left": 0,
-                  "right": 612,
-                  "top": 0
-                }
-              }
-            ],
-            "name": "<Group>",
-            "type": "group"
-          }
-        ],
-        "clip": false,
-        "type": "mask"
-      }
-    }
-  },
-  "name": "CompoundPathWithOpacityMask",
-  "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"style": {
+							"mask": {
+								"ref": "mask"
+							}
+						},
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "Compound Path",
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "<Rectangle>",
+												"shape": {
+													"height": 772.335,
+													"r": [
+														40.566,
+														40.566,
+														40.566,
+														40.566
+													],
+													"type": "rect",
+													"width": 585.415,
+													"x": 18,
+													"y": 13.0001
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 15,
+																"g": 82,
+																"b": 160
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 18,
+													"y": 13.0001,
+													"width": 585.415,
+													"height": 772.3349000000001
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"name": "CompoundPathWithOpacityMask",
+	"version": "0.1.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 612,
+		"height": 792
+	},
+	"resources": {
+		"colors": {
+			"Spot4": {
+				"b": 125,
+				"g": 196,
+				"name": "Spot4",
+				"r": 1
+			}
+		},
+		"masks": {
+			"mask": {
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"height": 792,
+										"type": "rect",
+										"width": 612,
+										"x": 0,
+										"y": 0
+									},
+									"style": {
+										"fill": {
+											"color": {
+												"ref": "Spot4"
+											},
+											"type": "solid"
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 0,
+										"y": 0,
+										"width": 612,
+										"height": 792
+									}
+								}
+							]
+						}
+					}
+				],
+				"clip": false,
+				"type": "mask",
+				"x": 0,
+				"y": 0,
+				"width": 612,
+				"height": 792
+			}
+		}
+	}
 }

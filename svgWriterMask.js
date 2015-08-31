@@ -30,16 +30,18 @@
                 offsetX = omIn.shifted ? (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0) : 0,
                 offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0;
 
-            if (!omIn.style || !omIn.style.mask) {
+            if (!omIn.style || !omIn.style.mask || !omIn.style.mask.ref) {
                 return;
             }
-            mask = omIn.style.mask;
-            if (ctx.svgOM.global && ctx.svgOM.global.masks[mask]) {
-                ctx.currentOMNode = ctx.svgOM.global.masks[mask];
+            mask = omIn.style.mask.ref;
+            if (ctx.svgOM.resources && ctx.svgOM.resources.masks[mask]) {
+                ctx.currentOMNode = ctx.svgOM.resources.masks[mask];
                 name = ctx.currentOMNode.name;
                 maskID = ctx.ID.getUnique("mask", name);
                 maskTag = Tag.make(ctx);
                 if (omIn.shifted && (offsetX || offsetY)) {
+                    ctx.currentOMNode.translateTX = offsetX;
+                    ctx.currentOMNode.translateTY = offsetY;
                     var g = new Tag("g", {transform: getTransform(null, offsetX, offsetY, ctx.precision, true)});
                     g.children = maskTag.children;
                     maskTag.children = [g];

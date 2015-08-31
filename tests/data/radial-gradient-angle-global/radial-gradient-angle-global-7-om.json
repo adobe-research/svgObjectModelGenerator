@@ -10,7 +10,7 @@
 				"fill": {
 					"type": "gradient",
 					"gradient": {
-						"gradientSpace": "userSpaceOnUse",
+						"units": "userSpaceOnUse",
 						"r": 424.2640687119284,
 						"cx": 400,
 						"cy": 300,
@@ -18,14 +18,14 @@
 					}
 				}
 			},
-			"visualBounds": {
-				"top": 200,
-				"left": 550,
-				"bottom": 300,
-				"right": 750
-			},
 			"shape": {
 				"type": "rect",
+				"x": 550,
+				"y": 200,
+				"width": 200,
+				"height": 100
+			},
+			"visualBounds": {
 				"x": 550,
 				"y": 200,
 				"width": 200,
@@ -33,7 +33,7 @@
 			}
 		}
 	],
-	"global": {
+	"resources": {
 		"clipPaths": {},
 		"filters": {},
 		"gradients": {
@@ -42,59 +42,80 @@
 					{
 						"offset": 0,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					},
 					{
 						"offset": 0.14990234375,
 						"color": {
-							"r": 255,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.330078125,
 						"color": {
-							"r": 0,
-							"g": 0,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 0,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.489990234375,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 255
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 255
+							}
 						}
 					},
 					{
 						"offset": 0.669921875,
 						"color": {
-							"r": 0,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 0,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 0.840087890625,
 						"color": {
-							"r": 255,
-							"g": 255,
-							"b": 0
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 0
+							}
 						}
 					},
 					{
 						"offset": 1,
 						"color": {
-							"r": 255,
-							"g": 0.003891,
-							"b": 0.003891,
-							"a": 1
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 0.003891,
+								"b": 0.003891
+							},
+							"alpha": 1
 						}
 					}
 				],
@@ -102,14 +123,7 @@
 			}
 		},
 		"masks": {},
-		"patterns": {},
-		"bounds": {
-			"top": 0,
-			"left": 0,
-			"bottom": 600,
-			"right": 800
-		},
-		"pxToInchRatio": 72
+		"patterns": {}
 	},
 	"artboards": {},
 	"meta": {
@@ -120,6 +134,13 @@
 			}
 		}
 	},
-	"version": "0.1.0",
-	"name": "radial-gradient-angle-global.psd"
+	"version": "1.0.0",
+	"name": "radial-gradient-angle-global.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 800,
+		"height": 600
+	},
+	"rasterResolution": 72
 }

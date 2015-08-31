@@ -6,6 +6,7 @@
       }
     </style>
   </defs>
+  <title>Group transform</title>
   <g transform="matrix(1, 0, 0, -1, 0, 560)">
     <path class="cls-1" d="M0,468H121v92H0Z"/>
   </g>

@@ -1,2080 +1,2292 @@
 {
-    "children": [
-        {
-            "children": [
-                {
-                    "children": [
-                        {
-                            "name": "<Path>",
-                            "shape": {
-                                "height": 149.359,
-                                "type": "rect",
-                                "width": 149.359,
-                                "x": 29.8462,
-                                "y": 35.0513
-                            },
-                            "style": {
-                                "fill": {
-                                    "color": {
-                                        "b": 36,
-                                        "g": 28,
-                                        "r": 237
-                                    },
-                                    "type": "solid"
-                                }
-                            },
-                            "type": "shape",
-                            "visualBounds": {
-                                "bottom": 184.41,
-                                "left": 29.8462,
-                                "right": 179.205,
-                                "top": 35.0513
-                            }
-                        },
-                        {
-                            "children": [
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "points": [
-                                            {
-                                                "x": 179.205,
-                                                "y": 178.41
-                                            },
-                                            {
-                                                "x": 179.205,
-                                                "y": 184.41
-                                            },
-                                            {
-                                                "x": 173.205,
-                                                "y": 184.41
-                                            }
-                                        ],
-                                        "type": "polyline"
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 190.41,
-                                        "left": 173.205,
-                                        "right": 185.205,
-                                        "top": 178.41
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "type": "line",
-                                        "x1": 160.718,
-                                        "x2": 42.0897,
-                                        "y1": 184.41,
-                                        "y2": 184.41
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "dash": [
-                                                12.4872,
-                                                12.4872
-                                            ],
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 190.41,
-                                        "left": 42.0897,
-                                        "right": 160.718,
-                                        "top": 178.41
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "points": [
-                                            {
-                                                "x": 35.8462,
-                                                "y": 184.41
-                                            },
-                                            {
-                                                "x": 29.8462,
-                                                "y": 184.41
-                                            },
-                                            {
-                                                "x": 29.8462,
-                                                "y": 178.41
-                                            }
-                                        ],
-                                        "type": "polyline"
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 190.41,
-                                        "left": 23.8462,
-                                        "right": 35.8462,
-                                        "top": 178.41
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "type": "line",
-                                        "x1": 29.8462,
-                                        "x2": 29.8462,
-                                        "y1": 165.923,
-                                        "y2": 47.2949
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "dash": [
-                                                12.4872,
-                                                12.4872
-                                            ],
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 165.923,
-                                        "left": 23.8462,
-                                        "right": 35.8462,
-                                        "top": 47.2949
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "points": [
-                                            {
-                                                "x": 29.8462,
-                                                "y": 41.0513
-                                            },
-                                            {
-                                                "x": 29.8462,
-                                                "y": 35.0513
-                                            },
-                                            {
-                                                "x": 35.8462,
-                                                "y": 35.0513
-                                            }
-                                        ],
-                                        "type": "polyline"
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 41.0513,
-                                        "left": 23.8462,
-                                        "right": 35.8462,
-                                        "top": 29.0513
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "type": "line",
-                                        "x1": 48.3333,
-                                        "x2": 166.962,
-                                        "y1": 35.0513,
-                                        "y2": 35.0513
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "dash": [
-                                                12.4872,
-                                                12.4872
-                                            ],
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 41.0513,
-                                        "left": 48.3333,
-                                        "right": 166.962,
-                                        "top": 29.0513
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "points": [
-                                            {
-                                                "x": 173.205,
-                                                "y": 35.0513
-                                            },
-                                            {
-                                                "x": 179.205,
-                                                "y": 35.0513
-                                            },
-                                            {
-                                                "x": 179.205,
-                                                "y": 41.0513
-                                            }
-                                        ],
-                                        "type": "polyline"
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 41.0513,
-                                        "left": 173.205,
-                                        "right": 185.205,
-                                        "top": 29.0513
-                                    }
-                                },
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "type": "line",
-                                        "x1": 179.205,
-                                        "x2": 179.205,
-                                        "y1": 53.5385,
-                                        "y2": 172.167
-                                    },
-                                    "style": {
-                                        "stroke": {
-                                            "color": {
-                                                "b": 255,
-                                                "g": 255,
-                                                "r": 255
-                                            },
-                                            "dash": [
-                                                12.4872,
-                                                12.4872
-                                            ],
-                                            "miter-limit": 10,
-                                            "type": "solid",
-                                            "width": 12
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 172.167,
-                                        "left": 173.205,
-                                        "right": 185.205,
-                                        "top": 53.5385
-                                    }
-                                }
-                            ],
-                            "name": "<Group>",
-                            "type": "group"
-                        }
-                    ],
-                    "name": "<Rectangle>",
-                    "type": "group"
-                },
-                {
-                    "name": "<Path>",
-                    "shape": {
-                        "cx": 104.526,
-                        "cy": 109.731,
-                        "r": 49.6795,
-                        "type": "circle"
-                    },
-                    "style": {
-                        "fill": {
-                            "gradient": {
-                                "cx": 104.526,
-                                "cy": 109.731,
-                                "gradientSpace": "userSpaceOnUse",
-                                "r": 49.6795,
-                                "ref": "Unnamed gradient 3"
-                            },
-                            "type": "gradient"
-                        },
-                        "stroke": {
-                            "color": {
-                                "b": 188,
-                                "g": 117,
-                                "r": 28
-                            },
-                            "dash": [
-                                12
-                            ],
-                            "miter-limit": 10,
-                            "type": "solid",
-                            "width": 12
-                        }
-                    },
-                    "type": "shape",
-                    "visualBounds": {
-                        "bottom": 165.41,
-                        "left": 48.8462,
-                        "right": 160.205,
-                        "top": 54.0513
-                    }
-                },
-                {
-                    "children": [
-                        {
-                            "children": [
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "height": 149.359,
-                                        "type": "rect",
-                                        "width": 149.359,
-                                        "x": 202.282,
-                                        "y": 35.0513
-                                    },
-                                    "style": {
-                                        "fill": {
-                                            "color": {
-                                                "b": 36,
-                                                "g": 28,
-                                                "r": 237
-                                            },
-                                            "type": "solid"
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 184.41,
-                                        "left": 202.282,
-                                        "right": 351.641,
-                                        "top": 35.0513
-                                    }
-                                },
-                                {
-                                    "children": [
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 178.41
-                                                    },
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 184.41
-                                                    },
-                                                    {
-                                                        "x": 345.641,
-                                                        "y": 184.41
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 190.41,
-                                                "left": 345.641,
-                                                "right": 357.641,
-                                                "top": 178.41
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 333.154,
-                                                "x2": 214.526,
-                                                "y1": 184.41,
-                                                "y2": 184.41
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 190.41,
-                                                "left": 214.526,
-                                                "right": 333.154,
-                                                "top": 178.41
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 208.282,
-                                                        "y": 184.41
-                                                    },
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 184.41
-                                                    },
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 178.41
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 190.41,
-                                                "left": 196.282,
-                                                "right": 208.282,
-                                                "top": 178.41
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 202.282,
-                                                "x2": 202.282,
-                                                "y1": 165.923,
-                                                "y2": 47.2949
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 165.923,
-                                                "left": 196.282,
-                                                "right": 208.282,
-                                                "top": 47.2949
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 41.0513
-                                                    },
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 35.0513
-                                                    },
-                                                    {
-                                                        "x": 208.282,
-                                                        "y": 35.0513
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 41.0513,
-                                                "left": 196.282,
-                                                "right": 208.282,
-                                                "top": 29.0513
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 220.769,
-                                                "x2": 339.397,
-                                                "y1": 35.0513,
-                                                "y2": 35.0513
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 41.0513,
-                                                "left": 220.769,
-                                                "right": 339.397,
-                                                "top": 29.0513
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 345.641,
-                                                        "y": 35.0513
-                                                    },
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 35.0513
-                                                    },
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 41.0513
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 41.0513,
-                                                "left": 345.641,
-                                                "right": 357.641,
-                                                "top": 29.0513
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 351.641,
-                                                "x2": 351.641,
-                                                "y1": 53.5385,
-                                                "y2": 172.167
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 172.167,
-                                                "left": 345.641,
-                                                "right": 357.641,
-                                                "top": 53.5385
-                                            }
-                                        }
-                                    ],
-                                    "name": "<Group>",
-                                    "type": "group"
-                                }
-                            ],
-                            "name": "<Rectangle>",
-                            "type": "group"
-                        }
-                    ],
-                    "style": {
-                        "mask": "mask"
-                    },
-                    "type": "group"
-                },
-                {
-                    "children": [
-                        {
-                            "children": [
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "height": 149.359,
-                                        "type": "rect",
-                                        "width": 149.359,
-                                        "x": 202.282,
-                                        "y": 206.205
-                                    },
-                                    "style": {
-                                        "fill": {
-                                            "color": {
-                                                "b": 36,
-                                                "g": 28,
-                                                "r": 237
-                                            },
-                                            "type": "solid"
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 355.564,
-                                        "left": 202.282,
-                                        "right": 351.641,
-                                        "top": 206.205
-                                    }
-                                },
-                                {
-                                    "children": [
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 349.564
-                                                    },
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 355.564
-                                                    },
-                                                    {
-                                                        "x": 345.641,
-                                                        "y": 355.564
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 361.564,
-                                                "left": 345.641,
-                                                "right": 357.641,
-                                                "top": 349.564
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 333.154,
-                                                "x2": 214.526,
-                                                "y1": 355.564,
-                                                "y2": 355.564
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 361.564,
-                                                "left": 214.526,
-                                                "right": 333.154,
-                                                "top": 349.564
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 208.282,
-                                                        "y": 355.564
-                                                    },
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 355.564
-                                                    },
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 349.564
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 361.564,
-                                                "left": 196.282,
-                                                "right": 208.282,
-                                                "top": 349.564
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 202.282,
-                                                "x2": 202.282,
-                                                "y1": 337.077,
-                                                "y2": 218.449
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 337.077,
-                                                "left": 196.282,
-                                                "right": 208.282,
-                                                "top": 218.449
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 212.205
-                                                    },
-                                                    {
-                                                        "x": 202.282,
-                                                        "y": 206.205
-                                                    },
-                                                    {
-                                                        "x": 208.282,
-                                                        "y": 206.205
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 212.205,
-                                                "left": 196.282,
-                                                "right": 208.282,
-                                                "top": 200.205
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 220.769,
-                                                "x2": 339.397,
-                                                "y1": 206.205,
-                                                "y2": 206.205
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 212.205,
-                                                "left": 220.769,
-                                                "right": 339.397,
-                                                "top": 200.205
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 345.641,
-                                                        "y": 206.205
-                                                    },
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 206.205
-                                                    },
-                                                    {
-                                                        "x": 351.641,
-                                                        "y": 212.205
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 212.205,
-                                                "left": 345.641,
-                                                "right": 357.641,
-                                                "top": 200.205
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 351.641,
-                                                "x2": 351.641,
-                                                "y1": 224.692,
-                                                "y2": 343.32
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 343.32,
-                                                "left": 345.641,
-                                                "right": 357.641,
-                                                "top": 224.692
-                                            }
-                                        }
-                                    ],
-                                    "name": "<Group>",
-                                    "type": "group"
-                                }
-                            ],
-                            "name": "<Rectangle>",
-                            "type": "group"
-                        }
-                    ],
-                    "style": {
-                        "mask": "mask-1"
-                    },
-                    "type": "group"
-                },
-                {
-                    "children": [
-                        {
-                            "children": [
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "height": 149.359,
-                                        "type": "rect",
-                                        "width": 149.359,
-                                        "x": 389.782,
-                                        "y": 35.0513
-                                    },
-                                    "style": {
-                                        "fill": {
-                                            "color": {
-                                                "b": 36,
-                                                "g": 28,
-                                                "r": 237
-                                            },
-                                            "type": "solid"
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 184.41,
-                                        "left": 389.782,
-                                        "right": 539.141,
-                                        "top": 35.0513
-                                    }
-                                },
-                                {
-                                    "children": [
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 539.141,
-                                                        "y": 178.41
-                                                    },
-                                                    {
-                                                        "x": 539.141,
-                                                        "y": 184.41
-                                                    },
-                                                    {
-                                                        "x": 533.141,
-                                                        "y": 184.41
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 190.41,
-                                                "left": 533.141,
-                                                "right": 545.141,
-                                                "top": 178.41
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 520.654,
-                                                "x2": 402.026,
-                                                "y1": 184.41,
-                                                "y2": 184.41
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 190.41,
-                                                "left": 402.026,
-                                                "right": 520.654,
-                                                "top": 178.41
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 395.782,
-                                                        "y": 184.41
-                                                    },
-                                                    {
-                                                        "x": 389.782,
-                                                        "y": 184.41
-                                                    },
-                                                    {
-                                                        "x": 389.782,
-                                                        "y": 178.41
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 190.41,
-                                                "left": 383.782,
-                                                "right": 395.782,
-                                                "top": 178.41
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 389.782,
-                                                "x2": 389.782,
-                                                "y1": 165.923,
-                                                "y2": 47.2949
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 165.923,
-                                                "left": 383.782,
-                                                "right": 395.782,
-                                                "top": 47.2949
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 389.782,
-                                                        "y": 41.0513
-                                                    },
-                                                    {
-                                                        "x": 389.782,
-                                                        "y": 35.0513
-                                                    },
-                                                    {
-                                                        "x": 395.782,
-                                                        "y": 35.0513
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 41.0513,
-                                                "left": 383.782,
-                                                "right": 395.782,
-                                                "top": 29.0513
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 408.269,
-                                                "x2": 526.897,
-                                                "y1": 35.0513,
-                                                "y2": 35.0513
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 41.0513,
-                                                "left": 408.269,
-                                                "right": 526.897,
-                                                "top": 29.0513
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 533.141,
-                                                        "y": 35.0513
-                                                    },
-                                                    {
-                                                        "x": 539.141,
-                                                        "y": 35.0513
-                                                    },
-                                                    {
-                                                        "x": 539.141,
-                                                        "y": 41.0513
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 41.0513,
-                                                "left": 533.141,
-                                                "right": 545.141,
-                                                "top": 29.0513
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 539.141,
-                                                "x2": 539.141,
-                                                "y1": 53.5385,
-                                                "y2": 172.167
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 172.167,
-                                                "left": 533.141,
-                                                "right": 545.141,
-                                                "top": 53.5385
-                                            }
-                                        }
-                                    ],
-                                    "name": "<Group>",
-                                    "type": "group"
-                                }
-                            ],
-                            "name": "<Rectangle>",
-                            "type": "group"
-                        }
-                    ],
-                    "style": {
-                        "mask": "mask-2"
-                    },
-                    "type": "group"
-                },
-                {
-                    "children": [
-                        {
-                            "children": [
-                                {
-                                    "name": "<Path>",
-                                    "shape": {
-                                        "height": 149.359,
-                                        "type": "rect",
-                                        "width": 149.359,
-                                        "x": 29.8461,
-                                        "y": 206.205
-                                    },
-                                    "style": {
-                                        "fill": {
-                                            "color": {
-                                                "b": 36,
-                                                "g": 28,
-                                                "r": 237
-                                            },
-                                            "type": "solid"
-                                        }
-                                    },
-                                    "type": "shape",
-                                    "visualBounds": {
-                                        "bottom": 355.564,
-                                        "left": 29.8461,
-                                        "right": 179.205,
-                                        "top": 206.205
-                                    }
-                                },
-                                {
-                                    "children": [
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 179.205,
-                                                        "y": 349.564
-                                                    },
-                                                    {
-                                                        "x": 179.205,
-                                                        "y": 355.564
-                                                    },
-                                                    {
-                                                        "x": 173.205,
-                                                        "y": 355.564
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 361.564,
-                                                "left": 173.205,
-                                                "right": 185.205,
-                                                "top": 349.564
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 160.718,
-                                                "x2": 42.0897,
-                                                "y1": 355.564,
-                                                "y2": 355.564
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 361.564,
-                                                "left": 42.0897,
-                                                "right": 160.718,
-                                                "top": 349.564
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 35.8461,
-                                                        "y": 355.564
-                                                    },
-                                                    {
-                                                        "x": 29.8461,
-                                                        "y": 355.564
-                                                    },
-                                                    {
-                                                        "x": 29.8461,
-                                                        "y": 349.564
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 361.564,
-                                                "left": 23.8461,
-                                                "right": 35.8461,
-                                                "top": 349.564
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 29.8461,
-                                                "x2": 29.8461,
-                                                "y1": 337.077,
-                                                "y2": 218.449
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 337.077,
-                                                "left": 23.8461,
-                                                "right": 35.8461,
-                                                "top": 218.449
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 29.8461,
-                                                        "y": 212.205
-                                                    },
-                                                    {
-                                                        "x": 29.8461,
-                                                        "y": 206.205
-                                                    },
-                                                    {
-                                                        "x": 35.8461,
-                                                        "y": 206.205
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 212.205,
-                                                "left": 23.8461,
-                                                "right": 35.8461,
-                                                "top": 200.205
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 48.3333,
-                                                "x2": 166.962,
-                                                "y1": 206.205,
-                                                "y2": 206.205
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 212.205,
-                                                "left": 48.3333,
-                                                "right": 166.962,
-                                                "top": 200.205
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "points": [
-                                                    {
-                                                        "x": 173.205,
-                                                        "y": 206.205
-                                                    },
-                                                    {
-                                                        "x": 179.205,
-                                                        "y": 206.205
-                                                    },
-                                                    {
-                                                        "x": 179.205,
-                                                        "y": 212.205
-                                                    }
-                                                ],
-                                                "type": "polyline"
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 212.205,
-                                                "left": 173.205,
-                                                "right": 185.205,
-                                                "top": 200.205
-                                            }
-                                        },
-                                        {
-                                            "name": "<Path>",
-                                            "shape": {
-                                                "type": "line",
-                                                "x1": 179.205,
-                                                "x2": 179.205,
-                                                "y1": 224.692,
-                                                "y2": 343.32
-                                            },
-                                            "style": {
-                                                "stroke": {
-                                                    "color": {
-                                                        "b": 255,
-                                                        "g": 255,
-                                                        "r": 255
-                                                    },
-                                                    "dash": [
-                                                        12.4872,
-                                                        12.4872
-                                                    ],
-                                                    "miter-limit": 10,
-                                                    "type": "solid",
-                                                    "width": 12
-                                                }
-                                            },
-                                            "type": "shape",
-                                            "visualBounds": {
-                                                "bottom": 343.32,
-                                                "left": 173.205,
-                                                "right": 185.205,
-                                                "top": 224.692
-                                            }
-                                        }
-                                    ],
-                                    "name": "<Group>",
-                                    "type": "group"
-                                }
-                            ],
-                            "name": "<Rectangle>",
-                            "type": "group"
-                        }
-                    ],
-                    "style": {
-                        "mask": "mask-3"
-                    },
-                    "type": "group"
-                }
-            ],
-            "type": "group"
-        }
-    ],
-    "desc": "Created by Adobe Illustrator",
-    "global": {
-        "bounds": {
-            "bottom": 792,
-            "left": 0,
-            "right": 612,
-            "top": 0
-        },
-        "gradients": {
-            "Unnamed gradient 3": {
-                "name": "Unnamed gradient 3",
-                "stops": [
-                    {
-                        "color": {
-                            "b": 255,
-                            "g": 255,
-                            "r": 255
-                        },
-                        "midpoint": 0.5,
-                        "offset": 0
-                    },
-                    {
-                        "color": {
-                            "b": 32,
-                            "g": 31,
-                            "r": 35
-                        },
-                        "midpoint": 0.5,
-                        "offset": 1
-                    }
-                ],
-                "type": "radial"
-            },
-            "Unnamed gradient 6": {
-                "name": "Unnamed gradient 6",
-                "stops": [
-                    {
-                        "color": {
-                            "b": 255,
-                            "g": 255,
-                            "r": 255
-                        },
-                        "midpoint": 0.5,
-                        "offset": 0
-                    },
-                    {
-                        "color": {
-                            "b": 32,
-                            "g": 31,
-                            "r": 35
-                        },
-                        "midpoint": 0.5,
-                        "offset": 1
-                    }
-                ],
-                "type": "radial"
-            },
-            "Unnamed gradient 7": {
-                "name": "Unnamed gradient 7",
-                "stops": [
-                    {
-                        "color": {
-                            "b": 255,
-                            "g": 255,
-                            "r": 255
-                        },
-                        "midpoint": 0.5,
-                        "offset": 0
-                    },
-                    {
-                        "color": {
-                            "b": 32,
-                            "g": 31,
-                            "r": 35
-                        },
-                        "midpoint": 0.5,
-                        "offset": 1
-                    }
-                ],
-                "type": "radial"
-            },
-            "Unnamed gradient 9": {
-                "name": "Unnamed gradient 9",
-                "stops": [
-                    {
-                        "color": {
-                            "b": 255,
-                            "g": 255,
-                            "r": 255
-                        },
-                        "midpoint": 0.5,
-                        "offset": 0
-                    },
-                    {
-                        "color": {
-                            "b": 32,
-                            "g": 31,
-                            "r": 35
-                        },
-                        "midpoint": 0.5,
-                        "offset": 1
-                    }
-                ],
-                "type": "radial"
-            }
-        },
-        "masks": {
-            "mask": {
-                "bounds": {
-                    "bottom": 165.41,
-                    "left": 221.282,
-                    "right": 332.641,
-                    "top": 54.0513
-                },
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "name": "<Path>",
-                                "shape": {
-                                    "cx": 276.962,
-                                    "cy": 109.731,
-                                    "r": 49.6795,
-                                    "type": "circle"
-                                },
-                                "style": {
-                                    "fill": {
-                                        "gradient": {
-                                            "cx": 276.962,
-                                            "cy": 109.731,
-                                            "gradientSpace": "userSpaceOnUse",
-                                            "r": 49.6795,
-                                            "ref": "Unnamed gradient 6"
-                                        },
-                                        "type": "gradient"
-                                    },
-                                    "stroke": {
-                                        "color": {
-                                            "b": 188,
-                                            "g": 117,
-                                            "r": 28
-                                        },
-                                        "dash": [
-                                            12
-                                        ],
-                                        "miter-limit": 10,
-                                        "type": "solid",
-                                        "width": 12
-                                    }
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": 165.41,
-                                    "left": 221.282,
-                                    "right": 332.641,
-                                    "top": 54.0513
-                                }
-                            }
-                        ],
-                        "name": "<Group>",
-                        "type": "group"
-                    }
-                ],
-                "type": "mask"
-            },
-            "mask-1": {
-                "bounds": {
-                    "bottom": 336.564,
-                    "left": 221.282,
-                    "right": 332.641,
-                    "top": 225.205
-                },
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "name": "<Path>",
-                                "shape": {
-                                    "cx": 276.962,
-                                    "cy": 280.885,
-                                    "r": 49.6795,
-                                    "type": "circle"
-                                },
-                                "style": {
-                                    "fill": {
-                                        "gradient": {
-                                            "cx": 276.962,
-                                            "cy": 280.885,
-                                            "gradientSpace": "userSpaceOnUse",
-                                            "r": 49.6795,
-                                            "ref": "Unnamed gradient 6"
-                                        },
-                                        "type": "gradient"
-                                    },
-                                    "stroke": {
-                                        "color": {
-                                            "b": 188,
-                                            "g": 117,
-                                            "r": 28
-                                        },
-                                        "dash": [
-                                            12
-                                        ],
-                                        "miter-limit": 10,
-                                        "type": "solid",
-                                        "width": 12
-                                    }
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": 336.564,
-                                    "left": 221.282,
-                                    "right": 332.641,
-                                    "top": 225.205
-                                }
-                            }
-                        ],
-                        "name": "<Group>",
-                        "type": "group"
-                    }
-                ],
-                "clip": false,
-                "type": "mask"
-            },
-            "mask-2": {
-                "bounds": {
-                    "bottom": 165.41,
-                    "left": 408.782,
-                    "right": 520.141,
-                    "top": 54.0513
-                },
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "name": "<Path>",
-                                "shape": {
-                                    "cx": 464.462,
-                                    "cy": 109.731,
-                                    "r": 49.6795,
-                                    "type": "circle"
-                                },
-                                "style": {
-                                    "fill": {
-                                        "gradient": {
-                                            "cx": 464.462,
-                                            "cy": 109.731,
-                                            "gradientSpace": "userSpaceOnUse",
-                                            "r": 49.6795,
-                                            "ref": "Unnamed gradient 7"
-                                        },
-                                        "type": "gradient"
-                                    },
-                                    "stroke": {
-                                        "color": {
-                                            "b": 188,
-                                            "g": 117,
-                                            "r": 28
-                                        },
-                                        "dash": [
-                                            12
-                                        ],
-                                        "miter-limit": 10,
-                                        "type": "solid",
-                                        "width": 12
-                                    }
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": 165.41,
-                                    "left": 408.782,
-                                    "right": 520.141,
-                                    "top": 54.0513
-                                }
-                            }
-                        ],
-                        "name": "<Group>",
-                        "type": "group"
-                    }
-                ],
-                "invert": true,
-                "type": "mask"
-            },
-            "mask-3": {
-                "bounds": {
-                    "bottom": 336.564,
-                    "left": 48.8461,
-                    "right": 160.205,
-                    "top": 225.205
-                },
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "name": "<Path>",
-                                "shape": {
-                                    "cx": 104.526,
-                                    "cy": 280.885,
-                                    "r": 49.6795,
-                                    "type": "circle"
-                                },
-                                "style": {
-                                    "fill": {
-                                        "gradient": {
-                                            "cx": 104.526,
-                                            "cy": 280.885,
-                                            "gradientSpace": "userSpaceOnUse",
-                                            "r": 49.6795,
-                                            "ref": "Unnamed gradient 9"
-                                        },
-                                        "type": "gradient"
-                                    },
-                                    "stroke": {
-                                        "color": {
-                                            "b": 188,
-                                            "g": 117,
-                                            "r": 28
-                                        },
-                                        "dash": [
-                                            12
-                                        ],
-                                        "miter-limit": 10,
-                                        "type": "solid",
-                                        "width": 12
-                                    }
-                                },
-                                "type": "shape",
-                                "visualBounds": {
-                                    "bottom": 336.564,
-                                    "left": 48.8461,
-                                    "right": 160.205,
-                                    "top": 225.205
-                                }
-                            }
-                        ],
-                        "name": "<Group>",
-                        "type": "group"
-                    }
-                ],
-                "clip": false,
-                "invert": true,
-                "type": "mask"
-            }
-        }
-    },
-    "meta": {
-        "AI": {
-            "options": {
-                "artboards": "document",
-                "constrainToDocBounds": false,
-                "embed": false,
-                "idType": "regular",
-                "isResponsive": false,
-                "minify": false,
-                "precision": 3,
-                "preserveAspectRatio": "none",
-                "trimToArtBounds": false,
-                "usePresentationAttribute": false
-            }
-        }
-    },
-    "name": "mask",
-    "version": "0.1.0"
+	"children": [
+		{
+			"type": "group",
+			"group": {
+				"children": [
+					{
+						"name": "<Rectangle>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"height": 149.359,
+										"type": "rect",
+										"width": 149.359,
+										"x": 29.8462,
+										"y": 35.0513
+									},
+									"style": {
+										"fill": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 237,
+													"g": 28,
+													"b": 36
+												}
+											},
+											"type": "solid"
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 29.8462,
+										"y": 35.0513,
+										"width": 149.3588,
+										"height": 149.3587
+									}
+								},
+								{
+									"name": "<Group>",
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "<Path>",
+												"shape": {
+													"points": [
+														{
+															"x": 179.205,
+															"y": 178.41
+														},
+														{
+															"x": 179.205,
+															"y": 184.41
+														},
+														{
+															"x": 173.205,
+															"y": 184.41
+														}
+													],
+													"type": "polyline"
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 173.205,
+													"y": 178.41,
+													"width": 12,
+													"height": 12
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"type": "line",
+													"x1": 160.718,
+													"x2": 42.0897,
+													"y1": 184.41,
+													"y2": 184.41
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"dash": [
+															12.4872,
+															12.4872
+														],
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 42.0897,
+													"y": 178.41,
+													"width": 118.6283,
+													"height": 12
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"points": [
+														{
+															"x": 35.8462,
+															"y": 184.41
+														},
+														{
+															"x": 29.8462,
+															"y": 184.41
+														},
+														{
+															"x": 29.8462,
+															"y": 178.41
+														}
+													],
+													"type": "polyline"
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 23.8462,
+													"y": 178.41,
+													"width": 12.000000000000004,
+													"height": 12
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"type": "line",
+													"x1": 29.8462,
+													"x2": 29.8462,
+													"y1": 165.923,
+													"y2": 47.2949
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"dash": [
+															12.4872,
+															12.4872
+														],
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 23.8462,
+													"y": 47.2949,
+													"width": 12.000000000000004,
+													"height": 118.6281
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"points": [
+														{
+															"x": 29.8462,
+															"y": 41.0513
+														},
+														{
+															"x": 29.8462,
+															"y": 35.0513
+														},
+														{
+															"x": 35.8462,
+															"y": 35.0513
+														}
+													],
+													"type": "polyline"
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 23.8462,
+													"y": 29.0513,
+													"width": 12.000000000000004,
+													"height": 11.999999999999996
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"type": "line",
+													"x1": 48.3333,
+													"x2": 166.962,
+													"y1": 35.0513,
+													"y2": 35.0513
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"dash": [
+															12.4872,
+															12.4872
+														],
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 48.3333,
+													"y": 29.0513,
+													"width": 118.62869999999998,
+													"height": 11.999999999999996
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"points": [
+														{
+															"x": 173.205,
+															"y": 35.0513
+														},
+														{
+															"x": 179.205,
+															"y": 35.0513
+														},
+														{
+															"x": 179.205,
+															"y": 41.0513
+														}
+													],
+													"type": "polyline"
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 173.205,
+													"y": 29.0513,
+													"width": 12,
+													"height": 11.999999999999996
+												}
+											},
+											{
+												"name": "<Path>",
+												"shape": {
+													"type": "line",
+													"x1": 179.205,
+													"x2": 179.205,
+													"y1": 53.5385,
+													"y2": 172.167
+												},
+												"style": {
+													"stroke": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 255,
+																"g": 255,
+																"b": 255
+															}
+														},
+														"dash": [
+															12.4872,
+															12.4872
+														],
+														"miterLimit": 10,
+														"type": "solid",
+														"width": 12
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 173.205,
+													"y": 53.5385,
+													"width": 12,
+													"height": 118.6285
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"name": "<Path>",
+						"shape": {
+							"cx": 104.526,
+							"cy": 109.731,
+							"r": 49.6795,
+							"type": "circle"
+						},
+						"style": {
+							"fill": {
+								"gradient": {
+									"cx": 104.526,
+									"cy": 109.731,
+									"units": "userSpaceOnUse",
+									"r": 49.6795,
+									"ref": "Unnamed gradient 3"
+								},
+								"type": "gradient"
+							},
+							"stroke": {
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 28,
+										"g": 117,
+										"b": 188
+									}
+								},
+								"dash": [
+									12
+								],
+								"miterLimit": 10,
+								"type": "solid",
+								"width": 12
+							}
+						},
+						"type": "shape",
+						"visualBounds": {
+							"x": 48.8462,
+							"y": 54.0513,
+							"width": 111.3588,
+							"height": 111.3587
+						}
+					},
+					{
+						"style": {
+							"mask": {
+								"ref": "mask"
+							}
+						},
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Rectangle>",
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "<Path>",
+												"shape": {
+													"height": 149.359,
+													"type": "rect",
+													"width": 149.359,
+													"x": 202.282,
+													"y": 35.0513
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 237,
+																"g": 28,
+																"b": 36
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 202.282,
+													"y": 35.0513,
+													"width": 149.359,
+													"height": 149.3587
+												}
+											},
+											{
+												"name": "<Group>",
+												"type": "group",
+												"group": {
+													"children": [
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 351.641,
+																		"y": 178.41
+																	},
+																	{
+																		"x": 351.641,
+																		"y": 184.41
+																	},
+																	{
+																		"x": 345.641,
+																		"y": 184.41
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 345.641,
+																"y": 178.41,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 333.154,
+																"x2": 214.526,
+																"y1": 184.41,
+																"y2": 184.41
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 214.526,
+																"y": 178.41,
+																"width": 118.62799999999999,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 208.282,
+																		"y": 184.41
+																	},
+																	{
+																		"x": 202.282,
+																		"y": 184.41
+																	},
+																	{
+																		"x": 202.282,
+																		"y": 178.41
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 196.282,
+																"y": 178.41,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 202.282,
+																"x2": 202.282,
+																"y1": 165.923,
+																"y2": 47.2949
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 196.282,
+																"y": 47.2949,
+																"width": 12,
+																"height": 118.6281
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 202.282,
+																		"y": 41.0513
+																	},
+																	{
+																		"x": 202.282,
+																		"y": 35.0513
+																	},
+																	{
+																		"x": 208.282,
+																		"y": 35.0513
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 196.282,
+																"y": 29.0513,
+																"width": 12,
+																"height": 11.999999999999996
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 220.769,
+																"x2": 339.397,
+																"y1": 35.0513,
+																"y2": 35.0513
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 220.769,
+																"y": 29.0513,
+																"width": 118.62799999999999,
+																"height": 11.999999999999996
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 345.641,
+																		"y": 35.0513
+																	},
+																	{
+																		"x": 351.641,
+																		"y": 35.0513
+																	},
+																	{
+																		"x": 351.641,
+																		"y": 41.0513
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 345.641,
+																"y": 29.0513,
+																"width": 12,
+																"height": 11.999999999999996
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 351.641,
+																"x2": 351.641,
+																"y1": 53.5385,
+																"y2": 172.167
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 345.641,
+																"y": 53.5385,
+																"width": 12,
+																"height": 118.6285
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"style": {
+							"mask": {
+								"ref": "mask-1"
+							}
+						},
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Rectangle>",
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "<Path>",
+												"shape": {
+													"height": 149.359,
+													"type": "rect",
+													"width": 149.359,
+													"x": 202.282,
+													"y": 206.205
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 237,
+																"g": 28,
+																"b": 36
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 202.282,
+													"y": 206.205,
+													"width": 149.359,
+													"height": 149.359
+												}
+											},
+											{
+												"name": "<Group>",
+												"type": "group",
+												"group": {
+													"children": [
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 351.641,
+																		"y": 349.564
+																	},
+																	{
+																		"x": 351.641,
+																		"y": 355.564
+																	},
+																	{
+																		"x": 345.641,
+																		"y": 355.564
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 345.641,
+																"y": 349.564,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 333.154,
+																"x2": 214.526,
+																"y1": 355.564,
+																"y2": 355.564
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 214.526,
+																"y": 349.564,
+																"width": 118.62799999999999,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 208.282,
+																		"y": 355.564
+																	},
+																	{
+																		"x": 202.282,
+																		"y": 355.564
+																	},
+																	{
+																		"x": 202.282,
+																		"y": 349.564
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 196.282,
+																"y": 349.564,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 202.282,
+																"x2": 202.282,
+																"y1": 337.077,
+																"y2": 218.449
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 196.282,
+																"y": 218.449,
+																"width": 12,
+																"height": 118.62799999999999
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 202.282,
+																		"y": 212.205
+																	},
+																	{
+																		"x": 202.282,
+																		"y": 206.205
+																	},
+																	{
+																		"x": 208.282,
+																		"y": 206.205
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 196.282,
+																"y": 200.205,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 220.769,
+																"x2": 339.397,
+																"y1": 206.205,
+																"y2": 206.205
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 220.769,
+																"y": 200.205,
+																"width": 118.62799999999999,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 345.641,
+																		"y": 206.205
+																	},
+																	{
+																		"x": 351.641,
+																		"y": 206.205
+																	},
+																	{
+																		"x": 351.641,
+																		"y": 212.205
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 345.641,
+																"y": 200.205,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 351.641,
+																"x2": 351.641,
+																"y1": 224.692,
+																"y2": 343.32
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 345.641,
+																"y": 224.692,
+																"width": 12,
+																"height": 118.62799999999999
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"style": {
+							"mask": {
+								"ref": "mask-2"
+							}
+						},
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Rectangle>",
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "<Path>",
+												"shape": {
+													"height": 149.359,
+													"type": "rect",
+													"width": 149.359,
+													"x": 389.782,
+													"y": 35.0513
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 237,
+																"g": 28,
+																"b": 36
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 389.782,
+													"y": 35.0513,
+													"width": 149.35899999999998,
+													"height": 149.3587
+												}
+											},
+											{
+												"name": "<Group>",
+												"type": "group",
+												"group": {
+													"children": [
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 539.141,
+																		"y": 178.41
+																	},
+																	{
+																		"x": 539.141,
+																		"y": 184.41
+																	},
+																	{
+																		"x": 533.141,
+																		"y": 184.41
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 533.141,
+																"y": 178.41,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 520.654,
+																"x2": 402.026,
+																"y1": 184.41,
+																"y2": 184.41
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 402.026,
+																"y": 178.41,
+																"width": 118.62799999999999,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 395.782,
+																		"y": 184.41
+																	},
+																	{
+																		"x": 389.782,
+																		"y": 184.41
+																	},
+																	{
+																		"x": 389.782,
+																		"y": 178.41
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 383.782,
+																"y": 178.41,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 389.782,
+																"x2": 389.782,
+																"y1": 165.923,
+																"y2": 47.2949
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 383.782,
+																"y": 47.2949,
+																"width": 12,
+																"height": 118.6281
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 389.782,
+																		"y": 41.0513
+																	},
+																	{
+																		"x": 389.782,
+																		"y": 35.0513
+																	},
+																	{
+																		"x": 395.782,
+																		"y": 35.0513
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 383.782,
+																"y": 29.0513,
+																"width": 12,
+																"height": 11.999999999999996
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 408.269,
+																"x2": 526.897,
+																"y1": 35.0513,
+																"y2": 35.0513
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 408.269,
+																"y": 29.0513,
+																"width": 118.62800000000004,
+																"height": 11.999999999999996
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 533.141,
+																		"y": 35.0513
+																	},
+																	{
+																		"x": 539.141,
+																		"y": 35.0513
+																	},
+																	{
+																		"x": 539.141,
+																		"y": 41.0513
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 533.141,
+																"y": 29.0513,
+																"width": 12,
+																"height": 11.999999999999996
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 539.141,
+																"x2": 539.141,
+																"y1": 53.5385,
+																"y2": 172.167
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 533.141,
+																"y": 53.5385,
+																"width": 12,
+																"height": 118.6285
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					},
+					{
+						"style": {
+							"mask": {
+								"ref": "mask-3"
+							}
+						},
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Rectangle>",
+									"type": "group",
+									"group": {
+										"children": [
+											{
+												"name": "<Path>",
+												"shape": {
+													"height": 149.359,
+													"type": "rect",
+													"width": 149.359,
+													"x": 29.8461,
+													"y": 206.205
+												},
+												"style": {
+													"fill": {
+														"color": {
+															"mode": "RGB",
+															"value": {
+																"r": 237,
+																"g": 28,
+																"b": 36
+															}
+														},
+														"type": "solid"
+													}
+												},
+												"type": "shape",
+												"visualBounds": {
+													"x": 29.8461,
+													"y": 206.205,
+													"width": 149.3589,
+													"height": 149.359
+												}
+											},
+											{
+												"name": "<Group>",
+												"type": "group",
+												"group": {
+													"children": [
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 179.205,
+																		"y": 349.564
+																	},
+																	{
+																		"x": 179.205,
+																		"y": 355.564
+																	},
+																	{
+																		"x": 173.205,
+																		"y": 355.564
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 173.205,
+																"y": 349.564,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 160.718,
+																"x2": 42.0897,
+																"y1": 355.564,
+																"y2": 355.564
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 42.0897,
+																"y": 349.564,
+																"width": 118.6283,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 35.8461,
+																		"y": 355.564
+																	},
+																	{
+																		"x": 29.8461,
+																		"y": 355.564
+																	},
+																	{
+																		"x": 29.8461,
+																		"y": 349.564
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 23.8461,
+																"y": 349.564,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 29.8461,
+																"x2": 29.8461,
+																"y1": 337.077,
+																"y2": 218.449
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 23.8461,
+																"y": 218.449,
+																"width": 12,
+																"height": 118.62799999999999
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 29.8461,
+																		"y": 212.205
+																	},
+																	{
+																		"x": 29.8461,
+																		"y": 206.205
+																	},
+																	{
+																		"x": 35.8461,
+																		"y": 206.205
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 23.8461,
+																"y": 200.205,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 48.3333,
+																"x2": 166.962,
+																"y1": 206.205,
+																"y2": 206.205
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 48.3333,
+																"y": 200.205,
+																"width": 118.62869999999998,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"points": [
+																	{
+																		"x": 173.205,
+																		"y": 206.205
+																	},
+																	{
+																		"x": 179.205,
+																		"y": 206.205
+																	},
+																	{
+																		"x": 179.205,
+																		"y": 212.205
+																	}
+																],
+																"type": "polyline"
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 173.205,
+																"y": 200.205,
+																"width": 12,
+																"height": 12
+															}
+														},
+														{
+															"name": "<Path>",
+															"shape": {
+																"type": "line",
+																"x1": 179.205,
+																"x2": 179.205,
+																"y1": 224.692,
+																"y2": 343.32
+															},
+															"style": {
+																"stroke": {
+																	"color": {
+																		"mode": "RGB",
+																		"value": {
+																			"r": 255,
+																			"g": 255,
+																			"b": 255
+																		}
+																	},
+																	"dash": [
+																		12.4872,
+																		12.4872
+																	],
+																	"miterLimit": 10,
+																	"type": "solid",
+																	"width": 12
+																}
+															},
+															"type": "shape",
+															"visualBounds": {
+																"x": 173.205,
+																"y": 224.692,
+																"width": 12,
+																"height": 118.62799999999999
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"desc": "Created by Adobe Illustrator",
+	"meta": {
+		"AI": {
+			"options": {
+				"artboards": "document",
+				"constrainToDocBounds": false,
+				"embed": false,
+				"idType": "regular",
+				"isResponsive": false,
+				"minify": false,
+				"precision": 3,
+				"preserveAspectRatio": "none",
+				"trimToArtBounds": false,
+				"usePresentationAttribute": false
+			}
+		}
+	},
+	"name": "mask",
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 612,
+		"height": 792
+	},
+	"resources": {
+		"gradients": {
+			"Unnamed gradient 3": {
+				"name": "Unnamed gradient 3",
+				"stops": [
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 0
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 35,
+								"g": 31,
+								"b": 32
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 1
+					}
+				],
+				"type": "radial"
+			},
+			"Unnamed gradient 6": {
+				"name": "Unnamed gradient 6",
+				"stops": [
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 0
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 35,
+								"g": 31,
+								"b": 32
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 1
+					}
+				],
+				"type": "radial"
+			},
+			"Unnamed gradient 7": {
+				"name": "Unnamed gradient 7",
+				"stops": [
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 0
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 35,
+								"g": 31,
+								"b": 32
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 1
+					}
+				],
+				"type": "radial"
+			},
+			"Unnamed gradient 9": {
+				"name": "Unnamed gradient 9",
+				"stops": [
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 255,
+								"g": 255,
+								"b": 255
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 0
+					},
+					{
+						"color": {
+							"mode": "RGB",
+							"value": {
+								"r": 35,
+								"g": 31,
+								"b": 32
+							}
+						},
+						"midpoint": 0.5,
+						"offset": 1
+					}
+				],
+				"type": "radial"
+			}
+		},
+		"masks": {
+			"mask": {
+				"x": 221.282,
+				"y": 54.0513,
+				"width": 111.359,
+				"height": 111.3587,
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"cx": 276.962,
+										"cy": 109.731,
+										"r": 49.6795,
+										"type": "circle"
+									},
+									"style": {
+										"fill": {
+											"gradient": {
+												"cx": 276.962,
+												"cy": 109.731,
+												"units": "userSpaceOnUse",
+												"r": 49.6795,
+												"ref": "Unnamed gradient 6"
+											},
+											"type": "gradient"
+										},
+										"stroke": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 28,
+													"g": 117,
+													"b": 188
+												}
+											},
+											"dash": [
+												12
+											],
+											"miterLimit": 10,
+											"type": "solid",
+											"width": 12
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 221.282,
+										"y": 54.0513,
+										"width": 111.35900000000001,
+										"height": 111.3587
+									}
+								}
+							]
+						}
+					}
+				],
+				"type": "mask"
+			},
+			"mask-1": {
+				"x": 221.282,
+				"y": 225.205,
+				"width": 111.359,
+				"height": 111.359,
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"cx": 276.962,
+										"cy": 280.885,
+										"r": 49.6795,
+										"type": "circle"
+									},
+									"style": {
+										"fill": {
+											"gradient": {
+												"cx": 276.962,
+												"cy": 280.885,
+												"units": "userSpaceOnUse",
+												"r": 49.6795,
+												"ref": "Unnamed gradient 6"
+											},
+											"type": "gradient"
+										},
+										"stroke": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 28,
+													"g": 117,
+													"b": 188
+												}
+											},
+											"dash": [
+												12
+											],
+											"miterLimit": 10,
+											"type": "solid",
+											"width": 12
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 221.282,
+										"y": 225.205,
+										"width": 111.35900000000001,
+										"height": 111.35900000000001
+									}
+								}
+							]
+						}
+					}
+				],
+				"clip": false,
+				"type": "mask"
+			},
+			"mask-2": {
+				"x": 408.782,
+				"y": 54.0513,
+				"width": 111.359,
+				"height": 111.3587,
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"cx": 464.462,
+										"cy": 109.731,
+										"r": 49.6795,
+										"type": "circle"
+									},
+									"style": {
+										"fill": {
+											"gradient": {
+												"cx": 464.462,
+												"cy": 109.731,
+												"units": "userSpaceOnUse",
+												"r": 49.6795,
+												"ref": "Unnamed gradient 7"
+											},
+											"type": "gradient"
+										},
+										"stroke": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 28,
+													"g": 117,
+													"b": 188
+												}
+											},
+											"dash": [
+												12
+											],
+											"miterLimit": 10,
+											"type": "solid",
+											"width": 12
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 408.782,
+										"y": 54.0513,
+										"width": 111.35899999999998,
+										"height": 111.3587
+									}
+								}
+							]
+						}
+					}
+				],
+				"invert": true,
+				"type": "mask"
+			},
+			"mask-3": {
+				"x": 48.8461,
+				"y": 225.205,
+				"width": 111.3589,
+				"height": 111.359,
+				"children": [
+					{
+						"name": "<Group>",
+						"type": "group",
+						"group": {
+							"children": [
+								{
+									"name": "<Path>",
+									"shape": {
+										"cx": 104.526,
+										"cy": 280.885,
+										"r": 49.6795,
+										"type": "circle"
+									},
+									"style": {
+										"fill": {
+											"gradient": {
+												"cx": 104.526,
+												"cy": 280.885,
+												"units": "userSpaceOnUse",
+												"r": 49.6795,
+												"ref": "Unnamed gradient 9"
+											},
+											"type": "gradient"
+										},
+										"stroke": {
+											"color": {
+												"mode": "RGB",
+												"value": {
+													"r": 28,
+													"g": 117,
+													"b": 188
+												}
+											},
+											"dash": [
+												12
+											],
+											"miterLimit": 10,
+											"type": "solid",
+											"width": 12
+										}
+									},
+									"type": "shape",
+									"visualBounds": {
+										"x": 48.8461,
+										"y": 225.205,
+										"width": 111.3589,
+										"height": 111.35900000000001
+									}
+								}
+							]
+						}
+					}
+				],
+				"clip": false,
+				"invert": true,
+				"type": "mask"
+			}
+		}
+	}
 }

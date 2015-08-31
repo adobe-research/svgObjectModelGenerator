@@ -33,8 +33,8 @@ describe("SVGWriterPreprocessor", function () {
     it("knows how to trim to artwork 1", function () {
 
         var svgOM = {
-                global: {
-                    bounds: {
+                resources: {
+                    viewSource: {
                         left: 0,
                         right: 50,
                         top: 0,
@@ -117,8 +117,8 @@ describe("SVGWriterPreprocessor", function () {
 
     it("knows how to trim to artwork 2", function () {
         var svgOM = {
-                global: {
-                    bounds: {
+                resources: {
+                    viewSource: {
                         left: 0,
                         right: 50,
                         top: 0,
@@ -192,8 +192,8 @@ describe("SVGWriterPreprocessor", function () {
 
     it("knows how to trim to artwork 3", function () {
         var svgOM = {
-                global: {
-                    bounds: {
+                resources: {
+                    viewSource: {
                         left: 0,
                         right: 400,
                         top: 0,
@@ -246,8 +246,8 @@ describe("SVGWriterPreprocessor", function () {
 
     it("knows how to crop and scale on document export", function () {
         var svgOM = {
-                global: {
-                    bounds: {
+                resources: {
+                    viewSource: {
                         left: 100,
                         right: 300,
                         top: 100,
