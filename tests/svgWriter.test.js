@@ -219,6 +219,7 @@ describe("svgWriter", function () {
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     constrainToDocBounds: true,
+                    fillFilter: true,
                     preparedPath: true
                 };
 
@@ -283,6 +284,7 @@ describe("svgWriter", function () {
                     preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     constrainToDocBounds: true,
+                    fillFilter: true,
                     preparedPath: true
                 };
 
@@ -372,14 +374,14 @@ describe("svgWriter", function () {
         function runCompleteOMToSVGExtractionTest(name, desc, skipTest, isLastTest) {
             if (skipTest) {
                 it.skip("Entire OM ⇒ SVG for " + name, function () {
-                    compareResults(name);
+                    compareResults(name, "", { fillFilter: true });
                     if (isLastTest) {
                         _isLastTest = true;
                     }
                 });
             } else {
                 it("Entire OM ⇒ SVG for " + name, function () {
-                    compareResults(name);
+                    compareResults(name, "", { fillFilter: true });
                     if (isLastTest) {
                         _isLastTest = true;
                     }
@@ -426,9 +428,9 @@ describe("svgWriter", function () {
         });
 
         it("Test that mix-blend-mode is not written as attribute", function () {
-            var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-om.json"));
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/group-2-om.json"));
 
-            compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute" });
+            compareResultsWidthOM(svgOM, "group-attr", "", { styling: "attribute", fillFilter: true });
         });
 
         it("Test that text-orientation is not written as attribute", function () {
@@ -828,6 +830,36 @@ describe("svgWriter", function () {
 
         it("Test that focal points get overridden", function () {
             compareResults("focal-point-override", "gradient");
+        });
+    });
+
+    /**
+     * Test document units export
+     **/
+    describe("Test document units export", function () {
+        it("Test document units 'mm'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-mm", "custom", { documentUnits: "mm" });
+        });
+
+        it("Test document units 'cm'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-cm", "custom", { documentUnits: "cm" });
+        });
+
+        it("Test document units 'in'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-in", "custom", { documentUnits: "in" });
+        });
+
+        it("Test document units 'pc'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-pc", "custom", { documentUnits: "pc" });
+        });
+
+        it("Test document units 'nonsense'", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/document-size-om.json"));
+            compareResultsWidthOM(svgOM, "document-size-nonsense", "custom", { documentUnits: "nonsense" });
         });
     });
 

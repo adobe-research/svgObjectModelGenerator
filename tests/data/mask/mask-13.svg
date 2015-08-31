@@ -72,7 +72,6 @@
         mask: url(#mask-4);
       }
     </style>
-
     <radialGradient id="radial-gradient" cx="276.962" cy="109.731" r="49.679" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff"/>
       <stop offset="1" stop-color="#231f20"/>

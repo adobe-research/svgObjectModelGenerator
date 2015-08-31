@@ -55,7 +55,7 @@
 
         proto.reduceToGroupRules = function () {
             var self = this;
-            Object.keys(self.rules).forEach(function(key) {
+            Object.keys(self.rules).forEach(function (key) {
                 switch (key) {
                     case "mix-blend-mode":
                     case "isolation":
@@ -328,7 +328,6 @@
 
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
-            this.hasDefines() && writeln(ctx);
         };
 
         proto.extract = function (blocks) {

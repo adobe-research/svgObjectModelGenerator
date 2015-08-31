@@ -21,7 +21,6 @@
         clip-path: url(#clip-path-2);
       }
     </style>
-
     <clipPath id="clip-path">
       <circle id="Circle" class="cls-2" cx="215" cy="245" r="94"/>
     </clipPath>

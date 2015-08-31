@@ -21,7 +21,6 @@
         mask: url(#mask-2);
       }
     </style>
-
     <mask id="mask" x="96" y="126" width="238" height="238" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" style="mask-type:alpha">
       <circle id="Circle" class="cls-1" cx="0.25" cy="0.5" r="0.4"/>
     </mask>

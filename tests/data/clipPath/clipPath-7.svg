@@ -15,7 +15,6 @@
         clip-path: url(#clip-path-2);
       }
     </style>
-
     <clipPath id="clip-path">
       <path id="Rectangle_1" data-name="Rectangle 1" class="cls-2" d="M100,100H200V200H100Z"/>
     </clipPath>

@@ -71,7 +71,9 @@
         },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
-                var mom = parents[parents.length - 1];
+                var mom = parents[parents.length - 1],
+                    isResourceGroup,
+                    isSVGRootGroup = false;
 
                 // Nothing to process if there is no parent or the current
                 // element is no group. Exlcude artboards from processing.
@@ -87,13 +89,12 @@
 
                 // Resources may add a superflous group as first and only direct child.
                 // Those need to be removed if and only if they have no information at all.
-                var isResourceGroup = mom.children.length == 1 &&
+                isResourceGroup = mom.children.length == 1 &&
                         (mom.name == "pattern" || mom.name == "symbol" || mom.name == "mask");
 
                 // Root SVG elements may be in a single layer but group the whole content.
                 // Remove those groups if the only information is the layer name and put the
                 // name on the SVG root element itself.
-                var isSVGRootGroup = false;
                 if (mom.name == "svg") {
                     // SVG root elements may also have the elements:
                     // <defs>, <title>, <desc> or comments. Skip those.
@@ -254,6 +255,7 @@
                     list = new Tag(),
                     g = new Tag("g"),
                     use = new Tag("use", {"xlink:href": "#" + id});
+                ctx.xlinkRequired = true;
                 tag.setAttribute("id", id);
                 list.appendChild(g, use);
                 g.appendChild(tag);

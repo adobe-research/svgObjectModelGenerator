@@ -29,6 +29,7 @@
         getMatrix = svgWriterUtils.getMatrix,
         encodedText = svgWriterUtils.encodedText,
         hasFx = svgWriterUtils.hasFx,
+        toDocumentUnits = svgWriterUtils.toDocumentUnits,
         mergeTSpans2Tag = svgWriterText.mergeTSpans2Tag,
         makeTSpan = svgWriterText.makeTSpan,
         root,
@@ -376,7 +377,8 @@
         if (ctx.styling == 2) {
             for (key in omStyleBlock.rules) {
                 // List or CSS properties without presentation attribute equivalent.
-                if (key == "mix-blend-mode" ||
+                if (key == "isolation" ||
+                    key == "mix-blend-mode" ||
                     key == "text-orientation") {
                     style += key + ":" + ctx.space + omStyleBlock.rules[key] + ";";
                     continue;
@@ -390,7 +392,7 @@
         }
     };
     Tag.prototype.useTrick = function (ctx) {
-        this.trick = hasFx(ctx) && hasStroke(ctx);
+        this.trick = ctx.config && ctx.config.fillFilter && hasFx(ctx) && hasStroke(ctx);
         return this;
     };
     function roundRectPath(x, y, width, height, r) {
@@ -681,7 +683,7 @@
                 for (var i = 0; i < paraLen; i++) {
                     var para = node.paragraphs[i],
                         p = new Tag("tspan", {}, ctx, para);
-                        setGlyphOrientation(p, isVertical);
+                    setGlyphOrientation(p, isVertical);
                     for (var j = 0; j < para.lines.length; j++) {
                         var lineNode = para.lines[j];
                         for (var k = 0; k < lineNode.length; k++) {
@@ -745,6 +747,7 @@
                 w = right - left,
                 h = bottom - top,
                 tag;
+            ctx.xlinkRequired = true;
             if (img) {
                 if (!img.inDefs) {
                     var id = ctx.ID.getUnique("image"),
@@ -826,6 +829,7 @@
         reference: function (ctx, node) {
             var symbol = ctx.svgOM.global.symbols[node.ref],
                 use = new Tag("use", {}, ctx);
+            ctx.xlinkRequired = true;
             if (symbol) {
                 var name = symbol.name,
                     symbolID = ctx.ID.getUnique("symbol", name),
@@ -871,8 +875,8 @@
             };
 
             if (!ctx.config.isResponsive) {
-                attr.width = ctx._width;
-                attr.height = ctx._height;
+                attr.width = toDocumentUnits(ctx, ctx._width);
+                attr.height = toDocumentUnits(ctx, ctx._height);
             }
             attr.viewBox = ctx._viewBox;
 

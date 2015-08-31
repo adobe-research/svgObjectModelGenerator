@@ -9,7 +9,6 @@
         mask: url(#mask);
       }
     </style>
-
     <mask id="mask" x="35.212" y="37.121" width="124.242" height="124.242" maskUnits="userSpaceOnUse">
       <g transform="translate(-100.788 -87.879)">
         <g id="_Group_" data-name="&lt;Group&gt;">

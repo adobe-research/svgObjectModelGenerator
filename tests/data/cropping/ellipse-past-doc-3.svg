@@ -5,7 +5,6 @@
         fill: #007f00;
       }
     </style>
-
     <clipPath id="clip-path">
       <rect width="200" height="200"/>
     </clipPath>

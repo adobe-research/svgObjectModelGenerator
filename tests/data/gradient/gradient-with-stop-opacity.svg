@@ -14,7 +14,6 @@
         fill: url(#RedTranspBlue-2);
       }
     </style>
-
     <linearGradient id="RedTranspBlue" x1="6.574" y1="100" x2="193.426" y2="100" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="red"/>
       <stop offset="0.55" stop-color="#2441e2" stop-opacity="0.2"/>

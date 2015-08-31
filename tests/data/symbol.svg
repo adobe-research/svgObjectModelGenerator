@@ -6,7 +6,6 @@
         stroke: #007f00;
       }
     </style>
-
     <symbol id="symbol" viewBox="0 0 200 200">
       <rect class="cls-1" width="200" height="200"/>
     </symbol>

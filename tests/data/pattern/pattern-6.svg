@@ -16,7 +16,6 @@
         stroke: url(#New_Pattern2);
       }
     </style>
-
     <pattern id="New_Pattern2" data-name="New Pattern2" width="28.549" height="37.47" viewBox="0 -37.47 28.549 37.47" patternUnits="userSpaceOnUse">
       <rect class="cls-1" y="-37.47" width="28.549" height="37.47"/>
       <g>

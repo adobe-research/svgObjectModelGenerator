@@ -9,7 +9,6 @@
         mask: url(#mask);
       }
     </style>
-
     <clipPath id="clip-path">
       <rect id="Rectangle_9" data-name="Rectangle 9" x="100" y="100" width="100" height="100"/>
     </clipPath>

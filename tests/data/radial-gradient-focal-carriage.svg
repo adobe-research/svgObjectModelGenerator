@@ -17,7 +17,6 @@
         fill: url(#radial-gradient-4);
       }
     </style>
-
     <radialGradient id="radial-gradient" cx="150" cy="100" r="75" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="aqua"/>
       <stop offset="1" stop-color="blue"/>

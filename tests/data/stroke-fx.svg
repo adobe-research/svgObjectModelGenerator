@@ -34,7 +34,6 @@
         stroke: url(#radial-gradient);
       }
     </style>
-
     <linearGradient id="linear-gradient" x1="300" y1="150" x2="400" y2="150" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0a00b2"/>
       <stop offset="0.5" stop-color="red"/>
