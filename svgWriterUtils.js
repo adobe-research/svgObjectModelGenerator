@@ -42,7 +42,6 @@
         };
 
         self.writeln = function (ctx, sOut) {
-            // FIXME: This breaks when using ===.
             sOut = sOut == null ? "" : sOut;
             self.write(ctx, sOut + ctx.terminator);
         };
@@ -164,6 +163,27 @@
                 isFinite(tX) ? tX : 0,
                 isFinite(tY) ? tY : 0,
                 precision);
+        };
+
+        self.getMatrix = function (val, tX, tY) {
+            if (!val) {
+                val = {
+                    a: 1,
+                    b: 0,
+                    c: 0,
+                    d: 1,
+                    e: 0,
+                    f: 0
+                };
+            }
+            return Matrix.createMatrix({
+                a: val.a,
+                b: val.b,
+                c: val.c,
+                d: val.d,
+                e: val.e + (tX || 0),
+                f: val.f + (tY || 0),
+            });
         };
 
         self.round2 = Utils.round2;
