@@ -186,7 +186,7 @@
                 c: val.c,
                 d: val.d,
                 e: val.e + (tX || 0),
-                f: val.f + (tY || 0),
+                f: val.f + (tY || 0)
             });
         };
 
