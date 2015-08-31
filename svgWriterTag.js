@@ -18,6 +18,7 @@
     "use strict";
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
+        Matrix = require("./matrix.js"),
         svgWriterText = require("./svgWriterText.js"),
         attrsDefs = require("./attrdefs-database.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
@@ -774,7 +775,7 @@
                     height = img.getAttribute("height"),
                     sx = w / width,
                     sy = h / height,
-                    matrix = getMatrix(node.transform, node.transformTX, node.transformTY);
+                    matrix = Matrix.createMatrix(node.transform);
                 matrix.scale(sx, sy, 1);
                 tag = new Tag("use", {
                     x: left / sx,

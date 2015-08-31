@@ -169,20 +169,6 @@
                 precision);
         };
 
-        self.getMatrix = function (val, tX, tY) {
-            if (!val) {
-                val = {
-                    a: 1,
-                    b: 0,
-                    c: 0,
-                    d: 1,
-                    e: 0,
-                    f: 0
-                };
-            }
-            return Matrix.createMatrix(val).translate3d(tX || 0, tY || 0, 0);
-        };
-
         self.round2 = Utils.round2;
         self.round1k = Utils.round1k;
         self.round10k = Utils.round10k;
