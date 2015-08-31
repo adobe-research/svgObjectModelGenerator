@@ -31,6 +31,9 @@
                 "bottom": 350,
                 "right": 200
             },
+            "style": {
+                "opacity": 0.5
+            },
             "visualBounds": {
                 "top": 300,
                 "left": 100,
