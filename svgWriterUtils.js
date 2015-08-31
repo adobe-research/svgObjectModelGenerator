@@ -46,7 +46,6 @@
         };
 
         self.writeln = function (ctx, sOut) {
-            // FIXME: This breaks when using ===.
             sOut = sOut == null ? "" : sOut;
             self.write(ctx, sOut + ctx.terminator);
         };

@@ -568,6 +568,9 @@ describe("svgWriter", function () {
         it("Objects of type 'image' are recognized", function () {
             compareResults("image");
         });
+        it("Repeated objects of type 'image' are optimized", function () {
+            compareResults("image-repeat");
+        });
     });
 
     /**

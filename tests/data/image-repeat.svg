@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.5;
+      }
+    </style>
+    <image id="image" width="100" height="100" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAfwAAAADe5c7RAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAABRJREFUOMtjYBgFo2AUjIJRQE8AAAV4AAEpcbn8AAAAAElFTkSuQmCC"/>
+  </defs>
+  <title>pixelImage.psd</title>
+  <use id="green" x="100" y="100" xlink:href="#image"/>
+  <use id="green-2" data-name="green" class="cls-1" x="100" y="600" transform="scale(1 0.5)" xlink:href="#image"/>
+  <use id="green-3" data-name="green" x="100" y="100" transform="translate(-92.43 223.854) rotate(-45) scale(2)" xlink:href="#image"/>
+</svg>

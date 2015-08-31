@@ -255,6 +255,7 @@
                     list = new Tag(),
                     g = new Tag("g"),
                     use = new Tag("use", {"xlink:href": "#" + id});
+                ctx.xlinkRequired = true;
                 tag.setAttribute("id", id);
                 list.appendChild(g, use);
                 g.appendChild(tag);

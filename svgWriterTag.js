@@ -18,6 +18,7 @@
     "use strict";
     var svgWriterUtils = require("./svgWriterUtils.js"),
         util = require("./utils.js"),
+        Matrix = require("./matrix.js"),
         svgWriterText = require("./svgWriterText.js"),
         attrsDefs = require("./attrdefs-database.js"),
         SVGWriterContext = require("./svgWriterContext.js"),
@@ -26,6 +27,7 @@
         indent = svgWriterUtils.indent,
         undent = svgWriterUtils.undent,
         getTransform = svgWriterUtils.getTransform,
+        getMatrix = svgWriterUtils.getMatrix,
         encodedText = svgWriterUtils.encodedText,
         hasFx = svgWriterUtils.hasFx,
         toDocumentUnits = svgWriterUtils.toDocumentUnits,
@@ -80,7 +82,8 @@
             x: bounds.left,
             y: bounds.top,
             width: bounds.right - bounds.left,
-            height: bounds.bottom - bounds.top
+            height: bounds.bottom - bounds.top,
+            images: {}
         };
     };
     Tag.getById = function (id) {
@@ -737,21 +740,60 @@
             if (!node.bounds) {
                 return;
             }
-            ctx.xlinkRequired = true;
-            var top = parseFloat(node.bounds.top),
+            var img = root.images[node.href],
+                top = parseFloat(node.bounds.top),
                 right = parseFloat(node.bounds.right),
                 bottom = parseFloat(node.bounds.bottom),
                 left = parseFloat(node.bounds.left),
                 w = right - left,
                 h = bottom - top,
+                tag;
+            ctx.xlinkRequired = true;
+            if (img) {
+                if (!img.inDefs) {
+                    var id = ctx.ID.getUnique("image"),
+                        defimg = new Tag("image", {
+                            width: img.getAttribute("width"),
+                            height: img.getAttribute("height"),
+                            "xlink:href": img.getAttribute("xlink:href"),
+                            id: id
+                        });
+                    img.name = "use";
+                    img.setAttributes({
+                        width: "",
+                        height: "",
+                        "xlink:href": "#" + id
+                    });
+                    root.images[node.href] = defimg;
+                    defimg.inDefs = true;
+                    ctx.omStylesheet.def(defimg);
+                    img = defimg;
+                } else {
+                    id = img.getAttribute("id");
+                }
+                var width = img.getAttribute("width"),
+                    height = img.getAttribute("height"),
+                    sx = w / width,
+                    sy = h / height,
+                    matrix = Matrix.createMatrix(node.transform);
+                matrix.scale(sx, sy, 1);
+                tag = new Tag("use", {
+                    x: left / sx,
+                    y: top / sy,
+                    transform: getTransform(matrix, 0, 0, ctx.precision),
+                    "xlink:href": "#" + id
+                }, ctx);
+            } else {
                 tag = new Tag("image", {
-                    "xlink:href": node.href,
                     x: left,
                     y: top,
                     width: w,
                     height: h,
-                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
+                    transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision),
+                    "xlink:href": node.href
                 }, ctx);
+                root.images[node.href] = tag;
+            }
             return tag.useTrick(ctx);
         },
         group: function (ctx, node) {
