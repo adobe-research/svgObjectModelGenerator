@@ -68,9 +68,11 @@
                     e,
                     i;
                 if (typeof name == "string") {
-                    // FIXME: Avoid cases where we get "_-".
                     if (name.search(reg1) == -1) {
-                        s = name.replace(reg2, "_").replace(reg3, "_");
+                        s = name.replace(reg3, "_");
+                        if (s.match(reg2)) {
+                            s = "_" + s;
+                        }
                     } else {
                         s = name;
                     }
@@ -79,7 +81,14 @@
                 e = s.toLowerCase();
                 docIDs[e] = docIDs[e] || 1;
                 i = docIDs[e]++;
-                return s + (type == "cls" || i > 1 ? "-" + i : "");
+                var finalID = s + (type == "cls" || i > 1 ? (s.charAt(s.length - 1) == "_" ? "" : "-") + i : "");
+                e = finalID.toLowerCase();
+                if (s != finalID && docIDs[e]) {
+                    finalID += "-" + docIDs[e]++;
+                } else {
+                    docIDs[e] = docIDs[e] || 2;
+                }
+                return finalID;
             };
 
         this.reset = function () {

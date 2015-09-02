@@ -5,7 +5,7 @@
 			"group": {
 				"children": [
 					{
-						"name": "<Path>",
+						"name": "Just a path",
 						"shape": {
 							"cx": 113.5,
 							"cy": 228.5,
@@ -77,7 +77,7 @@
 						}
 					},
 					{
-						"name": "<Path>",
+						"name": "0>>2",
 						"shape": {
 							"cx": 495.5,
 							"cy": 228.5,
@@ -120,7 +120,7 @@
 						}
 					},
 					{
-						"name": "<Path>",
+						"name": "0>",
 						"shape": {
 							"cx": 686.5,
 							"cy": 228.5,
@@ -163,12 +163,12 @@
 						}
 					},
 					{
-						"name": "<Group>",
+						"name": "0>",
 						"type": "group",
 						"group": {
 							"children": [
 								{
-									"name": "<Path>",
+									"name": "0>",
 									"shape": {
 										"cx": 113.5,
 										"cy": 371.5,
@@ -198,7 +198,7 @@
 									}
 								},
 								{
-									"name": "<Path>",
+									"name": "0_",
 									"shape": {
 										"cx": 113.5,
 										"cy": 371.5,
@@ -220,12 +220,12 @@
 						}
 					},
 					{
-						"name": "<Group>",
+						"name": "0_2",
 						"type": "group",
 						"group": {
 							"children": [
 								{
-									"name": "<Path>",
+									"name": "0>2",
 									"shape": {
 										"cx": 304.5,
 										"cy": 371.5,
