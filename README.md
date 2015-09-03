@@ -129,6 +129,7 @@ The configuration object has the following arguments:
 * **carriageReturn** *boolean* By default, svgWriter uses the line ending `LF`. With *carriageReturn* set to `true` line endings use `CRLF`.
 * **fillFilter** *boolean* Filters just apply to the fill of an element. The stroke is unaffected and gets drawn on top of the filtered content. **WARNING**: This is a temporary flag and may be removed without further notice in the future.
 * **documentUnits** `mm` | `cm` | `pc` | `in` Specified document units will be used on the `width` and `height` attribute of the root `<svg>` element. **WARNING**: Document units may be added to AGC directly in which case this flag gets deprecated.
+* **callback** *function* Function that will be called during the operation with single number argument (0..100) representing percentage of the progress of the operation. If function return some “truish” value it will be a signal to cancel the operation. In this case empty string will be returned.
 
 ## Setup Generator
 
