@@ -286,7 +286,7 @@
                             }
                             omIn.position.y += ctx._shiftContentY;
 
-                            if (Math.abs(omIn.position.y) === 1) {
+                            if (ctx.eq(Math.abs(omIn.position.y), 1)) {
                                 omIn.position.y = 1;
                                 omIn.position.unitY = "em";
                             }
@@ -514,8 +514,8 @@
                 cropRect.width /= ctx.config.scale || 1;
                 cropRect.height /= ctx.config.scale || 1;
 
-                if (cropRect.width == w &&
-                    cropRect.height == h) {
+                if (ctx.eq(cropRect.width, w) &&
+                    ctx.eq(cropRect.height, h)) {
                     ctx._needsClipping = false;
                     return;
                 }

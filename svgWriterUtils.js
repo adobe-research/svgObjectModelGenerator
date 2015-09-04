@@ -126,10 +126,17 @@
                 if (val.ref && ctx && ctx.svgOM.resources && ctx.svgOM.resources.colors && ctx.svgOM.resources.colors[val.ref]) {
                     val = ctx.svgOM.resources.colors[val.ref];
                 }
+                if (!ctx) {
+                    ctx = {
+                        eq: function (v1, v2) {
+                            return v1 == v2;
+                        }
+                    };
+                }
                 var rgb = val.value ? val.value : val;
-                if (isFinite(val.alpha) && val.alpha != 1) {
+                if (isFinite(val.alpha) && !ctx.eq(val.alpha, 1)) {
                     return "rgba(" + Utils.roundUp(rgb.r) + "," + Utils.roundUp(rgb.g) + "," + Utils.roundUp(rgb.b) + "," + Utils.round2(val.alpha) + ")";
-                } else if (isFinite(val.a) && val.a != 1) {
+                } else if (isFinite(val.a) && !ctx.eq(val.a, 1)) {
                     return "rgba(" + Utils.roundUp(rgb.r) + "," + Utils.roundUp(rgb.g) + "," + Utils.roundUp(rgb.b) + "," + Utils.round2(val.a) + ")";
                 } else {
                     color = self.rgbToHex(rgb.r, rgb.g, rgb.b);

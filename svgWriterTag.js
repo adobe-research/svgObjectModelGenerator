@@ -646,7 +646,7 @@
                 r = r.map(function (item) {
                     return Math.abs(parseFloat(item));
                 });
-                if (r[0] != r[1] || r[1] != r[2] || r[2] != r[3]) {
+                if (!ctx.eq(r[0], r[1]) || !ctx.eq(r[1], r[2]) || !ctx.eq(r[2], r[3])) {
                     tag = new Tag("path", {
                         d: ctx.config.turnOffPathOptimisation ? roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r) : util.optimisePath(roundRectPath(node.shape.x, node.shape.y, node.shape.width, node.shape.height, r), ctx.precision),
                         transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
