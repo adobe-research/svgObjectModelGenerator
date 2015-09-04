@@ -54,7 +54,7 @@
             if (omIn.style.stroke.join) {
                 styleBlock.addRule("stroke-linejoin", omIn.style.stroke.join);
             }
-            if (omIn.style.stroke.miterLimit !== 100) {
+            if (!ctx.eq(omIn.style.stroke.miterLimit, 100)) {
                 styleBlock.addRule("stroke-miterlimit", omIn.style.stroke.miterLimit || 4);
             }
             if (omIn.style.stroke.dashOffset) {
@@ -80,6 +80,6 @@
         };
     }
 
-    module.exports = new SVGWriterStroke();
+    module.exports = new SVGWriterStroke;
 
 }());

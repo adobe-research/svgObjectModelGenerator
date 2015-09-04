@@ -150,10 +150,10 @@ module.exports = {
                         "origin": {
                             "type": "roundedRect",
                             "radii": [
-                                30,
-                                30,
-                                30,
-                                30
+                                30.00001,
+                                30.00002,
+                                30.00003,
+                                30.00004
                             ],
                             "bounds": {
                                 "top": 100,

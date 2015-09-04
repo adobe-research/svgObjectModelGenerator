@@ -37,6 +37,9 @@ describe("SVGWriterStroke", function () {
             },
             goodCTX = {
                 ID: new ID(),
+                eq: function (v1, v2) {
+                    return v1 == v2;
+                },
                 currentOMNode: {
                     style: {
                         stroke: {

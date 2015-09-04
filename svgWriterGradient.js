@@ -92,10 +92,10 @@
                 deltaY,
                 angle,
                 rMax = 0.99 * r;
-            if (isFinite(fx) && fx != cx) {
+            if (isFinite(fx) && !ctx.eq(fx, cx)) {
                 attr.fx = fx;
             }
-            if (isFinite(fy) && fy != cy) {
+            if (isFinite(fy) && !ctx.eq(fy, cy)) {
                 attr.fy = fy;
             }
 

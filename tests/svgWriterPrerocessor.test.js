@@ -94,6 +94,9 @@ describe("SVGWriterPreprocessor", function () {
             },
             ctx = {
                 svgOM: svgOM,
+                eq: function (v1, v2) {
+                    return v1 == v2;
+                },
                 ID: new ID(),
                 currentOMNode: svgOM,
                 contentBounds: {},
@@ -174,6 +177,9 @@ describe("SVGWriterPreprocessor", function () {
             },
             ctx = {
                 svgOM: svgOM,
+                eq: function (v1, v2) {
+                    return v1 == v2;
+                },
                 ID: new ID(),
                 currentOMNode: svgOM,
                 contentBounds: {},
@@ -222,6 +228,9 @@ describe("SVGWriterPreprocessor", function () {
             },
             ctx = {
                 svgOM: svgOM,
+                eq: function (v1, v2) {
+                    return v1 == v2;
+                },
                 ID: new ID(),
                 currentOMNode: svgOM,
                 contentBounds: {},

@@ -19,9 +19,20 @@
 
     var ID = require("./idGenerator.js");
 
-
+    function round(value) {
+        if (!isFinite(value)) {
+            return value;
+        }
+        var ten = Math.pow(10, this.precision);
+        return Math.round(value * ten) / ten;
+    }
+    function eq(v1, v2) {
+        return this.round(v1) == this.round(v2);
+    }
     function SVGWriterContext(svgOM, stream, config, errors) {
         this.minify = false;
+        this.round = round;
+        this.eq = eq;
 
         // FIXME: In the future, determine that svgOM is a root element.
         this.config = config;

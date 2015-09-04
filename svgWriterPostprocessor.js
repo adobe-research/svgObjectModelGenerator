@@ -57,7 +57,7 @@
                 }
             }
         },
-        hasRelevantGroupStyle = function (tag) {
+        hasRelevantGroupStyle = function (ctx, tag) {
             var style = tag.styleBlock;
             if (!style) {
                 return false;
@@ -67,7 +67,7 @@
                 style.hasProperty("clip-path") && style.getPropertyValue("clip-path") != "none" ||
                 style.hasProperty("filter") && style.getPropertyValue("filter") != "none" ||
                 style.hasProperty("mask") && style.getPropertyValue("mask") != "none" ||
-                style.hasProperty("opacity") && style.getPropertyValue("opacity") != 1;
+                style.hasProperty("opacity") && !ctx.eq(style.getPropertyValue("opacity"), 1);
         },
         processFunctions = [
             function superfluousGroups(tag, ctx, parents, num) {
@@ -114,7 +114,7 @@
                 }
 
                 // If the group has styles, transforms or clip-paths keep them.
-                if (hasRelevantGroupStyle(tag) ||
+                if (hasRelevantGroupStyle(ctx, tag) ||
                     tag.getAttribute("transform") != "" ||
                     tag.getAttribute("clip-path") != "" || // Clip areas caused by artboards set the attribute directly.
                     tag.getAttribute("id") != "" && !isSVGRootGroup) {
