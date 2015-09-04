@@ -48,7 +48,7 @@
             ctx.tick && ctx.tick("end");
         } catch (ex) {
             console.error("Ex: " + ex);
-            console.log(ex.stack);
+            ex.stack && console.log(ex.stack);
         }
         return toString(ctx);
     }
