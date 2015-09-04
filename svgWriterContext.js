@@ -74,8 +74,8 @@
                     percent = Math.round(per[0] + per[1] + per[2] + per[3]);
                     if (percent > percentSent) {
                         if (this.config.callback(percentSent = percent)) {
-							throw "Operation was canceled by user";
-						}
+                            throw "Operation was canceled by user";
+                        }
                     }
                 }
             }
