@@ -548,7 +548,7 @@
                 return;
             }
 
-            if (ctx.tick) {
+            if (ctx.tick && !omIn.lines && !omIn.to) {
                 ctx.nodeCounter++;
             }
             // If these bounds shifted is not 0 then shift children to be relative to this text block...

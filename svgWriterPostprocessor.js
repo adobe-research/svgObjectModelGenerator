@@ -19,6 +19,7 @@
 
     var Tag = require("./svgWriterTag.js"),
         ID = require("./idGenerator.js"),
+        tagCounter,
         insertArrayAt = function (array, index, arrayToInsert) {
             Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
         },
@@ -51,9 +52,7 @@
                     children[i].children = children[i].children.concat(children[i + 1].children);
                     removeChains(ctx, children[i].children);
                     children.splice(i + 1, 1);
-                    if (ctx.tick) {
-                        ctx.tagCounter--;
-                    }
+                    tagCounter--;
                 }
             }
         },
@@ -140,9 +139,7 @@
                 mom.children.splice(num, 1);
                 insertArrayAt(mom.children, num, tag.children);
 
-                if (ctx.tick) {
-                    ctx.tagCounter--;
-                }
+                tagCounter--;
             },
             function clipRule(tag, ctx, parents) {
                 var fillRule = tag.styleBlock && tag.styleBlock.getPropertyValue("fill-rule");
@@ -232,9 +229,7 @@
                         }
                     }
                 }
-                if (ctx.tick) {
-                    ctx.tagCounter -= toCollapse.length;
-                }
+                tagCounter -= toCollapse.length;
                 for (i = 0; i < toCollapse.length; i++) {
                     tag.collapseChild(toCollapse[i]);
                 }
@@ -306,6 +301,9 @@
 
     function postProcess(tag, ctx, parents, num) {
         var root = !parents;
+        if (root) {
+            tagCounter = 0;
+        }
         parents = parents || [];
         parents.push(tag);
         if (tag.children) {
@@ -318,6 +316,9 @@
         if (root) {
             ctx.omStylesheet.consolidateStyleBlocks();
             processStyle(ctx, ctx.omStylesheet.blocks);
+            if (ctx.tick) {
+                ctx.tagCounter += tagCounter;
+            }
         }
     }
 

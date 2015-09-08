@@ -33,8 +33,10 @@
             if (!omIn.style || !omIn.style.mask || !omIn.style.mask.ref) {
                 return;
             }
+            ctx.masks = ctx.masks || {};
             mask = omIn.style.mask.ref;
-            if (ctx.svgOM.resources && ctx.svgOM.resources.masks[mask]) {
+            maskTag = ctx.masks[mask];
+            if (!maskTag && ctx.svgOM.resources && ctx.svgOM.resources.masks[mask]) {
                 ctx.currentOMNode = ctx.svgOM.resources.masks[mask];
                 name = ctx.currentOMNode.name;
                 maskID = ctx.ID.getUnique("mask", name);
@@ -51,6 +53,9 @@
                 if (!ctx.minify && name && maskID != name) {
                     maskTag.setAttribute("data-name", name);
                 }
+                ctx.masks[mask] = maskTag;
+            }
+            if (maskTag) {
                 ctx.omStylesheet.def(maskTag, function (def) {
                     ctx.omStylesheet.getStyleBlock(omIn).addRule("mask", "url(#" + def.getAttribute("id") + ")");
                 });

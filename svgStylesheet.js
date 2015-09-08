@@ -158,6 +158,14 @@
             return false;
         };
 
+        function countTags(tag) {
+            var count = 1 + tag.children.length;
+            for (var i = 0; i < tag.children.length; i++) {
+                count += countTags(tag.children[i]);
+            }
+            return count;
+        }
+
         proto.def = function (tag, appliedAs, fingerprint) {
             this.defs = this.defs || {};
             if (fingerprint == null) {
@@ -175,6 +183,9 @@
             }
             if (this.defs[fingerprint]) {
                 appliedAs && this.defs[fingerprint].as.push(appliedAs);
+                if (tag.ctx) {
+                    tag.ctx.tagCounter -= countTags(tag);
+                }
             } else {
                 this.defs[fingerprint] = {
                     tag: tag,
@@ -328,6 +339,7 @@
 
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</style>");
+            ctx.tick && ctx.tick("write");
         };
 
         proto.extract = function (blocks) {
