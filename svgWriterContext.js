@@ -53,27 +53,25 @@
                 var tagMade = 0,
                     tagWritten = 0,
                     tagProcessed = 0,
-                    preprocessed = 0,
                     percent = 0,
                     percentSent = 0,
                     per = [0, 0, 0, 0];
                 this.tick = function tick(type) {
                     switch (type) {
                         case "pre":
-                            preprocessed++;
                             per[0] = 7;
                             break;
                         case "tag":
                             tagMade++;
-                            per[1] = tagMade * 31 / this.nodeCounter;
+                            per[1] = Math.min(tagMade * 31 / this.nodeCounter, 31);
                             break;
                         case "post":
                             tagProcessed++;
-                            per[2] = tagProcessed * 31 / this.tagCounter;
+                            per[2] = Math.min(tagProcessed * 31 / this.tagCounter, 31);
                             break;
                         case "write":
                             tagWritten++;
-                            per[3] = tagWritten * 31 / this.tagCounter;
+                            per[3] = Math.min(tagWritten * 31 / this.tagCounter, 31);
                             break;
                         case "end":
                             this.config.callback(100);

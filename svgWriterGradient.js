@@ -26,11 +26,13 @@
         offsetX = 0,
         offsetY = 0;
 
-    function removeDups(lines) {
+    function removeDups(ctx, lines) {
         var out = [lines[0]];
         for (var i = 1; i < lines.length; i++) {
             if (lines[i - 1].toString() != lines[i].toString()) {
                 out.push(lines[i]);
+            } else {
+                ctx.tagCounter--;
             }
         }
         return out;
@@ -71,7 +73,7 @@
                 };
                 attr.gradientUnits = gradientSpace;
                 tag.setAttributes(attr);
-                tag.children = removeDups(lines);
+                tag.children = removeDups(ctx, lines);
             }
         },
         getRadialGradientInternal: function (ctx, gradient, gradientRef, tag, link, lines, gradientID) {
@@ -140,7 +142,7 @@
                 };
                 attr.gradientUnits = gradientSpace;
                 tag.setAttributes(attr);
-                tag.children = removeDups(lines);
+                tag.children = removeDups(ctx, lines);
             }
         },
         writeGradient: function (ctx, styleBlock, gradientRef, flavor) {
@@ -157,7 +159,7 @@
                 link,
                 tag = new Tag(gradient.type + "Gradient", {
                     id: gradientID
-                }),
+                }, ctx),
                 alpha = 0;
 
             if (!ctx.minify && name && gradientID != name) {
@@ -194,6 +196,9 @@
             }
 
             link = gradientStops[lines];
+            if (link) {
+                ctx.tagCounter -= lines.length;
+            }
             if (gradient.type == "linear") {
                 self.getLinearGradientInternal(ctx, gradient, gradientRef, tag, link, lines, gradientID);
             } else {

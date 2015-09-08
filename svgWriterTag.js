@@ -54,6 +54,7 @@
             root.all[this.id] = this;
         }
         if (ctx) {
+            this.ctx = ctx;
             node = node || ctx.currentOMNode;
             if (node.visualBounds) {
                 this.bbox = {
@@ -65,7 +66,7 @@
             }
             this.setStyleBlock(ctx, node);
         }
-        if (root.ctx.tick) {
+        if (root.ctx.tick && this.name) {
             root.ctx.tagCounter++;
         }
     }
@@ -296,6 +297,7 @@
             noctx,
             numChildren = tag.children && tag.children.length;
         if (ctx) {
+            ctx.tick && ctx.tick("write");
             tag.setClass(ctx);
         } else {
             ctx = new SVGWriterContext({});
@@ -304,12 +306,10 @@
         if (tag.name) {
             if (tag.name == "#text") {
                 write(ctx, encodedText(tag.text));
-                ctx.tick && ctx.tick("write");
                 return ctx.sOut;
             }
             if (tag.name == "#comment") {
                 writeln(ctx, ctx.currentIndent + "<!-- " + encodedText(tag.text) + " -->");
-                ctx.tick && ctx.tick("write");
                 return ctx.sOut;
             }
             var ind = ctx.currentIndent;
@@ -363,7 +363,6 @@
             undent(ctx);
             writeln(ctx, ctx.currentIndent + "</" + tag.name + ">");
         }
-        ctx.tick && ctx.tick("write");
         return ctx.sOut;
     };
     Tag.prototype.setStyleBlock = function (ctx, node) {
@@ -915,10 +914,9 @@
             f,
             id,
             children;
+        ctx.tick && ctx.tick("tag");
         if (node == ctx.svgOM) {
-            if (ctx.tick) {
-                ctx.tick("pre");
-            }
+            ctx.tick && ctx.tick("pre");
             tag = factory.svg(ctx, node);
             tag.iamroot = true;
             if (ctx.svgOM.name && ctx.svgOM.name.length) {
@@ -941,7 +939,6 @@
             if (node.hasOwnProperty("visible") && !node.visible) {
                 return;
             }
-            ctx.tick && ctx.tick("tag");
             if (node.type == "shape") {
                 f = factory[node.shape.type];
                 if (!f) {
