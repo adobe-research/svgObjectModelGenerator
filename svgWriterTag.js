@@ -186,7 +186,7 @@
                 break;
             case "number-sequence":
                 if (!Array.isArray(value)) {
-                    value = (value + "").split(/[,\s]+/);
+                    value = (value + "").trim().split(/[,\s]+/);
                 }
                 for (var i = 0, ii = value.length; i < ii; i++) {
                     value[i] = parseNumber(value[i], tagname != "*", prec);
