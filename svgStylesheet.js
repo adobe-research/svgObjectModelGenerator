@@ -159,7 +159,10 @@
         };
 
         function countTags(tag) {
-            var count = 1 + tag.children.length;
+            var count = 1;
+            if (!tag.chidren || !tag.children.length)
+                return count;
+
             for (var i = 0; i < tag.children.length; i++) {
                 count += countTags(tag.children[i]);
             }
