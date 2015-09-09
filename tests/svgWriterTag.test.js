@@ -43,6 +43,14 @@ describe("svgWriterTag", function () {
             expect(String(tag)).to.equal('<circle cx="10" cy="20" r="30"/>\n');
         });
 
+        it("trims leading and trailing white-spaces from number-lists", function () {
+            var tag = new Tag("feFuncR");
+            tag.setAttributes({
+                tableValues: "  10  0  "
+            });
+            expect(String(tag)).to.equal('<feFuncR tableValues="10 0"/>\n');
+        });
+
         it("knows how to apply attributes on creation", function () {
             var tag = new Tag("circle", {
                 cx: 10,
