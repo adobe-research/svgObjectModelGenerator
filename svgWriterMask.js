@@ -26,6 +26,7 @@
                 mask,
                 maskID,
                 maskTag,
+                maskPrint,
                 name,
                 offsetX = omIn.shifted ? (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0) : 0,
                 offsetY = omIn.shifted ? (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0) : 0;
@@ -35,7 +36,8 @@
             }
             ctx.masks = ctx.masks || {};
             mask = omIn.style.mask.ref;
-            maskTag = ctx.masks[mask];
+            maskPrint = [mask, offsetX, offsetY];
+            maskTag = ctx.masks[maskPrint];
             if (!maskTag && ctx.svgOM.resources && ctx.svgOM.resources.masks[mask]) {
                 ctx.currentOMNode = ctx.svgOM.resources.masks[mask];
                 name = ctx.currentOMNode.name;
@@ -48,12 +50,12 @@
                     g.children = maskTag.children;
                     maskTag.children = [g];
                 }
+                ctx.masks[maskPrint] = maskTag;
                 ctx.currentOMNode = omIn;
                 maskTag.setAttribute("id", maskID);
                 if (!ctx.minify && name && maskID != name) {
                     maskTag.setAttribute("data-name", name);
                 }
-                ctx.masks[mask] = maskTag;
             }
             if (maskTag) {
                 ctx.omStylesheet.def(maskTag, function (def) {
