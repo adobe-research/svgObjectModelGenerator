@@ -157,10 +157,12 @@
                 stp,
                 lines = [],
                 link,
-                tag = new Tag(gradient.type + "Gradient", {
-                    id: gradientID
-                }, ctx),
                 alpha = 0;
+            ctx.currentOMNode = gradient;
+            var tag = new Tag(gradient.type + "Gradient", {
+                    id: gradientID
+                }, ctx);
+            ctx.currentOMNode = omIn;
 
             if (!ctx.minify && name && gradientID != name) {
                 tag.setAttribute("data-name", name);
