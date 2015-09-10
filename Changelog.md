@@ -1,3 +1,32 @@
+## 0.6
+
+* Replace OMG with AGC 1.0.0. Support for OMG 0.x removed.
+* Added new configuration for svgWriter
+	- `fillFilter` Use PS's way to just filter fill area and not stroke layer style.
+	- `documentUnits` with values `mm` | `cm` | `pc` | `in` to specify document units.
+	- `callback` Call back function that can be used for progress reports or interrupting svgWriter.
+* Fixed: Issues with infinite loops in svgStylesheet.
+* Fixed: Improved performance by up to 400%.
+* Fixed: Issues with pattern references. And unoptimized patterns.
+* Fixed: Issues with trailing/leading white-spaces of attribute values.
+* Fixed: xlink tracking in useTrick
+* Fixed: Avoid using xlink namespace definition when possible.
+* Fixed: Not set isolation, mix-blend-mode, text-orientation as presentation attributes.
+* Fixed: Make vertical text work in more browsers.
+* Fixed: Remove unnecessary newlines.
+* Fixed: Remove root layer groups when they have no purpose.
+* Fixed: Remove superfluous groups from resources.
+* Fixed: Remove unnecessary symbol shifting.
+* Fixed: Issues with incorrectly translated resources.
+* Fixed: Allow limiting precision to 2 digits.
+* Fixed: Add support for letter-spacing.
+* Fixed: Issues with filter dimensions.
+* Fixed: Avoid not allowed characters in XML.
+* Fixed: If layer name matches PS pattern, don't cretae IDs.
+* Fixed: Use name schema of XML 1.0 4th edition instead of 5th edition because of missing browser support.
+* Fixed: Fix gradient naming.
+* Fixed: Add new parser for restricted SVG path string.
+
 ## 0.5
 
 * Internal separation of OMG creation and SVG creation.
