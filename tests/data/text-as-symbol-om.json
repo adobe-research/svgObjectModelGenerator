@@ -1,0 +1,217 @@
+{
+    "children": [
+        {
+            "type": "group",
+            "name": "Layer 1",
+            "group": {
+                "children": [
+                    {
+                        "type": "shape",
+                        "style": {
+                            "fill": {
+                                "type": "solid",
+                                "color": {
+                                    "mode": "RGB",
+                                    "value": {
+                                        "r": 255.0,
+                                        "g": 255.0,
+                                        "b": 255.0
+                                    }
+                                }
+                            },
+                            "stroke": {
+                                "type": "solid",
+                                "color": {
+                                    "mode": "RGB",
+                                    "value": {
+                                        "r": 0.0,
+                                        "g": 0.0,
+                                        "b": 0.0
+                                    }
+                                },
+                                "miterLimit": 10.0
+                            }
+                        },
+                        "visualBounds": {
+                            "x": 143.7377589026164,
+                            "y": 166.76744186046563,
+                            "width": 191.0,
+                            "height": 21.0
+                        },
+                        "shape": {
+                            "type": "rect",
+                            "x": 144.2377589026164,
+                            "y": 167.26744186046563,
+                            "width": 190.0,
+                            "height": 20.0
+                        }
+                    },
+                    {
+                        "type": "reference",
+                        "visualBounds": {
+                            "x": 142.52202943313933,
+                            "y": 164.1256813226746,
+                            "width": 193.43145893895417,
+                            "height": 27.003508332638377
+                        },
+                        "transform": {
+                            "a": 1.91865060592709,
+                            "b": 0.0,
+                            "c": 0.0,
+                            "d": 1.91865060592709,
+                            "tx": 142.52202943313933,
+                            "ty": 164.12568132267485
+                        },
+                        "reference": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "width": 100.81640625,
+                            "height": 14.07421875,
+                            "ref": "text"
+                        }
+                    },
+                    {
+                        "type": "reference",
+                        "visualBounds": {
+                            "x": 283.8295557776164,
+                            "y": 194.64774434281299,
+                            "width": 50.408203125,
+                            "height": 7.037109375
+                        },
+                        "transform": {
+                            "a": 0.5,
+                            "b": 0.0,
+                            "c": 0.0,
+                            "d": 0.5,
+                            "tx": 283.8295557776164,
+                            "ty": 194.64774434281299
+                        },
+                        "reference": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "width": 100.81640625,
+                            "height": 14.07421875,
+                            "ref": "text"
+                        }
+                    },
+                    {
+                        "type": "reference",
+                        "visualBounds": {
+                            "x": 142.52202943313933,
+                            "y": 191.12918965531299,
+                            "width": 100.81640625,
+                            "height": 14.07421875
+                        },
+                        "transform": {
+                            "a": 1.0,
+                            "b": 0.0,
+                            "c": 0.0,
+                            "d": 1.0,
+                            "tx": 142.52202943313933,
+                            "ty": 191.12918965531299
+                        },
+                        "reference": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "width": 100.81640625,
+                            "height": 14.07421875,
+                            "ref": "text"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "name": "text-as-symbol",
+    "version": "1.0.0",
+    "viewSource": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 960.0,
+        "height": 560.0
+    },
+    "resources": {
+        "symbols": {
+            "text": {
+                "children": [
+                    {
+                        "type": "group",
+                        "group": {
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "visualBounds": {
+                                        "x": 0.0,
+                                        "y": 0.0,
+                                        "width": 100.81640625,
+                                        "height": 14.07421875
+                                    },
+                                    "text": {
+                                        "rawText": "Text as symbol",
+                                        "frame": {
+                                            "type": "positioned",
+                                            "width": 100.81640625,
+                                            "height": 14.07421875,
+                                            "path": ""
+                                        },
+                                        "paragraphs": [
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 0,
+                                                            "to": 14,
+                                                            "style": {
+                                                                "fill": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 0.0,
+                                                                            "g": 0.0,
+                                                                            "b": 255.0
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "font": {
+                                                                    "size": 12.0,
+                                                                    "family": "Courier New",
+                                                                    "style": "bold italic"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "transform": {
+                                        "a": 1.0,
+                                        "b": 0.0,
+                                        "c": 0.0,
+                                        "d": 1.0,
+                                        "tx": 0.0,
+                                        "ty": 9.55078125
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "name": "text",
+                "type": "symbol",
+                "viewBox": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "width": 100.81640625,
+                    "height": 14.07421875
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 12px;
+        fill: blue;
+        font-family: Courier New;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+    <symbol id="text" data-name="text" viewBox="0 0 100.816 14.074">
+      <text class="cls-1" transform="translate(0 9.551)">Text as symbol</text>
+    </symbol>
+  </defs>
+  <title>text-as-symbol</title>
+  <rect class="cls-2" x="144.238" y="167.267" width="190" height="20"/>
+  <use width="100.816" height="14.074" transform="translate(142.522 164.126) scale(1.919)" xlink:href="#text"/>
+  <use width="100.816" height="14.074" transform="translate(283.83 194.648) scale(0.5)" xlink:href="#text"/>
+  <use width="100.816" height="14.074" transform="translate(142.522 191.129)" xlink:href="#text"/>
+</svg>
