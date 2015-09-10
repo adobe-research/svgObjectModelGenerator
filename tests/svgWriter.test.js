@@ -929,5 +929,8 @@ describe("svgWriter", function () {
         it("Test glyph orientation", function () {
             compareResults("positioned-text8");
         });
+        it("Test text as symbol", function () {
+            compareResults("text-as-symbol");
+        });
     });
 });

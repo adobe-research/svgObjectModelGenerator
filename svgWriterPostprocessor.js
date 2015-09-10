@@ -171,6 +171,9 @@
                         });
                     }
                     if (tag.children.length == 1) {
+                        if (!tag.children[0].styleBlock) {
+                            tag.children[0].setStyleBlock(ctx, {});
+                        }
                         tag.children[0].styleBlock.addRule("filter", "url(#" + tag.filter + ")");
                     } else {
                         var g = new Tag("g");
