@@ -18,7 +18,7 @@
     "use strict";
 
     var omgStyles = require("./svgOMGeneratorStyles.js"),
-        boundsToRect = require("./SVGOMGeneratorUtils.js").boundsToRect,
+        boundsToRect = require("./svgOMGeneratorUtils.js").boundsToRect,
         Utils = require("./utils.js"),
         round2 = Utils.round2,
         offsetX = 0,

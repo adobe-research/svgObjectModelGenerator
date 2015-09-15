@@ -18,7 +18,7 @@
     "use strict";
 
     var omgStyles = require("./svgOMGeneratorStyles.js"),
-        boundsToRect = require("./SVGOMGeneratorUtils.js").boundsToRect;
+        boundsToRect = require("./svgOMGeneratorUtils.js").boundsToRect;
 
     function SVGOMGeneratorImage() {
 
