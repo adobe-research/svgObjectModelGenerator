@@ -198,7 +198,7 @@ module.exports = {
     "*": {
         "height": [0, "number"],
         "points": ["", "number-sequence", true],
-        "preserveAspectRatio": ["meet", "string"],
+        "preserveAspectRatio": ["xMidYMid meet", "string"],
         "spreadMethod": ["pad", "string"],
         "surfaceScale": [1, "number"],
         "tableValues": ["", "number-sequence"],
