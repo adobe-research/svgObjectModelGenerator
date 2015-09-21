@@ -113,7 +113,7 @@ The configuration object has the following arguments:
 
 * **trimToArtBounds** *boolean* The SVG will cover the art bounds independent of the dimension of the OMG document.
 * **constrainToDocBounds** *boolean* Clip the visible content to the document bounds.
-* **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute). Setting *preserveAspectRatio* overrides the computed value of svgWriter. Therefore, it is recommended to not set this value.
+* **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute). Setting *preserveAspectRatio* overrides the computed value of svgWriter. Therefore, it is recommended to not set this value. Note: For `meet` or `xMidYMid meet` use the equivilant string `xMidYMid` for reduced file size.
 * **styling** *enumeration* This property is optional and defaults to `class`.
     * *class* Use the global `<style>` element and reference the style block with the `class` attribute.
     * *style* Use the `style` attribute to apply styling properties to elements.

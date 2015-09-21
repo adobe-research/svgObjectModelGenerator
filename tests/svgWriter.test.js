@@ -136,13 +136,13 @@ describe("svgWriter", function () {
 
         svgOut = svgWriter.printSVG(svgOM, options || {});
 
-        // try {
-        //     expectedOut = fs.readFileSync("./tests/" + path + ".svg", "utf8");
-        // } catch (e) {
+        try {
+            expectedOut = fs.readFileSync("./tests/" + path + ".svg", "utf8");
+        } catch (e) {
             fs.writeFileSync("./tests/" + path + ".svg", svgOut, "utf8");
             console.log("No reference SVG document found. New one created as " + path + ".svg");
             return;
-        // }
+        }
 
         handleResults(_compareLogDoc, testName, expectedOut, svgOut, "./tests/" + path + ".svg", "./tests/data-compare/" + testName + ".svg");
 
@@ -223,7 +223,7 @@ describe("svgWriter", function () {
         function runJSONLayerToOMExtractionTest(layer, testName, skipTest) {
             var options = {
                     trimToArtBounds: true,
-                    preserveAspectRatio: "xMidYMid meet",
+                    preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     fillFilter: true,
                     constrainToDocBounds: true
@@ -287,7 +287,7 @@ describe("svgWriter", function () {
                 i,
                 options = {
                     trimToArtBounds: true,
-                    preserveAspectRatio: "xMidYMid meet",
+                    preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     fillFilter: true,
                     constrainToDocBounds: true
@@ -347,7 +347,7 @@ describe("svgWriter", function () {
                 svgOM,
                 options = {
                     constrainToDocBounds: true,
-                    preserveAspectRatio: "xMidYMid meet",
+                    preserveAspectRatio: "xMidYMid",
                     scale: 1,
                     trimToArtBounds: true
                 };
@@ -490,7 +490,7 @@ describe("svgWriter", function () {
     describe("Test termination of rendering on visible: false", function () {
         var options = {
                 trimToArtBounds: true,
-                preserveAspectRatio: "xMidYMid meet"
+                preserveAspectRatio: "xMidYMid"
             };
 
         it("should not render circle", function () {
@@ -508,13 +508,13 @@ describe("svgWriter", function () {
     describe("Test polygon and line shapes", function () {
         var options1 = {
                 trimToArtBounds: true,
-                preserveAspectRatio: "xMidYMid meet",
+                preserveAspectRatio: "xMidYMid",
                 scale: 2,
                 constrainToDocBounds: true
             },
             options2 = {
                 trimToArtBounds: true,
-                preserveAspectRatio: "xMidYMid meet",
+                preserveAspectRatio: "xMidYMid",
                 scale: 2,
                 constrainToDocBounds: true,
                 cropRect: {
@@ -732,7 +732,7 @@ describe("svgWriter", function () {
                     height: 300
                 },
                 trimToArtBounds: true,
-                preserveAspectRatio: "xMidYMid meet",
+                preserveAspectRatio: "xMidYMid",
                 scale: 1,
                 constrainToDocBounds: true,
                 clipToArtboardBounds: true

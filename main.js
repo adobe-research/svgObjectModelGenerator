@@ -210,7 +210,7 @@
                             var svgOM = OMG.extractSVGOM(doc, { layerSpec: layerSpec, errors: svgWriterErrors }),
                                 svgOut = svgWriter.printSVG(svgOM, {
                                     trimToArtBounds: cropToSingleLayer,
-                                    preserveAspectRatio: "xMidYMid meet",
+                                    preserveAspectRatio: "xMidYMid",
                                     scale: layerScale,
                                     targetWidth: targetWidth,
                                     targetHeight: targetHeight,
