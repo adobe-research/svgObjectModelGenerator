@@ -518,11 +518,11 @@
         }
     };
 
-    function getFilter4Mask(ctx, node, opacity, invert, clip) {
-        if (!invert && !clip) {
+    function getFilter4Mask(ctx, node, opacity, invert, noclip) {
+        if (!invert && !noclip) {
             return null;
         }
-        var name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (clip ? "-noclip" : "");
+        var name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (noclip ? "-noclip" : "");
         if (root[name]) {
             return root[name].attrs.id;
         }
@@ -534,11 +534,11 @@
                 filterUnits: "userSpaceOnUse",
                 "color-interpolation-filters": "sRGB"
             };
-        if (!clip) {
-            attr.x = node.x || 0;
-            attr.y = node.x || 0;
-            attr.width = node.width || 0;
-            attr.height = node.height || 0;
+        if (noclip) {
+            attr.x = node.x;
+            attr.y = node.y;
+            attr.width = node.width;
+            attr.height = node.height;
         }
         root[name] = filter = new Tag("filter", attr);
         maskFilters[name](filter);
@@ -600,8 +600,12 @@
         mask: function (ctx, node) {
             // FIXME: We might need special casing for objectBoundingBox.
             var attr = {};
-            attr.x = (node.x || 0) + (node.translateTX || 0);
-            attr.y = (node.y || 0) + (node.translateTY || 0);
+            if (isFinite(node.x)) {
+                attr.x = node.x + (node.translateTX || 0);
+            }
+            if (isFinite(node.y)) {
+                attr.y = node.y + (node.translateTY || 0);
+            }
             attr.width = node.width;
             attr.height = node.height;
             attr.maskUnits = node.units || "userSpaceOnUse";

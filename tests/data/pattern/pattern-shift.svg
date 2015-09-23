@@ -20,7 +20,7 @@
         fill: url(#Pattern_Grey_2);
       }
     </style>
-    <pattern id="Pattern_Grey_2" data-name="Pattern Grey 2" width="887.085" height="451.038" patternTransform="translate(262.747 37.335)" patternUnits="userSpaceOnUse" viewBox="0 -451.038 887.085 451.038">
+    <pattern id="Pattern_Grey_2" data-name="Pattern Grey 2" x="0" y="0" width="887.085" height="451.038" patternTransform="translate(262.747 37.335)" patternUnits="userSpaceOnUse" viewBox="0 -451.038 887.085 451.038">
       <g id="_Group_" data-name="&lt;Group&gt;">
         <rect id="_Path_" data-name="&lt;Path&gt;" class="cls-1" y="-451.038" width="887.085" height="451.038"/>
         <line id="_Path_2" data-name="&lt;Path&gt;" class="cls-2" x1="74.692" y1="-450.977" x2="0.37" y2="-0.061"/>

@@ -85,11 +85,11 @@
         <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="276.962" cy="109.731" r="49.679"/>
       </g>
     </mask>
-    <filter id="luminosity-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="luminosity-noclip" x="200.205" y="200.205" width="161.359" height="161.359" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="SourceGraphic" in2="bg"/>
     </filter>
-    <mask id="mask-2" maskUnits="userSpaceOnUse">
+    <mask id="mask-2" x="200.205" y="200.205" width="161.359" height="161.359" maskUnits="userSpaceOnUse">
       <g id="_Group_2" data-name="&lt;Group&gt;" class="cls-2">
         <circle id="_Path_2" data-name="&lt;Path&gt;" class="cls-3" cx="276.962" cy="280.885" r="49.679"/>
       </g>
@@ -102,12 +102,12 @@
         <circle id="_Path_3" data-name="&lt;Path&gt;" class="cls-5" cx="464.462" cy="109.731" r="49.679"/>
       </g>
     </mask>
-    <filter id="luminosity-invert-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="luminosity-invert-noclip" x="23.846" y="200.205" width="161.359" height="161.359" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0" result="invert"/>
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="invert" in2="bg"/>
     </filter>
-    <mask id="mask-4" maskUnits="userSpaceOnUse">
+    <mask id="mask-4" x="23.846" y="200.205" width="161.359" height="161.359" maskUnits="userSpaceOnUse">
       <g id="_Group_4" data-name="&lt;Group&gt;" class="cls-6">
         <circle id="_Path_4" data-name="&lt;Path&gt;" class="cls-7" cx="104.526" cy="280.885" r="49.679"/>
       </g>

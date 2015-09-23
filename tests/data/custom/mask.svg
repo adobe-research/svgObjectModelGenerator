@@ -9,7 +9,7 @@
         mask: url(#mask);
       }
     </style>
-    <mask id="mask" x="136" y="125" width="124.242" height="124.242" maskUnits="userSpaceOnUse">
+    <mask id="mask" x="35.212" y="37.121" width="124.242" height="124.242" maskUnits="userSpaceOnUse">
       <g transform="translate(-100.788 -87.879)">
         <g id="_Group_" data-name="&lt;Group&gt;">
           <circle id="_Path_" data-name="&lt;Path&gt;" class="cls-1" cx="198.121" cy="187.121" r="62.121"/>

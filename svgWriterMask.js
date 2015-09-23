@@ -42,10 +42,10 @@
                 ctx.currentOMNode = ctx.svgOM.resources.masks[mask];
                 name = ctx.currentOMNode.name;
                 maskID = ctx.ID.getUnique("mask", name);
+                ctx.currentOMNode.translateTX = offsetX;
+                ctx.currentOMNode.translateTY = offsetY;
                 maskTag = Tag.make(ctx);
                 if (omIn.shifted && (offsetX || offsetY)) {
-                    ctx.currentOMNode.translateTX = offsetX;
-                    ctx.currentOMNode.translateTY = offsetY;
                     var g = new Tag("g", {transform: getTransform(null, offsetX, offsetY, ctx.precision, true)});
                     g.children = maskTag.children;
                     maskTag.children = [g];
