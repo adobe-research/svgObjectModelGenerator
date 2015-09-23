@@ -518,7 +518,7 @@
         }
     };
 
-    function getFilter4Mask(ctx, opacity, invert, clip) {
+    function getFilter4Mask(ctx, node, opacity, invert, clip) {
         if (!invert && !clip) {
             return null;
         }
@@ -528,12 +528,19 @@
         }
 
         var filter,
-            filterID = ctx.ID.getUnique("filter", name);
-        root[name] = filter = new Tag("filter", {
-            id: filterID,
-            filterUnits: "userSpaceOnUse",
-            "color-interpolation-filters": "sRGB"
-        });
+            filterID = ctx.ID.getUnique("filter", name),
+            attr = {
+                id: filterID,
+                filterUnits: "userSpaceOnUse",
+                "color-interpolation-filters": "sRGB"
+            };
+        if (!clip) {
+            attr.x = node.x || 0;
+            attr.y = node.x || 0;
+            attr.width = node.width || 0;
+            attr.height = node.height || 0;
+        }
+        root[name] = filter = new Tag("filter", attr);
         maskFilters[name](filter);
         ctx.omStylesheet.def(filter);
         return filterID;
@@ -608,7 +615,7 @@
                 mask.opacity = true;
             }
             mask.noclip = "clip" in node && !node.clip;
-            mask.filter = getFilter4Mask(ctx, node.kind == "opacity", node.invert, mask.noclip);
+            mask.filter = getFilter4Mask(ctx, node, node.kind == "opacity", node.invert, mask.noclip);
             if (node.invert) {
                 mask.setStyleBlock(ctx, {});
             }
