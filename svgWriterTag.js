@@ -523,7 +523,7 @@
             return null;
         }
         var name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (noclip ? "-noclip" : "");
-        if (root[name]) {
+        if (!noclip && root[name]) {
             return root[name].attrs.id;
         }
 
