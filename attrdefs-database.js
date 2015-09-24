@@ -156,11 +156,7 @@ module.exports = {
     },
     "pattern": {
         "patternContentUnits": ["userSpaceOnUse", "string"],
-        "patternUnits": ["objectBoundingBox", "string"],
-        "x": ["-10%", "number"],
-        "y": ["-10%", "number"],
-        "width": ["120%", "number"],
-        "height": ["120%", "number"]
+        "patternUnits": ["objectBoundingBox", "string"]
     },
     "feSpotLight": {
         "pointsAtX": [0, "number"],

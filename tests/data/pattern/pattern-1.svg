@@ -11,7 +11,7 @@
         fill: url(#pattern);
       }
     </style>
-    <pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+    <pattern id="pattern" width="100" height="100" patternUnits="userSpaceOnUse">
       <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" width="50" height="50"/>
     </pattern>
   </defs>

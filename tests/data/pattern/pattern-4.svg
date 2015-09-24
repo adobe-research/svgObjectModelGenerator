@@ -19,13 +19,13 @@
         fill: url(#pattern-3);
       }
     </style>
-    <pattern id="pattern" x="0" y="0" width="55" height="55" patternUnits="userSpaceOnUse">
+    <pattern id="pattern" width="55" height="55" patternUnits="userSpaceOnUse">
       <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1" width="50" height="50"/>
     </pattern>
-    <pattern id="pattern-2" x="0" y="0" width="55" height="55" patternUnits="userSpaceOnUse">
+    <pattern id="pattern-2" width="55" height="55" patternUnits="userSpaceOnUse">
       <rect id="Rectangle_2-2" data-name="Rectangle 2" class="cls-2" width="50" height="50"/>
     </pattern>
-    <pattern id="pattern-3" x="0" y="0" width="55" height="55" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse">
+    <pattern id="pattern-3" width="55" height="55" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse">
       <rect id="Rectangle_2-3" data-name="Rectangle 2" class="cls-1" width="50" height="50"/>
     </pattern>
   </defs>
