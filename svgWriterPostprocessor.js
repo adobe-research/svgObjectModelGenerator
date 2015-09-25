@@ -162,15 +162,9 @@
             function filter4mask(tag, ctx) {
                 if (tag.name == "mask" && tag.filter) {
                     tag.setAttribute("style", "");
-                    if (tag.noclip) {
-                        tag.setAttributes({
-                            x: 0,
-                            y: 0,
-                            width: 0,
-                            height: 0
-                        });
-                    }
-                    if (tag.children.length == 1) {
+                    // If the child has a transform, the filter coordinate space is not equal to the
+                    // global space and would produce wrong results.
+                    if (tag.children.length == 1 && tag.children[0].getAttribute("transform") == "") {
                         if (!tag.children[0].styleBlock) {
                             tag.children[0].setStyleBlock(ctx, {});
                         }

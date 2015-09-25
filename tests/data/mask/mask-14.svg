@@ -17,11 +17,11 @@
         fill: #0f52a0;
       }
     </style>
-    <filter id="luminosity-noclip" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="luminosity-noclip" x="0" y="0" width="612" height="792" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-color="#fff" result="bg"/>
       <feBlend in="SourceGraphic" in2="bg"/>
     </filter>
-    <mask id="mask" maskUnits="userSpaceOnUse">
+    <mask id="mask" x="0" y="0" width="612" height="792" maskUnits="userSpaceOnUse">
       <g id="_Group_" data-name="&lt;Group&gt;" class="cls-1">
         <rect id="_Path_" data-name="&lt;Path&gt;" class="cls-2" width="612" height="792"/>
       </g>

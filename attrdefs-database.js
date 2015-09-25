@@ -108,7 +108,11 @@ module.exports = {
     "filter": {
         "filterRes": [null, "number-sequence"],
         "filterUnits": ["objectBoundingBox", "string"],
-        "primitiveUnits": ["userSpaceOnUse", "string"]
+        "primitiveUnits": ["userSpaceOnUse", "string"],
+        "x": ["-10%", "number"],
+        "y": ["-10%", "number"],
+        "width": ["120%", "number"],
+        "height": ["120%", "number"]
     },
     "svg": {
         "height": ["100%", "number", true],
@@ -137,7 +141,11 @@ module.exports = {
     },
     "mask": {
         "maskContentUnits": ["userSpaceOnUse", "string"],
-        "maskUnits": ["objectBoundingBox", "string"]
+        "maskUnits": ["objectBoundingBox", "string"],
+        "x": ["-10%", "number"],
+        "y": ["-10%", "number"],
+        "width": ["120%", "number"],
+        "height": ["120%", "number"]
     },
     "feBlend": {
         "mode": ["normal", "string"]

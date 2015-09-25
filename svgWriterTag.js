@@ -518,22 +518,29 @@
         }
     };
 
-    function getFilter4Mask(ctx, opacity, invert, clip) {
-        if (!invert && !clip) {
+    function getFilter4Mask(ctx, node, opacity, invert, noclip) {
+        if (!invert && !noclip) {
             return null;
         }
-        var name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (clip ? "-noclip" : "");
-        if (root[name]) {
+        var name = (opacity ? "opacity" : "luminosity") + (invert ? "-invert" : "") + (noclip ? "-noclip" : "");
+        if (!noclip && root[name]) {
             return root[name].attrs.id;
         }
 
         var filter,
-            filterID = ctx.ID.getUnique("filter", name);
-        root[name] = filter = new Tag("filter", {
-            id: filterID,
-            filterUnits: "userSpaceOnUse",
-            "color-interpolation-filters": "sRGB"
-        });
+            filterID = ctx.ID.getUnique("filter", name),
+            attr = {
+                id: filterID,
+                filterUnits: "userSpaceOnUse",
+                "color-interpolation-filters": "sRGB"
+            };
+        if (noclip) {
+            attr.x = node.x;
+            attr.y = node.y;
+            attr.width = node.width;
+            attr.height = node.height;
+        }
+        root[name] = filter = new Tag("filter", attr);
         maskFilters[name](filter);
         ctx.omStylesheet.def(filter);
         return filterID;
@@ -593,8 +600,12 @@
         mask: function (ctx, node) {
             // FIXME: We might need special casing for objectBoundingBox.
             var attr = {};
-            attr.x = (node.x || 0) + (node.translateTX || 0);
-            attr.y = (node.y || 0) + (node.translateTY || 0);
+            if (isFinite(node.x)) {
+                attr.x = node.x + (node.translateTX || 0);
+            }
+            if (isFinite(node.y)) {
+                attr.y = node.y + (node.translateTY || 0);
+            }
             attr.width = node.width;
             attr.height = node.height;
             attr.maskUnits = node.units || "userSpaceOnUse";
@@ -608,7 +619,7 @@
                 mask.opacity = true;
             }
             mask.noclip = "clip" in node && !node.clip;
-            mask.filter = getFilter4Mask(ctx, node.kind == "opacity", node.invert, mask.noclip);
+            mask.filter = getFilter4Mask(ctx, node, node.kind == "opacity", node.invert, mask.noclip);
             if (node.invert) {
                 mask.setStyleBlock(ctx, {});
             }

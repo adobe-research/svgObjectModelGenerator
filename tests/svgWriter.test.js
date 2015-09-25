@@ -181,7 +181,7 @@ describe("svgWriter", function () {
      * Test extraction of masks to SVG
      **/
     describe("Test extraction of masks to SVG", function () {
-        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6", "mask-7", "mask-8", "mask-9", "mask-10", "mask-11", "mask-12", "mask-13", "mask-14"];
+        var database = ["mask-1", "mask-2", "mask-3", "mask-4", "mask-5", "mask-6", "mask-7", "mask-8", "mask-9", "mask-10", "mask-11", "mask-12", "mask-13", "mask-14", "mask-clip"];
 
         database.forEach(function (item) {
             it("test " + item, function () {
