@@ -225,6 +225,11 @@
             test: "group-path",
             desc: "Test of artboards 3.",
             layerTest: true
+        },
+        {
+            test: "stroke-alignment",
+            desc: "Circle with different stroke alignment.",
+            layerTest: true
         }
     ];
 

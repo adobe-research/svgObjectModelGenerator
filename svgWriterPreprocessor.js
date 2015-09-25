@@ -164,7 +164,16 @@
                     bndsIn,
                     width = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                                 omIn.style.stroke.width || 0,
-                    expand = 0;//width / 2;
+                    strokeAlign = width ? omIn.style.stroke.align : "center",
+                    expand = 0;
+
+                // FIXME: We do not have a way to compute the inside/outside of a path yet. This
+                // is the most simple way to adjust the boundaries to center aligned paths.
+                if (strokeAlign == "inside") {
+                    expand = width / 2;
+                } else if (strokeAlign == "outside") {
+                    expand -= width / 2;
+                }
 
                 if (omIn.visualBounds) {
                     bndsIn = rectToBounds(omIn.visualBounds);

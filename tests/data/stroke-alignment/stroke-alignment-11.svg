@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00aeef;
+        stroke: #000;
+        stroke-width: 40px;
+      }
+    </style>
+  </defs>
+  <title>/Users/dschulze/Downloads/inner-stroke-canvas-size.psd</title>
+  <circle id="stroke-outside" class="cls-1" cx="310" cy="310" r="230"/>
+</svg>

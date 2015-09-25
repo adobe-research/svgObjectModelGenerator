@@ -54,7 +54,7 @@ var prog = progress(100, 20),
     options = optFile ? JSON.parse(fs.readFileSync(optFile, {encoding: "utf8", flag: "r"})) : {
         trimToArtBounds: true,
         useViewBox: true,
-        isResponsive: false,
+        isResponsive: true,
         preserveAspectRatio: "xMidYMid",
         scale: 1,
         constrainToDocBounds: false,

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="485.843" height="415.88" viewBox="0 0 485.843 415.88">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="484.667" height="416.88" viewBox="0 0 484.667 416.88">
   <defs>
     <style>
       .cls-1 {
@@ -23,7 +23,7 @@
         stroke-width: 1.352px;
       }
     </style>
-    <pattern id="New_Pattern_Swatch_2" data-name="New Pattern Swatch 2" x="-280.681" y="39.979" width="28.549" height="37.47" patternUnits="userSpaceOnUse" viewBox="0 -37.47 28.549 37.47">
+    <pattern id="New_Pattern_Swatch_2" data-name="New Pattern Swatch 2" x="-281.181" y="39.479" width="28.549" height="37.47" patternUnits="userSpaceOnUse" viewBox="0 -37.47 28.549 37.47">
       <g id="_Group_" data-name="&lt;Group&gt;">
         <rect id="_Path_" data-name="&lt;Path&gt;" class="cls-1" y="-37.47" width="28.549" height="37.47"/>
         <g id="_Group_2" data-name="&lt;Group&gt;">
@@ -36,6 +36,6 @@
   </defs>
   <title>incorrect_classes</title>
   <desc>Created by Adobe Illustrator</desc>
-  <ellipse id="_Path_7" data-name="&lt;Path&gt;" class="cls-3" cx="70.018" cy="287.898" rx="69.018" ry="207.94"/>
-  <polygon id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" points="484.491 79.958 484.491 495.838 274.191 495.838 274.191 79.958 484.491 79.958"/>
+  <ellipse id="_Path_7" data-name="&lt;Path&gt;" class="cls-3" cx="69.518" cy="287.398" rx="69.018" ry="207.94"/>
+  <polygon id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-4" points="483.991 79.458 483.991 495.338 273.691 495.338 273.691 79.458 483.991 79.458"/>
 </svg>

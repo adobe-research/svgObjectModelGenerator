@@ -61,7 +61,8 @@ describe("SVGWriterPreprocessor", function () {
                         style: {
                             stroke: {
                                 strokeEnabled: true,
-                                width: 3
+                                width: 3,
+                                align: "inside"
                             }
                         }
                     },
