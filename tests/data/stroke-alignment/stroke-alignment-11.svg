@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="620" height="620" viewBox="0 0 620 620">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
   <defs>
     <style>
       .cls-1 {
@@ -9,5 +9,5 @@
     </style>
   </defs>
   <title>/Users/dschulze/Downloads/inner-stroke-canvas-size.psd</title>
-  <circle id="stroke-outside" class="cls-1" cx="310" cy="310" r="230"/>
+  <circle id="stroke-outside" class="cls-1" cx="250" cy="250" r="230"/>
 </svg>
