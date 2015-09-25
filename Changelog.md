@@ -3,6 +3,7 @@
 * Replace OMG with AGC 1.0.0. Support for OMG 0.x removed.
 * Added new configuration for svgWriter
 	- `fillFilter` Use PS's way to just filter fill area and not stroke layer style.
+	- `useViewBox` In combination with `trimToArtbounds` sets the viewBox instead of shifting the content.
 	- `documentUnits` with values `mm` | `cm` | `pc` | `in` to specify document units.
 	- `callback` Call back function that can be used for progress reports or interrupting svgWriter.
 * Fixed: Issues with infinite loops in svgStylesheet.
