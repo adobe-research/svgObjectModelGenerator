@@ -559,7 +559,7 @@
                 });
             }
 
-            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM && !noShifting) {
+            if (ctx.config.trimToArtBounds && !ctx.config.useViewBox && omIn !== ctx.svgOM && !noShifting) {
                 shiftBounds(ctx, omIn, nested, sibling);
             }
 
