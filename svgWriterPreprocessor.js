@@ -164,7 +164,7 @@
                     bndsIn,
                     width = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                                 omIn.style.stroke.width || 0,
-                    expand = width / 2;
+                    expand = 0;//width / 2;
 
                 if (omIn.visualBounds) {
                     bndsIn = rectToBounds(omIn.visualBounds);
@@ -622,7 +622,14 @@
 
             if (ctx.config.trimToArtBounds) {
                 preprocessSVGNode(ctx, ctx.currentOMNode);
-                finalizePreprocessing(ctx);
+                if (ctx.config.useViewBox) {
+                    ctx._x = ctx.contentBounds.left;
+                    ctx._y = ctx.contentBounds.top;
+                    ctx._width = ctx.contentBounds.right - ctx.contentBounds.left;
+                    ctx._height = ctx.contentBounds.bottom - ctx.contentBounds.top;
+                } else {
+                    finalizePreprocessing(ctx);
+                }
                 ctx.currentOMNode = omSave;
             } else {
                 ctx._x = ctx.docBounds.left;
