@@ -965,7 +965,7 @@
                     tag = f(ctx, node, sibling);
                 }
             }
-            if (ctx.idType != "minimal" && typeof node.name == "string" && node.name.length && !tag.getAttribute("id")) {
+            if (ctx.idType != "minimal" && typeof node.name == "string" && node.name.length && tag &&!tag.getAttribute("id")) {
                 id = ctx.ID.getUnique("", node.name);
                 tag.setAttribute("id", id);
                 if (node.name != id) {
