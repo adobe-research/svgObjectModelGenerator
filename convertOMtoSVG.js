@@ -53,6 +53,8 @@ var prog = progress(100, 20),
     svgOMString = fs.readFileSync(inFile, {encoding: "utf8", flag: "r"}),
     options = optFile ? JSON.parse(fs.readFileSync(optFile, {encoding: "utf8", flag: "r"})) : {
         trimToArtBounds: true,
+        useViewBox: true,
+        isResponsive: true,
         preserveAspectRatio: "xMidYMid",
         scale: 1,
         constrainToDocBounds: false,

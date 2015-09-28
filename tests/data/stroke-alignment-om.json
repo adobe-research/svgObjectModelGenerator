@@ -1,0 +1,182 @@
+{
+	"children": [
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"align": "inside",
+					"cap": "butt",
+					"join": "miter",
+					"width": 40,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 173.65,
+							"b": 239.222
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 405,
+				"cy": 709,
+				"r": 230
+			},
+			"name": "stroke-inside",
+			"visualBounds": {
+				"x": 175,
+				"y": 479,
+				"width": 460,
+				"height": 460
+			}
+		},
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"align": "center",
+					"cap": "butt",
+					"join": "miter",
+					"width": 40,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 173.65,
+							"b": 239.222
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 968,
+				"cy": 709,
+				"r": 230
+			},
+			"name": "stroke-center",
+			"visualBounds": {
+				"x": 718,
+				"y": 459,
+				"width": 500,
+				"height": 500
+			}
+		},
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"align": "outside",
+					"cap": "butt",
+					"join": "miter",
+					"width": 40,
+					"miterLimit": 100,
+					"dash": [],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 173.65,
+							"b": 239.222
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 1598,
+				"cy": 709,
+				"r": 230
+			},
+			"name": "stroke-outside",
+			"visualBounds": {
+				"x": 1328,
+				"y": 439,
+				"width": 540,
+				"height": 540
+			}
+		}
+	],
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {}
+	},
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "1.0.0",
+	"name": "/Users/dschulze/Downloads/inner-stroke-canvas-size.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2100,
+		"height": 1500
+	},
+	"rasterResolution": 300
+}

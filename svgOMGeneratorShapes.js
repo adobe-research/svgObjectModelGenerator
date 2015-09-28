@@ -183,7 +183,7 @@
                         h = parseInt(origin.bounds.bottom, 10) - parseInt(origin.bounds.top, 10);
 
                     if (w == h) {
-                        agcNode.visualBounds = boundsToRect(origin.boundsWithFX || origin.bounds);
+                        agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
 
                         agcNode.shape = {
                             type: "circle",

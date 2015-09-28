@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="2100" height="1500" viewBox="0 0 2100 1500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00aeef;
+        stroke: #000;
+        stroke-width: 40px;
+      }
+    </style>
+  </defs>
+  <title>/Users/dschulze/Downloads/inner-stroke-canvas-size.psd</title>
+  <circle id="stroke-inside" class="cls-1" cx="405" cy="709" r="230"/>
+  <circle id="stroke-center" class="cls-1" cx="968" cy="709" r="230"/>
+  <circle id="stroke-outside" class="cls-1" cx="1598" cy="709" r="230"/>
+</svg>

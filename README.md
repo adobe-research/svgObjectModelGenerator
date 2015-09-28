@@ -112,6 +112,7 @@ svgWriter.printSVG(OMG, config, errors)
 The configuration object has the following arguments:
 
 * **trimToArtBounds** *boolean* The SVG will cover the art bounds independent of the dimension of the OMG document.
+* **useViewBox** *boolean* If `trimToArtBounds` and `useViewBox` are set to `true`, the content of the document won't be shifted. Instead the viewBox value of the root SVG element is modified to slice and zoom the content to fit the needs.
 * **constrainToDocBounds** *boolean* Clip the visible content to the document bounds.
 * **preserveAspectRatio** *string* Aspect ratio as defined by the [SVG specification](http://www.w3.org/TR/SVG/coords.html#PreserveAspectRatioAttribute). Setting *preserveAspectRatio* overrides the computed value of svgWriter. Therefore, it is recommended to not set this value. Note: For `meet` or `xMidYMid meet` use the equivilant string `xMidYMid` for reduced file size.
 * **styling** *enumeration* This property is optional and defaults to `class`.

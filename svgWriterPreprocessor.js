@@ -164,7 +164,16 @@
                     bndsIn,
                     width = omIn.style && omIn.style.stroke && omIn.style.stroke.type != "none" &&
                                 omIn.style.stroke.width || 0,
+                    strokeAlign = width ? omIn.style.stroke.align : "center",
+                    expand = 0;
+
+                // FIXME: We do not have a way to compute the inside/outside of a path yet. This
+                // is the most simple way to adjust the boundaries to center aligned paths.
+                if (strokeAlign == "inside") {
                     expand = width / 2;
+                } else if (strokeAlign == "outside") {
+                    expand = -width / 2;
+                }
 
                 if (omIn.visualBounds) {
                     bndsIn = rectToBounds(omIn.visualBounds);
@@ -559,7 +568,7 @@
                 });
             }
 
-            if (ctx.config.trimToArtBounds && omIn !== ctx.svgOM && !noShifting) {
+            if (ctx.config.trimToArtBounds && !ctx.config.useViewBox && omIn !== ctx.svgOM && !noShifting) {
                 shiftBounds(ctx, omIn, nested, sibling);
             }
 
@@ -622,7 +631,14 @@
 
             if (ctx.config.trimToArtBounds) {
                 preprocessSVGNode(ctx, ctx.currentOMNode);
-                finalizePreprocessing(ctx);
+                if (ctx.config.useViewBox) {
+                    ctx._x = ctx.contentBounds.left;
+                    ctx._y = ctx.contentBounds.top;
+                    ctx._width = ctx.contentBounds.right - ctx.contentBounds.left;
+                    ctx._height = ctx.contentBounds.bottom - ctx.contentBounds.top;
+                } else {
+                    finalizePreprocessing(ctx);
+                }
                 ctx.currentOMNode = omSave;
             } else {
                 ctx._x = ctx.docBounds.left;

@@ -1,0 +1,28 @@
+{
+	"children": [],
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {}
+	},
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "1.0.0",
+	"name": "/Users/dschulze/Downloads/inner-stroke-canvas-size.psd",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 2100,
+		"height": 1500
+	},
+	"rasterResolution": 300
+}
