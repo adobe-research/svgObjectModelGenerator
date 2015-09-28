@@ -172,7 +172,7 @@
                 if (strokeAlign == "inside") {
                     expand = width / 2;
                 } else if (strokeAlign == "outside") {
-                    expand -= width / 2;
+                    expand = -width / 2;
                 }
 
                 if (omIn.visualBounds) {
