@@ -933,4 +933,12 @@ describe("svgWriter", function () {
             compareResults("text-as-symbol");
         });
     });
+
+    describe("Test invalid AGC", function () {
+        it("Test unkown elements", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/unkown-element-om.json"));
+
+            expect(function () { svgWriter.printSVG(svgOM); }).to.not.throw();
+        });
+    });
 });
