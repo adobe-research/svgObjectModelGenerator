@@ -93,7 +93,7 @@
             this.precision = 3;
         }
 
-        this.indent = this.minify ? "" : "  ";
+        this.indent = this.minify ? "" : this.config && typeof this.config.indentation == "string" ? this.config.indentation : "  ";
         this.space = this.minify ? "" : " ";
         this.currentIndent = "";
         this.terminator = this.minify ? "" : this.config && this.config.carriageReturn ? "\r\n" : "\n";
