@@ -727,7 +727,7 @@
                                 rotate: glyph.rotate
                             }, ctx, glyph);
                         if (glyphText.search(/(^[ \t\v].+|[ \t\v][ \t\v]+|.+[ \t\v]$)/) >= 0) {
-                            glyphRun.setAttribute("xlink:space", "preserve");
+                            glyphRun.setAttribute("xml:space", "preserve");
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
                         setGlyphOrientation(glyphRun, isVertical);
