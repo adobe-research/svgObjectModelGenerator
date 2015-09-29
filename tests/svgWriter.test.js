@@ -829,6 +829,18 @@ describe("svgWriter", function () {
     });
 
     /**
+     * Custom indentation setting.
+     **/
+    describe("Test custom indentation setting", function () {
+        it("Test tab indentation", function () {
+            var options = {
+                indentation: "\t"
+            };
+            compareResults("tab-indentation", "custom", options);
+        });
+    });
+
+    /**
      * Generic gradient tests
      **/
     describe("Test correct behavior of gradients", function () {

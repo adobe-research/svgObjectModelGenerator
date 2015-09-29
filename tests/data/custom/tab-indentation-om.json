@@ -1,0 +1,50 @@
+{
+    "children": [
+        {
+            "type": "group",
+            "name": "Layer 1",
+            "group": {
+                "children": [
+                    {
+                        "type": "shape",
+                        "style": {
+                            "fill": {
+                                "type": "solid",
+                                "color": {
+                                    "mode": "RGB",
+                                    "value": {
+                                        "r": 0.0,
+                                        "g": 161.0000056028366,
+                                        "b": 75.00000312924385
+                                    }
+                                }
+                            }
+                        },
+                        "visualBounds": {
+                            "x": 0.0,
+                            "y": 0.0,
+                            "width": 99.99999998653039,
+                            "height": 100.0
+                        },
+                        "shape": {
+                            "type": "rect",
+                            "x": 0.0,
+                            "y": 0.0,
+                            "width": 99.99999998653039,
+                            "height": 100.0
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "name": "Untitled-2",
+    "version": "1.0.0",
+    "viewSource": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 100.0,
+        "height": 100.0
+    },
+    "resources": {}
+}
