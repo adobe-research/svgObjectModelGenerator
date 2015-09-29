@@ -1,0 +1,734 @@
+{
+    "children": [
+        {
+            "type": "group",
+            "name": "ad",
+            "group": {
+                "children": [
+                    {
+                        "type": "shape",
+                        "name": "<Path>",
+                        "style": {
+                            "fill": {
+                                "type": "solid",
+                                "color": {
+                                    "mode": "RGB",
+                                    "value": {
+                                        "r": 150.0000062584877,
+                                        "g": 1.0000000591389835,
+                                        "b": 90.00000223517418
+                                    }
+                                }
+                            },
+                            "stroke": {
+                                "type": "solid",
+                                "color": {
+                                    "mode": "RGB",
+                                    "value": {
+                                        "r": 232.00000137090684,
+                                        "g": 245.00000059604646,
+                                        "b": 112.000000923872
+                                    }
+                                },
+                                "width": 0.27
+                            }
+                        },
+                        "visualBounds": {
+                            "x": 27.263380361329838,
+                            "y": 6.365089280345273,
+                            "width": 603.0144767868896,
+                            "height": 532.7542857250191
+                        },
+                        "shape": {
+                            "type": "rect",
+                            "x": 27.398380366694256,
+                            "y": 6.5000892857096919,
+                            "width": 602.7444767761608,
+                            "height": 532.4842857142903
+                        }
+                    },
+                    {
+                        "type": "group",
+                        "name": "<Group>",
+                        "group": {
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "visualBounds": {
+                                        "x": 124.8828125,
+                                        "y": 66.37451171875,
+                                        "width": 295.6689453125,
+                                        "height": 90.548828125
+                                    },
+                                    "text": {
+                                        "rawText": "Come in and     stay for awhile.",
+                                        "frame": {
+                                            "type": "positioned",
+                                            "width": 295.6689453125,
+                                            "height": 90.548828125,
+                                            "path": ""
+                                        },
+                                        "paragraphs": [
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 0,
+                                                            "to": 12,
+                                                            "style": {
+                                                                "fill": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 150.0000062584877,
+                                                                            "g": 1.0000000591389835,
+                                                                            "b": 90.00000223517418
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "font": {
+                                                                    "size": 38.0,
+                                                                    "family": "Arial",
+                                                                    "style": "regular"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 12,
+                                                            "to": 32,
+                                                            "x": 0.0,
+                                                            "y": 45.60000228881836,
+                                                            "style": {
+                                                                "fill": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 150.0000062584877,
+                                                                            "g": 1.0000000591389835,
+                                                                            "b": 90.00000223517418
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "font": {
+                                                                    "size": 38.0,
+                                                                    "family": "Arial",
+                                                                    "style": "regular"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "transform": {
+                                        "a": 1.0,
+                                        "b": 0.0,
+                                        "c": 0.0,
+                                        "d": 1.0,
+                                        "tx": 124.8828125,
+                                        "ty": 98.984375
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "visualBounds": {
+                                        "x": 124.10302734375,
+                                        "y": 65.984375,
+                                        "width": 296.83837890625,
+                                        "height": 91.3291015625
+                                    },
+                                    "text": {
+                                        "rawText": "Come in and     stay for awhile.",
+                                        "frame": {
+                                            "type": "positioned",
+                                            "width": 296.83837890625,
+                                            "height": 91.3291015625,
+                                            "path": ""
+                                        },
+                                        "paragraphs": [
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 0,
+                                                            "to": 12,
+                                                            "style": {
+                                                                "fill": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 255.0,
+                                                                            "g": 255.0,
+                                                                            "b": 255.0
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "stroke": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 255.0,
+                                                                            "g": 255.0,
+                                                                            "b": 255.0
+                                                                        }
+                                                                    },
+                                                                    "width": 0.7799999713897705
+                                                                },
+                                                                "font": {
+                                                                    "size": 38.0,
+                                                                    "family": "Arial",
+                                                                    "style": "regular"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 12,
+                                                            "to": 32,
+                                                            "x": 0.0,
+                                                            "y": 45.60000228881836,
+                                                            "style": {
+                                                                "fill": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 255.0,
+                                                                            "g": 255.0,
+                                                                            "b": 255.0
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "stroke": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 255.0,
+                                                                            "g": 255.0,
+                                                                            "b": 255.0
+                                                                        }
+                                                                    },
+                                                                    "width": 0.7799999713897705
+                                                                },
+                                                                "font": {
+                                                                    "size": 38.0,
+                                                                    "family": "Arial",
+                                                                    "style": "regular"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "transform": {
+                                        "a": 1.0,
+                                        "b": 0.0,
+                                        "c": 0.0,
+                                        "d": 1.0,
+                                        "tx": 124.8828125,
+                                        "ty": 98.984375
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "visualBounds": {
+                                        "x": 124.61279296875,
+                                        "y": 66.23974609375,
+                                        "width": 296.07373046875,
+                                        "height": 90.818359375
+                                    },
+                                    "text": {
+                                        "rawText": "Come in and     stay for awhile.",
+                                        "frame": {
+                                            "type": "positioned",
+                                            "width": 296.07373046875,
+                                            "height": 90.818359375,
+                                            "path": ""
+                                        },
+                                        "paragraphs": [
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 0,
+                                                            "to": 12,
+                                                            "style": {
+                                                                "stroke": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 232.00000137090684,
+                                                                            "g": 245.00000059604646,
+                                                                            "b": 112.000000923872
+                                                                        }
+                                                                    },
+                                                                    "width": 0.27000001072883608
+                                                                },
+                                                                "font": {
+                                                                    "size": 38.0,
+                                                                    "family": "Arial",
+                                                                    "style": "regular"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "lines": [
+                                                    [
+                                                        {
+                                                            "from": 12,
+                                                            "to": 32,
+                                                            "x": 0.0,
+                                                            "y": 45.60000228881836,
+                                                            "style": {
+                                                                "stroke": {
+                                                                    "type": "solid",
+                                                                    "color": {
+                                                                        "mode": "RGB",
+                                                                        "value": {
+                                                                            "r": 232.00000137090684,
+                                                                            "g": 245.00000059604646,
+                                                                            "b": 112.000000923872
+                                                                        }
+                                                                    },
+                                                                    "width": 0.27000001072883608
+                                                                },
+                                                                "font": {
+                                                                    "size": 38.0,
+                                                                    "family": "Arial",
+                                                                    "style": "regular"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                ],
+                                                "style": {
+                                                    "font": {
+                                                        "size": 12.0
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "transform": {
+                                        "a": 1.0,
+                                        "b": 0.0,
+                                        "c": 0.0,
+                                        "d": 1.0,
+                                        "tx": 124.8828125,
+                                        "ty": 98.984375
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "visualBounds": {
+                            "x": 115.0,
+                            "y": 207.0166015625,
+                            "width": 407.1428571428569,
+                            "height": 277.6976841517844
+                        },
+                        "text": {
+                            "rawText": "    Lorem                    ipsum                \t\t\t\tdolor sit amet,                          consectetur adipiscing                                    elit,    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimeut aliquip ex ea sequat. ",
+                            "frame": {
+                                "type": "positioned",
+                                "width": 407.1428571428569,
+                                "height": 277.6976841517844,
+                                "path": ""
+                            },
+                            "paragraphs": [
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 0,
+                                                "to": 34,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 34,
+                                                "to": 50,
+                                                "x": -26.671875,
+                                                "y": 28.80029296875,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "from": 50,
+                                                "to": 51,
+                                                "x": 80.015625,
+                                                "y": 28.80029296875,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    },
+                                                    "textAttributes": {
+                                                        "letterSpacing": -5.0
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "from": 51,
+                                                "to": 54,
+                                                "x": 81.328125,
+                                                "y": 28.80029296875,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    },
+                                                    "textAttributes": {
+                                                        "letterSpacing": 29.0
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "from": 54,
+                                                "to": 69,
+                                                "x": 189.328125,
+                                                "y": 28.80029296875,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 69,
+                                                "to": 107,
+                                                "x": -26.671875,
+                                                "y": 57.60009765625,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 107,
+                                                "to": 158,
+                                                "x": -26.671875,
+                                                "y": 86.39990234375,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 158,
+                                                "to": 195,
+                                                "x": -26.671875,
+                                                "y": 172.80029296875,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 195,
+                                                "to": 232,
+                                                "x": -26.671875,
+                                                "y": 201.60009765625,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "lines": [
+                                        [
+                                            {
+                                                "from": 232,
+                                                "to": 262,
+                                                "x": -26.671875,
+                                                "y": 230.400390625,
+                                                "style": {
+                                                    "fill": {
+                                                        "type": "solid",
+                                                        "color": {
+                                                            "mode": "RGB",
+                                                            "value": {
+                                                                "r": 0.0,
+                                                                "g": 0.0,
+                                                                "b": 0.0
+                                                            }
+                                                        }
+                                                    },
+                                                    "font": {
+                                                        "size": 24.0,
+                                                        "family": "Arial",
+                                                        "style": "regular"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    ],
+                                    "style": {
+                                        "font": {
+                                            "size": 12.0
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "transform": {
+                            "a": 1.0,
+                            "b": 0.0,
+                            "c": 0.0,
+                            "d": 1.0,
+                            "tx": 141.671875,
+                            "ty": 227.6123046875
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "name": "text-many-spaces",
+    "version": "1.0.0",
+    "viewSource": {
+        "x": 0.0,
+        "y": 0.0,
+        "width": 662.1428571428569,
+        "height": 561.8571428571413
+    },
+    "resources": {}
+}

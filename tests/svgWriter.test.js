@@ -932,6 +932,9 @@ describe("svgWriter", function () {
         it("Test text as symbol", function () {
             compareResults("text-as-symbol");
         });
+        it("Test preserving spaces in text when needed", function () {
+            compareResults("positioned-text9");
+        });
     });
 
     describe("Test invalid AGC", function () {

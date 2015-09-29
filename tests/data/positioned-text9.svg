@@ -1,0 +1,56 @@
+<svg id="ad" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="662.143" height="561.857" viewBox="0 0 662.143 561.857">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #96015a;
+      }
+
+      .cls-1, .cls-4 {
+        stroke: #e8f570;
+      }
+
+      .cls-1 {
+        stroke-width: 0.27px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        font-size: 38px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        font-family: Arial;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 0.78px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke-width: 0.27px;
+      }
+
+      .cls-5 {
+        font-size: 24px;
+      }
+
+      .cls-6 {
+        letter-spacing: -5px;
+      }
+
+      .cls-7 {
+        letter-spacing: 29px;
+      }
+    </style>
+  </defs>
+  <title>text-many-spaces</title>
+  <rect id="_Path_" data-name="&lt;Path&gt;" class="cls-1" x="27.398" y="6.5" width="602.744" height="532.484"/>
+  <g id="_Group_" data-name="&lt;Group&gt;">
+    <text class="cls-2" transform="translate(124.883 98.984)"><tspan xml:space="preserve">Come in and </tspan><tspan x="0" y="45.6" xml:space="preserve">    stay for awhile.</tspan></text>
+    <text class="cls-3" transform="translate(124.883 98.984)"><tspan xml:space="preserve">Come in and </tspan><tspan x="0" y="45.6" xml:space="preserve">    stay for awhile.</tspan></text>
+    <text class="cls-4" transform="translate(124.883 98.984)"><tspan xml:space="preserve">Come in and </tspan><tspan x="0" y="45.6" xml:space="preserve">    stay for awhile.</tspan></text>
+  </g>
+  <text class="cls-5" transform="translate(141.672 227.612)"><tspan xml:space="preserve">    Lorem                    ipsum</tspan><tspan x="-26.672" y="28.8" xml:space="preserve">                </tspan><tspan class="cls-6" x="80.016" y="28.8">	</tspan><tspan class="cls-7" x="81.328" y="28.8" xml:space="preserve">			</tspan><tspan x="189.328" y="28.8">dolor sit amet,</tspan><tspan x="-26.672" y="57.6" xml:space="preserve">                          consectetur </tspan><tspan x="-26.672" y="86.4" xml:space="preserve">adipiscing                                    elit,</tspan><tspan x="-26.672" y="172.8" xml:space="preserve">    sed do eiusmod tempor incididunt </tspan><tspan x="-26.672" y="201.6" xml:space="preserve">ut labore et dolore magna aliqua. Ut </tspan><tspan x="-26.672" y="230.4" xml:space="preserve">enimeut aliquip ex ea sequat. </tspan></text>
+</svg>
