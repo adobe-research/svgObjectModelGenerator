@@ -726,7 +726,7 @@
                                 y: glyph.y,
                                 rotate: glyph.rotate
                             }, ctx, glyph);
-                        if (glyphText.search(/(^[ \t\v].+|[ \t\v][ \t\v]+|.+[ \t\v]$)/) >= 0) {
+                        if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v]|.[ \t\v]$)/) >= 0) {
                             glyphRun.setAttribute("xml:space", "preserve");
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
