@@ -706,7 +706,8 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                 }, ctx),
                 paraLen = text.paragraphs && text.paragraphs.length,
-                isVertical = false;
+                isVertical = false,
+                preserveSpaces = false;
             if (text.orientation && text.orientation.substring(0, 8) == "vertical") {
                 tag.styleBlock.addRule("writing-mode", "tb");
                 isVertical = true;
@@ -725,9 +726,11 @@
                                 x: glyph.x,
                                 y: glyph.y,
                                 rotate: glyph.rotate
-                            }, ctx, glyph);
-                        if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v]|.[ \t\v]$)/) >= 0) {
-                            glyphRun.setAttribute("xml:space", "preserve");
+                            }, ctx, glyph),
+                            trailingWSP = glyphText.search(/.[ \t\v]$/) >= 0;
+                        if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v])/) >= 0 ||
+                            trailingWSP && j == para.lines.length - 1 && k == lineNode.length -1) {
+                            preserveSpaces = true;
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
                         setGlyphOrientation(glyphRun, isVertical);
@@ -737,6 +740,9 @@
                 if (p.children.length) {
                     tag.appendChild(p);
                 }
+            }
+            if (preserveSpaces) {
+                tag.setAttribute("xml:space", "preserve");
             }
             return tag.useTrick(ctx);
         },
