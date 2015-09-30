@@ -20,9 +20,7 @@
     var omgStyles = require("./svgOMGeneratorStyles.js"),
         boundsToRect = require("./svgOMGeneratorUtils.js").boundsToRect,
         Utils = require("./utils.js"),
-        round2 = Utils.round2,
-        offsetX = 0,
-        offsetY = 0;
+        round2 = Utils.round2;
 
     function SVGOMGeneratorShapes() {
 
@@ -49,10 +47,10 @@
                 pathData = "";
 
             lastPoint = previousPoint.forward ? previousPoint.forward : previousPoint.anchor;
-            pathData += " C" + (lastPoint.x + offsetX) + " " + (lastPoint.y + offsetY) + " ";
+            pathData += " C" + lastPoint.x + " " + lastPoint.y + " ";
             controlPoint = currentPoint.backward ? currentPoint.backward : currentPoint.anchor;
-            pathData += controlPoint.x + offsetX + " " + (controlPoint.y + offsetY) + " ";
-            pathData += currentPoint.anchor.x + offsetX + " " + (currentPoint.anchor.y + offsetY);
+            pathData += controlPoint.x + " " + controlPoint.y + " ";
+            pathData += currentPoint.anchor.x + " " + currentPoint.anchor.y;
             return pathData;
         }
 
@@ -64,7 +62,7 @@
 
             for (; points && i < points.length; ++i) {
                 if (!i) {
-                    pathData = "M" + (points[i].anchor.x + offsetX) + " " + (points[i].anchor.y + offsetY);
+                    pathData = "M" + points[i].anchor.x + " " + points[i].anchor.y;
                 } else {
                     pathData += writeCurveToPath(points[i - 1], points[i]);
                 }
@@ -246,16 +244,6 @@
             if (path && pathData) {
 
                 agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
-
-                // If the path is on an artboard, it is relative to it and we
-                // need to apply the offset of the artboard.
-                if (writer.currentArtboardRect) {
-                    offsetX = writer.currentArtboardRect.left;
-                    offsetY = writer.currentArtboardRect.top;
-                } else {
-                    offsetX = 0;
-                    offsetY = 0;
-                }
 
                 agcNode.shape = {
                     type: "path",

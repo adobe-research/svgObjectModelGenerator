@@ -2,11 +2,10 @@
   <defs>
     <style>
       .cls-1 {
-        fill-rule: evenodd;
         fill: url(#linear-gradient);
       }
     </style>
-    <linearGradient id="linear-gradient" y1="2512" x2="5924" y2="2512" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="-4000" y1="300" x2="1924" y2="300" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#f9e600"/>
       <stop offset="0.05" stop-color="#f9e600"/>
       <stop offset="0.35" stop-color="#6f156c"/>
@@ -15,6 +14,6 @@
       <stop offset="1" stop-color="#002874"/>
     </linearGradient>
   </defs>
-  <title>Untitled-1</title>
-  <path class="cls-1" d="M4000,2212h600v600H4000V2212Z" transform="translate(-4000 -2212)"/>
+  <title>artboards-3.psd</title>
+  <rect class="cls-1" width="600" height="600"/>
 </svg>
