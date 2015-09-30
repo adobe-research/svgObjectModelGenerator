@@ -706,8 +706,7 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                 }, ctx),
                 paraLen = text.paragraphs && text.paragraphs.length,
-                isVertical = false,
-                preserveSpaces = false;
+                isVertical = false;
             if (text.orientation && text.orientation.substring(0, 8) == "vertical") {
                 tag.styleBlock.addRule("writing-mode", "tb");
                 isVertical = true;
@@ -729,11 +728,12 @@
                             }, ctx, glyph);
                         // Do not preserve spaces if we just have one trailing white space on a glyph run
                         // unless it is the last glyph run with text decoration.
+                        // Add xml:space to individual tspan's to work around Safari issues.
                         if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v])/) >= 0 ||
                             j == para.lines.length - 1 && k == lineNode.length - 1 && glyphText.search(/.[ \t\v]$/) >= 0 &&
                             glyph.style && glyph.style.textAttributes && glyph.style.textAttributes.decoration &&
                             glyph.style.textAttributes.decoration.length) {
-                            preserveSpaces = true;
+                            glyphRun.setAttribute("xml:space", "preserve");
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
                         setGlyphOrientation(glyphRun, isVertical);
@@ -743,9 +743,6 @@
                 if (p.children.length) {
                     tag.appendChild(p);
                 }
-            }
-            if (preserveSpaces) {
-                tag.setAttribute("xml:space", "preserve");
             }
             return tag.useTrick(ctx);
         },
