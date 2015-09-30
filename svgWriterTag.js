@@ -726,10 +726,13 @@
                                 x: glyph.x,
                                 y: glyph.y,
                                 rotate: glyph.rotate
-                            }, ctx, glyph),
-                            trailingWSP = glyphText.search(/.[ \t\v]$/) >= 0;
+                            }, ctx, glyph);
+                        // Do not preserve spaces if we just have one trailing white space on a glyph run
+                        // unless it is the last glyph run with text decoration.
                         if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v])/) >= 0 ||
-                            trailingWSP && j == para.lines.length - 1 && k == lineNode.length -1) {
+                            j == para.lines.length - 1 && k == lineNode.length - 1 && glyphText.search(/.[ \t\v]$/) >= 0 &&
+                            glyph.style && glyph.style.textAttributes && glyph.style.textAttributes.decoration &&
+                            glyph.style.textAttributes.decoration.length) {
                             preserveSpaces = true;
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
