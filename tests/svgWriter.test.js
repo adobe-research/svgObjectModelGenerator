@@ -947,6 +947,9 @@ describe("svgWriter", function () {
         it("Test preserving spaces in text when needed", function () {
             compareResults("positioned-text9");
         });
+        it("Test preserving spaces in text when needed 2", function () {
+            compareResults("positioned-text10");
+        });
     });
 
     describe("Test invalid AGC", function () {

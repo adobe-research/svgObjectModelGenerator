@@ -726,7 +726,13 @@
                                 y: glyph.y,
                                 rotate: glyph.rotate
                             }, ctx, glyph);
-                        if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v]|.[ \t\v]$)/) >= 0) {
+                        // Do not preserve spaces if we just have one trailing white space on a glyph run
+                        // unless it is the last glyph run with text decoration.
+                        // Add xml:space to individual tspan's to work around Safari issues.
+                        if (glyphText.search(/(^[ \t\v].|[ \t\v][ \t\v])/) >= 0 ||
+                            j == para.lines.length - 1 && k == lineNode.length - 1 && glyphText.search(/.[ \t\v]$/) >= 0 &&
+                            glyph.style && glyph.style.textAttributes && glyph.style.textAttributes.decoration &&
+                            glyph.style.textAttributes.decoration.length) {
                             glyphRun.setAttribute("xml:space", "preserve");
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
