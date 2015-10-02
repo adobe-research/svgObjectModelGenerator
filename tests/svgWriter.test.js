@@ -24,7 +24,7 @@ var expect = require("chai").expect,
 
 
 describe("svgWriter", function () {
-     this.timeout(30000);
+    this.timeout(30000);
 
     //report the differences in an easy-to-review format
 
@@ -957,7 +957,9 @@ describe("svgWriter", function () {
         it("Test unkown elements", function () {
             var svgOM = JSON.parse(fs.readFileSync("./tests/data/custom/unkown-element-om.json"));
 
-            expect(function () { svgWriter.printSVG(svgOM); }).to.not.throw();
+            expect(function () {
+                svgWriter.printSVG(svgOM);
+            }).to.not.throw();
         });
     });
 });
