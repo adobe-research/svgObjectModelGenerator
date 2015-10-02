@@ -20,11 +20,13 @@
         "mocha": "^1.20.1",
         "q": "~1.0",
         "sinon": "^1.10.2",
+        "travis-cov": "^0.2.5",
         "jsonschema": "^1.0.2"
     },
     "scripts": {
         "test": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js",
         "test-debug": "./node_modules/.bin/mocha tests/*test.js --require tests/config/chai.js --reporter nyan --debug-brk",
+        "style": "./node_modules/jscs/bin/jscs ./*.js ./tests/*.js --config=./jscs.json && ./node_modules/eslint/bin/eslint.js ./*.js ./tests/*.js",
         "cover": "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R html-cov > svgomg-code-coverage.html",
         "cover-travis": "./node_modules/.bin/mocha tests/*test.js -r blanket tests/config/chai.js -R travis-cov"
     },

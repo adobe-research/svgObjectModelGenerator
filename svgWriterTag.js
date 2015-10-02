@@ -403,7 +403,8 @@
                 // List or CSS properties without presentation attribute equivalent.
                 if (key == "isolation" ||
                     key == "mix-blend-mode" ||
-                    key == "text-orientation") {
+                    key == "text-orientation" ||
+                    key == "white-space") {
                     style += key + ":" + ctx.space + omStyleBlock.rules[key] + ";";
                     continue;
                 }
@@ -683,8 +684,11 @@
             if (!node.text) {
                 return factory.textOld(ctx, node);
             }
-            function setGlyphOrientation(tag, isVertical) {
+            function setGlyphStyling(tag, isVertical, preserveSpaces) {
                 var style = tag.styleBlock;
+                if (preserveSpaces) {
+                    style.addRule("white-space", "pre");
+                }
                 // ATE does not support "sideways" on horizontal text. Skip support
                 // for it here as well for now.
                 if (!isVertical) {
@@ -706,17 +710,16 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                 }, ctx),
                 paraLen = text.paragraphs && text.paragraphs.length,
-                isVertical = false,
-                whiteSpace = false;
+                isVertical = false;
             if (text.orientation && text.orientation.substring(0, 8) == "vertical") {
                 tag.styleBlock.addRule("writing-mode", "tb");
                 isVertical = true;
             }
-            setGlyphOrientation(tag, isVertical);
+            setGlyphStyling(tag, isVertical);
             for (var i = 0; i < paraLen; i++) {
                 var para = text.paragraphs[i],
                     p = new Tag("tspan", {}, ctx, para);
-                setGlyphOrientation(p, isVertical);
+                setGlyphStyling(p, isVertical);
                 for (var j = 0; j < para.lines.length; j++) {
                     var lineNode = para.lines[j];
                     for (var k = 0; k < lineNode.length; k++) {
@@ -726,7 +729,8 @@
                                 x: glyph.x,
                                 y: glyph.y,
                                 rotate: glyph.rotate
-                            }, ctx, glyph);
+                            }, ctx, glyph),
+                            whiteSpace = false;
                         // Do not preserve spaces if we just have one trailing white space on a glyph run
                         // unless it is the last glyph run with text decoration.
                         // Add xml:space to individual tspan's to work around Safari issues.
@@ -735,10 +739,9 @@
                             glyph.style && glyph.style.textAttributes && glyph.style.textAttributes.decoration &&
                             glyph.style.textAttributes.decoration.length) {
                             whiteSpace = true;
-                            glyphRun.setAttribute("xml:space", "preserve");
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
-                        setGlyphOrientation(glyphRun, isVertical);
+                        setGlyphStyling(glyphRun, isVertical, whiteSpace);
                         p.appendChild(glyphRun);
                     }
                 }

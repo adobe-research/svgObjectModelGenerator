@@ -459,6 +459,12 @@ describe("svgWriter", function () {
 
             compareResultsWidthOM(svgOM, "positioned-text3-attr", "", { styling: "attribute" });
         });
+
+        it("Test that white-space is not written as attribute", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/positioned-text8-om.json"));
+
+            compareResultsWidthOM(svgOM, "positioned-text8-attr", "", { styling: "attribute" });
+        });
     });
 
     /**
