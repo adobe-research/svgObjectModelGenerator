@@ -706,7 +706,8 @@
                     transform: getTransform(node.transform, node.transformTX, node.transformTY, ctx.precision)
                 }, ctx),
                 paraLen = text.paragraphs && text.paragraphs.length,
-                isVertical = false;
+                isVertical = false,
+                whiteSpace = false;
             if (text.orientation && text.orientation.substring(0, 8) == "vertical") {
                 tag.styleBlock.addRule("writing-mode", "tb");
                 isVertical = true;
@@ -733,6 +734,7 @@
                             j == para.lines.length - 1 && k == lineNode.length - 1 && glyphText.search(/.[ \t\v]$/) >= 0 &&
                             glyph.style && glyph.style.textAttributes && glyph.style.textAttributes.decoration &&
                             glyph.style.textAttributes.decoration.length) {
+                            whiteSpace = true;
                             glyphRun.setAttribute("xml:space", "preserve");
                         }
                         glyphRun.appendChild(new Tag("#text", glyphText));
@@ -974,7 +976,7 @@
                     tag = f(ctx, node, sibling);
                 }
             }
-            if (ctx.idType != "minimal" && typeof node.name == "string" && node.name.length && tag &&!tag.getAttribute("id")) {
+            if (ctx.idType != "minimal" && typeof node.name == "string" && node.name.length && tag && !tag.getAttribute("id")) {
                 id = ctx.ID.getUnique("", node.name);
                 tag.setAttribute("id", id);
                 if (node.name != id) {
