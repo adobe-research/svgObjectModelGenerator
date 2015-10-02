@@ -1,6 +1,6 @@
 {
     "name": "svgobjectmodelgenerator",
-    "version": "0.0.1",
+    "version": "0.6.0",
     "description": "An abstract SVG renderer",
     "main": "main.js",
     "generator-core-version": "~3",
