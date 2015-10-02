@@ -23,6 +23,5 @@
       <feBlend result="blend-2" mode="lighten" in2="blend"/>
     </filter>
   </defs>
-  <title>svgTextFx.psd</title>
   <text id="This_is_a_text" data-name="This is a text" class="cls-1" x="244.922" y="153.82">This is a <tspan class="cls-2">text</tspan></text>
 </svg>

@@ -56,7 +56,6 @@
       <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <title>light-global-local.psd</title>
   <rect class="cls-1" x="50" y="83" width="250" height="150"/>
   <rect class="cls-2" x="450" y="80" width="250" height="150"/>
   <rect class="cls-3" x="50" y="350" width="250" height="150"/>

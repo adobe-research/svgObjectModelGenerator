@@ -12,6 +12,5 @@
       <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <title>svgGradientOverlay.psd</title>
   <rect class="cls-1" width="200" height="100"/>
 </svg>

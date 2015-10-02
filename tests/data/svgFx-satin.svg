@@ -21,6 +21,5 @@
       <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <title>svgFx-satin.psd</title>
   <rect class="cls-1" x="200" y="225" width="300" height="150"/>
 </svg>
