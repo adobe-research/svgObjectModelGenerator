@@ -24,6 +24,7 @@ var expect = require("chai").expect,
 
 
 describe("svgWriter", function () {
+     this.timeout(30000);
 
     //report the differences in an easy-to-review format
 
