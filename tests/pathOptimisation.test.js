@@ -27,7 +27,7 @@ describe("Path Optimisation ★", function () {
 
         // FIXME: Path optimization code gives different results on Linux machines.
         // Travis runs with Linux.
-        if (!process.env.TRAVIS) {
+        if (!process.env.TRAVIS && !process.env.JENKINS_HOME) {
             it("knows how to parse path strings", function () {
                 for (var i = 0, ii = data.originals.length; i < ii; i++) {
                     expect(JSON.stringify(parsePath(data.originals[i]))).to.equal(data.parsed[i]);
