@@ -1,7 +1,6 @@
-tests
+tests/
 svgomg-code-coverage.html
 npm-debug.log
 test-summary.html
-tests/data-compare/*.svg
 .DS_Store
 .gitignore
