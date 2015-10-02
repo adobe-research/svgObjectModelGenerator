@@ -16,6 +16,5 @@
       <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <title>svgOverlay.psd</title>
   <rect class="cls-1" x="100" y="100" width="350" height="150"/>
 </svg>

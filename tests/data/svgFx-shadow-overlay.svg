@@ -24,6 +24,5 @@
       <feBlend result="blend-3" mode="multiply" in2="blend-2"/>
     </filter>
   </defs>
-  <title>svgFx-shadow-overlay.psd</title>
   <rect id="shadow" class="cls-1" x="100" y="100" width="300" height="150" rx="10" ry="10"/>
 </svg>

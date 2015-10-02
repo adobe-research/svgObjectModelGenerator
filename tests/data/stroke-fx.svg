@@ -56,7 +56,6 @@
     <linearGradient id="linear-gradient-4" y1="600" x2="700" y2="0" xlink:href="#linear-gradient-3"/>
     <radialGradient id="radial-gradient" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
   </defs>
-  <title>stroke-fx.psd</title>
   <rect class="cls-1" x="100" y="100" width="100" height="100"/>
   <rect class="cls-2" x="300" y="100" width="100" height="100"/>
   <rect class="cls-3" x="500" y="100" width="100" height="100"/>

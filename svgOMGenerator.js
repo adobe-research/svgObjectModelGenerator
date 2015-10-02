@@ -191,7 +191,8 @@
             layerSpecFound = specFound;
         }
 
-        writer.setDocTitle(psd.file);
+        // FIXME: Get the propert document title.
+        // writer.setDocTitle(psd.file);
         writer.setDocBounds(psd.bounds);
         writer.setDocPxToInchRatio(psd.resolution);
         writer.setDocGlobalLight(psd.globalLight);

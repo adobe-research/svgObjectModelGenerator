@@ -70,7 +70,6 @@
     <radialGradient id="radial-gradient-11" cx="400" cy="550" r="100" xlink:href="#radial-gradient"/>
     <radialGradient id="radial-gradient-12" cx="650" cy="550" xlink:href="#radial-gradient"/>
   </defs>
-  <title>radial-gradient-angle-layer.psd</title>
   <rect class="cls-1" x="50" y="50" width="200" height="100"/>
   <rect class="cls-2" x="300" y="50" width="200" height="100"/>
   <rect class="cls-3" x="550" y="50" width="200" height="100"/>

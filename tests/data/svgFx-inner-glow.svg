@@ -34,7 +34,6 @@
       <feBlend result="blend" mode="darken" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <title>svgFx-inner-glow.psd</title>
   <rect class="cls-1" x="150" y="200" width="200" height="200"/>
   <rect class="cls-2" x="450" y="200" width="200" height="200"/>
 </svg>

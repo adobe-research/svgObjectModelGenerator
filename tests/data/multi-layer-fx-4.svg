@@ -54,7 +54,6 @@
       <feBlend result="blend-3" in2="blend-2"/>
     </filter>
   </defs>
-  <title>multi-layer-fx-4.psd</title>
   <rect class="cls-1" x="142" y="132" width="500" height="500"/>
   <rect class="cls-2" x="800" y="132" width="500" height="500"/>
 </svg>
