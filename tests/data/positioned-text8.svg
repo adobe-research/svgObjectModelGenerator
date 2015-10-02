@@ -1,23 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="720" height="720" viewBox="0 0 720 720">
   <defs>
     <style>
-      .cls-1, .cls-3 {
+      .cls-1, .cls-4 {
         writing-mode: tb;
         font-size: 12px;
         font-family: MyriadPro-Regular;
       }
 
-      .cls-1, .cls-4 {
+      .cls-1, .cls-5 {
         text-orientation: upright;
         glyph-orientation-vertical: 0deg;
       }
 
-      .cls-2, .cls-3 {
+      .cls-2 {
+        white-space: pre;
+      }
+
+      .cls-3, .cls-4 {
         text-orientation: sideways-right;
         glyph-orientation-vertical: 90deg;
       }
     </style>
   </defs>
-  <text class="cls-1" transform="translate(174.316 189.403)">Upright<tspan x="0" y="84" xml:space="preserve">  </tspan><tspan class="cls-2" x="0" y="89.088">t</tspan><tspan class="cls-2" x="0" y="92.988">e</tspan><tspan class="cls-2" x="0" y="98.964">x</tspan><tspan class="cls-2" x="0" y="104.676">t</tspan></text>
-  <text class="cls-3" transform="translate(267.298 189.403)">Side<tspan x="0" y="21.504">w</tspan><tspan x="0" y="30.288">a</tspan><tspan x="0" y="35.976">y</tspan><tspan x="0" y="41.556" xml:space="preserve">s  </tspan><tspan class="cls-4" x="0" y="51.395">text</tspan></text>
+  <text class="cls-1" transform="translate(174.316 189.403)">Upright<tspan class="cls-2" x="0" y="84">  </tspan><tspan class="cls-3" x="0" y="89.088">t</tspan><tspan class="cls-3" x="0" y="92.988">e</tspan><tspan class="cls-3" x="0" y="98.964">x</tspan><tspan class="cls-3" x="0" y="104.676">t</tspan></text>
+  <text class="cls-4" transform="translate(267.298 189.403)">Side<tspan x="0" y="21.504">w</tspan><tspan x="0" y="30.288">a</tspan><tspan x="0" y="35.976">y</tspan><tspan class="cls-2" x="0" y="41.556">s  </tspan><tspan class="cls-5" x="0" y="51.395">text</tspan></text>
 </svg>
