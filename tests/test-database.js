@@ -230,6 +230,10 @@
             test: "stroke-alignment",
             desc: "Circle with different stroke alignment.",
             layerTest: true
+        },
+        {
+            test: "unknown-layer",
+            desc: "Don't add unknown layers."
         }
     ];
 

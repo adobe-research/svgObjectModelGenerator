@@ -1,0 +1,308 @@
+{
+	"children": [
+		{
+			"type": "artboard",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				}
+			},
+			"artboard": {
+				"ref": "artboard",
+				"children": [
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 165.761,
+										"b": 80.5257
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 0,
+							"y": 0,
+							"width": 1536,
+							"height": 2048
+						},
+						"name": "green rect",
+						"visualBounds": {
+							"x": 0,
+							"y": 0,
+							"width": 1536,
+							"height": 2048
+						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 255,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 20,
+							"y": 20,
+							"width": 1496,
+							"height": 2008
+						},
+						"name": "red rect",
+						"visualBounds": {
+							"x": 20,
+							"y": 20,
+							"width": 1496,
+							"height": 2008
+						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 247.46,
+										"g": 147.704,
+										"b": 29.4958
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 768,
+							"y": 1024,
+							"width": 728,
+							"height": 984
+						},
+						"name": "orange rect",
+						"visualBounds": {
+							"x": 768,
+							"y": 1024,
+							"width": 728,
+							"height": 984
+						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 140.25,
+										"g": 140.25,
+										"b": 140.25
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 40,
+							"y": 1024,
+							"width": 728,
+							"height": 984
+						},
+						"name": "gray rect",
+						"visualBounds": {
+							"x": 40,
+							"y": 1024,
+							"width": 728,
+							"height": 984
+						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 255
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 768,
+							"y": 40,
+							"width": 728,
+							"height": 984
+						},
+						"name": "blue rect",
+						"visualBounds": {
+							"x": 768,
+							"y": 40,
+							"width": 728,
+							"height": 984
+						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none"
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 255,
+										"g": 255,
+										"b": 255
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"shape": {
+							"type": "rect",
+							"x": 40,
+							"y": 40,
+							"width": 728,
+							"height": 984
+						},
+						"name": "white rect",
+						"visualBounds": {
+							"x": 40,
+							"y": 40,
+							"width": 728,
+							"height": 984
+						}
+					},
+					{
+						"type": "text",
+						"visible": true,
+						"style": {
+							"font-size": 36,
+							"stroke": {
+								"type": "none"
+							}
+						},
+						"name": "Canvas size is iPad Retina and iPad Mini Retina Portrait (1536 ",
+						"visualBounds": {
+							"x": 103,
+							"y": 92,
+							"width": 487,
+							"height": 465
+						},
+						"position": {
+							"x": 103.1405568,
+							"y": 92.17966080000001,
+							"unitX": "px",
+							"unitY": "px"
+						},
+						"maxTextSize": 36,
+						"children": [
+							{
+								"type": "tspan",
+								"visible": true,
+								"style": {
+									"font-size": 36,
+									"font-family": "Arial"
+								},
+								"text": "Canvas size is iPad Retina and iPad Mini Retina Portrait (1536 x 2048).  When using an iPad Retina or iPad Mini Retina in Portrait mode, the intial view in the Preview iOS app should show all of the rectangles. When you double-tap the screen, the view should not change at all, since it’s already a perfect fit.",
+								"visualBounds": {
+									"x": 103,
+									"y": 92,
+									"width": 487,
+									"height": 465
+								},
+								"position": {
+									"x": 103.1405568,
+									"y": 0,
+									"unitX": "px",
+									"unitY": "em"
+								}
+							}
+						]
+					}
+				]
+			},
+			"name": "Artboard 1"
+		}
+	],
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {}
+	},
+	"artboards": {
+		"artboard": {
+			"name": "Artboard 1",
+			"x": 0,
+			"y": 0,
+			"width": 1536,
+			"height": 2048
+		}
+	},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 1536,
+		"height": 2048
+	},
+	"rasterResolution": 72
+}
