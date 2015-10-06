@@ -238,10 +238,9 @@
         };
 
         this.addPath = function (agcNode, layer, writer) {
-            var path = layer.path,
-                pathData = layer.path.rawPathData;
+            var path = layer.path;
 
-            if (path && pathData) {
+            if (path && path.pathComponents) {
 
                 agcNode.visualBounds = boundsToRect(layer.boundsWithFX || layer.bounds);
 

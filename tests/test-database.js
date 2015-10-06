@@ -17,6 +17,10 @@
             desc: "should Adobe Logo"
         },
         {
+            test: "path-no-rawData",
+            desc: "Path without rawData."
+        },
+        {
             test: "svgRect",
             desc: "should create rectangles with different properties"
         },

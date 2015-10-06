@@ -1,0 +1,61 @@
+{
+	"children": [
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "none"
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 199.001,
+							"g": 199.001,
+							"b": 203.997
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"shape": {
+				"type": "path",
+				"path": "M3110 1186 C3110 1186 3107.5 1183.5 3107.5 1183.5 C3107.5 1183.5 3118 1173 3118 1173 C3118 1173 3107.5 1162.5 3107.5 1162.5 C3107.5 1162.5 3110 1160 3110 1160 C3110 1160 3123 1173 3123 1173 C3123 1173 3110 1186 3110 1186Z",
+				"winding": "evenodd"
+			},
+			"name": "Arrow Icon",
+			"visualBounds": {
+				"x": 3107.5,
+				"y": 1160,
+				"width": 15.5,
+				"height": 26
+			}
+		}
+	],
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {}
+	},
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "1.0.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 3548,
+		"height": 4716
+	},
+	"rasterResolution": 72
+}
