@@ -52,7 +52,7 @@
                 }
                 break;
             case "text":
-                if (layer.text.textKey.replace(/\s/g, " ").search(layer.name) != -1) {
+                if (layer.text.textKey.replace(/\s/g, " ").indexOf(layer.name) != -1) {
                     return;
                 }
                 break;
@@ -128,6 +128,10 @@
             }
 
             layerType = getAGCLayerType(layer);
+            if (!layerType) {
+                return;
+            }
+
             // Don't process empty nodes.
             if (layer.bounds &&
                 layer.bounds.left == layer.bounds.right &&

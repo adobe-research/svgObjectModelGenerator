@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="1536" height="2048" viewBox="0 0 1536 2048">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00a651;
+      }
+
+      .cls-2 {
+        fill: red;
+      }
+
+      .cls-3 {
+        fill: #f7941d;
+      }
+
+      .cls-4 {
+        fill: #8c8c8c;
+      }
+
+      .cls-5 {
+        fill: blue;
+      }
+
+      .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        font-size: 36px;
+        font-family: Arial;
+      }
+    </style>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard 1">
+    <rect id="green_rect" data-name="green rect" class="cls-1" width="1536" height="2048"/>
+    <rect id="red_rect" data-name="red rect" class="cls-2" x="20" y="20" width="1496" height="2008"/>
+    <rect id="orange_rect" data-name="orange rect" class="cls-3" x="768" y="1024" width="728" height="984"/>
+    <rect id="gray_rect" data-name="gray rect" class="cls-4" x="40" y="1024" width="728" height="984"/>
+    <rect id="blue_rect" data-name="blue rect" class="cls-5" x="768" y="40" width="728" height="984"/>
+    <rect id="white_rect" data-name="white rect" class="cls-6" x="40" y="40" width="728" height="984"/>
+    <text id="Canvas_size_is_iPad_Retina_and_iPad_Mini_Retina_Portrait_1536_" data-name="Canvas size is iPad Retina and iPad Mini Retina Portrait (1536 " class="cls-7" x="103.141" y="92.18">Canvas size is iPad Retina and iPad Mini Retina Portrait (1536 x 2048).  When using an iPad Retina or iPad Mini Retina in Portrait mode, the intial view in the Preview iOS app should show all of the rectangles. When you double-tap the screen, the view should not change at all, since it’s already a perfect fit.</text>
+  </g>
+</svg>
