@@ -857,6 +857,7 @@ describe("svgWriter", function () {
                     width: 300,
                     height: 300
                 },
+                prefix: "prefix-",
                 trimToArtBounds: true,
                 constrainToDocBounds: true
             };

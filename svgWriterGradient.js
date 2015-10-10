@@ -223,7 +223,7 @@
             });
 
             ctx.omStylesheet.def(tag, function (def) {
-                ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
+                ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + ctx.prefix + def.getAttribute("id") + ")");
             }, fingerprint);
         }
     };

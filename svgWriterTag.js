@@ -214,11 +214,15 @@
         }
     };
     var linkableNames = {
-        linearGradient: 1,
-        radialGradient: 1,
-        filter: 1,
-        pattern: 1
-    };
+            linearGradient: 1,
+            radialGradient: 1,
+            filter: 1,
+            pattern: 1
+        },
+        prefixedAttrs = {
+            id: 1,
+            class: 1
+        }
     Tag.prototype.writeAttribute = function (ctx, name, value) {
         if (typeof ctx == "string") {
             value = name;
@@ -251,6 +255,9 @@
         if (toWrite) {
             if (name == "data-name") {
                 value = encodedText(value);
+            }
+            if (ctx && ctx.prefix && name in prefixedAttrs) {
+                value = ctx.prefix + value;
             }
             out = " " + name + '="' + value + '"';
             if (ctx) {
@@ -958,7 +965,7 @@
                 rootArtboardClipPath = tag;
                 tag = new Tag("g");
                 rootArtboardClipPath.appendChild(tag);
-                tag.setAttribute("clip-path", "url(#" + ctx._contentClipPathID + ")");
+                tag.setAttribute("clip-path", "url(#" + ctx.prefix + ctx._contentClipPathID + ")");
             }
         } else {
             if (node.hasOwnProperty("visible") && !node.visible) {

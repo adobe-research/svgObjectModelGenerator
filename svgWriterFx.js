@@ -96,7 +96,7 @@
                 ctx.currentOMNode = omIn;
                 filterTag.setAttribute("id", filterID);
                 ctx.omStylesheet.def(filterTag, function (def) {
-                    ctx.omStylesheet.getStyleBlock(omIn).addRule("filter", "url(#" + def.getAttribute("id") + ")");
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule("filter", "url(#" + ctx.prefix + def.getAttribute("id") + ")");
                 });
                 break;
             }

@@ -93,6 +93,7 @@
             this.precision = 3;
         }
 
+        this.prefix = this.config && this.config.prefix || "";
         this.indent = this.minify ? "" : this.config && typeof this.config.indentation == "string" ? this.config.indentation : "  ";
         this.space = this.minify ? "" : " ";
         this.currentIndent = "";

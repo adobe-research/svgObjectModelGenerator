@@ -101,9 +101,15 @@
             return Object.keys(this.rules).length > 0;
         };
 
+        function mapper(ctx) {
+            return function (className) {
+                return ctx.prefix + svgWriterUtils.escapeCSS(className);
+            };
+        }
+
         proto.write = proto.toString = function (ctx) {
             ctx = ctx || new SVGWriterContext({});
-            writeln(ctx, ctx.currentIndent + "." + this.class.map(svgWriterUtils.escapeCSS).join("," + ctx.space + ".") + ctx.space + "{");
+            writeln(ctx, ctx.currentIndent + "." + this.class.map(mapper(ctx)).join("," + ctx.space + ".") + ctx.space + "{");
             indent(ctx);
 
             for (var name in this.rules) {

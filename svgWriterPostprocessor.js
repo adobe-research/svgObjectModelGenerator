@@ -168,11 +168,11 @@
                         if (!tag.children[0].styleBlock) {
                             tag.children[0].setStyleBlock(ctx, {});
                         }
-                        tag.children[0].styleBlock.addRule("filter", "url(#" + tag.filter + ")");
+                        tag.children[0].styleBlock.addRule("filter", "url(#" + ctx.prefix + tag.filter + ")");
                     } else {
                         var g = new Tag("g");
                         g.setStyleBlock(ctx, {});
-                        g.styleBlock.addRule("filter", "url(#" + tag.filter + ")");
+                        g.styleBlock.addRule("filter", "url(#" + ctx.prefix + tag.filter + ")");
                         g.children = tag.children;
                         tag.children = [g];
                     }

@@ -59,7 +59,7 @@
             }
             if (maskTag) {
                 ctx.omStylesheet.def(maskTag, function (def) {
-                    ctx.omStylesheet.getStyleBlock(omIn).addRule("mask", "url(#" + def.getAttribute("id") + ")");
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule("mask", "url(#" + ctx.prefix + def.getAttribute("id") + ")");
                 });
             }
         }

@@ -44,7 +44,7 @@
                     patternTag.setAttribute("data-name", name);
                 }
                 ctx.omStylesheet.def(patternTag, function (def) {
-                    ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + ctx.prefix + def.getAttribute("id") + ")");
                 });
             }
 
@@ -66,7 +66,7 @@
                     height: height
                 }));
                 ctx.omStylesheet.def(patternTag, function (def) {
-                    ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + def.getAttribute("id") + ")");
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule(flavor, "url(#" + ctx.prefix + def.getAttribute("id") + ")");
                 });
             }
         }

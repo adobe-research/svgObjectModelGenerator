@@ -46,7 +46,7 @@
                     clipPathTag.setAttribute("data-name", name);
                 }
                 ctx.omStylesheet.def(clipPathTag, function (def) {
-                    ctx.omStylesheet.getStyleBlock(omIn).addRule("clip-path", "url(#" + def.getAttribute("id") + ")");
+                    ctx.omStylesheet.getStyleBlock(omIn).addRule("clip-path", "url(#" + ctx.prefix + def.getAttribute("id") + ")");
                 });
             }
         },
