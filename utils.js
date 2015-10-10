@@ -307,7 +307,7 @@
             }
         }
         function cleanNumbers(str) {
-            return str.replace(/([^\d.]\d+\.\d+),(-?)0\./, "$1$2.").replace(/([^\d.]\d+,-?)0\./, "$1.");
+            return str.replace(/([^\d.]\d+\.\d+),(-?)0\./, "$1$2.").replace(/([^\d.]\d+,-?|\d+-)0\./, "$1.");
         }
         self.precision = function (arg, noLimitation) {
             if (isFinite(arg) && arg >= 0) {
@@ -527,8 +527,8 @@
                                 y = abs[0];
                                 break;
                             case "z":
-                                x = mx;
-                                y = my;
+                                sx = x = mx;
+                                sy = y = my;
                                 break;
                         }
                     } else {
@@ -564,8 +564,8 @@
                                 y = abs[0];
                                 break;
                             case "z":
-                                x = mx;
-                                y = my;
+                                sx = x = mx;
+                                sy = y = my;
                                 break;
                         }
                     }
@@ -904,9 +904,12 @@
             }
 
             for (i = 0; i < segs.length; i++) {
-                var command = segs[i].cmd,
-                    abs = segs[i].abs,
-                    rel = segs[i].rel;
+                var seg = segs[i],
+                    command = seg.cmd,
+                    abs = seg.abs,
+                    rel = seg.rel,
+                    next = segs[i + 1],
+                    loop = next && next.cmd == "z" && abs[abs.length - 2] == next.x && abs[abs.length - 1] == next.y;
 
                 args.abs = args.rel = "";
                 if (abs) {
@@ -920,11 +923,14 @@
                     args.rel = cleanNumbers(args.rel);
 
                     var arg;
-                    if (args.abs.length <= args.rel.length) {
+                    if (args.abs.length <= args.rel.length || loop) {
                         command = command.toUpperCase();
                         arg = args.abs;
                     } else {
                         arg = args.rel;
+                    }
+                    if (command == "L" && loop) {
+                        continue;
                     }
                     if (prev != command && (prev != "m" || command != "l")) {
                         // M>l?
