@@ -119,6 +119,7 @@ The configuration object has the following arguments:
     * *class* Use the global `<style>` element and reference the style block with the `class` attribute.
     * *style* Use the `style` attribute to apply styling properties to elements.
     * *attribute* Use presentation attributes to apply styling properties to elements.
+* **prefix** *string* A prefix that will be added to every ID and class name. This allows unique naming schemes per SVG document. Multiple SVG documents can be inlined into one HTML document without ID or class name clashes as long as the provided prefixes are unique.
 * **cropRect** *object* A rectangle with the properties `x`, `y`, `width` and `height`. `x` and `y` are optional. Defines a rectangle the SVG document gets cropped to. It may create a padding if the dimension is smaller than the crop rectangle.
 * **minify** Avoids indentations, newlines and whitespaces in the SVG output. Uses minimal IDs.
 * **idType** *string*
