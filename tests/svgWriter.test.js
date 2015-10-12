@@ -566,7 +566,7 @@ describe("svgWriter", function () {
             compareMinifyResults("clipPath-1");
         });
 
-        it("Test minification of SVG output with clip-path", function () {
+        it("Test minification of SVG output with group opacity", function () {
             compareMinifyResults("group-opacity");
         });
 
