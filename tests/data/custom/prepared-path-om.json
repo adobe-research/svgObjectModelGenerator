@@ -60,6 +60,56 @@
 							"path": "M 1268.84 527.242 C 1268.84 527.242 1268.29 529.058 1267.52 528.759 C 1266.75 528.461 1267.64 477.655 1247.57 472.781 C 1247.57 472.781 1266.79 471.917 1268.84 527.242 Z",
 							"winding": "evenodd"
 						}
+					},
+					{
+						"type": "shape",
+						"visible": true,
+						"style": {
+							"stroke": {
+								"type": "none",
+								"align": "inside",
+								"cap": "butt",
+								"join": "miter",
+								"width": 12.5,
+								"miterLimit": 100,
+								"dash": [],
+								"dashOffset": 0,
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 0,
+										"b": 0
+									},
+									"alpha": 1
+								},
+								"opacity": 1
+							},
+							"fill": {
+								"type": "solid",
+								"color": {
+									"mode": "RGB",
+									"value": {
+										"r": 0,
+										"g": 255,
+										"b": 0
+									},
+									"alpha": 1
+								}
+							}
+						},
+						"name": "Shape 1",
+						"visualBounds": {
+							"x": 100,
+							"y": 100,
+							"width": 160,
+							"height": 200
+						},
+						"shape": {
+							"type": "path",
+							"path": "m 100,100 c 100,0,100,100,100,100 l 50 50 m 10 10 l 0,100 z",
+							"winding": "evenodd"
+						}
 					}
 				]
 			}

@@ -53,50 +53,6 @@
             }
         };
 
-        proto.reduceToGroupRules = function () {
-            var self = this;
-            Object.keys(self.rules).forEach(function (key) {
-                switch (key) {
-                    case "mix-blend-mode":
-                    case "isolation":
-                    case "clip-path":
-                    case "filter":
-                    case "mask":
-                    case "opacity":
-                        return;
-                    default:
-                        delete self.removeRule(key);
-                }
-            });
-        };
-
-        proto.clone = function () {
-            var clone = new CSSStyleBlock;
-            clone.class = this.class.slice(0);
-            for (var name in this.rules) {
-                clone.addRule(name, this.rules[name]);
-            }
-            clone.tags = this.tags ? this.tags.slice(0) : [];
-            clone.fingerprint = this.fingerprint;
-            return clone;
-        };
-
-        proto.add = function (block) {
-            this.class = this.class.concat(block.class);
-            var uniq = {};
-            for (var i = 0; i < this.class.length; i++) {
-                if (uniq[this.class[i]]) {
-                    this.class.splice(i, 1);
-                    i--;
-                } else {
-                    uniq[this.class[i]] = 1;
-                }
-            }
-            for (var name in block.rules) {
-                this.addRule(name, block.rules[name]);
-            }
-        };
-
         proto.hasRules = function () {
             return Object.keys(this.rules).length > 0;
         };
@@ -244,10 +200,6 @@
                 }
             }
             return false;
-        };
-
-        proto.hasStyleBlock = function (omNode) {
-            return omNode.styleBlock && omNode.styleBlock.hasRules();
         };
 
         var classID = 1;

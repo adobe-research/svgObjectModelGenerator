@@ -35,10 +35,6 @@
                 red = c.red;
                 green = c.green;
                 blue = c.blue;
-            } else if (c && (isFinite(c.redFloat) || isFinite(c.greenFloat) || isFinite(c.blueFloat))) {
-                red = Math.abs(Math.round(255.0 * c.redFloat));
-                green = Math.abs(Math.round(255.0 * c.greenFloat));
-                blue = Math.abs(Math.round(255.0 * c.blueFloat));
             }
             return {
                 "mode": "RGB",
@@ -253,8 +249,6 @@
                 if (!bRecurse) {
                     return getNextStop(stopType, direction * -1, startLoc, true);
                 }
-
-                return undefined;
             }
 
             function interpolateValue(fraction, beginValue, endValue) {

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: none;
+        stroke-linejoin: round;
+        stroke-width: 10px;
+      }
+
+      .cls-1 {
+        stroke: #000;
+        stroke-opacity: 0.5;
+      }
+
+      .cls-2 {
+        stroke-opacity: 0.8;
+        stroke: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        stroke-opacity: 0.1;
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        stroke: url(#linear-gradient-3);
+      }
+
+      .cls-5 {
+        stroke: url(#linear-gradient-4);
+      }
+
+      .cls-6 {
+        stroke: url(#radial-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="300" y1="150" x2="400" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a00b2"/>
+      <stop offset="0.5" stop-color="red"/>
+      <stop offset="1" stop-color="#fffc00"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="500" y1="150" x2="600" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffc00"/>
+      <stop offset="0.5" stop-color="red"/>
+      <stop offset="1" stop-color="#0a00b2"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="100" y1="400" x2="200" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="red"/>
+      <stop offset="0.15" stop-color="#f0f"/>
+      <stop offset="0.33" stop-color="blue"/>
+      <stop offset="0.49" stop-color="aqua"/>
+      <stop offset="0.67" stop-color="lime"/>
+      <stop offset="0.84" stop-color="#ff0"/>
+      <stop offset="1" stop-color="red"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" y1="600" x2="700" y2="0" xlink:href="#linear-gradient-3"/>
+    <radialGradient id="radial-gradient" cx="400" cy="300" r="424.264" xlink:href="#linear-gradient-3"/>
+  </defs>
+  <title>stroke-fx.psd</title>
+  <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" x="100" y="100" width="100" height="100"/>
+  <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-2" x="300" y="100" width="100" height="100"/>
+  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-3" x="500" y="100" width="100" height="100"/>
+  <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-4" x="100" y="300" width="100" height="100"/>
+  <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-5" x="300" y="300" width="100" height="100"/>
+  <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-6" x="500" y="300" width="100" height="100"/>
+</svg>
