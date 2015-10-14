@@ -149,6 +149,51 @@ describe("Matrix", function () {
         expect(Matrix.writeDecomposedTransform(decomposed)).to.equal("translate(5 10)");
     });
 
+    it("normalize false", function () {
+        var matrix4x4 = Matrix.createMatrix().identity();
+
+        matrix4x4[3][3] = 0;
+
+        expect(matrix4x4.normalizeTransform()).to.equal(false);
+    });
+
+    it("uniform scale", function () {
+        var matrix4x4 = Matrix.createMatrix().identity();
+        matrix4x4.scale(1, 1, 1);
+
+        expect(matrix4x4[0][0]).to.equal(1);
+        expect(matrix4x4[1][1]).to.equal(1);
+        expect(matrix4x4[2][2]).to.equal(1);
+        expect(matrix4x4[3][3]).to.equal(1);
+
+        matrix4x4.scale(2, 2, 2);
+        expect(matrix4x4[0][0]).to.equal(2);
+        expect(matrix4x4[1][1]).to.equal(2);
+        expect(matrix4x4[2][2]).to.equal(2);
+        expect(matrix4x4[3][3]).to.equal(1);
+    });
+
+    it("rotateX", function () {
+        var matrix4x4 = Matrix.createMatrix().identity();
+
+        matrix4x4.rotateX(45);
+        expect(matrix4x4[1][1]).to.equal(0.7071067811865476);
+        expect(matrix4x4[1][2]).to.equal(0.7071067811865475);
+        expect(matrix4x4[2][1]).to.equal(-0.7071067811865475);
+        expect(matrix4x4[2][2]).to.equal(0.7071067811865476);
+
+    });
+
+    it("rotateY", function () {
+        var matrix4x4 = Matrix.createMatrix().identity();
+
+        matrix4x4.rotateY(45);
+        expect(matrix4x4[0][0]).to.equal(0.7071067811865476);
+        expect(matrix4x4[0][2]).to.equal(-0.7071067811865475);
+        expect(matrix4x4[2][0]).to.equal(0.7071067811865475);
+        expect(matrix4x4[2][2]).to.equal(0.7071067811865476);
+    });
+
     it("can find affine tranfrom from rects", function () {
         var rectA = [[0, 0], [100, 0], [100, 50], [0, 50]],
             rectB = [[166, 679], [237, 750], [202, 785], [131, 714]],

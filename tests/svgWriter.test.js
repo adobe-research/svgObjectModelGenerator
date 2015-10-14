@@ -179,6 +179,23 @@ describe("svgWriter", function () {
     });
 
     /**
+     * Test progress callback
+     **/
+    describe("Test progress callback", function () {
+
+        it("should provide progress", function () {
+            var svgOM = JSON.parse(fs.readFileSync("./tests/data/stroke-fx-2-om.json")),
+                progressArray = [],
+                callback = function (progress) {
+                    progressArray.push(progress);
+                };
+
+            compareResultsWidthOM(svgOM, "stroke-fx-2", "", { callback: callback });
+            expect(progressArray).to.deep.equal([0,4,11,16,20,25,29,34,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55,56,57,58,59,60,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,78,79,80,81,82,83,84,85,86,87,88,89,90,91,93,94,95,96,97,98,99,100,100]);
+        });
+    });
+
+    /**
      * Test extraction of masks to SVG
      **/
     describe("Test extraction of masks to SVG", function () {
@@ -528,6 +545,10 @@ describe("svgWriter", function () {
                     width: 600,
                     height: 300
                 }
+            },
+            options3 = {
+                trimToArtBounds: true,
+                useViewBox: true
             };
 
         it("polygons and lines should be transformed to SVG 1", function () {
@@ -536,6 +557,10 @@ describe("svgWriter", function () {
 
         it("polygons and lines should be transformed to SVG 2", function () {
             compareResults("scale-2", "", options2);
+        });
+
+        it("polygons and lines should be transformed to SVG 3", function () {
+            compareResults("scale-3", "", options3);
         });
     });
 
@@ -665,6 +690,9 @@ describe("svgWriter", function () {
     describe("Test options for idGenerator", function () {
         it.skip("Test unique ID generation", function () {
             compareResults("unique-id", "idGenerator", { idType: "unique" });
+        });
+        it("Test minimal ID generation", function () {
+            compareResults("minimal-id", "idGenerator", { idType: "minimal" });
         });
     });
 
@@ -832,6 +860,9 @@ describe("svgWriter", function () {
         });
         it("Test that masks get shifted.", function () {
             compareResults("mask-shift", "mask", options);
+        });
+        it("Test line shifting.", function () {
+            compareResults("line-shifting", "custom", options);
         });
     });
 

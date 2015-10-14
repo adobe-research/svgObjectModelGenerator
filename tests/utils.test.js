@@ -62,6 +62,10 @@ describe("Utils", function () {
 
     });
 
+    it("intersectRects with bogus rects", function () {
+        expect(Utils.intersectRects()).to.deep.equal({});
+    });
+
     it("can deeply extend objects like jQuery", function () {
         var objA = {
                 name: "original",

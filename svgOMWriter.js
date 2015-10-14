@@ -134,19 +134,6 @@
             return agcNode;
         };
 
-        this.addFontRule = function () {
-            var r = {
-                "rule-type": "font",
-                "style": {}
-            };
-
-            //Undefined... comment out until this is wired in
-            //_appendRule(r);
-
-            return r.style;
-        };
-
-
         this.toAGC = function () {
             return _root;
         };

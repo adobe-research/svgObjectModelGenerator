@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="102" height="102" viewBox="0 0 102 102">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: lime;
+        stroke-width: 1px;
+      }
+    </style>
+  </defs>
+  <title>Line shifting</title>
+  <line class="cls-1" x1="1" y1="1" x2="101" y2="101"/>
+</svg>

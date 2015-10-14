@@ -145,16 +145,6 @@
         this.errors = errors || [];
 
         this.ID = new ID(this.idType);
-
-        // FIXME: Do we even need unique IDs for node.ids that
-        // are unique already?
-        this._hasWritten = {};
-        this.didWrite = function (node, prop) {
-            this._hasWritten[this.ID.getUnique(node.id) + prop] = true;
-        };
-        this.hasWritten = function (node, prop) {
-            return this._hasWritten[this.ID.getUnique(node.id) + prop];
-        };
     }
     module.exports = SVGWriterContext;
 }());

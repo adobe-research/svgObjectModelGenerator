@@ -103,17 +103,6 @@
         }
         return root.ids[id] || null;
     };
-    Tag.getID = function () {
-        return tagid;
-    };
-    Tag.prototype.getRootBounds = function () {
-        return {
-            x: root.x,
-            y: root.y,
-            width: root.width,
-            height: root.height
-        };
-    };
     Tag.prototype.setAttributes = function (attr) {
         if (!attr) {
             return;
@@ -163,9 +152,6 @@
         return value;
     }
     Tag.prototype.getAttribute = function (name) {
-        if (name == "#text") {
-            return this.text || "";
-        }
         return this.styleBlock && this.styleBlock.getPropertyValue(name) || this.attrs[name] || "";
     };
     function getDesc(tagname, attrname) {

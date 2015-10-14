@@ -197,11 +197,6 @@
         self.roundUp = Utils.roundUp;
         self.roundDown = Utils.roundDown;
 
-        self.indentify = function (indent, buf) {
-            var out = indent + buf.replace(/(\n)/g, "\n" + indent);
-            return out.substr(0, out.length - indent.length);
-        };
-
         self.toDocumentUnits = function (ctx, length) {
             if (!ctx.config || !ctx.config.documentUnits) {
                 return length;

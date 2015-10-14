@@ -1,0 +1,42 @@
+{
+	"children": [
+		{
+			"type": "shape",
+			"visualBounds": {
+				"x": 100,
+				"y": 100,
+				"width": 200,
+				"height": 100
+			},
+			"shape": {
+				"type": "rect",
+				"x": 100,
+				"y": 100,
+				"width": 200,
+				"height": 100
+			},
+			"style": {
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					}
+				}
+			}
+		}
+	],
+	"version": "1.5.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 600,
+		"height": 600
+	},
+	"resources": {}
+}

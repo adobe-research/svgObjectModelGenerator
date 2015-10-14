@@ -973,7 +973,6 @@
             }
         };
     }
-
     module.exports = new Utils();
 
 }());

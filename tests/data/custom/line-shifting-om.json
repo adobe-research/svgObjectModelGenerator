@@ -1,0 +1,50 @@
+{
+	"children": [
+		{
+			"shape": {
+				"type": "line",
+				"x1": 100,
+				"y1": 100,
+				"x2": 200,
+				"y2": 200
+			},
+			"style": {
+				"stroke": {
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 255,
+							"b": 0
+						},
+						"alpha": 1
+					},
+					"width": 1,
+					"type": "solid"
+				}
+			},
+			"type": "shape",
+			"visualBounds": {
+				"x": 99,
+				"y": 99,
+				"width": 102,
+				"height": 102
+			}
+		}
+	],
+	"name": "Line shifting",
+	"version": "1.5.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 960,
+		"height": 560
+	},
+	"colorMode": "sRGB",
+	"resources": {
+		"gradients": {},
+		"masks": {},
+		"patterns": {},
+		"styles": {}
+	}
+}
