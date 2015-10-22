@@ -216,10 +216,19 @@
 					"filterUnits": "userSpaceOnUse",
 					"children": [
 						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"SourceAlpha"
+							],
+							"dx": 10.103,
+							"dy": 8.181
+						},
+						{
 							"kind": "feGaussianBlur",
 							"id": "blur",
 							"input": [
-								"SourceAlpha"
+								"offset"
 							],
 							"stdDeviation": 5.196
 						},
@@ -248,20 +257,11 @@
 							"operator": "in"
 						},
 						{
-							"kind": "feOffset",
-							"id": "offset",
-							"input": [
-								"composite"
-							],
-							"dx": 10.103,
-							"dy": 8.181
-						},
-						{
 							"kind": "feBlend",
 							"id": "blend",
 							"input": [
 								"SourceGraphic",
-								"offset"
+								"composite"
 							]
 						}
 					]
@@ -331,7 +331,11 @@
 							],
 							"mode": "multiply"
 						}
-					]
+					],
+					"x": 200,
+					"y": 200,
+					"width": 200,
+					"height": 200
 				}
 			}
 		},

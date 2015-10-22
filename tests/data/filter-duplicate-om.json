@@ -340,10 +340,19 @@
 					"filterUnits": "userSpaceOnUse",
 					"children": [
 						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"SourceAlpha"
+							],
+							"dx": 2.5,
+							"dy": 4.33
+						},
+						{
 							"kind": "feGaussianBlur",
 							"id": "blur",
 							"input": [
-								"SourceAlpha"
+								"offset"
 							],
 							"stdDeviation": 2.236
 						},
@@ -372,20 +381,11 @@
 							"operator": "in"
 						},
 						{
-							"kind": "feOffset",
-							"id": "offset",
-							"input": [
-								"composite"
-							],
-							"dx": 2.5,
-							"dy": 4.33
-						},
-						{
 							"kind": "feBlend",
 							"id": "blend",
 							"input": [
 								"SourceGraphic",
-								"offset"
+								"composite"
 							]
 						},
 						{
@@ -447,7 +447,11 @@
 							],
 							"mode": "multiply"
 						}
-					]
+					],
+					"x": 41,
+					"y": 196,
+					"width": 209,
+					"height": 209
 				}
 			},
 			"filter-2": {
@@ -456,10 +460,19 @@
 					"filterUnits": "userSpaceOnUse",
 					"children": [
 						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"SourceAlpha"
+							],
+							"dx": 2.5,
+							"dy": 4.33
+						},
+						{
 							"kind": "feGaussianBlur",
 							"id": "blur",
 							"input": [
-								"SourceAlpha"
+								"offset"
 							],
 							"stdDeviation": 2.236
 						},
@@ -488,20 +501,11 @@
 							"operator": "in"
 						},
 						{
-							"kind": "feOffset",
-							"id": "offset",
-							"input": [
-								"composite"
-							],
-							"dx": 2.5,
-							"dy": 4.33
-						},
-						{
 							"kind": "feBlend",
 							"id": "blend",
 							"input": [
 								"SourceGraphic",
-								"offset"
+								"composite"
 							]
 						},
 						{
@@ -563,7 +567,11 @@
 							],
 							"mode": "multiply"
 						}
-					]
+					],
+					"x": 291,
+					"y": 196,
+					"width": 209,
+					"height": 209
 				}
 			},
 			"filter-3": {
@@ -572,10 +580,19 @@
 					"filterUnits": "userSpaceOnUse",
 					"children": [
 						{
+							"kind": "feOffset",
+							"id": "offset",
+							"input": [
+								"SourceAlpha"
+							],
+							"dx": 2.5,
+							"dy": 4.33
+						},
+						{
 							"kind": "feGaussianBlur",
 							"id": "blur",
 							"input": [
-								"SourceAlpha"
+								"offset"
 							],
 							"stdDeviation": 2.236
 						},
@@ -604,20 +621,11 @@
 							"operator": "in"
 						},
 						{
-							"kind": "feOffset",
-							"id": "offset",
-							"input": [
-								"composite"
-							],
-							"dx": 2.5,
-							"dy": 4.33
-						},
-						{
 							"kind": "feBlend",
 							"id": "blend",
 							"input": [
 								"SourceGraphic",
-								"offset"
+								"composite"
 							]
 						},
 						{
@@ -679,7 +687,11 @@
 							],
 							"mode": "multiply"
 						}
-					]
+					],
+					"x": 541,
+					"y": 196,
+					"width": 209,
+					"height": 209
 				}
 			}
 		},

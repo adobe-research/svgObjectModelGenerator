@@ -7,11 +7,11 @@
         filter: url(#filter);
       }
     </style>
-    <filter id="filter" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur" stdDeviation="4.583" in="SourceAlpha"/>
+    <filter id="filter" x="100" y="80" width="345" height="191" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="24" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="4.583"/>
       <feFlood result="flood" flood-color="#d62d2d" flood-opacity="0.75"/>
       <feComposite result="composite" operator="in" in2="blur"/>
-      <feOffset result="offset" dx="24"/>
       <feBlend result="blend" in="SourceGraphic"/>
       <feGaussianBlur result="blur-2" stdDeviation="6.782" in="SourceAlpha"/>
       <feFlood result="flood-2" flood-color="#2362e1" flood-opacity="0.75"/>

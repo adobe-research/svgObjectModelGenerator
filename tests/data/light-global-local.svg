@@ -25,21 +25,21 @@
         filter: url(#filter-4);
       }
     </style>
-    <filter id="filter" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
+    <filter id="filter" x="11" y="64" width="289" height="189" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="14.142" dy="14.142" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="4.472"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="in" in2="blur"/>
-      <feOffset result="offset" dx="14.142" dy="14.142"/>
       <feBlend result="blend" in="SourceGraphic"/>
     </filter>
-    <filter id="filter-2" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
+    <filter id="filter-2" x="415" y="50" width="289" height="189" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="-16.383" dy="-11.472" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="4.472"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="in" in2="blur"/>
-      <feOffset result="offset" dx="-16.383" dy="-11.472"/>
       <feBlend result="blend" in="SourceGraphic"/>
     </filter>
-    <filter id="filter-3" filterUnits="userSpaceOnUse">
+    <filter id="filter-3" x="50" y="350" width="250" height="150" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="out" in2="blur"/>
@@ -47,7 +47,7 @@
       <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
       <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
     </filter>
-    <filter id="filter-4" filterUnits="userSpaceOnUse">
+    <filter id="filter-4" x="450" y="350" width="250" height="150" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="4.472" in="SourceAlpha"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="out" in2="blur"/>

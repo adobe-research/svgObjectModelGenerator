@@ -46,6 +46,15 @@
                 }
             }
 
+            if (ele.kind != "filter") {
+                if (typeof attr.x == "number") {
+                    attr.x += ctx._shiftContentX || 0;
+                }
+                if (typeof attr.y == "number") {
+                    attr.y += ctx._shiftContentY || 0;
+                }
+            }
+
             for (i = 0, ii = input.length; i < ii; ++i) {
                 if (input[i] != previousEffect) {
                     attr["in" + (i ? "2" : "")] = input[i];

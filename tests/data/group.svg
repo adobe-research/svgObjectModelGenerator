@@ -19,13 +19,13 @@
       }
     </style>
     <filter id="filter" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur" stdDeviation="5.196" in="SourceAlpha"/>
+      <feOffset result="offset" dx="10.103" dy="8.181" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="5.196"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="in" in2="blur"/>
-      <feOffset result="offset" dx="10.103" dy="8.181"/>
       <feBlend result="blend" in="SourceGraphic"/>
     </filter>
-    <filter id="filter-2" filterUnits="userSpaceOnUse">
+    <filter id="filter-2" x="200" y="200" width="200" height="200" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="4.583" in="SourceAlpha"/>
       <feFlood result="flood" flood-color="#0036ff" flood-opacity="0.75"/>
       <feComposite result="composite" operator="out" in2="blur"/>

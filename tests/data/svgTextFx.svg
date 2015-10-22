@@ -12,11 +12,11 @@
         fill: #0241ff;
       }
     </style>
-    <filter id="filter" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur" stdDeviation="4.243" in="SourceAlpha"/>
+    <filter id="filter" x="221" y="114" width="192" height="58" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="4" dy="6.928" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="4.243"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="in" in2="blur"/>
-      <feOffset result="offset" dx="4" dy="6.928"/>
       <feBlend result="blend" in="SourceGraphic"/>
       <feImage preserveAspectRatio="none" x="246" y="131" width="157" height="23" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTU3IiBoZWlnaHQ9IjIzIiB2aWV3Qm94PSIwIDAgMTU3IDIzIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiB1cmwoI2xpbmVhci1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjYyLjA3NiIgeTE9IjIzIiB4Mj0iOTQuOTI0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmNmUwMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2ZmMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjZkMDAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE1NyIgaGVpZ2h0PSIyMyIvPgo8L3N2Zz4K"/>
       <feComposite result="composite-2" operator="in" in2="SourceGraphic"/>

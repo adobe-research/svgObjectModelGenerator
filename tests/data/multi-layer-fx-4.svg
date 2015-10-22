@@ -13,7 +13,7 @@
         filter: url(#filter-2);
       }
     </style>
-    <filter id="filter" filterUnits="userSpaceOnUse">
+    <filter id="filter" x="142" y="132" width="500" height="500" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="7.071" in="SourceAlpha"/>
       <feFlood result="flood" flood-color="blue"/>
       <feComposite result="composite" operator="out" in2="blur"/>
@@ -33,7 +33,7 @@
       <feComposite result="composite-6" operator="in" in2="SourceAlpha"/>
       <feBlend result="blend-3" mode="multiply" in2="blend-2"/>
     </filter>
-    <filter id="filter-2" filterUnits="userSpaceOnUse">
+    <filter id="filter-2" x="800" y="132" width="500" height="500" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="7.071" in="SourceAlpha"/>
       <feFlood result="flood" flood-color="blue"/>
       <feComposite result="composite" operator="out" in2="blur"/>

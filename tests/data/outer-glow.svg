@@ -6,7 +6,7 @@
         filter: url(#filter);
       }
     </style>
-    <filter id="filter" filterUnits="userSpaceOnUse">
+    <filter id="filter" x="150" y="104" width="322" height="287" filterUnits="userSpaceOnUse">
       <feGaussianBlur result="blur" stdDeviation="29" in="SourceAlpha"/>
       <feComposite result="composite"/>
       <feComposite result="composite-2"/>

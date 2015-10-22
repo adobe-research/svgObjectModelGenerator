@@ -582,16 +582,19 @@
             if (!effects.length) {
                 return;
             }
+            var params = {
+                filterUnits: "userSpaceOnUse",
+                children: effects
+            };
+            if (svgNode.visualBounds) {
+                params.x = svgNode.visualBounds.x;
+                params.y = svgNode.visualBounds.y;
+                params.width = svgNode.visualBounds.width;
+                params.height = svgNode.visualBounds.height;
+            }
             return {
                 type: "svgFilter",
-                params: {
-                    filterUnits: "userSpaceOnUse",
-                    x: svgNode.visualBounds.x,
-                    y: svgNode.visualBounds.y,
-                    width: svgNode.visualBounds.width,
-                    height: svgNode.visualBounds.height,
-                    children: effects
-                }
+                params: params
             };
         };
     }

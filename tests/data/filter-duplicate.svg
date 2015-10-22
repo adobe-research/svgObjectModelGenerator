@@ -3,25 +3,50 @@
     <style>
       .cls-1 {
         fill: #00ff3e;
-      }
-
-      .cls-1, .cls-2, .cls-3 {
         filter: url(#filter);
       }
 
       .cls-2 {
         fill: blue;
+        filter: url(#filter-2);
       }
 
       .cls-3 {
         fill: #f0f;
+        filter: url(#filter-3);
       }
     </style>
-    <filter id="filter" filterUnits="userSpaceOnUse">
-      <feGaussianBlur result="blur" stdDeviation="2.236" in="SourceAlpha"/>
+    <filter id="filter" x="41" y="196" width="209" height="209" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="2.5" dy="4.33" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="2.236"/>
       <feFlood result="flood" flood-opacity="0.75"/>
       <feComposite result="composite" operator="in" in2="blur"/>
-      <feOffset result="offset" dx="2.5" dy="4.33"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" stdDeviation="2.236" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.75"/>
+      <feComposite result="composite-2" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dx="2.5" dy="4.33"/>
+      <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+    <filter id="filter-2" x="291" y="196" width="209" height="209" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="2.5" dy="4.33" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="2.236"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+      <feGaussianBlur result="blur-2" stdDeviation="2.236" in="SourceAlpha"/>
+      <feFlood result="flood-2" flood-opacity="0.75"/>
+      <feComposite result="composite-2" operator="out" in2="blur-2"/>
+      <feOffset result="offset-2" dx="2.5" dy="4.33"/>
+      <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend-2" mode="multiply" in2="blend"/>
+    </filter>
+    <filter id="filter-3" x="541" y="196" width="209" height="209" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="2.5" dy="4.33" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="2.236"/>
+      <feFlood result="flood" flood-opacity="0.75"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
       <feBlend result="blend" in="SourceGraphic"/>
       <feGaussianBlur result="blur-2" stdDeviation="2.236" in="SourceAlpha"/>
       <feFlood result="flood-2" flood-opacity="0.75"/>

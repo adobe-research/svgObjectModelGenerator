@@ -10,7 +10,7 @@
       <stop offset="0" stop-color="#e10019"/>
       <stop offset="1" stop-color="#00601b"/>
     </linearGradient>
-    <filter id="filter" filterUnits="userSpaceOnUse">
+    <filter id="filter" x="100" y="100" width="350" height="150" filterUnits="userSpaceOnUse">
       <feFlood result="flood" flood-color="red"/>
       <feComposite result="composite" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend" mode="lighten" in2="SourceGraphic"/>
