@@ -138,9 +138,16 @@
 
                 effects.push(
                     {
+                        kind: "feOffset",
+                        id: feOffset,
+                        input: ["SourceAlpha"],
+                        dx: offset.x,
+                        dy: offset.y
+                    },
+                    {
                         kind: "feGaussianBlur",
                         id: feBlur,
-                        input: ["SourceAlpha"],
+                        input: [feOffset],
                         stdDeviation: blur
                     },
                     {
@@ -155,13 +162,6 @@
                         id: feComposite,
                         input: [feFlood, feBlur],
                         operator: "in"
-                    },
-                    {
-                        kind: "feOffset",
-                        id: feOffset,
-                        input: [feComposite],
-                        dx: offset.x,
-                        dy: offset.y
                     }
                 );
 
@@ -173,7 +173,7 @@
                     {
                         kind: "feBlend",
                         id: getId("blend"),
-                        input: [feOffset, previousEffect],
+                        input: [feComposite, previousEffect],
                         mode: dropShadow.mode
                     }
                 );
@@ -586,6 +586,10 @@
                 type: "svgFilter",
                 params: {
                     filterUnits: "userSpaceOnUse",
+                    x: svgNode.visualBounds.x,
+                    y: svgNode.visualBounds.y,
+                    width: svgNode.visualBounds.width,
+                    height: svgNode.visualBounds.height,
                     children: effects
                 }
             };
