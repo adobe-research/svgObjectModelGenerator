@@ -1,0 +1,82 @@
+{
+	"children": [
+		{
+			"type": "shape",
+			"visible": true,
+			"style": {
+				"stroke": {
+					"type": "solid",
+					"align": "inside",
+					"cap": "round",
+					"join": "miter",
+					"width": 10.29,
+					"miterLimit": 100,
+					"dash": [
+						0,
+						20.58
+					],
+					"dashOffset": 0,
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 0,
+							"g": 0,
+							"b": 0
+						},
+						"alpha": 1
+					},
+					"opacity": 1
+				},
+				"fill": {
+					"type": "solid",
+					"color": {
+						"mode": "RGB",
+						"value": {
+							"r": 255,
+							"g": 0,
+							"b": 0.0214210455
+						},
+						"alpha": 1
+					}
+				}
+			},
+			"shape": {
+				"type": "circle",
+				"cx": 163.5,
+				"cy": 149.5,
+				"r": 81.5
+			},
+			"name": "dotted",
+			"visualBounds": {
+				"x": 82,
+				"y": 68,
+				"width": 163,
+				"height": 163
+			}
+		}
+	],
+	"resources": {
+		"clipPaths": {},
+		"filters": {},
+		"gradients": {},
+		"masks": {},
+		"patterns": {}
+	},
+	"artboards": {},
+	"meta": {
+		"PS": {
+			"globalLight": {
+				"angle": 90,
+				"altitude": 30
+			}
+		}
+	},
+	"version": "1.5.0",
+	"viewSource": {
+		"x": 0,
+		"y": 0,
+		"width": 337,
+		"height": 290
+	},
+	"rasterResolution": 72
+}

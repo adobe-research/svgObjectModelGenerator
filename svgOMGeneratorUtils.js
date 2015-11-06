@@ -35,6 +35,10 @@
                 red = c.red;
                 green = c.green;
                 blue = c.blue;
+            } else if (c && (isFinite(c.redFloat) || isFinite(c.greenFloat) || isFinite(c.blueFloat))) {
+                red = Math.max(0, Math.min(255, c.redFloat * 255));
+                green = Math.max(0, Math.min(255, c.greenFloat * 255));
+                blue = Math.max(0, Math.min(255, c.blueFloat * 255));
             }
             return {
                 "mode": "RGB",

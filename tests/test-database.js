@@ -238,6 +238,10 @@
         {
             test: "unknown-layer",
             desc: "Don't add unknown layers."
+        },
+        {
+            test: "dottedStoke1",
+            desc: "should make use of redFloat, greenFloat, blueFloat"
         }
     ];
 

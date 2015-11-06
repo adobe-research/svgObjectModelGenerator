@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="337" height="290" viewBox="0 0 337 290">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-width: 10.29px;
+        stroke-dasharray: 0.001 20.58;
+      }
+    </style>
+  </defs>
+  <circle id="dotted" class="cls-1" cx="163.5" cy="149.5" r="81.5"/>
+</svg>
