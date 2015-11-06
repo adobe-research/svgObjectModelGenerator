@@ -22,7 +22,7 @@
 
     function SVGWriterFx() {
 
-        var writeFilter = function (ctx, ele, previousEffect) {
+        var writeFilter = function (ctx, shifted, ele, previousEffect) {
             var attr = {},
                 input = ele.input || [],
                 children = ele.children || [],
@@ -46,7 +46,7 @@
                 }
             }
 
-            if (ele.kind != "filter") {
+            if (shifted) {
                 if (typeof attr.x == "number") {
                     attr.x += ctx._shiftContentX || 0;
                 }
@@ -63,7 +63,7 @@
             cur = new Tag(ele.kind, attr);
 
             for (i = 0, ii = children.length; i < ii; ++i) {
-                cur.appendChild(writeFilter(ctx, children[i], i ? children[i - 1].id : ""));
+                cur.appendChild(writeFilter(ctx, shifted, children[i], i ? children[i - 1].id : ""));
             }
             return cur;
         };
@@ -94,7 +94,7 @@
                 ctx.currentOMNode = filter.params;
                 filterID = ctx.ID.getUnique("filter", ctx.currentOMNode.name);
                 ctx.currentOMNode.kind = "filter";
-                filterTag = writeFilter(ctx, ctx.currentOMNode);
+                filterTag = writeFilter(ctx, omIn.shifted, ctx.currentOMNode);
                 ctx.currentOMNode = omIn;
                 filterTag.setAttribute("id", filterID);
                 ctx.omStylesheet.def(filterTag, function (def) {
