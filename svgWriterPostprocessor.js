@@ -243,14 +243,16 @@
                     stroke = tag.getAttribute("stroke"),
                     fill = tag.getAttribute("fill"),
                     filter = tag.getAttribute("filter"),
+                    transform = tag.getAttribute("transform"),
                     id = tag.getAttribute("id") || ctx.ID.getUnique(tag.name),
                     list = new Tag(),
-                    g = new Tag("g"),
-                    use = new Tag("use", {"xlink:href": "#" + id});
+                    g = new Tag("g", {transform: transform}),
+                    use = new Tag("use", {"xlink:href": "#" + id, transform: transform});
                 ctx.xlinkRequired = true;
                 tag.setAttribute("id", id);
                 list.appendChild(g, use);
                 g.appendChild(tag);
+                tag.setAttribute("transform", null);
                 if (ctx.styling) {
                     g.setAttributes({
                         fill: fill,
