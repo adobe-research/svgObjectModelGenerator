@@ -48,10 +48,10 @@
 
             if (shifted) {
                 if (typeof attr.x == "number") {
-                    attr.x += ctx._shiftContentX || 0;
+                    attr.x += (ctx._shiftContentX || 0) + (ctx._shiftCropRectX || 0)
                 }
                 if (typeof attr.y == "number") {
-                    attr.y += ctx._shiftContentY || 0;
+                    attr.y += (ctx._shiftContentY || 0) + (ctx._shiftCropRectY || 0);
                 }
             }
 
